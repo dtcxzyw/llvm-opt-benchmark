@@ -2787,7 +2787,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit [
+  switch i32 %59, label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit [
     i32 0, label %60
     i32 1, label %63
   ]
@@ -2795,14 +2795,14 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1107, i32 noundef %61) #4
-  br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr_ctr1, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1108, i32 noundef %64) #4
-  br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit: ; preds = %58, %60, %63
+srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit: ; preds = %58, %60, %63
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
@@ -2818,7 +2818,7 @@ srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit: ; preds = %58, %60, %63
   %.not45 = icmp eq i32 %72, 0
   br i1 %.not45, label %79, label %73
 
-73:                                               ; preds = %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
+73:                                               ; preds = %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit
   %74 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %74, 0
   %75 = and i32 %.1.i.i, 7
@@ -2831,8 +2831,8 @@ srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit: ; preds = %58, %60, %63
   %78 = add i32 %77, 8
   br label %79
 
-79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit ]
+79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -3267,7 +3267,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit [
+  switch i32 %59, label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit [
     i32 0, label %60
     i32 1, label %63
   ]
@@ -3275,14 +3275,14 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1113, i32 noundef %61) #4
-  br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr_ctr1, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1114, i32 noundef %64) #4
-  br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit: ; preds = %58, %60, %63
+srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit: ; preds = %58, %60, %63
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
@@ -3298,7 +3298,7 @@ srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit: ; preds = %58, %60, %63
   %.not45 = icmp eq i32 %72, 0
   br i1 %.not45, label %79, label %73
 
-73:                                               ; preds = %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
+73:                                               ; preds = %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit
   %74 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %74, 0
   %75 = and i32 %.1.i.i, 7
@@ -3311,8 +3311,8 @@ srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit: ; preds = %58, %60, %63
   %78 = add i32 %77, 8
   br label %79
 
-79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit ]
+79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -3725,7 +3725,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit [
+  switch i32 %59, label %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit [
     i32 0, label %60
     i32 1, label %63
   ]
@@ -3733,14 +3733,14 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1119, i32 noundef %61) #4
-  br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr_ctr1, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1120, i32 noundef %64) #4
-  br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetConnInfoCtr_ctr.exit:   ; preds = %58, %60, %63
+srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit: ; preds = %58, %60, %63
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
@@ -3756,7 +3756,7 @@ srvsvc_dissect_element_NetConnInfoCtr_ctr.exit:   ; preds = %58, %60, %63
   %.not45 = icmp eq i32 %72, 0
   br i1 %.not45, label %79, label %73
 
-73:                                               ; preds = %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
+73:                                               ; preds = %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit
   %74 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %74, 0
   %75 = and i32 %.1.i.i, 7
@@ -3769,8 +3769,8 @@ srvsvc_dissect_element_NetConnInfoCtr_ctr.exit:   ; preds = %58, %60, %63
   %78 = add i32 %77, 8
   br label %79
 
-79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit ]
+79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetConnInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -4179,7 +4179,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit [
+  switch i32 %59, label %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit [
     i32 2, label %60
     i32 3, label %63
   ]
@@ -4187,14 +4187,14 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr_ctr2, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1125, i32 noundef %61) #4
-  br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr_ctr3, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1126, i32 noundef %64) #4
-  br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetFileInfoCtr_ctr.exit:   ; preds = %58, %60, %63
+srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit: ; preds = %58, %60, %63
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
@@ -4210,7 +4210,7 @@ srvsvc_dissect_element_NetFileInfoCtr_ctr.exit:   ; preds = %58, %60, %63
   %.not45 = icmp eq i32 %72, 0
   br i1 %.not45, label %79, label %73
 
-73:                                               ; preds = %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
+73:                                               ; preds = %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit
   %74 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %74, 0
   %75 = and i32 %.1.i.i, 7
@@ -4223,8 +4223,8 @@ srvsvc_dissect_element_NetFileInfoCtr_ctr.exit:   ; preds = %58, %60, %63
   %78 = add i32 %77, 8
   br label %79
 
-79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit ]
+79:                                               ; preds = %76, %73, %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %73 ], [ %78, %76 ], [ %.1.i.i, %srvsvc_dissect_element_NetFileInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -5237,7 +5237,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
 76:                                               ; preds = %73, %71, %68, %66
   %.0.i.i = phi i32 [ %59, %66 ], [ %70, %68 ], [ %59, %71 ], [ %75, %73 ]
   %77 = load i32, ptr %10, align 4
-  switch i32 %77, label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit [
+  switch i32 %77, label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit [
     i32 0, label %78
     i32 1, label %81
     i32 2, label %84
@@ -5248,29 +5248,29 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
 78:                                               ; preds = %76
   %79 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr0, align 4
   %80 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1136, i32 noundef %79) #4
-  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
 
 81:                                               ; preds = %76
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr1, align 4
   %83 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1137, i32 noundef %82) #4
-  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
 
 84:                                               ; preds = %76
   %85 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr2, align 4
   %86 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1138, i32 noundef %85) #4
-  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
 
 87:                                               ; preds = %76
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr10, align 4
   %89 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr10_, i32 noundef 2, ptr noundef nonnull @.str.1139, i32 noundef %88) #4
-  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
 
 90:                                               ; preds = %76
   %91 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr502, align 4
   %92 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1140, i32 noundef %91) #4
-  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %76, %78, %81, %84, %87, %90
+srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit: ; preds = %76, %78, %81, %84, %87, %90
   %.1.i.i = phi i32 [ %.0.i.i, %76 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ]
   %93 = load ptr, ptr %9, align 8
   %94 = sub i32 %.1.i.i, %.1
@@ -5286,7 +5286,7 @@ srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %76, %78, %81, %84, 
   %.not57 = icmp eq i32 %99, 0
   br i1 %.not57, label %106, label %100
 
-100:                                              ; preds = %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
+100:                                              ; preds = %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
   %101 = load i32, ptr %64, align 4
   %.not58 = icmp ne i32 %101, 0
   %102 = and i32 %.1.i.i, 7
@@ -5299,8 +5299,8 @@ srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %76, %78, %81, %84, 
   %105 = add i32 %104, 8
   br label %106
 
-106:                                              ; preds = %103, %100, %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
-  %.2 = phi i32 [ %.1.i.i, %100 ], [ %105, %103 ], [ %.1.i.i, %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit ]
+106:                                              ; preds = %103, %100, %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit
+  %.2 = phi i32 [ %.1.i.i, %100 ], [ %105, %103 ], [ %.1.i.i, %srvsvc_dissect_element_NetSessInfoCtr_ctr.argprom.exit ]
   ret i32 %.2
 }
 
@@ -7054,7 +7054,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
 74:                                               ; preds = %71, %69, %66, %64
   %.0.i.i = phi i32 [ %58, %64 ], [ %68, %66 ], [ %58, %69 ], [ %73, %71 ]
   %75 = load i32, ptr %10, align 4
-  switch i32 %75, label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit [
+  switch i32 %75, label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit [
     i32 0, label %76
     i32 1, label %79
     i32 2, label %82
@@ -7070,54 +7070,54 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
 76:                                               ; preds = %74
   %77 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr0, align 4
   %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1156, i32 noundef %77) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 79:                                               ; preds = %74
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1, align 4
   %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1157, i32 noundef %80) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 82:                                               ; preds = %74
   %83 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr2, align 4
   %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1158, i32 noundef %83) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 85:                                               ; preds = %74
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr501, align 4
   %87 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr501_, i32 noundef 2, ptr noundef nonnull @.str.1159, i32 noundef %86) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 88:                                               ; preds = %74
   %89 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr502, align 4
   %90 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1160, i32 noundef %89) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 91:                                               ; preds = %74
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1004, align 4
   %93 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1004_, i32 noundef 2, ptr noundef nonnull @.str.1161, i32 noundef %92) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 94:                                               ; preds = %74
   %95 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1005, align 4
   %96 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1005_, i32 noundef 2, ptr noundef nonnull @.str.1162, i32 noundef %95) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 97:                                               ; preds = %74
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1006, align 4
   %99 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1006_, i32 noundef 2, ptr noundef nonnull @.str.1163, i32 noundef %98) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 100:                                              ; preds = %74
   %101 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1007, align 4
   %102 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1007_, i32 noundef 2, ptr noundef nonnull @.str.1164, i32 noundef %101) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
 103:                                              ; preds = %74
   %104 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1501, align 4
   %105 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1501_, i32 noundef 2, ptr noundef nonnull @.str.1165, i32 noundef %104) #4
-  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %74, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103
+srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit: ; preds = %74, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103
   %.1.i.i = phi i32 [ %.0.i.i, %74 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ]
   %106 = load ptr, ptr %9, align 8
   %107 = sub i32 %.1.i.i, %.0.i
@@ -7133,7 +7133,7 @@ srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %74, %76, %79, %82, 
   %.not45 = icmp eq i32 %112, 0
   br i1 %.not45, label %119, label %113
 
-113:                                              ; preds = %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
+113:                                              ; preds = %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
   %114 = load i32, ptr %40, align 4
   %.not46 = icmp ne i32 %114, 0
   %115 = and i32 %.1.i.i, 7
@@ -7146,8 +7146,8 @@ srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %74, %76, %79, %82, 
   %118 = add i32 %117, 8
   br label %119
 
-119:                                              ; preds = %116, %113, %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %113 ], [ %118, %116 ], [ %.1.i.i, %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit ]
+119:                                              ; preds = %116, %113, %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %113 ], [ %118, %116 ], [ %.1.i.i, %srvsvc_dissect_element_NetShareInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -7324,13 +7324,13 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo101(ptr noundef %0, i32 nound
   %41 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %41, align 4
   %.not.i.i = icmp eq i32 %.val, 0
-  br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
+  br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit
 
 42:                                               ; preds = %32
   %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.061, ptr noundef %5, i32 noundef 0) #4
-  br label %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
+  br label %srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit
 
-srvsvc_dissect_element_NetSrvInfo101_server_type.exit: ; preds = %32, %42
+srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit: ; preds = %32, %42
   %.0.i.i = phi i32 [ %43, %42 ], [ %40, %32 ]
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_comment, align 4
   %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo101_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
@@ -7343,7 +7343,7 @@ srvsvc_dissect_element_NetSrvInfo101_server_type.exit: ; preds = %32, %42
   %.not69 = icmp eq i32 %50, 0
   br i1 %.not69, label %57, label %51
 
-51:                                               ; preds = %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
+51:                                               ; preds = %srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit
   %52 = load i32, ptr %41, align 4
   %.not70 = icmp ne i32 %52, 0
   %53 = and i32 %45, 7
@@ -7356,8 +7356,8 @@ srvsvc_dissect_element_NetSrvInfo101_server_type.exit: ; preds = %32, %42
   %56 = add i32 %55, 8
   br label %57
 
-57:                                               ; preds = %54, %51, %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
-  %.1 = phi i32 [ %45, %51 ], [ %56, %54 ], [ %45, %srvsvc_dissect_element_NetSrvInfo101_server_type.exit ]
+57:                                               ; preds = %54, %51, %srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit
+  %.1 = phi i32 [ %45, %51 ], [ %56, %54 ], [ %45, %srvsvc_dissect_element_NetSrvInfo101_server_type.argprom.exit ]
   ret i32 %.1
 }
 
@@ -7425,13 +7425,13 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo102(ptr noundef %0, i32 nound
   %41 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %41, align 4
   %.not.i.i = icmp eq i32 %.val, 0
-  br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
+  br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit
 
 42:                                               ; preds = %32
   %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0103, ptr noundef %5, i32 noundef 0) #4
-  br label %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
+  br label %srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit
 
-srvsvc_dissect_element_NetSrvInfo102_server_type.exit: ; preds = %32, %42
+srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit: ; preds = %32, %42
   %.0.i.i = phi i32 [ %43, %42 ], [ %40, %32 ]
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_comment, align 4
   %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
@@ -7458,7 +7458,7 @@ srvsvc_dissect_element_NetSrvInfo102_server_type.exit: ; preds = %32, %42
   %.not111 = icmp eq i32 %64, 0
   br i1 %.not111, label %71, label %65
 
-65:                                               ; preds = %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
+65:                                               ; preds = %srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit
   %66 = load i32, ptr %41, align 4
   %.not112 = icmp ne i32 %66, 0
   %67 = and i32 %59, 7
@@ -7471,8 +7471,8 @@ srvsvc_dissect_element_NetSrvInfo102_server_type.exit: ; preds = %32, %42
   %70 = add i32 %69, 8
   br label %71
 
-71:                                               ; preds = %68, %65, %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
-  %.1 = phi i32 [ %59, %65 ], [ %70, %68 ], [ %59, %srvsvc_dissect_element_NetSrvInfo102_server_type.exit ]
+71:                                               ; preds = %68, %65, %srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit
+  %.1 = phi i32 [ %59, %65 ], [ %70, %68 ], [ %59, %srvsvc_dissect_element_NetSrvInfo102_server_type.argprom.exit ]
   ret i32 %.1
 }
 
@@ -11947,7 +11947,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
 58:                                               ; preds = %55, %53, %50, %48
   %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
-  switch i32 %59, label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit [
+  switch i32 %59, label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit [
     i32 0, label %60
     i32 1, label %63
     i32 2, label %66
@@ -11957,24 +11957,24 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr0, align 4
   %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1181, i32 noundef %61) #4
-  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr1, align 4
   %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1182, i32 noundef %64) #4
-  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
 
 66:                                               ; preds = %58
   %67 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr2, align 4
   %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1183, i32 noundef %67) #4
-  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
 
 69:                                               ; preds = %58
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr3, align 4
   %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1184, i32 noundef %70) #4
-  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
+  br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
 
-srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit: ; preds = %58, %60, %63, %66, %69
+srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit: ; preds = %58, %60, %63, %66, %69
   %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %72 = load ptr, ptr %9, align 8
   %73 = sub i32 %.1.i.i, %35
@@ -11990,7 +11990,7 @@ srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit: ; preds = %58, %60, %63, %6
   %.not45 = icmp eq i32 %78, 0
   br i1 %.not45, label %85, label %79
 
-79:                                               ; preds = %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
+79:                                               ; preds = %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
   %80 = load i32, ptr %46, align 4
   %.not46 = icmp ne i32 %80, 0
   %81 = and i32 %.1.i.i, 7
@@ -12003,8 +12003,8 @@ srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit: ; preds = %58, %60, %63, %6
   %84 = add i32 %83, 8
   br label %85
 
-85:                                               ; preds = %82, %79, %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
-  %.1 = phi i32 [ %.1.i.i, %79 ], [ %84, %82 ], [ %.1.i.i, %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit ]
+85:                                               ; preds = %82, %79, %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit
+  %.1 = phi i32 [ %.1.i.i, %79 ], [ %84, %82 ], [ %.1.i.i, %srvsvc_dissect_element_NetTransportInfoCtr_ctr.argprom.exit ]
   ret i32 %.1
 }
 
@@ -13656,7 +13656,7 @@ define internal i32 @srvsvc_dissect_NetCharDevQSetInfo_request(ptr noundef %0, i
   %17 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
   %18 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %17, ptr noundef %4, ptr noundef %5) #4
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQSetInfo_info, align 4
-  %20 = call fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19)
+  %20 = call fastcc i32 @srvsvc_dissect_NetCharDevQInfo.argelim(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19)
   %21 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %20, ptr noundef %4, ptr noundef %5) #4
   %22 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQSetInfo_parm_error, align 4
   %23 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQSetInfo_parm_error_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %22) #4
@@ -14567,7 +14567,7 @@ define internal i32 @srvsvc_dissect_NetTransportAdd_request(ptr noundef %0, i32 
   %12 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, i32 noundef 0) #4
   %13 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %12, ptr noundef %4, ptr noundef %5) #4
   %14 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportAdd_info, align 4
-  %15 = tail call fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14)
+  %15 = tail call fastcc i32 @srvsvc_dissect_NetTransportInfo.argelim(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14)
   %16 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %15, ptr noundef %4, ptr noundef %5) #4
   ret i32 %16
 }
@@ -15196,13 +15196,13 @@ define internal i32 @srvsvc_dissect_NetGetFileSecurity_request(ptr noundef %0, i
   %19 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %19, align 4
   %.not.i.i = icmp eq i32 %.val, 0
-  br i1 %.not.i.i, label %20, label %srvsvc_dissect_element_NetGetFileSecurity_securityinformation.exit
+  br i1 %.not.i.i, label %20, label %srvsvc_dissect_element_NetGetFileSecurity_securityinformation.argprom.exit
 
 20:                                               ; preds = %6
   %21 = call i32 @dissect_security_information_mask(ptr noundef %0, ptr noundef %3, i32 noundef %18) #4
-  br label %srvsvc_dissect_element_NetGetFileSecurity_securityinformation.exit
+  br label %srvsvc_dissect_element_NetGetFileSecurity_securityinformation.argprom.exit
 
-srvsvc_dissect_element_NetGetFileSecurity_securityinformation.exit: ; preds = %6, %20
+srvsvc_dissect_element_NetGetFileSecurity_securityinformation.argprom.exit: ; preds = %6, %20
   %.0.i.i = phi i32 [ %21, %20 ], [ %18, %6 ]
   %22 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5) #4
   ret i32 %22
@@ -15255,13 +15255,13 @@ define internal i32 @srvsvc_dissect_NetSetFileSecurity_request(ptr noundef %0, i
   %20 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %20, align 4
   %.not.i.i = icmp eq i32 %.val, 0
-  br i1 %.not.i.i, label %21, label %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit
+  br i1 %.not.i.i, label %21, label %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit
 
 21:                                               ; preds = %6
   %22 = call i32 @dissect_security_information_mask(ptr noundef %0, ptr noundef %3, i32 noundef %19) #4
-  br label %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit
+  br label %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit
 
-srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit: ; preds = %6, %21
+srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit: ; preds = %6, %21
   %.0.i.i = phi i32 [ %22, %21 ], [ %19, %6 ]
   %23 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -15269,7 +15269,7 @@ srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit: ; preds = %6
   %.not.i.i56 = icmp eq i32 %24, 0
   br i1 %.not.i.i56, label %25, label %srvsvc_dissect_element_NetSetFileSecurity_sd_buf.exit
 
-25:                                               ; preds = %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit
+25:                                               ; preds = %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit
   %26 = load i32, ptr @hf_srvsvc_sec_desc_buf_len, align 4
   %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %7) #4
   %28 = load i32, ptr %7, align 4
@@ -15278,8 +15278,8 @@ srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit: ; preds = %6
   %31 = add i32 %30, %27
   br label %srvsvc_dissect_element_NetSetFileSecurity_sd_buf.exit
 
-srvsvc_dissect_element_NetSetFileSecurity_sd_buf.exit: ; preds = %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit, %25
-  %.0.i.i57 = phi i32 [ %31, %25 ], [ %23, %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.exit ]
+srvsvc_dissect_element_NetSetFileSecurity_sd_buf.exit: ; preds = %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit, %25
+  %.0.i.i57 = phi i32 [ %31, %25 ], [ %23, %srvsvc_dissect_element_NetSetFileSecurity_securityinformation.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %32 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %.0.i.i57, ptr noundef nonnull %4, ptr noundef %5) #4
   ret i32 %32
@@ -15318,7 +15318,7 @@ define internal i32 @srvsvc_dissect_NetServerTransportAddEx_request(ptr noundef 
   %12 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, i32 noundef 0) #4
   %13 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %12, ptr noundef %4, ptr noundef %5) #4
   %14 = load i32, ptr @hf_srvsvc_srvsvc_NetServerTransportAddEx_info, align 4
-  %15 = tail call fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14)
+  %15 = tail call fastcc i32 @srvsvc_dissect_NetTransportInfo.argelim(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14)
   %16 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %15, ptr noundef %4, ptr noundef %5) #4
   ret i32 %16
 }
@@ -15918,12 +15918,12 @@ define internal i32 @srvsvc_dissect_element_NetCharDevQGetInfo_server_unc_(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetCharDevQGetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQGetInfo_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetCharDevQInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -16348,12 +16348,12 @@ define internal i32 @srvsvc_dissect_element_NetShareAdd_server_unc_(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetShareAdd_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetShareAdd_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @srvsvc_dissect_NetShareInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -16613,7 +16613,7 @@ define internal i32 @srvsvc_dissect_element_NetShareGetInfo_server_unc_(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetShareGetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetShareGetInfo_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -16630,7 +16630,7 @@ define internal i32 @srvsvc_dissect_element_NetShareSetInfo_server_unc_(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetShareSetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetShareSetInfo_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetShareInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -16695,12 +16695,12 @@ define internal i32 @srvsvc_dissect_element_NetSrvGetInfo_server_unc_(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetSrvGetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvGetInfo_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetSrvInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @srvsvc_dissect_NetSrvInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8
@@ -17542,7 +17542,7 @@ define internal i32 @srvsvc_dissect_element_NetSrvSetInfo_server_unc_(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @srvsvc_dissect_element_NetSrvSetInfo_info_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvSetInfo_info, align 4
-  %8 = tail call fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
+  %8 = tail call fastcc i32 @srvsvc_dissect_NetSrvInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %7)
   ret i32 %8
 }
 
@@ -17629,7 +17629,7 @@ define internal i32 @srvsvc_dissect_element_NetTransportAdd_server_unc_(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @srvsvc_dissect_NetTransportInfo.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   store ptr null, ptr %8, align 8

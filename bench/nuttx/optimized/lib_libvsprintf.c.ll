@@ -13,12 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @lib_vsprintf(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %4 = tail call fastcc i32 @vsprintf_internal.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @vsprintf_internal.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %union.anon, align 4
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1120,7 +1120,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
   %517 = load ptr, ptr %516, align 8
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %517)
   %518 = load ptr, ptr %515, align 8
-  %519 = call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %518, ptr noundef nonnull %5)
+  %519 = call fastcc i32 @vsprintf_internal.argprom.argelim(ptr noundef %0, ptr noundef %518, ptr noundef nonnull %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   br label %.backedge
 
@@ -1420,14 +1420,14 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr nocapture noun
 define i32 @lib_sprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @vsprintf_internal.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @lib_vsprintf_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %4 = tail call fastcc i32 @vsprintf_internal.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }
 

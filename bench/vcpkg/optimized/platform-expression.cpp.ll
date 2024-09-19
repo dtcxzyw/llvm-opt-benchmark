@@ -661,7 +661,7 @@ define dso_local void @_ZN5vcpkg18PlatformExpression4Expr3AndEOSt6vectorIS1_SaIS
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %.not7.i = icmp eq ptr %6, %7
-  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
+  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i: ; preds = %13
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #21
@@ -769,7 +769,7 @@ _ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_delete
   store ptr null, ptr %3, align 8, !noalias !13
   %50 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 8
   %.not.i = icmp eq ptr %50, %6
-  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", label %18
+  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit", label %18
 
 51:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, %12
   %52 = landingpad { ptr, i32 }
@@ -810,21 +810,21 @@ common.resume:                                    ; preds = %51, %_ZNSt10unique_
   call void @_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   resume { ptr, i32 } %common.resume.op
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
+"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
   store ptr %48, ptr %14, align 8, !alias.scope !13
   store ptr %49, ptr %16, align 8, !alias.scope !13
   store ptr %47, ptr %4, align 8, !alias.scope !13
-  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", %13
-  %57 = phi ptr [ %48, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
-  %58 = phi ptr [ %49, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
-  %59 = phi ptr [ %47, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
+"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit", %13
+  %57 = phi ptr [ %48, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
+  %58 = phi ptr [ %49, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
+  %59 = phi ptr [ %47, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %60 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
           to label %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit unwind label %73
 
-_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
   %61 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !28
   store i32 2, ptr %60, align 8, !noalias !28
@@ -875,7 +875,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14de
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %72
   ret void
 
-73:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+73:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -948,7 +948,7 @@ define dso_local void @_ZN5vcpkg18PlatformExpression4Expr2OrEOSt6vectorIS1_SaIS1
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %.not7.i = icmp eq ptr %6, %7
-  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
+  br i1 %.not7.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit", label %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i: ; preds = %13
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #21
@@ -1056,7 +1056,7 @@ _ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_delete
   store ptr null, ptr %3, align 8, !noalias !31
   %50 = getelementptr inbounds i8, ptr %.sroa.01.06.i, i64 8
   %.not.i = icmp eq ptr %50, %6
-  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", label %18
+  br i1 %.not.i, label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit", label %18
 
 51:                                               ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i, %12
   %52 = landingpad { ptr, i32 }
@@ -1097,21 +1097,21 @@ common.resume:                                    ; preds = %51, %_ZNSt10unique_
   call void @_ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #20
   resume { ptr, i32 } %common.resume.op
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
+"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit": ; preds = %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit.i
   store ptr %48, ptr %14, align 8, !alias.scope !31
   store ptr %49, ptr %16, align 8, !alias.scope !31
   store ptr %47, ptr %4, align 8, !alias.scope !31
-  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+  br label %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
 
-"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit", %13
-  %57 = phi ptr [ %48, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
-  %58 = phi ptr [ %49, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
-  %59 = phi ptr [ %47, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit.loopexit" ], [ null, %13 ]
+"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit": ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit", %13
+  %57 = phi ptr [ %48, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
+  %58 = phi ptr [ %49, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
+  %59 = phi ptr [ %47, %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit.loopexit" ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %60 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
           to label %_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit unwind label %73
 
-_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+_ZNSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS3_EED2Ev.exit: ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
   %61 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !noalias !45
   store i32 3, ptr %60, align 8, !noalias !45
@@ -1162,7 +1162,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14de
 _ZNSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %72
   ret void
 
-73:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.exit"
+73:                                               ; preds = %"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom.exit"
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
@@ -3297,7 +3297,7 @@ define dso_local noundef i32 @_ZNK5vcpkg18PlatformExpression4Expr10complexityEv(
   br i1 %.not.i, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %4 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -3306,7 +3306,7 @@ define dso_local noundef i32 @_ZNK5vcpkg18PlatformExpression4Expr10complexityEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE2atEm.exit, %1
@@ -3346,7 +3346,7 @@ _ZNKSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14def
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.0.i212 = phi i32 [ %17, %.lr.ph ], [ 0, %11 ]
   %.sroa.01.011 = phi ptr [ %18, %.lr.ph ], [ %13, %11 ]
-  %16 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.011)
+  %16 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE.argprom(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.011)
   %17 = add nsw i32 %16, %.0.i212
   %18 = getelementptr inbounds i8, ptr %.sroa.01.011, i64 8
   %.not = icmp eq ptr %18, %15
@@ -3592,13 +3592,13 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg18PlatformExpression18structurally
   %.not.i7 = icmp eq ptr %4, null
   %brmerge = select i1 %.not.i, i1 true, i1 %.not.i7
   %.not.i7.mux = select i1 %.not.i, i1 %.not.i7, i1 false
-  br i1 %brmerge, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit, label %5
+  br i1 %brmerge, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit, label %5
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 8
   %7 = load i32, ptr %4, align 8
   %.not.i.i = icmp eq i32 %6, %7
-  br i1 %.not.i.i, label %8, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit
+  br i1 %.not.i.i, label %8, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit
 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %6, 0
@@ -3610,19 +3610,19 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg18PlatformExpression18structurally
   %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   %15 = icmp eq i64 %13, %14
-  br i1 %15, label %16, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit
+  br i1 %15, label %16, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit
 
 16:                                               ; preds = %10
   %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   %18 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #20
   %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit, label %21
+  br i1 %20, label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit, label %21
 
 21:                                               ; preds = %16
   %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %18, i64 %19)
   %22 = icmp eq i32 %bcmp.i.i, 0
-  br label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit
+  br label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds i8, ptr %3, i64 40
@@ -3634,9 +3634,9 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg18PlatformExpression18structurally
   %30 = getelementptr inbounds i8, ptr %4, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = tail call fastcc noundef zeroext i1 @_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEESF_ZNS4_18structurally_equalERKNS4_4ExprESI_E4ImplEbT_SK_T0_SL_T1_(ptr %26, ptr %28, ptr %29, ptr %31)
-  br label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit
+  br label %_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit
 
-_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.exit: ; preds = %2, %23, %21, %16, %10, %5
+_ZZN5vcpkg18PlatformExpression18structurally_equalERKNS0_4ExprES3_ENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EESC_.argprom.exit: ; preds = %2, %23, %21, %16, %10, %5
   %.0 = phi i1 [ %32, %23 ], [ false, %5 ], [ false, %10 ], [ %22, %21 ], [ true, %16 ], [ %.not.i7.mux, %2 ]
   ret i1 %.0
 }
@@ -3650,7 +3650,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN5vcpkg18PlatformExpression7com
   br i1 %.not.i.i, label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %7 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
   br label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit
 
 _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit: ; preds = %2, %6
@@ -3660,7 +3660,7 @@ _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit: ; preds = %2, %6
   br i1 %.not.i.i18, label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20, label %9
 
 9:                                                ; preds = %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit
-  %10 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
+  %10 = tail call fastcc noundef i32 @_ZZNK5vcpkg18PlatformExpression4Expr10complexityEvENK4ImplclERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS5_EE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
   br label %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20
 
 _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20: ; preds = %_ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit, %9
@@ -3682,7 +3682,7 @@ _ZNK5vcpkg18PlatformExpression4Expr10complexityEv.exit20: ; preds = %_ZNK5vcpkg1
   br label %_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit
 
 17:                                               ; preds = %14
-  call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %15, i1 noundef zeroext true)
+  call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %15, i1 noundef zeroext true)
   br label %_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit
 
 _ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit: ; preds = %16, %17
@@ -3695,7 +3695,7 @@ _ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit: ; preds = %16,
   br label %_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit23
 
 20:                                               ; preds = %_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit
-  invoke fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %18, i1 noundef zeroext true)
+  invoke fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %18, i1 noundef zeroext true)
           to label %_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit23 unwind label %24
 
 _ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprE.exit23: ; preds = %19, %20
@@ -3761,7 +3761,7 @@ define dso_local void @_ZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4Exp
   br label %6
 
 5:                                                ; preds = %2
-  tail call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext true)
+  tail call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext true)
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -3777,7 +3777,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3817,7 +3817,7 @@ define internal fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKN
 
 _ZNKSt6vectorISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EESaIS7_EE2atEm.exit: ; preds = %12
   %18 = load ptr, ptr %16, align 8, !noalias !61
-  call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %18, i1 noundef zeroext false)
+  call fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %18, i1 noundef zeroext false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 33)
           to label %19 unwind label %.body
@@ -9291,7 +9291,7 @@ define internal fastcc void @_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iterat
 .preheader:                                       ; preds = %5, %15
   %.sroa.06.0 = phi ptr [ %9, %15 ], [ %3, %5 ]
   %8 = load ptr, ptr %.sroa.06.0, align 8, !noalias !156
-  invoke fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %8, i1 noundef zeroext false)
+  invoke fastcc void @_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKNS0_6detail8ExprImplEb.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %8, i1 noundef zeroext false)
           to label %_ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EE.exit unwind label %11
 
 _ZZN5vcpkg18PlatformExpression9to_stringB5cxx11ERKNS0_4ExprEENK4ImplclB5cxx11ERKSt10unique_ptrINS0_6detail8ExprImplESt14default_deleteIS7_EE.exit: ; preds = %.preheader
@@ -10032,11 +10032,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN5vcpkg18PlatformExpression6detail8ExprImplEJNS2_8ExprKindENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !12 = distinct !{!12, !"_ZSt11make_uniqueIN5vcpkg18PlatformExpression6detail8ExprImplEJNS2_8ExprKindENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_: argument 0"}
-!15 = distinct !{!15, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_"}
+!14 = distinct !{!14, !15, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_3AndEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZZN5vcpkg18PlatformExpression4Expr3AndEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_: argument 0"}
-!18 = distinct !{!18, !"_ZZN5vcpkg18PlatformExpression4Expr3AndEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_"}
+!17 = distinct !{!17, !18, !"_ZZN5vcpkg18PlatformExpression4Expr3AndEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZZN5vcpkg18PlatformExpression4Expr3AndEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_.argprom"}
 !19 = !{!17, !14}
 !20 = !{!21}
 !21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
@@ -10050,11 +10050,11 @@ attributes #25 = { nounwind willreturn memory(read) }
 !29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN5vcpkg18PlatformExpression6detail8ExprImplEJNS2_8ExprKindESt6vectorISt10unique_ptrIS3_St14default_deleteIS3_EESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !30 = distinct !{!30, !"_ZSt11make_uniqueIN5vcpkg18PlatformExpression6detail8ExprImplEJNS2_8ExprKindESt6vectorISt10unique_ptrIS3_St14default_deleteIS3_EESaIS9_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_: argument 0"}
-!33 = distinct !{!33, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_"}
+!32 = distinct !{!32, !33, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZN5vcpkg4Util4fmapIRSt6vectorINS_18PlatformExpression4ExprESaIS4_EEZNS4_2OrEOS6_E3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISG_EEOSD_OSB_.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN5vcpkg18PlatformExpression4Expr2OrEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_: argument 0"}
-!36 = distinct !{!36, !"_ZZN5vcpkg18PlatformExpression4Expr2OrEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_"}
+!35 = distinct !{!35, !36, !"_ZZN5vcpkg18PlatformExpression4Expr2OrEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN5vcpkg18PlatformExpression4Expr2OrEOSt6vectorIS1_SaIS1_EEENK3$_0clERS1_.argprom"}
 !37 = !{!35, !32}
 !38 = !{!39}
 !39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aISt10unique_ptrIN5vcpkg18PlatformExpression6detail8ExprImplESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}

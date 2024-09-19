@@ -1184,7 +1184,7 @@ for.cond.i:                                       ; preds = %call6.i.noexc, %if.
   br i1 %cmp5.i, label %for.body.i, label %if.end8.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %call6.i1 = invoke fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_"(ptr nonnull %this, ptr noundef %p.1.i)
+  %call6.i1 = invoke fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_.argprom.argelim"(ptr nonnull %this, ptr noundef %p.1.i)
           to label %call6.i.noexc unwind label %lpad3.loopexit.split-lp.loopexit
 
 call6.i.noexc:                                    ; preds = %for.body.i
@@ -1208,7 +1208,7 @@ if.then13.i:                                      ; preds = %if.end8.i
 
 do.body.i:                                        ; preds = %call18.i.noexc, %if.then13.i
   %buf_ptr.0.i = phi ptr [ %buf.i, %if.then13.i ], [ %call18.i2, %call18.i.noexc ]
-  %call18.i2 = invoke fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_"(ptr nonnull %this, ptr noundef nonnull %buf_ptr.0.i)
+  %call18.i2 = invoke fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_.argprom.argelim"(ptr nonnull %this, ptr noundef nonnull %buf_ptr.0.i)
           to label %call18.i.noexc unwind label %lpad3.loopexit
 
 call18.i.noexc:                                   ; preds = %do.body.i
@@ -6104,7 +6104,7 @@ if.end17:                                         ; preds = %if.then15, %_ZSt18u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_"(ptr %this.0.val, ptr noundef readonly %buf_ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZZN3fmt2v96detail18for_each_codepointIZNS1_13utf8_to_utf16C1ENS0_17basic_string_viewIcEEE3$_0EEvS5_T_ENKUlPKcS9_E_clES9_S9_.argprom.argelim"(ptr %this.0.val, ptr noundef readonly %buf_ptr) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %buf_ptr, align 1
   %1 = lshr i8 %0, 3
@@ -6208,7 +6208,7 @@ _ZN3fmt2v96detail6bufferIwE9push_backERKw.exit.i: ; preds = %if.then.i.i.i, %if.
   store i64 %inc.pre-phi.i.i, ptr %size_.i.i, align 8
   %arrayidx.i.i7 = getelementptr inbounds i32, ptr %23, i64 %22
   store i32 %shr.i, ptr %arrayidx.i.i7, align 4
-  br label %"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.exit"
+  br label %"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.argprom.exit"
 
 if.else.i:                                        ; preds = %if.end.i
   %sub.i = add nsw i32 %shr.i, -65536
@@ -6261,9 +6261,9 @@ _ZN3fmt2v96detail6bufferIwE9push_backERKw.exit29.i: ; preds = %if.then.i.i25.i, 
   store i64 %inc.pre-phi.i22.i, ptr %size_.i6.i, align 8
   %arrayidx.i24.i = getelementptr inbounds i32, ptr %33, i64 %32
   store i32 %add8.i, ptr %arrayidx.i24.i, align 4
-  br label %"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.exit"
+  br label %"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.argprom.exit"
 
-"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.exit": ; preds = %_ZN3fmt2v96detail6bufferIwE9push_backERKw.exit.i, %_ZN3fmt2v96detail6bufferIwE9push_backERKw.exit29.i
+"_ZZN3fmt2v96detail13utf8_to_utf16C1ENS0_17basic_string_viewIcEEENK3$_0clEjS4_.argprom.exit": ; preds = %_ZN3fmt2v96detail6bufferIwE9push_backERKw.exit.i, %_ZN3fmt2v96detail6bufferIwE9push_backERKw.exit29.i
   %add.ptr.i = getelementptr inbounds i8, ptr %buf_ptr, i64 %idx.ext.i
   %34 = lshr i64 2164195328, %idxprom.i.i
   %idx.ext1.i = and i64 %34, 1

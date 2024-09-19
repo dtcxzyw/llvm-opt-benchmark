@@ -510,15 +510,15 @@ if.end32:                                         ; preds = %if.then18, %land.lh
   ]
 
 sw.bb:                                            ; preds = %if.end32
-  tail call fastcc void @riscv_imsic_eidelivery_rmw(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
+  tail call fastcc void @riscv_imsic_eidelivery_rmw.retelim(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
   br label %return
 
 sw.bb33:                                          ; preds = %if.end32
-  tail call fastcc void @riscv_imsic_eithreshold_rmw(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
+  tail call fastcc void @riscv_imsic_eithreshold_rmw.retelim(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %new_val, i64 noundef %wr_mask)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end32
-  tail call fastcc void @riscv_imsic_topei_rmw(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %wr_mask)
+  tail call fastcc void @riscv_imsic_topei_rmw.argelim(ptr noundef nonnull %arg, i32 noundef %page.0, ptr noundef %val, i64 noundef %wr_mask)
   br label %return
 
 sw.bb37:                                          ; preds = %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32, %if.end32
@@ -693,7 +693,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eidelivery_rmw.retelim(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eidelivery = getelementptr inbounds i8, ptr %imsic, i64 1112
   %0 = load ptr, ptr %eidelivery, align 8
@@ -773,7 +773,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eithreshold_rmw.retelim(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eithreshold = getelementptr inbounds i8, ptr %imsic, i64 1120
   %0 = load ptr, ptr %eithreshold, align 16
@@ -853,7 +853,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_topei_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_topei_rmw.argelim(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %num_irqs.i = getelementptr inbounds i8, ptr %imsic, i64 1148
   %0 = load i32, ptr %num_irqs.i, align 4

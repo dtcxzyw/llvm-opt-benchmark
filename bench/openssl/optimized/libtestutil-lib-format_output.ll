@@ -532,8 +532,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub76 = add i64 %len.1122, -32
   %sub76.tr = trunc i64 %sub76 to i32
   %conv78 = shl i32 %sub76.tr, 3
-  %call80 = call fastcc i32 @convert_bn_memory(ptr noundef %m1.1123, ptr noundef %b1, ptr noundef %lz1, ptr noundef %bn1)
-  %call83 = call fastcc i32 @convert_bn_memory(ptr noundef %m2.1124, ptr noundef %b2, ptr noundef %lz2, ptr noundef %bn2)
+  %call80 = call fastcc i32 @convert_bn_memory.argelim(ptr noundef %m1.1123, ptr noundef %b1, ptr noundef %lz1, ptr noundef %bn1)
+  %call83 = call fastcc i32 @convert_bn_memory.argelim(ptr noundef %m2.1124, ptr noundef %b2, ptr noundef %lz2, ptr noundef %bn2)
   %3 = load i8, ptr %b1, align 16
   %cmp87.not114 = icmp eq i8 %3, 0
   br i1 %cmp87.not114, label %for.end.thread, label %for.body
@@ -1147,7 +1147,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @BN_bn2binpad(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @convert_bn_memory(ptr nocapture noundef readonly %in, ptr noundef nonnull %out, ptr nocapture noundef nonnull %lz, ptr noundef %bn) unnamed_addr #0 {
+define internal fastcc i32 @convert_bn_memory.argelim(ptr nocapture noundef readonly %in, ptr noundef nonnull %out, ptr nocapture noundef nonnull %lz, ptr noundef %bn) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %bn, null
   br i1 %cmp.not, label %for.body37.preheader, label %land.lhs.true

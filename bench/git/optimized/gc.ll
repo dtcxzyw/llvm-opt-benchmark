@@ -4723,9 +4723,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @git_exec_path() #20
-  tail call fastcc void @launchctl_schedule_plist(ptr noundef %call.i, i32 noundef 3)
-  tail call fastcc void @launchctl_schedule_plist(ptr noundef %call.i, i32 noundef 2)
-  tail call fastcc void @launchctl_schedule_plist(ptr noundef %call.i, i32 noundef 1)
+  tail call fastcc void @launchctl_schedule_plist.retelim(ptr noundef %call.i, i32 noundef 3)
+  tail call fastcc void @launchctl_schedule_plist.retelim(ptr noundef %call.i, i32 noundef 2)
+  tail call fastcc void @launchctl_schedule_plist.retelim(ptr noundef %call.i, i32 noundef 1)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -5187,7 +5187,7 @@ if.end:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @launchctl_schedule_plist(ptr noundef %exec_path, i32 noundef range(i32 1, 4) %schedule) unnamed_addr #0 {
+define internal fastcc void @launchctl_schedule_plist.retelim(ptr noundef %exec_path, i32 noundef range(i32 1, 4) %schedule) unnamed_addr #0 {
 entry:
   %child.i = alloca %struct.child_process, align 8
   %filename.i = alloca %struct.strbuf, align 8

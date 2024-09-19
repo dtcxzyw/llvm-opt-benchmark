@@ -832,7 +832,7 @@ _yaml_event_type_string.exit:                     ; preds = %33
   br label %40
 
 40:                                               ; preds = %20, %_yaml_event_type_string.exit
-  %41 = call fastcc i32 @_on_parse_event(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, ptr noundef %3)
+  %41 = call fastcc i32 @_on_parse_event.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %2, ptr noundef %3)
   %42 = icmp eq i32 %41, 3
   br i1 %42, label %43, label %12, !llvm.loop !8
 
@@ -863,7 +863,7 @@ declare void @yaml_event_delete(ptr noundef) local_unnamed_addr #1
 declare void @_log_flag_hex(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @_on_parse_event.argelim(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %3) #6
   %7 = icmp eq i32 %6, 2
   %8 = load i32, ptr %2, align 8
@@ -900,13 +900,13 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_event, ptr noundef %3, ptr noundef %11) #6
   br label %18
 
-common.ret4:                                      ; preds = %64, %62, %_yaml_tag_to_type.exit, %41, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %78, %72, %71, %65, %26, %25, %24, %23, %9, %9, %18
-  %common.ret4.op = phi i32 [ %22, %18 ], [ 3, %78 ], [ %77, %72 ], [ 3, %71 ], [ %70, %65 ], [ 5, %26 ], [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %43, %41 ], [ 5, %64 ], [ 3, %62 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
+common.ret4:                                      ; preds = %64, %62, %_yaml_tag_to_type.argprom.exit, %41, %_yaml_tag_to_type.argprom.exit.thread, %thread-pre-split, %thread-pre-split, %78, %72, %71, %65, %26, %25, %24, %23, %9, %9, %18
+  %common.ret4.op = phi i32 [ %22, %18 ], [ 3, %78 ], [ %77, %72 ], [ 3, %71 ], [ %70, %65 ], [ 5, %26 ], [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %43, %41 ], [ 5, %64 ], [ 3, %62 ], [ 3, %_yaml_tag_to_type.argprom.exit ], [ 3, %_yaml_tag_to_type.argprom.exit.thread ], [ 4, %9 ], [ 4, %9 ]
   ret i32 %common.ret4.op
 
 18:                                               ; preds = %10, %14, %17
   %19 = add nsw i32 %0, 1
-  %20 = tail call fastcc i32 @_on_parse_event(i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4)
+  %20 = tail call fastcc i32 @_on_parse_event.argelim(i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4)
   %21 = icmp eq i32 %20, 3
   %22 = select i1 %21, i32 2, i32 %20
   br label %common.ret4
@@ -972,12 +972,12 @@ thread-pre-split:                                 ; preds = %5
   %45 = getelementptr i8, ptr %2, i64 16
   %.val.i = load ptr, ptr %45, align 8
   %.not.i38 = icmp eq ptr %.val.i, null
-  br i1 %.not.i38, label %_yaml_tag_to_type.exit.thread, label %46
+  br i1 %.not.i38, label %_yaml_tag_to_type.argprom.exit.thread, label %46
 
 46:                                               ; preds = %44
   %47 = load i8, ptr %.val.i, align 1
   %.not14.i = icmp eq i8 %47, 0
-  br i1 %.not14.i, label %_yaml_tag_to_type.exit.thread, label %48
+  br i1 %.not14.i, label %_yaml_tag_to_type.argprom.exit.thread, label %48
 
 48:                                               ; preds = %46
   %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -996,7 +996,7 @@ thread-pre-split:                                 ; preds = %5
 53:                                               ; preds = %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %54, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_yaml_tag_to_type.argprom.exit.thread, label %54, !llvm.loop !9
 
 54:                                               ; preds = %.preheader, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader ]
@@ -1005,19 +1005,19 @@ thread-pre-split:                                 ; preds = %5
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @slurm_xstrcmp(ptr noundef %57, ptr noundef nonnull %.val.i) #6
   %.not16.i = icmp eq i32 %58, 0
-  br i1 %.not16.i, label %_yaml_tag_to_type.exit, label %53
+  br i1 %.not16.i, label %_yaml_tag_to_type.argprom.exit, label %53
 
-_yaml_tag_to_type.exit.thread:                    ; preds = %53, %46, %44
+_yaml_tag_to_type.argprom.exit.thread:            ; preds = %53, %46, %44
   %59 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
   br label %common.ret4
 
-_yaml_tag_to_type.exit:                           ; preds = %54
+_yaml_tag_to_type.argprom.exit:                   ; preds = %54
   %60 = load i32, ptr %55, align 8
   %61 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
   %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %common.ret4, label %62
 
-62:                                               ; preds = %_yaml_tag_to_type.exit
+62:                                               ; preds = %_yaml_tag_to_type.argprom.exit
   %63 = tail call i32 @data_convert_type(ptr noundef %3, i32 noundef %60) #6
   %.not20.i = icmp eq i32 %63, %60
   br i1 %.not20.i, label %common.ret4, label %64

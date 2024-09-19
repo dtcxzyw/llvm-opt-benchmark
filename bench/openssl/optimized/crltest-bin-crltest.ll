@@ -228,7 +228,7 @@ define internal i32 @test_no_crl() #0 {
 entry:
   %0 = load ptr, ptr @test_leaf, align 8
   %1 = load ptr, ptr @test_root, align 8
-  %call = tail call fastcc i32 @verify(ptr noundef %0, ptr noundef %1, ptr noundef null)
+  %call = tail call fastcc i32 @verify.argelim(ptr noundef %0, ptr noundef %1, ptr noundef null)
   %call1 = tail call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef %call, i32 noundef 3) #3
   ret i32 %call1
 }
@@ -297,7 +297,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   %call.i = call ptr @OPENSSL_sk_new_null() #3
   %call3.i = call i32 @OPENSSL_sk_push(ptr noundef %call.i, ptr noundef %retval.0.i) #3
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %retval.0.i) #3
-  %call7 = call fastcc i32 @verify(ptr noundef %2, ptr noundef %3, ptr noundef %call.i)
+  %call7 = call fastcc i32 @verify.argelim(ptr noundef %2, ptr noundef %3, ptr noundef %call.i)
   %call8 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %call7, i32 noundef 0) #3
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %land.end, label %land.rhs
@@ -317,7 +317,7 @@ if.then.i21:                                      ; preds = %land.rhs
   br label %make_CRL_stack.exit
 
 make_CRL_stack.exit:                              ; preds = %land.rhs, %if.then.i21
-  %call11 = call fastcc i32 @verify(ptr noundef %4, ptr noundef %5, ptr noundef %call.i18)
+  %call11 = call fastcc i32 @verify.argelim(ptr noundef %4, ptr noundef %5, ptr noundef %call.i18)
   %call12 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 320, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef %call11, i32 noundef 23) #3
   %tobool13 = icmp ne i32 %call12, 0
   %6 = zext i1 %tobool13 to i32
@@ -366,7 +366,7 @@ land.rhs:                                         ; preds = %CRL_from_strings.ex
   %call.i = call ptr @OPENSSL_sk_new_null() #3
   %call3.i = call i32 @OPENSSL_sk_push(ptr noundef %call.i, ptr noundef %retval.0.i) #3
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %retval.0.i) #3
-  %call3 = call fastcc i32 @verify(ptr noundef %1, ptr noundef %2, ptr noundef %call.i)
+  %call3 = call fastcc i32 @verify.argelim(ptr noundef %1, ptr noundef %2, ptr noundef %call.i)
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.51, i32 noundef %call3, i32 noundef 3) #3
   %tobool5 = icmp ne i32 %call4, 0
   %3 = zext i1 %tobool5 to i32
@@ -414,7 +414,7 @@ land.rhs:                                         ; preds = %CRL_from_strings.ex
   %call.i = call ptr @OPENSSL_sk_new_null() #3
   %call3.i = call i32 @OPENSSL_sk_push(ptr noundef %call.i, ptr noundef %retval.0.i) #3
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %retval.0.i) #3
-  %call3 = call fastcc i32 @verify(ptr noundef %1, ptr noundef %2, ptr noundef %call.i)
+  %call3 = call fastcc i32 @verify.argelim(ptr noundef %1, ptr noundef %2, ptr noundef %call.i)
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 355, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.63, i32 noundef %call3, i32 noundef 0) #3
   %tobool5 = icmp ne i32 %call4, 0
   %3 = zext i1 %tobool5 to i32
@@ -467,7 +467,7 @@ land.rhs:                                         ; preds = %CRL_from_strings.ex
   %call.i = call ptr @OPENSSL_sk_new_null() #3
   %call3.i = call i32 @OPENSSL_sk_push(ptr noundef %call.i, ptr noundef %retval.0.i) #3
   %call4.i = call i32 @X509_CRL_up_ref(ptr noundef %retval.0.i) #3
-  %call3 = call fastcc i32 @verify(ptr noundef %2, ptr noundef %3, ptr noundef %call.i)
+  %call3 = call fastcc i32 @verify.argelim(ptr noundef %2, ptr noundef %3, ptr noundef %call.i)
   %call4 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef %call3, i32 noundef 36) #3
   %tobool5 = icmp ne i32 %call4, 0
   %4 = zext i1 %tobool5 to i32
@@ -562,7 +562,7 @@ declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify(ptr noundef %leaf, ptr noundef %root, ptr noundef %crls) unnamed_addr #0 {
+define internal fastcc i32 @verify.argelim(ptr noundef %leaf, ptr noundef %root, ptr noundef %crls) unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_STORE_CTX_new() #3
   %call1 = tail call ptr @X509_STORE_new() #3

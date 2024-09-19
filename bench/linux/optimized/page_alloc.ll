@@ -3012,7 +3012,7 @@ define internal fastcc noundef zeroext i1 @free_unref_page_prepare(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_one_page(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -144115188075855872, 144115188075855872) %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @free_one_page.argelim(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -144115188075855872, 144115188075855872) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 992
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #22
   tail call fastcc void @__free_one_page(ptr noundef %1, i64 noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef 0)
@@ -3444,7 +3444,7 @@ define dso_local void @free_unref_page_list(ptr noundef readonly %0) local_unnam
   %100 = ptrtoint ptr %25 to i64
   %101 = sub i64 %100, %99
   %102 = ashr exact i64 %101, 6
-  tail call fastcc void @free_one_page(ptr noundef %33, ptr noundef %25, i64 noundef %102, i32 noundef %39)
+  tail call fastcc void @free_one_page.argelim(ptr noundef %33, ptr noundef %25, i64 noundef %102, i32 noundef %39)
   %103 = icmp eq ptr %26, %0
   br i1 %103, label %.thread11, label %.preheader.backedge
 
@@ -8048,7 +8048,7 @@ define internal fastcc ptr @__page_frag_cache_refill(ptr nocapture noundef write
   br i1 %17, label %20, label %.thread, !prof !14
 
 20:                                               ; preds = %15
-  %21 = call fastcc ptr @alloc_pages_node(i32 noundef %1)
+  %21 = call fastcc ptr @alloc_pages_node.argelim(i32 noundef %1)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %31, label %.thread
 
@@ -8342,7 +8342,7 @@ define dso_local noalias ptr @alloc_pages_exact_nid(i32 noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_pages_node(i32 noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc ptr @alloc_pages_node.argelim(i32 noundef %0) unnamed_addr #4 align 16 {
   %2 = alloca i32, align 4
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @numa_node) #23, !srcloc !105
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)

@@ -242,7 +242,7 @@ define void @Fra_BmcFilterImplications(ptr noundef %0, ptr nocapture noundef rea
   %17 = getelementptr i8, ptr %16, i64 32
   %.val54 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.val54, null
-  br i1 %.not.i, label %Aig_ManObj.exit67, label %18
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit67, label %18
 
 18:                                               ; preds = %15
   %19 = ashr i32 %13, 16
@@ -255,9 +255,9 @@ define void @Fra_BmcFilterImplications(ptr noundef %0, ptr nocapture noundef rea
   %25 = sext i32 %19 to i64
   %26 = getelementptr inbounds ptr, ptr %.val.i, i64 %25
   %27 = load ptr, ptr %26, align 8
-  br label %Aig_ManObj.exit67
+  br label %Aig_ManObj.argprom.exit67
 
-Aig_ManObj.exit67:                                ; preds = %15, %18
+Aig_ManObj.argprom.exit67:                        ; preds = %15, %18
   %28 = phi ptr [ %24, %18 ], [ null, %15 ]
   %29 = phi ptr [ %27, %18 ], [ null, %15 ]
   %30 = load i32, ptr %1, align 8
@@ -265,7 +265,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %32 = icmp slt i32 %30, %31
   br i1 %32, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %Aig_ManObj.exit67
+.lr.ph:                                           ; preds = %Aig_ManObj.argprom.exit67
   %33 = getelementptr i8, ptr %28, i64 36
   %34 = getelementptr i8, ptr %28, i64 40
   %35 = getelementptr i8, ptr %29, i64 36
@@ -394,7 +394,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   store i32 0, ptr %117, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %111, %.loopexit.sink.split, %Aig_ManObj.exit67, %9
+.loopexit:                                        ; preds = %111, %.loopexit.sink.split, %Aig_ManObj.argprom.exit67, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %118 = load ptr, ptr %3, align 8
   %119 = getelementptr i8, ptr %118, i64 4
@@ -747,7 +747,7 @@ Abc_UtilStrsav.exit174:                           ; preds = %Abc_UtilStrsav.exit
   %137 = ptrtoint ptr %.val167 to i64
   %138 = and i64 %137, -2
   %.not.i175 = icmp eq i64 %138, 0
-  br i1 %.not.i175, label %Bmc_ObjChild0Frames.exit, label %139
+  br i1 %.not.i175, label %Bmc_ObjChild0Frames.argprom.exit, label %139
 
 139:                                              ; preds = %135
   %140 = inttoptr i64 %138 to ptr
@@ -770,18 +770,18 @@ Abc_UtilStrsav.exit174:                           ; preds = %Abc_UtilStrsav.exit
   %152 = ptrtoint ptr %150 to i64
   %153 = xor i64 %151, %152
   %154 = inttoptr i64 %153 to ptr
-  br label %Bmc_ObjChild0Frames.exit
+  br label %Bmc_ObjChild0Frames.argprom.exit
 
-Bmc_ObjChild0Frames.exit:                         ; preds = %135, %139
+Bmc_ObjChild0Frames.argprom.exit:                 ; preds = %135, %139
   %155 = phi ptr [ %154, %139 ], [ null, %135 ]
   %156 = getelementptr i8, ptr %128, i64 16
   %.val170 = load ptr, ptr %156, align 8
   %157 = ptrtoint ptr %.val170 to i64
   %158 = and i64 %157, -2
   %.not.i176 = icmp eq i64 %158, 0
-  br i1 %.not.i176, label %Bmc_ObjChild1Frames.exit, label %159
+  br i1 %.not.i176, label %Bmc_ObjChild1Frames.argprom.exit, label %159
 
-159:                                              ; preds = %Bmc_ObjChild0Frames.exit
+159:                                              ; preds = %Bmc_ObjChild0Frames.argprom.exit
   %160 = inttoptr i64 %158 to ptr
   %161 = getelementptr i8, ptr %160, i64 36
   %.val.i177 = load i32, ptr %161, align 4
@@ -802,10 +802,10 @@ Bmc_ObjChild0Frames.exit:                         ; preds = %135, %139
   %172 = ptrtoint ptr %170 to i64
   %173 = xor i64 %171, %172
   %174 = inttoptr i64 %173 to ptr
-  br label %Bmc_ObjChild1Frames.exit
+  br label %Bmc_ObjChild1Frames.argprom.exit
 
-Bmc_ObjChild1Frames.exit:                         ; preds = %Bmc_ObjChild0Frames.exit, %159
-  %175 = phi ptr [ %174, %159 ], [ null, %Bmc_ObjChild0Frames.exit ]
+Bmc_ObjChild1Frames.argprom.exit:                 ; preds = %Bmc_ObjChild0Frames.argprom.exit, %159
+  %175 = phi ptr [ %174, %159 ], [ null, %Bmc_ObjChild0Frames.argprom.exit ]
   %176 = tail call ptr @Aig_And(ptr noundef nonnull %10, ptr noundef %155, ptr noundef %175) #15
   %177 = getelementptr i8, ptr %128, i64 36
   %.val146 = load i32, ptr %177, align 4
@@ -825,9 +825,9 @@ Bmc_ObjChild1Frames.exit:                         ; preds = %Bmc_ObjChild0Frames
   %.pre270 = load ptr, ptr %3, align 8
   br label %186
 
-186:                                              ; preds = %Bmc_ObjChild1Frames.exit, %130, %.lr.ph216
-  %187 = phi ptr [ %.pre270, %Bmc_ObjChild1Frames.exit ], [ %123, %130 ], [ %123, %.lr.ph216 ]
-  %188 = phi ptr [ %.pre270, %Bmc_ObjChild1Frames.exit ], [ %124, %130 ], [ %124, %.lr.ph216 ]
+186:                                              ; preds = %Bmc_ObjChild1Frames.argprom.exit, %130, %.lr.ph216
+  %187 = phi ptr [ %.pre270, %Bmc_ObjChild1Frames.argprom.exit ], [ %123, %130 ], [ %123, %.lr.ph216 ]
+  %188 = phi ptr [ %.pre270, %Bmc_ObjChild1Frames.argprom.exit ], [ %124, %130 ], [ %124, %.lr.ph216 ]
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %189 = getelementptr inbounds i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
@@ -866,10 +866,10 @@ Bmc_ObjChild1Frames.exit:                         ; preds = %Bmc_ObjChild0Frames
   %206 = sext i32 %201 to i64
   br label %.lr.ph222
 
-.lr.ph222:                                        ; preds = %.lr.ph222.preheader, %Bmc_ObjChild0Frames.exit188
-  %indvars.iv249 = phi i64 [ %206, %.lr.ph222.preheader ], [ %indvars.iv.next250, %Bmc_ObjChild0Frames.exit188 ]
-  %indvars.iv247 = phi i64 [ 0, %.lr.ph222.preheader ], [ %indvars.iv.next248, %Bmc_ObjChild0Frames.exit188 ]
-  %207 = phi ptr [ %203, %.lr.ph222.preheader ], [ %232, %Bmc_ObjChild0Frames.exit188 ]
+.lr.ph222:                                        ; preds = %.lr.ph222.preheader, %Bmc_ObjChild0Frames.argprom.exit188
+  %indvars.iv249 = phi i64 [ %206, %.lr.ph222.preheader ], [ %indvars.iv.next250, %Bmc_ObjChild0Frames.argprom.exit188 ]
+  %indvars.iv247 = phi i64 [ 0, %.lr.ph222.preheader ], [ %indvars.iv.next248, %Bmc_ObjChild0Frames.argprom.exit188 ]
+  %207 = phi ptr [ %203, %.lr.ph222.preheader ], [ %232, %Bmc_ObjChild0Frames.argprom.exit188 ]
   %208 = getelementptr i8, ptr %207, i64 8
   %.val130 = load ptr, ptr %208, align 8
   %209 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv249
@@ -879,7 +879,7 @@ Bmc_ObjChild1Frames.exit:                         ; preds = %Bmc_ObjChild0Frames
   %212 = ptrtoint ptr %.val168 to i64
   %213 = and i64 %212, -2
   %.not.i182 = icmp eq i64 %213, 0
-  br i1 %.not.i182, label %Bmc_ObjChild0Frames.exit188, label %214
+  br i1 %.not.i182, label %Bmc_ObjChild0Frames.argprom.exit188, label %214
 
 214:                                              ; preds = %.lr.ph222
   %215 = inttoptr i64 %213 to ptr
@@ -902,9 +902,9 @@ Bmc_ObjChild1Frames.exit:                         ; preds = %Bmc_ObjChild0Frames
   %227 = ptrtoint ptr %225 to i64
   %228 = xor i64 %226, %227
   %229 = inttoptr i64 %228 to ptr
-  br label %Bmc_ObjChild0Frames.exit188
+  br label %Bmc_ObjChild0Frames.argprom.exit188
 
-Bmc_ObjChild0Frames.exit188:                      ; preds = %.lr.ph222, %214
+Bmc_ObjChild0Frames.argprom.exit188:              ; preds = %.lr.ph222, %214
   %230 = phi ptr [ %229, %214 ], [ null, %.lr.ph222 ]
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %231 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv247
@@ -917,7 +917,7 @@ Bmc_ObjChild0Frames.exit188:                      ; preds = %.lr.ph222, %214
   %235 = icmp slt i64 %indvars.iv.next250, %234
   br i1 %235, label %.lr.ph222, label %.critedge6, !llvm.loop !13
 
-.critedge6:                                       ; preds = %Bmc_ObjChild0Frames.exit188, %198
+.critedge6:                                       ; preds = %Bmc_ObjChild0Frames.argprom.exit188, %198
   %236 = getelementptr i8, ptr %.lcssa, i64 136
   %.val157 = load i32, ptr %236, align 8
   %237 = sub nsw i32 %.val157, %.val161
@@ -1016,9 +1016,9 @@ Bmc_ObjChild0Frames.exit188:                      ; preds = %.lr.ph222, %214
   %282 = icmp sgt i32 %.val172229, %.val163230
   br i1 %282, label %.lr.ph232, label %.critedge10
 
-.lr.ph232:                                        ; preds = %.preheader198, %Bmc_ObjChild0Frames.exit195
-  %indvars.iv261 = phi i64 [ %indvars.iv.next262, %Bmc_ObjChild0Frames.exit195 ], [ 0, %.preheader198 ]
-  %283 = phi ptr [ %310, %Bmc_ObjChild0Frames.exit195 ], [ %279, %.preheader198 ]
+.lr.ph232:                                        ; preds = %.preheader198, %Bmc_ObjChild0Frames.argprom.exit195
+  %indvars.iv261 = phi i64 [ %indvars.iv.next262, %Bmc_ObjChild0Frames.argprom.exit195 ], [ 0, %.preheader198 ]
+  %283 = phi ptr [ %310, %Bmc_ObjChild0Frames.argprom.exit195 ], [ %279, %.preheader198 ]
   %284 = getelementptr inbounds i8, ptr %283, i64 24
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr i8, ptr %285, i64 8
@@ -1030,7 +1030,7 @@ Bmc_ObjChild0Frames.exit188:                      ; preds = %.lr.ph222, %214
   %290 = ptrtoint ptr %.val169 to i64
   %291 = and i64 %290, -2
   %.not.i189 = icmp eq i64 %291, 0
-  br i1 %.not.i189, label %Bmc_ObjChild0Frames.exit195, label %292
+  br i1 %.not.i189, label %Bmc_ObjChild0Frames.argprom.exit195, label %292
 
 292:                                              ; preds = %.lr.ph232
   %293 = inttoptr i64 %291 to ptr
@@ -1053,9 +1053,9 @@ Bmc_ObjChild0Frames.exit188:                      ; preds = %.lr.ph222, %214
   %305 = ptrtoint ptr %303 to i64
   %306 = xor i64 %304, %305
   %307 = inttoptr i64 %306 to ptr
-  br label %Bmc_ObjChild0Frames.exit195
+  br label %Bmc_ObjChild0Frames.argprom.exit195
 
-Bmc_ObjChild0Frames.exit195:                      ; preds = %.lr.ph232, %292
+Bmc_ObjChild0Frames.argprom.exit195:              ; preds = %.lr.ph232, %292
   %308 = phi ptr [ %307, %292 ], [ null, %.lr.ph232 ]
   %309 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %10, ptr noundef %308) #15
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
@@ -1069,7 +1069,7 @@ Bmc_ObjChild0Frames.exit195:                      ; preds = %.lr.ph232, %292
   %315 = icmp slt i64 %indvars.iv.next262, %314
   br i1 %315, label %.lr.ph232, label %.critedge10.loopexit, !llvm.loop !16
 
-.critedge10.loopexit:                             ; preds = %Bmc_ObjChild0Frames.exit195
+.critedge10.loopexit:                             ; preds = %Bmc_ObjChild0Frames.argprom.exit195
   %.pre273 = load i32, ptr %7, align 8
   br label %.critedge10
 

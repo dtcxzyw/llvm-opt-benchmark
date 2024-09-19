@@ -48,7 +48,7 @@ define void @ompi_info_delete_f(ptr nocapture noundef readonly %0, ptr noundef %
   %.pre15.i = load i8, ptr @opal_uses_threads, align 1
   br label %.lr.ph.i
 
-11:                                               ; preds = %opal_pointer_array_get_item.exit.i
+11:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr @ompi_errcode_intern_lastused, align 4
   %13 = sext i32 %12 to i64
@@ -76,21 +76,21 @@ define void @ompi_info_delete_f(ptr nocapture noundef readonly %0, ptr noundef %
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = trunc i8 %22 to i1
-  br i1 %26, label %27, label %opal_pointer_array_get_item.exit.i
+  br i1 %26, label %27, label %opal_pointer_array_get_item.argprom.exit.i
 
 27:                                               ; preds = %21
   %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 32)) #5
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
-  br label %opal_pointer_array_get_item.exit.i
+  br label %opal_pointer_array_get_item.argprom.exit.i
 
-opal_pointer_array_get_item.exit.i:               ; preds = %27, %21
+opal_pointer_array_get_item.argprom.exit.i:       ; preds = %27, %21
   %29 = phi i8 [ %22, %21 ], [ %.pre.i, %27 ]
   %30 = getelementptr inbounds i8, ptr %25, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %6
   br i1 %32, label %33, label %11
 
-33:                                               ; preds = %opal_pointer_array_get_item.exit.i
+33:                                               ; preds = %opal_pointer_array_get_item.argprom.exit.i
   %34 = getelementptr inbounds i8, ptr %25, i64 20
   %35 = load i32, ptr %34, align 4
   br label %ompi_errcode_get_mpi_code.exit

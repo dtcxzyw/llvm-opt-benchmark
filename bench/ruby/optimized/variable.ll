@@ -1713,13 +1713,13 @@ define hidden noundef i64 @rb_gvar_set(i64 noundef %0, i64 noundef returned %1) 
   %10 = getelementptr inbounds i8, ptr %.val, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %rb_gvar_set_entry.exit, label %12
+  br i1 %.not.i, label %rb_gvar_set_entry.argprom.exit, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %.val, i64 4
   %14 = load i32, ptr %13, align 4
   %.not11.i = icmp eq i32 %14, 0
-  br i1 %.not11.i, label %15, label %rb_gvar_set_entry.exit
+  br i1 %.not11.i, label %15, label %rb_gvar_set_entry.argprom.exit
 
 15:                                               ; preds = %12
   store i32 1, ptr %13, align 4
@@ -1729,9 +1729,9 @@ define hidden noundef i64 @rb_gvar_set(i64 noundef %0, i64 noundef returned %1) 
   %17 = ptrtoint ptr %3 to i64
   %18 = ptrtoint ptr %.val to i64
   %19 = call i64 @rb_ensure(ptr noundef nonnull @trace_ev, i64 noundef %17, ptr noundef nonnull @trace_en, i64 noundef %18) #24
-  br label %rb_gvar_set_entry.exit
+  br label %rb_gvar_set_entry.argprom.exit
 
-rb_gvar_set_entry.exit:                           ; preds = %2, %12, %15
+rb_gvar_set_entry.argprom.exit:                   ; preds = %2, %12, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret i64 %1
 }
@@ -2092,18 +2092,18 @@ define hidden range(i32 0, 2) i32 @rb_gen_ivtbl_get(i64 noundef %0, i64 noundef 
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %3
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %3, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %3, %7
   %8 = call i32 @rb_is_instance_id(i64 noundef %1) #29
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %generic_ivtbl.exit, label %9
 
-9:                                                ; preds = %rb_vm_lock_enter.exit
+9:                                                ; preds = %rb_vm_lock_enter.argprom.exit
   %10 = inttoptr i64 %0 to ptr
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 2048
@@ -2139,7 +2139,7 @@ rb_ractor_shareable_p.exit.thread.i:              ; preds = %rb_ractor_shareable
   call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.42) #25
   unreachable
 
-generic_ivtbl.exit:                               ; preds = %rb_vm_lock_enter.exit, %9, %rb_ractor_main_p.exit.i, %rb_ractor_shareable_p.exit.i
+generic_ivtbl.exit:                               ; preds = %rb_vm_lock_enter.argprom.exit, %9, %rb_ractor_main_p.exit.i, %rb_ractor_shareable_p.exit.i
   %25 = load ptr, ptr @generic_iv_tbl_, align 8
   %26 = call i32 @rb_st_lookup(ptr noundef %25, i64 noundef %0, ptr noundef nonnull %4) #24
   %.not = icmp eq i32 %26, 0
@@ -2155,13 +2155,13 @@ generic_ivtbl.exit:                               ; preds = %rb_vm_lock_enter.ex
   %.0 = phi i32 [ 1, %27 ], [ 0, %generic_ivtbl.exit ]
   %31 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i5 = icmp eq ptr %31, null
-  br i1 %.not.i.i5, label %32, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i5, label %32, label %rb_vm_lock_leave.argprom.exit
 
 32:                                               ; preds = %30
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %30, %32
+rb_vm_lock_leave.argprom.exit:                    ; preds = %30, %32
   ret i32 %.0
 }
 
@@ -2505,17 +2505,17 @@ define hidden i64 @rb_ivar_lookup(i64 noundef %0, i64 noundef %1, i64 noundef %2
 22:                                               ; preds = %15, %15
   %23 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %24, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %24, label %rb_vm_lock_enter.argprom.exit
 
 24:                                               ; preds = %22
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %22, %24
+rb_vm_lock_enter.argprom.exit:                    ; preds = %22, %24
   %25 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %0) #24
   br i1 %25, label %26, label %32
 
-26:                                               ; preds = %rb_vm_lock_enter.exit
+26:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %27 = getelementptr inbounds i8, ptr %16, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @rb_st_lookup(ptr noundef %28, i64 noundef %1, ptr noundef nonnull %4) #24
@@ -2526,13 +2526,13 @@ rb_vm_lock_enter.exit:                            ; preds = %22, %24
   store i64 %2, ptr %4, align 8
   %30 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i45 = icmp eq ptr %30, null
-  br i1 %.not.i.i45, label %31, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i45, label %31, label %rb_vm_lock_leave.argprom.exit
 
 31:                                               ; preds = %.critedge
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-32:                                               ; preds = %rb_vm_lock_enter.exit
+32:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   store i32 0, ptr %6, align 4
   %33 = call ptr @rb_shape_get_shape_by_id(i32 noundef %19) #24
   %34 = call zeroext i1 @rb_shape_get_iv_index(ptr noundef %33, i64 noundef %1, ptr noundef nonnull %6) #24
@@ -2552,35 +2552,35 @@ rb_vm_lock_enter.exit:                            ; preds = %22, %24
   store i64 %storemerge, ptr %4, align 8
   %43 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i46 = icmp eq ptr %43, null
-  br i1 %.not.i.i46, label %44, label %rb_vm_lock_leave.exit47
+  br i1 %.not.i.i46, label %44, label %rb_vm_lock_leave.argprom.exit47
 
 44:                                               ; preds = %42
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit47
+  br label %rb_vm_lock_leave.argprom.exit47
 
-rb_vm_lock_leave.exit47:                          ; preds = %42, %44
-  br i1 %34, label %rb_vm_lock_leave.exit49, label %rb_vm_lock_leave.exit
+rb_vm_lock_leave.argprom.exit47:                  ; preds = %42, %44
+  br i1 %34, label %rb_vm_lock_leave.argprom.exit49, label %rb_vm_lock_leave.argprom.exit
 
 .critedge43:                                      ; preds = %26
   %45 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i48 = icmp eq ptr %45, null
-  br i1 %.not.i.i48, label %46, label %rb_vm_lock_leave.exit49
+  br i1 %.not.i.i48, label %46, label %rb_vm_lock_leave.argprom.exit49
 
 46:                                               ; preds = %.critedge43
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit49
+  br label %rb_vm_lock_leave.argprom.exit49
 
-rb_vm_lock_leave.exit49:                          ; preds = %46, %.critedge43, %rb_vm_lock_leave.exit47
+rb_vm_lock_leave.argprom.exit49:                  ; preds = %46, %.critedge43, %rb_vm_lock_leave.argprom.exit47
   %47 = call i32 @rb_is_instance_id(i64 noundef %1) #29
   %.not39 = icmp ne i32 %47, 0
   %48 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i = icmp eq ptr %48, null
   %or.cond = select i1 %.not39, i1 %.not.i, i1 false
-  br i1 %or.cond, label %rb_ractor_main_p.exit, label %rb_vm_lock_leave.exit
+  br i1 %or.cond, label %rb_ractor_main_p.exit, label %rb_vm_lock_leave.argprom.exit
 
-rb_ractor_main_p.exit:                            ; preds = %rb_vm_lock_leave.exit49
+rb_ractor_main_p.exit:                            ; preds = %rb_vm_lock_leave.argprom.exit49
   %49 = call zeroext i1 @rb_ractor_main_p_() #24
-  br i1 %49, label %rb_vm_lock_leave.exit, label %50
+  br i1 %49, label %rb_vm_lock_leave.argprom.exit, label %50
 
 50:                                               ; preds = %rb_ractor_main_p.exit
   %51 = load i64, ptr %4, align 8
@@ -2588,25 +2588,25 @@ rb_ractor_main_p.exit:                            ; preds = %rb_vm_lock_leave.ex
   %53 = icmp ne i64 %52, 0
   %54 = icmp eq i64 %51, 0
   %55 = or i1 %54, %53
-  br i1 %55, label %rb_vm_lock_leave.exit, label %56
+  br i1 %55, label %rb_vm_lock_leave.argprom.exit, label %56
 
 56:                                               ; preds = %50
   %57 = inttoptr i64 %51 to ptr
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 256
   %.not.i50 = icmp eq i64 %59, 0
-  br i1 %.not.i50, label %rb_ractor_shareable_p.exit, label %rb_vm_lock_leave.exit
+  br i1 %.not.i50, label %rb_ractor_shareable_p.exit, label %rb_vm_lock_leave.argprom.exit
 
 rb_ractor_shareable_p.exit:                       ; preds = %56
   %60 = call zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %51) #24
-  br i1 %60, label %rb_vm_lock_leave.exit, label %61
+  br i1 %60, label %rb_vm_lock_leave.argprom.exit, label %61
 
 61:                                               ; preds = %rb_ractor_shareable_p.exit
   %62 = load i64, ptr @rb_eRactorIsolationError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %62, ptr noundef nonnull @.str.17) #25
   unreachable
 
-rb_vm_lock_leave.exit:                            ; preds = %56, %50, %31, %.critedge, %rb_ractor_shareable_p.exit, %rb_ractor_main_p.exit, %rb_vm_lock_leave.exit49, %rb_vm_lock_leave.exit47
+rb_vm_lock_leave.argprom.exit:                    ; preds = %56, %50, %31, %.critedge, %rb_ractor_shareable_p.exit, %rb_ractor_main_p.exit, %rb_vm_lock_leave.argprom.exit49, %rb_vm_lock_leave.argprom.exit47
   %63 = load i64, ptr %4, align 8
   br label %96
 
@@ -2671,8 +2671,8 @@ ROBJECT_IVPTR.exit:                               ; preds = %75, %71, %87
   %95 = load i64, ptr %94, align 8
   br label %96
 
-96:                                               ; preds = %83, %66, %ROBJECT_IVPTR.exit, %77, %3, %91, %rb_vm_lock_leave.exit
-  %.0 = phi i64 [ %95, %91 ], [ %63, %rb_vm_lock_leave.exit ], [ %2, %3 ], [ %2, %77 ], [ %2, %ROBJECT_IVPTR.exit ], [ %spec.select, %66 ], [ %spec.select44, %83 ]
+96:                                               ; preds = %83, %66, %ROBJECT_IVPTR.exit, %77, %3, %91, %rb_vm_lock_leave.argprom.exit
+  %.0 = phi i64 [ %95, %91 ], [ %63, %rb_vm_lock_leave.argprom.exit ], [ %2, %3 ], [ %2, %77 ], [ %2, %ROBJECT_IVPTR.exit ], [ %spec.select, %66 ], [ %spec.select44, %83 ]
   ret i64 %.0
 }
 
@@ -2855,7 +2855,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %9
 rb_shape_set_shape_id.exit:                       ; preds = %13, %15
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %1, ptr %19, align 8
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
 20:                                               ; preds = %2, %2
   %21 = getelementptr inbounds i8, ptr %5, i64 32
@@ -2873,23 +2873,23 @@ rb_shape_set_shape_id.exit:                       ; preds = %13, %15
 
 rb_shape_set_shape_id.exit22:                     ; preds = %20, %24
   store ptr %1, ptr %21, align 8
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
 28:                                               ; preds = %2
   %29 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i, label %30, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %30, label %rb_vm_lock_enter.argprom.exit
 
 30:                                               ; preds = %28
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %28, %30
+rb_vm_lock_enter.argprom.exit:                    ; preds = %28, %30
   %31 = call i32 @rb_is_instance_id(i64 noundef 0) #29
   %.not.i.i23 = icmp eq i32 %31, 0
   br i1 %.not.i.i23, label %generic_ivtbl_no_ractor_check.exit, label %32
 
-32:                                               ; preds = %rb_vm_lock_enter.exit
+32:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %33 = load i64, ptr %5, align 8
   %34 = and i64 %33, 2048
   %.not4.i.i = icmp eq i64 %34, 0
@@ -2924,7 +2924,7 @@ rb_ractor_shareable_p.exit.thread.i.i:            ; preds = %rb_ractor_shareable
   call void (i64, ptr, ...) @rb_raise(i64 noundef %46, ptr noundef nonnull @.str.42) #25
   unreachable
 
-generic_ivtbl_no_ractor_check.exit:               ; preds = %rb_vm_lock_enter.exit, %32, %rb_ractor_main_p.exit.i.i, %rb_ractor_shareable_p.exit.i.i
+generic_ivtbl_no_ractor_check.exit:               ; preds = %rb_vm_lock_enter.argprom.exit, %32, %rb_ractor_main_p.exit.i.i, %rb_ractor_shareable_p.exit.i.i
   %47 = load ptr, ptr @generic_iv_tbl_, align 8
   store ptr null, ptr %4, align 8
   %48 = call i32 @rb_st_lookup(ptr noundef %47, i64 noundef %0, ptr noundef nonnull %4) #24
@@ -2970,13 +2970,13 @@ rb_shape_set_shape_id.exit24:                     ; preds = %50, %52
 rb_shape_set_shape_id.exit25:                     ; preds = %58, %63
   %67 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i26 = icmp eq ptr %67, null
-  br i1 %.not.i.i26, label %68, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i26, label %68, label %rb_vm_lock_leave.argprom.exit
 
 68:                                               ; preds = %rb_shape_set_shape_id.exit25
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %68, %rb_shape_set_shape_id.exit25, %rb_shape_set_shape_id.exit22, %rb_shape_set_shape_id.exit
+rb_vm_lock_leave.argprom.exit:                    ; preds = %68, %rb_shape_set_shape_id.exit25, %rb_shape_set_shape_id.exit22, %rb_shape_set_shape_id.exit
   %.1 = phi ptr [ %22, %rb_shape_set_shape_id.exit22 ], [ %.0, %rb_shape_set_shape_id.exit ], [ %.2, %rb_shape_set_shape_id.exit25 ], [ %.2, %68 ]
   call void @ruby_xfree(ptr noundef %.1) #24
   ret void
@@ -3068,13 +3068,13 @@ ROBJECT_IV_COUNT.exit:                            ; preds = %15, %20
 30:                                               ; preds = %28
   %31 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i, label %32, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %32, label %rb_vm_lock_enter.argprom.exit.i
 
 32:                                               ; preds = %30
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %32, %30
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %32, %30
   %33 = getelementptr inbounds i8, ptr %9, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = call i64 @rb_st_table_size(ptr noundef %34) #24
@@ -3083,7 +3083,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %32, %30
   %.not.i.i5.i = icmp eq ptr %37, null
   br i1 %.not.i.i5.i, label %38, label %RCLASS_IV_COUNT.exit
 
-38:                                               ; preds = %rb_vm_lock_enter.exit.i
+38:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #24
   br label %RCLASS_IV_COUNT.exit
 
@@ -3096,8 +3096,8 @@ rb_vm_lock_enter.exit.i:                          ; preds = %32, %30
   %45 = load i32, ptr %44, align 8
   br label %RCLASS_IV_COUNT.exit
 
-RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.exit.i, %38, %39
-  %.0.i9 = phi i32 [ %45, %39 ], [ %36, %rb_vm_lock_enter.exit.i ], [ %36, %38 ]
+RCLASS_IV_COUNT.exit:                             ; preds = %rb_vm_lock_enter.argprom.exit.i, %38, %39
+  %.0.i9 = phi i32 [ %45, %39 ], [ %36, %rb_vm_lock_enter.argprom.exit.i ], [ %36, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %46 = zext i32 %.0.i9 to i64
   br label %gen_ivtbl_count.exit
@@ -3215,7 +3215,7 @@ define dso_local void @rb_ivar_foreach(i64 noundef %0, ptr noundef %1, i64 nound
   %10 = icmp ne i64 %9, 0
   %11 = icmp eq i64 %0, 0
   %12 = or i1 %11, %10
-  br i1 %12, label %rb_vm_lock_leave.exit, label %13
+  br i1 %12, label %rb_vm_lock_leave.argprom.exit, label %13
 
 13:                                               ; preds = %3
   %14 = inttoptr i64 %0 to ptr
@@ -3252,12 +3252,12 @@ define dso_local void @rb_ivar_foreach(i64 noundef %0, ptr noundef %1, i64 nound
 
 obj_ivar_each.exit:                               ; preds = %23, %28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
 30:                                               ; preds = %13, %13
   %31 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %rb_ractor_main_p.exit.i, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %rb_ractor_main_p.exit.i, label %rb_vm_lock_enter.argprom.exit
 
 rb_ractor_main_p.exit.i:                          ; preds = %30
   %32 = tail call zeroext i1 @rb_ractor_main_p_() #24
@@ -3276,13 +3276,13 @@ rb_ractor_main_p.exit.i:                          ; preds = %30
 IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit:         ; preds = %rb_ractor_main_p.exit.i, %33
   %.pr = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i11 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i11, label %37, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i11, label %37, label %rb_vm_lock_enter.argprom.exit
 
 37:                                               ; preds = %IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %30, %IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit, %37
+rb_vm_lock_enter.argprom.exit:                    ; preds = %30, %IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit, %37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %38 = call ptr @rb_shape_get_shape(i64 noundef %0) #24
   store i64 %0, ptr %6, align 8
@@ -3293,14 +3293,14 @@ rb_vm_lock_enter.exit:                            ; preds = %30, %IVAR_ACCESSOR_
   %41 = call zeroext i1 @rb_shape_obj_too_complex(i64 noundef %0) #24
   br i1 %41, label %42, label %47
 
-42:                                               ; preds = %rb_vm_lock_enter.exit
+42:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %43 = getelementptr inbounds i8, ptr %14, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %6 to i64
   %46 = call i32 @rb_st_foreach(ptr noundef %44, ptr noundef nonnull @each_hash_iv, i64 noundef %45) #24
   br label %class_ivar_each.exit
 
-47:                                               ; preds = %rb_vm_lock_enter.exit
+47:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %48 = call fastcc zeroext i1 @iterate_over_shapes_with_callback(ptr noundef %38, ptr noundef %1, ptr noundef %6)
   br label %class_ivar_each.exit
 
@@ -3308,11 +3308,11 @@ class_ivar_each.exit:                             ; preds = %42, %47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %49 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i12 = icmp eq ptr %49, null
-  br i1 %.not.i.i12, label %50, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i12, label %50, label %rb_vm_lock_leave.argprom.exit
 
 50:                                               ; preds = %class_ivar_each.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
 RB_FL_TEST.exit:                                  ; preds = %13
   %51 = and i64 %15, 31
@@ -3320,7 +3320,7 @@ RB_FL_TEST.exit:                                  ; preds = %13
   %53 = and i64 %15, 1024
   %.not15 = icmp eq i64 %53, 0
   %.not = or i1 %52, %.not15
-  br i1 %.not, label %rb_vm_lock_leave.exit, label %54
+  br i1 %.not, label %rb_vm_lock_leave.argprom.exit, label %54
 
 54:                                               ; preds = %RB_FL_TEST.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -3355,9 +3355,9 @@ RB_FL_TEST.exit:                                  ; preds = %13
 gen_ivar_each.exit:                               ; preds = %54, %63, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %50, %class_ivar_each.exit, %RB_FL_TEST.exit, %gen_ivar_each.exit, %3, %obj_ivar_each.exit
+rb_vm_lock_leave.argprom.exit:                    ; preds = %50, %class_ivar_each.exit, %RB_FL_TEST.exit, %gen_ivar_each.exit, %3, %obj_ivar_each.exit
   ret void
 }
 
@@ -3687,18 +3687,18 @@ IVAR_ACCESSOR_SHOULD_BE_MAIN_RACTOR.exit:         ; preds = %15, %rb_ractor_main
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %59 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i7.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i7.i, label %60, label %rb_vm_lock_enter.exit.i8.i
+  br i1 %.not.i.i.i7.i, label %60, label %rb_vm_lock_enter.argprom.exit.i8.i
 
 60:                                               ; preds = %58
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit.i8.i
+  br label %rb_vm_lock_enter.argprom.exit.i8.i
 
-rb_vm_lock_enter.exit.i8.i:                       ; preds = %60, %58
+rb_vm_lock_enter.argprom.exit.i8.i:               ; preds = %60, %58
   %61 = call i32 @rb_is_instance_id(i64 noundef %1) #29
   %.not.i.i9.i = icmp eq i32 %61, 0
   br i1 %.not.i.i9.i, label %generic_ivtbl.exit.i13.i, label %62
 
-62:                                               ; preds = %rb_vm_lock_enter.exit.i8.i
+62:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i8.i
   %63 = load i64, ptr %9, align 8
   %64 = and i64 %63, 2048
   %.not4.i.i10.i = icmp eq i64 %64, 0
@@ -3733,7 +3733,7 @@ rb_ractor_shareable_p.exit.thread.i.i17.i:        ; preds = %rb_ractor_shareable
   call void (i64, ptr, ...) @rb_raise(i64 noundef %76, ptr noundef nonnull @.str.42) #25
   unreachable
 
-generic_ivtbl.exit.i13.i:                         ; preds = %rb_ractor_shareable_p.exit.i.i18.i, %rb_ractor_main_p.exit.i.i15.i, %62, %rb_vm_lock_enter.exit.i8.i
+generic_ivtbl.exit.i13.i:                         ; preds = %rb_ractor_shareable_p.exit.i.i18.i, %rb_ractor_main_p.exit.i.i15.i, %62, %rb_vm_lock_enter.argprom.exit.i8.i
   %77 = load ptr, ptr @generic_iv_tbl_, align 8
   %78 = ptrtoint ptr %8 to i64
   %79 = call i32 @rb_st_update(ptr noundef %77, i64 noundef %0, ptr noundef nonnull @generic_ivar_lookup_ensure_size, i64 noundef %78) #24
@@ -3779,18 +3779,18 @@ generic_ivar_set_shape_ivptr.exit.i:              ; preds = %81, %generic_ivtbl.
   store ptr %97, ptr %96, align 8
   %98 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %98, null
-  br i1 %.not.i.i.i.i, label %99, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %99, label %rb_vm_lock_enter.argprom.exit.i.i
 
 99:                                               ; preds = %95
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %99, %95
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %99, %95
   %100 = call i32 @rb_is_instance_id(i64 noundef %1) #29
   %.not.i.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i.i, label %generic_ivtbl.exit.i.i, label %101
 
-101:                                              ; preds = %rb_vm_lock_enter.exit.i.i
+101:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   %102 = load i64, ptr %9, align 8
   %103 = and i64 %102, 2048
   %.not4.i.i.i = icmp eq i64 %103, 0
@@ -3825,26 +3825,26 @@ rb_ractor_shareable_p.exit.thread.i.i.i:          ; preds = %rb_ractor_shareable
   call void (i64, ptr, ...) @rb_raise(i64 noundef %115, ptr noundef nonnull @.str.42) #25
   unreachable
 
-generic_ivtbl.exit.i.i:                           ; preds = %rb_ractor_shareable_p.exit.i.i.i, %rb_ractor_main_p.exit.i.i.i, %101, %rb_vm_lock_enter.exit.i.i
+generic_ivtbl.exit.i.i:                           ; preds = %rb_ractor_shareable_p.exit.i.i.i, %rb_ractor_main_p.exit.i.i.i, %101, %rb_vm_lock_enter.argprom.exit.i.i
   %116 = load ptr, ptr @generic_iv_tbl_, align 8
   %117 = ptrtoint ptr %96 to i64
   %118 = call i32 @rb_st_insert(ptr noundef %116, i64 noundef %0, i64 noundef %117) #24
   %119 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i6.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i6.i.i, label %120, label %rb_vm_lock_leave.exit.i.i
+  br i1 %.not.i.i6.i.i, label %120, label %rb_vm_lock_leave.argprom.exit.i.i
 
 120:                                              ; preds = %generic_ivtbl.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_leave.exit.i.i
+  br label %rb_vm_lock_leave.argprom.exit.i.i
 
-rb_vm_lock_leave.exit.i.i:                        ; preds = %120, %generic_ivtbl.exit.i.i
+rb_vm_lock_leave.argprom.exit.i.i:                ; preds = %120, %generic_ivtbl.exit.i.i
   %121 = load i64, ptr %9, align 8
   %122 = or i64 %121, 1024
   store i64 %122, ptr %9, align 8
   br label %generic_ivar_set_too_complex_table.exit.i
 
-generic_ivar_set_too_complex_table.exit.i:        ; preds = %rb_vm_lock_leave.exit.i.i, %._crit_edge.i.i
-  %123 = phi ptr [ %.pre.i6.i, %._crit_edge.i.i ], [ %96, %rb_vm_lock_leave.exit.i.i ]
+generic_ivar_set_too_complex_table.exit.i:        ; preds = %rb_vm_lock_leave.argprom.exit.i.i, %._crit_edge.i.i
+  %123 = phi ptr [ %.pre.i6.i, %._crit_edge.i.i ], [ %96, %rb_vm_lock_leave.argprom.exit.i.i ]
   %124 = load ptr, ptr %123, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -4083,8 +4083,8 @@ gen_ivtbl_resize.exit:                            ; preds = %58, %51
   %62 = getelementptr inbounds i8, ptr %29, i64 8
   br label %63
 
-63:                                               ; preds = %.lr.ph, %rb_obj_write.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_obj_write.exit ]
+63:                                               ; preds = %.lr.ph, %rb_obj_write.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %rb_obj_write.argprom.exit ]
   %64 = getelementptr [1 x i64], ptr %61, i64 0, i64 %indvars.iv
   %65 = getelementptr [1 x i64], ptr %62, i64 0, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8
@@ -4093,35 +4093,35 @@ gen_ivtbl_resize.exit:                            ; preds = %58, %51
   %68 = icmp ne i64 %67, 0
   %69 = icmp eq i64 %66, 0
   %70 = or i1 %69, %68
-  br i1 %70, label %rb_obj_write.exit, label %71
+  br i1 %70, label %rb_obj_write.argprom.exit, label %71
 
 71:                                               ; preds = %63
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %66) #24
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %63, %71
+rb_obj_write.argprom.exit:                        ; preds = %63, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %29, align 8
   %73 = zext i32 %72 to i64
   %74 = icmp ult i64 %indvars.iv.next, %73
   br i1 %74, label %63, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %rb_obj_write.exit, %gen_ivtbl_resize.exit, %47
-  %.0 = phi ptr [ %48, %47 ], [ %56, %gen_ivtbl_resize.exit ], [ %56, %rb_obj_write.exit ]
+.loopexit:                                        ; preds = %rb_obj_write.argprom.exit, %gen_ivtbl_resize.exit, %47
+  %.0 = phi ptr [ %48, %47 ], [ %56, %gen_ivtbl_resize.exit ], [ %56, %rb_obj_write.argprom.exit ]
   %75 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i, label %76, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %76, label %rb_vm_lock_enter.argprom.exit
 
 76:                                               ; preds = %.loopexit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %.loopexit, %76
+rb_vm_lock_enter.argprom.exit:                    ; preds = %.loopexit, %76
   %77 = call i32 @rb_is_instance_id(i64 noundef 0) #29
   %.not.i.i34 = icmp eq i32 %77, 0
   br i1 %.not.i.i34, label %generic_ivtbl_no_ractor_check.exit43, label %78
 
-78:                                               ; preds = %rb_vm_lock_enter.exit
+78:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %79 = load i64, ptr %10, align 8
   %80 = and i64 %79, 2048
   %.not4.i.i = icmp eq i64 %80, 0
@@ -4177,25 +4177,25 @@ rb_ractor_shareable_p.exit.thread.i.i41:          ; preds = %rb_ractor_shareable
   call void (i64, ptr, ...) @rb_raise(i64 noundef %97, ptr noundef nonnull @.str.42) #25
   unreachable
 
-generic_ivtbl_no_ractor_check.exit43:             ; preds = %rb_vm_lock_enter.exit, %88, %rb_ractor_main_p.exit.i.i39, %rb_ractor_shareable_p.exit.i.i42
+generic_ivtbl_no_ractor_check.exit43:             ; preds = %rb_vm_lock_enter.argprom.exit, %88, %rb_ractor_main_p.exit.i.i39, %rb_ractor_shareable_p.exit.i.i42
   %98 = load ptr, ptr @generic_iv_tbl_, align 8
   %99 = ptrtoint ptr %.0 to i64
   %100 = call i32 @rb_st_insert(ptr noundef %98, i64 noundef %0, i64 noundef %99) #24
   %101 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i44 = icmp eq ptr %101, null
-  br i1 %.not.i.i44, label %102, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i44, label %102, label %rb_vm_lock_leave.argprom.exit
 
 102:                                              ; preds = %generic_ivtbl_no_ractor_check.exit43
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %generic_ivtbl_no_ractor_check.exit43, %102
+rb_vm_lock_leave.argprom.exit:                    ; preds = %generic_ivtbl_no_ractor_check.exit43, %102
   %103 = call ptr @rb_shape_get_shape(i64 noundef %1) #24
   %104 = call i32 @rb_shape_frozen_shape_p(ptr noundef %103) #24
   %.not27 = icmp eq i32 %104, 0
   br i1 %.not27, label %115, label %105
 
-105:                                              ; preds = %rb_vm_lock_leave.exit
+105:                                              ; preds = %rb_vm_lock_leave.argprom.exit
   %106 = getelementptr inbounds i8, ptr %103, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = call i32 @rb_shape_get_shape_id(i64 noundef %0) #24
@@ -4211,7 +4211,7 @@ rb_vm_lock_leave.exit:                            ; preds = %generic_ivtbl_no_ra
   store i64 %114, ptr %10, align 8
   br label %rb_shape_set_shape_id.exit
 
-115:                                              ; preds = %rb_vm_lock_leave.exit
+115:                                              ; preds = %rb_vm_lock_leave.argprom.exit
   call void @rb_shape_set_shape(i64 noundef %0, ptr noundef %103) #24
   br label %rb_shape_set_shape_id.exit
 
@@ -4251,20 +4251,20 @@ define hidden void @rb_replace_generic_ivar(i64 noundef %0, i64 noundef %1) loca
   %5 = alloca i64, align 8
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %7, label %rb_vm_lock_enter.argprom.exit
 
 7:                                                ; preds = %2
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %2, %7
+rb_vm_lock_enter.argprom.exit:                    ; preds = %2, %7
   store i64 %1, ptr %5, align 8
   %8 = load ptr, ptr @generic_iv_tbl_, align 8
   %9 = call i32 @rb_st_lookup(ptr noundef %8, i64 noundef %1, ptr noundef nonnull %4) #24
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %28, label %10
 
-10:                                               ; preds = %rb_vm_lock_enter.exit
+10:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %11 = load ptr, ptr @generic_iv_tbl_, align 8
   %12 = load i64, ptr %4, align 8
   %13 = call i32 @rb_st_insert(ptr noundef %11, i64 noundef %0, i64 noundef %12) #24
@@ -4272,20 +4272,20 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %7
   %15 = call i32 @rb_st_delete(ptr noundef %14, ptr noundef nonnull %5, ptr noundef null) #24
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i4 = icmp eq ptr %16, null
-  br i1 %.not.i.i4, label %17, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i4, label %17, label %rb_vm_lock_leave.argprom.exit
 
 17:                                               ; preds = %10
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %10, %17
+rb_vm_lock_leave.argprom.exit:                    ; preds = %10, %17
   %18 = and i64 %0, 7
   %19 = icmp ne i64 %18, 0
   %20 = icmp eq i64 %0, 0
   %21 = or i1 %20, %19
   br i1 %21, label %RB_FL_SET.exit, label %22
 
-22:                                               ; preds = %rb_vm_lock_leave.exit
+22:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %23 = inttoptr i64 %0 to ptr
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 31
@@ -4297,10 +4297,10 @@ rb_vm_lock_leave.exit:                            ; preds = %10, %17
   store i64 %27, ptr %23, align 8
   br label %RB_FL_SET.exit
 
-RB_FL_SET.exit:                                   ; preds = %rb_vm_lock_leave.exit, %22, %.critedge.i
+RB_FL_SET.exit:                                   ; preds = %rb_vm_lock_leave.argprom.exit, %22, %.critedge.i
   ret void
 
-28:                                               ; preds = %rb_vm_lock_enter.exit
+28:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.18) #32
   unreachable
 }
@@ -4590,32 +4590,32 @@ define internal range(i64 0, 21) i64 @autoload_synchronized(i64 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.argprom.exit.i
 
 13:                                               ; preds = %11
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %13, %11
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %13, %11
   %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %7, ptr noundef nonnull %2) #24
   %.not6.i = icmp eq i32 %14, 0
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %15, null
-  br i1 %.not.i.i7.i, label %16, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %16, label %rb_vm_lock_leave.argprom.exit.i
 
-16:                                               ; preds = %rb_vm_lock_enter.exit.i
+16:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %16, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %16, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %1
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %23
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %17 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -4627,7 +4627,7 @@ rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.ex
   %20 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 36
-  br i1 %22, label %23, label %rb_obj_written.exit
+  br i1 %22, label %23, label %rb_obj_written.argprom.exit
 
 23:                                               ; preds = %rb_const_lookup.exit.thread, %18, %rb_const_lookup.exit
   %24 = load i64, ptr %4, align 8
@@ -4682,13 +4682,13 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %51, %44
   %55 = icmp ne i64 %54, 0
   %56 = icmp eq i64 %40, 0
   %57 = or i1 %56, %55
-  br i1 %57, label %rb_obj_write.exit.i, label %58
+  br i1 %57, label %rb_obj_write.argprom.exit.i, label %58
 
 58:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i
   call void @rb_gc_writebarrier(i64 noundef %45, i64 noundef %40) #24
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %58, %RTYPEDDATA_GET_DATA.exit.i
+rb_obj_write.argprom.exit.i:                      ; preds = %58, %RTYPEDDATA_GET_DATA.exit.i
   %59 = getelementptr inbounds i8, ptr %53, i64 8
   store i64 4, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %53, i64 24
@@ -4703,9 +4703,9 @@ rb_obj_write.exit.i:                              ; preds = %58, %RTYPEDDATA_GET
   %65 = call ptr @rb_check_typeddata(i64 noundef %42, ptr noundef nonnull @autoload_data_type) #24
   br label %autoload_feature_lookup_or_create.exit
 
-autoload_feature_lookup_or_create.exit:           ; preds = %rb_obj_write.exit.i, %64
-  %.033 = phi ptr [ %53, %rb_obj_write.exit.i ], [ %65, %64 ]
-  %.0.i31 = phi i64 [ %45, %rb_obj_write.exit.i ], [ %42, %64 ]
+autoload_feature_lookup_or_create.exit:           ; preds = %rb_obj_write.argprom.exit.i, %64
+  %.033 = phi ptr [ %53, %rb_obj_write.argprom.exit.i ], [ %65, %64 ]
+  %.0.i31 = phi i64 [ %45, %rb_obj_write.argprom.exit.i ], [ %42, %64 ]
   %66 = call i64 @rb_data_typed_object_zalloc(i64 noundef 0, i64 noundef 72, ptr noundef nonnull @autoload_const_type) #24
   %67 = inttoptr i64 %66 to ptr
   %68 = getelementptr inbounds i8, ptr %67, i64 24
@@ -4747,13 +4747,13 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %autoload_feature_lo
   %89 = icmp ne i64 %88, 0
   %90 = icmp eq i64 %66, 0
   %91 = or i1 %90, %89
-  br i1 %91, label %rb_obj_written.exit, label %92
+  br i1 %91, label %rb_obj_written.argprom.exit, label %92
 
 92:                                               ; preds = %RTYPEDDATA_GET_DATA.exit
   call void @rb_gc_writebarrier(i64 noundef %.0.i30, i64 noundef %66) #24
-  br label %rb_obj_written.exit
+  br label %rb_obj_written.argprom.exit
 
-rb_obj_written.exit:                              ; preds = %92, %RTYPEDDATA_GET_DATA.exit, %18
+rb_obj_written.argprom.exit:                      ; preds = %92, %RTYPEDDATA_GET_DATA.exit, %18
   %.0 = phi i64 [ 0, %18 ], [ 20, %RTYPEDDATA_GET_DATA.exit ], [ 20, %92 ]
   ret i64 %.0
 }
@@ -4865,29 +4865,29 @@ autoload_data.exit:                               ; preds = %23
 .thread:                                          ; preds = %31
   store i64 4, ptr %.phi.trans.insert, align 8
   store i64 0, ptr %32, align 8
-  br label %autoload_by_current.exit.thread
+  br label %autoload_by_current.argprom.exit.thread
 
 37:                                               ; preds = %31
   %.val.pre = load i64, ptr %.phi.trans.insert, align 8
   %.not.i10 = icmp eq i64 %.val.pre, 4
-  br i1 %.not.i10, label %autoload_by_current.exit.thread, label %autoload_by_current.exit
+  br i1 %.not.i10, label %autoload_by_current.argprom.exit.thread, label %autoload_by_current.argprom.exit
 
-autoload_by_current.exit:                         ; preds = %37
+autoload_by_current.argprom.exit:                 ; preds = %37
   %38 = call i64 @rb_mutex_owned_p(i64 noundef %.val.pre) #24
   %.not14 = icmp eq i64 %38, 0
-  br i1 %.not14, label %autoload_by_current.exit.thread, label %39
+  br i1 %.not14, label %autoload_by_current.argprom.exit.thread, label %39
 
-39:                                               ; preds = %autoload_by_current.exit
+39:                                               ; preds = %autoload_by_current.argprom.exit
   %40 = getelementptr inbounds i8, ptr %27, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 36
-  br i1 %42, label %autoload_by_current.exit.thread, label %get_autoload_data.exit
+  br i1 %42, label %autoload_by_current.argprom.exit.thread, label %get_autoload_data.exit
 
-autoload_by_current.exit.thread:                  ; preds = %.thread, %37, %39, %autoload_by_current.exit
+autoload_by_current.argprom.exit.thread:          ; preds = %.thread, %37, %39, %autoload_by_current.argprom.exit
   br label %get_autoload_data.exit
 
-get_autoload_data.exit:                           ; preds = %26, %autoload_data.exit.thread, %39, %autoload_data.exit, %autoload_by_current.exit.thread
-  %.0 = phi ptr [ null, %autoload_by_current.exit.thread ], [ null, %autoload_data.exit ], [ %27, %39 ], [ null, %autoload_data.exit.thread ], [ null, %26 ]
+get_autoload_data.exit:                           ; preds = %26, %autoload_data.exit.thread, %39, %autoload_data.exit, %autoload_by_current.argprom.exit.thread
+  %.0 = phi ptr [ null, %autoload_by_current.argprom.exit.thread ], [ null, %autoload_data.exit ], [ %27, %39 ], [ null, %autoload_data.exit.thread ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -4909,32 +4909,32 @@ define dso_local i64 @rb_autoload_load(i64 noundef %0, i64 noundef %1) local_unn
 11:                                               ; preds = %2
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.argprom.exit.i
 
 13:                                               ; preds = %11
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %13, %11
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %13, %11
   %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %1, ptr noundef nonnull %3) #24
   %.not6.i = icmp eq i32 %14, 0
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %15, null
-  br i1 %.not.i.i7.i, label %16, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %16, label %rb_vm_lock_leave.argprom.exit.i
 
-16:                                               ; preds = %rb_vm_lock_enter.exit.i
+16:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %16, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %16, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %2
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %44
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %17 = load i64, ptr %3, align 8
   %18 = inttoptr i64 %17 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -5010,33 +5010,33 @@ define hidden ptr @rb_const_lookup(i64 noundef %0, i64 noundef %1) local_unnamed
 8:                                                ; preds = %2
   %9 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %10, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %10, label %rb_vm_lock_enter.argprom.exit
 
 10:                                               ; preds = %8
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %8, %10
+rb_vm_lock_enter.argprom.exit:                    ; preds = %8, %10
   %11 = call i32 @rb_id_table_lookup(ptr noundef nonnull %7, i64 noundef %1, ptr noundef nonnull %3) #24
   %.not6 = icmp eq i32 %11, 0
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %12, null
-  br i1 %.not.i.i7, label %13, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i7, label %13, label %rb_vm_lock_leave.argprom.exit
 
-13:                                               ; preds = %rb_vm_lock_enter.exit
+13:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %rb_vm_lock_enter.exit, %13
+rb_vm_lock_leave.argprom.exit:                    ; preds = %rb_vm_lock_enter.argprom.exit, %13
   br i1 %.not6, label %17, label %14
 
-14:                                               ; preds = %rb_vm_lock_leave.exit
+14:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %15 = load i64, ptr %3, align 8
   %16 = inttoptr i64 %15 to ptr
   br label %17
 
-17:                                               ; preds = %2, %rb_vm_lock_leave.exit, %14
-  %.0 = phi ptr [ %16, %14 ], [ null, %rb_vm_lock_leave.exit ], [ null, %2 ]
+17:                                               ; preds = %2, %rb_vm_lock_leave.argprom.exit, %14
+  %.0 = phi ptr [ %16, %14 ], [ null, %rb_vm_lock_leave.argprom.exit ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -5063,32 +5063,32 @@ define internal i64 @autoload_load_needed(i64 noundef %0) #0 {
 12:                                               ; preds = %1
   %13 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %14, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %14, label %rb_vm_lock_enter.argprom.exit.i.i
 
 14:                                               ; preds = %12
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %14, %12
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %14, %12
   %15 = call i32 @rb_id_table_lookup(ptr noundef nonnull %11, i64 noundef %8, ptr noundef nonnull %2) #24
   %.not6.i.i = icmp eq i32 %15, 0
   %16 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i7.i.i, label %17, label %rb_vm_lock_leave.exit.i.i
+  br i1 %.not.i.i7.i.i, label %17, label %rb_vm_lock_leave.argprom.exit.i.i
 
-17:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+17:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit.i.i
+  br label %rb_vm_lock_leave.argprom.exit.i.i
 
-rb_vm_lock_leave.exit.i.i:                        ; preds = %17, %rb_vm_lock_enter.exit.i.i
+rb_vm_lock_leave.argprom.exit.i.i:                ; preds = %17, %rb_vm_lock_enter.argprom.exit.i.i
   br i1 %.not6.i.i, label %rb_const_lookup.exit.thread.i, label %rb_const_lookup.exit.i
 
-rb_const_lookup.exit.thread.i:                    ; preds = %rb_vm_lock_leave.exit.i.i, %1
+rb_const_lookup.exit.thread.i:                    ; preds = %rb_vm_lock_leave.argprom.exit.i.i, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %get_autoload_data.exit
 
-rb_const_lookup.exit.i:                           ; preds = %rb_vm_lock_leave.exit.i.i
+rb_const_lookup.exit.i:                           ; preds = %rb_vm_lock_leave.argprom.exit.i.i
   %18 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -5166,13 +5166,13 @@ autoload_defined_p.exit:                          ; preds = %19
   %57 = icmp ne i64 %56, 0
   %58 = icmp eq i64 %55, 0
   %59 = or i1 %58, %57
-  br i1 %59, label %rb_obj_write.exit, label %60
+  br i1 %59, label %rb_obj_write.argprom.exit, label %60
 
 60:                                               ; preds = %52
   call void @rb_gc_writebarrier(i64 noundef %54, i64 noundef %55) #24
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %52, %60
+rb_obj_write.argprom.exit:                        ; preds = %52, %60
   %61 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 480
   %63 = load i64, ptr %62, align 8
@@ -5184,8 +5184,8 @@ rb_obj_write.exit:                                ; preds = %52, %60
   %.not24 = icmp eq i64 %65, 0
   br i1 %.not24, label %66, label %get_autoload_data.exit
 
-66:                                               ; preds = %64, %rb_obj_write.exit
-  %67 = phi ptr [ %50, %64 ], [ %53, %rb_obj_write.exit ]
+66:                                               ; preds = %64, %rb_obj_write.argprom.exit
+  %67 = phi ptr [ %50, %64 ], [ %53, %rb_obj_write.argprom.exit ]
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %68, ptr %69, align 8
@@ -5213,34 +5213,34 @@ define internal i64 @autoload_try_load(i64 noundef %0) #0 {
   %11 = tail call i64 @rb_vm_top_self() #26
   %.pr.i.i = load i64, ptr @autoload_feature_require.rbimpl_id, align 8
   %.not1.i.i = icmp eq i64 %.pr.i.i, 0
-  br i1 %.not1.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.i
+  br i1 %.not1.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.argprom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %12 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 7) #24
   store i64 %12, ptr @autoload_feature_require.rbimpl_id, align 8
   %.not.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.exit.loopexit.i, !llvm.loop !39
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %rbimpl_intern_const.argprom.exit.loopexit.i, !llvm.loop !39
 
-rbimpl_intern_const.exit.loopexit.i:              ; preds = %.lr.ph.i.i
+rbimpl_intern_const.argprom.exit.loopexit.i:      ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %10, align 8
-  br label %rbimpl_intern_const.exit.i
+  br label %rbimpl_intern_const.argprom.exit.i
 
-rbimpl_intern_const.exit.i:                       ; preds = %rbimpl_intern_const.exit.loopexit.i, %1
-  %13 = phi ptr [ %9, %1 ], [ %.pre.i, %rbimpl_intern_const.exit.loopexit.i ]
-  %.lcssa.i.i = phi i64 [ %.pr.i.i, %1 ], [ %12, %rbimpl_intern_const.exit.loopexit.i ]
+rbimpl_intern_const.argprom.exit.i:               ; preds = %rbimpl_intern_const.argprom.exit.loopexit.i, %1
+  %13 = phi ptr [ %9, %1 ], [ %.pre.i, %rbimpl_intern_const.argprom.exit.loopexit.i ]
+  %.lcssa.i.i = phi i64 [ %.pr.i.i, %1 ], [ %12, %rbimpl_intern_const.argprom.exit.loopexit.i ]
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %11, i64 noundef %.lcssa.i.i, i32 noundef 1, i64 noundef %14) #24
   %16 = and i64 %15, -5
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %autoload_feature_require.exit, label %17
 
-17:                                               ; preds = %rbimpl_intern_const.exit.i
+17:                                               ; preds = %rbimpl_intern_const.argprom.exit.i
   %18 = load i64, ptr @autoload_mutex, align 8
   %19 = tail call i64 @rb_mutex_synchronize(i64 noundef %18, ptr noundef nonnull @autoload_apply_constants, i64 noundef %0) #24
   br label %autoload_feature_require.exit
 
-autoload_feature_require.exit:                    ; preds = %rbimpl_intern_const.exit.i, %17
-  %.0.i = phi i64 [ %19, %17 ], [ %15, %rbimpl_intern_const.exit.i ]
+autoload_feature_require.exit:                    ; preds = %rbimpl_intern_const.argprom.exit.i, %17
+  %.0.i = phi i64 [ %19, %17 ], [ %15, %rbimpl_intern_const.argprom.exit.i ]
   %20 = load i64, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
@@ -5255,32 +5255,32 @@ autoload_feature_require.exit:                    ; preds = %rbimpl_intern_const
 26:                                               ; preds = %autoload_feature_require.exit
   %27 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %28, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %28, label %rb_vm_lock_enter.argprom.exit.i
 
 28:                                               ; preds = %26
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %28, %26
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %28, %26
   %29 = call i32 @rb_id_table_lookup(ptr noundef nonnull %25, i64 noundef %22, ptr noundef nonnull %2) #24
   %.not6.i = icmp eq i32 %29, 0
   %30 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %30, null
-  br i1 %.not.i.i7.i, label %31, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %31, label %rb_vm_lock_leave.argprom.exit.i
 
-31:                                               ; preds = %rb_vm_lock_enter.exit.i
+31:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %31, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %31, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %autoload_feature_require.exit
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %autoload_feature_require.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %38
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %32 = load i64, ptr %2, align 8
   %33 = inttoptr i64 %32 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -5353,27 +5353,27 @@ define hidden i64 @rb_autoload_at_p(i64 noundef %0, i64 noundef %1, i32 noundef 
 9:                                                ; preds = %.split.us
   %10 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i.us = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.us, label %11, label %rb_vm_lock_enter.exit.i.i.us
+  br i1 %.not.i.i.i.i.us, label %11, label %rb_vm_lock_enter.argprom.exit.i.i.us
 
 11:                                               ; preds = %9
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit.i.i.us
+  br label %rb_vm_lock_enter.argprom.exit.i.i.us
 
-rb_vm_lock_enter.exit.i.i.us:                     ; preds = %11, %9
+rb_vm_lock_enter.argprom.exit.i.i.us:             ; preds = %11, %9
   %12 = call i32 @rb_id_table_lookup(ptr noundef nonnull %8, i64 noundef %1, ptr noundef nonnull %4) #24
   %.not6.i.i.us = icmp eq i32 %12, 0
   %13 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.i.us = icmp eq ptr %13, null
-  br i1 %.not.i.i7.i.i.us, label %14, label %rb_vm_lock_leave.exit.i.i.us
+  br i1 %.not.i.i7.i.i.us, label %14, label %rb_vm_lock_leave.argprom.exit.i.i.us
 
-14:                                               ; preds = %rb_vm_lock_enter.exit.i.i.us
+14:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i.us
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit.i.i.us
+  br label %rb_vm_lock_leave.argprom.exit.i.i.us
 
-rb_vm_lock_leave.exit.i.i.us:                     ; preds = %14, %rb_vm_lock_enter.exit.i.i.us
+rb_vm_lock_leave.argprom.exit.i.i.us:             ; preds = %14, %rb_vm_lock_enter.argprom.exit.i.i.us
   br i1 %.not6.i.i.us, label %rb_const_lookup.exit.thread.i.us, label %rb_const_lookup.exit.i.us
 
-rb_const_lookup.exit.i.us:                        ; preds = %rb_vm_lock_leave.exit.i.i.us
+rb_const_lookup.exit.i.us:                        ; preds = %rb_vm_lock_leave.argprom.exit.i.i.us
   %15 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -5392,7 +5392,7 @@ autoload_defined_p.exit.us:                       ; preds = %16
   %.not.i8.i.not.us = icmp eq ptr %21, null
   br i1 %.not.i8.i.not.us, label %.split23.us, label %get_autoload_data.exit
 
-rb_const_lookup.exit.thread.i.us:                 ; preds = %rb_vm_lock_leave.exit.i.i.us, %.split.us
+rb_const_lookup.exit.thread.i.us:                 ; preds = %rb_vm_lock_leave.argprom.exit.i.i.us, %.split.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %get_autoload_data.exit
@@ -5410,32 +5410,32 @@ rb_const_lookup.exit.thread.i.us:                 ; preds = %rb_vm_lock_leave.ex
 25:                                               ; preds = %.split
   %26 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %27, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %27, label %rb_vm_lock_enter.argprom.exit.i.i
 
 27:                                               ; preds = %25
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %27, %25
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %27, %25
   %28 = call i32 @rb_id_table_lookup(ptr noundef nonnull %24, i64 noundef %1, ptr noundef nonnull %4) #24
   %.not6.i.i = icmp eq i32 %28, 0
   %29 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i7.i.i, label %30, label %rb_vm_lock_leave.exit.i.i
+  br i1 %.not.i.i7.i.i, label %30, label %rb_vm_lock_leave.argprom.exit.i.i
 
-30:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+30:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit.i.i
+  br label %rb_vm_lock_leave.argprom.exit.i.i
 
-rb_vm_lock_leave.exit.i.i:                        ; preds = %30, %rb_vm_lock_enter.exit.i.i
+rb_vm_lock_leave.argprom.exit.i.i:                ; preds = %30, %rb_vm_lock_enter.argprom.exit.i.i
   br i1 %.not6.i.i, label %rb_const_lookup.exit.thread.i, label %rb_const_lookup.exit.i
 
-rb_const_lookup.exit.thread.i:                    ; preds = %rb_vm_lock_leave.exit.i.i, %.split
+rb_const_lookup.exit.thread.i:                    ; preds = %rb_vm_lock_leave.argprom.exit.i.i, %.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %autoload_defined_p.exit.thread
 
-rb_const_lookup.exit.i:                           ; preds = %rb_vm_lock_leave.exit.i.i
+rb_const_lookup.exit.i:                           ; preds = %rb_vm_lock_leave.argprom.exit.i.i
   %31 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -5576,21 +5576,21 @@ autoload_data.exit:                               ; preds = %25
   store i64 4, ptr %.phi.trans.insert, align 8
   store i64 0, ptr %34, align 8
   %39 = load i64, ptr %32, align 8
-  br label %autoload_by_someone_else.exit.thread
+  br label %autoload_by_someone_else.argprom.exit.thread
 
 40:                                               ; preds = %33
   %.val.pre = load i64, ptr %.phi.trans.insert, align 8
   %41 = load i64, ptr %32, align 8
   %.not.i21 = icmp eq i64 %.val.pre, 4
-  br i1 %.not.i21, label %autoload_by_someone_else.exit.thread, label %autoload_by_someone_else.exit
+  br i1 %.not.i21, label %autoload_by_someone_else.argprom.exit.thread, label %autoload_by_someone_else.argprom.exit
 
-autoload_by_someone_else.exit:                    ; preds = %40
+autoload_by_someone_else.argprom.exit:            ; preds = %40
   %42 = call i64 @rb_mutex_owned_p(i64 noundef %.val.pre) #24
   %.not2.i.not = icmp eq i64 %42, 0
-  br i1 %.not2.i.not, label %get_autoload_data.exit, label %autoload_by_someone_else.exit.thread
+  br i1 %.not2.i.not, label %get_autoload_data.exit, label %autoload_by_someone_else.argprom.exit.thread
 
-autoload_by_someone_else.exit.thread:             ; preds = %.thread, %40, %autoload_by_someone_else.exit
-  %43 = phi i64 [ %39, %.thread ], [ %41, %40 ], [ %41, %autoload_by_someone_else.exit ]
+autoload_by_someone_else.argprom.exit.thread:     ; preds = %.thread, %40, %autoload_by_someone_else.argprom.exit
+  %43 = phi i64 [ %39, %.thread ], [ %41, %40 ], [ %41, %autoload_by_someone_else.argprom.exit ]
   %44 = inttoptr i64 %43 to ptr
   %45 = load i64, ptr %44, align 8, !noalias !41
   %46 = and i64 %45, 8192
@@ -5598,12 +5598,12 @@ autoload_by_someone_else.exit.thread:             ; preds = %.thread, %40, %auto
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %48
 
-48:                                               ; preds = %autoload_by_someone_else.exit.thread
+48:                                               ; preds = %autoload_by_someone_else.argprom.exit.thread
   %.sroa.2.0.copyload.i = load ptr, ptr %47, align 8
   br label %RSTRING_PTR.exit
 
-RSTRING_PTR.exit:                                 ; preds = %autoload_by_someone_else.exit.thread, %48
-  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %48 ], [ %47, %autoload_by_someone_else.exit.thread ]
+RSTRING_PTR.exit:                                 ; preds = %autoload_by_someone_else.argprom.exit.thread, %48
+  %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %48 ], [ %47, %autoload_by_someone_else.argprom.exit.thread ]
   store ptr %.sroa.2.0.i, ptr %5, align 8
   %49 = call i32 @rb_feature_provided(ptr noundef %.sroa.2.0.i, ptr noundef nonnull %5) #24
   %.not19 = icmp eq i32 %49, 0
@@ -5620,8 +5620,8 @@ RSTRING_PTR.exit:                                 ; preds = %autoload_by_someone
   store ptr %52, ptr %2, align 8
   br label %get_autoload_data.exit
 
-get_autoload_data.exit:                           ; preds = %28, %autoload_data.exit.thread, %50, %RSTRING_PTR.exit, %autoload_by_someone_else.exit, %autoload_data.exit, %54
-  %.0 = phi i64 [ %27, %54 ], [ 0, %autoload_data.exit ], [ %27, %autoload_by_someone_else.exit ], [ %27, %RSTRING_PTR.exit ], [ 0, %50 ], [ 0, %autoload_data.exit.thread ], [ 0, %28 ]
+get_autoload_data.exit:                           ; preds = %28, %autoload_data.exit.thread, %50, %RSTRING_PTR.exit, %autoload_by_someone_else.argprom.exit, %autoload_data.exit, %54
+  %.0 = phi i64 [ %27, %54 ], [ 0, %autoload_data.exit ], [ %27, %autoload_by_someone_else.argprom.exit ], [ %27, %RSTRING_PTR.exit ], [ 0, %50 ], [ 0, %autoload_data.exit.thread ], [ 0, %28 ]
   ret i64 %.0
 }
 
@@ -5770,7 +5770,7 @@ define hidden i64 @rb_public_const_get_at(i64 noundef %0, i64 noundef %1) local_
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_const_source_location(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call fastcc i64 @rb_const_location_from(i64 noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 1)
+  %3 = tail call fastcc i64 @rb_const_location_from.argelim(i64 noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 1)
   %4 = icmp eq i64 %3, 4
   br i1 %4, label %5, label %rb_const_location.exit
 
@@ -5783,7 +5783,7 @@ define hidden i64 @rb_const_source_location(i64 noundef %0, i64 noundef %1) loca
 
 9:                                                ; preds = %5
   %10 = load i64, ptr @rb_cObject, align 8
-  %11 = tail call fastcc i64 @rb_const_location_from(i64 noundef %10, i64 noundef %1, i32 noundef 0, i32 noundef 1)
+  %11 = tail call fastcc i64 @rb_const_location_from.argelim(i64 noundef %10, i64 noundef %1, i32 noundef 0, i32 noundef 1)
   br label %rb_const_location.exit
 
 rb_const_location.exit:                           ; preds = %2, %5, %9
@@ -5797,7 +5797,7 @@ define hidden i64 @rb_const_source_location_at(i64 noundef %0, i64 noundef %1) l
   %4 = icmp eq i64 %0, %3
   %not. = xor i1 %4, true
   %spec.select.i = zext i1 %not. to i32
-  %5 = tail call fastcc i64 @rb_const_location_from(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef 0)
+  %5 = tail call fastcc i64 @rb_const_location_from.argelim(i64 noundef %0, i64 noundef %1, i32 noundef %spec.select.i, i32 noundef 0)
   %6 = icmp eq i64 %5, 4
   %or.cond.i = and i1 %4, %6
   br i1 %or.cond.i, label %7, label %rb_const_location.exit
@@ -5811,7 +5811,7 @@ define hidden i64 @rb_const_source_location_at(i64 noundef %0, i64 noundef %1) l
 
 11:                                               ; preds = %7
   %12 = load i64, ptr @rb_cObject, align 8
-  %13 = tail call fastcc i64 @rb_const_location_from(i64 noundef %12, i64 noundef %1, i32 noundef 0, i32 noundef 0)
+  %13 = tail call fastcc i64 @rb_const_location_from.argelim(i64 noundef %12, i64 noundef %1, i32 noundef 0, i32 noundef 0)
   br label %rb_const_location.exit
 
 rb_const_location.exit:                           ; preds = %2, %7, %11
@@ -5896,32 +5896,32 @@ rb_check_frozen_inline.exit:                      ; preds = %9
 18:                                               ; preds = %rb_check_frozen_inline.exit
   %19 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %20, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %20, label %rb_vm_lock_enter.argprom.exit.i
 
 20:                                               ; preds = %18
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %20, %18
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %20, %18
   %21 = call i32 @rb_id_table_lookup(ptr noundef nonnull %17, i64 noundef %1, ptr noundef nonnull %3) #24
   %.not6.i = icmp eq i32 %21, 0
   %22 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %22, null
-  br i1 %.not.i.i7.i, label %23, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %23, label %rb_vm_lock_leave.argprom.exit.i
 
-23:                                               ; preds = %rb_vm_lock_enter.exit.i
+23:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %23, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %23, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %rb_check_frozen_inline.exit
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %rb_check_frozen_inline.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %29
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %24 = load i64, ptr %3, align 8
   %25 = inttoptr i64 %24 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -6070,30 +6070,30 @@ define dso_local ptr @rb_mod_const_at(i64 noundef %0, ptr noundef %1) local_unna
   %8 = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
-  br i1 %.not6, label %rb_vm_lock_leave.exit, label %10
+  br i1 %.not6, label %rb_vm_lock_leave.argprom.exit, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %12, label %rb_vm_lock_enter.argprom.exit
 
 12:                                               ; preds = %10
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
   %.pre = load ptr, ptr %8, align 8
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %10, %12
+rb_vm_lock_enter.argprom.exit:                    ; preds = %10, %12
   %13 = phi ptr [ %9, %10 ], [ %.pre, %12 ]
   call void @rb_id_table_foreach(ptr noundef %13, ptr noundef nonnull @sv_i, ptr noundef %.0) #24
   %14 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7 = icmp eq ptr %14, null
-  br i1 %.not.i.i7, label %15, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i7, label %15, label %rb_vm_lock_leave.argprom.exit
 
-15:                                               ; preds = %rb_vm_lock_enter.exit
+15:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %15, %rb_vm_lock_enter.exit, %6
+rb_vm_lock_leave.argprom.exit:                    ; preds = %15, %rb_vm_lock_enter.argprom.exit, %6
   ret ptr %.0
 }
 
@@ -6138,25 +6138,25 @@ define dso_local ptr @rb_mod_const_of(i64 noundef %0, ptr noundef %1) local_unna
 11:                                               ; preds = %7
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %13, label %rb_vm_lock_enter.argprom.exit.i
 
 13:                                               ; preds = %11
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %3) #24
   %.pre.i = load ptr, ptr %9, align 8
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %13, %11
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %13, %11
   %14 = phi ptr [ %10, %11 ], [ %.pre.i, %13 ]
   call void @rb_id_table_foreach(ptr noundef %14, ptr noundef nonnull @sv_i, ptr noundef %.0.i) #24
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %15, null
   br i1 %.not.i.i7.i, label %16, label %rb_mod_const_at.exit
 
-16:                                               ; preds = %rb_vm_lock_enter.exit.i
+16:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %3) #24
   br label %rb_mod_const_at.exit
 
-rb_mod_const_at.exit:                             ; preds = %7, %rb_vm_lock_enter.exit.i, %16
+rb_mod_const_at.exit:                             ; preds = %7, %rb_vm_lock_enter.argprom.exit.i, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %17 = getelementptr inbounds i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
@@ -6263,25 +6263,25 @@ rb_check_arity.exit:                              ; preds = %3
 16:                                               ; preds = %12
   %17 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i, label %18, label %rb_vm_lock_enter.exit.i.i
+  br i1 %.not.i.i.i.i, label %18, label %rb_vm_lock_enter.argprom.exit.i.i
 
 18:                                               ; preds = %16
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
   %.pre.i.i = load ptr, ptr %14, align 8
-  br label %rb_vm_lock_enter.exit.i.i
+  br label %rb_vm_lock_enter.argprom.exit.i.i
 
-rb_vm_lock_enter.exit.i.i:                        ; preds = %18, %16
+rb_vm_lock_enter.argprom.exit.i.i:                ; preds = %18, %16
   %19 = phi ptr [ %15, %16 ], [ %.pre.i.i, %18 ]
   call void @rb_id_table_foreach(ptr noundef %19, ptr noundef nonnull @sv_i, ptr noundef %.0.i.i) #24
   %20 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i7.i.i, label %21, label %rb_mod_const_at.exit.i
 
-21:                                               ; preds = %rb_vm_lock_enter.exit.i.i
+21:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
   br label %rb_mod_const_at.exit.i
 
-rb_mod_const_at.exit.i:                           ; preds = %21, %rb_vm_lock_enter.exit.i.i, %12
+rb_mod_const_at.exit.i:                           ; preds = %21, %rb_vm_lock_enter.argprom.exit.i.i, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %22 = getelementptr inbounds i8, ptr %13, i64 16
   %23 = load i64, ptr %22, align 8
@@ -6326,13 +6326,13 @@ rb_mod_const_of.exit:                             ; preds = %rb_mod_const_at.exi
 39:                                               ; preds = %33
   %40 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %41, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %41, label %rb_vm_lock_enter.argprom.exit.i
 
 41:                                               ; preds = %39
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %41, %39
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %41, %39
   %42 = call i64 @rb_id_table_size(ptr noundef nonnull %36) #24
   %43 = call i64 @rb_ary_new_capa(i64 noundef %42) #24
   %44 = inttoptr i64 %43 to ptr
@@ -6341,12 +6341,12 @@ rb_vm_lock_enter.exit.i:                          ; preds = %41, %39
   %.not.i.i7.i = icmp eq ptr %45, null
   br i1 %.not.i.i7.i, label %46, label %rb_local_constants.exit
 
-46:                                               ; preds = %rb_vm_lock_enter.exit.i
+46:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
   br label %rb_local_constants.exit
 
-rb_local_constants.exit:                          ; preds = %37, %rb_vm_lock_enter.exit.i, %46
-  %.0.i10 = phi i64 [ %38, %37 ], [ %43, %rb_vm_lock_enter.exit.i ], [ %43, %46 ]
+rb_local_constants.exit:                          ; preds = %37, %rb_vm_lock_enter.argprom.exit.i, %46
+  %.0.i10 = phi i64 [ %38, %37 ], [ %43, %rb_vm_lock_enter.argprom.exit.i ], [ %43, %46 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %rb_const_list.exit
 
@@ -6388,34 +6388,34 @@ define internal fastcc range(i32 0, 21) i32 @rb_const_defined_0(i64 noundef %0, 
 11:                                               ; preds = %.lr.ph.us.us
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.us.us.us = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.us.us.us, label %13, label %rb_vm_lock_enter.exit.i.us.us.us
+  br i1 %.not.i.i.i.us.us.us, label %13, label %rb_vm_lock_enter.argprom.exit.i.us.us.us
 
 13:                                               ; preds = %11
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i.us.us.us
+  br label %rb_vm_lock_enter.argprom.exit.i.us.us.us
 
-rb_vm_lock_enter.exit.i.us.us.us:                 ; preds = %13, %11
+rb_vm_lock_enter.argprom.exit.i.us.us.us:         ; preds = %13, %11
   %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %1, ptr noundef nonnull %6) #24
   %.not6.i.us.us.us = icmp eq i32 %14, 0
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.us.us.us = icmp eq ptr %15, null
-  br i1 %.not.i.i7.i.us.us.us, label %16, label %rb_vm_lock_leave.exit.i.us.us.us
+  br i1 %.not.i.i7.i.us.us.us, label %16, label %rb_vm_lock_leave.argprom.exit.i.us.us.us
 
-16:                                               ; preds = %rb_vm_lock_enter.exit.i.us.us.us
+16:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.us.us.us
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_leave.exit.i.us.us.us
+  br label %rb_vm_lock_leave.argprom.exit.i.us.us.us
 
-rb_vm_lock_leave.exit.i.us.us.us:                 ; preds = %16, %rb_vm_lock_enter.exit.i.us.us.us
+rb_vm_lock_leave.argprom.exit.i.us.us.us:         ; preds = %16, %rb_vm_lock_enter.argprom.exit.i.us.us.us
   br i1 %.not6.i.us.us.us, label %rb_const_lookup.exit.thread.us.us.us, label %rb_const_lookup.exit.us.us.us
 
-rb_const_lookup.exit.us.us.us:                    ; preds = %rb_vm_lock_leave.exit.i.us.us.us
+rb_const_lookup.exit.us.us.us:                    ; preds = %rb_vm_lock_leave.argprom.exit.i.us.us.us
   %17 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not24.us.us.us = icmp eq i64 %17, 0
   br i1 %.not24.us.us.us, label %rb_autoloading_value.exit.thread, label %.split.us
 
-rb_const_lookup.exit.thread.us.us.us:             ; preds = %rb_vm_lock_leave.exit.i.us.us.us, %.lr.ph.us.us
+rb_const_lookup.exit.thread.us.us.us:             ; preds = %rb_vm_lock_leave.argprom.exit.i.us.us.us, %.lr.ph.us.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %rb_autoloading_value.exit.thread
@@ -6451,34 +6451,34 @@ rb_const_lookup.exit.thread.us.us.us:             ; preds = %rb_vm_lock_leave.ex
 28:                                               ; preds = %.lr.ph.us
   %29 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.us.us = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.us.us, label %30, label %rb_vm_lock_enter.exit.i.us.us
+  br i1 %.not.i.i.i.us.us, label %30, label %rb_vm_lock_enter.argprom.exit.i.us.us
 
 30:                                               ; preds = %28
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i.us.us
+  br label %rb_vm_lock_enter.argprom.exit.i.us.us
 
-rb_vm_lock_enter.exit.i.us.us:                    ; preds = %30, %28
+rb_vm_lock_enter.argprom.exit.i.us.us:            ; preds = %30, %28
   %31 = call i32 @rb_id_table_lookup(ptr noundef nonnull %27, i64 noundef %1, ptr noundef nonnull %6) #24
   %.not6.i.us.us = icmp eq i32 %31, 0
   %32 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.us.us = icmp eq ptr %32, null
-  br i1 %.not.i.i7.i.us.us, label %33, label %rb_vm_lock_leave.exit.i.us.us
+  br i1 %.not.i.i7.i.us.us, label %33, label %rb_vm_lock_leave.argprom.exit.i.us.us
 
-33:                                               ; preds = %rb_vm_lock_enter.exit.i.us.us
+33:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.us.us
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_leave.exit.i.us.us
+  br label %rb_vm_lock_leave.argprom.exit.i.us.us
 
-rb_vm_lock_leave.exit.i.us.us:                    ; preds = %33, %rb_vm_lock_enter.exit.i.us.us
+rb_vm_lock_leave.argprom.exit.i.us.us:            ; preds = %33, %rb_vm_lock_enter.argprom.exit.i.us.us
   br i1 %.not6.i.us.us, label %rb_const_lookup.exit.thread.us.us, label %rb_const_lookup.exit.us.us
 
-rb_const_lookup.exit.us.us:                       ; preds = %rb_vm_lock_leave.exit.i.us.us
+rb_const_lookup.exit.us.us:                       ; preds = %rb_vm_lock_leave.argprom.exit.i.us.us
   %34 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not24.us.us = icmp eq i64 %34, 0
   br i1 %.not24.us.us, label %._crit_edge.split.us.us, label %.split.us
 
-rb_const_lookup.exit.thread.us.us:                ; preds = %rb_vm_lock_leave.exit.i.us.us, %.lr.ph.us
+rb_const_lookup.exit.thread.us.us:                ; preds = %rb_vm_lock_leave.argprom.exit.i.us.us, %.lr.ph.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %._crit_edge.split.us.us
@@ -6503,34 +6503,34 @@ rb_const_lookup.exit.thread.us.us:                ; preds = %rb_vm_lock_leave.ex
 38:                                               ; preds = %.lr.ph.us50
   %39 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.us = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.us, label %40, label %rb_vm_lock_enter.exit.i.us
+  br i1 %.not.i.i.i.us, label %40, label %rb_vm_lock_enter.argprom.exit.i.us
 
 40:                                               ; preds = %38
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i.us
+  br label %rb_vm_lock_enter.argprom.exit.i.us
 
-rb_vm_lock_enter.exit.i.us:                       ; preds = %40, %38
+rb_vm_lock_enter.argprom.exit.i.us:               ; preds = %40, %38
   %41 = call i32 @rb_id_table_lookup(ptr noundef nonnull %37, i64 noundef %1, ptr noundef nonnull %6) #24
   %.not6.i.us = icmp eq i32 %41, 0
   %42 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.us = icmp eq ptr %42, null
-  br i1 %.not.i.i7.i.us, label %43, label %rb_vm_lock_leave.exit.i.us
+  br i1 %.not.i.i7.i.us, label %43, label %rb_vm_lock_leave.argprom.exit.i.us
 
-43:                                               ; preds = %rb_vm_lock_enter.exit.i.us
+43:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.us
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_leave.exit.i.us
+  br label %rb_vm_lock_leave.argprom.exit.i.us
 
-rb_vm_lock_leave.exit.i.us:                       ; preds = %43, %rb_vm_lock_enter.exit.i.us
+rb_vm_lock_leave.argprom.exit.i.us:               ; preds = %43, %rb_vm_lock_enter.argprom.exit.i.us
   br i1 %.not6.i.us, label %rb_const_lookup.exit.thread.us, label %rb_const_lookup.exit.us
 
-rb_const_lookup.exit.us:                          ; preds = %rb_vm_lock_leave.exit.i.us
+rb_const_lookup.exit.us:                          ; preds = %rb_vm_lock_leave.argprom.exit.i.us
   %44 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not24.us = icmp eq i64 %44, 0
   br i1 %.not24.us, label %45, label %.split.us
 
-rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.exit.i.us, %.lr.ph.us50
+rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.argprom.exit.i.us, %.lr.ph.us50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %45
@@ -6560,32 +6560,32 @@ rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.ex
 52:                                               ; preds = %.lr.ph
   %53 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i, label %54, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %54, label %rb_vm_lock_enter.argprom.exit.i
 
 54:                                               ; preds = %52
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %54, %52
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %54, %52
   %55 = call i32 @rb_id_table_lookup(ptr noundef nonnull %51, i64 noundef %1, ptr noundef nonnull %6) #24
   %.not6.i = icmp eq i32 %55, 0
   %56 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %56, null
-  br i1 %.not.i.i7.i, label %57, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %57, label %rb_vm_lock_leave.argprom.exit.i
 
-57:                                               ; preds = %rb_vm_lock_enter.exit.i
+57:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %57, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %57, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %.lr.ph
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %76
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %58 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -6758,28 +6758,28 @@ rb_ractor_main_p.exit.thread:                     ; preds = %23, %18, %15, %rb_r
   %39 = and i64 %36, 2048
   %40 = icmp ne i64 %39, 0
   %or.cond.i.i = or i1 %38, %40
-  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_before_mod_set.exit
+  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_before_mod_set.argprom.exit
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %34, %rb_ractor_main_p.exit.thread
   tail call void @rb_error_frozen_object(i64 noundef %0) #25
   unreachable
 
-check_before_mod_set.exit:                        ; preds = %34
+check_before_mod_set.argprom.exit:                ; preds = %34
   %41 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i, label %42, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %42, label %rb_vm_lock_enter.argprom.exit
 
-42:                                               ; preds = %check_before_mod_set.exit
+42:                                               ; preds = %check_before_mod_set.argprom.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %check_before_mod_set.exit, %42
+rb_vm_lock_enter.argprom.exit:                    ; preds = %check_before_mod_set.argprom.exit, %42
   %43 = getelementptr inbounds i8, ptr %35, i64 40
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %45, label %64
 
-45:                                               ; preds = %rb_vm_lock_enter.exit
+45:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %46 = call ptr @rb_id_table_create(i64 noundef 0) #24
   store ptr %46, ptr %43, align 8
   call void @rb_clear_constant_cache_for_id(i64 noundef %1) #24
@@ -6793,13 +6793,13 @@ rb_vm_lock_enter.exit:                            ; preds = %check_before_mod_se
   %52 = icmp ne i64 %51, 0
   %53 = icmp eq i64 %2, 0
   %54 = or i1 %53, %52
-  br i1 %54, label %rb_obj_write.exit.i, label %55
+  br i1 %54, label %rb_obj_write.argprom.exit.i, label %55
 
 55:                                               ; preds = %45
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #24
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %55, %45
+rb_obj_write.argprom.exit.i:                      ; preds = %55, %45
   %56 = getelementptr inbounds i8, ptr %47, i64 16
   %57 = getelementptr inbounds i8, ptr %47, i64 4
   %58 = call i64 @rb_source_location(ptr noundef nonnull %57) #24
@@ -6810,11 +6810,11 @@ rb_obj_write.exit.i:                              ; preds = %55, %45
   %62 = or i1 %61, %60
   br i1 %62, label %setup_const_entry.exit, label %63
 
-63:                                               ; preds = %rb_obj_write.exit.i
+63:                                               ; preds = %rb_obj_write.argprom.exit.i
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %58) #24
   br label %setup_const_entry.exit
 
-64:                                               ; preds = %rb_vm_lock_enter.exit
+64:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %65 = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i64 %0, ptr %65, align 8
@@ -6833,21 +6833,21 @@ rb_obj_write.exit.i:                              ; preds = %55, %45
   call fastcc void @const_tbl_update(ptr noundef nonnull %9, i32 noundef 0)
   br label %setup_const_entry.exit
 
-setup_const_entry.exit:                           ; preds = %63, %rb_obj_write.exit.i, %64
+setup_const_entry.exit:                           ; preds = %63, %rb_obj_write.argprom.exit.i, %64
   %72 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i39 = icmp eq ptr %72, null
-  br i1 %.not.i.i39, label %73, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i39, label %73, label %rb_vm_lock_leave.argprom.exit
 
 73:                                               ; preds = %setup_const_entry.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %setup_const_entry.exit, %73
+rb_vm_lock_leave.argprom.exit:                    ; preds = %setup_const_entry.exit, %73
   %74 = load i64, ptr @rb_cObject, align 8
   %.not35 = icmp eq i64 %74, 0
   br i1 %.not35, label %rb_namespace_p.exit.thread, label %75
 
-75:                                               ; preds = %rb_vm_lock_leave.exit
+75:                                               ; preds = %rb_vm_lock_leave.argprom.exit
   %76 = and i64 %2, 7
   %77 = icmp ne i64 %76, 0
   %78 = icmp eq i64 %2, 0
@@ -6892,13 +6892,13 @@ classname.exit.thread:                            ; preds = %83, %90, %classname
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %97, null
-  br i1 %.not.i.i.i, label %98, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %98, label %rb_vm_lock_enter.argprom.exit.i
 
 98:                                               ; preds = %93
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %98, %93
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %98, %93
   store i64 %94, ptr %84, align 8
   %99 = and i64 %94, 7
   %100 = icmp ne i64 %99, 0
@@ -6906,11 +6906,11 @@ rb_vm_lock_enter.exit.i:                          ; preds = %98, %93
   %102 = or i1 %101, %100
   br i1 %102, label %RCLASS_SET_CLASSPATH.exit.i, label %103
 
-103:                                              ; preds = %rb_vm_lock_enter.exit.i
+103:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %94) #24
   br label %RCLASS_SET_CLASSPATH.exit.i
 
-RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %103, %rb_vm_lock_enter.exit.i
+RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %103, %rb_vm_lock_enter.argprom.exit.i
   %104 = getelementptr inbounds i8, ptr %80, i64 149
   %105 = load i8, ptr %104, align 1
   %106 = or i8 %105, 1
@@ -6976,13 +6976,13 @@ classname.exit44.thread:                          ; preds = %111, %classname.exi
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i45 = icmp eq ptr %131, null
-  br i1 %.not.i.i.i45, label %132, label %rb_vm_lock_enter.exit.i46
+  br i1 %.not.i.i.i45, label %132, label %rb_vm_lock_enter.argprom.exit.i46
 
 132:                                              ; preds = %123
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit.i46
+  br label %rb_vm_lock_enter.argprom.exit.i46
 
-rb_vm_lock_enter.exit.i46:                        ; preds = %132, %123
+rb_vm_lock_enter.argprom.exit.i46:                ; preds = %132, %123
   store i64 %128, ptr %84, align 8
   %133 = and i64 %128, 7
   %134 = icmp ne i64 %133, 0
@@ -6990,11 +6990,11 @@ rb_vm_lock_enter.exit.i46:                        ; preds = %132, %123
   %136 = or i1 %135, %134
   br i1 %136, label %RCLASS_SET_CLASSPATH.exit.i47, label %137
 
-137:                                              ; preds = %rb_vm_lock_enter.exit.i46
+137:                                              ; preds = %rb_vm_lock_enter.argprom.exit.i46
   call void @rb_gc_writebarrier(i64 noundef %2, i64 noundef %128) #24
   br label %RCLASS_SET_CLASSPATH.exit.i47
 
-RCLASS_SET_CLASSPATH.exit.i47:                    ; preds = %137, %rb_vm_lock_enter.exit.i46
+RCLASS_SET_CLASSPATH.exit.i47:                    ; preds = %137, %rb_vm_lock_enter.argprom.exit.i46
   %138 = getelementptr inbounds i8, ptr %80, i64 149
   %139 = load i8, ptr %138, align 1
   %140 = or i8 %139, 1
@@ -7047,7 +7047,7 @@ RCLASS_SET_CLASSPATH.exit:                        ; preds = %146, %156
   store i8 %159, ptr %157, align 1
   br label %rb_namespace_p.exit.thread
 
-rb_namespace_p.exit.thread:                       ; preds = %121, %75, %145, %90, %set_namespace_path.exit50, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit, %rb_namespace_p.exit, %rb_vm_lock_leave.exit
+rb_namespace_p.exit.thread:                       ; preds = %121, %75, %145, %90, %set_namespace_path.exit50, %RCLASS_SET_CLASSPATH.exit, %set_namespace_path.exit, %rb_namespace_p.exit, %rb_vm_lock_leave.argprom.exit
   ret void
 }
 
@@ -7122,32 +7122,32 @@ define dso_local void @rb_deprecate_constant(i64 noundef %0, ptr noundef nonnull
 13:                                               ; preds = %9
   %14 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i, label %15, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %15, label %rb_vm_lock_enter.argprom.exit.i
 
 15:                                               ; preds = %13
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %15, %13
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %15, %13
   %16 = call i32 @rb_id_table_lookup(ptr noundef nonnull %12, i64 noundef %6, ptr noundef nonnull %3) #24
   %.not6.i = icmp eq i32 %16, 0
   %17 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %17, null
-  br i1 %.not.i.i7.i, label %18, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %18, label %rb_vm_lock_leave.argprom.exit.i
 
-18:                                               ; preds = %rb_vm_lock_enter.exit.i
+18:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %4) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %18, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %18, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %9
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %20
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %19 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -7226,32 +7226,32 @@ define internal fastcc void @set_const_visibility(i64 noundef %0, i32 noundef %1
 26:                                               ; preds = %24
   %27 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %28, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %28, label %rb_vm_lock_enter.argprom.exit.i
 
 28:                                               ; preds = %26
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %28, %26
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %28, %26
   %29 = call i32 @rb_id_table_lookup(ptr noundef nonnull %25, i64 noundef %21, ptr noundef nonnull %6) #24
   %.not6.i = icmp eq i32 %29, 0
   %30 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %30, null
-  br i1 %.not.i.i7.i, label %31, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %31, label %rb_vm_lock_leave.argprom.exit.i
 
-31:                                               ; preds = %rb_vm_lock_enter.exit.i
+31:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %7) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %31, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %31, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %24
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %.loopexit36
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %32 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -7490,26 +7490,26 @@ cvar_lookup_at.exit107:                           ; preds = %.lr.ph, %46, %52
   %84 = and i64 %81, 2048
   %85 = icmp ne i64 %84, 0
   %or.cond.i.i = or i1 %83, %85
-  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_before_mod_set.exit
+  br i1 %or.cond.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i, label %check_before_mod_set.argprom.exit
 
 RB_OBJ_FROZEN.exit.thread.i.i:                    ; preds = %79, %.critedge
   tail call void @rb_error_frozen_object(i64 noundef %.4) #25
   unreachable
 
-check_before_mod_set.exit:                        ; preds = %79
+check_before_mod_set.argprom.exit:                ; preds = %79
   %86 = tail call i32 @rb_class_ivar_set(i64 noundef %.4, i64 noundef %1, i64 noundef %2)
   %87 = getelementptr inbounds i8, ptr %80, i64 64
   %88 = load ptr, ptr %87, align 8
   %.not92 = icmp eq ptr %88, null
   br i1 %.not92, label %89, label %91
 
-89:                                               ; preds = %check_before_mod_set.exit
+89:                                               ; preds = %check_before_mod_set.argprom.exit
   %90 = tail call ptr @rb_id_table_create(i64 noundef 2) #24
   store ptr %90, ptr %87, align 8
   br label %91
 
-91:                                               ; preds = %89, %check_before_mod_set.exit
-  %.0 = phi ptr [ %88, %check_before_mod_set.exit ], [ %90, %89 ]
+91:                                               ; preds = %89, %check_before_mod_set.argprom.exit
+  %.0 = phi ptr [ %88, %check_before_mod_set.argprom.exit ], [ %90, %89 ]
   %92 = call i32 @rb_id_table_lookup(ptr noundef %.0, i64 noundef %1, ptr noundef nonnull %4) #24
   %.not93 = icmp eq i32 %92, 0
   br i1 %.not93, label %93, label %101
@@ -7658,13 +7658,13 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %10, %3
 rb_check_frozen_inline.exit:                      ; preds = %10
   %17 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %18, label %rb_vm_lock_enter.exit
+  br i1 %.not.i.i, label %18, label %rb_vm_lock_enter.argprom.exit
 
 18:                                               ; preds = %rb_check_frozen_inline.exit
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit
+  br label %rb_vm_lock_enter.argprom.exit
 
-rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inline.exit, %18
+rb_vm_lock_enter.argprom.exit:                    ; preds = %rb_check_frozen_inline.exit, %18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %19 = call ptr @rb_shape_get_shape(i64 noundef %0) #24
   %20 = getelementptr inbounds i8, ptr %19, i64 24
@@ -7672,7 +7672,7 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   %22 = icmp eq i8 %21, 4
   br i1 %22, label %61, label %23
 
-23:                                               ; preds = %rb_vm_lock_enter.exit
+23:                                               ; preds = %rb_vm_lock_enter.argprom.exit
   %24 = call zeroext i1 @rb_shape_get_iv_index(ptr noundef nonnull %19, i64 noundef %1, ptr noundef nonnull %4) #24
   br i1 %24, label %51, label %25
 
@@ -7737,7 +7737,7 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   %60 = or i1 %59, %58
   br i1 %60, label %general_ivar_set.exit, label %general_ivar_set.exit.sink.split
 
-61:                                               ; preds = %36, %rb_vm_lock_enter.exit
+61:                                               ; preds = %36, %rb_vm_lock_enter.argprom.exit
   %62 = getelementptr inbounds i8, ptr %11, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @rb_st_insert(ptr noundef %63, i64 noundef %1, i64 noundef %2) #24
@@ -7759,13 +7759,13 @@ general_ivar_set.exit:                            ; preds = %general_ivar_set.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %71 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i5 = icmp eq ptr %71, null
-  br i1 %.not.i.i5, label %72, label %rb_vm_lock_leave.exit
+  br i1 %.not.i.i5, label %72, label %rb_vm_lock_leave.argprom.exit
 
 72:                                               ; preds = %general_ivar_set.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_leave.exit
+  br label %rb_vm_lock_leave.argprom.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %72
+rb_vm_lock_leave.argprom.exit:                    ; preds = %general_ivar_set.exit, %72
   %73 = icmp ne i64 %.sroa.4.1.i, 0
   %74 = zext i1 %73 to i32
   ret i32 %74
@@ -8314,7 +8314,7 @@ mod_cvar_at.exit18.i:                             ; preds = %64, %60, %55
   %68 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %69 = load i64, ptr %68, align 8
   %.not12.i = icmp eq i64 %69, 0
-  br i1 %.not12.i, label %mod_cvar_of.exit, label %cvar_front_klass.exit.i
+  br i1 %.not12.i, label %mod_cvar_of.argprom.exit, label %cvar_front_klass.exit.i
 
 70:                                               ; preds = %5
   %71 = tail call ptr @rb_st_init_numtable() #24
@@ -8340,18 +8340,18 @@ mod_cvar_at.exit:                                 ; preds = %70, %76, %81
   %.021.i.i = phi i64 [ %83, %81 ], [ %2, %70 ], [ %2, %76 ]
   %84 = ptrtoint ptr %71 to i64
   tail call void @rb_ivar_foreach(i64 noundef %.021.i.i, ptr noundef nonnull @cv_i, i64 noundef %84)
-  br label %mod_cvar_of.exit
+  br label %mod_cvar_of.argprom.exit
 
-mod_cvar_of.exit:                                 ; preds = %mod_cvar_at.exit18.i, %mod_cvar_at.exit
+mod_cvar_of.argprom.exit:                         ; preds = %mod_cvar_at.exit18.i, %mod_cvar_at.exit
   %.0 = phi ptr [ %71, %mod_cvar_at.exit ], [ %.0.i16.i, %mod_cvar_at.exit18.i ]
   %.not.i8 = icmp eq ptr %.0, null
   br i1 %.not.i8, label %85, label %87
 
-85:                                               ; preds = %mod_cvar_of.exit
+85:                                               ; preds = %mod_cvar_of.argprom.exit
   %86 = tail call i64 @rb_ary_new_capa(i64 noundef 0) #24
   br label %cvar_list.exit
 
-87:                                               ; preds = %mod_cvar_of.exit
+87:                                               ; preds = %mod_cvar_of.argprom.exit
   %88 = getelementptr inbounds i8, ptr %.0, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = tail call i64 @rb_ary_new_capa(i64 noundef %89) #24
@@ -9047,32 +9047,32 @@ define internal noundef i64 @autoload_apply_constants(i64 noundef %0) #0 {
   %24 = and i64 %21, 2048
   %25 = icmp ne i64 %24, 0
   %or.cond.i.i.i = or i1 %23, %25
-  br i1 %or.cond.i.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i.i, label %check_before_mod_set.exit.i
+  br i1 %or.cond.i.i.i, label %RB_OBJ_FROZEN.exit.thread.i.i.i, label %check_before_mod_set.argprom.exit.i
 
 RB_OBJ_FROZEN.exit.thread.i.i.i:                  ; preds = %19, %12
   call void @rb_error_frozen_object(i64 noundef %14) #25
   unreachable
 
-check_before_mod_set.exit.i:                      ; preds = %19
+check_before_mod_set.argprom.exit.i:              ; preds = %19
   %26 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i, label %27, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %27, label %rb_vm_lock_enter.argprom.exit.i
 
-27:                                               ; preds = %check_before_mod_set.exit.i
+27:                                               ; preds = %check_before_mod_set.argprom.exit.i
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %27, %check_before_mod_set.exit.i
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %27, %check_before_mod_set.argprom.exit.i
   call fastcc void @const_tbl_update(ptr noundef nonnull %.0811, i32 noundef 1)
   %28 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i4.i = icmp eq ptr %28, null
   br i1 %.not.i.i4.i, label %29, label %autoload_const_set.exit
 
-29:                                               ; preds = %rb_vm_lock_enter.exit.i
+29:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #24
   br label %autoload_const_set.exit
 
-autoload_const_set.exit:                          ; preds = %rb_vm_lock_enter.exit.i, %29
+autoload_const_set.exit:                          ; preds = %rb_vm_lock_enter.argprom.exit.i, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %.pre = load ptr, ptr %4, align 8
   br label %30
@@ -9145,26 +9145,26 @@ define internal fastcc void @const_tbl_update(ptr noundef %0, i32 noundef range(
   %39 = icmp ne i64 %38, 0
   %40 = icmp eq i64 %8, 0
   %41 = or i1 %40, %39
-  br i1 %41, label %rb_obj_write.exit, label %42
+  br i1 %41, label %rb_obj_write.argprom.exit, label %42
 
 42:                                               ; preds = %37
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %8) #24
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %37, %42
+rb_obj_write.argprom.exit:                        ; preds = %37, %42
   %43 = getelementptr inbounds i8, ptr %19, i64 16
   store i64 %25, ptr %43, align 8
   %44 = and i64 %25, 7
   %45 = icmp ne i64 %44, 0
   %46 = icmp eq i64 %25, 0
   %47 = or i1 %46, %45
-  br i1 %47, label %rb_obj_write.exit47, label %48
+  br i1 %47, label %rb_obj_write.argprom.exit47, label %48
 
-48:                                               ; preds = %rb_obj_write.exit
+48:                                               ; preds = %rb_obj_write.argprom.exit
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %25) #24
-  br label %rb_obj_write.exit47
+  br label %rb_obj_write.argprom.exit47
 
-rb_obj_write.exit47:                              ; preds = %rb_obj_write.exit, %48
+rb_obj_write.argprom.exit47:                      ; preds = %rb_obj_write.argprom.exit, %48
   %49 = getelementptr inbounds i8, ptr %19, i64 4
   store i32 %27, ptr %49, align 4
   br label %setup_const_entry.exit
@@ -9222,13 +9222,13 @@ RSTRING_PTR.exit:                                 ; preds = %65, %70
   %73 = icmp ne i64 %72, 0
   %74 = icmp eq i64 %8, 0
   %75 = or i1 %74, %73
-  br i1 %75, label %rb_obj_write.exit.i, label %76
+  br i1 %75, label %rb_obj_write.argprom.exit.i, label %76
 
 76:                                               ; preds = %71
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %8) #24
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %76, %71
+rb_obj_write.argprom.exit.i:                      ; preds = %76, %71
   %77 = getelementptr inbounds i8, ptr %19, i64 4
   %78 = call i64 @rb_source_location(ptr noundef nonnull %77) #24
   store i64 %78, ptr %59, align 8
@@ -9238,7 +9238,7 @@ rb_obj_write.exit.i:                              ; preds = %76, %71
   %82 = or i1 %81, %80
   br i1 %82, label %setup_const_entry.exit, label %83
 
-83:                                               ; preds = %rb_obj_write.exit.i
+83:                                               ; preds = %rb_obj_write.argprom.exit.i
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %78) #24
   br label %setup_const_entry.exit
 
@@ -9254,13 +9254,13 @@ rb_obj_write.exit.i:                              ; preds = %76, %71
   %90 = icmp ne i64 %89, 0
   %91 = icmp eq i64 %8, 0
   %92 = or i1 %91, %90
-  br i1 %92, label %rb_obj_write.exit.i48, label %93
+  br i1 %92, label %rb_obj_write.argprom.exit.i48, label %93
 
 93:                                               ; preds = %84
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %8) #24
-  br label %rb_obj_write.exit.i48
+  br label %rb_obj_write.argprom.exit.i48
 
-rb_obj_write.exit.i48:                            ; preds = %93, %84
+rb_obj_write.argprom.exit.i48:                    ; preds = %93, %84
   %94 = getelementptr inbounds i8, ptr %85, i64 16
   %95 = getelementptr inbounds i8, ptr %85, i64 4
   %96 = call i64 @rb_source_location(ptr noundef nonnull %95) #24
@@ -9271,11 +9271,11 @@ rb_obj_write.exit.i48:                            ; preds = %93, %84
   %100 = or i1 %99, %98
   br i1 %100, label %setup_const_entry.exit, label %101
 
-101:                                              ; preds = %rb_obj_write.exit.i48
+101:                                              ; preds = %rb_obj_write.argprom.exit.i48
   call void @rb_gc_writebarrier(i64 noundef %6, i64 noundef %96) #24
   br label %setup_const_entry.exit
 
-setup_const_entry.exit:                           ; preds = %101, %rb_obj_write.exit.i48, %83, %rb_obj_write.exit.i, %31, %rb_obj_write.exit47
+setup_const_entry.exit:                           ; preds = %101, %rb_obj_write.argprom.exit.i48, %83, %rb_obj_write.argprom.exit.i, %31, %rb_obj_write.argprom.exit47
   ret void
 }
 
@@ -9366,19 +9366,19 @@ get_autoload_data.exit:                           ; preds = %27
   %41 = getelementptr i8, ptr %31, i64 8
   %.val = load i64, ptr %41, align 8
   %.not.i13 = icmp eq i64 %.val, 4
-  br i1 %.not.i13, label %autoload_by_current.exit.thread, label %autoload_by_current.exit
+  br i1 %.not.i13, label %autoload_by_current.argprom.exit.thread, label %autoload_by_current.argprom.exit
 
-autoload_by_current.exit:                         ; preds = %40
+autoload_by_current.argprom.exit:                 ; preds = %40
   %42 = call i64 @rb_mutex_owned_p(i64 noundef %.val) #24
   %.fr = freeze i64 %42
   %.not18 = icmp eq i64 %.fr, 0
-  br i1 %.not18, label %autoload_by_current.exit.thread, label %43
+  br i1 %.not18, label %autoload_by_current.argprom.exit.thread, label %43
 
-autoload_by_current.exit.thread:                  ; preds = %40, %autoload_by_current.exit
+autoload_by_current.argprom.exit.thread:          ; preds = %40, %autoload_by_current.argprom.exit
   br label %43
 
-43:                                               ; preds = %autoload_by_current.exit.thread, %autoload_by_current.exit, %get_autoload_data.exit, %autoload_data.exit.thread, %autoload_data.exit
-  %.0 = phi ptr [ null, %autoload_data.exit ], [ null, %get_autoload_data.exit ], [ null, %autoload_data.exit.thread ], [ null, %autoload_by_current.exit.thread ], [ %31, %autoload_by_current.exit ]
+43:                                               ; preds = %autoload_by_current.argprom.exit.thread, %autoload_by_current.argprom.exit, %get_autoload_data.exit, %autoload_data.exit.thread, %autoload_data.exit
+  %.0 = phi ptr [ null, %autoload_data.exit ], [ null, %get_autoload_data.exit ], [ null, %autoload_data.exit.thread ], [ null, %autoload_by_current.argprom.exit.thread ], [ %31, %autoload_by_current.argprom.exit ]
   ret ptr %.0
 }
 
@@ -9444,32 +9444,32 @@ define internal fastcc i64 @rb_const_search_from(i64 noundef %0, i64 noundef %1,
   %.03354 = phi i64 [ %.034, %64 ], [ 0, %20 ]
   %24 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i, label %25, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %25, label %rb_vm_lock_enter.argprom.exit.i
 
 25:                                               ; preds = %.lr.ph
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %25, %.lr.ph
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %25, %.lr.ph
   %26 = call i32 @rb_id_table_lookup(ptr noundef nonnull %23, i64 noundef %1, ptr noundef nonnull %7) #24
   %.not6.i = icmp eq i32 %26, 0
   %27 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %27, null
-  br i1 %.not.i.i7.i, label %28, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %28, label %rb_vm_lock_leave.argprom.exit.i
 
-28:                                               ; preds = %rb_vm_lock_enter.exit.i
+28:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %8) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %28, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %28, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %64, %rb_vm_lock_leave.exit.i, %20
+rb_const_lookup.exit.thread:                      ; preds = %64, %rb_vm_lock_leave.argprom.exit.i, %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %.loopexit
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %29 = load i64, ptr %7, align 8
   %30 = inttoptr i64 %29 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -9586,7 +9586,7 @@ rb_const_warn_if_deprecated.exit:                 ; preds = %38, %40, %45, %rb_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_const_location_from(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_const_location_from.argelim(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = and i64 %0, -5
@@ -9609,34 +9609,34 @@ define internal fastcc i64 @rb_const_location_from(i64 noundef %0, i64 noundef %
 11:                                               ; preds = %.lr.ph.split.us
   %12 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i.us = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.us, label %13, label %rb_vm_lock_enter.exit.i.us
+  br i1 %.not.i.i.i.us, label %13, label %rb_vm_lock_enter.argprom.exit.i.us
 
 13:                                               ; preds = %11
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_enter.exit.i.us
+  br label %rb_vm_lock_enter.argprom.exit.i.us
 
-rb_vm_lock_enter.exit.i.us:                       ; preds = %13, %11
+rb_vm_lock_enter.argprom.exit.i.us:               ; preds = %13, %11
   %14 = call i32 @rb_id_table_lookup(ptr noundef nonnull %10, i64 noundef %1, ptr noundef nonnull %5) #24
   %.not6.i.us = icmp eq i32 %14, 0
   %15 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i.us = icmp eq ptr %15, null
-  br i1 %.not.i.i7.i.us, label %16, label %rb_vm_lock_leave.exit.i.us
+  br i1 %.not.i.i7.i.us, label %16, label %rb_vm_lock_leave.argprom.exit.i.us
 
-16:                                               ; preds = %rb_vm_lock_enter.exit.i.us
+16:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i.us
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_leave.exit.i.us
+  br label %rb_vm_lock_leave.argprom.exit.i.us
 
-rb_vm_lock_leave.exit.i.us:                       ; preds = %16, %rb_vm_lock_enter.exit.i.us
+rb_vm_lock_leave.argprom.exit.i.us:               ; preds = %16, %rb_vm_lock_enter.argprom.exit.i.us
   br i1 %.not6.i.us, label %rb_const_lookup.exit.thread.us, label %rb_const_lookup.exit.us
 
-rb_const_lookup.exit.us:                          ; preds = %rb_vm_lock_leave.exit.i.us
+rb_const_lookup.exit.us:                          ; preds = %rb_vm_lock_leave.argprom.exit.i.us
   %17 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not.us = icmp eq i64 %17, 0
   br i1 %.not.us, label %.loopexit, label %.split.us
 
-rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.exit.i.us, %.lr.ph.split.us
+rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.argprom.exit.i.us, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.loopexit
@@ -9654,32 +9654,32 @@ rb_const_lookup.exit.thread.us:                   ; preds = %rb_vm_lock_leave.ex
 21:                                               ; preds = %.lr.ph.split
   %22 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i, label %23, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %23, label %rb_vm_lock_enter.argprom.exit.i
 
 23:                                               ; preds = %21
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %23, %21
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %23, %21
   %24 = call i32 @rb_id_table_lookup(ptr noundef nonnull %20, i64 noundef %1, ptr noundef nonnull %5) #24
   %.not6.i = icmp eq i32 %24, 0
   %25 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i7.i = icmp eq ptr %25, null
-  br i1 %.not.i.i7.i, label %26, label %rb_vm_lock_leave.exit.i
+  br i1 %.not.i.i7.i, label %26, label %rb_vm_lock_leave.argprom.exit.i
 
-26:                                               ; preds = %rb_vm_lock_enter.exit.i
+26:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %6) #24
-  br label %rb_vm_lock_leave.exit.i
+  br label %rb_vm_lock_leave.argprom.exit.i
 
-rb_vm_lock_leave.exit.i:                          ; preds = %26, %rb_vm_lock_enter.exit.i
+rb_vm_lock_leave.argprom.exit.i:                  ; preds = %26, %rb_vm_lock_enter.argprom.exit.i
   br i1 %.not6.i, label %rb_const_lookup.exit.thread, label %rb_const_lookup.exit
 
-rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.exit.i, %.lr.ph.split
+rb_const_lookup.exit.thread:                      ; preds = %rb_vm_lock_leave.argprom.exit.i, %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %44
 
-rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.exit.i
+rb_const_lookup.exit:                             ; preds = %rb_vm_lock_leave.argprom.exit.i
   %27 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -9826,13 +9826,13 @@ classname.exit.thread:                            ; preds = %19, %classname.exit
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i, label %34, label %rb_vm_lock_enter.exit.i
+  br i1 %.not.i.i.i, label %34, label %rb_vm_lock_enter.argprom.exit.i
 
 34:                                               ; preds = %classname.exit.thread
   call void @rb_vm_lock_enter_body(ptr noundef nonnull %5) #24
-  br label %rb_vm_lock_enter.exit.i
+  br label %rb_vm_lock_enter.argprom.exit.i
 
-rb_vm_lock_enter.exit.i:                          ; preds = %34, %classname.exit.thread
+rb_vm_lock_enter.argprom.exit.i:                  ; preds = %34, %classname.exit.thread
   store i64 %30, ptr %20, align 8
   %35 = and i64 %30, 7
   %36 = icmp ne i64 %35, 0
@@ -9840,11 +9840,11 @@ rb_vm_lock_enter.exit.i:                          ; preds = %34, %classname.exit
   %38 = or i1 %37, %36
   br i1 %38, label %RCLASS_SET_CLASSPATH.exit.i, label %39
 
-39:                                               ; preds = %rb_vm_lock_enter.exit.i
+39:                                               ; preds = %rb_vm_lock_enter.argprom.exit.i
   call void @rb_gc_writebarrier(i64 noundef %8, i64 noundef %30) #24
   br label %RCLASS_SET_CLASSPATH.exit.i
 
-RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %39, %rb_vm_lock_enter.exit.i
+RCLASS_SET_CLASSPATH.exit.i:                      ; preds = %39, %rb_vm_lock_enter.argprom.exit.i
   %40 = getelementptr inbounds i8, ptr %16, i64 149
   %41 = load i8, ptr %40, align 1
   %42 = or i8 %41, 1

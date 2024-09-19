@@ -1641,7 +1641,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 
 149:                                              ; preds = %5
   %150 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %150, ptr noundef %2, ptr noundef nonnull @dissect_link_param_rpt)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %150, ptr noundef %2, ptr noundef nonnull @dissect_link_param_rpt)
   br label %dissect_mih_list.exit
 
 151:                                              ; preds = %5
@@ -1676,7 +1676,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 
 166:                                              ; preds = %5
   %167 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %167, ptr noundef %2, ptr noundef nonnull @dissect_dev_states)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %167, ptr noundef %2, ptr noundef nonnull @dissect_dev_states)
   br label %dissect_mih_list.exit
 
 168:                                              ; preds = %5
@@ -1686,27 +1686,27 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 
 170:                                              ; preds = %5
   %171 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %171, ptr noundef %2, ptr noundef nonnull @dissect_status_list)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %171, ptr noundef %2, ptr noundef nonnull @dissect_status_list)
   br label %dissect_mih_list.exit
 
 172:                                              ; preds = %5
   %173 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %173, ptr noundef %2, ptr noundef nonnull @dissect_link_cfg_param)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %173, ptr noundef %2, ptr noundef nonnull @dissect_link_cfg_param)
   br label %dissect_mih_list.exit
 
 174:                                              ; preds = %5
   %175 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %175, ptr noundef %2, ptr noundef nonnull @dissect_link_cfg_status)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %175, ptr noundef %2, ptr noundef nonnull @dissect_link_cfg_status)
   br label %dissect_mih_list.exit
 
 176:                                              ; preds = %5
   %177 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %177, ptr noundef %2, ptr noundef nonnull @dissect_link_poa)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %177, ptr noundef %2, ptr noundef nonnull @dissect_link_poa)
   br label %dissect_mih_list.exit
 
 178:                                              ; preds = %5
   %179 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %179, ptr noundef %2, ptr noundef nonnull @dissect_rq_result)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %179, ptr noundef %2, ptr noundef nonnull @dissect_rq_result)
   br label %dissect_mih_list.exit
 
 180:                                              ; preds = %5
@@ -1746,12 +1746,12 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 
 201:                                              ; preds = %5
   %202 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %202, ptr noundef %2, ptr noundef nonnull @dissect_link_action_req)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %202, ptr noundef %2, ptr noundef nonnull @dissect_link_action_req)
   br label %dissect_mih_list.exit
 
 203:                                              ; preds = %5
   %204 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %204, ptr noundef %2, ptr noundef nonnull @dissect_link_action_rsp)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %204, ptr noundef %2, ptr noundef nonnull @dissect_link_action_rsp)
   br label %dissect_mih_list.exit
 
 205:                                              ; preds = %5
@@ -1879,7 +1879,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i290, %233
 
 280:                                              ; preds = %5
   %281 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %281, ptr noundef %2, ptr noundef nonnull @dissect_mih_evt_cfg_info)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %281, ptr noundef %2, ptr noundef nonnull @dissect_mih_evt_cfg_info)
   br label %dissect_mih_list.exit
 
 282:                                              ; preds = %5
@@ -1889,7 +1889,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i290, %233
 
 285:                                              ; preds = %5
   %286 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %286, ptr noundef %2, ptr noundef nonnull @dissect_tgt_net_info)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %286, ptr noundef %2, ptr noundef nonnull @dissect_tgt_net_info)
   br label %dissect_mih_list.exit
 
 287:                                              ; preds = %5
@@ -1900,7 +1900,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i290, %233
 
 291:                                              ; preds = %5
   %292 = trunc i32 %1 to i16
-  call fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %292, ptr noundef %2, ptr noundef nonnull @dissect_link_det_info)
+  call fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %292, ptr noundef %2, ptr noundef nonnull @dissect_link_det_info)
   br label %dissect_mih_list.exit
 
 293:                                              ; preds = %5
@@ -1980,7 +1980,7 @@ declare void @tvb_free(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_mih_list.retelim(ptr noundef %0, i16 noundef signext %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = sext i16 %1 to i32
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #5
   %.not = icmp eq i8 %6, 0

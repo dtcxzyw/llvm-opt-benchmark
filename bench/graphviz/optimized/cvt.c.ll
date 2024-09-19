@@ -236,7 +236,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
 18:                                               ; preds = %17
   %19 = load ptr, ptr @stderr, align 8
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str, i64 noundef %16, i64 noundef 16) #13
-  tail call fastcc void @graphviz_exit() #14
+  tail call fastcc void @graphviz_exit.argelim() #14
   unreachable
 
 21:                                               ; preds = %17
@@ -250,7 +250,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   %26 = load ptr, ptr @stderr, align 8
   %27 = shl nuw i64 %16, 4
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, i64 noundef %27) #13
-  tail call fastcc void @graphviz_exit() #14
+  tail call fastcc void @graphviz_exit.argelim() #14
   unreachable
 
 gv_calloc.exit:                                   ; preds = %21
@@ -307,7 +307,7 @@ declare ptr @makePath(double, double, i32 noundef, ptr noundef, double, double, 
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #15
   unreachable
 }

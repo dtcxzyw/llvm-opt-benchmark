@@ -653,7 +653,7 @@ if.then237:                                       ; preds = %for.end234
   store double %div8.i, ptr %variance.i, align 8
   %call.i = call double @sqrt(double noundef %div8.i) #10
   store double %call.i, ptr %stddev.i, align 8
-  call fastcc void @dump_stats(ptr noundef nonnull %stats, ptr noundef nonnull %outfilename)
+  call fastcc void @dump_stats.retelim(ptr noundef nonnull %stats, ptr noundef nonnull %outfilename)
   br label %for.inc243
 
 for.inc243:                                       ; preds = %for.body180, %for.end234, %if.then237
@@ -671,7 +671,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare i32 @flac_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_stats(ptr nocapture noundef readonly %stats, ptr noundef %filename) unnamed_addr #1 {
+define internal fastcc void @dump_stats.retelim(ptr nocapture noundef readonly %stats, ptr noundef %filename) unnamed_addr #1 {
 entry:
   %mean = getelementptr inbounds i8, ptr %stats, i64 524320
   %0 = load double, ptr %mean, align 8
@@ -778,7 +778,7 @@ if.then:                                          ; preds = %entry
   store double %div8.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524312), align 8
   %call.i = tail call double @sqrt(double noundef %div8.i) #10
   store double %call.i, ptr getelementptr inbounds (i8, ptr @all_, i64 524328), align 8
-  tail call fastcc void @dump_stats(ptr noundef nonnull @all_, ptr noundef nonnull @.str.14)
+  tail call fastcc void @dump_stats.retelim(ptr noundef nonnull @all_, ptr noundef nonnull @.str.14)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

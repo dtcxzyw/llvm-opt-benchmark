@@ -1583,7 +1583,7 @@ proto_item_set_generated.exit222.i:               ; preds = %436, %433, %424, %4
   br label %447
 
 447:                                              ; preds = %445, %443, %proto_item_set_generated.exit222.i
-  call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %440, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %.0199.i)
+  call fastcc void @dissect_payload.argelim(ptr noundef %0, i32 noundef %440, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %.0199.i)
   br label %dissect_fullpacket.exit
 
 448:                                              ; preds = %164
@@ -1657,7 +1657,7 @@ proto_item_set_generated.exit225.i:               ; preds = %467, %464, %453, %4
   br label %483
 
 483:                                              ; preds = %481, %480
-  call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %471, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %.0199.i)
+  call fastcc void @dissect_payload.argelim(ptr noundef %0, i32 noundef %471, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %.0199.i)
   br label %dissect_fullpacket.exit
 
 484:                                              ; preds = %164
@@ -1817,7 +1817,7 @@ dissect_minipacket.exit:                          ; preds = %proto_item_set_gene
   %568 = load ptr, ptr %13, align 8
   %569 = zext nneg i16 %.058 to i32
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %568, i32 noundef 25, ptr noundef nonnull @.str.515, i32 noundef %569, i32 noundef %528) #13
-  call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %567, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %529)
+  call fastcc void @dissect_payload.argelim(ptr noundef %0, i32 noundef %567, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %529)
   store i32 0, ptr %529, align 8
   br label %752
 
@@ -1909,7 +1909,7 @@ dissect_minivideopacket.exit:                     ; preds = %proto_item_set_gene
   %616 = zext nneg i16 %.058 to i32
   %617 = select i1 %.not.i71, ptr @.str.517, ptr @.str.488
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %615, i32 noundef 25, ptr noundef nonnull @.str.516, i32 noundef %616, i32 noundef %573, ptr noundef nonnull %617) #13
-  call fastcc void @dissect_payload(ptr noundef %0, i32 noundef %614, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %574)
+  call fastcc void @dissect_payload.argelim(ptr noundef %0, i32 noundef %614, ptr noundef nonnull %1, ptr noundef %33, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %574)
   store i32 0, ptr %574, align 8
   br label %752
 
@@ -2175,28 +2175,28 @@ call_list_length.exit.i:                          ; preds = %.lr.ph.i84.i, %.pre
   %.15239.i = phi i32 [ %639, %.preheader.i ], [ %639, %.preheader11.i ], [ %.152.i, %.lr.ph.i84.i ]
   %.15538.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader11.i ], [ %.155.i, %.lr.ph.i84.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader11.i ], [ %734, %.lr.ph.i84.i ]
-  br i1 %.not.i73, label %dissect_trunkpacket.exit, label %737
+  br i1 %.not.i73, label %dissect_trunkpacket.argprom.exit, label %737
 
 737:                                              ; preds = %call_list_length.exit.i
   %738 = load i32, ptr @hf_iax2_trunk_ncalls, align 4
   %739 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %33, i32 noundef %738, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %.0.lcssa.i.i) #13
   %.not.i87.i = icmp eq ptr %739, null
-  br i1 %.not.i87.i, label %dissect_trunkpacket.exit, label %740
+  br i1 %.not.i87.i, label %dissect_trunkpacket.argprom.exit, label %740
 
 740:                                              ; preds = %737
   %741 = getelementptr inbounds i8, ptr %739, i64 32
   %742 = load ptr, ptr %741, align 8
   %.not5.i88.i = icmp eq ptr %742, null
-  br i1 %.not5.i88.i, label %dissect_trunkpacket.exit, label %743
+  br i1 %.not5.i88.i, label %dissect_trunkpacket.argprom.exit, label %743
 
 743:                                              ; preds = %740
   %744 = getelementptr inbounds i8, ptr %742, i64 28
   %745 = load i32, ptr %744, align 4
   %746 = or i32 %745, 2
   store i32 %746, ptr %744, align 4
-  br label %dissect_trunkpacket.exit
+  br label %dissect_trunkpacket.argprom.exit
 
-dissect_trunkpacket.exit:                         ; preds = %call_list_length.exit.i, %737, %740, %743
+dissect_trunkpacket.argprom.exit:                 ; preds = %call_list_length.exit.i, %737, %740, %743
   %747 = load ptr, ptr %13, align 8
   %748 = icmp eq i32 %.15538.i, 1
   %749 = select i1 %748, ptr @.str.517, ptr @.str.520
@@ -2208,8 +2208,8 @@ dissect_trunkpacket.exit:                         ; preds = %call_list_length.ex
 default.unreachable97:                            ; preds = %38
   unreachable
 
-752:                                              ; preds = %dissect_trunkpacket.exit, %dissect_minivideopacket.exit, %dissect_minipacket.exit, %dissect_fullpacket.exit
-  %.059 = phi i32 [ %.15239.i, %dissect_trunkpacket.exit ], [ %614, %dissect_minivideopacket.exit ], [ %567, %dissect_minipacket.exit ], [ %.0.i, %dissect_fullpacket.exit ]
+752:                                              ; preds = %dissect_trunkpacket.argprom.exit, %dissect_minivideopacket.exit, %dissect_minipacket.exit, %dissect_fullpacket.exit
+  %.059 = phi i32 [ %.15239.i, %dissect_trunkpacket.argprom.exit ], [ %614, %dissect_minivideopacket.exit ], [ %567, %dissect_minipacket.exit ], [ %.0.i, %dissect_fullpacket.exit ]
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %.059) #13
   %753 = load i32, ptr @iax2_tap, align 4
   call void @tap_queue_packet(i32 noundef %753, ptr noundef %1, ptr noundef nonnull @ii_arr) #13
@@ -2319,7 +2319,7 @@ define internal fastcc ptr @iax_lookup_call(ptr noundef %0, i32 noundef range(i3
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @find_conversation_by_id(i32 noundef %18, i32 noundef 22, i32 noundef %16) #13
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %iax_lookup_call_from_dest.exit, label %20
+  br i1 %.not.i, label %iax_lookup_call_from_dest.argprom.exit, label %20
 
 20:                                               ; preds = %11
   %21 = load i32, ptr @proto_iax2, align 4
@@ -2358,9 +2358,9 @@ is_forward_circuit.exit.i:                        ; preds = %.lr.ph.i.i
   %32 = getelementptr inbounds i8, ptr %22, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %iax2_new_circuit_for_call.exit.i, label %.lr.ph.preheader.i52.i
+  br i1 %34, label %iax2_new_circuit_for_call.argprom.exit.i, label %.lr.ph.preheader.i52.i
 
-iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.exit.i
+iax2_new_circuit_for_call.argprom.exit.i:         ; preds = %is_forward_circuit.exit.i
   %35 = tail call nonnull ptr @conversation_new_by_id(i32 noundef %18, i32 noundef 22, i32 noundef %10) #13
   %36 = load i32, ptr @proto_iax2, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %35, i32 noundef %36, ptr noundef nonnull %22) #13
@@ -2371,7 +2371,7 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
   %40 = zext i32 %38 to i64
   %41 = getelementptr [2 x i32], ptr %37, i64 0, i64 %40
   store i32 %10, ptr %41, align 4
-  br label %iax_lookup_call_from_dest.exit
+  br label %iax_lookup_call_from_dest.argprom.exit
 
 .lr.ph.preheader.i52.i:                           ; preds = %is_forward_circuit.exit.i
   %42 = getelementptr inbounds i8, ptr %22, i64 28
@@ -2388,13 +2388,13 @@ iax2_new_circuit_for_call.exit.i:                 ; preds = %is_forward_circuit.
   %44 = getelementptr [2 x i32], ptr %42, i64 0, i64 %indvars.iv.i55.i
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %10, %45
-  br i1 %46, label %iax_lookup_call_from_dest.exit, label %43
+  br i1 %46, label %iax_lookup_call_from_dest.argprom.exit, label %43
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %25, align 4
   %49 = load i32, ptr %42, align 4
   %50 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_iax_circuit_id_conflict, ptr noundef nonnull @.str.494, i32 noundef %18, i32 noundef %10, i32 noundef %16, i32 noundef %48, i32 noundef %49) #13
-  br label %iax_lookup_call_from_dest.exit
+  br label %iax_lookup_call_from_dest.argprom.exit
 
 .loopexit11.i:                                    ; preds = %28, %24
   %51 = getelementptr inbounds i8, ptr %22, i64 28
@@ -2436,13 +2436,13 @@ is_reverse_circuit.exit67.i:                      ; preds = %.lr.ph.i62.i
   %59 = getelementptr [2 x i32], ptr %25, i64 0, i64 %indvars.iv.i72.i
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %10, %60
-  br i1 %61, label %iax_lookup_call_from_dest.exit, label %58
+  br i1 %61, label %iax_lookup_call_from_dest.argprom.exit, label %58
 
 .loopexit.i:                                      ; preds = %58, %is_reverse_circuit.exit67.i
   %62 = load i32, ptr %25, align 4
   %63 = load i32, ptr %51, align 4
   %64 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef null, ptr noundef nonnull @ei_iax_circuit_id_conflict, ptr noundef nonnull @.str.494, i32 noundef %18, i32 noundef %10, i32 noundef %16, i32 noundef %62, i32 noundef %63) #13
-  br label %iax_lookup_call_from_dest.exit
+  br label %iax_lookup_call_from_dest.argprom.exit
 
 .loopexit9.i:                                     ; preds = %54, %.loopexit11.i
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.491, i32 noundef 940) #14
@@ -2453,7 +2453,7 @@ is_reverse_circuit.exit67.i:                      ; preds = %.lr.ph.i62.i
   %67 = load i32, ptr %66, align 4
   %68 = tail call ptr @find_conversation_by_id(i32 noundef %67, i32 noundef 22, i32 noundef %10) #13
   %.not28 = icmp eq ptr %68, null
-  br i1 %.not28, label %iax_lookup_call_from_dest.exit, label %69
+  br i1 %.not28, label %iax_lookup_call_from_dest.argprom.exit, label %69
 
 69:                                               ; preds = %65
   %70 = load i32, ptr @proto_iax2, align 4
@@ -2486,7 +2486,7 @@ is_reverse_circuit.exit67.i:                      ; preds = %.lr.ph.i62.i
   %78 = getelementptr [2 x i32], ptr %74, i64 0, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %10, %79
-  br i1 %80, label %iax_lookup_call_from_dest.exit, label %77
+  br i1 %80, label %iax_lookup_call_from_dest.argprom.exit, label %77
 
 .loopexit47:                                      ; preds = %77, %73
   %81 = getelementptr inbounds i8, ptr %71, i64 28
@@ -2509,15 +2509,15 @@ is_reverse_circuit.exit67.i:                      ; preds = %.lr.ph.i62.i
   %85 = getelementptr [2 x i32], ptr %81, i64 0, i64 %indvars.iv.i37
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %10, %86
-  br i1 %87, label %iax_lookup_call_from_dest.exit, label %84
+  br i1 %87, label %iax_lookup_call_from_dest.argprom.exit, label %84
 
 .loopexit:                                        ; preds = %84, %.loopexit47
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.493, ptr noundef nonnull @.str.491, i32 noundef 1018) #14
   unreachable
 
-iax_lookup_call_from_dest.exit:                   ; preds = %.lr.ph.i54.i, %.lr.ph.i71.i, %.lr.ph.i, %.lr.ph.i36, %.loopexit.i, %47, %11, %iax2_new_circuit_for_call.exit.i, %65
-  %.041 = phi i32 [ 0, %65 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %11 ], [ 1, %iax2_new_circuit_for_call.exit.i ], [ 1, %.lr.ph.i36 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i71.i ], [ 1, %.lr.ph.i54.i ]
-  %.0 = phi ptr [ null, %65 ], [ null, %.loopexit.i ], [ null, %47 ], [ null, %11 ], [ %22, %iax2_new_circuit_for_call.exit.i ], [ %71, %.lr.ph.i36 ], [ %71, %.lr.ph.i ], [ %22, %.lr.ph.i71.i ], [ %22, %.lr.ph.i54.i ]
+iax_lookup_call_from_dest.argprom.exit:           ; preds = %.lr.ph.i54.i, %.lr.ph.i71.i, %.lr.ph.i, %.lr.ph.i36, %.loopexit.i, %47, %11, %iax2_new_circuit_for_call.argprom.exit.i, %65
+  %.041 = phi i32 [ 0, %65 ], [ 0, %.loopexit.i ], [ 0, %47 ], [ 0, %11 ], [ 1, %iax2_new_circuit_for_call.argprom.exit.i ], [ 1, %.lr.ph.i36 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i71.i ], [ 1, %.lr.ph.i54.i ]
+  %.0 = phi ptr [ null, %65 ], [ null, %.loopexit.i ], [ null, %47 ], [ null, %11 ], [ %22, %iax2_new_circuit_for_call.argprom.exit.i ], [ %71, %.lr.ph.i36 ], [ %71, %.lr.ph.i ], [ %22, %.lr.ph.i71.i ], [ %22, %.lr.ph.i54.i ]
   store i32 %.041, ptr %3, align 4
   ret ptr %.0
 }
@@ -2692,7 +2692,7 @@ define internal fastcc range(i32 -1, 64) i32 @uncompress_subclass(i8 noundef zer
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i32 4, 15) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_payload.argelim(ptr noundef %0, i32 noundef range(i32 4, 15) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = alloca %struct._iax2_dissector_info_t, align 4
   %9 = alloca %struct._iax2_dissector_info_t, align 4
   %10 = alloca ptr, align 8
@@ -2708,7 +2708,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_append_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.507) #13
-  br label %process_iax_pdu.exit
+  br label %process_iax_pdu.argprom.exit
 
 19:                                               ; preds = %7
   %20 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #13
@@ -2880,7 +2880,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i
   %122 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %121, ptr %122, align 4
   %123 = call i32 @call_dissector_with_data(ptr noundef nonnull %118, ptr noundef %114, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %9) #13
-  br label %process_iax_pdu.exit.i
+  br label %process_iax_pdu.argprom.exit.i
 
 124:                                              ; preds = %116, %111
   %.not20.i.i = icmp eq i32 %.val142.i, 0
@@ -2890,13 +2890,13 @@ define internal fastcc void @dissect_payload(ptr noundef %0, i32 noundef range(i
   %126 = load ptr, ptr @iax2_codec_dissector_table, align 8
   %127 = tail call i32 @dissector_try_uint(ptr noundef %126, i32 noundef %.val142.i, ptr noundef %114, ptr noundef nonnull %2, ptr noundef %4) #13
   %.not21.i.i = icmp eq i32 %127, 0
-  br i1 %.not21.i.i, label %128, label %process_iax_pdu.exit.i
+  br i1 %.not21.i.i, label %128, label %process_iax_pdu.argprom.exit.i
 
 128:                                              ; preds = %125, %124
   %129 = tail call i32 @call_data_dissector(ptr noundef %114, ptr noundef nonnull %2, ptr noundef %4) #13
-  br label %process_iax_pdu.exit.i
+  br label %process_iax_pdu.argprom.exit.i
 
-process_iax_pdu.exit.i:                           ; preds = %128, %125, %119
+process_iax_pdu.argprom.exit.i:                   ; preds = %128, %125, %119
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %130 = call i32 @tvb_reported_length(ptr noundef %114) #13
   %131 = sub i32 %130, %69
@@ -2904,7 +2904,7 @@ process_iax_pdu.exit.i:                           ; preds = %128, %125, %119
   %.not136.i = icmp eq i32 %132, 0
   br i1 %.not136.i, label %142, label %133
 
-133:                                              ; preds = %process_iax_pdu.exit.i
+133:                                              ; preds = %process_iax_pdu.argprom.exit.i
   %134 = load i32, ptr %45, align 4
   %135 = icmp slt i32 %134, %131
   br i1 %135, label %.thread.thread157.sink.split.i, label %142
@@ -2921,7 +2921,7 @@ process_iax_pdu.exit.i:                           ; preds = %128, %125, %119
   store i32 %141, ptr %140, align 4
   br label %.thread.thread157.i
 
-142:                                              ; preds = %133, %process_iax_pdu.exit.i
+142:                                              ; preds = %133, %process_iax_pdu.argprom.exit.i
   %143 = call i32 @show_fragment_tree(ptr noundef nonnull %104, ptr noundef nonnull @iax2_fragment_items, ptr noundef %4, ptr noundef nonnull %2, ptr noundef %114, ptr noundef nonnull %10) #13
   %144 = call ptr @proto_tree_get_parent(ptr noundef %3) #13
   %145 = call ptr @proto_item_get_parent(ptr noundef %144) #13
@@ -2972,7 +2972,7 @@ process_iax_pdu.exit.i:                           ; preds = %128, %125, %119
   %165 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %164, ptr %165, align 4
   %166 = call i32 @call_dissector_with_data(ptr noundef nonnull %161, ptr noundef %20, ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %8) #13
-  br label %process_iax_pdu.exit149.i
+  br label %process_iax_pdu.argprom.exit149.i
 
 167:                                              ; preds = %159, %157
   %.not20.i146.i = icmp eq i32 %.val144.i, 0
@@ -2982,24 +2982,24 @@ process_iax_pdu.exit.i:                           ; preds = %128, %125, %119
   %169 = load ptr, ptr @iax2_codec_dissector_table, align 8
   %170 = tail call i32 @dissector_try_uint(ptr noundef %169, i32 noundef %.val144.i, ptr noundef %20, ptr noundef nonnull %2, ptr noundef %4) #13
   %.not21.i147.i = icmp eq i32 %170, 0
-  br i1 %.not21.i147.i, label %171, label %process_iax_pdu.exit149.i
+  br i1 %.not21.i147.i, label %171, label %process_iax_pdu.argprom.exit149.i
 
 171:                                              ; preds = %168, %167
   %172 = tail call i32 @call_data_dissector(ptr noundef %20, ptr noundef nonnull %2, ptr noundef %4) #13
-  br label %process_iax_pdu.exit149.i
+  br label %process_iax_pdu.argprom.exit149.i
 
-process_iax_pdu.exit149.i:                        ; preds = %171, %168, %162
+process_iax_pdu.argprom.exit149.i:                ; preds = %171, %168, %162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %173 = load i32, ptr %46, align 8
   %.not132.i = icmp eq i32 %173, 0
-  br i1 %.not132.i, label %desegment_iax.exit, label %process_iax_pdu.exit149._crit_edge.i
+  br i1 %.not132.i, label %desegment_iax.exit, label %process_iax_pdu.argprom.exit149._crit_edge.i
 
-process_iax_pdu.exit149._crit_edge.i:             ; preds = %process_iax_pdu.exit149.i
+process_iax_pdu.argprom.exit149._crit_edge.i:     ; preds = %process_iax_pdu.argprom.exit149.i
   %.pre.i = load i32, ptr %45, align 4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %process_iax_pdu.exit149._crit_edge.i, %154
-  %174 = phi i32 [ %.pre.i, %process_iax_pdu.exit149._crit_edge.i ], [ %156, %154 ]
+.thread.i:                                        ; preds = %process_iax_pdu.argprom.exit149._crit_edge.i, %154
+  %174 = phi i32 [ %.pre.i, %process_iax_pdu.argprom.exit149._crit_edge.i ], [ %156, %154 ]
   %175 = getelementptr inbounds i8, ptr %2, i64 20
   %176 = load i32, ptr %175, align 4
   %177 = call i32 @tvb_reported_length_remaining(ptr noundef %20, i32 noundef %174) #13
@@ -3070,12 +3070,12 @@ proto_item_set_generated.exit.i:                  ; preds = %202, %198, %195, %1
   call void @col_set_str(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.513) #13
   br label %desegment_iax.exit
 
-desegment_iax.exit:                               ; preds = %103, %150, %process_iax_pdu.exit149.i, %.thread.i, %proto_item_set_generated.exit.i, %207
+desegment_iax.exit:                               ; preds = %103, %150, %process_iax_pdu.argprom.exit149.i, %.thread.i, %proto_item_set_generated.exit.i, %207
   store i16 0, ptr %44, align 8
   store i32 0, ptr %45, align 4
   store i32 0, ptr %46, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %process_iax_pdu.exit
+  br label %process_iax_pdu.argprom.exit
 
 211:                                              ; preds = %37
   %.val36 = load i32, ptr %11, align 8
@@ -3086,13 +3086,13 @@ desegment_iax.exit:                               ; preds = %103, %150, %process
   %213 = load ptr, ptr @iax2_codec_dissector_table, align 8
   %214 = tail call i32 @dissector_try_uint(ptr noundef %213, i32 noundef %.val36, ptr noundef %20, ptr noundef nonnull %2, ptr noundef %4) #13
   %.not21.i = icmp eq i32 %214, 0
-  br i1 %.not21.i, label %215, label %process_iax_pdu.exit
+  br i1 %.not21.i, label %215, label %process_iax_pdu.argprom.exit
 
 215:                                              ; preds = %212, %211
   %216 = tail call i32 @call_data_dissector(ptr noundef %20, ptr noundef nonnull %2, ptr noundef %4) #13
-  br label %process_iax_pdu.exit
+  br label %process_iax_pdu.argprom.exit
 
-process_iax_pdu.exit:                             ; preds = %215, %212, %desegment_iax.exit, %16
+process_iax_pdu.argprom.exit:                     ; preds = %215, %212, %desegment_iax.exit, %16
   ret void
 }
 

@@ -1072,7 +1072,7 @@ define internal fastcc zeroext i1 @match_smt(ptr nocapture noundef readonly %0, 
   br i1 %70, label %71, label %.thread
 
 71:                                               ; preds = %67
-  %72 = tail call fastcc zeroext i1 @topology_sane(i16 %8, i16 %11)
+  %72 = tail call fastcc zeroext i1 @topology_sane.argprom(i16 %8, i16 %11)
   br label %.thread
 
 73:                                               ; preds = %2
@@ -2722,7 +2722,7 @@ define dso_local void @native_play_dead() local_unnamed_addr #2 align 16 {
 declare dso_local i32 @cpuidle_play_dead() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @topology_sane(i16 %.302.val, i16 %.302.val1) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @topology_sane.argprom(i16 %.302.val, i16 %.302.val1) unnamed_addr #2 align 16 {
   %1 = zext i16 %.302.val to i64
   %2 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %1
   %3 = load i64, ptr %2, align 8

@@ -606,7 +606,7 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg12get
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -629,7 +629,7 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg12get
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.fmt::v10::format_arg_store.32", align 16
   %2 = alloca %"struct.vcpkg::msg::TagArg.23", align 8
   %3 = alloca %"struct.vcpkg::msg::TagArg", align 8
@@ -846,8 +846,8 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg24get
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  tail call fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() #24
-  invoke fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_"()
+  tail call fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv.retelim() #24
+  invoke fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -867,7 +867,7 @@ define dso_local noundef nonnull align 8 dereferenceable(33) ptr @_ZN5vcpkg24get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv.retelim() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN5vcpkgL18get_xdg_cache_homeEvE6s_home acquire, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %8, !prof !7
@@ -878,7 +878,7 @@ define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() unnamed_addr #0 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN5vcpkgL18get_xdg_cache_homeEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkgL18get_xdg_cache_homeEvENK3$_0clEv.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -898,7 +898,7 @@ define internal fastcc void @_ZN5vcpkgL18get_xdg_cache_homeEv() unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZNS_24get_platform_cache_vcpkgEvE3$_0EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS6_ELi0EEEvEEEES2_EES6_.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   %3 = trunc i8 %2 to i1
@@ -1046,7 +1046,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg24get
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN5vcpkg24get_program_files_32_bitEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkg24get_program_files_32_bitEvENK3$_0clEv.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -1065,7 +1065,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg24get
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg24get_program_files_32_bitEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg24get_program_files_32_bitEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
   %2 = alloca %"struct.vcpkg::Optional.0", align 8
   call void @_ZN5vcpkg24get_environment_variableB5cxx11ENS_11ZStringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.0") align 8 %2, ptr nonnull @.str.46, i64 poison) #24
@@ -1115,7 +1115,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br i1 %.not.i, label %_ZN5vcpkgL17get_program_filesEv.exit, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv.argprom"()
           to label %18 unwind label %20
 
 18:                                               ; preds = %17
@@ -1184,7 +1184,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg34get
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  invoke fastcc void @"_ZZN5vcpkg34get_program_files_platform_bitnessEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkg34get_program_files_platform_bitnessEvENK3$_0clEv.argprom"()
           to label %6 unwind label %9
 
 6:                                                ; preds = %5
@@ -1203,7 +1203,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5vcpkg34get
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg34get_program_files_platform_bitnessEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg34get_program_files_platform_bitnessEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
   %2 = alloca %"struct.vcpkg::Optional.0", align 8
   call void @_ZN5vcpkg24get_environment_variableB5cxx11ENS_11ZStringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.0") align 8 %2, ptr nonnull @.str.48, i64 poison) #24
@@ -1253,7 +1253,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br i1 %.not.i, label %_ZN5vcpkgL17get_program_filesEv.exit, label %17
 
 17:                                               ; preds = %15
-  invoke fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv.argprom"()
           to label %18 unwind label %20
 
 18:                                               ; preds = %17
@@ -1304,7 +1304,7 @@ define dso_local noundef i32 @_ZN5vcpkg15get_concurrencyEv() local_unnamed_addr 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = invoke fastcc noundef i32 @"_ZZN5vcpkg15get_concurrencyEvENK3$_0clEv"()
+  %6 = invoke fastcc noundef i32 @"_ZZN5vcpkg15get_concurrencyEvENK3$_0clEv.argprom"()
           to label %7 unwind label %10
 
 7:                                                ; preds = %5
@@ -1324,7 +1324,7 @@ define dso_local noundef i32 @_ZN5vcpkg15get_concurrencyEv() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @"_ZZN5vcpkg15get_concurrencyEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @"_ZZN5vcpkg15get_concurrencyEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca ptr, align 8
   %2 = alloca %"struct.vcpkg::Optional.0", align 8
   %3 = alloca i32, align 4
@@ -4920,7 +4920,7 @@ declare { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr nounde
 declare { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkgL18get_xdg_cache_homeEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkgL18get_xdg_cache_homeEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
   %2 = alloca %"struct.vcpkg::Path", align 8
   %3 = alloca %"struct.vcpkg::Optional.0", align 8
@@ -4970,7 +4970,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br i1 %.not.i, label %_ZN5vcpkg12get_home_dirEv.exit, label %20
 
 20:                                               ; preds = %18
-  invoke fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5vcpkg12get_home_dirEvENK3$_0clEv.argprom"()
           to label %21 unwind label %23
 
 21:                                               ; preds = %20
@@ -4998,7 +4998,7 @@ _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
 
 .noexc:                                           ; preds = %28
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
-  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit"
+  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.argprom.exit"
 
 29:                                               ; preds = %_ZN5vcpkg12get_home_dirEv.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN5vcpkg12get_home_dirEvE6s_home)
@@ -5014,7 +5014,7 @@ _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZZN5vcpkgL18get_xdg_cache_homeEvE6s_home, i64 32), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit"
+  br label %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.argprom.exit"
 
 32:                                               ; preds = %.noexc3
   %33 = landingpad { ptr, i32 }
@@ -5022,12 +5022,12 @@ _ZN5vcpkg12get_home_dirEv.exit:                   ; preds = %15, %18, %21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   br label %.body
 
-"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit": ; preds = %.noexc, %31
+"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.argprom.exit": ; preds = %.noexc, %31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   br label %34
 
-34:                                               ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.exit", %9
+34:                                               ; preds = %"_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE3mapIZZNS_L18get_xdg_cache_homeEvENK3$_0clEvEUlS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalIS7_ELi0EEEvEEEES2_EES7_.argprom.exit", %9
   %35 = load i8, ptr %3, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit4
@@ -5047,7 +5047,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg4PathdVENS_10S
 declare void @_ZN5vcpkg4PathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkgL17get_program_filesEvENK3$_0clEv.argprom"() unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.vcpkg::Path", align 8
   %2 = alloca %"struct.vcpkg::Optional.0", align 8
   call void @_ZN5vcpkg24get_environment_variableB5cxx11ENS_11ZStringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.0") align 8 %2, ptr nonnull @.str.47, i64 poison) #24

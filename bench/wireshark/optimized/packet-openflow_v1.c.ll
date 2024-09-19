@@ -446,10 +446,10 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %26 = load i32, ptr @hf_openflow_xid, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %26, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
   switch i8 %7, label %289 [
-    i8 0, label %dissect_openflow_features_reply_v1.exit
-    i8 5, label %dissect_openflow_features_reply_v1.exit
+    i8 0, label %dissect_openflow_features_reply_v1.argprom.exit
+    i8 5, label %dissect_openflow_features_reply_v1.argprom.exit
     i8 6, label %28
-    i8 7, label %dissect_openflow_features_reply_v1.exit
+    i8 7, label %dissect_openflow_features_reply_v1.argprom.exit
     i8 8, label %167
     i8 9, label %167
     i8 10, label %172
@@ -523,7 +523,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %87, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
   %89 = add i16 %23, -32
   %.not3.i = icmp ult i16 %89, 48
-  br i1 %.not3.i, label %dissect_openflow_features_reply_v1.exit, label %.lr.ph.preheader.i
+  br i1 %.not3.i, label %dissect_openflow_features_reply_v1.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %28
   %90 = udiv i16 %89, 48
@@ -610,14 +610,14 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #3
   %166 = add nuw nsw i32 %.02.i, 48
   %exitcond.not.i = icmp eq i32 %92, %umax.i
-  br i1 %exitcond.not.i, label %dissect_openflow_features_reply_v1.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %dissect_openflow_features_reply_v1.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
 167:                                              ; preds = %14, %14
   %168 = load i32, ptr @hf_openflow_config_flags, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %168, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #3
   %170 = load i32, ptr @hf_openflow_miss_send_len, align 4
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %170, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #3
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 172:                                              ; preds = %14
   %173 = load i32, ptr @hf_openflow_buffer_id, align 4
@@ -635,10 +635,10 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %185 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 18, i32 noundef %184) #3
   %186 = load ptr, ptr @eth_withoutfcs_handle, align 8
   %187 = tail call i32 @call_dissector(ptr noundef %186, ptr noundef %185, ptr noundef nonnull %1, ptr noundef %18) #3
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 188:                                              ; preds = %14
-  %189 = tail call fastcc i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %18, i32 noundef 8)
+  %189 = tail call fastcc i32 @dissect_openflow_ofp_match_v1.argprom(ptr noundef %0, ptr noundef %18, i32 noundef 8)
   %190 = load i32, ptr @hf_openflow_flow_removed_cookie, align 4
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef 8, i32 noundef 0) #3
   %192 = or disjoint i32 %189, 8
@@ -668,7 +668,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %216 = add nuw nsw i32 %189, 32
   %217 = load i32, ptr @hf_openflow_flow_removed_byte_count, align 4
   %218 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef 8, i32 noundef 0) #3
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 219:                                              ; preds = %14
   %220 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
@@ -680,7 +680,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %226 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %225, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #3
   %227 = tail call fastcc i32 @dissect_openflow_action_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef 16)
   %228 = icmp eq i32 %220, -1
-  br i1 %228, label %229, label %dissect_openflow_features_reply_v1.exit
+  br i1 %228, label %229, label %dissect_openflow_features_reply_v1.argprom.exit
 
 229:                                              ; preds = %219
   %230 = zext i16 %23 to i32
@@ -688,10 +688,10 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %232 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %227, i32 noundef %231) #3
   %233 = load ptr, ptr @eth_withoutfcs_handle, align 8
   %234 = tail call i32 @call_dissector(ptr noundef %233, ptr noundef %232, ptr noundef nonnull %1, ptr noundef %18) #3
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 235:                                              ; preds = %14
-  %236 = tail call fastcc i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %18, i32 noundef 8)
+  %236 = tail call fastcc i32 @dissect_openflow_ofp_match_v1.argprom(ptr noundef %0, ptr noundef %18, i32 noundef 8)
   %237 = load i32, ptr @hf_openflow_cookie, align 4
   %238 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %237, ptr noundef %0, i32 noundef %236, i32 noundef 8, i32 noundef 0) #3
   %239 = or disjoint i32 %236, 8
@@ -717,7 +717,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   %259 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 2, i32 noundef 0) #3
   %260 = add nuw nsw i32 %236, 24
   %261 = tail call fastcc i32 @dissect_openflow_action_header(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, i32 noundef %260)
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 262:                                              ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -732,7 +732,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 268:                                              ; preds = %262
-  %269 = call fastcc i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %18, i32 noundef 12)
+  %269 = call fastcc i32 @dissect_openflow_ofp_match_v1.argprom(ptr noundef %0, ptr noundef %18, i32 noundef 12)
   %270 = load i32, ptr @hf_openflow_table_id, align 4
   %271 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %270, ptr noundef %0, i32 noundef %269, i32 noundef 1, i32 noundef 0) #3
   %272 = add nuw nsw i32 %269, 1
@@ -749,7 +749,7 @@ define internal i32 @dissect_openflow_v1(ptr noundef %0, ptr noundef %1, ptr nou
 
 dissect_openflow_stats_req.exit:                  ; preds = %262, %268, %278
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 280:                                              ; preds = %14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -769,17 +769,17 @@ dissect_openflow_stats_req.exit:                  ; preds = %262, %268, %278
 
 dissect_openflow_stats_resp.exit:                 ; preds = %280, %287
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
 289:                                              ; preds = %14
   %290 = icmp ugt i16 %23, 8
-  br i1 %290, label %291, label %dissect_openflow_features_reply_v1.exit
+  br i1 %290, label %291, label %dissect_openflow_features_reply_v1.argprom.exit
 
 291:                                              ; preds = %289
   %292 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_openflow_1_0_type) #3
-  br label %dissect_openflow_features_reply_v1.exit
+  br label %dissect_openflow_features_reply_v1.argprom.exit
 
-dissect_openflow_features_reply_v1.exit:          ; preds = %.lr.ph.i, %229, %219, %28, %289, %291, %14, %14, %14, %dissect_openflow_stats_resp.exit, %dissect_openflow_stats_req.exit, %235, %188, %172, %167
+dissect_openflow_features_reply_v1.argprom.exit:  ; preds = %.lr.ph.i, %229, %219, %28, %289, %291, %14, %14, %14, %dissect_openflow_stats_resp.exit, %dissect_openflow_stats_req.exit, %235, %188, %172, %167
   %293 = call i32 @tvb_reported_length(ptr noundef %0) #3
   ret i32 %293
 }
@@ -829,7 +829,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 13) %2) unnamed_addr #0 {
+define internal fastcc range(i32 48, 53) i32 @dissect_openflow_ofp_match_v1.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 13) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_openflow_wildcards, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
   %6 = add nuw nsw i32 %2, 4

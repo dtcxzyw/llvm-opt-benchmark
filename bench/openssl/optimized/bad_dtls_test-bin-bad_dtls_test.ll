@@ -264,7 +264,7 @@ lor.lhs.false123:                                 ; preds = %if.end119
   br i1 %tobool126.not, label %end, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %lor.lhs.false123
-  %call128 = call fastcc i32 @send_finished(ptr noundef %call58)
+  %call128 = call fastcc i32 @send_finished.argprom(ptr noundef %call58)
   %call131 = call i32 @test_true(ptr noundef nonnull @.str.1, i32 noundef 552, ptr noundef nonnull @.str.26, i32 noundef %call128) #6
   %tobool132.not = icmp eq i32 %call131, 0
   br i1 %tobool132.not, label %end, label %if.end134
@@ -487,16 +487,16 @@ lor.lhs.false41:                                  ; preds = %lor.lhs.false.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 60
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %cmp.not.i = icmp eq i8 %9, 32
-  br i1 %cmp.not.i, label %PACKET_equal.exit, label %return
+  br i1 %cmp.not.i, label %PACKET_equal.argprom.exit, label %return
 
-PACKET_equal.exit:                                ; preds = %lor.lhs.false41
+PACKET_equal.argprom.exit:                        ; preds = %lor.lhs.false41
   %call1.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @session_id, i64 noundef %conv.i) #6
   %cmp2.i = icmp ne i32 %call1.i, 0
   %tobool.not.i.i.i62 = icmp eq i64 %sub.i.i.i, %conv.i
   %or.cond276 = or i1 %tobool.not.i.i.i62, %cmp2.i
   br i1 %or.cond276, label %return, label %lor.lhs.false.i63
 
-lor.lhs.false.i63:                                ; preds = %PACKET_equal.exit
+lor.lhs.false.i63:                                ; preds = %PACKET_equal.argprom.exit
   %10 = load i8, ptr %add.ptr.i.i5.i, align 1
   %sub.i.i.i65 = add nsw i64 %call, -93
   %conv.i66 = zext i8 %10 to i64
@@ -512,15 +512,15 @@ if.end49:                                         ; preds = %lor.lhs.false.i63
 
 if.then52:                                        ; preds = %if.end49
   %cmp.not.i75 = icmp eq i8 %10, 20
-  br i1 %cmp.not.i75, label %PACKET_equal.exit81, label %return
+  br i1 %cmp.not.i75, label %PACKET_equal.argprom.exit81, label %return
 
-PACKET_equal.exit81:                              ; preds = %if.then52
+PACKET_equal.argprom.exit81:                      ; preds = %if.then52
   %call1.i78 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i.i69, ptr noundef nonnull @cookie, i64 noundef %conv.i66) #6
   %cmp2.i79.not = icmp eq i32 %call1.i78, 0
   br i1 %cmp2.i79.not, label %if.end57, label %return
 
-if.end57:                                         ; preds = %PACKET_equal.exit81, %if.end49
-  %cookie_found.0 = phi i32 [ 1, %if.end49 ], [ 2, %PACKET_equal.exit81 ]
+if.end57:                                         ; preds = %PACKET_equal.argprom.exit81, %if.end49
+  %cookie_found.0 = phi i32 [ 1, %if.end49 ], [ 2, %PACKET_equal.argprom.exit81 ]
   %cmp.i.i83 = icmp ult i64 %sub.i.i6.i71, 2
   br i1 %cmp.i.i83, label %return, label %lor.lhs.false60
 
@@ -580,8 +580,8 @@ if.end89:                                         ; preds = %land.lhs.true, %if.
   %call90 = call i64 @BIO_ctrl(ptr noundef %wbio, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
   br label %return
 
-return:                                           ; preds = %lor.lhs.false75, %if.end72, %lor.lhs.false67, %lor.lhs.false60, %if.end57, %if.then52, %lor.lhs.false.i63, %lor.lhs.false41, %lor.lhs.false.i, %if.end38, %land.lhs.true, %PACKET_equal.exit81, %PACKET_equal.exit, %PACKET_get_net_2.exit47, %PACKET_get_1.exit28, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %entry, %if.end89
-  %retval.0 = phi i32 [ %cookie_found.0, %if.end89 ], [ 0, %entry ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit28 ], [ 0, %PACKET_get_net_2.exit47 ], [ 0, %PACKET_equal.exit ], [ 0, %PACKET_equal.exit81 ], [ 0, %land.lhs.true ], [ 0, %if.end38 ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false41 ], [ 0, %lor.lhs.false.i63 ], [ 0, %if.then52 ], [ 0, %if.end57 ], [ 0, %lor.lhs.false60 ], [ 0, %lor.lhs.false67 ], [ 0, %if.end72 ], [ 0, %lor.lhs.false75 ]
+return:                                           ; preds = %lor.lhs.false75, %if.end72, %lor.lhs.false67, %lor.lhs.false60, %if.end57, %if.then52, %lor.lhs.false.i63, %lor.lhs.false41, %lor.lhs.false.i, %if.end38, %land.lhs.true, %PACKET_equal.argprom.exit81, %PACKET_equal.argprom.exit, %PACKET_get_net_2.exit47, %PACKET_get_1.exit28, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %entry, %if.end89
+  %retval.0 = phi i32 [ %cookie_found.0, %if.end89 ], [ 0, %entry ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit28 ], [ 0, %PACKET_get_net_2.exit47 ], [ 0, %PACKET_equal.argprom.exit ], [ 0, %PACKET_equal.argprom.exit81 ], [ 0, %land.lhs.true ], [ 0, %if.end38 ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false41 ], [ 0, %lor.lhs.false.i63 ], [ 0, %if.then52 ], [ 0, %if.end57 ], [ 0, %lor.lhs.false60 ], [ 0, %lor.lhs.false67 ], [ 0, %if.end72 ], [ 0, %lor.lhs.false75 ]
   ret i32 %retval.0
 }
 
@@ -606,7 +606,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @send_finished(ptr noundef %rbio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_finished.argprom(ptr noundef %rbio) unnamed_addr #0 {
 entry:
   %outlen.i1 = alloca i64, align 8
   %outlen.i = alloca i64, align 8

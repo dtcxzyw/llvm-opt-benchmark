@@ -115,7 +115,7 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #15
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
-  br label %build_addr.exit.i
+  br label %build_addr.argprom.exit.i
 
 if.else.i.i:                                      ; preds = %if.then4.i.i
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.34) #14
@@ -129,19 +129,19 @@ if.end12.i.i:                                     ; preds = %if.end4
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.28) #16
   %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
-  br label %build_addr.exit.i
+  br label %build_addr.argprom.exit.i
 
-build_addr.exit.i:                                ; preds = %if.end12.i.i, %if.then8.i.i
+build_addr.argprom.exit.i:                        ; preds = %if.end12.i.i, %if.then8.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
   %call1.i.i = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
   %cmp.i.i = icmp slt i32 %call1.i.i, -1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.end3.i.i
 
-if.then2.i.i:                                     ; preds = %build_addr.exit.i
+if.then2.i.i:                                     ; preds = %build_addr.argprom.exit.i
   tail call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.35) #14
   unreachable
 
-if.end3.i.i:                                      ; preds = %build_addr.exit.i
+if.end3.i.i:                                      ; preds = %build_addr.argprom.exit.i
   %call4.i.i = tail call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #16
   store i32 1, ptr %on.i.i, align 4
   %call8.i.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %on.i.i, i32 noundef 4) #16

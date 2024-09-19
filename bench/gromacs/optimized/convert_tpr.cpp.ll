@@ -2877,16 +2877,16 @@ _ZN3gmx11ListOfListsIiE8pushBackENS_8ArrayRefIKiEE.exit.i: ; preds = %_ZNSt6vect
   %492 = load i32, ptr %491, align 4, !noalias !31
   %493 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %483, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.58, i64 noundef %.lcssa.i118, i64 noundef %488, i32 noundef %490, i32 noundef %492) #24, !noalias !31
   %.not.i.i.i28.i = icmp eq ptr %.sroa.05.0.lcssa.i, null
-  br i1 %.not.i.i.i28.i, label %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit, label %494
+  br i1 %.not.i.i.i28.i, label %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom.exit, label %494
 
 494:                                              ; preds = %._crit_edge60.i
   call void @_ZdlPv(ptr noundef nonnull %.sroa.05.0.lcssa.i) #22, !noalias !31
   %.pre = load ptr, ptr %10, align 8
   %.pre300 = load ptr, ptr %310, align 8
   %.pre301 = load ptr, ptr %309, align 8
-  br label %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit
+  br label %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom.exit
 
-_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit: ; preds = %494, %._crit_edge60.i
+_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom.exit: ; preds = %494, %._crit_edge60.i
   %495 = phi ptr [ %.pre301, %494 ], [ %479, %._crit_edge60.i ]
   %496 = phi ptr [ %.pre300, %494 ], [ %480, %._crit_edge60.i ]
   %497 = phi ptr [ %.pre, %494 ], [ %481, %._crit_edge60.i ]
@@ -2902,11 +2902,11 @@ _ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsI
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i137, label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i, label %503
 
-503:                                              ; preds = %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit
+503:                                              ; preds = %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom.exit
   call void @_ZdlPv(ptr noundef nonnull %500) #22
   br label %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i
 
-_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i:               ; preds = %503, %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.exit
+_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i:               ; preds = %503, %_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom.exit
   %504 = getelementptr inbounds i8, ptr %498, i64 2360
   %505 = load ptr, ptr %504, align 8
   %506 = getelementptr inbounds i8, ptr %498, i64 2368
@@ -4385,8 +4385,8 @@ attributes #26 = { noreturn nounwind }
 !29 = distinct !{!29, !9}
 !30 = distinct !{!30, !9}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc: argument 0"}
-!33 = distinct !{!33, !"_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc"}
+!32 = distinct !{!32, !33, !"_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZL18reduce_listoflistsN3gmx8ArrayRefIKiEERKSt6vectorIbSaIbEERKNS_11ListOfListsIiEEPKc.argprom"}
 !34 = distinct !{!34, !9}
 !35 = distinct !{!35, !9}
 !36 = distinct !{!36, !9}

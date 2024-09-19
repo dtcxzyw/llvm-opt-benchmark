@@ -3962,7 +3962,7 @@ Vec_WrdGrow.exit:                                 ; preds = %27, %29
 
 .lr.ph:                                           ; preds = %Vec_WrdGrow.exit, %.lr.ph
   %.05190 = phi i32 [ %35, %.lr.ph ], [ 0, %Vec_WrdGrow.exit ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %32)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %32)
   %35 = add nuw nsw i32 %.05190, 1
   %exitcond.not = icmp eq i32 %35, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
@@ -3986,7 +3986,7 @@ Vec_WrdGrow.exit:                                 ; preds = %27, %29
   %44 = getelementptr inbounds i64, ptr %0, i64 %43
   %45 = call ptr @Abc_TtSimpleMin_rec(ptr noundef nonnull %32, ptr noundef %44, ptr noundef %40, i32 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef %5)
   %46 = load i32, ptr %7, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %32, i32 noundef %46)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %32, i32 noundef %46)
   %47 = add nuw nsw i32 %.091, 1
   %exitcond97.not = icmp eq i32 %47, %2
   br i1 %exitcond97.not, label %._crit_edge94, label %41, !llvm.loop !60
@@ -4133,7 +4133,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %8
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi.retelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 2684354559
@@ -4228,7 +4228,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare void @Gia_ManHashAlloc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -5247,7 +5247,7 @@ Vec_WrdGrow.exit:                                 ; preds = %27, %29
 
 .lr.ph:                                           ; preds = %Vec_WrdGrow.exit, %.lr.ph
   %.06099 = phi i32 [ %35, %.lr.ph ], [ 0, %Vec_WrdGrow.exit ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %32)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %32)
   %35 = add nuw nsw i32 %.06099, 1
   %exitcond.not = icmp eq i32 %35, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
@@ -5274,7 +5274,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph102, %Abc_TtC
   %46 = getelementptr inbounds i64, ptr %0, i64 %44
   %47 = call ptr @Abc_TtGiaMin_rec(ptr noundef nonnull %32, ptr noundef %45, ptr noundef nonnull %46, i32 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef %5)
   %48 = load i32, ptr %7, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %32, i32 noundef %48)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %32, i32 noundef %48)
   %49 = add nuw nsw i32 %.0100, 1
   %exitcond106.not = icmp eq i32 %49, %36
   br i1 %exitcond106.not, label %._crit_edge103, label %Abc_TtCopy.exit, !llvm.loop !65
@@ -5484,7 +5484,7 @@ Vec_WrdGrow.exit:                                 ; preds = %33, %35
 
 .lr.ph:                                           ; preds = %Vec_WrdGrow.exit, %.lr.ph
   %.059111 = phi i32 [ %41, %.lr.ph ], [ 0, %Vec_WrdGrow.exit ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %38)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %38)
   %41 = add nuw nsw i32 %.059111, 1
   %exitcond.not = icmp eq i32 %41, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
@@ -5540,7 +5540,7 @@ Vec_WrdGrow.exit:                                 ; preds = %33, %35
 Abc_TtSharp.exit:                                 ; preds = %.lr.ph.i72, %48
   %65 = call ptr @Abc_TtGiaMin_rec(ptr noundef nonnull %38, ptr noundef %14, ptr noundef %15, i32 noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %25, ptr noundef nonnull %7, ptr noundef %5)
   %66 = load i32, ptr %7, align 4
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %38, i32 noundef %66)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %38, i32 noundef %66)
   %67 = add nuw nsw i32 %.0112, 1
   %exitcond118.not = icmp eq i32 %67, %2
   br i1 %exitcond118.not, label %._crit_edge115, label %48, !llvm.loop !69
@@ -5979,7 +5979,7 @@ define ptr @Gia_ManBuildMuxesTest(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.021 = phi i32 [ %10, %.lr.ph ], [ 0, %4 ]
-  tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %7)
+  tail call fastcc void @Gia_ManAppendCi.retelim(ptr noundef nonnull %7)
   %10 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %10, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
@@ -5999,7 +5999,7 @@ define ptr @Gia_ManBuildMuxesTest(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i64, ptr %0, i64 %15
   %17 = tail call i32 @Gia_ManBuildMuxes_rec(ptr noundef nonnull %7, ptr noundef %16, i32 noundef %1, ptr noundef %3)
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %7, i32 noundef %17)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %7, i32 noundef %17)
   %18 = add nuw nsw i32 %.122, 1
   %exitcond26.not = icmp eq i32 %18, %2
   br i1 %exitcond26.not, label %._crit_edge25, label %13, !llvm.loop !74

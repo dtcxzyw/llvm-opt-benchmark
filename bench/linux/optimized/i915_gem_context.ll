@@ -1905,7 +1905,7 @@ declare dso_local ptr @i915_ppgtt_create(ptr noundef, i64 noundef) local_unnamed
 declare dso_local i32 @i915_user_extensions(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @xa_alloc(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc i32 @xa_alloc.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #17
   tail call void @_raw_spin_lock(ptr noundef %0) #17
   %4 = tail call i32 @__xa_alloc(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 4294967295, i32 noundef 3264) #17
@@ -2388,7 +2388,7 @@ define dso_local i32 @i915_gem_context_create_ioctl(ptr noundef %0, ptr nocaptur
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds i8, ptr %80, i64 72
-  %86 = call fastcc i32 @xa_alloc(ptr noundef %85, ptr noundef nonnull %5)
+  %86 = call fastcc i32 @xa_alloc.argprom(ptr noundef %85, ptr noundef nonnull %5)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %.thread10
 

@@ -831,7 +831,7 @@ define void @Pdr_ManCollectValues(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %18 = getelementptr i8, ptr %17, i64 32
   %.val16 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.val16, null
-  br i1 %.not.i, label %Aig_ManObj.exit, label %19
+  br i1 %.not.i, label %Aig_ManObj.argprom.exit, label %19
 
 19:                                               ; preds = %16
   %.val14 = load ptr, ptr %14, align 8
@@ -842,9 +842,9 @@ define void @Pdr_ManCollectValues(ptr noundef %0, i32 noundef %1, ptr nocapture 
   %23 = sext i32 %21 to i64
   %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
   %25 = load ptr, ptr %24, align 8
-  br label %Aig_ManObj.exit
+  br label %Aig_ManObj.argprom.exit
 
-Aig_ManObj.exit:                                  ; preds = %16, %19
+Aig_ManObj.argprom.exit:                          ; preds = %16, %19
   %26 = phi ptr [ %25, %19 ], [ null, %16 ]
   %27 = tail call i32 @Pdr_ObjSatVar(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 3, ptr noundef %26) #8
   %.val17 = load ptr, ptr %15, align 8
@@ -858,11 +858,11 @@ Aig_ManObj.exit:                                  ; preds = %16, %19
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Aig_ManObj.exit
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Aig_ManObj.argprom.exit
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-36:                                               ; preds = %Aig_ManObj.exit
+36:                                               ; preds = %Aig_ManObj.argprom.exit
   %37 = icmp slt i32 %33, 16
   br i1 %37, label %38, label %45
 

@@ -1549,7 +1549,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %131, %124, %116
   %152 = fptosi double %ldexp to i32
   %153 = load i32, ptr %103, align 8
   %154 = load i32, ptr %104, align 4
-  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %152, i32 noundef %153, i32 noundef %154)
+  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib.argelim(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %152, i32 noundef %153, i32 noundef %154)
           to label %155 unwind label %172
 
 155:                                              ; preds = %150
@@ -3602,7 +3602,7 @@ _ZN2cv4faceL5elbp_IdEEvRKNS_11_InputArrayERKNS_12_OutputArrayEii.exit.i: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib.argelim(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_OutputArray", align 8
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca i32, align 4
@@ -4422,7 +4422,7 @@ define hidden void @_ZNK2cv4face4LBPH7predictERKNS_11_InputArrayENS_3PtrINS0_16P
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4
-  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %45, i32 noundef %47, i32 noundef %49)
+  invoke fastcc void @_ZN2cv4faceL17spatial_histogramERKNS_11_InputArrayEiiib.argelim(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %45, i32 noundef %47, i32 noundef %49)
           to label %50 unwind label %132
 
 50:                                               ; preds = %40
@@ -5947,8 +5947,8 @@ attributes #25 = { builtin allocsize(0) }
 !117 = !{!118, !120}
 !118 = distinct !{!118, !119, !"_ZSt11make_sharedIN2cv4face4LBPHEJRKiS4_S4_S4_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_: argument 0"}
 !119 = distinct !{!119, !"_ZSt11make_sharedIN2cv4face4LBPHEJRKiS4_S4_S4_RKdEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
-!120 = distinct !{!120, !121, !"_ZN2cvL7makePtrINS_4face4LBPHEJiiiidEEENS_3PtrIT_EEDpRKT0_: argument 0"}
-!121 = distinct !{!121, !"_ZN2cvL7makePtrINS_4face4LBPHEJiiiidEEENS_3PtrIT_EEDpRKT0_"}
+!120 = distinct !{!120, !121, !"_ZN2cvL7makePtrINS_4face4LBPHEJiiiidEEENS_3PtrIT_EEDpRKT0_.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZN2cvL7makePtrINS_4face4LBPHEJiiiidEEENS_3PtrIT_EEDpRKT0_.argprom"}
 !122 = distinct !{!122, !8}
 !123 = distinct !{!123, !8}
 !124 = distinct !{!124, !8}

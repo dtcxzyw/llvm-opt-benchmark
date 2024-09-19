@@ -402,14 +402,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %10, %13
   store ptr null, ptr %11, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #15
   %14 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 111, i64 noundef 10, i64 noundef 40)
-          to label %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit unwind label %.loopexit.split-lp
+          to label %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.argprom.exit unwind label %.loopexit.split-lp
 
-_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.argprom.exit: ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %15 = getelementptr inbounds i8, ptr %14, i64 32
   %16 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 112, i64 noundef 10, i64 noundef 8)
           to label %17 unwind label %.loopexit.split-lp
 
-17:                                               ; preds = %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit
+17:                                               ; preds = %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.argprom.exit
   store ptr %16, ptr %15, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   %19 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 113, i64 noundef 10, i64 noundef 4)
@@ -432,9 +432,9 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
   store i32 0, ptr %14, align 8
   br label %.outer
 
-.outer:                                           ; preds = %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit, %26
-  %.024.ph = phi i32 [ %52, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit ], [ 10, %26 ]
-  %.023.ph = phi i32 [ %.024.ph, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit ], [ 0, %26 ]
+.outer:                                           ; preds = %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.argprom.exit, %26
+  %.024.ph = phi i32 [ %52, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.argprom.exit ], [ 10, %26 ]
+  %.023.ph = phi i32 [ %.024.ph, %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.argprom.exit ], [ 0, %26 ]
   br label %.outer58
 
 .outer58:                                         ; preds = %.outer, %36
@@ -503,9 +503,9 @@ _ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit: ;
   store ptr %61, ptr %21, align 8
   %63 = load ptr, ptr %24, align 8
   %64 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 136, ptr noundef %63, i64 noundef %53, i64 noundef 8)
-          to label %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit unwind label %.loopexit.loopexit.split-lp
+          to label %_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.argprom.exit unwind label %.loopexit.loopexit.split-lp
 
-_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
+_ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.argprom.exit: ; preds = %62
   store ptr %64, ptr %24, align 8
   br label %.outer, !llvm.loop !8
 
@@ -530,7 +530,7 @@ _ZL15gmx_srenew_implIdEvPKcS1_iRPT_m.exit:        ; preds = %62
           cleanup
   br label %.loopexit
 
-.loopexit.split-lp:                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.exit, %17, %20, %23, %74, %79, %84, %89
+.loopexit.split-lp:                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL13gmx_snew_implI37gmx_neutron_atomic_structurefactors_tEvPKcS2_iRPT_m.argprom.exit, %17, %20, %23, %74, %79, %84, %89
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit

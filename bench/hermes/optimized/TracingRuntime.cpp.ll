@@ -2984,7 +2984,7 @@ if.else.i.i.i.i.i38:                              ; preds = %if.end.i.i.i.i17
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21: ; preds = %if.else.i.i.i.i.i38, %if.then.i.i.i.i.i19
   %retval.i.0.i.i.i.i22 = phi i32 [ %41, %if.then.i.i.i.i.i19 ], [ %44, %if.else.i.i.i.i.i38 ]
   %cmp6.i.i.i.i23 = icmp eq i32 %retval.i.0.i.i.i.i22, 1
-  br i1 %cmp6.i.i.i.i23, label %if.then7.i.i.i.i24, label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.exit
+  br i1 %cmp6.i.i.i.i23, label %if.then7.i.i.i.i24, label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom.exit
 
 if.then7.i.i.i.i24:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21
   %vtable.i.i.i.i.i.i25 = load ptr, ptr %call5.i.i.i5.i.i.i.i, align 8
@@ -3008,21 +3008,21 @@ if.else.i.i.i.i.i.i.i37:                          ; preds = %if.then7.i.i.i.i24
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31: ; preds = %if.else.i.i.i.i.i.i.i37, %if.then.i.i.i.i.i.i.i29
   %retval.i.0.i.i.i.i.i.i32 = phi i32 [ %47, %if.then.i.i.i.i.i.i.i29 ], [ %48, %if.else.i.i.i.i.i.i.i37 ]
   %cmp.i.i.i.i.i.i33 = icmp eq i32 %retval.i.0.i.i.i.i.i.i32, 1
-  br i1 %cmp.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i34, label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i33, label %if.end8.sink.split.i.i.i.i34, label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i34:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i35 = load ptr, ptr %call5.i.i.i5.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i35, i64 24
   %49 = load ptr, ptr %vfn3.i.i.i.i.i.i36, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i) #29
-  br label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.exit
+  br label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i34
+_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i34
   ret void
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad5, %lpad2
   %.pn = phi { ptr, i32 } [ %34, %lpad2 ], [ %35, %lpad5 ], [ %35, %if.then.i.i ]
-  call fastcc void @_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev(ptr nonnull %call5.i.i.i5.i.i.i.i) #29
+  call fastcc void @_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom(ptr nonnull %call5.i.i.i5.i.i.i.i) #29
   resume { ptr, i32 } %.pn
 }
 
@@ -3321,10 +3321,10 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.argprom(ptr %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -3360,7 +3360,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -3385,16 +3385,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #29
-  br label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -12702,13 +12702,13 @@ invoke.cont14.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i.i) #29, !noalias !354
   %7 = load ptr, ptr %ref.tmp10.i.i.i, align 8, !noalias !354
   %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %if.then.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont14.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %7, align 8, !noalias !354
   %8 = load ptr, ptr %vtable.i.i.i.i.i, align 8, !noalias !354
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit" unwind label %terminate.lpad.i.i.i.i.i, !noalias !354
+          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i, !noalias !354
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -12754,7 +12754,7 @@ eh.resume.i.i.i:                                  ; preds = %if.then.i.i9.i.i.i,
 unreachable.i.i.i:                                ; preds = %invoke.cont6.i.i.i
   unreachable
 
-"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %invoke.cont14.i.i.i, %if.then.i.i.i.i.i
+"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom.exit": ; preds = %invoke.cont14.i.i.i, %if.then.i.i.i.i.i
   store i32 0, ptr %agg.result, align 8, !alias.scope !358
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !353
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !353
@@ -13284,13 +13284,13 @@ invoke.cont7.i.i.i:                               ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !378
   %7 = load ptr, ptr %fun.i.i.i, align 8, !noalias !369
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %if.then.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont7.i.i.i
   %vtable.i.i.i2.i.i.i = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %vtable.i.i.i2.i.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %terminate.lpad.i.i.i.i.i.i
+          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit" unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -13315,7 +13315,7 @@ terminate.lpad.i.i.i11.i.i.i:                     ; preds = %if.then.i.i.i9.i.i.
 eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i9.i.i.i, %lpad.i.i.i.i.i.i
   resume { ptr, i32 } %5
 
-"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %invoke.cont7.i.i.i, %if.then.i.i.i.i.i.i
+"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit": ; preds = %invoke.cont7.i.i.i, %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fun.i.i.i), !noalias !364
   ret void
 }
@@ -13579,13 +13579,13 @@ terminate.lpad.i.i.i73.i.i.i:                     ; preds = %if.then.i.i.i71.i.i
 _ZN8facebook3jsi8FunctionD2Ev.exit74.i.i.i:       ; preds = %if.then.i.i.i71.i.i.i, %_ZN8facebook3jsi8FunctionD2Ev.exit.i.i.i
   %34 = load ptr, ptr %nativeFunc.i.i.i, align 8, !noalias !402
   %tobool.not.i.i.i75.i.i.i = icmp eq ptr %34, null
-  br i1 %tobool.not.i.i.i75.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %if.then.i.i.i76.i.i.i
+  br i1 %tobool.not.i.i.i75.i.i.i, label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit", label %if.then.i.i.i76.i.i.i
 
 if.then.i.i.i76.i.i.i:                            ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit74.i.i.i
   %vtable.i.i.i77.i.i.i = load ptr, ptr %34, align 8
   %35 = load ptr, ptr %vtable.i.i.i77.i.i.i, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %terminate.lpad.i.i.i78.i.i.i
+          to label %"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit" unwind label %terminate.lpad.i.i.i78.i.i.i
 
 terminate.lpad.i.i.i78.i.i.i:                     ; preds = %if.then.i.i.i76.i.i.i
   %36 = landingpad { ptr, i32 }
@@ -13734,7 +13734,7 @@ terminate.lpad.i.i.i118.i.i.i:                    ; preds = %if.then.i.i.i116.i.
 eh.resume.i.i.i:                                  ; preds = %if.then.i.i.i116.i.i.i, %ehcleanup33.i.i.i
   resume { ptr, i32 } %.pn14.pn.pn.pn.pn.i.i.i
 
-"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit74.i.i.i, %if.then.i.i.i76.i.i.i
+"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom.exit": ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit74.i.i.i, %if.then.i.i.i76.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nativeFunc.i.i.i), !noalias !389
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jsonStringify.i.i.i), !noalias !389
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %jsonParse.i.i.i), !noalias !389
@@ -13870,7 +13870,7 @@ entry:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS1_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS1_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
@@ -15926,7 +15926,7 @@ invoke.cont15.i.i.i:                              ; preds = %invoke.cont11.i.i.i
   %10 = extractvalue { i32, i64 } %call16.i.i.i, 1
   store i64 %10, ptr %9, align 8, !noalias !525
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22ReturnFromNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14.i.i.i)
-          to label %_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit unwind label %lpad10.i.i.i
+          to label %_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit unwind label %lpad10.i.i.i
 
 lpad.i.i.i:                                       ; preds = %entry
   %11 = landingpad { ptr, i32 }
@@ -15977,7 +15977,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad18.i.i.i
   call void @__clang_call_terminate(ptr %18) #31
   unreachable
 
-_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit: ; preds = %invoke.cont15.i.i.i
+_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom.exit: ; preds = %invoke.cont15.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i), !noalias !520
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i.i.i), !noalias !520
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp5.i.i.i), !noalias !520
@@ -17618,8 +17618,8 @@ attributes #34 = { nounwind willreturn memory(none) }
 !117 = !{!118}
 !118 = distinct !{!118, !116, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EES8_SaIS8_EEvPT_PT0_RT1_: %__orig"}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZSt11make_sharedIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectJRS3_RS7_EES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_: %agg.result"}
-!121 = distinct !{!121, !"_ZSt11make_sharedIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectJRS3_RS7_EES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_"}
+!120 = distinct !{!120, !121, !"_ZSt11make_sharedIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectJRS3_RS7_EES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom: %agg.result"}
+!121 = distinct !{!121, !"_ZSt11make_sharedIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectJRS3_RS7_EES4_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.argprom"}
 !122 = !{!123}
 !123 = distinct !{!123, !124, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EES8_SaIS8_EEvPT_PT0_RT1_: %__dest"}
 !124 = distinct !{!124, !"_ZSt19__relocate_object_aISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EES8_SaIS8_EEvPT_PT0_RT1_"}
@@ -17843,14 +17843,14 @@ attributes #34 = { nounwind willreturn memory(none) }
 !342 = distinct !{!342, !5}
 !343 = distinct !{!343, !5}
 !344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_: %agg.result"}
-!346 = distinct !{!346, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_"}
+!345 = distinct !{!345, !346, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom: %agg.result"}
+!346 = distinct !{!346, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.argprom"}
 !347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!349 = distinct !{!349, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEET_St14__invoke_otherOT0_DpOT1_"}
+!348 = distinct !{!348, !349, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!349 = distinct !{!349, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS4_14TracingRuntimeEE3$_0JRNS1_7RuntimeERKS2_PSC_mEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !350 = !{!351}
-!351 = distinct !{!351, !352, !"_ZZN8facebook6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS1_14TracingRuntimeEENK3$_0clERNS_3jsi7RuntimeERKNS6_5ValueEPSA_m: %agg.result"}
-!352 = distinct !{!352, !"_ZZN8facebook6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS1_14TracingRuntimeEENK3$_0clERNS_3jsi7RuntimeERKNS6_5ValueEPSA_m"}
+!351 = distinct !{!351, !352, !"_ZZN8facebook6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS1_14TracingRuntimeEENK3$_0clERNS_3jsi7RuntimeERKNS6_5ValueEPSA_m.argprom: %agg.result"}
+!352 = distinct !{!352, !"_ZZN8facebook6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNS1_14TracingRuntimeEENK3$_0clERNS_3jsi7RuntimeERKNS6_5ValueEPSA_m.argprom"}
 !353 = !{!348, !345}
 !354 = !{!351, !348, !345}
 !355 = !{!356, !351, !348, !345}
@@ -17863,13 +17863,13 @@ attributes #34 = { nounwind willreturn memory(none) }
 !362 = distinct !{!362, !363, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE: %agg.result"}
 !363 = distinct !{!363, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE"}
 !364 = !{!365, !367}
-!365 = distinct !{!365, !366, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!366 = distinct !{!366, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_"}
-!367 = distinct !{!367, !368, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_: %agg.result"}
-!368 = distinct !{!368, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_"}
+!365 = distinct !{!365, !366, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
+!366 = distinct !{!366, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!367 = distinct !{!367, !368, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom: %agg.result"}
+!368 = distinct !{!368, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom"}
 !369 = !{!370, !365, !367}
-!370 = distinct !{!370, !371, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_0clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m: %agg.result"}
-!371 = distinct !{!371, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_0clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m"}
+!370 = distinct !{!370, !371, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_0clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m.argprom: %agg.result"}
+!371 = distinct !{!371, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_0clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m.argprom"}
 !372 = !{!373, !370, !365, !367}
 !373 = distinct !{!373, !374, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE: %agg.result"}
 !374 = distinct !{!374, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE"}
@@ -17888,15 +17888,15 @@ attributes #34 = { nounwind willreturn memory(none) }
 !387 = distinct !{!387, !388, !"_ZNK8facebook3jsi8Function4callERNS0_7RuntimeEPKNS0_5ValueEm: %agg.result"}
 !388 = distinct !{!388, !"_ZNK8facebook3jsi8Function4callERNS0_7RuntimeEPKNS0_5ValueEm"}
 !389 = !{!390, !392}
-!390 = distinct !{!390, !391, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!391 = distinct !{!391, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_"}
-!392 = distinct !{!392, !393, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_: %agg.result"}
-!393 = distinct !{!393, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_"}
+!390 = distinct !{!390, !391, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom: %agg.result"}
+!391 = distinct !{!391, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEET_St14__invoke_otherOT0_DpOT1_.argprom.argprom"}
+!392 = distinct !{!392, !393, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom: %agg.result"}
+!393 = distinct !{!393, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1JRNS1_7RuntimeERKS2_PSA_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.argprom"}
 !394 = !{!395, !397, !390, !392}
 !395 = distinct !{!395, !396, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE: %agg.result"}
 !396 = distinct !{!396, !"_ZNKR8facebook3jsi5Value9getObjectERNS0_7RuntimeE"}
-!397 = distinct !{!397, !398, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_1clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m: %agg.result"}
-!398 = distinct !{!398, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_1clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m"}
+!397 = distinct !{!397, !398, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_1clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m.argprom.argprom: %agg.result"}
+!398 = distinct !{!398, !"_ZZN8facebook6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvENK3$_1clERNS_3jsi7RuntimeERKNS4_5ValueEPS8_m.argprom.argprom"}
 !399 = !{!400}
 !400 = distinct !{!400, !401, !"_ZNO8facebook3jsi6Object11getFunctionERNS0_7RuntimeE: %agg.result"}
 !401 = distinct !{!401, !"_ZNO8facebook3jsi6Object11getFunctionERNS0_7RuntimeE"}
@@ -18019,13 +18019,13 @@ attributes #34 = { nounwind willreturn memory(none) }
 !518 = distinct !{!518, !519, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv: %agg.result"}
 !519 = distinct !{!519, !"_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv"}
 !520 = !{!521, !523}
-!521 = distinct !{!521, !522, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!522 = distinct !{!522, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEET_St14__invoke_otherOT0_DpOT1_"}
-!523 = distinct !{!523, !524, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_: %agg.result"}
-!524 = distinct !{!524, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_"}
+!521 = distinct !{!521, !522, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!522 = distinct !{!522, !"_ZSt13__invoke_implIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!523 = distinct !{!523, !524, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom: %agg.result"}
+!524 = distinct !{!524, !"_ZSt10__invoke_rIN8facebook3jsi5ValueERZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIFS2_RNS1_7RuntimeERKS2_PSC_mEEE19TracingHostFunctionJSB_SD_SE_mEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.argprom"}
 !525 = !{!526, !521, !523}
-!526 = distinct !{!526, !527, !"_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionclESA_SC_SD_m: %agg.result"}
-!527 = distinct !{!527, !"_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionclESA_SC_SD_m"}
+!526 = distinct !{!526, !527, !"_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionclESA_SC_SD_m.argprom: %agg.result"}
+!527 = distinct !{!527, !"_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionclESA_SC_SD_m.argprom"}
 !528 = !{!529, !526, !521, !523}
 !529 = distinct !{!529, !530, !"_ZN8facebook3jsi21DecoratedHostFunctionclERNS0_7RuntimeERKNS0_5ValueEPS5_m: %agg.result"}
 !530 = distinct !{!530, !"_ZN8facebook3jsi21DecoratedHostFunctionclERNS0_7RuntimeERKNS0_5ValueEPS5_m"}

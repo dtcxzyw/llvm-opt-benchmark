@@ -638,7 +638,7 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %cmp.not.i.i.i = icmp eq i8 %78, %79
   %cmp14.i.i.i = icmp ne i8 %78, 47
   %or.cond479.not = and i1 %cmp14.i.i.i, %cmp.not.i.i.i
-  br i1 %or.cond479.not, label %while.cond.i.i.i, label %basename_same.exit.i.i, !llvm.loop !9
+  br i1 %or.cond479.not, label %while.cond.i.i.i, label %basename_same.argprom.exit.i.i, !llvm.loop !9
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   br i1 %75, label %lor.lhs.false.i.i.i, label %land.rhs25.i.i.i
@@ -651,10 +651,10 @@ lor.lhs.false.i.i.i:                              ; preds = %while.end.i.i.i
   %82 = load i8, ptr %arrayidx21.i.i.i, align 1
   %cmp23.i.i.i = icmp eq i8 %82, 47
   %brmerge.not.i.i.i = select i1 %cmp23.i.i.i, i1 %76, i1 false
-  br i1 %brmerge.not.i.i.i, label %lor.rhs.i.i.i, label %basename_same.exit.i.i
+  br i1 %brmerge.not.i.i.i, label %lor.rhs.i.i.i, label %basename_same.argprom.exit.i.i
 
 land.rhs25.i.i.i:                                 ; preds = %while.end.i.i.i
-  br i1 %76, label %lor.rhs.i.i.i, label %basename_same.exit.i.i
+  br i1 %76, label %lor.rhs.i.i.i, label %basename_same.argprom.exit.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %land.rhs25.i.i.i, %lor.lhs.false.i.i.i
   %sext16.i.i.i = shl i64 %indvars.iv.i.i.i, 32
@@ -663,22 +663,22 @@ lor.rhs.i.i.i:                                    ; preds = %land.rhs25.i.i.i, %
   %arrayidx30.i.i.i = getelementptr i8, ptr %84, i64 -1
   %85 = load i8, ptr %arrayidx30.i.i.i, align 1
   %cmp32.i.i.i = icmp eq i8 %85, 47
-  br label %basename_same.exit.i.i
+  br label %basename_same.argprom.exit.i.i
 
-basename_same.exit.i.i:                           ; preds = %while.body.i.i.i, %lor.rhs.i.i.i, %land.rhs25.i.i.i, %lor.lhs.false.i.i.i
+basename_same.argprom.exit.i.i:                   ; preds = %while.body.i.i.i, %lor.rhs.i.i.i, %land.rhs25.i.i.i, %lor.lhs.false.i.i.i
   %retval.0.shrunk.i.i.i = phi i1 [ %cmp23.i.i.i, %lor.lhs.false.i.i.i ], [ true, %land.rhs25.i.i.i ], [ %cmp32.i.i.i, %lor.rhs.i.i.i ], [ %cmp.not.i.i.i, %while.body.i.i.i ]
   %retval.0.i28.i.i = zext i1 %retval.0.shrunk.i.i.i to i32
   %add.i.i = add nuw nsw i32 %retval.0.i28.i.i, %lnot.ext.i.i
   %cmp31.i.i = icmp sgt i32 %add.i.i, %best_score.047.i.i
   br i1 %cmp31.i.i, label %if.then33.i.i, label %if.end38.i.i
 
-if.then33.i.i:                                    ; preds = %basename_same.exit.i.i
+if.then33.i.i:                                    ; preds = %basename_same.argprom.exit.i.i
   %cmp34.i.i = and i1 %tobool23.not.i.i, %retval.0.shrunk.i.i.i
   br i1 %cmp34.i.i, label %for.end.i.i, label %if.end38.i.i
 
-if.end38.i.i:                                     ; preds = %if.then33.i.i, %basename_same.exit.i.i
-  %best.3.i.i = phi ptr [ %p1.048.i.i, %if.then33.i.i ], [ %best.045.i.i, %basename_same.exit.i.i ]
-  %best_score.2.i.i = phi i32 [ %add.i.i, %if.then33.i.i ], [ %best_score.047.i.i, %basename_same.exit.i.i ]
+if.end38.i.i:                                     ; preds = %if.then33.i.i, %basename_same.argprom.exit.i.i
+  %best.3.i.i = phi ptr [ %p1.048.i.i, %if.then33.i.i ], [ %best.045.i.i, %basename_same.argprom.exit.i.i ]
+  %best_score.2.i.i = phi i32 [ %add.i.i, %if.then33.i.i ], [ %best_score.047.i.i, %basename_same.argprom.exit.i.i ]
   %dec.i.i = add nsw i32 %i.046.i.i, -1
   %tobool39.not.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %tobool39.not.i.i, label %for.end.i.i, label %for.inc.i.i
@@ -2010,7 +2010,7 @@ while.body.i290:                                  ; preds = %while.cond.i
   %cmp.not.i293 = icmp eq i8 %285, %286
   %cmp14.i295 = icmp ne i8 %285, 47
   %or.cond480.not = and i1 %cmp14.i295, %cmp.not.i293
-  br i1 %or.cond480.not, label %while.cond.i, label %basename_same.exit, !llvm.loop !9
+  br i1 %or.cond480.not, label %while.cond.i, label %basename_same.argprom.exit, !llvm.loop !9
 
 while.end.i288:                                   ; preds = %while.cond.i
   br i1 %282, label %lor.lhs.false.i, label %land.rhs25.i
@@ -2023,10 +2023,10 @@ lor.lhs.false.i:                                  ; preds = %while.end.i288
   %289 = load i8, ptr %arrayidx21.i, align 1
   %cmp23.i = icmp eq i8 %289, 47
   %brmerge.not.i = select i1 %cmp23.i, i1 %283, i1 false
-  br i1 %brmerge.not.i, label %lor.rhs.i, label %basename_same.exit
+  br i1 %brmerge.not.i, label %lor.rhs.i, label %basename_same.argprom.exit
 
 land.rhs25.i:                                     ; preds = %while.end.i288
-  br i1 %283, label %lor.rhs.i, label %basename_same.exit
+  br i1 %283, label %lor.rhs.i, label %basename_same.argprom.exit
 
 lor.rhs.i:                                        ; preds = %land.rhs25.i, %lor.lhs.false.i
   %sext16.i = shl i64 %indvars.iv.i287, 32
@@ -2035,15 +2035,15 @@ lor.rhs.i:                                        ; preds = %land.rhs25.i, %lor.
   %arrayidx30.i = getelementptr i8, ptr %291, i64 -1
   %292 = load i8, ptr %arrayidx30.i, align 1
   %cmp32.i = icmp eq i8 %292, 47
-  br label %basename_same.exit
+  br label %basename_same.argprom.exit
 
-basename_same.exit:                               ; preds = %while.body.i290, %lor.lhs.false.i, %land.rhs25.i, %lor.rhs.i
+basename_same.argprom.exit:                       ; preds = %while.body.i290, %lor.lhs.false.i, %land.rhs25.i, %lor.rhs.i
   %retval.0.shrunk.i = phi i1 [ %cmp23.i, %lor.lhs.false.i ], [ true, %land.rhs25.i ], [ %cmp32.i, %lor.rhs.i ], [ %cmp.not.i293, %while.body.i290 ]
   br label %for.body.i296
 
-for.body.i296:                                    ; preds = %score_compare.exit.thread.i, %basename_same.exit
-  %indvars.iv.i297 = phi i64 [ 1, %basename_same.exit ], [ %indvars.iv.next.i305, %score_compare.exit.thread.i ]
-  %worst.040.i = phi i32 [ 0, %basename_same.exit ], [ %300, %score_compare.exit.thread.i ]
+for.body.i296:                                    ; preds = %score_compare.exit.thread.i, %basename_same.argprom.exit
+  %indvars.iv.i297 = phi i64 [ 1, %basename_same.argprom.exit ], [ %indvars.iv.next.i305, %score_compare.exit.thread.i ]
+  %worst.040.i = phi i32 [ 0, %basename_same.argprom.exit ], [ %300, %score_compare.exit.thread.i ]
   %arrayidx.i298 = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv.i297
   %idxprom1.i = sext i32 %worst.040.i to i64
   %arrayidx2.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom1.i
@@ -2192,11 +2192,11 @@ stop_progress.exit:                               ; preds = %for.end220, %if.end
   %mul221 = shl nsw i32 %dst_cnt.0.lcssa, 2
   %conv222 = sext i32 %mul221 to i64
   call void @git_stable_qsort(ptr noundef %call159, i64 noundef %conv222, i64 noundef 12, ptr noundef nonnull @score_compare) #14
-  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 0, ptr noundef %info, ptr noundef %dirs_removed)
+  call fastcc void @find_renames.retelim(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 0, ptr noundef %info, ptr noundef %dirs_removed)
   br i1 %cmp, label %if.then226, label %if.end229
 
 if.then226:                                       ; preds = %stop_progress.exit
-  call fastcc void @find_renames(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 1, ptr noundef %info, ptr noundef %dirs_removed)
+  call fastcc void @find_renames.retelim(ptr noundef %call159, i32 noundef %dst_cnt.0.lcssa, i32 noundef %spec.store.select, i32 noundef 1, ptr noundef %info, ptr noundef %dirs_removed)
   br label %if.end229
 
 if.end229:                                        ; preds = %if.then226, %stop_progress.exit
@@ -3094,7 +3094,7 @@ return:                                           ; preds = %if.else, %if.end17,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_renames(ptr nocapture noundef readonly %mx, i32 noundef %dst_cnt, i32 noundef %minimum_score, i32 noundef range(i32 0, 2) %copies, ptr nocapture noundef nonnull readonly %info, ptr noundef %dirs_removed) unnamed_addr #0 {
+define internal fastcc void @find_renames.retelim(ptr nocapture noundef readonly %mx, i32 noundef %dst_cnt, i32 noundef %minimum_score, i32 noundef range(i32 0, 2) %copies, ptr nocapture noundef nonnull readonly %info, ptr noundef %dirs_removed) unnamed_addr #0 {
 entry:
   %cmp21 = icmp sgt i32 %dst_cnt, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end

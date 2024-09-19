@@ -1657,7 +1657,7 @@ _ZN5quote9to_tokens8ToTokens17into_token_stream17hedcf30861685e5f1E.exit.i: ; pr
 
 "_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6ae54cae78194195E.exit.i.i": ; preds = %_ZN5quote9to_tokens8ToTokens17into_token_stream17hedcf30861685e5f1E.exit.i
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !348
-  br i1 %41, label %44, label %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit
+  br i1 %41, label %44, label %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom.exit
 
 44:                                               ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6ae54cae78194195E.exit.i.i"
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.1be06e511f62374ef64e81a05781a1a1.4, i64 noundef 55, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1be06e511f62374ef64e81a05781a1a1.20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1be06e511f62374ef64e81a05781a1a1.6) #16
@@ -1682,7 +1682,7 @@ _ZN5quote9to_tokens8ToTokens17into_token_stream17hedcf30861685e5f1E.exit.i: ; pr
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15, !noalias !353
   unreachable
 
-_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit: ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6ae54cae78194195E.exit.i.i"
+_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom.exit: ; preds = %"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h6ae54cae78194195E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !348
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !354
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !348
@@ -1695,7 +1695,7 @@ _ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit: ; preds = %"_ZN44_$LT
   invoke void @_ZN11proc_macro211TokenStream3new17h7d4b6e1eba38ea7bE(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, { {} } }) align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %.body.thread7
 
-.noexc:                                           ; preds = %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit
+.noexc:                                           ; preds = %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom.exit
   invoke void @"_ZN3syn4path8printing83_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..path..GenericArgument$GT$9to_tokens17h9a70aff35964fdc5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %54 unwind label %50, !noalias !362
 
@@ -1711,7 +1711,7 @@ _ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit: ; preds = %"_ZN44_$LT
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15, !noalias !362
   unreachable
 
-.body.thread7:                                    ; preds = %54, %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.exit
+.body.thread7:                                    ; preds = %54, %_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -2231,9 +2231,9 @@ attributes #17 = { nounwind }
 !333 = !{i64 0, i64 23}
 !334 = !{i64 0, i64 17}
 !335 = !{!336, !338}
-!336 = distinct !{!336, !337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E: argument 0"}
-!337 = distinct !{!337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E"}
-!338 = distinct !{!338, !337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E: argument 1"}
+!336 = distinct !{!336, !337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom: argument 0"}
+!337 = distinct !{!337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom"}
+!338 = distinct !{!338, !337, !"_ZN3syn5error5Error11new_spanned17h9ac6ce3b8021df22E.argprom: argument 1"}
 !339 = !{!340, !342, !343, !345, !336, !338}
 !340 = distinct !{!340, !341, !"_ZN5quote9to_tokens8ToTokens15to_token_stream17haaee3aca71b198f0E.llvm.13348757914254812529: argument 0"}
 !341 = distinct !{!341, !"_ZN5quote9to_tokens8ToTokens15to_token_stream17haaee3aca71b198f0E.llvm.13348757914254812529"}

@@ -359,7 +359,7 @@ entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !7
   %2 = getelementptr i8, ptr %1, i64 40
   %call.val = load ptr, ptr %2, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp, ptr %call.val, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef null, ptr noundef nonnull %page_mask, i1 noundef zeroext %is_write, i1 noundef zeroext false, ptr noundef %as.addr, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp, ptr %call.val, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef null, ptr noundef nonnull %page_mask, i1 noundef zeroext %is_write, i1 noundef zeroext false, ptr noundef %as.addr, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %section.sroa.1.0.copyload = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx, align 16
   %cmp = icmp eq ptr %section.sroa.1.0.copyload, @io_mem_unassigned
@@ -398,7 +398,7 @@ return:                                           ; preds = %iotlb_fail, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flatview_do_translate(ptr noalias nocapture nonnull writeonly align 16 %agg.result, ptr nocapture %fv.40.val, i64 noundef %addr, ptr nocapture noundef %xlat, ptr noundef %plen_out, ptr noundef writeonly %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr nocapture noundef nonnull writeonly %target_as, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc void @flatview_do_translate.argprom(ptr noalias nocapture nonnull writeonly align 16 %agg.result, ptr nocapture %fv.40.val, i64 noundef %addr, ptr nocapture noundef %xlat, ptr noundef %plen_out, ptr noundef writeonly %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr nocapture noundef nonnull writeonly %target_as, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.IOMMUTLBEntry, align 8
   %plen = alloca i64, align 8
@@ -549,7 +549,7 @@ entry:
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp, ptr %fv.val, i64 noundef %addr, ptr noundef %xlat, ptr noundef %plen, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp, ptr %fv.val, i64 noundef %addr, ptr noundef %xlat, ptr noundef %plen, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %section.sroa.1.0.copyload = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx, align 16
   ret ptr %section.sroa.1.0.copyload
@@ -1279,7 +1279,7 @@ if.end.i.i:                                       ; preds = %while.end26
   %dec.i.i = add i32 %19, -1
   store i32 %dec.i.i, ptr %depth.i.i29, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i31, label %rcu_read_auto_unlock.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i31, label %rcu_read_auto_unlock.argprom.exit
 
 while.end.i.i31:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i28 release, align 8
@@ -1288,17 +1288,17 @@ while.end.i.i31:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i28, i64 8
   %20 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %20 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_auto_unlock.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_auto_unlock.argprom.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i31
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %rcu_read_auto_unlock.exit
+  br label %rcu_read_auto_unlock.argprom.exit
 
-rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i, %while.end.i.i31, %while.end21.i.i
+rcu_read_auto_unlock.argprom.exit:                ; preds = %if.end.i.i, %while.end.i.i31, %while.end21.i.i
   br i1 %dirty.1.lcssa, label %land.lhs.true33, label %return
 
-land.lhs.true33:                                  ; preds = %rcu_read_auto_unlock.exit
+land.lhs.true33:                                  ; preds = %rcu_read_auto_unlock.argprom.exit
   %21 = load i8, ptr @tcg_allowed, align 1
   %tobool34 = trunc i8 %21 to i1
   br i1 %tobool34, label %if.then36, label %return
@@ -1307,8 +1307,8 @@ if.then36:                                        ; preds = %land.lhs.true33
   tail call fastcc void @tlb_reset_dirty_range_all(i64 noundef %start, i64 noundef %length)
   br label %return
 
-return:                                           ; preds = %rcu_read_auto_unlock.exit, %land.lhs.true33, %if.then36, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then36 ], [ true, %land.lhs.true33 ], [ false, %rcu_read_auto_unlock.exit ]
+return:                                           ; preds = %rcu_read_auto_unlock.argprom.exit, %land.lhs.true33, %if.then36, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.then36 ], [ true, %land.lhs.true33 ], [ false, %rcu_read_auto_unlock.argprom.exit ]
   ret i1 %retval.0
 }
 
@@ -1514,7 +1514,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %27, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -1523,14 +1523,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %28 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %28 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -1626,7 +1626,7 @@ if.end.i.i:                                       ; preds = %for.inc
   %dec.i.i = add i32 %6, -1
   store i32 %dec.i.i, ptr %depth.i.i36, align 4
   %cmp2.not.i.i = icmp eq i32 %dec.i.i, 0
-  br i1 %cmp2.not.i.i, label %while.end.i.i38, label %rcu_read_auto_unlock.exit
+  br i1 %cmp2.not.i.i, label %while.end.i.i38, label %rcu_read_auto_unlock.argprom.exit
 
 while.end.i.i38:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i35 release, align 8
@@ -1635,23 +1635,23 @@ while.end.i.i38:                                  ; preds = %if.end.i.i
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i35, i64 8
   %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %tobool.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_auto_unlock.exit
+  br i1 %tobool.i.i, label %while.end21.i.i, label %rcu_read_auto_unlock.argprom.exit
 
 while.end21.i.i:                                  ; preds = %while.end.i.i38
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %rcu_read_auto_unlock.exit
+  br label %rcu_read_auto_unlock.argprom.exit
 
-rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i, %while.end.i.i38, %while.end21.i.i
+rcu_read_auto_unlock.argprom.exit:                ; preds = %if.end.i.i, %while.end.i.i38, %while.end21.i.i
   %8 = load i8, ptr @tcg_allowed, align 1
   %tobool35 = trunc i8 %8 to i1
   br i1 %tobool35, label %if.then36, label %if.end37
 
-if.then36:                                        ; preds = %rcu_read_auto_unlock.exit
+if.then36:                                        ; preds = %rcu_read_auto_unlock.argprom.exit
   tail call fastcc void @tlb_reset_dirty_range_all(i64 noundef %add, i64 noundef %length)
   br label %if.end37
 
-if.end37:                                         ; preds = %if.then36, %rcu_read_auto_unlock.exit
+if.end37:                                         ; preds = %if.then36, %rcu_read_auto_unlock.argprom.exit
   tail call void @memory_region_clear_dirty_bitmap(ptr noundef %mr, i64 noundef %offset, i64 noundef %length) #28
   ret ptr %call7
 }
@@ -1885,7 +1885,7 @@ if.end.i:                                         ; preds = %int128_get64.exit.i
   %nodes_nb_alloc.i.i.i = getelementptr inbounds i8, ptr %fv.val, i64 44
   %14 = load i32, ptr %nodes_nb_alloc.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i32 %add.i.i.i, %14
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %register_multipage.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %register_multipage.argprom.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %15 = load i32, ptr @phys_map_node_reserve.alloc_hint, align 4
@@ -1898,9 +1898,9 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   store ptr %call.i.i.i, ptr %nodes5.i.i.i, align 8
   %17 = load i32, ptr %nodes_nb_alloc.i.i.i, align 4
   store i32 %17, ptr @phys_map_node_reserve.alloc_hint, align 4
-  br label %register_multipage.exit
+  br label %register_multipage.argprom.exit
 
-register_multipage.exit:                          ; preds = %if.end.i, %if.then.i.i.i
+register_multipage.argprom.exit:                  ; preds = %if.end.i, %if.then.i.i.i
   %conv13.i.i = trunc i32 %12 to i16
   %map.i = getelementptr inbounds i8, ptr %fv.val, i64 16
   %phys_map.i.i = getelementptr inbounds i8, ptr %fv.val, i64 8
@@ -1912,7 +1912,7 @@ register_multipage.exit:                          ; preds = %if.end.i, %if.then.
   %cmp.i57 = icmp eq i128 %18, 0
   br i1 %cmp.i57, label %return, label %if.end56
 
-if.end56:                                         ; preds = %register_multipage.exit
+if.end56:                                         ; preds = %register_multipage.argprom.exit
   store i128 %18, ptr %remain, align 16
   %cmp.i69 = icmp ult i128 %5, 18446744073709551616
   br i1 %cmp.i69, label %int128_get64.exit76, label %if.else.i70
@@ -1934,7 +1934,7 @@ if.end74:                                         ; preds = %int128_get64.exit76
   call fastcc void @register_subpage(ptr noundef %fv, ptr noundef %remain)
   br label %return
 
-return:                                           ; preds = %register_multipage.exit, %if.then, %if.end74
+return:                                           ; preds = %register_multipage.argprom.exit, %if.then, %if.end74
   ret void
 }
 
@@ -2301,7 +2301,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %12, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -2310,14 +2310,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %13 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %13 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %call
 }
 
@@ -2630,7 +2630,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -2639,14 +2639,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %7 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -4714,7 +4714,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %10, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -4723,14 +4723,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret ptr %retval.0
 }
 
@@ -4893,7 +4893,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 if.end.if.end9_crit_edge.i.i:                     ; preds = %if.end.i.i
   %sections10.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call, i64 56
   %.pre.i.i = load ptr, ptr %sections10.phi.trans.insert.i.i, align 8
-  br label %dummy_section.exit
+  br label %dummy_section.argprom.exit
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %mul.i.i = shl nuw nsw i32 %0, 1
@@ -4904,9 +4904,9 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %conv.i.i = zext nneg i32 %cond.i.i to i64
   %call.i.i = tail call ptr @g_realloc_n(ptr noundef %2, i64 noundef %conv.i.i, i64 noundef 64) #28
   store ptr %call.i.i, ptr %sections.i.i, align 8
-  br label %dummy_section.exit
+  br label %dummy_section.argprom.exit
 
-dummy_section.exit:                               ; preds = %if.end.if.end9_crit_edge.i.i, %if.then3.i.i
+dummy_section.argprom.exit:                       ; preds = %if.end.if.end9_crit_edge.i.i, %if.then3.i.i
   %3 = phi ptr [ %.pre.i.i, %if.end.if.end9_crit_edge.i.i ], [ %call.i.i, %if.then3.i.i ]
   %idxprom.i.i = zext nneg i32 %0 to i64
   %arrayidx.i.i = getelementptr %struct.MemoryRegionSection, ptr %3, i64 %idxprom.i.i
@@ -4923,11 +4923,11 @@ dummy_section.exit:                               ; preds = %if.end.if.end9_crit
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %dummy_section.exit
+if.else:                                          ; preds = %dummy_section.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 2464, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_dispatch_new) #27
   unreachable
 
-if.end:                                           ; preds = %dummy_section.exit
+if.end:                                           ; preds = %dummy_section.argprom.exit
   %phys_map = getelementptr inbounds i8, ptr %call, i64 8
   store i32 -63, ptr %phys_map, align 8
   ret ptr %call
@@ -5288,7 +5288,7 @@ do.body.i23:                                      ; preds = %memory_access_size.
 if.else17:                                        ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds i8, ptr %mr.addr.0, i64 56
   %17 = load ptr, ptr %ram_block, align 8
-  %call18 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %17, i64 noundef %3, ptr noundef nonnull %l.addr)
+  %call18 = call fastcc ptr @qemu_ram_ptr_length.argelim(ptr noundef %17, i64 noundef %3, ptr noundef nonnull %l.addr)
   %18 = load i64, ptr %l.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %18, i1 false)
   br label %if.end22
@@ -5315,7 +5315,7 @@ if.end25:                                         ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %1, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -5330,7 +5330,7 @@ for.end:                                          ; preds = %if.end22
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qemu_ram_ptr_length(ptr noundef readonly %ram_block, i64 noundef %addr, ptr nocapture noundef %size) unnamed_addr #0 {
+define internal fastcc ptr @qemu_ram_ptr_length.argelim(ptr noundef readonly %ram_block, i64 noundef %addr, ptr nocapture noundef %size) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
@@ -5510,7 +5510,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -5623,7 +5623,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -5723,12 +5723,12 @@ address_space_rw.exit:                            ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @address_space_write_rom(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  tail call fastcc void @address_space_write_rom_internal(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %buf, i64 noundef %len, i32 noundef 0)
+  tail call fastcc void @address_space_write_rom_internal.argelim(ptr noundef %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef %buf, i64 noundef %len, i32 noundef 0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_write_rom_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %ptr, i64 noundef %len, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
+define internal fastcc void @address_space_write_rom_internal.argelim(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %ptr, i64 noundef %len, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -5772,7 +5772,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.016, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.016, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -5868,7 +5868,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %21, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -5877,14 +5877,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %22 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %22 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret void
 }
 
@@ -5896,7 +5896,7 @@ entry:
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @address_space_write_rom_internal(ptr noundef nonnull @address_space_memory, i64 noundef %start, i32 1, ptr noundef null, i64 noundef %len, i32 noundef 1)
+  tail call fastcc void @address_space_write_rom_internal.argelim(ptr noundef nonnull @address_space_memory, i64 noundef %start, i32 1, ptr noundef null, i64 noundef %len, i32 noundef 1)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -6078,7 +6078,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %4, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -6087,14 +6087,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i1 %call3
 }
 
@@ -6120,7 +6120,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.015, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.015, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -6263,7 +6263,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %5 = getelementptr i8, ptr %4, i64 40
   %fv.val.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -6342,7 +6342,7 @@ if.then19:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %fv.val.i.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1.i, ptr noundef nonnull %l.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1.i, ptr noundef nonnull %l.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6386,7 +6386,7 @@ if.end.i:                                         ; preds = %for.cond.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i37)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i38)
   %fv.val.i.i40 = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i38, ptr %fv.val.i.i40, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i37, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i38, ptr %fv.val.i.i40, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i37, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i.i41 = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i39, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i37)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i38)
@@ -6405,7 +6405,7 @@ flatview_extend_translation.exit:                 ; preds = %for.cond.i, %if.end
   store i64 %add1.i, ptr %plen, align 8
   %ram_block = getelementptr inbounds i8, ptr %section.sroa.1.0.copyload.i, i64 56
   %24 = load ptr, ptr %ram_block, align 8
-  %call54 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %24, i64 noundef %20, ptr noundef nonnull %plen)
+  %call54 = call fastcc ptr @qemu_ram_ptr_length.argelim(ptr noundef %24, i64 noundef %20, ptr noundef nonnull %plen)
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then13, %if.end49, %flatview_extend_translation.exit
@@ -6597,7 +6597,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6780,7 +6780,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6952,7 +6952,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7097,7 +7097,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7272,7 +7272,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7427,7 +7427,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7586,7 +7586,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7728,7 +7728,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7894,7 +7894,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -8136,7 +8136,7 @@ if.end.i:                                         ; preds = %for.cond.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %fv.val.i.i = load ptr, ptr %13, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -8156,7 +8156,7 @@ flatview_extend_translation.exit:                 ; preds = %for.cond.i, %if.end
   %ram_block = getelementptr inbounds i8, ptr %5, i64 56
   %16 = load ptr, ptr %ram_block, align 8
   %17 = load i64, ptr %xlat, align 8
-  %call56 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %16, i64 noundef %17, ptr noundef nonnull %l)
+  %call56 = call fastcc ptr @qemu_ram_ptr_length.argelim(ptr noundef %16, i64 noundef %17, ptr noundef nonnull %l)
   %.pre = load i64, ptr %l, align 8
   br label %if.end59
 
@@ -8513,7 +8513,7 @@ do.body.i22:                                      ; preds = %memory_access_size.
 if.else18:                                        ; preds = %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds i8, ptr %mr.addr.0, i64 56
   %14 = load ptr, ptr %ram_block, align 8
-  %call19 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %14, i64 noundef %3, ptr noundef nonnull %l.addr)
+  %call19 = call fastcc ptr @qemu_ram_ptr_length.argelim(ptr noundef %14, i64 noundef %3, ptr noundef nonnull %l.addr)
   %15 = load i64, ptr %l.addr, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %call19, ptr align 1 %buf.0, i64 %15, i1 false)
   %16 = load i64, ptr %l.addr, align 8
@@ -8545,7 +8545,7 @@ if.end26:                                         ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %1, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -9495,7 +9495,7 @@ if.end:                                           ; preds = %while.body
   br i1 %is_write, label %if.then8, label %if.else11.i
 
 if.then8:                                         ; preds = %if.end
-  call fastcc void @address_space_write_rom_internal(ptr noundef readonly %2, i64 noundef %add7, i32 %3, ptr noundef readonly %buf.049, i64 noundef %spec.select, i32 noundef 0)
+  call fastcc void @address_space_write_rom_internal.argelim(ptr noundef readonly %2, i64 noundef %add7, i32 %3, ptr noundef readonly %buf.049, i64 noundef %spec.select, i32 noundef 0)
   br label %if.end20
 
 if.else11.i:                                      ; preds = %if.end
@@ -9585,7 +9585,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %5 = getelementptr i8, ptr %4, i64 40
   %fv.val.i.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %2, ptr noundef nonnull %phys_addr.addr, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate.argprom(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %2, ptr noundef nonnull %phys_addr.addr, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -9624,7 +9624,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %10, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -9633,14 +9633,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %11 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i1 %lnot
 }
 
@@ -9699,7 +9699,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %4, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -9708,14 +9708,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %ret.1
 }
 
@@ -10781,7 +10781,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   %dec.i.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -10790,14 +10790,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %6 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #28
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i1 %cmp5.lcssa
 }
 

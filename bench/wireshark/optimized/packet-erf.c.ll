@@ -2339,9 +2339,9 @@ dissect_erf_pseudo_header.exit:                   ; preds = %erf_type_has_color.
   %177 = icmp slt i64 %167, 0
   %178 = icmp ult i64 %indvars.iv.i.i, 15
   %179 = and i1 %178, %177
-  br i1 %179, label %165, label %find_host_id.exit.i, !llvm.loop !11
+  br i1 %179, label %165, label %find_host_id.argprom.exit.i, !llvm.loop !11
 
-find_host_id.exit.i:                              ; preds = %176
+find_host_id.argprom.exit.i:                      ; preds = %176
   %180 = icmp eq i32 %.1.i.i, 0
   %181 = icmp eq i64 %.116.i.i, -1
   %182 = load i64, ptr @erf_state.2, align 8
@@ -2355,10 +2355,10 @@ find_host_id.exit.i:                              ; preds = %176
   %189 = getelementptr inbounds i8, ptr %18, i64 2
   br label %190
 
-190:                                              ; preds = %584, %find_host_id.exit.i
-  %indvars.iv.i = phi i64 [ 0, %find_host_id.exit.i ], [ %indvars.iv.next.i, %584 ]
-  %.0108142.i = phi i8 [ 0, %find_host_id.exit.i ], [ %.1.i137, %584 ]
-  %.1110141.i = phi i64 [ %.0109.i, %find_host_id.exit.i ], [ %.2111.i, %584 ]
+190:                                              ; preds = %584, %find_host_id.argprom.exit.i
+  %indvars.iv.i = phi i64 [ 0, %find_host_id.argprom.exit.i ], [ %indvars.iv.next.i, %584 ]
+  %.0108142.i = phi i8 [ 0, %find_host_id.argprom.exit.i ], [ %.1.i137, %584 ]
+  %.1110141.i = phi i64 [ %.0109.i, %find_host_id.argprom.exit.i ], [ %.2111.i, %584 ]
   %191 = load ptr, ptr %20, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 16
   %193 = getelementptr [16 x %struct.erf_ehdr], ptr %192, i64 0, i64 %indvars.iv.i
@@ -2551,7 +2551,7 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %305
 
 315:                                              ; preds = %channelised_fill_sdh_g707_format.exit.i.i
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %292, ptr noundef nonnull @.str.403) #11
-  br label %dissect_channelised_ex_header.exit.i
+  br label %dissect_channelised_ex_header.argprom.exit.i
 
 316:                                              ; preds = %channelised_fill_sdh_g707_format.exit.i.i, %.thread8.i.i
   %317 = phi i8 [ %.ph.i.i, %.thread8.i.i ], [ %.pr.i.i, %channelised_fill_sdh_g707_format.exit.i.i ]
@@ -2625,9 +2625,9 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %305
 
 .loopexit.i.i.i:                                  ; preds = %.thread.i.i, %.lr.ph47.i.i.i, %332, %.preheader.i.i.i
   call void @wmem_strbuf_append_c(ptr noundef %292, i8 noundef signext 41) #11
-  br label %dissect_channelised_ex_header.exit.i
+  br label %dissect_channelised_ex_header.argprom.exit.i
 
-dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %315
+dissect_channelised_ex_header.argprom.exit.i:     ; preds = %.loopexit.i.i.i, %315
   %340 = load i32, ptr @hf_erf_ehdr_chan_morebits, align 4
   %341 = lshr i64 %287, 63
   %342 = call ptr @proto_tree_add_boolean(ptr noundef %201, i32 noundef %340, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %341) #11
@@ -2769,7 +2769,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
 
 454:                                              ; preds = %453
   %455 = load i32, ptr %185, align 4
-  call fastcc void @erf_source_append(i64 noundef %423, i8 noundef zeroext %425, i32 noundef %455)
+  call fastcc void @erf_source_append.argelim(i64 noundef %423, i8 noundef zeroext %425, i32 noundef %455)
   br label %456
 
 456:                                              ; preds = %454, %453, %441, %422
@@ -3008,9 +3008,9 @@ dissect_host_anchor_id.exit.i:                    ; preds = %551, %532, %proto_i
   %583 = call ptr @proto_tree_add_uint64(ptr noundef %201, i32 noundef %582, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %581) #11
   br label %584
 
-584:                                              ; preds = %578, %553, %dissect_host_anchor_id.exit.i, %456, %387, %371, %dissect_channelised_ex_header.exit.i, %267, %247, %230, %202
-  %.2111.i = phi i64 [ %.1110141.i, %578 ], [ %.1110141.i, %553 ], [ %.1110141.i, %dissect_host_anchor_id.exit.i ], [ %423, %456 ], [ %.1110141.i, %387 ], [ %.1110141.i, %371 ], [ %.1110141.i, %dissect_channelised_ex_header.exit.i ], [ %.1110141.i, %267 ], [ %.1110141.i, %247 ], [ %.1110141.i, %230 ], [ %.1110141.i, %202 ]
-  %.1.i137 = phi i8 [ %.0108142.i, %578 ], [ %.0108142.i, %553 ], [ %.0108142.i, %dissect_host_anchor_id.exit.i ], [ %425, %456 ], [ %.2.i, %387 ], [ %.0108142.i, %371 ], [ %.0108142.i, %dissect_channelised_ex_header.exit.i ], [ %.0108142.i, %267 ], [ %.0108142.i, %247 ], [ %.0108142.i, %230 ], [ %.0108142.i, %202 ]
+584:                                              ; preds = %578, %553, %dissect_host_anchor_id.exit.i, %456, %387, %371, %dissect_channelised_ex_header.argprom.exit.i, %267, %247, %230, %202
+  %.2111.i = phi i64 [ %.1110141.i, %578 ], [ %.1110141.i, %553 ], [ %.1110141.i, %dissect_host_anchor_id.exit.i ], [ %423, %456 ], [ %.1110141.i, %387 ], [ %.1110141.i, %371 ], [ %.1110141.i, %dissect_channelised_ex_header.argprom.exit.i ], [ %.1110141.i, %267 ], [ %.1110141.i, %247 ], [ %.1110141.i, %230 ], [ %.1110141.i, %202 ]
+  %.1.i137 = phi i8 [ %.0108142.i, %578 ], [ %.0108142.i, %553 ], [ %.0108142.i, %dissect_host_anchor_id.exit.i ], [ %425, %456 ], [ %.2.i, %387 ], [ %.0108142.i, %371 ], [ %.0108142.i, %dissect_channelised_ex_header.argprom.exit.i ], [ %.0108142.i, %267 ], [ %.0108142.i, %247 ], [ %.0108142.i, %230 ], [ %.0108142.i, %202 ]
   %585 = trunc nuw i64 %195 to i8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.0112.i = and i8 %585, -128
@@ -3054,7 +3054,7 @@ dissect_host_anchor_id.exit.i:                    ; preds = %551, %532, %proto_i
 
 607:                                              ; preds = %601
   %608 = load i32, ptr %185, align 4
-  call fastcc void @erf_source_append(i64 noundef %.2111.i, i8 noundef zeroext %.1.i137, i32 noundef %608)
+  call fastcc void @erf_source_append.argelim(i64 noundef %.2111.i, i8 noundef zeroext %.1.i137, i32 noundef %608)
   br label %609
 
 609:                                              ; preds = %607, %601, %596
@@ -3266,7 +3266,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %609, %593, %592, %5
   %742 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 0, ptr %742, align 2
   %743 = call i32 @tvb_captured_length(ptr noundef %737) #11
-  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %737, i32 noundef %743, ptr noundef %19)
+  call fastcc void @erf_atm_guess_traffic_type.argelim(ptr noundef %737, i32 noundef %743, ptr noundef %19)
   br label %750
 
 744:                                              ; preds = %736
@@ -3362,7 +3362,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %609, %593, %592, %5
   %806 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 0, ptr %806, align 2
   %807 = call i32 @tvb_captured_length(ptr noundef %801) #11
-  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %801, i32 noundef %807, ptr noundef %19)
+  call fastcc void @erf_atm_guess_traffic_type.argelim(ptr noundef %801, i32 noundef %807, ptr noundef %19)
   br label %814
 
 808:                                              ; preds = %789
@@ -4757,7 +4757,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_atm_guess_traffic_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc void @erf_atm_guess_traffic_type.argelim(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 4, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 5
@@ -4863,7 +4863,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_source_append(i64 noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @erf_source_append.argelim(i64 noundef %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = shl i64 %0, 16
   %6 = zext i8 %1 to i64

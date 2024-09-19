@@ -1119,7 +1119,7 @@ define dso_local void @_ZN4llvm15BitcodeAnalyzer7analyzeESt8optionalINS_13BCDump
   %.sroa.098.0.copyload = load ptr, ptr %2, align 8
   %.sroa.2100.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.2100.0.copyload = load i8, ptr %.sroa.2100.0..sroa_idx, align 8
-  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %1)
+  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i8, ptr %14, align 8
@@ -1155,7 +1155,7 @@ _ZN4llvm8ExpectedINS_17CurStreamTypeTypeEED2Ev.exit: ; preds = %4
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 376
   call void @_ZN4llvm15BitstreamCursorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(344) %8, ptr noundef nonnull align 8 dereferenceable(344) %28)
-  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %8)
+  call fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE.argprom(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.098.0.copyload, i8 %.sroa.2100.0.copyload, ptr noundef nonnull align 8 dereferenceable(344) %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i8, ptr %29, align 8
@@ -1601,7 +1601,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE.argprom(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Expected.95", align 8
   %4 = alloca %"class.llvm::Expected.95", align 8
   %5 = alloca %"class.llvm::Expected.95", align 8
@@ -1987,19 +1987,19 @@ _ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread:    ; preds = %2, %24, %27, %31, %
   %211 = load i8, ptr %210, align 8, !noalias !81
   %212 = trunc i8 %211 to i1
   %213 = load i64, ptr %14, align 8, !noalias !81
-  br i1 %212, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i"
+  br i1 %212, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i": ; preds = %_ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.thread.i": ; preds = %_ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread
   %214 = trunc i64 %213 to i8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !78
   br label %219
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i": ; preds = %_ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.i": ; preds = %_ZN4llvm16isBitcodeWrapperEPKhS1_.exit.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !78
   %.not.i30 = icmp eq i64 %213, 0
   br i1 %.not.i30, label %219, label %_ZN4llvm5ErrorD2Ev.exit.i
 
-_ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i"
+_ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.i"
   %215 = inttoptr i64 %213 to ptr
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %217 = load i8, ptr %216, align 8, !alias.scope !78
@@ -2008,22 +2008,22 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %"_ZZL13ReadSignatur
   store ptr %215, ptr %0, align 8, !alias.scope !84
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-219:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i"
-  %.sroa.0182.0194.ph.i = phi i8 [ %214, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit.i" ]
+219:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.thread.i"
+  %.sroa.0182.0194.ph.i = phi i8 [ %214, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %13, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !87
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %221 = load i8, ptr %220, align 8, !noalias !87
   %222 = trunc i8 %221 to i1
   %223 = load i64, ptr %13, align 8, !noalias !87
-  br i1 %222, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i", label %228
+  br i1 %222, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit91.i", label %228
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i": ; preds = %219
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit91.i": ; preds = %219
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !78
   %.not302.i = icmp eq i64 %223, 0
   br i1 %.not302.i, label %.thread247.i, label %_ZN4llvm5ErrorD2Ev.exit92.i
 
-_ZN4llvm5ErrorD2Ev.exit92.i:                      ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i"
+_ZN4llvm5ErrorD2Ev.exit92.i:                      ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit91.i"
   %224 = inttoptr i64 %223 to ptr
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %226 = load i8, ptr %225, align 8, !alias.scope !78
@@ -2048,18 +2048,18 @@ _ZN4llvm5ErrorD2Ev.exit92.i:                      ; preds = %"_ZZL13ReadSignatur
   %235 = trunc i8 %234 to i1
   %236 = load i64, ptr %12, align 8, !noalias !93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !78
-  br i1 %235, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i"
+  br i1 %235, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i": ; preds = %232
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.thread.i": ; preds = %232
   %237 = and i64 %236, 255
   %238 = icmp eq i64 %237, 67
   br label %243
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i": ; preds = %232
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.i": ; preds = %232
   %.not300.i = icmp eq i64 %236, 0
   br i1 %.not300.i, label %243, label %_ZN4llvm5ErrorD2Ev.exit97.i
 
-_ZN4llvm5ErrorD2Ev.exit97.i:                      ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i"
+_ZN4llvm5ErrorD2Ev.exit97.i:                      ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.i"
   %239 = inttoptr i64 %236 to ptr
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %241 = load i8, ptr %240, align 8, !alias.scope !78
@@ -2068,8 +2068,8 @@ _ZN4llvm5ErrorD2Ev.exit97.i:                      ; preds = %"_ZZL13ReadSignatur
   store ptr %239, ptr %0, align 8, !alias.scope !96
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-243:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i"
-  %.sroa.6.0211.ph.i = phi i1 [ %238, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit96.i" ]
+243:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.thread.i"
+  %.sroa.6.0211.ph.i = phi i1 [ %238, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit96.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %11, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !99
   %244 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2077,13 +2077,13 @@ _ZN4llvm5ErrorD2Ev.exit97.i:                      ; preds = %"_ZZL13ReadSignatur
   %246 = trunc i8 %245 to i1
   %247 = load i64, ptr %11, align 8, !noalias !99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !78
-  br i1 %246, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit101.i", label %252
+  br i1 %246, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit101.i", label %252
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit101.i": ; preds = %243
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit101.i": ; preds = %243
   %.not301.i = icmp eq i64 %247, 0
   br i1 %.not301.i, label %.thread223.i, label %_ZN4llvm5ErrorD2Ev.exit102.i
 
-_ZN4llvm5ErrorD2Ev.exit102.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit101.i"
+_ZN4llvm5ErrorD2Ev.exit102.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit101.i"
   %248 = inttoptr i64 %247 to ptr
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %250 = load i8, ptr %249, align 8, !alias.scope !78
@@ -2120,18 +2120,18 @@ _ZN4llvm5ErrorD2Ev.exit102.i:                     ; preds = %"_ZZL13ReadSignatur
   %265 = trunc i8 %264 to i1
   %266 = load i64, ptr %10, align 8, !noalias !105
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !78
-  br i1 %265, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i"
+  br i1 %265, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i": ; preds = %262
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.thread.i": ; preds = %262
   %267 = and i64 %266, 255
   %268 = icmp eq i64 %267, 65
   br label %273
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i": ; preds = %262
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.i": ; preds = %262
   %.not298.i = icmp eq i64 %266, 0
   br i1 %.not298.i, label %273, label %_ZN4llvm5ErrorD2Ev.exit107.i
 
-_ZN4llvm5ErrorD2Ev.exit107.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i"
+_ZN4llvm5ErrorD2Ev.exit107.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.i"
   %269 = inttoptr i64 %266 to ptr
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %271 = load i8, ptr %270, align 8, !alias.scope !78
@@ -2140,8 +2140,8 @@ _ZN4llvm5ErrorD2Ev.exit107.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %269, ptr %0, align 8, !alias.scope !108
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-273:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i"
-  %.sroa.6.1232.ph.i = phi i1 [ %268, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit106.i" ]
+273:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.thread.i"
+  %.sroa.6.1232.ph.i = phi i1 [ %268, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit106.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %9, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !111
   %274 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2149,13 +2149,13 @@ _ZN4llvm5ErrorD2Ev.exit107.i:                     ; preds = %"_ZZL13ReadSignatur
   %276 = trunc i8 %275 to i1
   %277 = load i64, ptr %9, align 8, !noalias !111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !78
-  br i1 %276, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit111.i", label %282
+  br i1 %276, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit111.i", label %282
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit111.i": ; preds = %273
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit111.i": ; preds = %273
   %.not299.i = icmp eq i64 %277, 0
   br i1 %.not299.i, label %.thread223.i, label %_ZN4llvm5ErrorD2Ev.exit112.i
 
-_ZN4llvm5ErrorD2Ev.exit112.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit111.i"
+_ZN4llvm5ErrorD2Ev.exit112.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit111.i"
   %278 = inttoptr i64 %277 to ptr
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %280 = load i8, ptr %279, align 8, !alias.scope !78
@@ -2192,18 +2192,18 @@ _ZN4llvm5ErrorD2Ev.exit112.i:                     ; preds = %"_ZZL13ReadSignatur
   %295 = trunc i8 %294 to i1
   %296 = load i64, ptr %8, align 8, !noalias !117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !78
-  br i1 %295, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i"
+  br i1 %295, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i": ; preds = %292
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.thread.i": ; preds = %292
   %297 = and i64 %296, 255
   %298 = icmp eq i64 %297, 82
   br label %303
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i": ; preds = %292
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.i": ; preds = %292
   %.not296.i = icmp eq i64 %296, 0
   br i1 %.not296.i, label %303, label %_ZN4llvm5ErrorD2Ev.exit117.i
 
-_ZN4llvm5ErrorD2Ev.exit117.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i"
+_ZN4llvm5ErrorD2Ev.exit117.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.i"
   %299 = inttoptr i64 %296 to ptr
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %301 = load i8, ptr %300, align 8, !alias.scope !78
@@ -2212,8 +2212,8 @@ _ZN4llvm5ErrorD2Ev.exit117.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %299, ptr %0, align 8, !alias.scope !120
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-303:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i"
-  %.sroa.6.2253.ph.i = phi i1 [ %298, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit116.i" ]
+303:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.thread.i"
+  %.sroa.6.2253.ph.i = phi i1 [ %298, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit116.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %7, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 8), !noalias !123
   %304 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2221,13 +2221,13 @@ _ZN4llvm5ErrorD2Ev.exit117.i:                     ; preds = %"_ZZL13ReadSignatur
   %306 = trunc i8 %305 to i1
   %307 = load i64, ptr %7, align 8, !noalias !123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !78
-  br i1 %306, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit121.i", label %312
+  br i1 %306, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit121.i", label %312
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit121.i": ; preds = %303
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit121.i": ; preds = %303
   %.not297.i = icmp eq i64 %307, 0
   br i1 %.not297.i, label %.thread223.i, label %_ZN4llvm5ErrorD2Ev.exit122.i
 
-_ZN4llvm5ErrorD2Ev.exit122.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit121.i"
+_ZN4llvm5ErrorD2Ev.exit122.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit121.i"
   %308 = inttoptr i64 %307 to ptr
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %310 = load i8, ptr %309, align 8, !alias.scope !78
@@ -2250,8 +2250,8 @@ _ZN4llvm5ErrorD2Ev.exit122.i:                     ; preds = %"_ZZL13ReadSignatur
   store i32 4, ptr %0, align 8, !alias.scope !78
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-.thread247.i:                                     ; preds = %289, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i"
-  %.sroa.3.0201.ph208229250.i = phi i8 [ %229, %289 ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit91.i" ]
+.thread247.i:                                     ; preds = %289, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit91.i"
+  %.sroa.3.0201.ph208229250.i = phi i8 [ %229, %289 ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit91.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !129
   %319 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2259,18 +2259,18 @@ _ZN4llvm5ErrorD2Ev.exit122.i:                     ; preds = %"_ZZL13ReadSignatur
   %321 = trunc i8 %320 to i1
   %322 = load i64, ptr %6, align 8, !noalias !129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !78
-  br i1 %321, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i"
+  br i1 %321, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i": ; preds = %.thread247.i
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.thread.i": ; preds = %.thread247.i
   %323 = and i64 %322, 255
   %324 = icmp eq i64 %323, 0
   br label %329
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i": ; preds = %.thread247.i
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.i": ; preds = %.thread247.i
   %.not303.i = icmp eq i64 %322, 0
   br i1 %.not303.i, label %329, label %_ZN4llvm5ErrorD2Ev.exit127.i
 
-_ZN4llvm5ErrorD2Ev.exit127.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i"
+_ZN4llvm5ErrorD2Ev.exit127.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.i"
   %325 = inttoptr i64 %322 to ptr
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %327 = load i8, ptr %326, align 8, !alias.scope !78
@@ -2279,8 +2279,8 @@ _ZN4llvm5ErrorD2Ev.exit127.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %325, ptr %0, align 8, !alias.scope !132
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-329:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i"
-  %.sroa.6.3270.ph.i = phi i1 [ %324, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit126.i" ]
+329:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.thread.i"
+  %.sroa.6.3270.ph.i = phi i1 [ %324, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit126.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %5, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !135
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2288,18 +2288,18 @@ _ZN4llvm5ErrorD2Ev.exit127.i:                     ; preds = %"_ZZL13ReadSignatur
   %332 = trunc i8 %331 to i1
   %333 = load i64, ptr %5, align 8, !noalias !135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !78
-  br i1 %332, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i"
+  br i1 %332, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i": ; preds = %329
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.thread.i": ; preds = %329
   %334 = and i64 %333, 255
   %335 = icmp eq i64 %334, 12
   br label %340
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i": ; preds = %329
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.i": ; preds = %329
   %.not304.i = icmp eq i64 %333, 0
   br i1 %.not304.i, label %340, label %_ZN4llvm5ErrorD2Ev.exit132.i
 
-_ZN4llvm5ErrorD2Ev.exit132.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i"
+_ZN4llvm5ErrorD2Ev.exit132.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.i"
   %336 = inttoptr i64 %333 to ptr
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %338 = load i8, ptr %337, align 8, !alias.scope !78
@@ -2308,8 +2308,8 @@ _ZN4llvm5ErrorD2Ev.exit132.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %336, ptr %0, align 8, !alias.scope !138
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-340:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i"
-  %.sroa.14.3277.ph.i = phi i1 [ %335, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit131.i" ]
+340:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.thread.i"
+  %.sroa.14.3277.ph.i = phi i1 [ %335, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit131.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %4, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !141
   %341 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2317,18 +2317,18 @@ _ZN4llvm5ErrorD2Ev.exit132.i:                     ; preds = %"_ZZL13ReadSignatur
   %343 = trunc i8 %342 to i1
   %344 = load i64, ptr %4, align 8, !noalias !141
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !78
-  br i1 %343, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i"
+  br i1 %343, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i": ; preds = %340
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.thread.i": ; preds = %340
   %345 = and i64 %344, 255
   %346 = icmp eq i64 %345, 14
   br label %351
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i": ; preds = %340
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.i": ; preds = %340
   %.not305.i = icmp eq i64 %344, 0
   br i1 %.not305.i, label %351, label %_ZN4llvm5ErrorD2Ev.exit137.i
 
-_ZN4llvm5ErrorD2Ev.exit137.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i"
+_ZN4llvm5ErrorD2Ev.exit137.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.i"
   %347 = inttoptr i64 %344 to ptr
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %349 = load i8, ptr %348, align 8, !alias.scope !78
@@ -2337,8 +2337,8 @@ _ZN4llvm5ErrorD2Ev.exit137.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %347, ptr %0, align 8, !alias.scope !144
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-351:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i"
-  %.sroa.22.0284.ph.i = phi i1 [ %346, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit136.i" ]
+351:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.thread.i"
+  %.sroa.22.0284.ph.i = phi i1 [ %346, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit136.i" ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !78
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.95") align 8 %3, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4), !noalias !147
   %352 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2346,18 +2346,18 @@ _ZN4llvm5ErrorD2Ev.exit137.i:                     ; preds = %"_ZZL13ReadSignatur
   %354 = trunc i8 %353 to i1
   %355 = load i64, ptr %3, align 8, !noalias !147
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !78
-  br i1 %354, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.thread.i"
+  br i1 %354, label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.i", label %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.thread.i"
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.thread.i": ; preds = %351
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.thread.i": ; preds = %351
   %356 = and i64 %355, 255
   %357 = icmp eq i64 %356, 13
   br label %362
 
-"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.i": ; preds = %351
+"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.i": ; preds = %351
   %.not306.i = icmp eq i64 %355, 0
   br i1 %.not306.i, label %362, label %_ZN4llvm5ErrorD2Ev.exit142.i
 
-_ZN4llvm5ErrorD2Ev.exit142.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.i"
+_ZN4llvm5ErrorD2Ev.exit142.i:                     ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.i"
   %358 = inttoptr i64 %355 to ptr
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %360 = load i8, ptr %359, align 8, !alias.scope !78
@@ -2366,8 +2366,8 @@ _ZN4llvm5ErrorD2Ev.exit142.i:                     ; preds = %"_ZZL13ReadSignatur
   store ptr %358, ptr %0, align 8, !alias.scope !150
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-362:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.thread.i"
-  %.sroa.24.0291.ph.i = phi i1 [ %357, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit141.i" ]
+362:                                              ; preds = %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.i", %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.thread.i"
+  %.sroa.24.0291.ph.i = phi i1 [ %357, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.thread.i" ], [ undef, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit141.i" ]
   %363 = icmp eq i8 %.sroa.0182.0194.ph.i, 66
   %364 = icmp eq i8 %.sroa.3.0201.ph208229250.i, 67
   %or.cond27.i = select i1 %363, i1 %364, i1 false
@@ -2385,7 +2385,7 @@ _ZN4llvm5ErrorD2Ev.exit142.i:                     ; preds = %"_ZZL13ReadSignatur
   store i32 1, ptr %0, align 8, !alias.scope !78
   br label %_ZL13ReadSignatureRN4llvm15BitstreamCursorE.exit
 
-.thread223.i:                                     ; preds = %362, %312, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit121.i", %282, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit111.i", %252, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.exit101.i"
+.thread223.i:                                     ; preds = %362, %312, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit121.i", %282, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit111.i", %252, %"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom.exit101.i"
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %370 = load i8, ptr %369, align 8, !alias.scope !78
   %371 = and i8 %370, -2
@@ -3229,7 +3229,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit182:              ; preds = %165, %167
   %174 = getelementptr inbounds i8, ptr %1, i64 352
   %.val174 = load ptr, ptr %174, align 8
   %175 = icmp ult i32 %170, 8
-  br i1 %175, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit, label %176
+  br i1 %175, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit, label %176
 
 176:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit182
   %177 = icmp eq ptr %.val, %.val174
@@ -3260,16 +3260,16 @@ _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i: ; preds = %.lr.ph.i.i, %17
 
 _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i: ; preds = %184, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i, %176
   %.not9.i = icmp eq i32 %173, 1
-  br i1 %.not9.i, label %188, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414
+  br i1 %.not9.i, label %188, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414
 
 188:                                              ; preds = %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i
   %switch.tableidx = add i32 %170, -8
   %189 = icmp ult i32 %switch.tableidx, 18
-  br i1 %189, label %switch.lookup, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414
+  br i1 %189, label %switch.lookup, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414
 
-_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit182
+_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit182
   %190 = icmp eq i32 %170, 0
-  br i1 %190, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414
+  br i1 %190, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414
 
 191:                                              ; preds = %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i
   %192 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %186) #21
@@ -3282,8 +3282,8 @@ switch.lookup:                                    ; preds = %188
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4llvm9StringRefC2EPKc.exit.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %switch.lookup, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit, %191
-  %.sroa.0.0.i410426 = phi ptr [ %192, %191 ], [ @.str.95, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit ], [ %switch.load, %switch.lookup ]
+_ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %switch.lookup, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit, %191
+  %.sroa.0.0.i410426 = phi ptr [ %192, %191 ], [ @.str.95, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit ], [ %switch.load, %switch.lookup ]
   %194 = load ptr, ptr %4, align 8
   %195 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.i410426) #21
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 24
@@ -3311,7 +3311,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %switch.lookup, %_ZL
   store ptr %209, ptr %198, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit188
 
-_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414: ; preds = %188, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit
+_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414: ; preds = %188, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit
   %210 = load ptr, ptr %4, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
@@ -3323,11 +3323,11 @@ _ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thre
   %218 = icmp ult i64 %217, 12
   br i1 %218, label %219, label %221
 
-219:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414
+219:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414
   %220 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %210, ptr noundef nonnull @.str.53, i64 noundef 12) #21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit188.thread649
 
-221:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread414
+221:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %214, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 12, i1 false)
   %222 = load ptr, ptr %213, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 12
@@ -3809,7 +3809,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit237:              ; preds = %475, %477
   %481 = load i32, ptr %311, align 8
   %.val175 = load ptr, ptr %310, align 8
   %.val176 = load ptr, ptr %312, align 8
-  %482 = call fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE(i32 noundef %spec.select, i32 noundef %480, ptr %.val175, ptr %.val176, i32 noundef %481)
+  %482 = call fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom(i32 noundef %spec.select, i32 noundef %480, ptr %.val175, ptr %.val176, i32 noundef %481)
   %483 = extractvalue { ptr, i8 } %482, 0
   %484 = extractvalue { ptr, i8 } %482, 1
   %485 = trunc i8 %484 to i1
@@ -5159,7 +5159,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit162:              ; preds = %248, %250
   %.val = load ptr, ptr %218, align 8
   %.val98 = load ptr, ptr %219, align 8
   %258 = icmp ult i32 %256, 8
-  br i1 %258, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit, label %259
+  br i1 %258, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit, label %259
 
 259:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit162
   %260 = icmp eq ptr %.val, %.val98
@@ -5190,7 +5190,7 @@ _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i: ; preds = %.lr.ph.i.i, %26
 
 271:                                              ; preds = %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i
   %272 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %269) #21
-  br label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread
+  br label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread
 
 _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i: ; preds = %267, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.i, %259
   %.not9.i = icmp eq i32 %257, 1
@@ -5201,18 +5201,18 @@ _ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i: ; preds = %267, %_Z
   %274 = icmp ult i32 %switch.tableidx, 18
   br i1 %274, label %switch.lookup, label %_ZN4llvm11raw_ostreamlsEPKc.exit179
 
-_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit162
+_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit162
   %275 = icmp eq i32 %256, 0
-  br i1 %275, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread, label %_ZN4llvm11raw_ostreamlsEPKc.exit179
+  br i1 %275, label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread, label %_ZN4llvm11raw_ostreamlsEPKc.exit179
 
 switch.lookup:                                    ; preds = %273
   %276 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZN4llvm15BitcodeAnalyzer10printStatsENS_13BCDumpOptionsESt8optionalINS_9StringRefEE, i64 0, i64 %276
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread
+  br label %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread
 
-_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread: ; preds = %switch.lookup, %271, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit
-  %.sroa.0.0.i369 = phi ptr [ @.str.95, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit ], [ %272, %271 ], [ %switch.load, %switch.lookup ]
+_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread: ; preds = %switch.lookup, %271, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit
+  %.sroa.0.0.i369 = phi ptr [ @.str.95, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit ], [ %272, %271 ], [ %switch.load, %switch.lookup ]
   %277 = load ptr, ptr %14, align 8
   %278 = load ptr, ptr %16, align 8
   %279 = ptrtoint ptr %277 to i64
@@ -5221,11 +5221,11 @@ _ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thre
   %282 = icmp ult i64 %281, 2
   br i1 %282, label %283, label %285
 
-283:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread
+283:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread
   %284 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.26, i64 noundef 2) #21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit170
 
-285:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit.thread
+285:                                              ; preds = %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit.thread
   store i16 10272, ptr %278, align 1
   %286 = load ptr, ptr %16, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 2
@@ -5284,7 +5284,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit175:              ; preds = %_ZN4llvm11raw_ostre
   store ptr %312, ptr %305, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit179
 
-_ZN4llvm11raw_ostreamlsEPKc.exit179:              ; preds = %273, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i, %310, %308, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.exit
+_ZN4llvm11raw_ostreamlsEPKc.exit179:              ; preds = %273, %_ZNK4llvm18BitstreamBlockInfo12getBlockInfoEj.exit.thread.i, %310, %308, %_ZL12GetBlockNamejRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom.exit
   %313 = load ptr, ptr %14, align 8
   %314 = load ptr, ptr %16, align 8
   %315 = ptrtoint ptr %313 to i64
@@ -6224,7 +6224,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit309:              ; preds = %793, %795
   %800 = load i32, ptr %109, align 8
   %.val99 = load ptr, ptr %218, align 8
   %.val100 = load ptr, ptr %219, align 8
-  %801 = call fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE(i32 noundef %798, i32 noundef %799, ptr %.val99, ptr %.val100, i32 noundef %800)
+  %801 = call fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom(i32 noundef %798, i32 noundef %799, ptr %.val99, ptr %.val100, i32 noundef %800)
   %802 = extractvalue { ptr, i8 } %801, 0
   %803 = extractvalue { ptr, i8 } %801, 1
   %804 = trunc i8 %803 to i1
@@ -6368,7 +6368,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(48), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE(i32 noundef %0, i32 noundef %1, ptr readonly %.0.val, ptr readonly %.8.val, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i8 } @_ZL11GetCodeNamejjRKN4llvm18BitstreamBlockInfoENS_17CurStreamTypeTypeE.argprom(i32 noundef %0, i32 noundef %1, ptr readonly %.0.val, ptr readonly %.8.val, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp ult i32 %1, 8
   br i1 %4, label %5, label %11
 
@@ -12017,74 +12017,74 @@ attributes #26 = { nounwind allocsize(0) }
 !79 = distinct !{!79, !80, !"_ZL13ReadSignatureRN4llvm15BitstreamCursorE: argument 0"}
 !80 = distinct !{!80, !"_ZL13ReadSignatureRN4llvm15BitstreamCursorE"}
 !81 = !{!82, !79}
-!82 = distinct !{!82, !83, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!83 = distinct !{!83, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!82 = distinct !{!82, !83, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!83 = distinct !{!83, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !84 = !{!85, !79}
 !85 = distinct !{!85, !86, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !86 = distinct !{!86, !"_ZN4llvm5Error11takePayloadEv"}
 !87 = !{!88, !79}
-!88 = distinct !{!88, !89, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!89 = distinct !{!89, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!88 = distinct !{!88, !89, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!89 = distinct !{!89, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !90 = !{!91, !79}
 !91 = distinct !{!91, !92, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !92 = distinct !{!92, !"_ZN4llvm5Error11takePayloadEv"}
 !93 = !{!94, !79}
-!94 = distinct !{!94, !95, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!95 = distinct !{!95, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!94 = distinct !{!94, !95, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!95 = distinct !{!95, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !96 = !{!97, !79}
 !97 = distinct !{!97, !98, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !98 = distinct !{!98, !"_ZN4llvm5Error11takePayloadEv"}
 !99 = !{!100, !79}
-!100 = distinct !{!100, !101, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!101 = distinct !{!101, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!100 = distinct !{!100, !101, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!101 = distinct !{!101, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !102 = !{!103, !79}
 !103 = distinct !{!103, !104, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !104 = distinct !{!104, !"_ZN4llvm5Error11takePayloadEv"}
 !105 = !{!106, !79}
-!106 = distinct !{!106, !107, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!107 = distinct !{!107, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!106 = distinct !{!106, !107, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!107 = distinct !{!107, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !108 = !{!109, !79}
 !109 = distinct !{!109, !110, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !110 = distinct !{!110, !"_ZN4llvm5Error11takePayloadEv"}
 !111 = !{!112, !79}
-!112 = distinct !{!112, !113, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!113 = distinct !{!113, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!112 = distinct !{!112, !113, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!113 = distinct !{!113, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !114 = !{!115, !79}
 !115 = distinct !{!115, !116, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !116 = distinct !{!116, !"_ZN4llvm5Error11takePayloadEv"}
 !117 = !{!118, !79}
-!118 = distinct !{!118, !119, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!119 = distinct !{!119, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!118 = distinct !{!118, !119, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!119 = distinct !{!119, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !120 = !{!121, !79}
 !121 = distinct !{!121, !122, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !122 = distinct !{!122, !"_ZN4llvm5Error11takePayloadEv"}
 !123 = !{!124, !79}
-!124 = distinct !{!124, !125, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!125 = distinct !{!125, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!124 = distinct !{!124, !125, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!125 = distinct !{!125, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !126 = !{!127, !79}
 !127 = distinct !{!127, !128, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !128 = distinct !{!128, !"_ZN4llvm5Error11takePayloadEv"}
 !129 = !{!130, !79}
-!130 = distinct !{!130, !131, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!131 = distinct !{!131, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!130 = distinct !{!130, !131, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!131 = distinct !{!131, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !132 = !{!133, !79}
 !133 = distinct !{!133, !134, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !134 = distinct !{!134, !"_ZN4llvm5Error11takePayloadEv"}
 !135 = !{!136, !79}
-!136 = distinct !{!136, !137, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!137 = distinct !{!137, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!136 = distinct !{!136, !137, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!137 = distinct !{!137, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !138 = !{!139, !79}
 !139 = distinct !{!139, !140, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !140 = distinct !{!140, !"_ZN4llvm5Error11takePayloadEv"}
 !141 = !{!142, !79}
-!142 = distinct !{!142, !143, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!143 = distinct !{!143, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!142 = distinct !{!142, !143, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!143 = distinct !{!143, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !144 = !{!145, !79}
 !145 = distinct !{!145, !146, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !146 = distinct !{!146, !"_ZN4llvm5Error11takePayloadEv"}
 !147 = !{!148, !79}
-!148 = distinct !{!148, !149, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm: argument 0"}
-!149 = distinct !{!149, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm"}
+!148 = distinct !{!148, !149, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom: argument 0"}
+!149 = distinct !{!149, !"_ZZL13ReadSignatureRN4llvm15BitstreamCursorEENK3$_0clERcm.argprom"}
 !150 = !{!151, !79}
 !151 = distinct !{!151, !152, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !152 = distinct !{!152, !"_ZN4llvm5Error11takePayloadEv"}

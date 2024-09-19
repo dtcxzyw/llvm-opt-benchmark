@@ -2983,39 +2983,39 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecWriterProxyINS_8KeyPointEL
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %.val.i.i = load float, ptr %15, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val.i.i)
-          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit.i.i unwind label %25
+          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit.i.i unwind label %25
 
-_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit.i.i: ; preds = %16
+_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit.i.i: ; preds = %16
   %17 = getelementptr inbounds i8, ptr %15, i64 4
   %.val19.i.i = load float, ptr %17, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val19.i.i)
-          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit25.i.i unwind label %25
+          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit25.i.i unwind label %25
 
-_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit25.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit.i.i
+_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit25.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit.i.i
   %18 = getelementptr inbounds i8, ptr %15, i64 8
   %.val20.i.i = load float, ptr %18, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val20.i.i)
-          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit26.i.i unwind label %25
+          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit26.i.i unwind label %25
 
-_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit26.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit25.i.i
+_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit26.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit25.i.i
   %19 = getelementptr inbounds i8, ptr %15, i64 12
   %.val21.i.i = load float, ptr %19, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val21.i.i)
-          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit27.i.i unwind label %25
+          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit27.i.i unwind label %25
 
-_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit27.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit26.i.i
+_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit27.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit26.i.i
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   %.val22.i.i = load float, ptr %20, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val22.i.i)
-          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit28.i.i unwind label %25
+          to label %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit28.i.i unwind label %25
 
-_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit28.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit27.i.i
+_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit28.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit27.i.i
   %21 = getelementptr inbounds i8, ptr %15, i64 20
   %.val23.i.i = load i32, ptr %21, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %.val23.i.i)
-          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i unwind label %25
+          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i unwind label %25
 
-_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit28.i.i
+_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i: ; preds = %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit28.i.i
   %22 = getelementptr inbounds i8, ptr %15, i64 24
   %.val24.i.i = load i32, ptr %22, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %.val24.i.i)
@@ -3027,7 +3027,7 @@ _ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i: ; preds = %_ZN2cvL5writeIfEEv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %.body.i
 
-25:                                               ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit28.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit27.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit26.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit25.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.exit.i.i, %16
+25:                                               ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit28.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit27.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit26.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit25.i.i, %_ZN2cvL5writeIfEEvRNS_11FileStorageERKT_.argprom.exit.i.i, %16
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv8internal18WriteStructContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -3038,7 +3038,7 @@ _ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i: ; preds = %_ZN2cvL5writeIfEEv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZN2cvL5writeERNS_11FileStorageERKNS_8KeyPointE.exit: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i
+_ZN2cvL5writeERNS_11FileStorageERKNS_8KeyPointE.exit: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i
   call void @_ZN2cv8internal18WriteStructContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -3090,21 +3090,21 @@ define linkonce_odr hidden void @_ZNK2cv8internal14VecWriterProxyINS_6DMatchELi0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %.val15.i.i = load i32, ptr %15, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %.val15.i.i)
-          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i unwind label %22
+          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i unwind label %22
 
-_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i: ; preds = %16
+_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i: ; preds = %16
   %17 = getelementptr inbounds i8, ptr %15, i64 4
   %.val14.i.i = load i32, ptr %17, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %.val14.i.i)
-          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit16.i.i unwind label %22
+          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit16.i.i unwind label %22
 
-_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit16.i.i: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i
+_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit16.i.i: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i
   %18 = getelementptr inbounds i8, ptr %15, i64 8
   %.val13.i.i = load i32, ptr %18, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEi(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %.val13.i.i)
-          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i unwind label %22
+          to label %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit17.i.i unwind label %22
 
-_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit16.i.i
+_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit17.i.i: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit16.i.i
   %19 = getelementptr inbounds i8, ptr %15, i64 12
   %.val.i.i = load float, ptr %19, align 4
   invoke void @_ZN2cv11writeScalarERNS_11FileStorageEf(ptr noundef nonnull align 8 dereferenceable(64) %13, float noundef %.val.i.i)
@@ -3116,7 +3116,7 @@ _ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i: ; preds = %_ZN2cvL5writeIiE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   br label %.body.i
 
-22:                                               ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i, %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit16.i.i, %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit.i.i, %16
+22:                                               ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit17.i.i, %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit16.i.i, %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit.i.i, %16
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv8internal18WriteStructContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -3127,7 +3127,7 @@ _ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i: ; preds = %_ZN2cvL5writeIiE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZN2cvL5writeERNS_11FileStorageERKNS_6DMatchE.exit: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.exit17.i.i
+_ZN2cvL5writeERNS_11FileStorageERKNS_6DMatchE.exit: ; preds = %_ZN2cvL5writeIiEEvRNS_11FileStorageERKT_.argprom.exit17.i.i
   call void @_ZN2cv8internal18WriteStructContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

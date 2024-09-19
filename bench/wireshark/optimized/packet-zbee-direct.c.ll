@@ -204,8 +204,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.128 = private unnamed_addr constant [31 x i8] c" (endpoint: %u, initiator: %s)\00", align 1
 @serv_tunnel_uuid = internal constant [16 x i8] c"?1\D5\8B7\B2 \81\F4E\00\00\FDx\D1\8B", align 16
 @char_tunnel_uuid = internal constant [16 x i8] c"?1\D5\8B7\B2 \81\F4E\01\00\FDx\D1\8B", align 16
-@switch.table.dissect_zb_direct_secur_common = private unnamed_addr constant [3 x ptr] [ptr @char_c25519_aesmmo_uuid, ptr @char_c25519_sha256_uuid, ptr @char_p256_uuid], align 8
-@switch.table.dissect_zb_direct_secur_common.4 = private unnamed_addr constant [3 x ptr] [ptr @hf_zb_direct_char_c25519_aesmmo, ptr @hf_zb_direct_char_c25519_sha256, ptr @hf_zb_direct_char_p256], align 8
+@switch.table.dissect_zb_direct_secur_common.argelim = private unnamed_addr constant [3 x ptr] [ptr @char_c25519_aesmmo_uuid, ptr @char_c25519_sha256_uuid, ptr @char_p256_uuid], align 8
+@switch.table.dissect_zb_direct_secur_common.argelim.4 = private unnamed_addr constant [3 x ptr] [ptr @hf_zb_direct_char_c25519_aesmmo, ptr @hf_zb_direct_char_c25519_sha256, ptr @hf_zb_direct_char_p256], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_zb_direct() local_unnamed_addr #0 {
@@ -1359,19 +1359,19 @@ proto_item_set_generated.exit:                    ; preds = %4, %16, %19
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zb_direct_secur_c25519_aesmmo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 9)
+  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 9)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zb_direct_secur_c25519_sha256(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 10)
+  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 10)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zb_direct_secur_p256(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 11)
+  %5 = tail call fastcc i32 @dissect_zb_direct_secur_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 11)
   ret i32 %5
 }
 
@@ -1381,7 +1381,7 @@ define internal i32 @dissect_zb_direct_formation(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_form_uuid)
+  %7 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_form_uuid)
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_zb_direct_char_form, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1426,7 +1426,7 @@ define internal noundef i32 @dissect_zb_direct_leave(ptr noundef %0, ptr noundef
   %8 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %9 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_leave_uuid)
+  %9 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_leave_uuid)
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr @hf_zb_direct_char_leave, align 4
   %12 = load ptr, ptr %5, align 8
@@ -1483,7 +1483,7 @@ define internal i32 @dissect_zb_direct_join(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_join_uuid)
+  %7 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_join_uuid)
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_zb_direct_char_join, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1527,7 +1527,7 @@ define internal i32 @dissect_zb_direct_permit_join(ptr noundef %0, ptr noundef %
   %7 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %8 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_permit_uuid)
+  %8 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_permit_uuid)
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr @hf_zb_direct_char_permit_join, align 4
   %11 = load ptr, ptr %5, align 8
@@ -1584,7 +1584,7 @@ define internal i32 @dissect_zb_direct_status(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_status_uuid)
+  %7 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_status_uuid)
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_zb_direct_char_status, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1619,7 +1619,7 @@ define internal i32 @dissect_zb_direct_manage_joiners(ptr noundef %0, ptr nounde
   %6 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_manage_joiners_uuid)
+  %7 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_manage_joiners_uuid)
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_zb_direct_char_manage_joiners, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1663,7 +1663,7 @@ define internal noundef i32 @dissect_zb_direct_identify(ptr noundef %0, ptr noun
   %7 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %8 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_identify_uuid)
+  %8 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_identify_uuid)
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr @hf_zb_direct_char_identify, align 4
   %11 = load ptr, ptr %5, align 8
@@ -1722,7 +1722,7 @@ define internal noundef i32 @dissect_zb_direct_finding_binding(ptr noundef %0, p
   %8 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %9 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_finding_binding_uuid)
+  %9 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_comm_uuid, ptr noundef nonnull @char_finding_binding_uuid)
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr @hf_zb_direct_char_finding_binding, align 4
   %12 = load ptr, ptr %5, align 8
@@ -1777,7 +1777,7 @@ define internal i32 @dissect_zb_direct_tunneling(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %7 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_tunnel_uuid, ptr noundef nonnull @char_tunnel_uuid)
+  %7 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_tunnel_uuid, ptr noundef nonnull @char_tunnel_uuid)
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_zb_direct_char_tunneling, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1854,7 +1854,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [34 x i8], align 16
   %7 = alloca [264 x i8], align 16
   %8 = alloca %struct.zb_secur_ccm_nonce_s, align 8
@@ -1879,18 +1879,18 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
   %24 = icmp ne ptr %4, null
   %25 = icmp ne ptr %3, null
   %or.cond = and i1 %25, %24
-  br i1 %or.cond, label %26, label %zb_direct_decrypt.exit
+  br i1 %or.cond, label %26, label %zb_direct_decrypt.argprom.exit
 
 26:                                               ; preds = %5
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %3, ptr noundef nonnull dereferenceable(16) @serv_secur_uuid, i64 16)
   %.not = icmp eq i32 %bcmp, 0
-  br i1 %.not, label %zb_direct_decrypt.exit, label %27
+  br i1 %.not, label %zb_direct_decrypt.argprom.exit, label %27
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %2, align 8
   %29 = load i16, ptr @enc_h, align 16
   %.not.i.i = icmp eq i16 %29, 0
-  br i1 %.not.i.i, label %zb_direct_decrypt.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %zb_direct_decrypt.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27
   %30 = zext i16 %29 to i64
@@ -1921,7 +1921,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr nocapture noundef nonnu
 46:                                               ; preds = %41, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %47 = icmp ult i64 %indvars.iv.next.i.i, %30
-  br i1 %47, label %35, label %zb_direct_decrypt.exit, !llvm.loop !14
+  br i1 %47, label %35, label %zb_direct_decrypt.argprom.exit, !llvm.loop !14
 
 zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   %48 = load ptr, ptr %0, align 8
@@ -2052,9 +2052,9 @@ create_auth_string.exit.i.i.i:                    ; preds = %110
   store i8 0, ptr %85, align 1
   %118 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %116, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %117, ptr noundef nonnull %13, i32 noundef 34, i32 noundef %94, i32 noundef 4) #10
   %.not20.i.i.i = icmp eq i32 %118, 0
-  br i1 %.not20.i.i.i, label %decrypt_data.exit.thread.i.i, label %try_decrypt.exit.thread.i
+  br i1 %.not20.i.i.i, label %decrypt_data.exit.thread.i.i, label %try_decrypt.argprom.exit.thread.i
 
-try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
+try_decrypt.argprom.exit.thread.i:                ; preds = %create_auth_string.exit.i.i.i
   %.mask.i.i.i = and i32 %94, 65535
   %119 = zext nneg i32 %.mask.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %13, i64 %119, i1 false)
@@ -2107,9 +2107,9 @@ create_auth_string.exit.i26.i.i:                  ; preds = %128
   store i8 0, ptr %89, align 1
   %134 = call i32 @zbee_sec_ccm_decrypt(ptr noundef nonnull %116, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %117, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %94, i32 noundef 4) #10
   %.not20.i27.i.i = icmp eq i32 %134, 0
-  br i1 %.not20.i27.i.i, label %136, label %try_decrypt.exit.i
+  br i1 %.not20.i27.i.i, label %136, label %try_decrypt.argprom.exit.i
 
-try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i26.i.i
+try_decrypt.argprom.exit.i:                       ; preds = %create_auth_string.exit.i26.i.i
   %.mask.i28.i.i = and i32 %94, 65535
   %135 = zext nneg i32 %.mask.i28.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 16 %10, i64 %135, i1 false)
@@ -2251,21 +2251,21 @@ create_auth_string.exit.i.i:                      ; preds = %172
   %.not117.i = icmp eq ptr %.5.i, null
   br i1 %.not117.i, label %.loopexit.thread.i, label %.lr.ph33.i, !llvm.loop !16
 
-.loopexit.i:                                      ; preds = %.thread67.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
-  %.pre-phi = phi i32 [ %.mask.i.i, %.thread67.i ], [ %.mask.i28.i.i, %try_decrypt.exit.i ], [ %.mask.i.i.i, %try_decrypt.exit.thread.i ]
+.loopexit.i:                                      ; preds = %.thread67.i, %try_decrypt.argprom.exit.i, %try_decrypt.argprom.exit.thread.i
+  %.pre-phi = phi i32 [ %.mask.i.i, %.thread67.i ], [ %.mask.i28.i.i, %try_decrypt.argprom.exit.i ], [ %.mask.i.i.i, %try_decrypt.argprom.exit.thread.i ]
   %185 = load ptr, ptr %0, align 8
   %186 = call ptr @tvb_new_child_real_data(ptr noundef %185, ptr noundef %53, i32 noundef %.pre-phi, i32 noundef %.pre-phi) #10
   store ptr %186, ptr %0, align 8
   call void @add_new_data_source(ptr noundef %1, ptr noundef %186, ptr noundef nonnull @.str.107) #10
-  br label %zb_direct_decrypt.exit
+  br label %zb_direct_decrypt.argprom.exit
 
 .loopexit.thread.i:                               ; preds = %184, %.lr.ph42.i, %140, %._crit_edge.i
   %187 = load ptr, ptr %0, align 8
   %188 = call i32 @tvb_reported_length(ptr noundef %187) #10
   %189 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %28, ptr noundef nonnull @ei_zb_direct_crypt_error) #10
-  br label %zb_direct_decrypt.exit
+  br label %zb_direct_decrypt.argprom.exit
 
-zb_direct_decrypt.exit:                           ; preds = %46, %.loopexit.thread.i, %.loopexit.i, %27, %26, %5
+zb_direct_decrypt.argprom.exit:                   ; preds = %46, %.loopexit.thread.i, %.loopexit.i, %27, %26, %5
   %.0 = phi i32 [ 0, %26 ], [ 0, %5 ], [ 0, %.loopexit.i ], [ %188, %.loopexit.thread.i ], [ 0, %27 ], [ 0, %46 ]
   ret i32 %.0
 }
@@ -2309,7 +2309,7 @@ declare i32 @address_to_bytes(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare i32 @zbee_sec_ccm_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_zb_direct_secur_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 9, 12) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_zb_direct_secur_common.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 9, 12) %4) unnamed_addr #0 {
 switch.lookup:
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2318,12 +2318,12 @@ switch.lookup:
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
   %switch.tableidx = add nsw i32 %4, -9
   %8 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.argelim, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = sext i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.4, i64 0, i64 %9
+  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_zb_direct_secur_common.argelim.4, i64 0, i64 %9
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %10 = call fastcc i32 @dissect_zb_direct_common(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull %switch.load)
+  %10 = call fastcc i32 @dissect_zb_direct_common.argprom.argelim(ptr noundef %5, ptr noundef %1, ptr noundef %6, ptr noundef nonnull @serv_secur_uuid, ptr noundef nonnull %switch.load)
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %switch.load2, align 4
   %13 = load ptr, ptr %5, align 8

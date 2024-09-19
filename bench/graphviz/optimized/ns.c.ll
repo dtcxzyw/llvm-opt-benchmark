@@ -49,7 +49,7 @@ define range(i32 0, 3) i32 @rank2(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %8 = getelementptr inbounds i8, ptr %.val, i64 256
   %.0115.i = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %.0115.i, null
-  br i1 %.not6.i, label %graphSize.exit, label %.lr.ph11.i
+  br i1 %.not6.i, label %graphSize.argprom.exit, label %.lr.ph11.i
 
 .lr.ph11.i:                                       ; preds = %6, %._crit_edge.i
   %.0119.i = phi ptr [ %.011.i, %._crit_edge.i ], [ %.0115.i, %6 ]
@@ -79,9 +79,9 @@ define range(i32 0, 3) i32 @rank2(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %18 = getelementptr inbounds i8, ptr %11, i64 240
   %.011.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %graphSize.exit, label %.lr.ph11.i
+  br i1 %.not.i, label %graphSize.argprom.exit, label %.lr.ph11.i
 
-graphSize.exit:                                   ; preds = %._crit_edge.i, %6
+graphSize.argprom.exit:                           ; preds = %._crit_edge.i, %6
   %.013.lcssa.i = phi i32 [ 0, %6 ], [ %9, %._crit_edge.i ]
   %.012.lcssa.i = phi i32 [ 0, %6 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %19 = load ptr, ptr @stderr, align 8
@@ -89,7 +89,7 @@ graphSize.exit:                                   ; preds = %._crit_edge.i, %6
   tail call void @start_timer() #18
   br label %21
 
-21:                                               ; preds = %graphSize.exit, %4
+21:                                               ; preds = %graphSize.argprom.exit, %4
   store ptr %0, ptr @G, align 8
   store i64 0, ptr @S_i, align 8
   store i64 0, ptr @N_edges, align 8
@@ -493,7 +493,7 @@ init_graph.exit.thread:                           ; preds = %._crit_edge57.i, %i
 239:                                              ; preds = %236
   %240 = load ptr, ptr @stderr, align 8
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.6, i64 noundef 24) #17
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %236
@@ -538,7 +538,7 @@ find_tight_subtree.exit.thread.i:                 ; preds = %gv_alloc.exit.i.i
 257:                                              ; preds = %._crit_edge75.i
   %258 = load ptr, ptr @stderr, align 8
   %259 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %258, ptr noundef nonnull @.str.6, i64 noundef 16) #17
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 gv_alloc.exit.i42.i:                              ; preds = %._crit_edge75.i
@@ -750,7 +750,7 @@ STextractmin.exit.i:                              ; preds = %340, %338
   %.not2.i.i.i = icmp eq ptr %372, null
   %.not113.i.i.i = icmp eq ptr %372, %.01.i.i.i
   %or.cond4.i.i.i = or i1 %.not2.i.i.i, %.not113.i.i.i
-  br i1 %or.cond4.i.i.i, label %STsetFind.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %or.cond4.i.i.i, label %STsetFind.argprom.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %361, %377
   %373 = phi ptr [ %.pre.i.i.i, %377 ], [ %372, %361 ]
@@ -758,7 +758,7 @@ STextractmin.exit.i:                              ; preds = %340, %338
   %375 = getelementptr inbounds i8, ptr %373, i64 16
   %376 = load ptr, ptr %375, align 8
   %.not12.i.i.i = icmp eq ptr %376, null
-  br i1 %.not12.i.i.i, label %STsetFind.exit.loopexit.i.i, label %377
+  br i1 %.not12.i.i.i, label %STsetFind.argprom.exit.loopexit.i.i, label %377
 
 377:                                              ; preds = %.lr.ph.i.i.i
   store ptr %376, ptr %374, align 8
@@ -767,18 +767,18 @@ STextractmin.exit.i:                              ; preds = %340, %338
   %.not.i.i48.i = icmp eq ptr %.pre.i.i.i, null
   %.not11.i.i.i = icmp eq ptr %.pre.i.i.i, %376
   %or.cond.i.i49.i = or i1 %.not.i.i48.i, %.not11.i.i.i
-  br i1 %or.cond.i.i49.i, label %STsetFind.exit.loopexit.i.i, label %.lr.ph.i.i.i
+  br i1 %or.cond.i.i49.i, label %STsetFind.argprom.exit.loopexit.i.i, label %.lr.ph.i.i.i
 
-STsetFind.exit.loopexit.i.i:                      ; preds = %377, %.lr.ph.i.i.i
+STsetFind.argprom.exit.loopexit.i.i:              ; preds = %377, %.lr.ph.i.i.i
   %.0.lcssa.i.ph.i.i = phi ptr [ %373, %.lr.ph.i.i.i ], [ %376, %377 ]
   %.pre.i.i = load i32, ptr %360, align 8
   %.pre54.i.i = and i32 %.pre.i.i, 3
-  br label %STsetFind.exit.i.i
+  br label %STsetFind.argprom.exit.i.i
 
-STsetFind.exit.i.i:                               ; preds = %STsetFind.exit.loopexit.i.i, %361
-  %378 = phi i32 [ %.pre.i.i, %STsetFind.exit.loopexit.i.i ], [ %362, %361 ]
-  %.pre-phi.i.i = phi i32 [ %.pre54.i.i, %STsetFind.exit.loopexit.i.i ], [ %363, %361 ]
-  %.0.lcssa.i.i.i = phi ptr [ %.0.lcssa.i.ph.i.i, %STsetFind.exit.loopexit.i.i ], [ %.01.i.i.i, %361 ]
+STsetFind.argprom.exit.i.i:                       ; preds = %STsetFind.argprom.exit.loopexit.i.i, %361
+  %378 = phi i32 [ %.pre.i.i, %STsetFind.argprom.exit.loopexit.i.i ], [ %362, %361 ]
+  %.pre-phi.i.i = phi i32 [ %.pre54.i.i, %STsetFind.argprom.exit.loopexit.i.i ], [ %363, %361 ]
+  %.0.lcssa.i.i.i = phi ptr [ %.0.lcssa.i.ph.i.i, %STsetFind.argprom.exit.loopexit.i.i ], [ %.01.i.i.i, %361 ]
   %379 = icmp eq i32 %.pre-phi.i.i, 2
   %380 = getelementptr inbounds i8, ptr %360, i64 -64
   %381 = select i1 %379, ptr %360, ptr %380
@@ -793,15 +793,15 @@ STsetFind.exit.i.i:                               ; preds = %STsetFind.exit.loop
   %.not2.i37.i.i = icmp eq ptr %387, null
   %.not113.i38.i.i = icmp eq ptr %387, %.01.i36.i.i
   %or.cond4.i39.i.i = or i1 %.not2.i37.i.i, %.not113.i38.i.i
-  br i1 %or.cond4.i39.i.i, label %STsetFind.exit48.i.i, label %.lr.ph.i40.i.i
+  br i1 %or.cond4.i39.i.i, label %STsetFind.argprom.exit48.i.i, label %.lr.ph.i40.i.i
 
-.lr.ph.i40.i.i:                                   ; preds = %STsetFind.exit.i.i, %392
-  %388 = phi ptr [ %.pre.i43.i.i, %392 ], [ %387, %STsetFind.exit.i.i ]
-  %389 = phi ptr [ %.phi.trans.insert.i42.i.i, %392 ], [ %386, %STsetFind.exit.i.i ]
+.lr.ph.i40.i.i:                                   ; preds = %STsetFind.argprom.exit.i.i, %392
+  %388 = phi ptr [ %.pre.i43.i.i, %392 ], [ %387, %STsetFind.argprom.exit.i.i ]
+  %389 = phi ptr [ %.phi.trans.insert.i42.i.i, %392 ], [ %386, %STsetFind.argprom.exit.i.i ]
   %390 = getelementptr inbounds i8, ptr %388, i64 16
   %391 = load ptr, ptr %390, align 8
   %.not12.i41.i.i = icmp eq ptr %391, null
-  br i1 %.not12.i41.i.i, label %STsetFind.exit48.i.loopexit.i, label %392
+  br i1 %.not12.i41.i.i, label %STsetFind.argprom.exit48.i.loopexit.i, label %392
 
 392:                                              ; preds = %.lr.ph.i40.i.i
   store ptr %391, ptr %389, align 8
@@ -810,16 +810,16 @@ STsetFind.exit.i.i:                               ; preds = %STsetFind.exit.loop
   %.not.i44.i.i = icmp eq ptr %.pre.i43.i.i, null
   %.not11.i45.i.i = icmp eq ptr %.pre.i43.i.i, %391
   %or.cond.i46.i.i = or i1 %.not.i44.i.i, %.not11.i45.i.i
-  br i1 %or.cond.i46.i.i, label %STsetFind.exit48.i.loopexit.i, label %.lr.ph.i40.i.i
+  br i1 %or.cond.i46.i.i, label %STsetFind.argprom.exit48.i.loopexit.i, label %.lr.ph.i40.i.i
 
-STsetFind.exit48.i.loopexit.i:                    ; preds = %392, %.lr.ph.i40.i.i
+STsetFind.argprom.exit48.i.loopexit.i:            ; preds = %392, %.lr.ph.i40.i.i
   %.0.lcssa.i47.i.ph.i = phi ptr [ %391, %392 ], [ %388, %.lr.ph.i40.i.i ]
   %.pre97.i = load i32, ptr %360, align 8
-  br label %STsetFind.exit48.i.i
+  br label %STsetFind.argprom.exit48.i.i
 
-STsetFind.exit48.i.i:                             ; preds = %STsetFind.exit48.i.loopexit.i, %STsetFind.exit.i.i
-  %393 = phi i32 [ %378, %STsetFind.exit.i.i ], [ %.pre97.i, %STsetFind.exit48.i.loopexit.i ]
-  %.0.lcssa.i47.i.i = phi ptr [ %.01.i36.i.i, %STsetFind.exit.i.i ], [ %.0.lcssa.i47.i.ph.i, %STsetFind.exit48.i.loopexit.i ]
+STsetFind.argprom.exit48.i.i:                     ; preds = %STsetFind.argprom.exit48.i.loopexit.i, %STsetFind.argprom.exit.i.i
+  %393 = phi i32 [ %378, %STsetFind.argprom.exit.i.i ], [ %.pre97.i, %STsetFind.argprom.exit48.i.loopexit.i ]
+  %.0.lcssa.i47.i.i = phi ptr [ %.01.i36.i.i, %STsetFind.argprom.exit.i.i ], [ %.0.lcssa.i47.i.ph.i, %STsetFind.argprom.exit48.i.loopexit.i ]
   %394 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 12
   %395 = load i32, ptr %394, align 4
   %396 = icmp eq i32 %395, -1
@@ -848,14 +848,14 @@ STsetFind.exit48.i.i:                             ; preds = %STsetFind.exit48.i.
   %.not33.i.i = icmp eq i32 %405, %418
   br i1 %396, label %419, label %422
 
-419:                                              ; preds = %STsetFind.exit48.i.i
+419:                                              ; preds = %STsetFind.argprom.exit48.i.i
   br i1 %.not33.i.i, label %425, label %420
 
 420:                                              ; preds = %419
   %421 = sub i32 %405, %418
   br label %.sink.split.i.i
 
-422:                                              ; preds = %STsetFind.exit48.i.i
+422:                                              ; preds = %STsetFind.argprom.exit48.i.i
   br i1 %.not33.i.i, label %425, label %423
 
 423:                                              ; preds = %422
@@ -1060,7 +1060,7 @@ feasible_tree.exit:                               ; preds = %._crit_edge92.i
   %515 = getelementptr inbounds i8, ptr %.val45, i64 256
   %.01.i = load ptr, ptr %515, align 8
   %.not2.i = icmp eq ptr %.01.i, null
-  br i1 %.not2.i, label %freeTreeList.exit, label %.lr.ph.i70
+  br i1 %.not2.i, label %freeTreeList.argprom.exit, label %.lr.ph.i70
 
 .lr.ph.i70:                                       ; preds = %feasible_tree.exit, %.lr.ph.i70
   %.03.i = phi ptr [ %.0.i71, %.lr.ph.i70 ], [ %.01.i, %feasible_tree.exit ]
@@ -1080,9 +1080,9 @@ feasible_tree.exit:                               ; preds = %._crit_edge92.i
   %526 = getelementptr inbounds i8, ptr %525, i64 240
   %.0.i71 = load ptr, ptr %526, align 8
   %.not.i72 = icmp eq ptr %.0.i71, null
-  br i1 %.not.i72, label %freeTreeList.exit, label %.lr.ph.i70
+  br i1 %.not.i72, label %freeTreeList.argprom.exit, label %.lr.ph.i70
 
-freeTreeList.exit:                                ; preds = %.lr.ph.i70, %feasible_tree.exit
+freeTreeList.argprom.exit:                        ; preds = %.lr.ph.i70, %feasible_tree.exit
   %527 = load ptr, ptr @Tree_node.0, align 8
   tail call void @free(ptr noundef %527) #18
   store ptr null, ptr @Tree_node.0, align 8
@@ -1098,7 +1098,7 @@ freeTreeList.exit:                                ; preds = %.lr.ph.i70, %feasib
   %530 = getelementptr inbounds i8, ptr %.val46, i64 256
   %.01.i74 = load ptr, ptr %530, align 8
   %.not2.i75 = icmp eq ptr %.01.i74, null
-  br i1 %.not2.i75, label %freeTreeList.exit81, label %.lr.ph.i76
+  br i1 %.not2.i75, label %freeTreeList.argprom.exit81, label %.lr.ph.i76
 
 .lr.ph.i76:                                       ; preds = %529, %.lr.ph.i76
   %.03.i77 = phi ptr [ %.0.i78, %.lr.ph.i76 ], [ %.01.i74, %529 ]
@@ -1118,9 +1118,9 @@ freeTreeList.exit:                                ; preds = %.lr.ph.i70, %feasib
   %541 = getelementptr inbounds i8, ptr %540, i64 240
   %.0.i78 = load ptr, ptr %541, align 8
   %.not.i79 = icmp eq ptr %.0.i78, null
-  br i1 %.not.i79, label %freeTreeList.exit81, label %.lr.ph.i76
+  br i1 %.not.i79, label %freeTreeList.argprom.exit81, label %.lr.ph.i76
 
-freeTreeList.exit81:                              ; preds = %.lr.ph.i76, %529
+freeTreeList.argprom.exit81:                      ; preds = %.lr.ph.i76, %529
   %542 = load ptr, ptr @Tree_node.0, align 8
   tail call void @free(ptr noundef %542) #18
   store ptr null, ptr @Tree_node.0, align 8
@@ -1782,7 +1782,7 @@ invalidate_path.exit98.i:                         ; preds = %882, %.lr.ph.i91.i,
   %974 = getelementptr inbounds i8, ptr %.val47, i64 256
   %.01.i98 = load ptr, ptr %974, align 8
   %.not2.i99 = icmp eq ptr %.01.i98, null
-  br i1 %.not2.i99, label %freeTreeList.exit105, label %.lr.ph.i100
+  br i1 %.not2.i99, label %freeTreeList.argprom.exit105, label %.lr.ph.i100
 
 .lr.ph.i100:                                      ; preds = %972, %.lr.ph.i100
   %.03.i101 = phi ptr [ %.0.i102, %.lr.ph.i100 ], [ %.01.i98, %972 ]
@@ -1802,9 +1802,9 @@ invalidate_path.exit98.i:                         ; preds = %882, %.lr.ph.i91.i,
   %985 = getelementptr inbounds i8, ptr %984, i64 240
   %.0.i102 = load ptr, ptr %985, align 8
   %.not.i103 = icmp eq ptr %.0.i102, null
-  br i1 %.not.i103, label %freeTreeList.exit105, label %.lr.ph.i100
+  br i1 %.not.i103, label %freeTreeList.argprom.exit105, label %.lr.ph.i100
 
-freeTreeList.exit105:                             ; preds = %.lr.ph.i100, %972
+freeTreeList.argprom.exit105:                     ; preds = %.lr.ph.i100, %972
   %986 = load ptr, ptr @Tree_node.0, align 8
   tail call void @free(ptr noundef %986) #18
   store ptr null, ptr @Tree_node.0, align 8
@@ -2450,7 +2450,7 @@ LR_balance.exit:                                  ; preds = %.lr.ph.i.i123, %._c
   %1350 = getelementptr inbounds i8, ptr %1349, i64 256
   %.01924.i = load ptr, ptr %1350, align 8
   %.not25.i = icmp eq ptr %.01924.i, null
-  br i1 %.not25.i, label %freeTreeList.exit140, label %.lr.ph.i128
+  br i1 %.not25.i, label %freeTreeList.argprom.exit140, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %1346, %1359
   %.01928.i = phi ptr [ %.019.i, %1359 ], [ %.01924.i, %1346 ]
@@ -2494,7 +2494,7 @@ scan_and_normalize.exit:                          ; preds = %.lr.ph33.i
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.val48.pre, i64 256
   %.01.i133.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not2.i134 = icmp eq ptr %.01.i133.pre, null
-  br i1 %.not2.i134, label %freeTreeList.exit140, label %.lr.ph.i135
+  br i1 %.not2.i134, label %freeTreeList.argprom.exit140, label %.lr.ph.i135
 
 .lr.ph.i135:                                      ; preds = %scan_and_normalize.exit, %.lr.ph.i135
   %.03.i136 = phi ptr [ %.0.i137, %.lr.ph.i135 ], [ %.01.i133.pre, %scan_and_normalize.exit ]
@@ -2514,14 +2514,14 @@ scan_and_normalize.exit:                          ; preds = %.lr.ph33.i
   %1378 = getelementptr inbounds i8, ptr %1377, i64 240
   %.0.i137 = load ptr, ptr %1378, align 8
   %.not.i138 = icmp eq ptr %.0.i137, null
-  br i1 %.not.i138, label %freeTreeList.exit140, label %.lr.ph.i135
+  br i1 %.not.i138, label %freeTreeList.argprom.exit140, label %.lr.ph.i135
 
-freeTreeList.exit140:                             ; preds = %.lr.ph.i135, %1346, %scan_and_normalize.exit
+freeTreeList.argprom.exit140:                     ; preds = %.lr.ph.i135, %1346, %scan_and_normalize.exit
   %1379 = load ptr, ptr @Tree_node.0, align 8
   br label %1380
 
-1380:                                             ; preds = %freeTreeList.exit140, %LR_balance.exit, %TB_balance.exit
-  %.sink = phi ptr [ %1379, %freeTreeList.exit140 ], [ %1345, %LR_balance.exit ], [ %.pre, %TB_balance.exit ]
+1380:                                             ; preds = %freeTreeList.argprom.exit140, %LR_balance.exit, %TB_balance.exit
+  %.sink = phi ptr [ %1379, %freeTreeList.argprom.exit140 ], [ %1345, %LR_balance.exit ], [ %.pre, %TB_balance.exit ]
   tail call void @free(ptr noundef %.sink) #18
   store ptr null, ptr @Tree_node.0, align 8
   store i64 0, ptr @Tree_node.1, align 8
@@ -2550,8 +2550,8 @@ freeTreeList.exit140:                             ; preds = %.lr.ph.i135, %1346,
   %1393 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1389, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i64 noundef %1390, i64 noundef %1391, i32 noundef %.1, double noundef %1392) #17
   br label %1394
 
-1394:                                             ; preds = %1380, %1388, %freeTreeList.exit105, %freeTreeList.exit81, %freeTreeList.exit
-  %.0 = phi i32 [ %.030.i, %freeTreeList.exit ], [ 0, %freeTreeList.exit81 ], [ 2, %freeTreeList.exit105 ], [ 0, %1388 ], [ 0, %1380 ]
+1394:                                             ; preds = %1380, %1388, %freeTreeList.argprom.exit105, %freeTreeList.argprom.exit81, %freeTreeList.argprom.exit
+  %.0 = phi i32 [ %.030.i, %freeTreeList.argprom.exit ], [ 0, %freeTreeList.argprom.exit81 ], [ 2, %freeTreeList.argprom.exit105 ], [ 0, %1388 ], [ 0, %1380 ]
   ret i32 %.0
 }
 
@@ -2603,7 +2603,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.5, i64 noundef %0, i64 noundef %1) #17
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 8:                                                ; preds = %4
@@ -2615,7 +2615,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.6, i64 noundef %13) #17
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -2624,7 +2624,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #23
   unreachable
 }
@@ -2987,7 +2987,7 @@ define internal fastcc ptr @inter_tree_edge_search(ptr noundef %0, ptr noundef r
   %.not2.i = icmp eq ptr %7, null
   %.not113.i = icmp eq ptr %7, %.01.i
   %or.cond4.i = or i1 %.not2.i, %.not113.i
-  br i1 %or.cond4.i, label %STsetFind.exit, label %.lr.ph.i
+  br i1 %or.cond4.i, label %STsetFind.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %12
   %8 = phi ptr [ %.pre.i, %12 ], [ %7, %3 ]
@@ -2995,7 +2995,7 @@ define internal fastcc ptr @inter_tree_edge_search(ptr noundef %0, ptr noundef r
   %10 = getelementptr inbounds i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not12.i = icmp eq ptr %11, null
-  br i1 %.not12.i, label %STsetFind.exit, label %12
+  br i1 %.not12.i, label %STsetFind.argprom.exit, label %12
 
 12:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %9, align 8
@@ -3004,14 +3004,14 @@ define internal fastcc ptr @inter_tree_edge_search(ptr noundef %0, ptr noundef r
   %.not.i = icmp eq ptr %.pre.i, null
   %.not11.i = icmp eq ptr %.pre.i, %11
   %or.cond.i = or i1 %.not.i, %.not11.i
-  br i1 %or.cond.i, label %STsetFind.exit, label %.lr.ph.i
+  br i1 %or.cond.i, label %STsetFind.argprom.exit, label %.lr.ph.i
 
-STsetFind.exit:                                   ; preds = %.lr.ph.i, %12, %3
+STsetFind.argprom.exit:                           ; preds = %.lr.ph.i, %12, %3
   %.0.lcssa.i = phi ptr [ %.01.i, %3 ], [ %11, %12 ], [ %8, %.lr.ph.i ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %13
 
-13:                                               ; preds = %STsetFind.exit
+13:                                               ; preds = %STsetFind.argprom.exit
   %14 = load i32, ptr %2, align 8
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 2
@@ -3040,7 +3040,7 @@ STsetFind.exit:                                   ; preds = %.lr.ph.i, %12, %3
   %37 = icmp eq i32 %23, %36
   br i1 %37, label %.loopexit, label %38
 
-38:                                               ; preds = %13, %STsetFind.exit
+38:                                               ; preds = %13, %STsetFind.argprom.exit
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 272
   %41 = load ptr, ptr %40, align 8
@@ -3097,7 +3097,7 @@ STsetFind.exit:                                   ; preds = %.lr.ph.i, %12, %3
   %.not2.i101 = icmp eq ptr %71, null
   %.not113.i102 = icmp eq ptr %71, %.01.i100
   %or.cond4.i103 = or i1 %.not2.i101, %.not113.i102
-  br i1 %or.cond4.i103, label %STsetFind.exit112, label %.lr.ph.i104
+  br i1 %or.cond4.i103, label %STsetFind.argprom.exit112, label %.lr.ph.i104
 
 .lr.ph.i104:                                      ; preds = %63, %76
   %72 = phi ptr [ %.pre.i107, %76 ], [ %71, %63 ]
@@ -3105,7 +3105,7 @@ STsetFind.exit:                                   ; preds = %.lr.ph.i, %12, %3
   %74 = getelementptr inbounds i8, ptr %72, i64 16
   %75 = load ptr, ptr %74, align 8
   %.not12.i105 = icmp eq ptr %75, null
-  br i1 %.not12.i105, label %STsetFind.exit112, label %76
+  br i1 %.not12.i105, label %STsetFind.argprom.exit112, label %76
 
 76:                                               ; preds = %.lr.ph.i104
   store ptr %75, ptr %73, align 8
@@ -3114,14 +3114,14 @@ STsetFind.exit:                                   ; preds = %.lr.ph.i, %12, %3
   %.not.i108 = icmp eq ptr %.pre.i107, null
   %.not11.i109 = icmp eq ptr %.pre.i107, %75
   %or.cond.i110 = or i1 %.not.i108, %.not11.i109
-  br i1 %or.cond.i110, label %STsetFind.exit112, label %.lr.ph.i104
+  br i1 %or.cond.i110, label %STsetFind.argprom.exit112, label %.lr.ph.i104
 
-STsetFind.exit112:                                ; preds = %.lr.ph.i104, %76, %63
+STsetFind.argprom.exit112:                        ; preds = %.lr.ph.i104, %76, %63
   %.0.lcssa.i111 = phi ptr [ %.01.i100, %63 ], [ %75, %76 ], [ %72, %.lr.ph.i104 ]
   %.not93 = icmp eq ptr %.0.lcssa.i111, %.0.lcssa.i
   br i1 %.not93, label %129, label %77
 
-77:                                               ; preds = %STsetFind.exit112
+77:                                               ; preds = %STsetFind.argprom.exit112
   %78 = icmp eq ptr %.078138, null
   br i1 %78, label %128, label %79
 
@@ -3182,8 +3182,8 @@ STsetFind.exit112:                                ; preds = %.lr.ph.i104, %76, %
 128:                                              ; preds = %79, %77
   br label %129
 
-129:                                              ; preds = %61, %79, %128, %STsetFind.exit112, %56
-  %.179 = phi ptr [ %.078138, %56 ], [ %62, %61 ], [ %47, %128 ], [ %.078138, %79 ], [ %.078138, %STsetFind.exit112 ]
+129:                                              ; preds = %61, %79, %128, %STsetFind.argprom.exit112, %56
+  %.179 = phi ptr [ %.078138, %56 ], [ %62, %61 ], [ %47, %128 ], [ %.078138, %79 ], [ %.078138, %STsetFind.argprom.exit112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load ptr, ptr %4, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 272
@@ -3233,7 +3233,7 @@ STsetFind.exit112:                                ; preds = %.lr.ph.i104, %76, %
   %.not2.i114 = icmp eq ptr %159, null
   %.not113.i115 = icmp eq ptr %159, %.01.i113
   %or.cond4.i116 = or i1 %.not2.i114, %.not113.i115
-  br i1 %or.cond4.i116, label %STsetFind.exit125, label %.lr.ph.i117
+  br i1 %or.cond4.i116, label %STsetFind.argprom.exit125, label %.lr.ph.i117
 
 .lr.ph.i117:                                      ; preds = %151, %164
   %160 = phi ptr [ %.pre.i120, %164 ], [ %159, %151 ]
@@ -3241,7 +3241,7 @@ STsetFind.exit112:                                ; preds = %.lr.ph.i104, %76, %
   %162 = getelementptr inbounds i8, ptr %160, i64 16
   %163 = load ptr, ptr %162, align 8
   %.not12.i118 = icmp eq ptr %163, null
-  br i1 %.not12.i118, label %STsetFind.exit125, label %164
+  br i1 %.not12.i118, label %STsetFind.argprom.exit125, label %164
 
 164:                                              ; preds = %.lr.ph.i117
   store ptr %163, ptr %161, align 8
@@ -3250,14 +3250,14 @@ STsetFind.exit112:                                ; preds = %.lr.ph.i104, %76, %
   %.not.i121 = icmp eq ptr %.pre.i120, null
   %.not11.i122 = icmp eq ptr %.pre.i120, %163
   %or.cond.i123 = or i1 %.not.i121, %.not11.i122
-  br i1 %or.cond.i123, label %STsetFind.exit125, label %.lr.ph.i117
+  br i1 %or.cond.i123, label %STsetFind.argprom.exit125, label %.lr.ph.i117
 
-STsetFind.exit125:                                ; preds = %.lr.ph.i117, %164, %151
+STsetFind.argprom.exit125:                        ; preds = %.lr.ph.i117, %164, %151
   %.0.lcssa.i124 = phi ptr [ %.01.i113, %151 ], [ %163, %164 ], [ %160, %.lr.ph.i117 ]
   %.not88 = icmp eq ptr %.0.lcssa.i124, %.0.lcssa.i
   br i1 %.not88, label %217, label %165
 
-165:                                              ; preds = %STsetFind.exit125
+165:                                              ; preds = %STsetFind.argprom.exit125
   %166 = icmp eq ptr %.2141, null
   br i1 %166, label %216, label %167
 
@@ -3318,8 +3318,8 @@ STsetFind.exit125:                                ; preds = %.lr.ph.i117, %164, 
 216:                                              ; preds = %167, %165
   br label %217
 
-217:                                              ; preds = %149, %167, %216, %STsetFind.exit125, %144
-  %.3 = phi ptr [ %.2141, %144 ], [ %150, %149 ], [ %135, %216 ], [ %.2141, %167 ], [ %.2141, %STsetFind.exit125 ]
+217:                                              ; preds = %149, %167, %216, %STsetFind.argprom.exit125, %144
+  %.3 = phi ptr [ %.2141, %144 ], [ %150, %149 ], [ %135, %216 ], [ %.2141, %167 ], [ %.2141, %STsetFind.argprom.exit125 ]
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %218 = load ptr, ptr %4, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 256
@@ -3962,7 +3962,7 @@ x_val.exit.i:                                     ; preds = %228, %223
 
 .split.us.i:                                      ; preds = %247, %118
   %252 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.12) #18
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 253:                                              ; preds = %247
@@ -4048,7 +4048,7 @@ x_val.exit42.i:                                   ; preds = %275, %270
 
 .split61.us.i:                                    ; preds = %294, %201
   %299 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.12) #18
-  tail call fastcc void @graphviz_exit() #20
+  tail call fastcc void @graphviz_exit.argelim() #20
   unreachable
 
 300:                                              ; preds = %294

@@ -5310,7 +5310,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_dcerpc_tcp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call fastcc i32 @is_dcerpc(ptr noundef %0, i32 noundef 0)
+  %5 = tail call fastcc i32 @is_dcerpc.argprom(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
@@ -5668,7 +5668,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not215, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %134
-  call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %.0209, ptr noundef %0, i32 noundef 4, ptr noundef %22, i32 noundef 3)
+  call fastcc void @proto_tree_add_dcerpc_drep.retelim(ptr noundef %.0209, ptr noundef %0, i32 noundef 4, ptr noundef %22, i32 noundef 3)
   %153 = load i32, ptr @hf_dcerpc_dg_serial_hi, align 4
   %154 = load i8, ptr %38, align 1
   %155 = zext i8 %154 to i32
@@ -5802,7 +5802,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not215, label %242, label %241
 
 241:                                              ; preds = %240
-  call fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %.0209, ptr noundef %5, ptr noundef %6)
+  call fastcc void @dissect_dcerpc_dg_auth.argelim(ptr noundef %0, ptr noundef %.0209, ptr noundef %5, ptr noundef %6)
   br label %242
 
 242:                                              ; preds = %241, %240
@@ -5827,7 +5827,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not223, label %261, label %247
 
 247:                                              ; preds = %245
-  call fastcc void @dissect_dcerpc_dg_cancel_ack(ptr noundef %0, ptr noundef %.0209, ptr noundef %5)
+  call fastcc void @dissect_dcerpc_dg_cancel_ack.argprom.argelim(ptr noundef %0, ptr noundef %.0209, ptr noundef %5)
   br label %261
 
 248:                                              ; preds = %242
@@ -5836,7 +5836,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not222, label %261, label %250
 
 250:                                              ; preds = %248
-  call fastcc void @dissect_dcerpc_dg_cancel(ptr noundef %0, ptr noundef %.0209, ptr noundef %5)
+  call fastcc void @dissect_dcerpc_dg_cancel.argprom.argelim(ptr noundef %0, ptr noundef %.0209, ptr noundef %5)
   br label %261
 
 251:                                              ; preds = %242
@@ -5845,7 +5845,7 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not221, label %261, label %253
 
 253:                                              ; preds = %251
-  call fastcc void @dissect_dcerpc_dg_fack(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
+  call fastcc void @dissect_dcerpc_dg_fack.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
   br label %261
 
 254:                                              ; preds = %242
@@ -5854,23 +5854,23 @@ dcerpc_tvb_get_ntohs.exit264:                     ; preds = %105, %107
   br i1 %.not220, label %261, label %256
 
 256:                                              ; preds = %254
-  call fastcc void @dissect_dcerpc_dg_fack(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
+  call fastcc void @dissect_dcerpc_dg_fack.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
   br label %261
 
 257:                                              ; preds = %242, %242
-  call fastcc void @dissect_dcerpc_dg_reject_fault(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
+  call fastcc void @dissect_dcerpc_dg_reject_fault.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5)
   br label %261
 
 258:                                              ; preds = %242
-  call fastcc void @dissect_dcerpc_dg_rqst(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %2, ptr noundef %5, ptr noundef %243)
+  call fastcc void @dissect_dcerpc_dg_rqst.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %2, ptr noundef %5, ptr noundef %243)
   br label %261
 
 259:                                              ; preds = %242
-  call fastcc void @dissect_dcerpc_dg_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %2, ptr noundef %5, ptr noundef %243)
+  call fastcc void @dissect_dcerpc_dg_resp.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %2, ptr noundef %5, ptr noundef %243)
   br label %261
 
 260:                                              ; preds = %242, %242
-  call fastcc void @dissect_dcerpc_dg_ping_ack(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5, ptr noundef %243)
+  call fastcc void @dissect_dcerpc_dg_ping_ack.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0209, ptr noundef %5, ptr noundef %243)
   br label %261
 
 261:                                              ; preds = %257, %258, %259, %260, %247, %245, %250, %248, %253, %251, %256, %254, %242, %21, %16, %12, %10, %4
@@ -6261,7 +6261,7 @@ dissect_sec_vt_pcontext.exit.i:                   ; preds = %98, %91
   %115 = load i32, ptr @hf_dcerpc_reserved, align 4
   %116 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %115, ptr noundef %78, i32 noundef 2, i32 noundef 2, i32 noundef 0) #16
   %117 = call ptr @tvb_memcpy(ptr noundef %78, ptr noundef nonnull %7, i32 noundef 4, i64 noundef 4) #16
-  call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %108, ptr noundef %78, i32 noundef 4, ptr noundef %7, i32 noundef 4)
+  call fastcc void @proto_tree_add_dcerpc_drep.retelim(ptr noundef %108, ptr noundef %78, i32 noundef 4, ptr noundef %7, i32 noundef 4)
   %118 = load i32, ptr @hf_dcerpc_cn_call_id, align 4
   %119 = load i8, ptr %7, align 1
   %120 = and i8 %119, 16
@@ -6334,7 +6334,7 @@ dissect_dcerpc_uint16.exit.i.i:                   ; preds = %140, %139
 
 153:                                              ; preds = %151, %149
   %.not17.i40.i.i = icmp eq i32 %146, -1
-  br i1 %.not17.i40.i.i, label %dissect_sec_vt_header.exit.i, label %154
+  br i1 %.not17.i40.i.i, label %dissect_sec_vt_header.argprom.exit.i, label %154
 
 154:                                              ; preds = %153
   %155 = load i8, ptr %7, align 1
@@ -6342,9 +6342,9 @@ dissect_dcerpc_uint16.exit.i.i:                   ; preds = %140, %139
   %157 = zext nneg i8 %156 to i32
   %158 = shl nuw i32 %157, 27
   %159 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %146, ptr noundef %78, i32 noundef 14, i32 noundef 2, i32 noundef %158) #16
-  br label %dissect_sec_vt_header.exit.i
+  br label %dissect_sec_vt_header.argprom.exit.i
 
-dissect_sec_vt_header.exit.i:                     ; preds = %154, %153
+dissect_sec_vt_header.argprom.exit.i:             ; preds = %154, %153
   call void @tvb_ensure_bytes_exist(ptr noundef %78, i32 noundef 14, i32 noundef 2) #16
   %160 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %160, i32 noundef 16) #16
@@ -6357,7 +6357,7 @@ dissect_sec_vt_header.exit.i:                     ; preds = %154, %153
   %163 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %162, ptr noundef %78, i32 noundef 0, i32 noundef %61, i32 noundef 0) #16
   br label %164
 
-164:                                              ; preds = %161, %dissect_sec_vt_header.exit.i, %dissect_sec_vt_pcontext.exit.i, %79
+164:                                              ; preds = %161, %dissect_sec_vt_header.argprom.exit.i, %dissect_sec_vt_pcontext.exit.i, %79
   %165 = add i32 %77, %61
   %166 = sub nsw i32 %.1.i, %62
   %167 = and i16 %58, 1
@@ -6492,7 +6492,7 @@ declare ptr @proto_tree_add_guid_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 3, 5) %4) unnamed_addr #0 {
+define internal fastcc void @proto_tree_add_dcerpc_drep.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 3, 5) %4) unnamed_addr #0 {
   %6 = load i8, ptr %3, align 1
   %7 = lshr i8 %6, 4
   %8 = and i8 %6, 15
@@ -7111,7 +7111,7 @@ dcerpc_get_decode_data.exit:                      ; preds = %6, %40
   %48 = add i32 %1, 4
   %spec.select = select i1 %47, i32 4, i32 0
   %spec.select206 = select i1 %47, i32 %48, i32 %1
-  %49 = tail call fastcc i32 @is_dcerpc(ptr noundef %0, i32 noundef %spec.select206)
+  %49 = tail call fastcc i32 @is_dcerpc.argprom(ptr noundef %0, i32 noundef %spec.select206)
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %dissect_dcerpc_cn_bind_nak.exit, label %50
 
@@ -7311,7 +7311,7 @@ dcerpc_tvb_get_ntohl.exit:                        ; preds = %83, %85
   %164 = getelementptr [4 x ptr], ptr @fragment_type.t, i64 0, i64 %163
   %165 = load ptr, ptr %164, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.627, ptr noundef %165) #16
-  call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %.0193, ptr noundef %0, i32 noundef %59, ptr noundef %62, i32 noundef 4)
+  call fastcc void @proto_tree_add_dcerpc_drep.retelim(ptr noundef %.0193, ptr noundef %0, i32 noundef %59, ptr noundef %62, i32 noundef 4)
   %166 = load i32, ptr @hf_dcerpc_cn_frag_len, align 4
   %167 = load i16, ptr %71, align 4
   %168 = zext i16 %167 to i32
@@ -8824,7 +8824,7 @@ proto_item_set_generated.exit.i:                  ; preds = %885, %882, %879
 891:                                              ; preds = %889, %proto_item_set_generated.exit.i, %dcerpc_get_transport_salt.exit166.i
   %892 = getelementptr inbounds i8, ptr %.0124.ph.i, i64 40
   %893 = load i32, ptr %892, align 8
-  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %.0.i238, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %854, ptr noundef %23, i32 noundef %893)
+  call fastcc void @dissect_dcerpc_cn_stub.argelim(ptr noundef %193, i32 noundef %.0.i238, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %854, ptr noundef %23, i32 noundef %893)
   br label %896
 
 894:                                              ; preds = %dcerpc_get_transport_salt.exit156.i, %dcerpc_get_transport_salt.exit.i242
@@ -9233,7 +9233,7 @@ proto_item_set_generated.exit135.i:               ; preds = %1070, %1067, %1064
 proto_item_set_generated.exit138.i:               ; preds = %1088, %1084, %1081, %1076
   %1090 = getelementptr inbounds i8, ptr %.0.ph.i, i64 64
   %1091 = load i32, ptr %1090, align 8
-  call fastcc void @dissect_dcerpc_cn_stub(ptr noundef %193, i32 noundef %965, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %1014, ptr noundef %17, i32 noundef %1091)
+  call fastcc void @dissect_dcerpc_cn_stub.argelim(ptr noundef %193, i32 noundef %965, ptr noundef nonnull %2, ptr noundef %.0193, ptr noundef %3, ptr noundef %33, ptr noundef nonnull %1014, ptr noundef %17, i32 noundef %1091)
   br label %1094
 
 1092:                                             ; preds = %996, %dcerpc_get_transport_salt.exit.i262
@@ -11019,7 +11019,7 @@ dissect_dcerpc_cn_bind_nak.exit:                  ; preds = %dissect_dcerpc_uint
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_dcerpc(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_dcerpc.argprom(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 16) #16
   %.not = icmp eq i32 %4, 0
@@ -11680,7 +11680,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_cn_stub(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_cn_stub.argelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 272
   %12 = load i32, ptr %11, align 8
@@ -11765,7 +11765,7 @@ decode_encrypted_data.exit.thread:                ; preds = %35, %39, %20, %28, 
   %52 = select i1 %.not172, ptr %.0145, ptr %23
   %53 = zext i1 %.not172 to i32
   %54 = getelementptr inbounds i8, ptr %5, i64 4
-  tail call fastcc void @dcerpc_try_handoff(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %6, ptr noundef nonnull %7)
+  tail call fastcc void @dcerpc_try_handoff.argelim(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %52, i32 noundef %53, ptr noundef %54, ptr noundef %6, ptr noundef nonnull %7)
   br label %.sink.split
 
 55:                                               ; preds = %decode_encrypted_data.exit.thread
@@ -11785,7 +11785,7 @@ decode_encrypted_data.exit.thread:                ; preds = %35, %39, %20, %28, 
   %61 = select i1 %.not158, ptr %.0145, ptr %23
   %62 = zext i1 %.not158 to i32
   %63 = getelementptr inbounds i8, ptr %5, i64 4
-  tail call fastcc void @dcerpc_try_handoff(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %6, ptr noundef nonnull %7)
+  tail call fastcc void @dcerpc_try_handoff.argelim(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %61, i32 noundef %62, ptr noundef %63, ptr noundef %6, ptr noundef nonnull %7)
   %64 = load i8, ptr %47, align 1
   %65 = and i8 %64, 3
   %66 = zext nneg i8 %65 to i64
@@ -11891,7 +11891,7 @@ decode_encrypted_data.exit.thread:                ; preds = %35, %39, %20, %28, 
   %126 = load ptr, ptr %125, align 8
   %127 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %2, ptr noundef %121, ptr noundef nonnull @ei_dcerpc_fragment_reassembled, ptr noundef nonnull @.str.662, ptr noundef %126) #16
   %128 = getelementptr inbounds i8, ptr %5, i64 4
-  call fastcc void @dcerpc_try_handoff(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %113, i32 noundef 1, ptr noundef %128, ptr noundef %6, ptr noundef nonnull %7)
+  call fastcc void @dcerpc_try_handoff.argelim(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3, ptr noundef %113, i32 noundef 1, ptr noundef %128, ptr noundef %6, ptr noundef nonnull %7)
   br label %.sink.split
 
 129:                                              ; preds = %106, %100
@@ -11983,7 +11983,7 @@ proto_item_set_generated.exit:                    ; preds = %135, %136, %139
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dcerpc_try_handoff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @dcerpc_try_handoff.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca %struct._guid_key, align 4
@@ -12116,7 +12116,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_auth.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i32 -1, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 74
   %6 = load i16, ptr %5, align 2
@@ -12160,7 +12160,7 @@ define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_cancel_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_cancel_ack.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = load i32, ptr @hf_dcerpc_dg_cancel_vers, align 4
   %6 = load i8, ptr %4, align 1
@@ -12245,7 +12245,7 @@ dissect_dcerpc_uint8.exit:                        ; preds = %dissect_dcerpc_uint
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_cancel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_cancel.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   %5 = load i32, ptr @hf_dcerpc_dg_cancel_vers, align 4
   %6 = load i8, ptr %4, align 1
@@ -12315,7 +12315,7 @@ dissect_dcerpc_uint32.exit11:                     ; preds = %28, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_fack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_fack.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr @hf_dcerpc_dg_fack_vers, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 80) #16
@@ -12527,7 +12527,7 @@ dissect_dcerpc_uint32.exit55:                     ; preds = %96, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_reject_fault(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_reject_fault.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = load i32, ptr @hf_dcerpc_dg_status, align 4
   %7 = load i8, ptr %5, align 1
@@ -12566,7 +12566,7 @@ dissect_dcerpc_uint32.exit:                       ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_rqst(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_rqst.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct._dcerpc_matched_key, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
@@ -12715,12 +12715,12 @@ proto_item_set_generated.exit:                    ; preds = %85, %88, %91
   br label %98
 
 98:                                               ; preds = %proto_item_set_generated.exit, %96, %73
-  call fastcc void @dissect_dcerpc_dg_stub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %76)
+  call fastcc void @dissect_dcerpc_dg_stub.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %76)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_resp.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct._dcerpc_matched_key, align 4
   %8 = alloca %struct._dcerpc_dg_call_key, align 8
   %9 = alloca %struct.nstime_t, align 8
@@ -12878,12 +12878,12 @@ proto_item_set_generated.exit:                    ; preds = %71, %74, %77
   br label %proto_item_set_generated.exit69
 
 proto_item_set_generated.exit69:                  ; preds = %92, %89, %84, %96
-  call fastcc void @dissect_dcerpc_dg_stub(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %64)
+  call fastcc void @dissect_dcerpc_dg_stub.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %64)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_ping_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_ping_ack.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._dcerpc_dg_call_key, align 8
   %7 = alloca %struct.nstime_t, align 8
   store ptr %4, ptr %6, align 8
@@ -12961,7 +12961,7 @@ proto_item_set_generated.exit22:                  ; preds = %41, %38, %30, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_stub(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_stub.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -13012,7 +13012,7 @@ define internal fastcc void @dissect_dcerpc_dg_stub(ptr noundef %0, ptr noundef 
   store i32 %39, ptr %22, align 8
   %40 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 80, i32 noundef %spec.select, i32 noundef %.078) #16
   %41 = getelementptr inbounds i8, ptr %4, i64 4
-  tail call fastcc void @dcerpc_try_handoff(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %2, ptr noundef %40, i32 noundef 1, ptr noundef %41, ptr noundef nonnull %5, ptr noundef null)
+  tail call fastcc void @dcerpc_try_handoff.argelim(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %2, ptr noundef %40, i32 noundef 1, ptr noundef %41, ptr noundef nonnull %5, ptr noundef null)
   br label %90
 
 42:                                               ; preds = %31
@@ -13063,7 +13063,7 @@ define internal fastcc void @dissect_dcerpc_dg_stub(ptr noundef %0, ptr noundef 
   %72 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %61, ptr noundef nonnull @dcerpc_frag_items, ptr noundef %3, ptr noundef nonnull %1, ptr noundef %71, ptr noundef nonnull %7) #16
   store i32 0, ptr %22, align 8
   %73 = getelementptr inbounds i8, ptr %4, i64 4
-  call fastcc void @dcerpc_try_handoff(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %2, ptr noundef %71, i32 noundef 1, ptr noundef %73, ptr noundef nonnull %5, ptr noundef null)
+  call fastcc void @dcerpc_try_handoff.argelim(ptr noundef nonnull %1, ptr noundef %3, ptr noundef %2, ptr noundef %71, i32 noundef 1, ptr noundef %73, ptr noundef nonnull %5, ptr noundef null)
   br label %90
 
 74:                                               ; preds = %62

@@ -237,18 +237,18 @@ define void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(ptr
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %6, 1
-  br i1 %.not, label %7, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %.not, label %7, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %8, null
-  br i1 %.not12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit, label %9
+  br i1 %.not12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr @sm_keyword_pos, align 8
   %.not13 = icmp eq ptr %10, %11
-  br i1 %.not13, label %12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %.not13, label %12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 48
@@ -256,7 +256,7 @@ define void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(ptr
   %15 = icmp eq ptr %14, null
   %16 = icmp ne ptr %1, null
   %or.cond = and i1 %16, %15
-  br i1 %or.cond, label %17, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %or.cond, label %17, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 17:                                               ; preds = %12
   %18 = tail call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %1)
@@ -269,7 +269,7 @@ define void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(ptr
   %22 = icmp ne i32 %21, 0
   %23 = and i1 %.not.i, %22
   %24 = tail call noundef i32 @_ZN3gmx29PositionCalculationCollection27requiredTopologyInfoForTypeEPKcb(ptr noundef %18, i1 noundef zeroext %23)
-  switch i32 %24, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit [
+  switch i32 %24, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit [
     i32 2, label %.sink.split.i
     i32 1, label %25
   ]
@@ -283,9 +283,9 @@ define void @_Z27_gmx_selelem_set_kwpos_typePN3gmx20SelectionTreeElementEPKc(ptr
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, %.sink3.i
   store i32 %28, ptr %26, align 4
-  br label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
-_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit: ; preds = %.sink.split.i, %17, %2, %7, %9, %12
+_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit: ; preds = %.sink.split.i, %17, %2, %7, %9, %12
   ret void
 }
 
@@ -300,24 +300,24 @@ define void @_Z28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEi(ptr 
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %6, 1
-  br i1 %.not, label %7, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %.not, label %7, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit, label %9
+  br i1 %.not9, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %8, align 8
   %11 = load ptr, ptr @sm_keyword_pos, align 8
   %.not10 = icmp eq ptr %10, %11
-  br i1 %.not10, label %12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %.not10, label %12, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %5, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br i1 %15, label %16, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %5, i64 48
@@ -337,7 +337,7 @@ define void @_Z28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEi(ptr 
   %23 = icmp ne i32 %22, 0
   %24 = and i1 %.not.i, %23
   %25 = tail call noundef i32 @_ZN3gmx29PositionCalculationCollection27requiredTopologyInfoForTypeEPKcb(ptr noundef nonnull %18, i1 noundef zeroext %24)
-  switch i32 %25, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit [
+  switch i32 %25, label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit [
     i32 2, label %.sink.split.i
     i32 1, label %26
   ]
@@ -351,9 +351,9 @@ define void @_Z28_gmx_selelem_set_kwpos_flagsPN3gmx20SelectionTreeElementEi(ptr 
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, %.sink3.i
   store i32 %29, ptr %27, align 4
-  br label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit
+  br label %_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit
 
-_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.exit: ; preds = %.sink.split.i, %20, %2, %7, %9, %12
+_ZL20set_pos_method_flagsP19gmx_ana_selmethod_tP16t_methoddata_pos.argprom.exit: ; preds = %.sink.split.i, %20, %2, %7, %9, %12
   ret void
 }
 

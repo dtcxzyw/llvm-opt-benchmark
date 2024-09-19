@@ -304,7 +304,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i, label %clear_xid_class_registry.exit, label %while.body.i, !llvm.loop !4
 
 clear_xid_class_registry.exit:                    ; preds = %while.body.i, %entry
-  tail call fastcc void @clear_module_state(ptr noundef nonnull %call.i)
+  tail call fastcc void @clear_module_state.retelim(ptr noundef nonnull %call.i)
   ret i32 0
 }
 
@@ -332,7 +332,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.not.i, label %clear_xid_class_registry.exit, label %while.body.i, !llvm.loop !4
 
 clear_xid_class_registry.exit:                    ; preds = %while.body.i, %entry
-  tail call fastcc void @clear_module_state(ptr noundef nonnull %call.i)
+  tail call fastcc void @clear_module_state.retelim(ptr noundef nonnull %call.i)
   %4 = load i32, ptr @_globals, align 8
   %dec.i = add i32 %4, -1
   store i32 %dec.i, ptr @_globals, align 8
@@ -518,7 +518,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %call9 = tail call fastcc i32 @channel_destroy(i64 noundef %9)
+  %call9 = tail call fastcc i32 @channel_destroy.argprom(i64 noundef %9)
   %call10 = tail call fastcc i32 @handle_channel_error(i32 noundef %call9, ptr noundef %self, i64 noundef %9)
   br label %return
 
@@ -546,7 +546,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %cid1, align 8
-  %call3 = call fastcc i32 @channel_destroy(i64 noundef %0)
+  %call3 = call fastcc i32 @channel_destroy.argprom(i64 noundef %0)
   %call4 = call fastcc i32 @handle_channel_error(i32 noundef %call3, ptr noundef %self, i64 noundef %0)
   %tobool5.not = icmp eq i32 %call4, 0
   %_Py_NoneStruct. = select i1 %tobool5.not, ptr @_Py_NoneStruct, ptr null
@@ -712,7 +712,7 @@ while.body:                                       ; preds = %if.end5, %if.end24
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %2, i32 noundef 1) #6
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not6.i.i.i, label %_channels_lookup.exit.thread.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_channels_lookup.argprom.exit.thread.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %5, %if.end.i.i.i ], [ %3, %while.body ]
@@ -724,21 +724,21 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %5 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i.i.i, label %_channels_lookup.exit.thread.i, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_channels_lookup.argprom.exit.thread.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end4.i.i:                                      ; preds = %while.body.i.i.i
   %chan5.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %6 = load ptr, ptr %chan5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %6, null
-  br i1 %cmp6.i.i, label %_channels_lookup.exit.thread.i, label %lor.lhs.false.i.i
+  br i1 %cmp6.i.i, label %_channels_lookup.argprom.exit.thread.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i.i
   %open.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load i32, ptr %open.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %7, 0
-  br i1 %tobool.not.i.i, label %_channels_lookup.exit.thread.i, label %if.else.i
+  br i1 %tobool.not.i.i, label %_channels_lookup.argprom.exit.thread.i, label %if.else.i
 
-_channels_lookup.exit.thread.i:                   ; preds = %lor.lhs.false.i.i, %if.end4.i.i, %while.body, %if.end.i.i.i
+_channels_lookup.argprom.exit.thread.i:           ; preds = %lor.lhs.false.i.i, %if.end4.i.i, %while.body, %if.end.i.i.i
   %err.010.i.ph.i = phi i32 [ -2, %if.end.i.i.i ], [ -3, %lor.lhs.false.i.i ], [ -3, %if.end4.i.i ], [ -2, %while.body ]
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %8) #6
@@ -777,8 +777,8 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   %cmp.not.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i, label %if.end24, label %while.body.i.i, !llvm.loop !10
 
-if.then11:                                        ; preds = %land.lhs.true.i, %_channels_lookup.exit.thread.i
-  %retval.0.i = phi i32 [ %err.010.i.ph.i, %_channels_lookup.exit.thread.i ], [ -3, %land.lhs.true.i ]
+if.then11:                                        ; preds = %land.lhs.true.i, %_channels_lookup.argprom.exit.thread.i
+  %retval.0.i = phi i32 [ %err.010.i.ph.i, %_channels_lookup.argprom.exit.thread.i ], [ -3, %land.lhs.true.i ]
   %call12 = call fastcc i32 @handle_channel_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   br label %if.then27
 
@@ -875,11 +875,11 @@ if.end5:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end5
   %5 = load i64, ptr %timeout, align 8
-  %call8 = call fastcc i32 @channel_send_wait(i64 noundef %0, ptr noundef %4, i64 noundef %5)
+  %call8 = call fastcc i32 @channel_send_wait.argprom(i64 noundef %0, ptr noundef %4, i64 noundef %5)
   br label %if.end10
 
 if.else:                                          ; preds = %if.end5
-  %call9 = call fastcc i32 @channel_send(i64 noundef %0, ptr noundef %4, ptr noundef null)
+  %call9 = call fastcc i32 @channel_send.argprom(i64 noundef %0, ptr noundef %4, ptr noundef null)
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else, %if.then7
@@ -934,11 +934,11 @@ if.end9:                                          ; preds = %if.end5
 
 if.then11:                                        ; preds = %if.end9
   %5 = load i64, ptr %timeout, align 8
-  %call12 = call fastcc i32 @channel_send_wait(i64 noundef %0, ptr noundef nonnull %call6, i64 noundef %5)
+  %call12 = call fastcc i32 @channel_send_wait.argprom(i64 noundef %0, ptr noundef nonnull %call6, i64 noundef %5)
   br label %if.end14
 
 if.else:                                          ; preds = %if.end9
-  %call13 = call fastcc i32 @channel_send(i64 noundef %0, ptr noundef nonnull %call6, ptr noundef null)
+  %call13 = call fastcc i32 @channel_send.argprom(i64 noundef %0, ptr noundef nonnull %call6, ptr noundef null)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then11
@@ -994,7 +994,7 @@ if.then.i:                                        ; preds = %if.end
   %call1.i = call ptr @PyErr_Occurred() #6
   %tobool.not.i = icmp ne ptr %call1.i, null
   %..i = sext i1 %tobool.not.i to i32
-  br label %channel_recv.exit
+  br label %channel_recv.argprom.exit
 
 if.end3.i:                                        ; preds = %if.end
   %call4.i = call i64 @PyInterpreterState_GetID(ptr noundef nonnull %call.i.i) #6
@@ -1002,7 +1002,7 @@ if.end3.i:                                        ; preds = %if.end
   %call.i13.i = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #6
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %2, null
-  br i1 %cmp.not6.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end3.i, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %4, %if.end.i.i.i ], [ %2, %if.end3.i ]
@@ -1014,36 +1014,36 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %4 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end4.i.i:                                      ; preds = %while.body.i.i.i
   %chan5.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %5 = load ptr, ptr %chan5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %5, null
-  br i1 %cmp6.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false.i.i
+  br i1 %cmp6.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i.i
   %open.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load i32, ptr %open.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %6, 0
-  br i1 %tobool.not.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false16.i.i
+  br i1 %tobool.not.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false16.i.i
 
 lor.lhs.false16.i.i:                              ; preds = %lor.lhs.false.i.i
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %cmp17.i.i = icmp eq ptr %7, null
-  br i1 %cmp17.i.i, label %_channels_lookup.exit.thread21.i, label %if.end8.i
+  br i1 %cmp17.i.i, label %_channels_lookup.argprom.exit.thread21.i, label %if.end8.i
 
-_channels_lookup.exit.thread21.i:                 ; preds = %lor.lhs.false16.i.i
+_channels_lookup.argprom.exit.thread21.i:         ; preds = %lor.lhs.false16.i.i
   call void @PyThread_release_lock(ptr noundef null) #6
   br label %if.end8.i
 
-_channels_lookup.exit.i:                          ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.end3.i
+_channels_lookup.argprom.exit.i:                  ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.end3.i
   %err.015.i.ph.i = phi i32 [ -2, %if.end3.i ], [ -3, %if.end4.i.i ], [ -3, %lor.lhs.false.i.i ], [ -2, %if.end.i.i.i ]
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %8) #6
-  br label %channel_recv.exit
+  br label %channel_recv.argprom.exit
 
-if.end8.i:                                        ; preds = %_channels_lookup.exit.thread21.i, %lor.lhs.false16.i.i
+if.end8.i:                                        ; preds = %_channels_lookup.argprom.exit.thread21.i, %lor.lhs.false16.i.i
   %9 = load ptr, ptr %5, align 8
   %call.i15.i = call i32 @PyThread_acquire_lock(ptr noundef %9, i32 noundef 1) #6
   %10 = load i32, ptr %open.i.i, align 8
@@ -1185,11 +1185,11 @@ _channel_clear_closing.exit.i.i.i:                ; preds = %if.then.i.i.i.i, %i
 
 _channel_next.exit.i:                             ; preds = %_channel_clear_closing.exit.i.i.i, %if.then13.i.i, %done.i22.i
   call void @PyThread_release_lock(ptr noundef %7) #6
-  br i1 %cmp10.not.i, label %if.else.i, label %channel_recv.exit
+  br i1 %cmp10.not.i, label %if.else.i, label %channel_recv.argprom.exit
 
 if.else.i:                                        ; preds = %_channel_next.exit.i
   %cmp12.i = icmp eq ptr %data.0.i, null
-  br i1 %cmp12.i, label %channel_recv.exit, label %if.end15.i
+  br i1 %cmp12.i, label %channel_recv.argprom.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i
   %call16.i = call ptr @_PyCrossInterpreterData_NewObject(ptr noundef nonnull %data.0.i) #6
@@ -1209,7 +1209,7 @@ if.end11.thread.i.i:                              ; preds = %if.then18.i
 _release_xid_data.exit.i:                         ; preds = %if.end11.thread.i.i, %if.then18.i
   call void @PyErr_SetRaisedException(ptr noundef %call.i24.i) #6
   %cmp20.not.i = icmp eq ptr %waiting.0.i, null
-  br i1 %cmp20.not.i, label %channel_recv.exit, label %if.then21.i
+  br i1 %cmp20.not.i, label %channel_recv.argprom.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %_release_xid_data.exit.i
   %status.i.i = getelementptr inbounds i8, ptr %waiting.0.i, i64 8
@@ -1227,7 +1227,7 @@ if.then.i.i:                                      ; preds = %if.then21.i
 
 _waiting_release.exit.i:                          ; preds = %if.then.i.i, %if.then21.i
   store i32 3, ptr %status.i.i, align 8
-  br label %channel_recv.exit
+  br label %channel_recv.argprom.exit
 
 if.end23.i:                                       ; preds = %if.end15.i
   %call4.i29.i = call i32 @_PyCrossInterpreterData_ReleaseAndRawFree(ptr noundef nonnull %data.0.i) #6
@@ -1252,7 +1252,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i.i, %if.then26.i
   %cmp27.not.i = icmp eq ptr %waiting.0.i, null
-  br i1 %cmp27.not.i, label %channel_recv.exit, label %if.then28.i
+  br i1 %cmp27.not.i, label %channel_recv.argprom.exit, label %if.then28.i
 
 if.then28.i:                                      ; preds = %Py_DECREF.exit.i
   %status.i33.i = getelementptr inbounds i8, ptr %waiting.0.i, i64 8
@@ -1270,11 +1270,11 @@ if.then.i36.i:                                    ; preds = %if.then28.i
 
 _waiting_release.exit38.i:                        ; preds = %if.then.i36.i, %if.then28.i
   store i32 3, ptr %status.i33.i, align 8
-  br label %channel_recv.exit
+  br label %channel_recv.argprom.exit
 
 if.end30.i:                                       ; preds = %if.end23.i
   %cmp31.not.i = icmp eq ptr %waiting.0.i, null
-  br i1 %cmp31.not.i, label %channel_recv.exit, label %if.then32.i
+  br i1 %cmp31.not.i, label %channel_recv.argprom.exit, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end30.i
   %status.i39.i = getelementptr inbounds i8, ptr %waiting.0.i, i64 8
@@ -1292,16 +1292,16 @@ if.then.i42.i:                                    ; preds = %if.then32.i
 
 _waiting_release.exit44.i:                        ; preds = %if.then.i42.i, %if.then32.i
   store i32 3, ptr %status.i39.i, align 8
-  br label %channel_recv.exit
+  br label %channel_recv.argprom.exit
 
-channel_recv.exit:                                ; preds = %if.end30.i, %_waiting_release.exit44.i, %if.then.i, %_channels_lookup.exit.i, %_channel_next.exit.i, %if.else.i, %_release_xid_data.exit.i, %_waiting_release.exit.i, %Py_DECREF.exit.i, %_waiting_release.exit38.i
-  %obj.1 = phi ptr [ null, %if.then.i ], [ null, %_channels_lookup.exit.i ], [ null, %if.else.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_channel_next.exit.i ], [ %call16.i, %_waiting_release.exit44.i ], [ %call16.i, %if.end30.i ]
-  %retval.0.i = phi i32 [ %..i, %if.then.i ], [ %err.015.i.ph.i, %_channels_lookup.exit.i ], [ 0, %if.else.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ %err.0.i23.i, %_channel_next.exit.i ], [ 0, %_waiting_release.exit44.i ], [ 0, %if.end30.i ]
+channel_recv.argprom.exit:                        ; preds = %if.end30.i, %_waiting_release.exit44.i, %if.then.i, %_channels_lookup.argprom.exit.i, %_channel_next.exit.i, %if.else.i, %_release_xid_data.exit.i, %_waiting_release.exit.i, %Py_DECREF.exit.i, %_waiting_release.exit38.i
+  %obj.1 = phi ptr [ null, %if.then.i ], [ null, %_channels_lookup.argprom.exit.i ], [ null, %if.else.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_channel_next.exit.i ], [ %call16.i, %_waiting_release.exit44.i ], [ %call16.i, %if.end30.i ]
+  %retval.0.i = phi i32 [ %..i, %if.then.i ], [ %err.015.i.ph.i, %_channels_lookup.argprom.exit.i ], [ 0, %if.else.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ %err.0.i23.i, %_channel_next.exit.i ], [ 0, %_waiting_release.exit44.i ], [ 0, %if.end30.i ]
   %call4 = call fastcc i32 @handle_channel_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
-if.end7:                                          ; preds = %channel_recv.exit
+if.end7:                                          ; preds = %channel_recv.argprom.exit
   %40 = load ptr, ptr %dflt, align 8
   %cmp.not.i = icmp eq ptr %40, null
   br i1 %cmp.not.i, label %Py_XINCREF.exit.thread, label %if.then.i5
@@ -1372,8 +1372,8 @@ if.then1.i.i18:                                   ; preds = %if.end.i.i15
   call void @_Py_Dealloc(ptr noundef nonnull %45) #6
   br label %return
 
-return:                                           ; preds = %Py_XINCREF.exit.thread, %if.then1.i.i18, %if.end.i.i15, %if.then.i14, %if.end14, %channel_recv.exit, %entry, %if.then10
-  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %entry ], [ null, %channel_recv.exit ], [ %obj.0, %if.end14 ], [ %obj.036, %if.then.i14 ], [ %obj.036, %if.end.i.i15 ], [ %obj.036, %if.then1.i.i18 ], [ %obj.1, %Py_XINCREF.exit.thread ]
+return:                                           ; preds = %Py_XINCREF.exit.thread, %if.then1.i.i18, %if.end.i.i15, %if.then.i14, %if.end14, %channel_recv.argprom.exit, %entry, %if.then10
+  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %entry ], [ null, %channel_recv.argprom.exit ], [ %obj.0, %if.end14 ], [ %obj.036, %if.then.i14 ], [ %obj.036, %if.end.i.i15 ], [ %obj.036, %if.then1.i.i18 ], [ %obj.1, %Py_XINCREF.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -1406,7 +1406,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %4, i32 noundef 1) #6
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not6.i.i.i, label %channel_close.exit, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %channel_close.argprom.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %7, %if.end.i.i.i ], [ %5, %if.end ]
@@ -1418,13 +1418,13 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %7 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i, label %channel_close.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %channel_close.argprom.exit, label %while.body.i.i.i, !llvm.loop !9
 
 if.end4.i.i:                                      ; preds = %while.body.i.i.i
   %chan.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %8 = load ptr, ptr %chan.i.i, align 8
   %cmp5.i.i = icmp eq ptr %8, null
-  br i1 %cmp5.i.i, label %channel_close.exit, label %if.else.i.i
+  br i1 %cmp5.i.i, label %channel_close.argprom.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i
   %tobool.i.i = icmp eq i32 %3, 0
@@ -1436,7 +1436,7 @@ land.lhs.true8.i.i:                               ; preds = %if.else.i.i
   %closing.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %closing.i.i, align 8
   %cmp10.not.i.i = icmp eq ptr %9, null
-  br i1 %cmp10.not.i.i, label %if.else12.i.i, label %channel_close.exit
+  br i1 %cmp10.not.i.i, label %if.else12.i.i, label %channel_close.argprom.exit
 
 if.else12.i.i:                                    ; preds = %land.lhs.true8.i.i, %if.else.i.i
   %10 = load ptr, ptr %8, align 8
@@ -1449,7 +1449,7 @@ if.else12.i.i:                                    ; preds = %land.lhs.true8.i.i,
 if.then16.thread.i.i:                             ; preds = %if.else12.i.i
   %12 = load ptr, ptr %8, align 8
   call void @PyThread_release_lock(ptr noundef %12) #6
-  br label %channel_close.exit
+  br label %channel_close.argprom.exit
 
 if.end.i25.i.i:                                   ; preds = %if.else12.i.i
   br i1 %tobool.i.i, label %land.lhs.true.i.i.i, label %if.end.split.i.i.i
@@ -1546,20 +1546,20 @@ for.body3.i24.i.i.i:                              ; preds = %for.body3.i24.i.i.i
 if.then16.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %21 = load ptr, ptr %8, align 8
   call void @PyThread_release_lock(ptr noundef %21) #6
-  br i1 %cmp7.i.i, label %if.then20.i.i, label %channel_close.exit
+  br i1 %cmp7.i.i, label %if.then20.i.i, label %channel_close.argprom.exit
 
 if.then20.i.i:                                    ; preds = %if.then16.i.i
   %22 = load ptr, ptr %chan.i.i, align 8
   %closing22.i.i = getelementptr inbounds i8, ptr %22, i64 32
   %23 = load ptr, ptr %closing22.i.i, align 8
   %cmp23.not.i.i = icmp eq ptr %23, null
-  br i1 %cmp23.not.i.i, label %if.end25.i.i, label %channel_close.exit
+  br i1 %cmp23.not.i.i, label %if.end25.i.i, label %channel_close.argprom.exit
 
 if.end25.i.i:                                     ; preds = %if.then20.i.i
   call void @PyErr_Clear() #6
   %24 = load ptr, ptr %chan.i.i, align 8
   %cmp.i26.i.i = icmp eq ptr %24, null
-  br i1 %cmp.i26.i.i, label %channel_close.exit, label %if.end.i27.i.i
+  br i1 %cmp.i26.i.i, label %channel_close.argprom.exit, label %if.end.i27.i.i
 
 if.end.i27.i.i:                                   ; preds = %if.end25.i.i
   %25 = load ptr, ptr %24, align 8
@@ -1583,7 +1583,7 @@ done.i.i.i:                                       ; preds = %if.end11.i.i.i, %if
   %res.0.i29.i.i = phi i32 [ -1, %if.end5.i.i.i ], [ 0, %if.end11.i.i.i ], [ -3, %if.end.i27.i.i ]
   %27 = load ptr, ptr %24, align 8
   call void @PyThread_release_lock(ptr noundef %27) #6
-  br label %channel_close.exit
+  br label %channel_close.argprom.exit
 
 if.else42.i.i:                                    ; preds = %for.body3.i.i.i.i, %for.body3.i24.i.i.i, %for.end.i18.i.i.i, %for.end.i.i.i.i
   %28 = load ptr, ptr %8, align 8
@@ -1591,9 +1591,9 @@ if.else42.i.i:                                    ; preds = %for.body3.i.i.i.i, 
   %29 = load ptr, ptr %chan.i.i, align 8
   call fastcc void @_channel_free(ptr noundef %29)
   store ptr null, ptr %chan.i.i, align 8
-  br label %channel_close.exit
+  br label %channel_close.argprom.exit
 
-channel_close.exit:                               ; preds = %if.end.i.i.i, %if.end, %if.end4.i.i, %land.lhs.true8.i.i, %if.then16.thread.i.i, %if.then16.i.i, %if.then20.i.i, %if.end25.i.i, %done.i.i.i, %if.else42.i.i
+channel_close.argprom.exit:                       ; preds = %if.end.i.i.i, %if.end, %if.end4.i.i, %land.lhs.true8.i.i, %if.then16.thread.i.i, %if.then16.i.i, %if.then20.i.i, %if.end25.i.i, %done.i.i.i, %if.else42.i.i
   %res.0.i.i = phi i32 [ 0, %if.else42.i.i ], [ -3, %if.end4.i.i ], [ -3, %land.lhs.true8.i.i ], [ -3, %if.then20.i.i ], [ -6, %if.then16.i.i ], [ -2, %if.end ], [ %res.0.i29.i.i, %done.i.i.i ], [ 0, %if.end25.i.i ], [ -3, %if.then16.thread.i.i ], [ -2, %if.end.i.i.i ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %30) #6
@@ -1602,8 +1602,8 @@ channel_close.exit:                               ; preds = %if.end.i.i.i, %if.e
   %_Py_NoneStruct. = select i1 %tobool5.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %channel_close.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %channel_close.exit ]
+return:                                           ; preds = %channel_close.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %channel_close.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -1645,7 +1645,7 @@ if.end5:                                          ; preds = %if.then4, %if.end
   %4 = phi i32 [ 1, %if.then4 ], [ %1, %if.end ]
   %call.i.i = call ptr @PyInterpreterState_Get() #6
   %cmp.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i, label %channel_release.exit, label %if.end.i
+  br i1 %cmp.i, label %channel_release.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
   %call1.i = call i64 @PyInterpreterState_GetID(ptr noundef nonnull %call.i.i) #6
@@ -1653,7 +1653,7 @@ if.end.i:                                         ; preds = %if.end5
   %call.i3.i = call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #6
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %6, null
-  br i1 %cmp.not6.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %8, %if.end.i.i.i ], [ %6, %if.end.i ]
@@ -1665,35 +1665,35 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %8 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
-  br i1 %cmp.not.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end4.i.i:                                      ; preds = %while.body.i.i.i
   %chan5.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %9 = load ptr, ptr %chan5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %9, null
-  br i1 %cmp6.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false.i.i
+  br i1 %cmp6.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i.i
   %open.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load i32, ptr %open.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false16.i.i
+  br i1 %tobool.not.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false16.i.i
 
 lor.lhs.false16.i.i:                              ; preds = %lor.lhs.false.i.i
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %cmp17.i.i = icmp eq ptr %11, null
-  br i1 %cmp17.i.i, label %_channels_lookup.exit.thread17.i, label %if.end5.i
+  br i1 %cmp17.i.i, label %_channels_lookup.argprom.exit.thread17.i, label %if.end5.i
 
-_channels_lookup.exit.thread17.i:                 ; preds = %lor.lhs.false16.i.i
+_channels_lookup.argprom.exit.thread17.i:         ; preds = %lor.lhs.false16.i.i
   call void @PyThread_release_lock(ptr noundef null) #6
   br label %if.end5.i
 
-_channels_lookup.exit.i:                          ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.end.i
+_channels_lookup.argprom.exit.i:                  ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.end.i
   %err.015.i.ph.i = phi i32 [ -2, %if.end.i ], [ -3, %if.end4.i.i ], [ -3, %lor.lhs.false.i.i ], [ -2, %if.end.i.i.i ]
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   br label %return.sink.split.i
 
-if.end5.i:                                        ; preds = %_channels_lookup.exit.thread17.i, %lor.lhs.false16.i.i
+if.end5.i:                                        ; preds = %_channels_lookup.argprom.exit.thread17.i, %lor.lhs.false16.i.i
   %13 = load ptr, ptr %9, align 8
   %call.i4.i = call i32 @PyThread_acquire_lock(ptr noundef %13, i32 noundef 1) #6
   %14 = load i32, ptr %open.i.i, align 8
@@ -1850,21 +1850,21 @@ _channel_release_interpreter.exit.i:              ; preds = %_channelends_is_ope
   call void @PyThread_release_lock(ptr noundef %31) #6
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %_channel_release_interpreter.exit.i, %_channels_lookup.exit.i
-  %.sink.i = phi ptr [ %12, %_channels_lookup.exit.i ], [ %11, %_channel_release_interpreter.exit.i ]
-  %retval.0.ph.i = phi i32 [ %err.015.i.ph.i, %_channels_lookup.exit.i ], [ %res.0.i.i, %_channel_release_interpreter.exit.i ]
+return.sink.split.i:                              ; preds = %_channel_release_interpreter.exit.i, %_channels_lookup.argprom.exit.i
+  %.sink.i = phi ptr [ %12, %_channels_lookup.argprom.exit.i ], [ %11, %_channel_release_interpreter.exit.i ]
+  %retval.0.ph.i = phi i32 [ %err.015.i.ph.i, %_channels_lookup.argprom.exit.i ], [ %res.0.i.i, %_channel_release_interpreter.exit.i ]
   call void @PyThread_release_lock(ptr noundef %.sink.i) #6
-  br label %channel_release.exit
+  br label %channel_release.argprom.exit
 
-channel_release.exit:                             ; preds = %if.end5, %return.sink.split.i
+channel_release.argprom.exit:                     ; preds = %if.end5, %return.sink.split.i
   %retval.0.i = phi i32 [ -1, %if.end5 ], [ %retval.0.ph.i, %return.sink.split.i ]
   %call7 = call fastcc i32 @handle_channel_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool8.not = icmp eq i32 %call7, 0
   %_Py_NoneStruct. = select i1 %tobool8.not, ptr @_Py_NoneStruct, ptr null
   br label %return
 
-return:                                           ; preds = %channel_release.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %channel_release.exit ]
+return:                                           ; preds = %channel_release.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %_Py_NoneStruct., %channel_release.argprom.exit ]
   ret ptr %retval.0
 }
 
@@ -1887,7 +1887,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %info, i8 0, i64 88, i1 false)
   %call.i.i = call ptr @PyInterpreterState_Get() #6
   %cmp.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.i, label %_channel_get_info.exit, label %if.end.i
+  br i1 %cmp.i, label %_channel_get_info.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   %call1.i = call i64 @PyInterpreterState_GetID(ptr noundef nonnull %call.i.i) #6
@@ -2090,15 +2090,15 @@ finally.i:                                        ; preds = %if.end.i.i, %if.end
   %err.0.i = phi i32 [ -2, %if.end.i ], [ 0, %while.end.i ], [ 0, %finally.sink.split.i ], [ 0, %if.end126.i ], [ -2, %if.end.i.i ]
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   call void @PyThread_release_lock(ptr noundef %29) #6
-  br label %_channel_get_info.exit
+  br label %_channel_get_info.argprom.exit
 
-_channel_get_info.exit:                           ; preds = %if.end, %finally.i
+_channel_get_info.argprom.exit:                   ; preds = %if.end, %finally.i
   %retval.0.i = phi i32 [ %err.0.i, %finally.i ], [ -1, %if.end ]
   %call4 = call fastcc i32 @handle_channel_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
-if.end7:                                          ; preds = %_channel_get_info.exit
+if.end7:                                          ; preds = %_channel_get_info.argprom.exit
   %call.i.i4 = call ptr @PyModule_GetState(ptr noundef %self) #6
   %cmp.i5 = icmp eq ptr %call.i.i4, null
   br i1 %cmp.i5, label %return, label %if.end.i6
@@ -2429,8 +2429,8 @@ _Py_NewRef.exit126.i:                             ; preds = %if.end.i.i125.i, %_
   call void @PyStructSequence_SetItem(ptr noundef nonnull %call1.i7, i64 noundef 15, ptr noundef nonnull %cond227.i) #6
   br label %return
 
-return:                                           ; preds = %_Py_NewRef.exit126.i, %if.then1.i.i, %if.end.i.i15, %if.then189.i, %if.then1.i235.i, %if.end.i232.i, %if.then169.i, %if.then1.i244.i, %if.end.i241.i, %if.then149.i, %if.then1.i253.i, %if.end.i250.i, %if.then129.i, %if.then1.i262.i, %if.end.i259.i, %if.then109.i, %if.then1.i271.i, %if.end.i268.i, %if.then89.i16, %if.then1.i280.i, %if.end.i277.i, %if.then69.i, %if.then1.i289.i, %if.end.i286.i, %if.then49.i17, %if.then1.i298.i, %if.end.i295.i, %if.then31.i, %if.end.i6, %if.end7, %_channel_get_info.exit, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %_channel_get_info.exit ], [ %call1.i7, %_Py_NewRef.exit126.i ], [ null, %if.end7 ], [ null, %if.end.i6 ], [ null, %if.then31.i ], [ null, %if.then1.i298.i ], [ null, %if.end.i295.i ], [ null, %if.then49.i17 ], [ null, %if.then1.i289.i ], [ null, %if.end.i286.i ], [ null, %if.then69.i ], [ null, %if.then1.i280.i ], [ null, %if.end.i277.i ], [ null, %if.then89.i16 ], [ null, %if.then1.i271.i ], [ null, %if.end.i268.i ], [ null, %if.then109.i ], [ null, %if.then1.i262.i ], [ null, %if.end.i259.i ], [ null, %if.then129.i ], [ null, %if.then1.i253.i ], [ null, %if.end.i250.i ], [ null, %if.then149.i ], [ null, %if.then1.i244.i ], [ null, %if.end.i241.i ], [ null, %if.then169.i ], [ null, %if.then1.i235.i ], [ null, %if.end.i232.i ], [ null, %if.then189.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i15 ]
+return:                                           ; preds = %_Py_NewRef.exit126.i, %if.then1.i.i, %if.end.i.i15, %if.then189.i, %if.then1.i235.i, %if.end.i232.i, %if.then169.i, %if.then1.i244.i, %if.end.i241.i, %if.then149.i, %if.then1.i253.i, %if.end.i250.i, %if.then129.i, %if.then1.i262.i, %if.end.i259.i, %if.then109.i, %if.then1.i271.i, %if.end.i268.i, %if.then89.i16, %if.then1.i280.i, %if.end.i277.i, %if.then69.i, %if.then1.i289.i, %if.end.i286.i, %if.then49.i17, %if.then1.i298.i, %if.end.i295.i, %if.then31.i, %if.end.i6, %if.end7, %_channel_get_info.argprom.exit, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ null, %_channel_get_info.argprom.exit ], [ %call1.i7, %_Py_NewRef.exit126.i ], [ null, %if.end7 ], [ null, %if.end.i6 ], [ null, %if.then31.i ], [ null, %if.then1.i298.i ], [ null, %if.end.i295.i ], [ null, %if.then49.i17 ], [ null, %if.then1.i289.i ], [ null, %if.end.i286.i ], [ null, %if.then69.i ], [ null, %if.then1.i280.i ], [ null, %if.end.i277.i ], [ null, %if.then89.i16 ], [ null, %if.then1.i271.i ], [ null, %if.end.i268.i ], [ null, %if.then109.i ], [ null, %if.then1.i262.i ], [ null, %if.end.i259.i ], [ null, %if.then129.i ], [ null, %if.then1.i253.i ], [ null, %if.end.i250.i ], [ null, %if.then149.i ], [ null, %if.then1.i244.i ], [ null, %if.end.i241.i ], [ null, %if.then169.i ], [ null, %if.then1.i235.i ], [ null, %if.end.i232.i ], [ null, %if.then189.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i15 ]
   ret ptr %retval.0
 }
 
@@ -2457,25 +2457,25 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %call.i.i, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i6.not.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i, label %get_module_from_owned_type.exit
+  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i, label %get_module_from_owned_type.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.end
   %dec.i.i.i = add i64 %1, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_owned_type.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_owned_type.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i) #6
-  br label %get_module_from_owned_type.exit
+  br label %get_module_from_owned_type.argprom.exit
 
-get_module_from_owned_type.exit:                  ; preds = %if.end, %if.end.i.i.i, %if.then1.i.i.i
+get_module_from_owned_type.argprom.exit:          ; preds = %if.end, %if.end.i.i.i, %if.then1.i.i.i
   %3 = load i64, ptr %call1.i.i, align 8
   %4 = and i64 %3, 2147483648
   %cmp.i4.not = icmp eq i64 %4, 0
   br i1 %cmp.i4.not, label %if.end.i, label %Py_DECREF.exit
 
-if.end.i:                                         ; preds = %get_module_from_owned_type.exit
+if.end.i:                                         ; preds = %get_module_from_owned_type.argprom.exit
   %dec.i = add i64 %3, -1
   store i64 %dec.i, ptr %call1.i.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
@@ -2485,7 +2485,7 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call1.i.i) #6
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %get_module_from_owned_type.exit, %if.then1.i, %if.end.i
+Py_DECREF.exit:                                   ; preds = %get_module_from_owned_type.argprom.exit, %if.then1.i, %if.end.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %cid_data.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %send.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %recv.i)
@@ -2832,13 +2832,13 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 1) i32 @channel_destroy(i64 noundef %cid) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @channel_destroy.argprom(i64 noundef %cid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #6
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not6.i.i, label %_channels_remove.exit.thread, label %while.body.i.preheader.i
+  br i1 %cmp.not6.i.i, label %_channels_remove.argprom.exit.thread, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %entry
   %2 = load i64, ptr %1, align 8
@@ -2855,7 +2855,7 @@ if.end.i.i:                                       ; preds = %while.body.i.prehea
   %next.i.i = getelementptr inbounds i8, ptr %ref.08.i7.i, i64 16
   %4 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i.i, label %_channels_remove.exit.thread, label %while.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %_channels_remove.argprom.exit.thread, label %while.body.i.i, !llvm.loop !9
 
 if.end4.i:                                        ; preds = %while.body.i.i, %while.body.i.preheader.i
   %ref.08.i.lcssa.i = phi ptr [ %1, %while.body.i.preheader.i ], [ %4, %while.body.i.i ]
@@ -2896,7 +2896,7 @@ _channel_clear_closing.exit.i.i.i:                ; preds = %if.then.i.i.i.i, %i
   tail call fastcc void @_channel_free(ptr noundef nonnull %7)
   br label %return
 
-_channels_remove.exit.thread:                     ; preds = %if.end.i.i, %entry
+_channels_remove.argprom.exit.thread:             ; preds = %if.end.i.i, %entry
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %12) #6
   br label %return
@@ -2907,8 +2907,8 @@ return.critedge:                                  ; preds = %if.end4.i
   tail call void @PyThread_release_lock(ptr noundef %13) #6
   br label %return
 
-return:                                           ; preds = %return.critedge, %_channels_remove.exit.thread, %_channel_clear_closing.exit.i.i.i
-  %retval.0 = phi i32 [ 0, %_channel_clear_closing.exit.i.i.i ], [ -2, %_channels_remove.exit.thread ], [ 0, %return.critedge ]
+return:                                           ; preds = %return.critedge, %_channels_remove.argprom.exit.thread, %_channel_clear_closing.exit.i.i.i
+  %retval.0 = phi i32 [ 0, %_channel_clear_closing.exit.i.i.i ], [ -2, %_channels_remove.argprom.exit.thread ], [ 0, %return.critedge ]
   ret i32 %retval.0
 }
 
@@ -3082,21 +3082,21 @@ entry:
   %2 = getelementptr i8, ptr %arg, i64 8
   %arg.val11 = load ptr, ptr %2, align 8
   %cmp.i.not.i = icmp eq ptr %arg.val11, %1
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %arg.val11, ptr noundef %1) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %cid2 = getelementptr inbounds i8, ptr %arg, i64 16
   %3 = load i64, ptr %cid2, align 8
   %end3 = getelementptr inbounds i8, ptr %arg, i64 24
   %4 = load i32, ptr %end3, align 8
   br label %if.end19
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %call4 = tail call i32 @PyIndex_Check(ptr noundef nonnull %arg) #6
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.else15, label %if.then6
@@ -3169,7 +3169,7 @@ declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #1
 declare i32 @PyThread_ParseTimeoutArg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -10, 1) i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @channel_send_wait.argprom(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %waiting = alloca %struct.wait_info, align 8
   %call.i = tail call ptr @PyThread_allocate_lock() #6
@@ -3184,7 +3184,7 @@ if.end:                                           ; preds = %entry
   store ptr %call.i, ptr %waiting, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %waiting, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
-  %call1 = call fastcc i32 @channel_send(i64 noundef %cid, ptr noundef %obj, ptr noundef nonnull %waiting)
+  %call1 = call fastcc i32 @channel_send.argprom(i64 noundef %cid, ptr noundef %obj, ptr noundef nonnull %waiting)
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %finally, label %if.end4
 
@@ -3217,7 +3217,7 @@ _waiting_finish_releasing.exit:                   ; preds = %while.body.i, %if.t
   %call.i.i = call i32 @PyThread_acquire_lock(ptr noundef %4, i32 noundef 1) #6
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i.i = icmp eq ptr %5, null
-  br i1 %cmp.not6.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i
+  br i1 %cmp.not6.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_waiting_finish_releasing.exit, %if.end.i.i.i
   %ref.08.i.i.i = phi ptr [ %7, %if.end.i.i.i ], [ %5, %_waiting_finish_releasing.exit ]
@@ -3229,34 +3229,34 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 16
   %7 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i.i.i, label %_channels_lookup.exit.i, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_channels_lookup.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !9
 
 if.end4.i.i:                                      ; preds = %while.body.i.i.i
   %chan5.i.i = getelementptr inbounds i8, ptr %ref.08.i.i.i, i64 8
   %8 = load ptr, ptr %chan5.i.i, align 8
   %cmp6.i.i = icmp eq ptr %8, null
-  br i1 %cmp6.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false.i.i
+  br i1 %cmp6.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i.i
   %open.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load i32, ptr %open.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %9, 0
-  br i1 %tobool.not.i.i, label %_channels_lookup.exit.i, label %lor.lhs.false16.i.i
+  br i1 %tobool.not.i.i, label %_channels_lookup.argprom.exit.i, label %lor.lhs.false16.i.i
 
 lor.lhs.false16.i.i:                              ; preds = %lor.lhs.false.i.i
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %cmp17.i.i = icmp eq ptr %10, null
-  br i1 %cmp17.i.i, label %_channels_lookup.exit.thread17.i, label %if.end.i8
+  br i1 %cmp17.i.i, label %_channels_lookup.argprom.exit.thread17.i, label %if.end.i8
 
-_channels_lookup.exit.thread17.i:                 ; preds = %lor.lhs.false16.i.i
+_channels_lookup.argprom.exit.thread17.i:         ; preds = %lor.lhs.false16.i.i
   call void @PyThread_release_lock(ptr noundef null) #6
   br label %if.end.i8
 
-_channels_lookup.exit.i:                          ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %_waiting_finish_releasing.exit
+_channels_lookup.argprom.exit.i:                  ; preds = %if.end.i.i.i, %lor.lhs.false.i.i, %if.end4.i.i, %_waiting_finish_releasing.exit
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
-  br label %channel_clear_sent.exit
+  br label %channel_clear_sent.argprom.exit
 
-if.end.i8:                                        ; preds = %_channels_lookup.exit.thread17.i, %lor.lhs.false16.i.i
+if.end.i8:                                        ; preds = %_channels_lookup.argprom.exit.thread17.i, %lor.lhs.false16.i.i
   %12 = getelementptr inbounds i8, ptr %waiting, i64 16
   %waiting.val.i = load i64, ptr %12, align 8
   %13 = load ptr, ptr %8, align 8
@@ -3356,13 +3356,13 @@ if.end.i.i:                                       ; preds = %_waiting_release.ex
   %27 = load ptr, ptr %queue.i.i, align 8
   %28 = load i64, ptr %27, align 8
   %cmp4.i.i = icmp eq i64 %28, 0
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %channel_clear_sent.exit
+  br i1 %cmp4.i.i, label %if.then5.i.i, label %channel_clear_sent.argprom.exit
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %closing1.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %29 = load ptr, ptr %closing1.i.i.i, align 8
   %cmp.i5.i.i = icmp eq ptr %29, null
-  br i1 %cmp.i5.i.i, label %channel_clear_sent.exit, label %if.end.i.i3.i
+  br i1 %cmp.i5.i.i, label %channel_clear_sent.argprom.exit, label %if.end.i.i3.i
 
 if.end.i.i3.i:                                    ; preds = %if.then5.i.i
   %30 = load ptr, ptr %29, align 8
@@ -3383,17 +3383,17 @@ _channel_clear_closing.exit.i.i.i:                ; preds = %if.then.i.i7.i.i, %
   %chan3.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   store ptr null, ptr %chan3.i.i.i, align 8
   call fastcc void @_channel_free(ptr noundef nonnull %8)
-  br label %channel_clear_sent.exit
+  br label %channel_clear_sent.argprom.exit
 
-channel_clear_sent.exit:                          ; preds = %_channels_lookup.exit.i, %if.end.i.i, %if.then5.i.i, %_channel_clear_closing.exit.i.i.i
-  %.sink.i = phi ptr [ %11, %_channels_lookup.exit.i ], [ %10, %if.end.i.i ], [ %10, %if.then5.i.i ], [ %10, %_channel_clear_closing.exit.i.i.i ]
+channel_clear_sent.argprom.exit:                  ; preds = %_channels_lookup.argprom.exit.i, %if.end.i.i, %if.then5.i.i, %_channel_clear_closing.exit.i.i.i
+  %.sink.i = phi ptr [ %11, %_channels_lookup.argprom.exit.i ], [ %10, %if.end.i.i ], [ %10, %if.then5.i.i ], [ %10, %_channel_clear_closing.exit.i.i.i ]
   call void @PyThread_release_lock(ptr noundef %.sink.i) #6
   %received = getelementptr inbounds i8, ptr %waiting, i64 12
   %34 = load i32, ptr %received, align 4
   %tobool.not = icmp eq i32 %34, 0
   br i1 %tobool.not, label %finally, label %if.end9
 
-if.end9:                                          ; preds = %channel_clear_sent.exit
+if.end9:                                          ; preds = %channel_clear_sent.argprom.exit
   call void @PyErr_Clear() #6
   br label %if.end14
 
@@ -3418,8 +3418,8 @@ _waiting_finish_releasing.exit14:                 ; preds = %while.body.i11, %if
 if.end14:                                         ; preds = %_waiting_finish_releasing.exit14, %if.end9
   br label %finally
 
-finally:                                          ; preds = %_waiting_finish_releasing.exit14, %channel_clear_sent.exit, %if.end, %if.end14
-  %res.0 = phi i32 [ %call1, %if.end ], [ 0, %if.end14 ], [ -1, %channel_clear_sent.exit ], [ -10, %_waiting_finish_releasing.exit14 ]
+finally:                                          ; preds = %_waiting_finish_releasing.exit14, %channel_clear_sent.argprom.exit, %if.end, %if.end14
+  %res.0 = phi i32 [ %call1, %if.end ], [ 0, %if.end14 ], [ -1, %channel_clear_sent.argprom.exit ], [ -10, %_waiting_finish_releasing.exit14 ]
   %38 = load ptr, ptr %waiting, align 8
   %cmp.not.i = icmp eq ptr %38, null
   br i1 %cmp.not.i, label %return, label %if.then.i15
@@ -3434,7 +3434,7 @@ return:                                           ; preds = %if.then.i15, %final
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @channel_send(i64 noundef %cid, ptr noundef %obj, ptr noundef %waiting) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @channel_send.argprom(i64 noundef %cid, ptr noundef %obj, ptr noundef %waiting) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyInterpreterState_Get() #6
   %cmp = icmp eq ptr %call.i, null
@@ -3446,7 +3446,7 @@ if.end:                                           ; preds = %entry
   %call.i9 = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #6
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not6.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not6.i.i, label %_channels_lookup.exit, label %while.body.i.i
+  br i1 %cmp.not6.i.i, label %_channels_lookup.argprom.exit, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end, %if.end.i.i
   %ref.08.i.i = phi ptr [ %3, %if.end.i.i ], [ %1, %if.end ]
@@ -3458,36 +3458,36 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   %next.i.i = getelementptr inbounds i8, ptr %ref.08.i.i, i64 16
   %3 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i.i, label %_channels_lookup.exit, label %while.body.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i, label %_channels_lookup.argprom.exit, label %while.body.i.i, !llvm.loop !9
 
 if.end4.i:                                        ; preds = %while.body.i.i
   %chan5.i = getelementptr inbounds i8, ptr %ref.08.i.i, i64 8
   %4 = load ptr, ptr %chan5.i, align 8
   %cmp6.i = icmp eq ptr %4, null
-  br i1 %cmp6.i, label %_channels_lookup.exit, label %lor.lhs.false.i
+  br i1 %cmp6.i, label %_channels_lookup.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4.i
   %open.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load i32, ptr %open.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i, label %_channels_lookup.exit, label %lor.lhs.false16.i
+  br i1 %tobool.not.i, label %_channels_lookup.argprom.exit, label %lor.lhs.false16.i
 
 lor.lhs.false16.i:                                ; preds = %lor.lhs.false.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %cmp17.i = icmp eq ptr %6, null
-  br i1 %cmp17.i, label %_channels_lookup.exit.thread21, label %if.end5
+  br i1 %cmp17.i, label %_channels_lookup.argprom.exit.thread21, label %if.end5
 
-_channels_lookup.exit.thread21:                   ; preds = %lor.lhs.false16.i
+_channels_lookup.argprom.exit.thread21:           ; preds = %lor.lhs.false16.i
   tail call void @PyThread_release_lock(ptr noundef null) #6
   br label %if.end5
 
-_channels_lookup.exit:                            ; preds = %if.end.i.i, %lor.lhs.false.i, %if.end4.i, %if.end
+_channels_lookup.argprom.exit:                    ; preds = %if.end.i.i, %lor.lhs.false.i, %if.end4.i, %if.end
   %err.015.i.ph = phi i32 [ -2, %if.end ], [ -3, %if.end4.i ], [ -3, %lor.lhs.false.i ], [ -2, %if.end.i.i ]
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %7) #6
   br label %return
 
-if.end5:                                          ; preds = %lor.lhs.false16.i, %_channels_lookup.exit.thread21
+if.end5:                                          ; preds = %lor.lhs.false16.i, %_channels_lookup.argprom.exit.thread21
   %closing = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load ptr, ptr %closing, align 8
   %cmp6.not = icmp eq ptr %8, null
@@ -3641,8 +3641,8 @@ if.then19:                                        ; preds = %_channel_add.exit
   tail call void @PyMem_RawFree(ptr noundef nonnull %call9) #6
   br label %return
 
-return:                                           ; preds = %_channels_lookup.exit, %_channel_add.exit, %entry, %if.then19, %if.then15, %if.then11, %if.then7
-  %retval.0 = phi i32 [ -3, %if.then7 ], [ -1, %if.then11 ], [ -1, %if.then15 ], [ %res.0.i, %if.then19 ], [ -1, %entry ], [ %err.015.i.ph, %_channels_lookup.exit ], [ 0, %_channel_add.exit ]
+return:                                           ; preds = %_channels_lookup.argprom.exit, %_channel_add.exit, %entry, %if.then19, %if.then15, %if.then11, %if.then7
+  %retval.0 = phi i32 [ -3, %if.then7 ], [ -1, %if.then11 ], [ -1, %if.then15 ], [ %res.0.i, %if.then19 ], [ -1, %entry ], [ %err.015.i.ph, %_channels_lookup.argprom.exit ], [ 0, %_channel_add.exit ]
   ret i32 %retval.0
 }
 
@@ -4252,7 +4252,7 @@ if.end14:                                         ; preds = %if.end9
 if.end19:                                         ; preds = %if.end14
   %call.i16 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %mod, ptr noundef nonnull @channelid_typespec, ptr noundef null) #6
   %cmp.i17 = icmp eq ptr %call.i16, null
-  br i1 %cmp.i17, label %add_new_type.exit.thread, label %if.end.i18
+  br i1 %cmp.i17, label %add_new_type.argprom.exit.thread, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.end19
   %call1.i = tail call i32 @PyModule_AddType(ptr noundef %mod, ptr noundef nonnull %call.i16) #6
@@ -4263,13 +4263,13 @@ if.then3.i:                                       ; preds = %if.end.i18
   %15 = load i64, ptr %call.i16, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i21.not.i = icmp eq i64 %16, 0
-  br i1 %cmp.i21.not.i, label %if.end.i14.i, label %add_new_type.exit.thread
+  br i1 %cmp.i21.not.i, label %if.end.i14.i, label %add_new_type.argprom.exit.thread
 
 if.end.i14.i:                                     ; preds = %if.then3.i
   %dec.i15.i = add i64 %15, -1
   store i64 %dec.i15.i, ptr %call.i16, align 8
   %cmp.i16.i = icmp eq i64 %dec.i15.i, 0
-  br i1 %cmp.i16.i, label %add_new_type.exit.thread.sink.split, label %add_new_type.exit.thread
+  br i1 %cmp.i16.i, label %add_new_type.argprom.exit.thread.sink.split, label %add_new_type.argprom.exit.thread
 
 if.then6.i:                                       ; preds = %if.end.i18
   %call.i.i19 = tail call i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef nonnull %call.i16, ptr noundef nonnull @_channelid_shared) #6
@@ -4280,19 +4280,19 @@ if.then8.i:                                       ; preds = %if.then6.i
   %17 = load i64, ptr %call.i16, align 8
   %18 = and i64 %17, 2147483648
   %cmp.i24.not.i = icmp eq i64 %18, 0
-  br i1 %cmp.i24.not.i, label %if.end.i.i21, label %add_new_type.exit.thread
+  br i1 %cmp.i24.not.i, label %if.end.i.i21, label %add_new_type.argprom.exit.thread
 
 if.end.i.i21:                                     ; preds = %if.then8.i
   %dec.i.i = add i64 %17, -1
   store i64 %dec.i.i, ptr %call.i16, align 8
   %cmp.i.i22 = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i22, label %add_new_type.exit.thread.sink.split, label %add_new_type.exit.thread
+  br i1 %cmp.i.i22, label %add_new_type.argprom.exit.thread.sink.split, label %add_new_type.argprom.exit.thread
 
-add_new_type.exit.thread.sink.split:              ; preds = %if.end.i.i21, %if.end.i14.i
+add_new_type.argprom.exit.thread.sink.split:      ; preds = %if.end.i.i21, %if.end.i14.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i16) #6
-  br label %add_new_type.exit.thread
+  br label %add_new_type.argprom.exit.thread
 
-add_new_type.exit.thread:                         ; preds = %add_new_type.exit.thread.sink.split, %if.end19, %if.then3.i, %if.end.i14.i, %if.then8.i, %if.end.i.i21
+add_new_type.argprom.exit.thread:                 ; preds = %add_new_type.argprom.exit.thread.sink.split, %if.end19, %if.then3.i, %if.end.i14.i, %if.then8.i, %if.end.i.i21
   %ChannelIDType39 = getelementptr inbounds i8, ptr %call.i13, i64 72
   br label %if.then28.sink.split
 
@@ -4310,8 +4310,8 @@ if.end24:                                         ; preds = %if.then6.i
   %call26 = tail call i32 @PyUnstable_AtExit(ptr noundef %call.i23, ptr noundef nonnull @clear_interpreter, ptr noundef %call.i23) #6
   br label %return
 
-if.then28.sink.split:                             ; preds = %add_new_type.exit.thread, %exceptions_init.exit.thread32, %add_new_exception.exit.thread.i, %add_new_exception.exit33.thread.i, %add_new_exception.exit46.thread.i, %add_new_exception.exit59.thread.i
-  %ChannelEmptyError83.i.sink = phi ptr [ %ChannelEmptyError83.i, %add_new_exception.exit59.thread.i ], [ %ChannelClosedError80.i, %add_new_exception.exit46.thread.i ], [ %ChannelNotFoundError77.i, %add_new_exception.exit33.thread.i ], [ %ChannelError74.i, %add_new_exception.exit.thread.i ], [ %ChannelNotEmptyError.i34, %exceptions_init.exit.thread32 ], [ %ChannelIDType39, %add_new_type.exit.thread ]
+if.then28.sink.split:                             ; preds = %add_new_type.argprom.exit.thread, %exceptions_init.exit.thread32, %add_new_exception.exit.thread.i, %add_new_exception.exit33.thread.i, %add_new_exception.exit46.thread.i, %add_new_exception.exit59.thread.i
+  %ChannelEmptyError83.i.sink = phi ptr [ %ChannelEmptyError83.i, %add_new_exception.exit59.thread.i ], [ %ChannelClosedError80.i, %add_new_exception.exit46.thread.i ], [ %ChannelNotFoundError77.i, %add_new_exception.exit33.thread.i ], [ %ChannelError74.i, %add_new_exception.exit.thread.i ], [ %ChannelNotEmptyError.i34, %exceptions_init.exit.thread32 ], [ %ChannelIDType39, %add_new_type.argprom.exit.thread ]
   store ptr null, ptr %ChannelEmptyError83.i.sink, align 8
   br label %if.then28
 
@@ -4376,7 +4376,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #6
   %ref.03.i = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 16), align 8
   %cmp.not4.i = icmp eq ptr %ref.03.i, null
-  br i1 %cmp.not4.i, label %_channels_clear_interpreter.exit, label %for.body.i
+  br i1 %cmp.not4.i, label %_channels_clear_interpreter.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %ref.05.i = phi ptr [ %ref.0.i, %for.inc.i ], [ %ref.03.i, %if.end ]
@@ -4560,14 +4560,14 @@ for.inc.i:                                        ; preds = %_channel_clear_inte
   %next.i = getelementptr inbounds i8, ptr %ref.05.i, i64 16
   %ref.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %ref.0.i, null
-  br i1 %cmp.not.i, label %_channels_clear_interpreter.exit, label %for.body.i, !llvm.loop !21
+  br i1 %cmp.not.i, label %_channels_clear_interpreter.argprom.exit, label %for.body.i, !llvm.loop !21
 
-_channels_clear_interpreter.exit:                 ; preds = %for.inc.i, %if.end
+_channels_clear_interpreter.argprom.exit:         ; preds = %for.inc.i, %if.end
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   tail call void @PyThread_release_lock(ptr noundef %30) #6
   br label %return
 
-return:                                           ; preds = %entry, %_channels_clear_interpreter.exit
+return:                                           ; preds = %entry, %_channels_clear_interpreter.argprom.exit
   ret void
 }
 
@@ -4761,23 +4761,23 @@ if.end.i.i:                                       ; preds = %if.end
   %1 = load i64, ptr %call.i.i, align 8
   %2 = and i64 %1, 2147483648
   %cmp.i6.not.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i, label %get_module_from_type.exit
+  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i, label %get_module_from_type.argprom.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
   %dec.i.i.i = add i64 %1, -1
   store i64 %dec.i.i.i, ptr %call.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_type.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_type.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i) #6
-  br label %get_module_from_type.exit
+  br label %get_module_from_type.argprom.exit
 
-get_module_from_type.exit:                        ; preds = %if.end.i.i, %if.end.i.i.i, %if.then1.i.i.i
+get_module_from_type.argprom.exit:                ; preds = %if.end.i.i, %if.end.i.i.i, %if.then1.i.i.i
   %cmp3 = icmp eq ptr %call1.i.i, null
   br i1 %cmp3, label %return, label %if.end5
 
-if.end5:                                          ; preds = %get_module_from_type.exit
+if.end5:                                          ; preds = %get_module_from_type.argprom.exit
   %call.i = tail call ptr @PyModule_GetState(ptr noundef nonnull %call1.i.i) #6
   %cmp7 = icmp eq ptr %call.i, null
   br i1 %cmp7, label %done, label %if.end9
@@ -4788,18 +4788,18 @@ if.end9:                                          ; preds = %if.end5
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
   %cmp.i.not.i = icmp eq ptr %self.val, %3
-  br i1 %cmp.i.not.i, label %if.end13, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end13, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end9
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end9
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %self.val, ptr noundef %3) #6
   %tobool3.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.i.not, label %if.then11, label %PyObject_TypeCheck.exit.if.end13_crit_edge
+  br i1 %tobool3.i.not, label %if.then11, label %PyObject_TypeCheck.argprom.exit.if.end13_crit_edge
 
-PyObject_TypeCheck.exit.if.end13_crit_edge:       ; preds = %PyObject_TypeCheck.exit
+PyObject_TypeCheck.argprom.exit.if.end13_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit
   %.pre = load ptr, ptr %ChannelIDType, align 8
   br label %if.end13
 
-if.then11:                                        ; preds = %PyObject_TypeCheck.exit
+if.then11:                                        ; preds = %PyObject_TypeCheck.argprom.exit
   %5 = load i32, ptr @_Py_NotImplementedStruct, align 8
   %add.i.i = add i32 %5, 1
   %cmp.i.i34 = icmp eq i32 %add.i.i, 0
@@ -4809,19 +4809,19 @@ if.end.i.i35:                                     ; preds = %if.then11
   store i32 %add.i.i, ptr @_Py_NotImplementedStruct, align 8
   br label %done
 
-if.end13:                                         ; preds = %PyObject_TypeCheck.exit.if.end13_crit_edge, %if.end9
-  %6 = phi ptr [ %.pre, %PyObject_TypeCheck.exit.if.end13_crit_edge ], [ %3, %if.end9 ]
+if.end13:                                         ; preds = %PyObject_TypeCheck.argprom.exit.if.end13_crit_edge, %if.end9
+  %6 = phi ptr [ %.pre, %PyObject_TypeCheck.argprom.exit.if.end13_crit_edge ], [ %3, %if.end9 ]
   %7 = getelementptr i8, ptr %other, i64 8
   %other.val33 = load ptr, ptr %7, align 8
   %cmp.i.not.i36 = icmp eq ptr %other.val33, %6
-  br i1 %cmp.i.not.i36, label %if.then17, label %PyObject_TypeCheck.exit41
+  br i1 %cmp.i.not.i36, label %if.then17, label %PyObject_TypeCheck.argprom.exit41
 
-PyObject_TypeCheck.exit41:                        ; preds = %if.end13
+PyObject_TypeCheck.argprom.exit41:                ; preds = %if.end13
   %call2.i38 = tail call i32 @PyType_IsSubtype(ptr noundef %other.val33, ptr noundef %6) #6
   %tobool3.i39.not = icmp eq i32 %call2.i38, 0
   br i1 %tobool3.i39.not, label %if.else, label %if.then17
 
-if.then17:                                        ; preds = %if.end13, %PyObject_TypeCheck.exit41
+if.then17:                                        ; preds = %if.end13, %PyObject_TypeCheck.argprom.exit41
   %end = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i32, ptr %end, align 8
   %end18 = getelementptr inbounds i8, ptr %other, i64 24
@@ -4837,7 +4837,7 @@ land.rhs:                                         ; preds = %if.then17
   %cmp21 = icmp eq i64 %10, %11
   br label %if.end54
 
-if.else:                                          ; preds = %PyObject_TypeCheck.exit41
+if.else:                                          ; preds = %PyObject_TypeCheck.argprom.exit41
   %other.val = load ptr, ptr %7, align 8
   %12 = getelementptr i8, ptr %other.val, i64 168
   %call22.val = load i64, ptr %12, align 8
@@ -4953,8 +4953,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call1.i.i) #6
   br label %return
 
-return:                                           ; preds = %if.end, %if.end.i, %if.then1.i, %done, %get_module_from_type.exit, %entry
-  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ null, %get_module_from_type.exit ], [ %res.0, %done ], [ %res.0, %if.then1.i ], [ %res.0, %if.end.i ], [ null, %if.end ]
+return:                                           ; preds = %if.end, %if.end.i, %if.then1.i, %done, %get_module_from_type.argprom.exit, %entry
+  %retval.0 = phi ptr [ @_Py_NotImplementedStruct, %entry ], [ null, %get_module_from_type.argprom.exit ], [ %res.0, %done ], [ %res.0, %if.then1.i ], [ %res.0, %if.end.i ], [ null, %if.end ]
   ret ptr %retval.0
 }
 
@@ -5051,23 +5051,23 @@ if.end.i.i:                                       ; preds = %if.then3
   %12 = load i64, ptr %call.i.i17, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i6.not.i.i = icmp eq i64 %13, 0
-  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i18, label %get_module_from_type.exit
+  br i1 %cmp.i6.not.i.i, label %if.end.i.i.i18, label %get_module_from_type.argprom.exit
 
 if.end.i.i.i18:                                   ; preds = %if.end.i.i
   %dec.i.i.i = add i64 %12, -1
   store i64 %dec.i.i.i, ptr %call.i.i17, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
-  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_type.exit
+  br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %get_module_from_type.argprom.exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i18
   tail call void @_Py_Dealloc(ptr noundef nonnull %call.i.i17) #6
-  br label %get_module_from_type.exit
+  br label %get_module_from_type.argprom.exit
 
-get_module_from_type.exit:                        ; preds = %if.end.i.i, %if.end.i.i.i18, %if.then1.i.i.i
+get_module_from_type.argprom.exit:                ; preds = %if.end.i.i, %if.end.i.i.i18, %if.then1.i.i.i
   %cmp6 = icmp eq ptr %call1.i.i, null
   br i1 %cmp6, label %return, label %if.end
 
-if.end:                                           ; preds = %get_module_from_type.exit
+if.end:                                           ; preds = %get_module_from_type.argprom.exit
   %14 = load i64, ptr %cid, align 8
   %call9 = tail call fastcc i32 @handle_channel_error(i32 noundef -1, ptr noundef nonnull %call1.i.i, i64 noundef %14)
   %15 = load i64, ptr %call1.i.i, align 8
@@ -5105,8 +5105,8 @@ if.end21:                                         ; preds = %if.end11
   %call22 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.96) #6
   br label %return
 
-return:                                           ; preds = %if.then3, %_channels_add_id_object.exit.i, %if.then7.i, %if.end.i, %if.then1.i, %if.end, %get_module_from_type.exit, %if.end21, %if.then19, %if.then14
-  %retval.0 = phi ptr [ %call15, %if.then14 ], [ %call20, %if.then19 ], [ %call22, %if.end21 ], [ null, %get_module_from_type.exit ], [ null, %if.end ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call.i, %if.then7.i ], [ %call.i, %_channels_add_id_object.exit.i ], [ null, %if.then3 ]
+return:                                           ; preds = %if.then3, %_channels_add_id_object.exit.i, %if.then7.i, %if.end.i, %if.then1.i, %if.end, %get_module_from_type.argprom.exit, %if.end21, %if.then19, %if.then14
+  %retval.0 = phi ptr [ %call15, %if.then14 ], [ %call20, %if.then19 ], [ %call22, %if.end21 ], [ null, %get_module_from_type.argprom.exit ], [ null, %if.end ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call.i, %if.then7.i ], [ %call.i, %_channels_add_id_object.exit.i ], [ null, %if.then3 ]
   ret ptr %retval.0
 }
 
@@ -5115,7 +5115,7 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_module_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @clear_module_state.retelim(ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   %send_channel_type = getelementptr inbounds i8, ptr %state, i64 48
   %0 = load ptr, ptr %send_channel_type, align 8

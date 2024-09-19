@@ -271,7 +271,7 @@ define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %.01.i.i = load ptr, ptr %3, align 8
   %.not2.i.i = icmp eq ptr %.01.i.i, %2
-  br i1 %.not2.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %pmix_cmd_line_is_taken.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %8
   %.03.i.i = phi ptr [ %.0.i.i, %8 ], [ %.01.i.i, %1 ]
@@ -285,18 +285,18 @@ define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
   %9 = getelementptr inbounds i8, ptr %.03.i.i, i64 120
   %.0.i.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %2
-  br i1 %.not.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %pmix_cmd_line_is_taken.argprom.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 10:                                               ; preds = %.lr.ph.i.i
   store i8 1, ptr @prte_allow_run_as_root, align 1
   br label %23
 
-pmix_cmd_line_is_taken.exit:                      ; preds = %8, %1
+pmix_cmd_line_is_taken.argprom.exit:              ; preds = %8, %1
   %11 = tail call ptr @getenv(ptr noundef nonnull @.str.29) #8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.tail.thread, label %12
 
-12:                                               ; preds = %pmix_cmd_line_is_taken.exit
+12:                                               ; preds = %pmix_cmd_line_is_taken.argprom.exit
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str.30) #8
   %.not4 = icmp eq ptr %13, null
   br i1 %.not4, label %.tail.thread, label %sub_0
@@ -327,7 +327,7 @@ sub_09:                                           ; preds = %.tail
   store i8 1, ptr @prte_allow_run_as_root, align 1
   br label %23
 
-.tail.thread:                                     ; preds = %sub_09, %sub_0, %.tail, %.tail8, %12, %pmix_cmd_line_is_taken.exit
+.tail.thread:                                     ; preds = %sub_09, %sub_0, %.tail, %.tail8, %12, %pmix_cmd_line_is_taken.argprom.exit
   tail call void @prte_schizo_base_root_error_msg() #8
   br label %23
 

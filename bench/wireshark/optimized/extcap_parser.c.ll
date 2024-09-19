@@ -281,36 +281,36 @@ declare double @g_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden i32 @extcap_complex_get_bool(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %matches_regex.exit, label %3
+  br i1 %2, label %matches_regex.argprom.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %matches_regex.exit, label %7
+  br i1 %6, label %matches_regex.argprom.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %.off = add i32 %8, -5
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %9, label %matches_regex.exit
+  br i1 %switch, label %9, label %matches_regex.argprom.exit
 
 9:                                                ; preds = %7
   %10 = tail call i32 @g_utf8_validate(ptr noundef nonnull %5, i64 noundef -1, ptr noundef null) #9
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %matches_regex.exit, label %11
+  br i1 %.not.i, label %matches_regex.argprom.exit, label %11
 
 11:                                               ; preds = %9
   %12 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %5, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit
+  br label %matches_regex.argprom.exit
 
-matches_regex.exit:                               ; preds = %11, %9, %7, %1, %3
+matches_regex.argprom.exit:                       ; preds = %11, %9, %7, %1, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %1 ], [ 0, %7 ], [ %12, %11 ], [ 0, %9 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @matches_regex(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @matches_regex.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @g_utf8_validate(ptr noundef %0, i64 noundef -1, ptr noundef null) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -625,19 +625,19 @@ define hidden ptr @extcap_parse_args(ptr noundef %0) local_unnamed_addr #0 {
 53:                                               ; preds = %50
   %54 = tail call i32 @g_utf8_validate(ptr noundef nonnull %52, i64 noundef -1, ptr noundef null) #9
   %.not.i23 = icmp eq i32 %54, 0
-  br i1 %.not.i23, label %matches_regex.exit25, label %55
+  br i1 %.not.i23, label %matches_regex.argprom.exit25, label %55
 
 55:                                               ; preds = %53
   %56 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %52, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit25
+  br label %matches_regex.argprom.exit25
 
-matches_regex.exit25:                             ; preds = %53, %55
+matches_regex.argprom.exit25:                     ; preds = %53, %55
   %.0.i24 = phi i32 [ %56, %55 ], [ 0, %53 ]
   %57 = getelementptr inbounds i8, ptr %10, i64 48
   store i32 %.0.i24, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %matches_regex.exit25, %50
+58:                                               ; preds = %matches_regex.argprom.exit25, %50
   %59 = load ptr, ptr %13, align 8
   %60 = tail call ptr @g_hash_table_lookup(ptr noundef %59, ptr noundef nonnull inttoptr (i64 14 to ptr)) #9
   %.not138.i = icmp eq ptr %60, null
@@ -682,19 +682,19 @@ matches_regex.exit25:                             ; preds = %53, %55
 79:                                               ; preds = %76
   %80 = tail call i32 @g_utf8_validate(ptr noundef nonnull %78, i64 noundef -1, ptr noundef null) #9
   %.not.i20 = icmp eq i32 %80, 0
-  br i1 %.not.i20, label %matches_regex.exit22, label %81
+  br i1 %.not.i20, label %matches_regex.argprom.exit22, label %81
 
 81:                                               ; preds = %79
   %82 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %78, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit22
+  br label %matches_regex.argprom.exit22
 
-matches_regex.exit22:                             ; preds = %79, %81
+matches_regex.argprom.exit22:                     ; preds = %79, %81
   %.0.i21 = phi i32 [ %82, %81 ], [ 0, %79 ]
   %83 = getelementptr inbounds i8, ptr %10, i64 52
   store i32 %.0.i21, ptr %83, align 4
   br label %84
 
-84:                                               ; preds = %matches_regex.exit22, %76
+84:                                               ; preds = %matches_regex.argprom.exit22, %76
   %85 = load ptr, ptr %13, align 8
   %86 = tail call ptr @g_hash_table_lookup(ptr noundef %85, ptr noundef nonnull inttoptr (i64 4 to ptr)) #9
   %87 = icmp eq ptr %86, null
@@ -790,18 +790,18 @@ matches_regex.exit22:                             ; preds = %79, %81
 136:                                              ; preds = %133
   %137 = tail call i32 @g_utf8_validate(ptr noundef nonnull %135, i64 noundef -1, ptr noundef null) #9
   %.not.i17 = icmp eq i32 %137, 0
-  br i1 %.not.i17, label %matches_regex.exit19, label %138
+  br i1 %.not.i17, label %matches_regex.argprom.exit19, label %138
 
 138:                                              ; preds = %136
   %139 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %135, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit19
+  br label %matches_regex.argprom.exit19
 
-matches_regex.exit19:                             ; preds = %136, %138
+matches_regex.argprom.exit19:                     ; preds = %136, %138
   %.0.i18 = phi i32 [ %139, %138 ], [ 0, %136 ]
   store i32 %.0.i18, ptr %12, align 8
   br label %140
 
-140:                                              ; preds = %matches_regex.exit19, %133
+140:                                              ; preds = %matches_regex.argprom.exit19, %133
   %141 = load ptr, ptr %13, align 8
   %142 = tail call ptr @g_hash_table_lookup(ptr noundef %141, ptr noundef nonnull inttoptr (i64 18 to ptr)) #9
   %.not143.i = icmp eq ptr %142, null
@@ -810,19 +810,19 @@ matches_regex.exit19:                             ; preds = %136, %138
 143:                                              ; preds = %140
   %144 = tail call i32 @g_utf8_validate(ptr noundef nonnull %142, i64 noundef -1, ptr noundef null) #9
   %.not.i15 = icmp eq i32 %144, 0
-  br i1 %.not.i15, label %matches_regex.exit, label %145
+  br i1 %.not.i15, label %matches_regex.argprom.exit, label %145
 
 145:                                              ; preds = %143
   %146 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %142, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit
+  br label %matches_regex.argprom.exit
 
-matches_regex.exit:                               ; preds = %143, %145
+matches_regex.argprom.exit:                       ; preds = %143, %145
   %.0.i16 = phi i32 [ %146, %145 ], [ 0, %143 ]
   %147 = getelementptr inbounds i8, ptr %10, i64 60
   store i32 %.0.i16, ptr %147, align 4
   br label %148
 
-148:                                              ; preds = %matches_regex.exit, %140
+148:                                              ; preds = %matches_regex.argprom.exit, %140
   %149 = load ptr, ptr %13, align 8
   %150 = tail call ptr @g_hash_table_lookup(ptr noundef %149, ptr noundef nonnull inttoptr (i64 8 to ptr)) #9
   %.not144.i = icmp eq ptr %150, null
@@ -1300,7 +1300,7 @@ extcap_free_value.exit:                           ; preds = %17
   br i1 %.not34, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = call fastcc i32 @matches_regex(ptr noundef nonnull %46)
+  %48 = call fastcc i32 @matches_regex.argprom(ptr noundef nonnull %46)
   %49 = getelementptr inbounds i8, ptr %18, i64 28
   store i32 %48, ptr %49, align 4
   br label %50
@@ -1312,7 +1312,7 @@ extcap_free_value.exit:                           ; preds = %17
   br i1 %.not35, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = call fastcc i32 @matches_regex(ptr noundef nonnull %52)
+  %54 = call fastcc i32 @matches_regex.argprom(ptr noundef nonnull %52)
   %55 = getelementptr inbounds i8, ptr %18, i64 24
   store i32 %54, ptr %55, align 8
   br label %56
@@ -1516,19 +1516,19 @@ extcap_parse_interface_sentence.exit:             ; preds = %47, %44
 96:                                               ; preds = %93
   %97 = call i32 @g_utf8_validate(ptr noundef nonnull %95, i64 noundef -1, ptr noundef null) #9
   %.not.i.i = icmp eq i32 %97, 0
-  br i1 %.not.i.i, label %matches_regex.exit.i, label %98
+  br i1 %.not.i.i, label %matches_regex.argprom.exit.i, label %98
 
 98:                                               ; preds = %96
   %99 = call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %95, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit.i
+  br label %matches_regex.argprom.exit.i
 
-matches_regex.exit.i:                             ; preds = %98, %96
+matches_regex.argprom.exit.i:                     ; preds = %98, %96
   %.0.i.i = phi i32 [ %99, %98 ], [ 0, %96 ]
   %100 = getelementptr inbounds i8, ptr %69, i64 32
   store i32 %.0.i.i, ptr %100, align 8
   br label %101
 
-101:                                              ; preds = %matches_regex.exit.i, %93
+101:                                              ; preds = %matches_regex.argprom.exit.i, %93
   %102 = load ptr, ptr %71, align 8
   %103 = call ptr @g_hash_table_lookup(ptr noundef %102, ptr noundef nonnull inttoptr (i64 9 to ptr)) #9
   %104 = call noalias ptr @g_strdup(ptr noundef %103) #9
@@ -1721,19 +1721,19 @@ extcap_free_toolbar_value.exit:                   ; preds = %188
 202:                                              ; preds = %197
   %203 = call i32 @g_utf8_validate(ptr noundef nonnull %201, i64 noundef -1, ptr noundef null) #9
   %.not.i34 = icmp eq i32 %203, 0
-  br i1 %.not.i34, label %matches_regex.exit, label %204
+  br i1 %.not.i34, label %matches_regex.argprom.exit, label %204
 
 204:                                              ; preds = %202
   %205 = call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %201, i32 noundef 1, i32 noundef 0) #9
-  br label %matches_regex.exit
+  br label %matches_regex.argprom.exit
 
-matches_regex.exit:                               ; preds = %202, %204
+matches_regex.argprom.exit:                       ; preds = %202, %204
   %.0.i35 = phi i32 [ %205, %204 ], [ 0, %202 ]
   %206 = getelementptr inbounds i8, ptr %179, i64 24
   store i32 %.0.i35, ptr %206, align 8
   br label %207
 
-207:                                              ; preds = %matches_regex.exit, %197
+207:                                              ; preds = %matches_regex.argprom.exit, %197
   %208 = load ptr, ptr %173, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 64
   %210 = load ptr, ptr %209, align 8

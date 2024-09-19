@@ -161,7 +161,7 @@ define internal i32 @dissect_FMP_NOTIFY_DownGrade_request(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_DownGrade_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -183,7 +183,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeList_request(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -201,7 +201,7 @@ define internal i32 @dissect_FMP_NOTIFY_RevokeAll_request(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RevokeAll_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -221,17 +221,17 @@ define internal i32 @dissect_FMP_NOTIFY_FileSetEof_request(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_FileSetEof_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %dissect_fmp_notify_extentList.exit
+  br i1 %8, label %9, label %dissect_fmp_notify_extentList.argprom.exit
 
 9:                                                ; preds = %4
   %10 = load i32, ptr @hf_fmp_sessionHandle, align 4
@@ -250,7 +250,7 @@ define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr 
   %23 = load i32, ptr @hf_fmp_extentList_len, align 4
   %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %22, i32 noundef %23, i32 noundef %17) #2
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %dissect_fmp_notify_extentList.exit, label %.lr.ph.i
+  br i1 %.not.i, label %dissect_fmp_notify_extentList.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.02.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %9 ]
@@ -269,9 +269,9 @@ define internal i32 @dissect_FMP_NOTIFY_RequestDone_request(ptr noundef %0, ptr 
   %36 = load i32, ptr @hf_fmp_extent_state, align 4
   %37 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %27, i32 noundef %36, i32 noundef %35) #2
   %exitcond.not.i = icmp eq i32 %25, %18
-  br i1 %exitcond.not.i, label %dissect_fmp_notify_extentList.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %dissect_fmp_notify_extentList.argprom.exit, label %.lr.ph.i, !llvm.loop !4
 
-dissect_fmp_notify_extentList.exit:               ; preds = %.lr.ph.i, %9, %4
+dissect_fmp_notify_extentList.argprom.exit:       ; preds = %.lr.ph.i, %9, %4
   %.0 = phi i32 [ %6, %4 ], [ %24, %9 ], [ %37, %.lr.ph.i ]
   ret i32 %.0
 }
@@ -279,7 +279,7 @@ dissect_fmp_notify_extentList.exit:               ; preds = %.lr.ph.i, %9, %4
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_RequestDone_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -295,7 +295,7 @@ define internal i32 @dissect_FMP_NOTIFY_volFreeze_request(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_volFreeze_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -327,7 +327,7 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %.023.lcssa.i, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.76) #2
   %19 = load i32, ptr @hf_fmp_handleListLen, align 4
   %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %19, i32 noundef %9) #2
-  br i1 %11, label %.lr.ph6.i, label %dissect_handleList.exit
+  br i1 %11, label %.lr.ph6.i, label %dissect_handleList.argprom.exit
 
 .lr.ph6.i:                                        ; preds = %._crit_edge.i, %.lr.ph6.i
   %.04.i = phi i32 [ %22, %.lr.ph6.i ], [ %20, %._crit_edge.i ]
@@ -336,9 +336,9 @@ define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_request(ptr noundef %0,
   %22 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %18, i32 noundef %21, i32 noundef %.04.i) #2
   %23 = add nuw nsw i32 %.13.i, 1
   %exitcond10.not.i = icmp eq i32 %23, %10
-  br i1 %exitcond10.not.i, label %dissect_handleList.exit, label %.lr.ph6.i, !llvm.loop !7
+  br i1 %exitcond10.not.i, label %dissect_handleList.argprom.exit, label %.lr.ph6.i, !llvm.loop !7
 
-dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_edge.i
+dissect_handleList.argprom.exit:                  ; preds = %.lr.ph6.i, %._crit_edge.i
   %.0.lcssa.i = phi i32 [ %20, %._crit_edge.i ], [ %22, %.lr.ph6.i ]
   ret i32 %.0.lcssa.i
 }
@@ -346,7 +346,7 @@ dissect_handleList.exit:                          ; preds = %.lr.ph6.i, %._crit_
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_FMP_NOTIFY_revokeHandleList_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = call fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %2, ptr noundef %5)
+  %6 = call fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
@@ -355,7 +355,7 @@ declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_fmp_notify_status.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
   switch i32 %4, label %17 [
     i32 0, label %18

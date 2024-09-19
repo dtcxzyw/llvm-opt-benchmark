@@ -1121,7 +1121,7 @@ print_io_api.exit.i:                              ; preds = %350, %348
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i16, %360 ]
   %361 = getelementptr inbounds [32 x i64], ptr %19, i64 0, i64 %indvars.iv.i15
   %362 = load i64, ptr %361, align 8
-  call fastcc void @recover_size_and_print(i64 noundef %362)
+  call fastcc void @recover_size_and_print.argprom(i64 noundef %362)
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i17 = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i14
   br i1 %exitcond.not.i17, label %._crit_edge.i18, label %360
@@ -1137,7 +1137,7 @@ print_io_api.exit.i:                              ; preds = %350, %348
   %indvars.iv65.i = phi i64 [ 0, %._crit_edge.i18 ], [ %indvars.iv.next66.i, %366 ]
   %367 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %indvars.iv65.i
   %368 = load i64, ptr %367, align 8
-  call fastcc void @recover_size_and_print(i64 noundef %368)
+  call fastcc void @recover_size_and_print.argprom(i64 noundef %368)
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i14
   br i1 %exitcond69.not.i, label %._crit_edge55.i, label %366
@@ -1190,7 +1190,7 @@ print_io_api.exit.i:                              ; preds = %350, %348
   %389 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv70.i
   %390 = load i32, ptr %389, align 4
   %391 = sext i32 %390 to i64
-  call fastcc void @recover_size_and_print(i64 noundef %391)
+  call fastcc void @recover_size_and_print.argprom(i64 noundef %391)
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
   br i1 %exitcond74.not.i, label %._crit_edge59.i, label %388
@@ -1225,7 +1225,7 @@ print_io_api.exit.i:                              ; preds = %350, %348
   %indvars.iv75.i = phi i64 [ 0, %.lr.ph62.i ], [ %indvars.iv.next76.i, %404 ]
   %405 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv75.i
   %406 = load i64, ptr %405, align 8
-  call fastcc void @recover_size_and_print(i64 noundef %406)
+  call fastcc void @recover_size_and_print.argprom(i64 noundef %406)
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count78.i
   br i1 %exitcond79.not.i, label %._crit_edge63.i, label %404
@@ -1405,7 +1405,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not.i20, label %505, label %504
 
 504:                                              ; preds = %._crit_edge.i19
-  call fastcc void @run_test(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
+  call fastcc void @run_test.retelim(i32 noundef 0, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
   %.pre.i = load i64, ptr %12, align 8
   br label %505
 
@@ -1416,7 +1416,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   br i1 %.not37.i, label %run_test_loop.exit, label %508
 
 508:                                              ; preds = %505
-  call fastcc void @run_test(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
+  call fastcc void @run_test.retelim(i32 noundef 1, ptr noundef nonnull byval(%struct.parameters_) align 8 %3, ptr noundef readonly %12)
   br label %run_test_loop.exit
 
 run_test_loop.exit:                               ; preds = %505, %508
@@ -1455,7 +1455,7 @@ define internal void @output_report(ptr nocapture noundef readonly %0, ...) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_test(i32 noundef range(i32 0, 2) %0, ptr noundef byval(%struct.parameters_) align 8 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @run_test.retelim(i32 noundef range(i32 0, 2) %0, ptr noundef byval(%struct.parameters_) align 8 %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.results_, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
@@ -1619,7 +1619,7 @@ print_indent.exit:                                ; preds = %.lr.ph.i
 print_indent.exit74:                              ; preds = %.lr.ph.i72
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.9)
   %68 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %16, i32 noundef %68)
+  call fastcc void @output_all_info.argelim(ptr noundef %16, i32 noundef %68)
   %.pre = load i32, ptr %11, align 8
   br label %69
 
@@ -1644,7 +1644,7 @@ print_indent.exit74:                              ; preds = %.lr.ph.i72
 print_indent.exit77:                              ; preds = %.lr.ph.i75
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.11)
   %78 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %14, i32 noundef %78)
+  call fastcc void @output_all_info.argelim(ptr noundef %14, i32 noundef %78)
   br label %79
 
 79:                                               ; preds = %print_indent.exit77, %71
@@ -1665,7 +1665,7 @@ print_indent.exit77:                              ; preds = %.lr.ph.i75
 print_indent.exit80:                              ; preds = %.lr.ph.i78
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.13)
   %87 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %15, i32 noundef %87)
+  call fastcc void @output_all_info.argelim(ptr noundef %15, i32 noundef %87)
   br label %88
 
 88:                                               ; preds = %print_indent.exit80, %79
@@ -1696,7 +1696,7 @@ print_indent.exit80:                              ; preds = %.lr.ph.i78
 print_indent.exit83:                              ; preds = %.lr.ph.i81
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.15)
   %100 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %.0, i32 noundef %100)
+  call fastcc void @output_all_info.argelim(ptr noundef %.0, i32 noundef %100)
   br label %101
 
 101:                                              ; preds = %print_indent.exit83, %93
@@ -1720,7 +1720,7 @@ print_indent.exit83:                              ; preds = %.lr.ph.i81
 print_indent.exit86:                              ; preds = %.lr.ph.i84
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.17)
   %110 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %.064, i32 noundef %110)
+  call fastcc void @output_all_info.argelim(ptr noundef %.064, i32 noundef %110)
   br label %111
 
 111:                                              ; preds = %print_indent.exit86, %103
@@ -1741,7 +1741,7 @@ print_indent.exit86:                              ; preds = %.lr.ph.i84
 print_indent.exit89:                              ; preds = %.lr.ph.i87
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.19)
   %119 = load i32, ptr %11, align 8
-  call fastcc void @output_all_info(ptr noundef %.063, i32 noundef %119)
+  call fastcc void @output_all_info.argelim(ptr noundef %.063, i32 noundef %119)
   br label %120
 
 120:                                              ; preds = %print_indent.exit89, %111
@@ -1796,7 +1796,7 @@ declare double @io_time_get(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @io_time_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_all_info(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @output_all_info.argelim(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #4 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.i.preheader.preheader, label %._crit_edge
 
@@ -2001,7 +2001,7 @@ declare double @llvm.fabs.f64(double) #8
 declare void @print_version(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @recover_size_and_print(i64 noundef %0) unnamed_addr #4 {
+define internal fastcc void @recover_size_and_print.argprom(i64 noundef %0) unnamed_addr #4 {
   %2 = icmp sgt i64 %0, 1023
   %3 = and i64 %0, 1023
   %4 = icmp eq i64 %3, 0

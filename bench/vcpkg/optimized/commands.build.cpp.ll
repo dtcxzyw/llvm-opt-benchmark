@@ -3271,20 +3271,20 @@ _ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsI
 427:                                              ; preds = %.noexc.i.i.i
   store i8 1, ptr %20, align 8, !alias.scope !37, !noalias !33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %19) #26, !noalias !33
-  br label %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.exit.i.i.i.i"
+  br label %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom.exit.i.i.i.i"
 
 428:                                              ; preds = %.noexc.i.i.i
   store i8 0, ptr %20, align 8, !alias.scope !37, !noalias !33
   store i8 0, ptr %123, align 8, !alias.scope !37, !noalias !33
-  br label %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.exit.i.i.i.i"
+  br label %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom.exit.i.i.i.i"
 
-"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.exit.i.i.i.i": ; preds = %428, %427
+"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom.exit.i.i.i.i": ; preds = %428, %427
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #26, !noalias !33
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19), !noalias !33
   %429 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESt10_Select1stISC_ESt4lessIvESaISC_EE22_M_emplace_hint_uniqueIJRS3_SB_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr %.08.lcssa.i.i.i16.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(40) %20)
           to label %_ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvESaISt4pairIKS1_S9_EEE12emplace_hintIJRSD_S9_EEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_.exit.i.i.i.i unwind label %434, !noalias !33
 
-_ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvESaISt4pairIKS1_S9_EEE12emplace_hintIJRSD_S9_EEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_.exit.i.i.i.i: ; preds = %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.exit.i.i.i.i"
+_ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvESaISt4pairIKS1_S9_EEE12emplace_hintIJRSD_S9_EEESt17_Rb_tree_iteratorISE_ESt23_Rb_tree_const_iteratorISE_EDpOT_.exit.i.i.i.i: ; preds = %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom.exit.i.i.i.i"
   %430 = getelementptr inbounds i8, ptr %429, i64 32
   %431 = load i8, ptr %20, align 8, !noalias !33
   %432 = trunc i8 %431 to i1
@@ -3294,7 +3294,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %123) #26, !noalias !33
   br label %439
 
-434:                                              ; preds = %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.exit.i.i.i.i"
+434:                                              ; preds = %"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom.exit.i.i.i.i"
   %435 = landingpad { ptr, i32 }
           cleanup
   %436 = load i8, ptr %20, align 8, !noalias !33
@@ -4266,7 +4266,7 @@ _ZN5vcpkg7Strings6appendIJA23_cEEERNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %.val133.i = load ptr, ptr %114, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false), !alias.scope !57
   %.not5.i.i = icmp eq ptr %.val132.i, %.val133.i
-  br i1 %.not5.i.i, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.thread.i", label %.lr.ph.i182.i
+  br i1 %.not5.i.i, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.thread.i", label %.lr.ph.i182.i
 
 .lr.ph.i182.i:                                    ; preds = %745, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i
   %.sroa.01.06.i.i = phi ptr [ %760, %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i ], [ %.val132.i, %745 ]
@@ -4318,15 +4318,15 @@ _ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE9constructIS1_JRKS1_EEEvRS2_PT_DpO
 _ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i: ; preds = %757, %_ZNSt16allocator_traitsISaIN5vcpkg8AbiEntryEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i.i.i, %.lr.ph.i182.i
   %760 = getelementptr inbounds i8, ptr %.sroa.01.06.i.i, i64 64
   %.not.i183.i = icmp eq ptr %760, %.val133.i
-  br i1 %.not.i183.i, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.i", label %.lr.ph.i182.i
+  br i1 %.not.i183.i, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.i", label %.lr.ph.i182.i
 
-"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.i": ; preds = %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i
+"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.i": ; preds = %_ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i
   %.pre312.i = load ptr, ptr %63, align 8
   %.pre313.i = load ptr, ptr %150, align 8
   %761 = icmp eq ptr %.pre312.i, %.pre313.i
-  br i1 %761, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.thread.i", label %762
+  br i1 %761, label %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.thread.i", label %762
 
-762:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.i"
+762:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #26
   br label %.preheader.i.i190.i
 
@@ -4338,7 +4338,7 @@ _ZNSt6vectorIN5vcpkg8AbiEntryESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i
 _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i192.i: ; preds = %.preheader.i.i190.i
   %763 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i191.i, i64 64
   %764 = icmp eq ptr %763, %.pre313.i
-  br i1 %764, label %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.exit.i", label %767
+  br i1 %764, label %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.argprom.exit.i", label %767
 
 765:                                              ; preds = %767, %.preheader.i.i190.i
   %766 = landingpad { ptr, i32 }
@@ -4350,26 +4350,26 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
   %768 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull @.str.58, i64 noundef 1)
           to label %.preheader.i.i190.i unwind label %765, !llvm.loop !60
 
-"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.exit.i": ; preds = %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i192.i
+"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.argprom.exit.i": ; preds = %_ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERS7_S8_DpRKT_.exit.i.i192.i
   invoke void @_ZN5vcpkg5Debug7printlnIJA39_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpRKT_(ptr noundef nonnull align 1 dereferenceable(39) @.str.142, ptr noundef nonnull align 8 dereferenceable(32) %64)
           to label %829 unwind label %771
 
-769:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.thread.i"
+769:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.thread.i"
   %770 = landingpad { ptr, i32 }
           cleanup
   br label %.body193.i
 
-771:                                              ; preds = %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.exit.i"
+771:                                              ; preds = %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.argprom.exit.i"
   %772 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #26
   br label %.body193.i
 
-"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.thread.i": ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.i", %745
+"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.thread.i": ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.i", %745
   invoke void @_ZNK5vcpkg10VcpkgPaths9build_dirERKNS_11PackageSpecE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %65, ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.096.0215)
           to label %773 unwind label %769
 
-773:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.exit.thread.i"
+773:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom.exit.thread.i"
   %774 = invoke noundef zeroext i1 @_ZNK5vcpkg10Filesystem16create_directoryERKNS_4PathENS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(8) %346, ptr noundef nonnull align 8 dereferenceable(32) %65, i32 1253, ptr nonnull @.str)
           to label %775 unwind label %862
 
@@ -4522,8 +4522,8 @@ _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %827, 
   call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %71) #26
   br label %829
 
-829:                                              ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE9push_backEOS2_.exit.i, %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.exit.i"
-  %.sink319.i = phi ptr [ %65, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %64, %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.exit.i" ]
+829:                                              ; preds = %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE9push_backEOS2_.exit.i, %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.argprom.exit.i"
+  %.sink319.i = phi ptr [ %65, %_ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EE9push_backEOS2_.exit.i ], [ %64, %"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_3EESS_NS_13StringLiteralERKT_T0_.argprom.exit.i" ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink319.i) #26
   %830 = load ptr, ptr %63, align 8
   %831 = load ptr, ptr %150, align 8
@@ -6702,7 +6702,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = load i8, ptr %28, align 8, !noalias !101
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i"
+  br i1 %30, label %31, label %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom.exit.i"
 
 31:                                               ; preds = %.critedge.i
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #26, !noalias !101
@@ -6719,7 +6719,7 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   call void @__clang_call_terminate(ptr %36) #27
   unreachable
 
-"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i": ; preds = %.critedge.i
+"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom.exit.i": ; preds = %.critedge.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   %37 = getelementptr inbounds i8, ptr %6, i64 32
   %38 = getelementptr inbounds i8, ptr %6, i64 40
@@ -6750,11 +6750,11 @@ _ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S
   %50 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NS0_8EnvCache15TripletMapEntryEESt10_Select1stIS6_ESt4lessIvESaIS6_EE22_M_emplace_hint_uniqueIJRS3_S5_EEESt17_Rb_tree_iteratorIS6_ESt23_Rb_tree_const_iteratorIS6_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(176) %6)
           to label %_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE12emplace_hintIJRS7_S3_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit.i unwind label %51
 
-_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE12emplace_hintIJRS7_S3_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit.i: ; preds = %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i"
+_ZNSt3mapIN5vcpkg4PathENS0_8EnvCache15TripletMapEntryESt4lessIvESaISt4pairIKS1_S3_EEE12emplace_hintIJRS7_S3_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_.exit.i: ; preds = %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom.exit.i"
   call void @_ZN5vcpkg8EnvCache15TripletMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %6) #26
   br label %"_ZNK5vcpkg5CacheINS_4PathENS_8EnvCache15TripletMapEntryESt4lessIvEE8get_lazyIS1_ZNKS2_17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKS1_E3$_0TnNSt9enable_ifIXaasr3stdE18is_constructible_vIS1_RKT_Esr6detail11is_callableIRS5_SC_SH_EE5valueEiE4typeELi0EEERKS3_SH_OT0_.exit"
 
-51:                                               ; preds = %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.exit.i"
+51:                                               ; preds = %"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom.exit.i"
   %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5vcpkg8EnvCache15TripletMapEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %6) #26
@@ -7750,7 +7750,7 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   %28 = getelementptr inbounds i8, ptr %4, i64 32
   %29 = load i8, ptr %28, align 8, !noalias !119
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i"
+  br i1 %30, label %31, label %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom.exit.i"
 
 31:                                               ; preds = %.critedge.i
   %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %4) #26, !noalias !119
@@ -7767,7 +7767,7 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   call void @__clang_call_terminate(ptr %36) #27
   unreachable
 
-"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i": ; preds = %.critedge.i
+"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom.exit.i": ; preds = %.critedge.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -7775,11 +7775,11 @@ _ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4le
   %37 = invoke ptr @_ZNSt8_Rb_treeIN5vcpkg4PathESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE22_M_emplace_hint_uniqueIJRS3_S9_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE12emplace_hintIJRSB_S7_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_.exit.i unwind label %38
 
-_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE12emplace_hintIJRSB_S7_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_.exit.i: ; preds = %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i"
+_ZNSt3mapIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE12emplace_hintIJRSB_S7_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_.exit.i: ; preds = %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
   br label %"_ZNK5vcpkg5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEE8get_lazyIS1_ZNS_L19get_toolchain_cacheERSA_RKS1_RKNS_18ReadOnlyFilesystemEE3$_0TnNSt9enable_ifIXaasr3stdE18is_constructible_vIS1_RKT_Esr6detail11is_callableIRS9_SE_SM_EE5valueEiE4typeELi0EEERKS7_SM_OT0_.exit"
 
-38:                                               ; preds = %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.exit.i"
+38:                                               ; preds = %"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom.exit.i"
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
@@ -8176,7 +8176,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 77:                                               ; preds = %76
   invoke void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.exit.i" unwind label %78
+          to label %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.argprom.exit.i" unwind label %78
 
 common.resume.i40:                                ; preds = %81, %78
   %common.resume.op.i41 = phi { ptr, i32 } [ %79, %78 ], [ %82, %81 ]
@@ -8188,15 +8188,15 @@ common.resume.i40:                                ; preds = %81, %78
           cleanup
   br label %common.resume.i40
 
-"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.exit.i": ; preds = %77
+"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.argprom.exit.i": ; preds = %77
   %80 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIvESaIS8_EE22_M_emplace_hint_uniqueIJRS7_S5_EEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr %.08.lcssa.i.i.i15.i, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE12emplace_hintIJRS9_S5_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i42 unwind label %81
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE12emplace_hintIJRS9_S5_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i42: ; preds = %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.exit.i"
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIvESaISt4pairIKS5_S5_EEE12emplace_hintIJRS9_S5_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_.exit.i42: ; preds = %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
   br label %"_ZNK5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIvEE8get_lazyIS6_ZNS_8EnvCache16get_triplet_infoERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEE3$_1TnNSt9enable_ifIXaasr3stdE18is_constructible_vIS6_RKT_Esr6detail11is_callableIRS8_RKS6_SP_EE5valueEiE4typeELi0EEESS_SP_OT0_.exit"
 
-81:                                               ; preds = %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.exit.i"
+81:                                               ; preds = %"_ZZN5vcpkg8EnvCache16get_triplet_infoB5cxx11ERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEENK3$_1clB5cxx11Ev.argprom.exit.i"
   %82 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i40
@@ -9053,20 +9053,20 @@ define dso_local void @_ZN5vcpkg11append_logsEOSt6vectorISt4pairINS_4PathENSt7__
   %18 = getelementptr inbounds i8, ptr %4, i64 1024
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_T0_"(ptr %4, ptr nonnull %18)
   %.not6.i.i.i.i.i = icmp eq ptr %18, %6
-  br i1 %.not6.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit", label %.lr.ph.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
   %.sroa.0.07.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %18, %17 ]
   tail call fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops14_Val_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_T0_"(ptr %.sroa.0.07.i.i.i.i.i)
   %19 = getelementptr inbounds i8, ptr %.sroa.0.07.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %19, %6
-  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !152
+  br i1 %.not.i.i.i.i.i, label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit", label %.lr.ph.i.i.i.i.i, !llvm.loop !152
 
 20:                                               ; preds = %8
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_T0_"(ptr %4, ptr %6)
-  br label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit"
+  br label %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit"
 
-"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %17, %20
+"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit": ; preds = %.lr.ph.i.i.i.i.i, %17, %20
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -9080,9 +9080,9 @@ define dso_local void @_ZN5vcpkg11append_logsEOSt6vectorISt4pairINS_4PathENSt7__
   %.not19 = icmp eq ptr %29, %30
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit", %.lr.ph
-  %.021 = phi i64 [ %31, %.lr.ph ], [ %28, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit" ]
-  %.sroa.016.020 = phi ptr [ %35, %.lr.ph ], [ %29, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit" ]
+.lr.ph:                                           ; preds = %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit", %.lr.ph
+  %.021 = phi i64 [ %31, %.lr.ph ], [ %28, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit" ]
+  %.sroa.016.020 = phi ptr [ %35, %.lr.ph ], [ %29, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit" ]
   %31 = add i64 %.021, %27
   %32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   %33 = sub i64 %31, %32
@@ -9092,7 +9092,7 @@ define dso_local void @_ZN5vcpkg11append_logsEOSt6vectorISt4pairINS_4PathENSt7__
   %.not = icmp eq ptr %35, %30
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.exit", %3
+.loopexit:                                        ; preds = %.lr.ph, %"_ZN5vcpkg4Util4sortISt6vectorISt4pairINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEZNS_11append_logsEOSD_mRSA_E3$_0EEvRT_T0_.argprom.exit", %3
   ret void
 }
 
@@ -25773,7 +25773,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L16d
   %11 = load ptr, ptr %10, align 8
   %12 = tail call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br i1 %9, label %"_ZSt10__invoke_rIvRZN5vcpkgL16do_build_packageERKNS0_17VcpkgCmdArgumentsERKNS0_10VcpkgPathsERKNS0_17InstallPlanActionEbE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %13
+  br i1 %9, label %"_ZSt10__invoke_rIvRZN5vcpkgL16do_build_packageERKNS0_17VcpkgCmdArgumentsERKNS0_10VcpkgPathsERKNS0_17InstallPlanActionEbE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %13
 
 13:                                               ; preds = %2
   %14 = extractvalue { ptr, i64 } %12, 1
@@ -25791,7 +25791,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L16d
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   resume { ptr, i32 } %18
 
-"_ZSt10__invoke_rIvRZN5vcpkgL16do_build_packageERKNS0_17VcpkgCmdArgumentsERKNS0_10VcpkgPathsERKNS0_17InstallPlanActionEbE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %2
+"_ZSt10__invoke_rIvRZN5vcpkgL16do_build_packageERKNS0_17VcpkgCmdArgumentsERKNS0_10VcpkgPathsERKNS0_17InstallPlanActionEbE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
@@ -29175,7 +29175,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L18l
   %64 = load ptr, ptr %63, align 8
   %65 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  br i1 %62, label %"_ZSt10__invoke_rIvRZN5vcpkgL18load_compiler_infoERKNS0_10VcpkgPathsERKNS0_12PreBuildInfoERKNS0_7ToolsetEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit", label %66
+  br i1 %62, label %"_ZSt10__invoke_rIvRZN5vcpkgL18load_compiler_infoERKNS0_10VcpkgPathsERKNS0_12PreBuildInfoERKNS0_7ToolsetEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit", label %66
 
 66:                                               ; preds = %47
   %67 = extractvalue { ptr, i64 } %65, 1
@@ -29193,7 +29193,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L18l
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   resume { ptr, i32 } %71
 
-"_ZSt10__invoke_rIvRZN5vcpkgL18load_compiler_infoERKNS0_10VcpkgPathsERKNS0_12PreBuildInfoERKNS0_7ToolsetEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %47
+"_ZSt10__invoke_rIvRZN5vcpkgL18load_compiler_infoERKNS0_10VcpkgPathsERKNS0_12PreBuildInfoERKNS0_7ToolsetEE3$_0JNS0_10StringViewEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %47
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -29208,7 +29208,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L18l
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringViewEEZNS0_L18load_compiler_infoERKNS0_10VcpkgPathsERKNS0_12PreBuildInfoERKNS0_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %8
@@ -29217,30 +29217,30 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN5vcpkg10StringV
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN5vcpkgL18load_compiler_infoERKNS_10VcpkgPathsERKNS_12PreBuildInfoERKNS_7ToolsetEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val6, i64 32, i1 false)
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
 8:                                                ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %9 = icmp eq ptr %.val7.i, null
-  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit", label %10
+  br i1 %9, label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit", label %10
 
 10:                                               ; preds = %8
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #28
-  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %10, %8, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN5vcpkgL18load_compiler_infoERKNS1_10VcpkgPathsERKNS1_12PreBuildInfoERKNS1_7ToolsetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.argprom.exit": ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
 
@@ -30432,15 +30432,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %33 = add nsw i64 %.010.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.exit.i.i", label %30
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.argprom.exit.i.i", label %30
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.exit.i.i": ; preds = %30
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.argprom.exit.i.i": ; preds = %30
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   %34 = icmp sgt i64 %.lcssa49, 64
   br i1 %34, label %.lr.ph.i9.i.preheader, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_SN_T0_.exit"
 
-.lr.ph.i9.i.preheader:                            ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.exit.i.i"
+.lr.ph.i9.i.preheader:                            ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.argprom.exit.i.i"
   %35 = getelementptr inbounds i8, ptr %4, i64 32
   %36 = getelementptr inbounds i8, ptr %5, i64 32
   br label %.lr.ph.i9.i
@@ -30613,7 +30613,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %108 = icmp sgt i64 %107, 16
   br i1 %108, label %24, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_SN_T0_.exit", !llvm.loop !437
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_SN_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEET_SN_SN_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_SN_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEET_SN_SN_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5vcpkg4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11append_logsEOSF_mRSA_E3$_0EEEvT_SN_RT0_.argprom.exit.i.i"
   ret void
 }
 
@@ -31924,8 +31924,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !35 = distinct !{!35, !"_ZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoE"}
 !36 = distinct !{!36, !15}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev: argument 0"}
-!39 = distinct !{!39, !"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev"}
+!38 = distinct !{!38, !39, !"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZZN5vcpkgL9grdk_hashERKNS_10FilesystemERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEERKNS_12PreBuildInfoEENK3$_0clB5cxx11Ev.argprom"}
 !40 = !{!38, !34}
 !41 = distinct !{!41, !15}
 !42 = !{!43}
@@ -31934,18 +31934,18 @@ attributes #31 = { nounwind willreturn memory(none) }
 !45 = distinct !{!45, !15}
 !46 = distinct !{!46, !15}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESS_NS_13StringLiteralERKT_T0_: argument 0"}
-!49 = distinct !{!49, !"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESS_NS_13StringLiteralERKT_T0_"}
+!48 = distinct !{!48, !49, !"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESS_NS_13StringLiteralERKT_T0_.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZN5vcpkg7Strings4joinISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESS_NS_13StringLiteralERKT_T0_.argprom"}
 !50 = !{!51, !48}
 !51 = distinct !{!51, !52, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNS_8AbiEntryESt6vectorIS4_SaIS4_EEEEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISH_EENS_4SpanIS5_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESW_NS_13StringLiteralET_S14_T0_: argument 0"}
 !52 = distinct !{!52, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNS_8AbiEntryESt6vectorIS4_SaIS4_EEEEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISH_EENS_4SpanIS5_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_1EESW_NS_13StringLiteralET_S14_T0_"}
 !53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZZN5vcpkgL16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteIS6_EENS_4SpanIKNS_8AbiEntryEEERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEENK3$_1clB5cxx11ERSD_: argument 0"}
-!55 = distinct !{!55, !"_ZZN5vcpkgL16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteIS6_EENS_4SpanIKNS_8AbiEntryEEERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEENK3$_1clB5cxx11ERSD_"}
+!54 = distinct !{!54, !55, !"_ZZN5vcpkgL16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteIS6_EENS_4SpanIKNS_8AbiEntryEEERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEENK3$_1clB5cxx11ERSD_.argprom: argument 0"}
+!55 = distinct !{!55, !"_ZZN5vcpkgL16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteIS6_EENS_4SpanIKNS_8AbiEntryEEERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEENK3$_1clB5cxx11ERSD_.argprom"}
 !56 = distinct !{!56, !15}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_: argument 0"}
-!59 = distinct !{!59, !"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_"}
+!58 = distinct !{!58, !59, !"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom: argument 0"}
+!59 = distinct !{!59, !"_ZN5vcpkg4Util6filterISt6vectorINS_8AbiEntryESaIS3_EEZNS_L16populate_abi_tagERKNS_10VcpkgPathsERNS_17InstallPlanActionEOSt10unique_ptrINS_12PreBuildInfoESt14default_deleteISC_EENS_4SpanIKS3_EERNS_5CacheINS_4PathENS_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4lessIvEEEE3$_2EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIS15_EES12_T0_.argprom"}
 !60 = distinct !{!60, !15}
 !61 = distinct !{!61, !15}
 !62 = distinct !{!62, !15}
@@ -31975,8 +31975,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !86 = distinct !{!86, !87, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_11PackageSpecEEENS6_IcNS_10StringViewEEEEEENS_15LocalizedStringEmDpOT_: argument 0"}
 !87 = distinct !{!87, !"_ZN5vcpkg3msg6detail11format_implIJN3fmt3v106detail9named_argIcNS_11PackageSpecEEENS6_IcNS_10StringViewEEEEEENS_15LocalizedStringEmDpOT_"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN5vcpkgL22make_gh_issue_open_urlB5cxx11ENS_10StringViewES0_S0_: argument 0"}
-!90 = distinct !{!90, !"_ZN5vcpkgL22make_gh_issue_open_urlB5cxx11ENS_10StringViewES0_S0_"}
+!89 = distinct !{!89, !90, !"_ZN5vcpkgL22make_gh_issue_open_urlB5cxx11ENS_10StringViewES0_S0_.argprom: argument 0"}
+!90 = distinct !{!90, !"_ZN5vcpkgL22make_gh_issue_open_urlB5cxx11ENS_10StringViewES0_S0_.argprom"}
 !91 = !{!92}
 !92 = distinct !{!92, !93, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSG_: argument 0"}
 !93 = distinct !{!93, !"_ZN3fmt3v1016make_format_argsINS0_20basic_format_contextINS0_8appenderEcEEJKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_EEENS0_16format_arg_storeIT_JDpNSt9remove_cvINSt16remove_referenceIT0_E4typeEE4typeEEEEDpRSG_"}
@@ -31988,8 +31988,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !99 = distinct !{!99, !15}
 !100 = distinct !{!100, !15}
 !101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv: argument 0"}
-!103 = distinct !{!103, !"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv"}
+!102 = distinct !{!102, !103, !"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom: argument 0"}
+!103 = distinct !{!103, !"_ZZNK5vcpkg8EnvCache17get_triplet_cacheERKNS_18ReadOnlyFilesystemERKNS_4PathEENK3$_0clEv.argprom"}
 !104 = !{!"branch_weights", i32 1, i32 1048575}
 !105 = distinct !{!105, !15}
 !106 = !{!107}
@@ -32006,8 +32006,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !117 = distinct !{!117, !15}
 !118 = distinct !{!118, !15}
 !119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev: argument 0"}
-!121 = distinct !{!121, !"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev"}
+!120 = distinct !{!120, !121, !"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom: argument 0"}
+!121 = distinct !{!121, !"_ZZN5vcpkgL19get_toolchain_cacheERNS_5CacheINS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvEEERKS1_RKNS_18ReadOnlyFilesystemEENK3$_0clB5cxx11Ev.argprom"}
 !122 = distinct !{!122, !15}
 !123 = !{!124}
 !124 = distinct !{!124, !125, !"_ZN5vcpkg3msg6formatIJNS0_9triplet_tENS0_13system_name_tEEJNS_10StringViewES4_EEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS7_E4typeET0_EE: argument 0"}
@@ -32073,8 +32073,8 @@ attributes #31 = { nounwind willreturn memory(none) }
 !184 = distinct !{!184, !185, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_19create_github_issueERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISW_EEOST_OSR_: argument 0"}
 !185 = distinct !{!185, !"_ZN5vcpkg4Util4fmapIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_19create_github_issueERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISW_EEOST_OSR_"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairINS_4PathESJ_EOT_: argument 0"}
-!188 = distinct !{!188, !"_ZZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairINS_4PathESJ_EOT_"}
+!187 = distinct !{!187, !188, !"_ZZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairINS_4PathESJ_EOT_.argprom: argument 0"}
+!188 = distinct !{!188, !"_ZZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgumentsERKNS_19ExtendedBuildResultERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairINS_4PathESJ_EOT_.argprom"}
 !189 = distinct !{!189, !15}
 !190 = !{!191}
 !191 = distinct !{!191, !192, !"_ZN5vcpkgL22inner_create_buildinfoENS_10StringViewEOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS7_NS_10TextRowColEESt4lessIvESaIS8_IKS7_SA_EEE: argument 0"}
@@ -32214,14 +32214,14 @@ attributes #31 = { nounwind willreturn memory(none) }
 !325 = distinct !{!325, !326, !"_ZN3fmt3v106formatIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_: argument 0"}
 !326 = distinct !{!326, !"_ZN3fmt3v106formatIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_NS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOSC_"}
 !327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_: argument 0"}
-!329 = distinct !{!329, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"}
+!328 = distinct !{!328, !329, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom: argument 0"}
+!329 = distinct !{!329, !"_ZN5vcpkg7Strings4joinINS_18InternalFeatureSetEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_.argprom"}
 !330 = !{!331, !328}
 !331 = distinct !{!331, !332, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EES9_NS_13StringLiteralET_SR_T0_: argument 0"}
 !332 = distinct !{!332, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEZNS_L16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbE3$_1EES9_NS_13StringLiteralET_SR_T0_"}
 !333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZZN5vcpkgL16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
-!335 = distinct !{!335, !"_ZZN5vcpkgL16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"}
+!334 = distinct !{!334, !335, !"_ZZN5vcpkgL16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom: argument 0"}
+!335 = distinct !{!335, !"_ZZN5vcpkgL16do_build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionEbENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"}
 !336 = !{!334, !331, !328}
 !337 = distinct !{!337, !15}
 !338 = !{!339}

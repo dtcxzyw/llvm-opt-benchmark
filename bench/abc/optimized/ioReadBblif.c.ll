@@ -166,7 +166,7 @@ define internal fastcc void @Vec_PtrSetEntry(ptr nocapture noundef %0, i32 nound
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not.i.not = icmp slt i32 %1, %6
-  br i1 %.not.i.not, label %Vec_PtrFillExtra.exit, label %7
+  br i1 %.not.i.not, label %Vec_PtrFillExtra.argprom.exit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
@@ -251,9 +251,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
 
 ._crit_edge.i:                                    ; preds = %37, %Vec_PtrGrow.exit.i
   store i32 %4, ptr %5, align 4
-  br label %Vec_PtrFillExtra.exit
+  br label %Vec_PtrFillExtra.argprom.exit
 
-Vec_PtrFillExtra.exit:                            ; preds = %3, %._crit_edge.i
+Vec_PtrFillExtra.argprom.exit:                    ; preds = %3, %._crit_edge.i
   %40 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %40, align 8
   %41 = sext i32 %1 to i64

@@ -1259,7 +1259,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i.i:                 ; preds = %554, %550
   %573 = load i32, ptr %572, align 4
   %574 = and i32 %573, 134217727
   %575 = icmp eq i32 %574, 3
-  br i1 %575, label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.exit.i.i", label %576
+  br i1 %575, label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.argprom.argprom.argprom.exit.i.i", label %576
 
 576:                                              ; preds = %571, %557
   %577 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %561) #14
@@ -1286,9 +1286,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit20.i.i.i: ; preds = %576
   %589 = load i32, ptr %588, align 4
   %590 = and i32 %589, 134217727
   %591 = icmp eq i32 %590, 1
-  br i1 %591, label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_2clEPNS_10BasicBlockE.exit73.i.i", label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.exit.i.i"
+  br i1 %591, label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_2clEPNS_10BasicBlockE.exit73.i.i", label %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.argprom.argprom.argprom.exit.i.i"
 
-"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.exit.i.i": ; preds = %587, %571
+"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.argprom.argprom.argprom.exit.i.i": ; preds = %587, %571
   %.0.i65.i.i = phi ptr [ %565, %571 ], [ %581, %587 ]
   %592 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %.086.i.i) #14
   store ptr %592, ptr %9, align 8
@@ -1312,12 +1312,12 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit20.i.i.i: ; preds = %576
   %608 = icmp eq i32 %607, 89
   br i1 %608, label %609, label %612
 
-609:                                              ; preds = %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.exit.i.i"
+609:                                              ; preds = %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.argprom.argprom.argprom.exit.i.i"
   %610 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL20UnlikelyBranchWeight, i64 128), align 8, !noalias !54
   %611 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL18LikelyBranchWeight, i64 128), align 8, !noalias !54
   br label %_ZL15getBranchWeightjPN4llvm8CallInstEi.exit.i77.i
 
-612:                                              ; preds = %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.exit.i.i"
+612:                                              ; preds = %"_ZZL12handlePhiDefPN4llvm8CallInstEENK3$_1clEj.argprom.argprom.argprom.exit.i.i"
   %613 = load i32, ptr %418, align 4, !noalias !59
   %614 = and i32 %613, 134217727
   %615 = zext nneg i32 %614 to i64

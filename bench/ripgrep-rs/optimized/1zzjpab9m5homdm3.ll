@@ -3165,12 +3165,12 @@ common.resume:                                    ; preds = %common.resume.sink.
 switch.lookup:                                    ; preds = %77
   %106 = lshr i64 %80, 32
   %switch.idx.cast = trunc i64 %106 to i8
-  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit
 
 107:                                              ; preds = %77
   %108 = getelementptr inbounds i8, ptr %79, i64 16
   %109 = load i8, ptr %108, align 8, !range !490, !noundef !4
-  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit
 
 110:                                              ; preds = %77
   %111 = getelementptr i8, ptr %79, i64 -1
@@ -3178,9 +3178,9 @@ switch.lookup:                                    ; preds = %77
   tail call void @llvm.assume(i1 %112)
   %113 = getelementptr i8, ptr %79, i64 15
   %114 = load i8, ptr %113, align 8, !range !490, !noundef !4
-  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+  br label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit
 
-_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %switch.lookup, %107, %110
+_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit: ; preds = %switch.lookup, %107, %110
   %.0.i = phi i8 [ %114, %110 ], [ %109, %107 ], [ %switch.idx.cast, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !491
@@ -3206,13 +3206,13 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit: ; preds = %switch.lookup, 
   %121 = invoke noundef zeroext i1 @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h1213a0edb2d83536E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %78, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
           to label %124 unwind label %122, !noalias !495
 
-122:                                              ; preds = %125, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+122:                                              ; preds = %125, %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit
   %123 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h7cb2294537b99227E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #30
           to label %common.resume unwind label %126, !noalias !495
 
-124:                                              ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit
+124:                                              ; preds = %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !491
   br i1 %121, label %125, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h36234ed5cb1aab52E.exit"
 

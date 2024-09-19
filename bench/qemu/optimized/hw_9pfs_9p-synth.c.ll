@@ -78,7 +78,7 @@ for.body:                                         ; preds = %if.end3, %for.cond
   %name10 = getelementptr inbounds i8, ptr %tmp.055, i64 24
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name10, ptr noundef nonnull dereferenceable(1) %name) #17
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond
+  br i1 %tobool12.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end3
   %2 = load i32, ptr @synth_node_count, align 4
@@ -175,15 +175,15 @@ if.then24.i43:                                    ; preds = %if.end.i36
 
 v9fs_add_dir_node.exit52:                         ; preds = %if.end.i36, %if.then24.i43
   store ptr %call.i, ptr %result, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body, %v9fs_add_dir_node.exit52
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body, %v9fs_add_dir_node.exit52
   %retval.1 = phi i32 [ 0, %v9fs_add_dir_node.exit52 ], [ -17, %for.body ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @synth_mutex, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   br label %return
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
+return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
   ret i32 %retval.0
 }
 
@@ -229,7 +229,7 @@ for.body:                                         ; preds = %if.end3, %for.cond
   %name10 = getelementptr inbounds i8, ptr %tmp.027, i64 24
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name10, ptr noundef nonnull dereferenceable(1) %name) #17
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.cond
+  br i1 %tobool12.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.end3
   %and = and i32 %mode, 511
@@ -262,20 +262,20 @@ for.end:                                          ; preds = %for.cond, %if.end3
   %4 = ptrtoint ptr %call15 to i64
   store atomic i64 %4, ptr %spec.store.select release, align 8
   %cmp41.not = icmp eq ptr %3, null
-  br i1 %cmp41.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then42
+  br i1 %cmp41.not, label %glib_autoptr_cleanup_QemuLockable.argprom.exit, label %if.then42
 
 if.then42:                                        ; preds = %for.end
   %le_prev48 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %sibling28, ptr %le_prev48, align 8
-  br label %glib_autoptr_cleanup_QemuLockable.exit
+  br label %glib_autoptr_cleanup_QemuLockable.argprom.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body, %for.end, %if.then42
+glib_autoptr_cleanup_QemuLockable.argprom.exit:   ; preds = %for.body, %for.end, %if.then42
   %retval.1 = phi i32 [ 0, %if.then42 ], [ 0, %for.end ], [ -17, %for.body ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @synth_mutex, ptr noundef nonnull @.str.3, i32 noundef 132) #18
   br label %return
 
-return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
+return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %glib_autoptr_cleanup_QemuLockable.argprom.exit
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_QemuLockable.argprom.exit ], [ -11, %entry ], [ -22, %lor.lhs.false ], [ -22, %if.end ]
   ret i32 %retval.0
 }
 

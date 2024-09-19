@@ -3983,7 +3983,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit55.i: ; preds = 
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit.i: ; preds = %582, %578, %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit55.i
   call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull @.str.13), !noalias !56
-  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull @.str.11)
+  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias writable align 8 %110, ptr noundef nonnull @.str.11)
   call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %586 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !200
   store i32 %586, ptr %108, align 8, !alias.scope !197, !noalias !56
@@ -4562,7 +4562,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit121.i: ; pr
 
 _ZN5clang12ast_matchers8internal7MatcherINS_8CallExprEED2Ev.exit123.i: ; preds = %844, %840, %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit121.i
   call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull @.str.14), !noalias !56
-  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef nonnull @.str.11)
+  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef nonnull @.str.11)
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   %848 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !288
   store i32 %848, ptr %120, align 8, !alias.scope !285, !noalias !56
@@ -5734,7 +5734,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_7VarDeclEED2Ev.exit.i64: ; preds = %
 
 _ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_20HasDescendantMatcherENS_4StmtENS1_8TypeListIJNS_4DeclES4_NS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_7TypeLocENS_8QualTypeENS_4AttrEEEEED2Ev.exit.i65: ; preds = %1330, %1326, %_ZN5clang12ast_matchers8internal7MatcherINS_7VarDeclEED2Ev.exit.i64
   call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull @.str.25), !noalias !331
-  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull @.str.23)
+  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull @.str.23)
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %1334 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !413
   store i32 %1334, ptr %41, align 8, !alias.scope !410, !noalias !331
@@ -6180,7 +6180,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit62.i: ; preds = 
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit.i82: ; preds = %1534, %1530, %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit62.i
   call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull @.str.26), !noalias !331
-  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull @.str.23)
+  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull @.str.23)
   call void @llvm.experimental.noalias.scope.decl(metadata !475)
   %1538 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !478
   store i32 %1538, ptr %49, align 8, !alias.scope !475, !noalias !331
@@ -6759,7 +6759,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit128.i: ; pr
 
 _ZN5clang12ast_matchers8internal7MatcherINS_8CallExprEED2Ev.exit130.i: ; preds = %1796, %1792, %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit128.i
   call fastcc void @_ZN12_GLOBAL__N_19callsNameEPKc(ptr dead_on_unwind noalias writable align 8 %62, ptr noundef nonnull @.str.27), !noalias !331
-  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull @.str.23)
+  call fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull @.str.23)
   call void @llvm.experimental.noalias.scope.decl(metadata !563)
   %1800 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !566
   store i32 %1800, ptr %61, align 8, !alias.scope !563, !noalias !331
@@ -8457,7 +8457,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc.argelim(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1183", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8

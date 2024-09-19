@@ -5180,7 +5180,7 @@ entry:
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp6.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i, label %while.body.preheader.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit
+  br i1 %cmp6.i.i.i, label %while.body.preheader.i.i.i, label %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit
 
 while.body.preheader.i.i.i:                       ; preds = %entry
   %sub.ptr.div.i.i.i9.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 40
@@ -5203,9 +5203,9 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i: ; preds = %while.body.i.i.i
   %.pre.i = load ptr, ptr %by_symbol_flat_, align 8
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
-  br label %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit
+  br label %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit
 
-_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit: ; preds = %entry, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i
+_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit: ; preds = %entry, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i
   %4 = phi ptr [ %2, %entry ], [ %.pre, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i ]
   %5 = phi ptr [ %1, %entry ], [ %.pre.i, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i ]
   %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %1, %entry ], [ %__first.sroa.0.1.i.i.i, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESt6vectorIS6_SaIS6_EEEESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEET_SI_SI_RKT0_T1_.exit.loopexit.i ]
@@ -5216,7 +5216,7 @@ _ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDe
   %cmp.i.not = icmp eq ptr %spec.select.i, %4
   br i1 %cmp.i.not, label %cleanup.done, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit
+land.lhs.true:                                    ; preds = %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp4.i)
@@ -5298,9 +5298,9 @@ cleanup.action:                                   ; preds = %lor.rhs.i.i, %_ZN4a
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #29
   br label %cleanup.done
 
-cleanup.done:                                     ; preds = %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit, %cleanup.action
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup.action ], [ null, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit ]
-  %retval.sroa.4.1 = phi i32 [ %retval.sroa.4.0, %cleanup.action ], [ 0, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.exit ]
+cleanup.done:                                     ; preds = %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit, %cleanup.action
+  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup.action ], [ null, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit ]
+  %retval.sroa.4.1 = phi i32 [ %retval.sroa.4.0, %cleanup.action ], [ 0, %_ZN6google8protobuf12_GLOBAL__N_119FindLastLessOrEqualISt6vectorINS0_25EncodedDescriptorDatabase15DescriptorIndex11SymbolEntryESaIS6_EESt17basic_string_viewIcSt11char_traitsIcEENS5_13SymbolCompareEEENT_14const_iteratorEPKSE_RKT0_RKT1_.argprom.exit ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.4.1, 1
   ret { ptr, i32 } %.fca.1.insert

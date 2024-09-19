@@ -10595,7 +10595,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_Tra
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SourceToTarget_TransparentContainer_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -10878,7 +10878,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapability_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_UERadioCapability.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -18865,7 +18865,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequestTransfer_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer.argelim(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -24306,7 +24306,7 @@ define internal i32 @dissect_ngap_ServedGUAMIItem(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -24741,7 +24741,7 @@ define internal i32 @dissect_ngap_UEPresence(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_UERadioCapability.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -27986,7 +27986,7 @@ declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef
 declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer.argelim(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4

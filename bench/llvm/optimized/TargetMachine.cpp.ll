@@ -535,15 +535,15 @@ _ZNK4llvm12GlobalObject10getSectionEv.exit48:     ; preds = %41
   %43 = tail call { ptr, i64 } @_ZNK4llvm12GlobalObject14getSectionImplEv(ptr noundef nonnull align 8 dereferenceable(56) %15) #15
   %44 = extractvalue { ptr, i64 } %43, 0
   %45 = extractvalue { ptr, i64 } %43, 1
-  %46 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_"(ptr %44, i64 %45, ptr nonnull @.str.1, i64 5)
+  %46 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.argprom"(ptr %44, i64 %45, ptr nonnull @.str.1, i64 5)
   br i1 %46, label %.critedge2, label %47
 
 47:                                               ; preds = %_ZNK4llvm12GlobalObject10getSectionEv.exit48
-  %48 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_"(ptr %44, i64 %45, ptr nonnull @.str.2, i64 6)
+  %48 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.argprom"(ptr %44, i64 %45, ptr nonnull @.str.2, i64 6)
   br i1 %48, label %.critedge2, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_"(ptr %44, i64 %45, ptr nonnull @.str.3, i64 8)
+  %50 = tail call fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.argprom"(ptr %44, i64 %45, ptr nonnull @.str.3, i64 8)
   br label %.critedge2
 
 51:                                               ; preds = %41
@@ -627,7 +627,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit54:      ; preds = %_ZNK4llvm9StringRef
 declare noundef ptr @_ZNK4llvm11GlobalValue16getAliaseeObjectEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_"(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #5 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK4llvm13TargetMachine18isLargeGlobalValueEPKNS_11GlobalValueEENK3$_0clENS_9StringRefES5_.argprom"(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #5 align 2 {
   %.not.i.i = icmp ult i64 %1, %3
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %5
 
@@ -1642,7 +1642,7 @@ define internal void @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKN
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #11 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -1650,18 +1650,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm19TargetTra
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i64, ptr %1, align 8
   store i64 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZNK4llvm13TargetMachine19getTargetIRAnalysisEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 
@@ -1710,9 +1710,9 @@ attributes #18 = { builtin nounwind allocsize(0) }
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = !{!9, !11, !13}
-!9 = distinct !{!9, !10, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE: argument 0"}
-!10 = distinct !{!10, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE"}
-!11 = distinct !{!11, !12, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!12 = distinct !{!12, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_"}
-!13 = distinct !{!13, !14, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_: argument 0"}
-!14 = distinct !{!14, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_"}
+!9 = distinct !{!9, !10, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE.argprom: argument 0"}
+!10 = distinct !{!10, !"_ZZNK4llvm13TargetMachine19getTargetIRAnalysisEvENK3$_0clERKNS_8FunctionE.argprom"}
+!11 = distinct !{!11, !12, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZSt13__invoke_implIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!13 = distinct !{!13, !14, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZSt10__invoke_rIN4llvm19TargetTransformInfoERZNKS0_13TargetMachine19getTargetIRAnalysisEvE3$_0JRKNS0_8FunctionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.argprom"}

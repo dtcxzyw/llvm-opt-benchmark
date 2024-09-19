@@ -1686,7 +1686,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %291
 455:                                              ; preds = %451
   %456 = getelementptr inbounds i8, ptr %381, i64 168
   %457 = load i64, ptr %456, align 8
-  br label %initialize_windowaggregate.exit.i.i
+  br label %initialize_windowaggregate.argprom.exit.i.i
 
 458:                                              ; preds = %451
   %459 = load ptr, ptr %448, align 8
@@ -1703,9 +1703,9 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %291
   %469 = call i64 @datumCopy(i64 noundef %462, i1 noundef zeroext %465, i32 noundef %468) #8
   store ptr %460, ptr @CurrentMemoryContext, align 8
   %.pre.i.i.i = load i8, ptr %452, align 8
-  br label %initialize_windowaggregate.exit.i.i
+  br label %initialize_windowaggregate.argprom.exit.i.i
 
-initialize_windowaggregate.exit.i.i:              ; preds = %458, %455
+initialize_windowaggregate.argprom.exit.i.i:      ; preds = %458, %455
   %470 = phi i8 [ %453, %455 ], [ %.pre.i.i.i, %458 ]
   %.sink.i.i.i = phi i64 [ %457, %455 ], [ %469, %458 ]
   %471 = getelementptr inbounds i8, ptr %381, i64 216
@@ -1843,7 +1843,7 @@ initialize_windowaggregate.exit.i.i:              ; preds = %458, %455
   store i8 %537, ptr %437, align 8
   br label %advance_windowaggregate_base.exit.thread.i
 
-advance_windowaggregate_base.exit.thread.i:       ; preds = %535, %initialize_windowaggregate.exit.i.i, %436, %407
+advance_windowaggregate_base.exit.thread.i:       ; preds = %535, %initialize_windowaggregate.argprom.exit.i.i, %436, %407
   call void @llvm.lifetime.end.p0(i64 1632, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   br label %540
@@ -1931,7 +1931,7 @@ advance_windowaggregate_base.exit.thread.i:       ; preds = %535, %initialize_wi
 572:                                              ; preds = %568
   %573 = getelementptr inbounds i8, ptr %560, i64 168
   %574 = load i64, ptr %573, align 8
-  br label %initialize_windowaggregate.exit.i
+  br label %initialize_windowaggregate.argprom.exit.i
 
 575:                                              ; preds = %568
   %576 = load ptr, ptr %565, align 8
@@ -1948,9 +1948,9 @@ advance_windowaggregate_base.exit.thread.i:       ; preds = %535, %initialize_wi
   %586 = call i64 @datumCopy(i64 noundef %579, i1 noundef zeroext %582, i32 noundef %585) #8
   store ptr %577, ptr @CurrentMemoryContext, align 8
   %.pre.i180.i = load i8, ptr %569, align 8
-  br label %initialize_windowaggregate.exit.i
+  br label %initialize_windowaggregate.argprom.exit.i
 
-initialize_windowaggregate.exit.i:                ; preds = %575, %572
+initialize_windowaggregate.argprom.exit.i:        ; preds = %575, %572
   %587 = phi i8 [ %570, %572 ], [ %.pre.i180.i, %575 ]
   %.sink.i.i = phi i64 [ %574, %572 ], [ %586, %575 ]
   %588 = getelementptr inbounds i8, ptr %560, i64 216
@@ -1989,8 +1989,8 @@ initialize_windowaggregate.exit.i:                ; preds = %575, %572
   store i64 0, ptr %607, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %606, %initialize_windowaggregate.exit.i
-  %.sink.i = phi ptr [ %593, %initialize_windowaggregate.exit.i ], [ %595, %606 ]
+.sink.split.i:                                    ; preds = %606, %initialize_windowaggregate.argprom.exit.i
+  %.sink.i = phi ptr [ %593, %initialize_windowaggregate.argprom.exit.i ], [ %595, %606 ]
   store i8 1, ptr %.sink.i, align 8
   br label %608
 

@@ -99,14 +99,14 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %buckets.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.body.i
 
-for.body.i:                                       ; preds = %qht_chain_destroy.exit.i, %for.body.lr.ph.i
-  %2 = phi i64 [ %1, %for.body.lr.ph.i ], [ %6, %qht_chain_destroy.exit.i ]
-  %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %qht_chain_destroy.exit.i ]
+for.body.i:                                       ; preds = %qht_chain_destroy.argprom.exit.i, %for.body.lr.ph.i
+  %2 = phi i64 [ %1, %for.body.lr.ph.i ], [ %6, %qht_chain_destroy.argprom.exit.i ]
+  %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %qht_chain_destroy.argprom.exit.i ]
   %3 = load ptr, ptr %buckets.i, align 8
   %4 = getelementptr %struct.qht_bucket, ptr %3, i64 %i.08.i, i32 4
   %arrayidx.val.i = load ptr, ptr %4, align 8
   %tobool.not1.i.i = icmp eq ptr %arrayidx.val.i, null
-  br i1 %tobool.not1.i.i, label %qht_chain_destroy.exit.i, label %while.body.i.i
+  br i1 %tobool.not1.i.i, label %qht_chain_destroy.argprom.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
   %curr.02.i.i = phi ptr [ %5, %while.body.i.i ], [ %arrayidx.val.i, %for.body.i ]
@@ -114,19 +114,19 @@ while.body.i.i:                                   ; preds = %for.body.i, %while.
   %5 = load ptr, ptr %next1.i.i, align 8
   tail call void @qemu_vfree(ptr noundef nonnull %curr.02.i.i) #7
   %tobool.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i, label %qht_chain_destroy.exit.loopexit.i, label %while.body.i.i, !llvm.loop !7
+  br i1 %tobool.not.i.i, label %qht_chain_destroy.argprom.exit.loopexit.i, label %while.body.i.i, !llvm.loop !7
 
-qht_chain_destroy.exit.loopexit.i:                ; preds = %while.body.i.i
+qht_chain_destroy.argprom.exit.loopexit.i:        ; preds = %while.body.i.i
   %.pre.i = load i64, ptr %n_buckets.i, align 8
-  br label %qht_chain_destroy.exit.i
+  br label %qht_chain_destroy.argprom.exit.i
 
-qht_chain_destroy.exit.i:                         ; preds = %qht_chain_destroy.exit.loopexit.i, %for.body.i
-  %6 = phi i64 [ %.pre.i, %qht_chain_destroy.exit.loopexit.i ], [ %2, %for.body.i ]
+qht_chain_destroy.argprom.exit.i:                 ; preds = %qht_chain_destroy.argprom.exit.loopexit.i, %for.body.i
+  %6 = phi i64 [ %.pre.i, %qht_chain_destroy.argprom.exit.loopexit.i ], [ %2, %for.body.i ]
   %inc.i = add nuw i64 %i.08.i, 1
   %cmp.i = icmp ult i64 %inc.i, %6
   br i1 %cmp.i, label %for.body.i, label %qht_map_destroy.exit, !llvm.loop !8
 
-qht_map_destroy.exit:                             ; preds = %qht_chain_destroy.exit.i, %entry
+qht_map_destroy.exit:                             ; preds = %qht_chain_destroy.argprom.exit.i, %entry
   %buckets1.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %buckets1.i, align 8
   tail call void @qemu_vfree(ptr noundef %7) #7
@@ -147,14 +147,14 @@ for.body.lr.ph:                                   ; preds = %entry
   %buckets = getelementptr inbounds i8, ptr %map, i64 16
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %qht_chain_destroy.exit
-  %1 = phi i64 [ %0, %for.body.lr.ph ], [ %5, %qht_chain_destroy.exit ]
-  %i.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %qht_chain_destroy.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %qht_chain_destroy.argprom.exit
+  %1 = phi i64 [ %0, %for.body.lr.ph ], [ %5, %qht_chain_destroy.argprom.exit ]
+  %i.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %qht_chain_destroy.argprom.exit ]
   %2 = load ptr, ptr %buckets, align 8
   %3 = getelementptr %struct.qht_bucket, ptr %2, i64 %i.08, i32 4
   %arrayidx.val = load ptr, ptr %3, align 8
   %tobool.not1.i = icmp eq ptr %arrayidx.val, null
-  br i1 %tobool.not1.i, label %qht_chain_destroy.exit, label %while.body.i
+  br i1 %tobool.not1.i, label %qht_chain_destroy.argprom.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
   %curr.02.i = phi ptr [ %4, %while.body.i ], [ %arrayidx.val, %for.body ]
@@ -162,19 +162,19 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %4 = load ptr, ptr %next1.i, align 8
   tail call void @qemu_vfree(ptr noundef nonnull %curr.02.i) #7
   %tobool.not.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i, label %qht_chain_destroy.exit.loopexit, label %while.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %qht_chain_destroy.argprom.exit.loopexit, label %while.body.i, !llvm.loop !7
 
-qht_chain_destroy.exit.loopexit:                  ; preds = %while.body.i
+qht_chain_destroy.argprom.exit.loopexit:          ; preds = %while.body.i
   %.pre = load i64, ptr %n_buckets, align 8
-  br label %qht_chain_destroy.exit
+  br label %qht_chain_destroy.argprom.exit
 
-qht_chain_destroy.exit:                           ; preds = %qht_chain_destroy.exit.loopexit, %for.body
-  %5 = phi i64 [ %.pre, %qht_chain_destroy.exit.loopexit ], [ %1, %for.body ]
+qht_chain_destroy.argprom.exit:                   ; preds = %qht_chain_destroy.argprom.exit.loopexit, %for.body
+  %5 = phi i64 [ %.pre, %qht_chain_destroy.argprom.exit.loopexit ], [ %1, %for.body ]
   %inc = add nuw i64 %i.08, 1
   %cmp = icmp ult i64 %inc, %5
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
-for.end:                                          ; preds = %qht_chain_destroy.exit, %entry
+for.end:                                          ; preds = %qht_chain_destroy.argprom.exit, %entry
   %buckets1 = getelementptr inbounds i8, ptr %map, i64 16
   %6 = load ptr, ptr %buckets1, align 8
   tail call void @qemu_vfree(ptr noundef %6) #7
@@ -819,12 +819,12 @@ entry:
   %arrayidx.i = getelementptr %struct.qht_bucket, ptr %.val19, i64 %and.i
   %4 = atomicrmw xchg ptr %arrayidx.i, i32 1 seq_cst, align 4
   %tobool.not3.i.i = icmp eq i32 %4, 0
-  br i1 %tobool.not3.i.i, label %qht_bucket_lock.exit, label %while.cond6.preheader.i.i
+  br i1 %tobool.not3.i.i, label %qht_bucket_lock.argprom.exit, label %while.cond6.preheader.i.i
 
 while.cond.loopexit.i.i:                          ; preds = %while.body16.i.i, %while.cond6.preheader.i.i
   %5 = atomicrmw xchg ptr %arrayidx.i, i32 1 seq_cst, align 4
   %tobool.not.i.i = icmp eq i32 %5, 0
-  br i1 %tobool.not.i.i, label %qht_bucket_lock.exit, label %while.cond6.preheader.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %qht_bucket_lock.argprom.exit, label %while.cond6.preheader.i.i, !llvm.loop !10
 
 while.cond6.preheader.i.i:                        ; preds = %entry, %while.cond.loopexit.i.i
   %6 = load atomic i32, ptr %arrayidx.i monotonic, align 4
@@ -837,12 +837,12 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
   %tobool15.not.i.i = icmp eq i32 %7, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !12
 
-qht_bucket_lock.exit:                             ; preds = %while.cond.loopexit.i.i, %entry
+qht_bucket_lock.argprom.exit:                     ; preds = %while.cond.loopexit.i.i, %entry
   %ht.val = load ptr, ptr %ht, align 8
   %cmp.i.not = icmp eq ptr %ht.val, %1
   br i1 %cmp.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %qht_bucket_lock.exit
+if.end:                                           ; preds = %qht_bucket_lock.argprom.exit
   store atomic i32 0, ptr %arrayidx.i release, align 4
   %mode.i = getelementptr inbounds i8, ptr %ht, i64 64
   %8 = load i32, ptr %mode.i, align 8
@@ -873,12 +873,12 @@ qht_lock.exit:                                    ; preds = %if.then.i, %while.e
   %arrayidx.i25 = getelementptr %struct.qht_bucket, ptr %.val, i64 %and.i24
   %14 = atomicrmw xchg ptr %arrayidx.i25, i32 1 seq_cst, align 4
   %tobool.not3.i.i26 = icmp eq i32 %14, 0
-  br i1 %tobool.not3.i.i26, label %qht_bucket_lock.exit33, label %while.cond6.preheader.i.i27
+  br i1 %tobool.not3.i.i26, label %qht_bucket_lock.argprom.exit33, label %while.cond6.preheader.i.i27
 
 while.cond.loopexit.i.i31:                        ; preds = %while.body16.i.i29, %while.cond6.preheader.i.i27
   %15 = atomicrmw xchg ptr %arrayidx.i25, i32 1 seq_cst, align 4
   %tobool.not.i.i32 = icmp eq i32 %15, 0
-  br i1 %tobool.not.i.i32, label %qht_bucket_lock.exit33, label %while.cond6.preheader.i.i27, !llvm.loop !10
+  br i1 %tobool.not.i.i32, label %qht_bucket_lock.argprom.exit33, label %while.cond6.preheader.i.i27, !llvm.loop !10
 
 while.cond6.preheader.i.i27:                      ; preds = %qht_lock.exit, %while.cond.loopexit.i.i31
   %16 = load atomic i32, ptr %arrayidx.i25 monotonic, align 4
@@ -891,14 +891,14 @@ while.body16.i.i29:                               ; preds = %while.cond6.prehead
   %tobool15.not.i.i30 = icmp eq i32 %17, 0
   br i1 %tobool15.not.i.i30, label %while.cond.loopexit.i.i31, label %while.body16.i.i29, !llvm.loop !12
 
-qht_bucket_lock.exit33:                           ; preds = %while.cond.loopexit.i.i31, %qht_lock.exit
+qht_bucket_lock.argprom.exit33:                   ; preds = %while.cond.loopexit.i.i31, %qht_lock.exit
   %lock.i34 = getelementptr inbounds i8, ptr %ht, i64 16
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock.i34, ptr noundef nonnull @.str, i32 noundef 130) #7
   br label %return
 
-return:                                           ; preds = %qht_bucket_lock.exit, %qht_bucket_lock.exit33
-  %storemerge = phi ptr [ %11, %qht_bucket_lock.exit33 ], [ %1, %qht_bucket_lock.exit ]
-  %retval.0 = phi ptr [ %arrayidx.i25, %qht_bucket_lock.exit33 ], [ %arrayidx.i, %qht_bucket_lock.exit ]
+return:                                           ; preds = %qht_bucket_lock.argprom.exit, %qht_bucket_lock.argprom.exit33
+  %storemerge = phi ptr [ %11, %qht_bucket_lock.argprom.exit33 ], [ %1, %qht_bucket_lock.argprom.exit ]
+  %retval.0 = phi ptr [ %arrayidx.i25, %qht_bucket_lock.argprom.exit33 ], [ %arrayidx.i, %qht_bucket_lock.argprom.exit ]
   store ptr %storemerge, ptr %pmap, align 8
   ret ptr %retval.0
 }

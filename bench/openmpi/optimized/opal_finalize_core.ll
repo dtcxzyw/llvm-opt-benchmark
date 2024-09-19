@@ -74,7 +74,7 @@ define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef 
 
 9:                                                ; preds = %8, %3
   %.not9.i = icmp eq ptr %5, null
-  br i1 %.not9.i, label %opal_obj_new.exit, label %10
+  br i1 %.not9.i, label %opal_obj_new.argprom.exit, label %10
 
 10:                                               ; preds = %9
   store ptr @opal_cleanup_fn_item_t_class, ptr %5, align 8
@@ -83,7 +83,7 @@ define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef 
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_cleanup_fn_item_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
@@ -92,9 +92,9 @@ define void @opal_finalize_append_cleanup(ptr noundef %0, ptr nocapture noundef 
   %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %opal_obj_new.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %9, %10
+opal_obj_new.argprom.exit:                        ; preds = %.lr.ph.i.i, %9, %10
   %17 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %0, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 48

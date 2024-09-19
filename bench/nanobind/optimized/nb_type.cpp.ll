@@ -777,19 +777,19 @@ _ZN8nanobind3strC2ERKS0_.exit:                    ; preds = %37, %_ZN8nanobind3s
 
 64:                                               ; preds = %62
   %65 = invoke i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyModule_Type)
-          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit unwind label %427
+          to label %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit unwind label %427
 
-_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %64
+_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit: ; preds = %64
   %.not450 = icmp eq i32 %65, 0
   %.pre = load ptr, ptr %60, align 8
   br i1 %.not450, label %_ZN8nanobind6objectD2Ev.exit316, label %_ZN8nanobind6objectD2Ev.exit
 
-_ZN8nanobind6objectD2Ev.exit:                     ; preds = %62, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
-  %66 = phi ptr [ %61, %62 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit ]
+_ZN8nanobind6objectD2Ev.exit:                     ; preds = %62, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
+  %66 = phi ptr [ %61, %62 ], [ %.pre, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit ]
   %67 = call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %66, ptr noundef nonnull @.str.3, ptr noundef null) #28, !noalias !28
   br label %_ZN8nanobind6objectD2Ev.exit322
 
-_ZN8nanobind6objectD2Ev.exit316:                  ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
+_ZN8nanobind6objectD2Ev.exit316:                  ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.argprom.exit
   %68 = call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %.pre, ptr noundef nonnull @.str.4, ptr noundef null) #28, !noalias !31
   %69 = load ptr, ptr %60, align 8
   %70 = call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %69, ptr noundef nonnull @.str.5, ptr noundef null) #28, !noalias !34
@@ -3053,7 +3053,7 @@ _ZL21PyVectorcall_FunctionP7_object.exit.i.i.i:   ; preds = %.noexc.i
 
 _ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i.i: ; preds = %_ZL21PyVectorcall_FunctionP7_object.exit.i.i.i, %.noexc.i
   %138 = invoke ptr @_PyObject_MakeTpCall(ptr noundef %129, ptr noundef nonnull %128, ptr noundef nonnull %126, i64 noundef 1, ptr noundef null)
-          to label %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.exit.i unwind label %.loopexit.split-lp.i
+          to label %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.argprom.exit.i unwind label %.loopexit.split-lp.i
 
 139:                                              ; preds = %_ZL21PyVectorcall_FunctionP7_object.exit.i.i.i
   %140 = invoke noundef ptr %.0.copyload.i.i.i.i(ptr noundef nonnull %128, ptr noundef nonnull %126, i64 noundef -9223372036854775807, ptr noundef null)
@@ -3061,14 +3061,14 @@ _ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i.i: ; preds = %_ZL21PyVectorc
 
 .noexc54.i:                                       ; preds = %139
   %141 = invoke ptr @_Py_CheckFunctionResult(ptr noundef %129, ptr noundef nonnull %128, ptr noundef %140, ptr noundef null)
-          to label %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.exit.i unwind label %.loopexit.split-lp.i
+          to label %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.argprom.exit.i unwind label %.loopexit.split-lp.i
 
-_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.exit.i: ; preds = %.noexc54.i, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i.i
+_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.argprom.exit.i: ; preds = %.noexc54.i, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i.i
   %.0.i.i.i = phi ptr [ %138, %_ZL21PyVectorcall_FunctionP7_object.exit.thread.i.i.i ], [ %141, %.noexc54.i ]
   %.not51.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not51.i, label %166, label %142
 
-142:                                              ; preds = %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.exit.i
+142:                                              ; preds = %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.argprom.exit.i
   %143 = load i32, ptr %3, align 8
   %144 = getelementptr inbounds i8, ptr %3, i64 4
   %145 = load i32, ptr %144, align 4
@@ -3110,7 +3110,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit.i: ; preds = %163, %147
   store ptr %165, ptr %4, align 8
   br label %_ZN8nanobind6detailL20nb_type_get_implicitEP7_objectPKSt9type_infoPKNS0_9type_dataEPNS0_12nb_internalsEPNS0_12cleanup_listEPPv.exit
 
-166:                                              ; preds = %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.exit.i
+166:                                              ; preds = %_ZL19PyObject_VectorcallP7_objectPKS0_mS0_.argprom.exit.i
   invoke void @PyErr_Clear()
           to label %167 unwind label %.loopexit.split-lp.i
 
@@ -4120,26 +4120,26 @@ define noundef ptr @_ZN8nanobind6detail18nb_type_put_uniqueEPKSt9type_infoPvPNS0
   %25 = and i32 %15, 16
   %26 = icmp ne i32 %25, 0
   %27 = xor i1 %26, %10
-  br i1 %27, label %.critedge.i, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit
+  br i1 %27, label %.critedge.i, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit
 
 .critedge.i:                                      ; preds = %24, %20, %18
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
 28:                                               ; preds = %13
-  br i1 %17, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit, label %29
+  br i1 %17, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit, label %29
 
 29:                                               ; preds = %28
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
-_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit: ; preds = %24, %28
+_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit: ; preds = %24, %28
   %.sink1.i = phi i32 [ 28, %24 ], [ 4, %28 ]
   %30 = or i32 %.sink1.i, %15
   store i32 %30, ptr %14, align 4
   br label %31
 
-31:                                               ; preds = %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit, %4
+31:                                               ; preds = %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit, %4
   ret ptr %7
 }
 
@@ -4184,26 +4184,26 @@ define noundef ptr @_ZN8nanobind6detail20nb_type_put_unique_pEPKSt9type_infoS3_P
   %26 = and i32 %16, 16
   %27 = icmp ne i32 %26, 0
   %28 = xor i1 %27, %11
-  br i1 %28, label %.critedge.i, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit
+  br i1 %28, label %.critedge.i, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit
 
 .critedge.i:                                      ; preds = %25, %21, %19
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
 29:                                               ; preds = %14
-  br i1 %18, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit, label %30
+  br i1 %18, label %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit, label %30
 
 30:                                               ; preds = %29
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #26
   unreachable
 
-_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit: ; preds = %25, %29
+_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit: ; preds = %25, %29
   %.sink1.i = phi i32 [ 28, %25 ], [ 4, %29 ]
   %31 = or i32 %.sink1.i, %16
   store i32 %31, ptr %15, align 4
   br label %32
 
-32:                                               ; preds = %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.exit, %5
+32:                                               ; preds = %_ZN8nanobind6detailL27nb_type_put_unique_finalizeEP7_objectPKSt9type_infobb.argprom.exit, %5
   ret ptr %8
 }
 

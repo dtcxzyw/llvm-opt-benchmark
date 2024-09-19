@@ -1119,7 +1119,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
@@ -1490,7 +1490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i16 = alloca %"class.std::allocator", align 1
@@ -1790,7 +1790,7 @@ define internal void @_ZN4absl12_GLOBAL__N_148gtest_WithParamCordzStringTest_Eva
 entry:
   %call.i = tail call noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %info, align 8
-  tail call fastcc void @_ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 %agg.tmp.sroa.0.0.copyload)
+  tail call fastcc void @_ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE.argelim(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 %agg.tmp.sroa.0.0.copyload)
   ret void
 }
 
@@ -2356,7 +2356,7 @@ declare void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_S2_(ptr sret(%"class.std:
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 %param.coerce0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12_GLOBAL__N_113ParamToStringINS_12TestCordSizeEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7testing13TestParamInfoIT_EE.argelim(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 %param.coerce0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -4774,7 +4774,7 @@ ehcleanup21:                                      ; preds = %ehcleanup20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -4974,7 +4974,7 @@ if.then.i.i7:                                     ; preds = %invoke.cont4
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont4
   %this.val10.i.i.i = load ptr, ptr %tests_, align 8
@@ -4982,7 +4982,7 @@ if.else.i.i:                                      ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #30
@@ -4991,7 +4991,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 .noexc:                                           ; preds = %if.then.i.i.i.i
   unreachable
 
-_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %cmp.i.i.i.i.i = icmp eq ptr %17, %this.val10.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -5005,12 +5005,12 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4ab
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #31
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad5
 
-call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ]
@@ -5028,26 +5028,26 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.n
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %17
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !59
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !59
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
 
-if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i
+if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i) #33
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i
   store ptr %call5.i.i.i.i.i.i8, ptr %tests_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.139", ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit: ; preds = %if.then.i.i7, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
+_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit: ; preds = %if.then.i.i7, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
   ret void
 
@@ -5056,10 +5056,10 @@ ehcleanup7.thread:                                ; preds = %entry
           cleanup
   br label %cleanup.action
 
-lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
+lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #16
+  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom(ptr nonnull %call.i.i.i.i) #16
   br label %ehcleanup7.thread7
 
 ehcleanup7.thread7:                               ; preds = %lpad5, %lpad3.i.i.i.i
@@ -5083,10 +5083,10 @@ eh.resume:                                        ; preds = %ehcleanup7.thread7,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -5122,7 +5122,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -5147,16 +5147,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #16
-  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -6968,7 +6968,7 @@ entry:
   store i32 %call.i, ptr %sample_never, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 99999)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 99999)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -7404,7 +7404,7 @@ ehcleanup94:                                      ; preds = %ehcleanup90, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %always = alloca %"class.absl::CordzSamplingIntervalHelper", align 4
   %call.i = tail call noundef i32 @_ZN4absl13cord_internal23get_cordz_mean_intervalEv()
@@ -9242,7 +9242,7 @@ ehcleanup22:                                      ; preds = %ehcleanup20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %test_base_name, ptr noundef nonnull %meta_factory, ptr noundef nonnull %code_location) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -9442,7 +9442,7 @@ if.then.i.i7:                                     ; preds = %invoke.cont4
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont4
   %this.val10.i.i.i = load ptr, ptr %tests_, align 8
@@ -9450,7 +9450,7 @@ if.else.i.i:                                      ; preds = %invoke.cont4
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #30
@@ -9459,7 +9459,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 .noexc:                                           ; preds = %if.then.i.i.i.i
   unreachable
 
-_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
+_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %cmp.i.i.i.i.i = icmp eq ptr %17, %this.val10.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
@@ -9473,12 +9473,12 @@ _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4ab
   %call5.i.i.i.i.i.i8 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #31
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad5
 
-call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 %sub.ptr.sub.i.i.i.i.i
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ]
@@ -9496,26 +9496,26 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.n
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i, i64 16
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %17
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !116
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !116
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i.i8, %call5.i.i.i.i.i.i.noexc ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %this.val10.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i, label %if.then.i24.i.i.i
 
-if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i
+if.then.i24.i.i.i:                                ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i) #33
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
 
-_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i
+_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i: ; preds = %if.then.i24.i.i.i, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.argprom.exit23.i.i.i
   store ptr %call5.i.i.i.i.i.i8, ptr %tests_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr19.i.i.i = getelementptr inbounds %"class.std::shared_ptr.189", ptr %call5.i.i.i.i.i.i8, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit: ; preds = %if.then.i.i7, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
+_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit: ; preds = %if.then.i.i7, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
   ret void
 
@@ -9524,10 +9524,10 @@ ehcleanup7.thread:                                ; preds = %entry
           cleanup
   br label %cleanup.action
 
-lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i, %if.then.i.i.i.i
+lpad5:                                            ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.argprom.exit.i.i.i, %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev(ptr nonnull %call.i.i.i.i) #16
+  call fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom(ptr nonnull %call.i.i.i.i) #16
   br label %ehcleanup7.thread7
 
 ehcleanup7.thread7:                               ; preds = %lpad5, %lpad3.i.i.i.i
@@ -9551,10 +9551,10 @@ eh.resume:                                        ; preds = %ehcleanup7.thread7,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i = icmp eq ptr %this.8.val, null
-  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
+  br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
@@ -9590,7 +9590,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %retval.i.0.i.i.i = phi i32 [ %1, %if.then.i.i.i.i ], [ %4, %if.else.i.i.i.i ]
   %cmp6.i.i.i = icmp eq i32 %retval.i.0.i.i.i, 1
-  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
@@ -9615,16 +9615,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then7.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %7, %if.then.i.i.i.i.i.i ], [ %8, %if.else.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.end8.sink.split.i.i.i, label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
   %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #16
-  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit
 
-_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
+_ZNSt12__shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
   ret void
 }
 
@@ -10648,7 +10648,7 @@ entry:
   %ref.tmp102 = alloca i64, align 8
   %ref.tmp109 = alloca %"class.testing::Message", align 8
   %ref.tmp112 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  call fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
   %cord_.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.i = icmp eq ptr %cord_.i, %src
   br i1 %cmp.i.i, label %invoke.cont4, label %if.end.i.i
@@ -11258,7 +11258,7 @@ entry:
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 99999)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 99999)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -11864,7 +11864,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
@@ -12464,7 +12464,7 @@ entry:
   store i32 %call.i, ptr %sample_never, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 99999)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 99999)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %cord)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %cord)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
@@ -12958,7 +12958,7 @@ entry:
   store i32 %call.i, ptr %sample_every, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 1)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 1)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %cord)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %cord)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
@@ -13458,7 +13458,7 @@ entry:
   store i32 %call.i, ptr %sample_every, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 1)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 1)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -14074,7 +14074,7 @@ entry:
   store i32 %call.i, ptr %sample_every, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 1)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 1)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -25718,7 +25718,7 @@ entry:
   store i32 %call.i, ptr %sample_never, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 99999)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 99999)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -26208,7 +26208,7 @@ entry:
   store i32 %call.i, ptr %sample_never, align 4
   tail call void @_ZN4absl13cord_internal23set_cordz_mean_intervalEi(i32 noundef 99999)
   tail call void @_ZN4absl13cord_internal33cordz_set_next_sample_for_testingEl(i64 noundef 99999)
-  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE(ptr noalias align 8 %src)
+  invoke fastcc void @_ZN4absl12_GLOBAL__N_120MakeAppendStringCordENS_12TestCordSizeE.argelim(ptr noalias align 8 %src)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -26545,12 +26545,12 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_1
   %cmp.not3.i.i.i.i2 = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i2, label %invoke.cont.i9, label %for.body.i.i.i.i3
 
-for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EED2Ev.exit ]
+for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EED2Ev.exit ]
   %4 = getelementptr i8, ptr %__first.addr.04.i.i.i.i4, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i3
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i, i64 8
@@ -26586,7 +26586,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
@@ -26611,21 +26611,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i) #16
-  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
+_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
   %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 16
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %3
   br i1 %cmp.not.i.i.i.i6, label %invoke.contthread-pre-split.i7, label %for.body.i.i.i.i3, !llvm.loop !287
 
-invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
   %this.val.pr.i8 = load ptr, ptr %tests_, align 8
   br label %invoke.cont.i9
 
@@ -26707,9 +26707,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %generator, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
-  %generated_instantiations.0456 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit ]
-  %test_it.sroa.0.0455 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
+  %generated_instantiations.0456 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit ]
+  %test_it.sroa.0.0455 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit ]
   %3 = load ptr, ptr %test_it.sroa.0.0455, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %test_it.sroa.0.0455, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
@@ -27711,7 +27711,7 @@ if.end8.sink.split.i.i.i.i.i150:                  ; preds = %_ZN9__gnu_cxx27__ex
 
 for.end161:                                       ; preds = %_ZN7testing8internal14ParamGeneratorIN4absl12TestCordSizeEED2Ev.exit, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEC2ERKS8_.exit
   %generated_instantiations.1.lcssa = phi i1 [ %generated_instantiations.0456, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEEC2ERKS8_.exit ], [ %generated_instantiations.2, %_ZN7testing8internal14ParamGeneratorIN4absl12TestCordSizeEED2Ev.exit ]
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit, label %if.then.i.i.i161
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %for.end161
   %_M_use_count.i.i.i.i162 = getelementptr inbounds i8, ptr %4, i64 8
@@ -27747,7 +27747,7 @@ if.else.i.i.i.i.i166:                             ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i166, %if.then.i.i.i.i.i164
   %retval.i.0.i.i.i.i = phi i32 [ %107, %if.then.i.i.i.i.i164 ], [ %110, %if.else.i.i.i.i.i166 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
@@ -27772,16 +27772,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %113, %if.then.i.i.i.i.i.i.i ], [ %114, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i167
   %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit: ; preds = %for.end161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit: ; preds = %for.end161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %incdec.ptr.i168 = getelementptr inbounds i8, ptr %test_it.sroa.0.0455, i64 16
   %tests_.val19 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i168, %tests_.val19
@@ -27859,7 +27859,7 @@ if.end8.sink.split.i.i.i.i190:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %125(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   br label %eh.resume
 
-for.end165:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.exit
+for.end165:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEED2Ev.argprom.exit
   br i1 %generated_instantiations.1.lcssa, label %if.end176, label %if.then166
 
 if.then166:                                       ; preds = %entry, %for.end165
@@ -27979,12 +27979,12 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_1
   %cmp.not3.i.i.i.i2 = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i2, label %invoke.cont.i9, label %for.body.i.i.i.i3
 
-for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EED2Ev.exit ]
+for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
+  %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i ], [ %2, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EED2Ev.exit ]
   %4 = getelementptr i8, ptr %__first.addr.04.i.i.i.i4, i64 8
   %__first.addr.0.val.i.i.i.i = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.val.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i3
   %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.val.i.i.i.i, i64 8
@@ -28020,7 +28020,7 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %6, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
@@ -28045,21 +28045,21 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %13, %if.else.i.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.0.val.i.i.i.i, align 8
   %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.0.val.i.i.i.i) #16
-  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+  br label %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
 
-_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
+_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i3
   %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 16
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %3
   br i1 %cmp.not.i.i.i.i6, label %invoke.contthread-pre-split.i7, label %for.body.i.i.i.i3, !llvm.loop !305
 
-invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.exit.i.i.i.i
+invoke.contthread-pre-split.i7:                   ; preds = %_ZSt8_DestroyISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEEvPT_.argprom.exit.i.i.i.i
   %this.val.pr.i8 = load ptr, ptr %tests_, align 8
   br label %invoke.cont.i9
 
@@ -28141,9 +28141,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %generator, i64 8
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
-  %generated_instantiations.0456 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit ]
-  %test_it.sroa.0.0455 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
+  %generated_instantiations.0456 = phi i1 [ false, %for.body.lr.ph ], [ %generated_instantiations.1.lcssa, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit ]
+  %test_it.sroa.0.0455 = phi ptr [ %tests_.val, %for.body.lr.ph ], [ %incdec.ptr.i168, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit ]
   %3 = load ptr, ptr %test_it.sroa.0.0455, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %test_it.sroa.0.0455, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
@@ -29145,7 +29145,7 @@ if.end8.sink.split.i.i.i.i.i150:                  ; preds = %_ZN9__gnu_cxx27__ex
 
 for.end161:                                       ; preds = %_ZN7testing8internal14ParamGeneratorIN4absl12TestCordSizeEED2Ev.exit, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEC2ERKS8_.exit
   %generated_instantiations.1.lcssa = phi i1 [ %generated_instantiations.0456, %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEEC2ERKS8_.exit ], [ %generated_instantiations.2, %_ZN7testing8internal14ParamGeneratorIN4absl12TestCordSizeEED2Ev.exit ]
-  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit, label %if.then.i.i.i161
+  br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %for.end161
   %_M_use_count.i.i.i.i162 = getelementptr inbounds i8, ptr %4, i64 8
@@ -29181,7 +29181,7 @@ if.else.i.i.i.i.i166:                             ; preds = %if.end.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i166, %if.then.i.i.i.i.i164
   %retval.i.0.i.i.i.i = phi i32 [ %107, %if.then.i.i.i.i.i164 ], [ %110, %if.else.i.i.i.i.i166 ]
   %cmp6.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
@@ -29206,16 +29206,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then7.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %113, %if.then.i.i.i.i.i.i.i ], [ %114, %if.else.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i167
   %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %115 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %115(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+  br label %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit: ; preds = %for.end161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit: ; preds = %for.end161, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %incdec.ptr.i168 = getelementptr inbounds i8, ptr %test_it.sroa.0.0455, i64 16
   %tests_.val19 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i168, %tests_.val19
@@ -29293,7 +29293,7 @@ if.end8.sink.split.i.i.i.i190:                    ; preds = %_ZN9__gnu_cxx27__ex
   call void %125(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   br label %eh.resume
 
-for.end165:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.exit
+for.end165:                                       ; preds = %_ZNSt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEED2Ev.argprom.exit
   br i1 %generated_instantiations.1.lcssa, label %if.end176, label %if.then166
 
 if.then166:                                       ; preds = %entry, %for.end165
@@ -29574,7 +29574,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
   %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 107, ptr %line.i.i, align 8
-  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
+  %call7.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i, ptr noundef %agg.tmp.i)
           to label %invoke.cont6.i unwind label %lpad5.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont4.i
@@ -29654,7 +29654,7 @@ if.else.i.i.i.i:                                  ; preds = %.noexc16.i
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %this.val10.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775744
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #30
@@ -29663,7 +29663,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 .noexc.i.i:                                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
-_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
+_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 6
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, %this.val10.i.i.i.i.i
   %.sroa.speculated.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i
@@ -29672,24 +29672,24 @@ _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_
   %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %8
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %cond.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i
 
-cond.true.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+cond.true.i.i.i.i.i.i:                            ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i.i.i, 6
   %call5.i.i.i.i.i.i1.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i) #31
-          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.i15.i
+          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i unwind label %lpad.i15.i
 
-_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %cond.i12.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i, %cond.true.i.i.i.i.i.i ]
+_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
+  %cond.i12.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i, %cond.true.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzUpdateTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #16
   %generator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
-  %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %this.val10.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
+  %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ]
+  %__first.addr.02.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %this.val10.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i.i.i) #16
   %generator.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 32
   %generator3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 32
@@ -29698,19 +29698,19 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i, i64 64
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i, i64 64
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %5
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !323
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !323
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, i64 64
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %this.val10.i.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i, label %if.then.i24.i.i.i.i.i
 
-if.then.i24.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i
+if.then.i24.i.i.i.i.i:                            ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i.i.i) #33
   br label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i
   store ptr %cond.i12.i.i.i.i.i, ptr %instantiations_.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   %add.ptr19.i.i.i.i.i = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzUpdateTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i, i64 %cond.i.i.i.i.i.i
@@ -29819,7 +29819,7 @@ invoke.cont.i16:                                  ; preds = %.noexc.i14
 invoke.cont4.i20:                                 ; preds = %invoke.cont.i16
   %line.i.i21 = getelementptr inbounds i8, ptr %agg.tmp.i2, i64 32
   store i32 120, ptr %line.i.i21, align 8
-  %call7.i22 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i8, ptr noundef %agg.tmp.i2)
+  %call7.i22 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i8, ptr noundef %agg.tmp.i2)
           to label %invoke.cont6.i26 unwind label %lpad5.i23
 
 invoke.cont6.i26:                                 ; preds = %invoke.cont4.i20
@@ -29899,7 +29899,7 @@ if.else.i.i.i.i50:                                ; preds = %.noexc16.i39
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i53 = ptrtoint ptr %this.val10.i.i.i.i.i51 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i.i.i.i.i53
   %cmp.i.i.i.i.i.i55 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i54, 9223372036854775744
-  br i1 %cmp.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i83, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i83, label %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i83:                            ; preds = %if.else.i.i.i.i50
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #30
@@ -29908,7 +29908,7 @@ if.then.i.i.i.i.i.i83:                            ; preds = %if.else.i.i.i.i50
 .noexc.i.i84:                                     ; preds = %if.then.i.i.i.i.i.i83
   unreachable
 
-_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i50
+_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i50
   %sub.ptr.div.i.i.i.i.i.i.i56 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i54, 6
   %cmp.i.i.i.i.i.i.i57 = icmp eq ptr %19, %this.val10.i.i.i.i.i51
   %.sroa.speculated.i.i.i.i.i.i58 = select i1 %cmp.i.i.i.i.i.i.i57, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i56
@@ -29917,24 +29917,24 @@ _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_
   %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i59, i64 144115188075855871)
   %cond.i.i.i.i.i.i61 = select i1 %cmp7.i.i.i.i.i.i60, i64 144115188075855871, i64 %22
   %cmp.not.i.i.i.i.i.i62 = icmp eq i64 %cond.i.i.i.i.i.i61, 0
-  br i1 %cmp.not.i.i.i.i.i.i62, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i63
+  br i1 %cmp.not.i.i.i.i.i.i62, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i63
 
-cond.true.i.i.i.i.i.i63:                          ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+cond.true.i.i.i.i.i.i63:                          ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i64 = shl nuw nsw i64 %cond.i.i.i.i.i.i61, 6
   %call5.i.i.i.i.i.i1.i.i65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i64) #31
-          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.i15.i66
+          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i unwind label %lpad.i15.i66
 
-_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i63, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %cond.i12.i.i.i.i.i67 = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i65, %cond.true.i.i.i.i.i.i63 ]
+_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i63, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i
+  %cond.i12.i.i.i.i.i67 = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.argprom.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i65, %cond.true.i.i.i.i.i.i63 ]
   %add.ptr.i.i.i.i.i68 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i67, i64 %sub.ptr.div.i.i.i.i.i.i.i56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i1) #16
   %generator.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i68, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i40, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i.i.i57, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70
+  br i1 %cmp.i.i.i.i.i.i.i57, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70
 
-for.body.i.i.i.i.i.i.i.i70:                       ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i70
-  %__cur.03.i.i.i.i.i.i.i.i71 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ], [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
-  %__first.addr.02.i.i.i.i.i.i.i.i72 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i75, %for.body.i.i.i.i.i.i.i.i70 ], [ %this.val10.i.i.i.i.i51, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i70:                       ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i70
+  %__cur.03.i.i.i.i.i.i.i.i71 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ], [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ]
+  %__first.addr.02.i.i.i.i.i.i.i.i72 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i75, %for.body.i.i.i.i.i.i.i.i70 ], [ %this.val10.i.i.i.i.i51, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i.i.i72) #16
   %generator.i.i.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i71, i64 32
   %generator3.i.i.i.i.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i72, i64 32
@@ -29943,19 +29943,19 @@ for.body.i.i.i.i.i.i.i.i70:                       ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i.i.i.i.i72, i64 64
   %incdec.ptr1.i.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i71, i64 64
   %cmp.not.i.i.i.i.i.i.i.i77 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i75, %19
-  br i1 %cmp.not.i.i.i.i.i.i.i.i77, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70, !llvm.loop !328
+  br i1 %cmp.not.i.i.i.i.i.i.i.i77, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70, !llvm.loop !328
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i70, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i.i78 = phi ptr [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ]
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i70, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i
+  %__cur.0.lcssa.i.i.i.i.i.i.i.i78 = phi ptr [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.argprom.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ]
   %incdec.ptr.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i78, i64 64
   %tobool.not.i.i.i.i.i.i80 = icmp eq ptr %this.val10.i.i.i.i.i51, null
   br i1 %tobool.not.i.i.i.i.i.i80, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i, label %if.then.i24.i.i.i.i.i81
 
-if.then.i24.i.i.i.i.i81:                          ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i
+if.then.i24.i.i.i.i.i81:                          ; preds = %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val10.i.i.i.i.i51) #33
   br label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i
 
-_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i81, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i
+_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i81, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.argprom.exit23.i.i.i.i.i
   store ptr %cond.i12.i.i.i.i.i67, ptr %instantiations_.i.i35, align 8
   store ptr %incdec.ptr.i.i.i.i.i79, ptr %_M_finish.i.i.i.i44, align 8
   %add.ptr19.i.i.i.i.i82 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i67, i64 %cond.i.i.i.i.i.i61
@@ -30213,7 +30213,7 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i.i126
 invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
   %line.i.i.i127 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 32
   store i32 134, ptr %line.i.i.i127, align 8
-  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i)
+  %call7.i.i = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont6.i.i unwind label %lpad5.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont4.i.i
@@ -30247,7 +30247,7 @@ invoke.cont14.i.i:                                ; preds = %.noexc13.i.i
 invoke.cont16.i.i:                                ; preds = %invoke.cont14.i.i
   %line.i16.i.i = getelementptr inbounds i8, ptr %agg.tmp10.i.i, i64 32
   store i32 134, ptr %line.i16.i.i, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i, ptr noundef nonnull @.str.113, ptr noundef %call9.i.i, ptr noundef %agg.tmp10.i.i)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i, ptr noundef nonnull @.str.113, ptr noundef %call9.i.i, ptr noundef %agg.tmp10.i.i)
           to label %__cxx_global_var_init.11.exit unwind label %lpad17.i.i
 
 lpad.i.i125:                                      ; preds = %call.i.noexc.i.i, %__cxx_global_var_init.9.exit
@@ -30578,7 +30578,7 @@ invoke.cont.i.i221:                               ; preds = %.noexc.i.i219
 invoke.cont4.i.i225:                              ; preds = %invoke.cont.i.i221
   %line.i.i.i226 = getelementptr inbounds i8, ptr %agg.tmp.i.i206, i64 32
   store i32 166, ptr %line.i.i.i226, align 8
-  %call7.i.i227 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i213, ptr noundef %agg.tmp.i.i206)
+  %call7.i.i227 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i213, ptr noundef %agg.tmp.i.i206)
           to label %invoke.cont6.i.i231 unwind label %lpad5.i.i228
 
 invoke.cont6.i.i231:                              ; preds = %invoke.cont4.i.i225
@@ -30612,7 +30612,7 @@ invoke.cont14.i.i241:                             ; preds = %.noexc13.i.i239
 invoke.cont16.i.i245:                             ; preds = %invoke.cont14.i.i241
   %line.i16.i.i246 = getelementptr inbounds i8, ptr %agg.tmp10.i.i209, i64 32
   store i32 166, ptr %line.i16.i.i246, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i227, ptr noundef nonnull @.str.126, ptr noundef %call9.i.i232, ptr noundef %agg.tmp10.i.i209)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i227, ptr noundef nonnull @.str.126, ptr noundef %call9.i.i232, ptr noundef %agg.tmp10.i.i209)
           to label %__cxx_global_var_init.18.exit unwind label %lpad17.i.i247
 
 lpad.i.i215:                                      ; preds = %call.i.noexc.i.i218, %__cxx_global_var_init.16.exit
@@ -30712,7 +30712,7 @@ invoke.cont.i.i263:                               ; preds = %.noexc.i.i261
 invoke.cont4.i.i267:                              ; preds = %invoke.cont.i.i263
   %line.i.i.i268 = getelementptr inbounds i8, ptr %agg.tmp.i.i248, i64 32
   store i32 174, ptr %line.i.i.i268, align 8
-  %call7.i.i269 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i255, ptr noundef %agg.tmp.i.i248)
+  %call7.i.i269 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i255, ptr noundef %agg.tmp.i.i248)
           to label %invoke.cont6.i.i273 unwind label %lpad5.i.i270
 
 invoke.cont6.i.i273:                              ; preds = %invoke.cont4.i.i267
@@ -30746,7 +30746,7 @@ invoke.cont14.i.i283:                             ; preds = %.noexc13.i.i281
 invoke.cont16.i.i287:                             ; preds = %invoke.cont14.i.i283
   %line.i16.i.i288 = getelementptr inbounds i8, ptr %agg.tmp10.i.i251, i64 32
   store i32 174, ptr %line.i16.i.i288, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i269, ptr noundef nonnull @.str.131, ptr noundef %call9.i.i274, ptr noundef %agg.tmp10.i.i251)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i269, ptr noundef nonnull @.str.131, ptr noundef %call9.i.i274, ptr noundef %agg.tmp10.i.i251)
           to label %__cxx_global_var_init.19.exit unwind label %lpad17.i.i289
 
 lpad.i.i257:                                      ; preds = %call.i.noexc.i.i260, %__cxx_global_var_init.18.exit
@@ -31462,7 +31462,7 @@ invoke.cont.i.i513:                               ; preds = %.noexc.i.i511
 invoke.cont4.i.i517:                              ; preds = %invoke.cont.i.i513
   %line.i.i.i518 = getelementptr inbounds i8, ptr %agg.tmp.i.i498, i64 32
   store i32 271, ptr %line.i.i.i518, align 8
-  %call7.i.i519 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i505, ptr noundef %agg.tmp.i.i498)
+  %call7.i.i519 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i505, ptr noundef %agg.tmp.i.i498)
           to label %invoke.cont6.i.i523 unwind label %lpad5.i.i520
 
 invoke.cont6.i.i523:                              ; preds = %invoke.cont4.i.i517
@@ -31496,7 +31496,7 @@ invoke.cont14.i.i533:                             ; preds = %.noexc13.i.i531
 invoke.cont16.i.i537:                             ; preds = %invoke.cont14.i.i533
   %line.i16.i.i538 = getelementptr inbounds i8, ptr %agg.tmp10.i.i501, i64 32
   store i32 271, ptr %line.i16.i.i538, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i519, ptr noundef nonnull @.str.134, ptr noundef %call9.i.i524, ptr noundef %agg.tmp10.i.i501)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i519, ptr noundef nonnull @.str.134, ptr noundef %call9.i.i524, ptr noundef %agg.tmp10.i.i501)
           to label %__cxx_global_var_init.36.exit unwind label %lpad17.i.i539
 
 lpad.i.i507:                                      ; preds = %call.i.noexc.i.i510, %__cxx_global_var_init.34.exit
@@ -31596,7 +31596,7 @@ invoke.cont.i.i555:                               ; preds = %.noexc.i.i553
 invoke.cont4.i.i559:                              ; preds = %invoke.cont.i.i555
   %line.i.i.i560 = getelementptr inbounds i8, ptr %agg.tmp.i.i540, i64 32
   store i32 276, ptr %line.i.i.i560, align 8
-  %call7.i.i561 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i547, ptr noundef %agg.tmp.i.i540)
+  %call7.i.i561 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i547, ptr noundef %agg.tmp.i.i540)
           to label %invoke.cont6.i.i565 unwind label %lpad5.i.i562
 
 invoke.cont6.i.i565:                              ; preds = %invoke.cont4.i.i559
@@ -31630,7 +31630,7 @@ invoke.cont14.i.i575:                             ; preds = %.noexc13.i.i573
 invoke.cont16.i.i579:                             ; preds = %invoke.cont14.i.i575
   %line.i16.i.i580 = getelementptr inbounds i8, ptr %agg.tmp10.i.i543, i64 32
   store i32 276, ptr %line.i16.i.i580, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i561, ptr noundef nonnull @.str.135, ptr noundef %call9.i.i566, ptr noundef %agg.tmp10.i.i543)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i561, ptr noundef nonnull @.str.135, ptr noundef %call9.i.i566, ptr noundef %agg.tmp10.i.i543)
           to label %__cxx_global_var_init.37.exit unwind label %lpad17.i.i581
 
 lpad.i.i549:                                      ; preds = %call.i.noexc.i.i552, %__cxx_global_var_init.36.exit
@@ -31730,7 +31730,7 @@ invoke.cont.i.i597:                               ; preds = %.noexc.i.i595
 invoke.cont4.i.i601:                              ; preds = %invoke.cont.i.i597
   %line.i.i.i602 = getelementptr inbounds i8, ptr %agg.tmp.i.i582, i64 32
   store i32 281, ptr %line.i.i.i602, align 8
-  %call7.i.i603 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i589, ptr noundef %agg.tmp.i.i582)
+  %call7.i.i603 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i589, ptr noundef %agg.tmp.i.i582)
           to label %invoke.cont6.i.i607 unwind label %lpad5.i.i604
 
 invoke.cont6.i.i607:                              ; preds = %invoke.cont4.i.i601
@@ -31764,7 +31764,7 @@ invoke.cont14.i.i617:                             ; preds = %.noexc13.i.i615
 invoke.cont16.i.i621:                             ; preds = %invoke.cont14.i.i617
   %line.i16.i.i622 = getelementptr inbounds i8, ptr %agg.tmp10.i.i585, i64 32
   store i32 281, ptr %line.i16.i.i622, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i603, ptr noundef nonnull @.str.136, ptr noundef %call9.i.i608, ptr noundef %agg.tmp10.i.i585)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i603, ptr noundef nonnull @.str.136, ptr noundef %call9.i.i608, ptr noundef %agg.tmp10.i.i585)
           to label %__cxx_global_var_init.38.exit unwind label %lpad17.i.i623
 
 lpad.i.i591:                                      ; preds = %call.i.noexc.i.i594, %__cxx_global_var_init.37.exit
@@ -31864,7 +31864,7 @@ invoke.cont.i.i639:                               ; preds = %.noexc.i.i637
 invoke.cont4.i.i643:                              ; preds = %invoke.cont.i.i639
   %line.i.i.i644 = getelementptr inbounds i8, ptr %agg.tmp.i.i624, i64 32
   store i32 286, ptr %line.i.i.i644, align 8
-  %call7.i.i645 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i631, ptr noundef %agg.tmp.i.i624)
+  %call7.i.i645 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i631, ptr noundef %agg.tmp.i.i624)
           to label %invoke.cont6.i.i649 unwind label %lpad5.i.i646
 
 invoke.cont6.i.i649:                              ; preds = %invoke.cont4.i.i643
@@ -31898,7 +31898,7 @@ invoke.cont14.i.i659:                             ; preds = %.noexc13.i.i657
 invoke.cont16.i.i663:                             ; preds = %invoke.cont14.i.i659
   %line.i16.i.i664 = getelementptr inbounds i8, ptr %agg.tmp10.i.i627, i64 32
   store i32 286, ptr %line.i16.i.i664, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i645, ptr noundef nonnull @.str.137, ptr noundef %call9.i.i650, ptr noundef %agg.tmp10.i.i627)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i645, ptr noundef nonnull @.str.137, ptr noundef %call9.i.i650, ptr noundef %agg.tmp10.i.i627)
           to label %__cxx_global_var_init.39.exit unwind label %lpad17.i.i665
 
 lpad.i.i633:                                      ; preds = %call.i.noexc.i.i636, %__cxx_global_var_init.38.exit
@@ -31998,7 +31998,7 @@ invoke.cont.i.i681:                               ; preds = %.noexc.i.i679
 invoke.cont4.i.i685:                              ; preds = %invoke.cont.i.i681
   %line.i.i.i686 = getelementptr inbounds i8, ptr %agg.tmp.i.i666, i64 32
   store i32 294, ptr %line.i.i.i686, align 8
-  %call7.i.i687 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i673, ptr noundef %agg.tmp.i.i666)
+  %call7.i.i687 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i673, ptr noundef %agg.tmp.i.i666)
           to label %invoke.cont6.i.i691 unwind label %lpad5.i.i688
 
 invoke.cont6.i.i691:                              ; preds = %invoke.cont4.i.i685
@@ -32032,7 +32032,7 @@ invoke.cont14.i.i701:                             ; preds = %.noexc13.i.i699
 invoke.cont16.i.i705:                             ; preds = %invoke.cont14.i.i701
   %line.i16.i.i706 = getelementptr inbounds i8, ptr %agg.tmp10.i.i669, i64 32
   store i32 294, ptr %line.i16.i.i706, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i687, ptr noundef nonnull @.str.138, ptr noundef %call9.i.i692, ptr noundef %agg.tmp10.i.i669)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i687, ptr noundef nonnull @.str.138, ptr noundef %call9.i.i692, ptr noundef %agg.tmp10.i.i669)
           to label %__cxx_global_var_init.40.exit unwind label %lpad17.i.i707
 
 lpad.i.i675:                                      ; preds = %call.i.noexc.i.i678, %__cxx_global_var_init.39.exit
@@ -32132,7 +32132,7 @@ invoke.cont.i.i723:                               ; preds = %.noexc.i.i721
 invoke.cont4.i.i727:                              ; preds = %invoke.cont.i.i723
   %line.i.i.i728 = getelementptr inbounds i8, ptr %agg.tmp.i.i708, i64 32
   store i32 303, ptr %line.i.i.i728, align 8
-  %call7.i.i729 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i715, ptr noundef %agg.tmp.i.i708)
+  %call7.i.i729 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i715, ptr noundef %agg.tmp.i.i708)
           to label %invoke.cont6.i.i733 unwind label %lpad5.i.i730
 
 invoke.cont6.i.i733:                              ; preds = %invoke.cont4.i.i727
@@ -32166,7 +32166,7 @@ invoke.cont14.i.i743:                             ; preds = %.noexc13.i.i741
 invoke.cont16.i.i747:                             ; preds = %invoke.cont14.i.i743
   %line.i16.i.i748 = getelementptr inbounds i8, ptr %agg.tmp10.i.i711, i64 32
   store i32 303, ptr %line.i16.i.i748, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i729, ptr noundef nonnull @.str.144, ptr noundef %call9.i.i734, ptr noundef %agg.tmp10.i.i711)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i729, ptr noundef nonnull @.str.144, ptr noundef %call9.i.i734, ptr noundef %agg.tmp10.i.i711)
           to label %__cxx_global_var_init.41.exit unwind label %lpad17.i.i749
 
 lpad.i.i717:                                      ; preds = %call.i.noexc.i.i720, %__cxx_global_var_init.40.exit
@@ -32266,7 +32266,7 @@ invoke.cont.i.i765:                               ; preds = %.noexc.i.i763
 invoke.cont4.i.i769:                              ; preds = %invoke.cont.i.i765
   %line.i.i.i770 = getelementptr inbounds i8, ptr %agg.tmp.i.i750, i64 32
   store i32 308, ptr %line.i.i.i770, align 8
-  %call7.i.i771 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i757, ptr noundef %agg.tmp.i.i750)
+  %call7.i.i771 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i757, ptr noundef %agg.tmp.i.i750)
           to label %invoke.cont6.i.i775 unwind label %lpad5.i.i772
 
 invoke.cont6.i.i775:                              ; preds = %invoke.cont4.i.i769
@@ -32300,7 +32300,7 @@ invoke.cont14.i.i785:                             ; preds = %.noexc13.i.i783
 invoke.cont16.i.i789:                             ; preds = %invoke.cont14.i.i785
   %line.i16.i.i790 = getelementptr inbounds i8, ptr %agg.tmp10.i.i753, i64 32
   store i32 308, ptr %line.i16.i.i790, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i771, ptr noundef nonnull @.str.145, ptr noundef %call9.i.i776, ptr noundef %agg.tmp10.i.i753)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i771, ptr noundef nonnull @.str.145, ptr noundef %call9.i.i776, ptr noundef %agg.tmp10.i.i753)
           to label %__cxx_global_var_init.42.exit unwind label %lpad17.i.i791
 
 lpad.i.i759:                                      ; preds = %call.i.noexc.i.i762, %__cxx_global_var_init.41.exit
@@ -32400,7 +32400,7 @@ invoke.cont.i.i807:                               ; preds = %.noexc.i.i805
 invoke.cont4.i.i811:                              ; preds = %invoke.cont.i.i807
   %line.i.i.i812 = getelementptr inbounds i8, ptr %agg.tmp.i.i792, i64 32
   store i32 314, ptr %line.i.i.i812, align 8
-  %call7.i.i813 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i799, ptr noundef %agg.tmp.i.i792)
+  %call7.i.i813 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i799, ptr noundef %agg.tmp.i.i792)
           to label %invoke.cont6.i.i817 unwind label %lpad5.i.i814
 
 invoke.cont6.i.i817:                              ; preds = %invoke.cont4.i.i811
@@ -32434,7 +32434,7 @@ invoke.cont14.i.i827:                             ; preds = %.noexc13.i.i825
 invoke.cont16.i.i831:                             ; preds = %invoke.cont14.i.i827
   %line.i16.i.i832 = getelementptr inbounds i8, ptr %agg.tmp10.i.i795, i64 32
   store i32 314, ptr %line.i16.i.i832, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i813, ptr noundef nonnull @.str.146, ptr noundef %call9.i.i818, ptr noundef %agg.tmp10.i.i795)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i813, ptr noundef nonnull @.str.146, ptr noundef %call9.i.i818, ptr noundef %agg.tmp10.i.i795)
           to label %__cxx_global_var_init.43.exit unwind label %lpad17.i.i833
 
 lpad.i.i801:                                      ; preds = %call.i.noexc.i.i804, %__cxx_global_var_init.42.exit
@@ -32534,7 +32534,7 @@ invoke.cont.i.i849:                               ; preds = %.noexc.i.i847
 invoke.cont4.i.i853:                              ; preds = %invoke.cont.i.i849
   %line.i.i.i854 = getelementptr inbounds i8, ptr %agg.tmp.i.i834, i64 32
   store i32 319, ptr %line.i.i.i854, align 8
-  %call7.i.i855 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i841, ptr noundef %agg.tmp.i.i834)
+  %call7.i.i855 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i841, ptr noundef %agg.tmp.i.i834)
           to label %invoke.cont6.i.i859 unwind label %lpad5.i.i856
 
 invoke.cont6.i.i859:                              ; preds = %invoke.cont4.i.i853
@@ -32568,7 +32568,7 @@ invoke.cont14.i.i869:                             ; preds = %.noexc13.i.i867
 invoke.cont16.i.i873:                             ; preds = %invoke.cont14.i.i869
   %line.i16.i.i874 = getelementptr inbounds i8, ptr %agg.tmp10.i.i837, i64 32
   store i32 319, ptr %line.i16.i.i874, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i855, ptr noundef nonnull @.str.147, ptr noundef %call9.i.i860, ptr noundef %agg.tmp10.i.i837)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i855, ptr noundef nonnull @.str.147, ptr noundef %call9.i.i860, ptr noundef %agg.tmp10.i.i837)
           to label %__cxx_global_var_init.44.exit unwind label %lpad17.i.i875
 
 lpad.i.i843:                                      ; preds = %call.i.noexc.i.i846, %__cxx_global_var_init.43.exit
@@ -32668,7 +32668,7 @@ invoke.cont.i.i891:                               ; preds = %.noexc.i.i889
 invoke.cont4.i.i895:                              ; preds = %invoke.cont.i.i891
   %line.i.i.i896 = getelementptr inbounds i8, ptr %agg.tmp.i.i876, i64 32
   store i32 324, ptr %line.i.i.i896, align 8
-  %call7.i.i897 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i883, ptr noundef %agg.tmp.i.i876)
+  %call7.i.i897 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i883, ptr noundef %agg.tmp.i.i876)
           to label %invoke.cont6.i.i901 unwind label %lpad5.i.i898
 
 invoke.cont6.i.i901:                              ; preds = %invoke.cont4.i.i895
@@ -32702,7 +32702,7 @@ invoke.cont14.i.i911:                             ; preds = %.noexc13.i.i909
 invoke.cont16.i.i915:                             ; preds = %invoke.cont14.i.i911
   %line.i16.i.i916 = getelementptr inbounds i8, ptr %agg.tmp10.i.i879, i64 32
   store i32 324, ptr %line.i16.i.i916, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i897, ptr noundef nonnull @.str.148, ptr noundef %call9.i.i902, ptr noundef %agg.tmp10.i.i879)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i897, ptr noundef nonnull @.str.148, ptr noundef %call9.i.i902, ptr noundef %agg.tmp10.i.i879)
           to label %__cxx_global_var_init.45.exit unwind label %lpad17.i.i917
 
 lpad.i.i885:                                      ; preds = %call.i.noexc.i.i888, %__cxx_global_var_init.44.exit
@@ -32802,7 +32802,7 @@ invoke.cont.i.i933:                               ; preds = %.noexc.i.i931
 invoke.cont4.i.i937:                              ; preds = %invoke.cont.i.i933
   %line.i.i.i938 = getelementptr inbounds i8, ptr %agg.tmp.i.i918, i64 32
   store i32 329, ptr %line.i.i.i938, align 8
-  %call7.i.i939 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i925, ptr noundef %agg.tmp.i.i918)
+  %call7.i.i939 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i925, ptr noundef %agg.tmp.i.i918)
           to label %invoke.cont6.i.i943 unwind label %lpad5.i.i940
 
 invoke.cont6.i.i943:                              ; preds = %invoke.cont4.i.i937
@@ -32836,7 +32836,7 @@ invoke.cont14.i.i953:                             ; preds = %.noexc13.i.i951
 invoke.cont16.i.i957:                             ; preds = %invoke.cont14.i.i953
   %line.i16.i.i958 = getelementptr inbounds i8, ptr %agg.tmp10.i.i921, i64 32
   store i32 329, ptr %line.i16.i.i958, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i939, ptr noundef nonnull @.str.149, ptr noundef %call9.i.i944, ptr noundef %agg.tmp10.i.i921)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i939, ptr noundef nonnull @.str.149, ptr noundef %call9.i.i944, ptr noundef %agg.tmp10.i.i921)
           to label %__cxx_global_var_init.46.exit unwind label %lpad17.i.i959
 
 lpad.i.i927:                                      ; preds = %call.i.noexc.i.i930, %__cxx_global_var_init.45.exit
@@ -32936,7 +32936,7 @@ invoke.cont.i.i975:                               ; preds = %.noexc.i.i973
 invoke.cont4.i.i979:                              ; preds = %invoke.cont.i.i975
   %line.i.i.i980 = getelementptr inbounds i8, ptr %agg.tmp.i.i960, i64 32
   store i32 337, ptr %line.i.i.i980, align 8
-  %call7.i.i981 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i967, ptr noundef %agg.tmp.i.i960)
+  %call7.i.i981 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i967, ptr noundef %agg.tmp.i.i960)
           to label %invoke.cont6.i.i985 unwind label %lpad5.i.i982
 
 invoke.cont6.i.i985:                              ; preds = %invoke.cont4.i.i979
@@ -32970,7 +32970,7 @@ invoke.cont14.i.i995:                             ; preds = %.noexc13.i.i993
 invoke.cont16.i.i999:                             ; preds = %invoke.cont14.i.i995
   %line.i16.i.i1000 = getelementptr inbounds i8, ptr %agg.tmp10.i.i963, i64 32
   store i32 337, ptr %line.i16.i.i1000, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i981, ptr noundef nonnull @.str.150, ptr noundef %call9.i.i986, ptr noundef %agg.tmp10.i.i963)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i981, ptr noundef nonnull @.str.150, ptr noundef %call9.i.i986, ptr noundef %agg.tmp10.i.i963)
           to label %__cxx_global_var_init.47.exit unwind label %lpad17.i.i1001
 
 lpad.i.i969:                                      ; preds = %call.i.noexc.i.i972, %__cxx_global_var_init.46.exit
@@ -33070,7 +33070,7 @@ invoke.cont.i.i1017:                              ; preds = %.noexc.i.i1015
 invoke.cont4.i.i1021:                             ; preds = %invoke.cont.i.i1017
   %line.i.i.i1022 = getelementptr inbounds i8, ptr %agg.tmp.i.i1002, i64 32
   store i32 345, ptr %line.i.i.i1022, align 8
-  %call7.i.i1023 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1009, ptr noundef %agg.tmp.i.i1002)
+  %call7.i.i1023 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1009, ptr noundef %agg.tmp.i.i1002)
           to label %invoke.cont6.i.i1027 unwind label %lpad5.i.i1024
 
 invoke.cont6.i.i1027:                             ; preds = %invoke.cont4.i.i1021
@@ -33104,7 +33104,7 @@ invoke.cont14.i.i1037:                            ; preds = %.noexc13.i.i1035
 invoke.cont16.i.i1041:                            ; preds = %invoke.cont14.i.i1037
   %line.i16.i.i1042 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1005, i64 32
   store i32 345, ptr %line.i16.i.i1042, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1023, ptr noundef nonnull @.str.151, ptr noundef %call9.i.i1028, ptr noundef %agg.tmp10.i.i1005)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1023, ptr noundef nonnull @.str.151, ptr noundef %call9.i.i1028, ptr noundef %agg.tmp10.i.i1005)
           to label %__cxx_global_var_init.48.exit unwind label %lpad17.i.i1043
 
 lpad.i.i1011:                                     ; preds = %call.i.noexc.i.i1014, %__cxx_global_var_init.47.exit
@@ -33358,7 +33358,7 @@ invoke.cont.i.i1111:                              ; preds = %.noexc.i.i1109
 invoke.cont4.i.i1115:                             ; preds = %invoke.cont.i.i1111
   %line.i.i.i1116 = getelementptr inbounds i8, ptr %agg.tmp.i.i1096, i64 32
   store i32 364, ptr %line.i.i.i1116, align 8
-  %call7.i.i1117 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1103, ptr noundef %agg.tmp.i.i1096)
+  %call7.i.i1117 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1103, ptr noundef %agg.tmp.i.i1096)
           to label %invoke.cont6.i.i1121 unwind label %lpad5.i.i1118
 
 invoke.cont6.i.i1121:                             ; preds = %invoke.cont4.i.i1115
@@ -33392,7 +33392,7 @@ invoke.cont14.i.i1131:                            ; preds = %.noexc13.i.i1129
 invoke.cont16.i.i1135:                            ; preds = %invoke.cont14.i.i1131
   %line.i16.i.i1136 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1099, i64 32
   store i32 364, ptr %line.i16.i.i1136, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1117, ptr noundef nonnull @.str.153, ptr noundef %call9.i.i1122, ptr noundef %agg.tmp10.i.i1099)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1117, ptr noundef nonnull @.str.153, ptr noundef %call9.i.i1122, ptr noundef %agg.tmp10.i.i1099)
           to label %__cxx_global_var_init.53.exit unwind label %lpad17.i.i1137
 
 lpad.i.i1105:                                     ; preds = %call.i.noexc.i.i1108, %__cxx_global_var_init.51.exit
@@ -33492,7 +33492,7 @@ invoke.cont.i.i1153:                              ; preds = %.noexc.i.i1151
 invoke.cont4.i.i1157:                             ; preds = %invoke.cont.i.i1153
   %line.i.i.i1158 = getelementptr inbounds i8, ptr %agg.tmp.i.i1138, i64 32
   store i32 370, ptr %line.i.i.i1158, align 8
-  %call7.i.i1159 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1145, ptr noundef %agg.tmp.i.i1138)
+  %call7.i.i1159 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1145, ptr noundef %agg.tmp.i.i1138)
           to label %invoke.cont6.i.i1163 unwind label %lpad5.i.i1160
 
 invoke.cont6.i.i1163:                             ; preds = %invoke.cont4.i.i1157
@@ -33526,7 +33526,7 @@ invoke.cont14.i.i1173:                            ; preds = %.noexc13.i.i1171
 invoke.cont16.i.i1177:                            ; preds = %invoke.cont14.i.i1173
   %line.i16.i.i1178 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1141, i64 32
   store i32 370, ptr %line.i16.i.i1178, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1159, ptr noundef nonnull @.str.154, ptr noundef %call9.i.i1164, ptr noundef %agg.tmp10.i.i1141)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1159, ptr noundef nonnull @.str.154, ptr noundef %call9.i.i1164, ptr noundef %agg.tmp10.i.i1141)
           to label %__cxx_global_var_init.54.exit unwind label %lpad17.i.i1179
 
 lpad.i.i1147:                                     ; preds = %call.i.noexc.i.i1150, %__cxx_global_var_init.53.exit
@@ -33626,7 +33626,7 @@ invoke.cont.i.i1195:                              ; preds = %.noexc.i.i1193
 invoke.cont4.i.i1199:                             ; preds = %invoke.cont.i.i1195
   %line.i.i.i1200 = getelementptr inbounds i8, ptr %agg.tmp.i.i1180, i64 32
   store i32 375, ptr %line.i.i.i1200, align 8
-  %call7.i.i1201 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1187, ptr noundef %agg.tmp.i.i1180)
+  %call7.i.i1201 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzUpdateTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1187, ptr noundef %agg.tmp.i.i1180)
           to label %invoke.cont6.i.i1205 unwind label %lpad5.i.i1202
 
 invoke.cont6.i.i1205:                             ; preds = %invoke.cont4.i.i1199
@@ -33660,7 +33660,7 @@ invoke.cont14.i.i1215:                            ; preds = %.noexc13.i.i1213
 invoke.cont16.i.i1219:                            ; preds = %invoke.cont14.i.i1215
   %line.i16.i.i1220 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1183, i64 32
   store i32 375, ptr %line.i16.i.i1220, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1201, ptr noundef nonnull @.str.155, ptr noundef %call9.i.i1206, ptr noundef %agg.tmp10.i.i1183)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1201, ptr noundef nonnull @.str.155, ptr noundef %call9.i.i1206, ptr noundef %agg.tmp10.i.i1183)
           to label %__cxx_global_var_init.55.exit unwind label %lpad17.i.i1221
 
 lpad.i.i1189:                                     ; preds = %call.i.noexc.i.i1192, %__cxx_global_var_init.54.exit
@@ -33760,7 +33760,7 @@ invoke.cont.i.i1237:                              ; preds = %.noexc.i.i1235
 invoke.cont4.i.i1241:                             ; preds = %invoke.cont.i.i1237
   %line.i.i.i1242 = getelementptr inbounds i8, ptr %agg.tmp.i.i1222, i64 32
   store i32 380, ptr %line.i.i.i1242, align 8
-  %call7.i.i1243 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1229, ptr noundef %agg.tmp.i.i1222)
+  %call7.i.i1243 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1229, ptr noundef %agg.tmp.i.i1222)
           to label %invoke.cont6.i.i1247 unwind label %lpad5.i.i1244
 
 invoke.cont6.i.i1247:                             ; preds = %invoke.cont4.i.i1241
@@ -33794,7 +33794,7 @@ invoke.cont14.i.i1257:                            ; preds = %.noexc13.i.i1255
 invoke.cont16.i.i1261:                            ; preds = %invoke.cont14.i.i1257
   %line.i16.i.i1262 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1225, i64 32
   store i32 380, ptr %line.i16.i.i1262, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1243, ptr noundef nonnull @.str.156, ptr noundef %call9.i.i1248, ptr noundef %agg.tmp10.i.i1225)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1243, ptr noundef nonnull @.str.156, ptr noundef %call9.i.i1248, ptr noundef %agg.tmp10.i.i1225)
           to label %__cxx_global_var_init.56.exit unwind label %lpad17.i.i1263
 
 lpad.i.i1231:                                     ; preds = %call.i.noexc.i.i1234, %__cxx_global_var_init.55.exit
@@ -33894,7 +33894,7 @@ invoke.cont.i.i1279:                              ; preds = %.noexc.i.i1277
 invoke.cont4.i.i1283:                             ; preds = %invoke.cont.i.i1279
   %line.i.i.i1284 = getelementptr inbounds i8, ptr %agg.tmp.i.i1264, i64 32
   store i32 388, ptr %line.i.i.i1284, align 8
-  %call7.i.i1285 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1271, ptr noundef %agg.tmp.i.i1264)
+  %call7.i.i1285 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1271, ptr noundef %agg.tmp.i.i1264)
           to label %invoke.cont6.i.i1289 unwind label %lpad5.i.i1286
 
 invoke.cont6.i.i1289:                             ; preds = %invoke.cont4.i.i1283
@@ -33928,7 +33928,7 @@ invoke.cont14.i.i1299:                            ; preds = %.noexc13.i.i1297
 invoke.cont16.i.i1303:                            ; preds = %invoke.cont14.i.i1299
   %line.i16.i.i1304 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1267, i64 32
   store i32 388, ptr %line.i16.i.i1304, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1285, ptr noundef nonnull @.str.157, ptr noundef %call9.i.i1290, ptr noundef %agg.tmp10.i.i1267)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1285, ptr noundef nonnull @.str.157, ptr noundef %call9.i.i1290, ptr noundef %agg.tmp10.i.i1267)
           to label %__cxx_global_var_init.57.exit unwind label %lpad17.i.i1305
 
 lpad.i.i1273:                                     ; preds = %call.i.noexc.i.i1276, %__cxx_global_var_init.56.exit
@@ -34028,7 +34028,7 @@ invoke.cont.i.i1321:                              ; preds = %.noexc.i.i1319
 invoke.cont4.i.i1325:                             ; preds = %invoke.cont.i.i1321
   %line.i.i.i1326 = getelementptr inbounds i8, ptr %agg.tmp.i.i1306, i64 32
   store i32 396, ptr %line.i.i.i1326, align 8
-  %call7.i.i1327 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1313, ptr noundef %agg.tmp.i.i1306)
+  %call7.i.i1327 = invoke fastcc noundef ptr @_ZN7testing8internal30ParameterizedTestSuiteRegistry25GetTestSuitePatternHolderIN4absl12_GLOBAL__N_115CordzStringTestEEEPNS0_26ParameterizedTestSuiteInfoIT_EEPKcNS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(24) %call1.i.i1313, ptr noundef %agg.tmp.i.i1306)
           to label %invoke.cont6.i.i1331 unwind label %lpad5.i.i1328
 
 invoke.cont6.i.i1331:                             ; preds = %invoke.cont4.i.i1325
@@ -34062,7 +34062,7 @@ invoke.cont14.i.i1341:                            ; preds = %.noexc13.i.i1339
 invoke.cont16.i.i1345:                            ; preds = %invoke.cont14.i.i1341
   %line.i16.i.i1346 = getelementptr inbounds i8, ptr %agg.tmp10.i.i1309, i64 32
   store i32 396, ptr %line.i16.i.i1346, align 8
-  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1327, ptr noundef nonnull @.str.158, ptr noundef %call9.i.i1332, ptr noundef %agg.tmp10.i.i1309)
+  invoke fastcc void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE14AddTestPatternEPKcS7_PNS0_19TestMetaFactoryBaseINS2_12TestCordSizeEEENS0_12CodeLocationE.argprom(ptr noundef nonnull align 8 dereferenceable(128) %call7.i.i1327, ptr noundef nonnull @.str.158, ptr noundef %call9.i.i1332, ptr noundef %agg.tmp10.i.i1309)
           to label %__cxx_global_var_init.58.exit unwind label %lpad17.i.i1347
 
 lpad.i.i1315:                                     ; preds = %call.i.noexc.i.i1318, %__cxx_global_var_init.57.exit
@@ -34625,10 +34625,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !52 = distinct !{!52, !53, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_: %agg.result"}
 !53 = distinct !{!53, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
-!56 = distinct !{!56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_"}
+!55 = distinct !{!55, !56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom: %__dest"}
+!56 = distinct !{!56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom"}
 !57 = !{!58}
-!58 = distinct !{!58, !56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
+!58 = distinct !{!58, !56, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom: %__orig"}
 !59 = distinct !{!59, !45}
 !60 = !{!61}
 !61 = distinct !{!61, !62, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_: %agg.result"}
@@ -34682,10 +34682,10 @@ attributes #34 = { nounwind willreturn memory(read) }
 !109 = distinct !{!109, !110, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_: %agg.result"}
 !110 = distinct !{!110, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_: %__dest"}
-!113 = distinct !{!113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_"}
+!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom: %__dest"}
+!113 = distinct !{!113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom"}
 !114 = !{!115}
-!115 = distinct !{!115, !113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_: %__orig"}
+!115 = distinct !{!115, !113, !"_ZSt19__relocate_object_aISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEES9_SaIS9_EEvPT_PT0_RT1_.argprom: %__orig"}
 !116 = distinct !{!116, !45}
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_9EqMatcherIDnEEEENS0_29PredicateFormatterFromMatcherIT_EES5_: %agg.result"}
@@ -34785,14 +34785,14 @@ attributes #34 = { nounwind willreturn memory(read) }
 !212 = distinct !{!212, !213, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27CordzMethodCountEqMatcherP2INS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEiEEEENS0_29PredicateFormatterFromMatcherIT_EES9_: %agg.result"}
 !213 = distinct !{!213, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27CordzMethodCountEqMatcherP2INS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEiEEEENS0_29PredicateFormatterFromMatcherIT_EES9_"}
 !214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_135CordzTest_MakeCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!216 = distinct !{!216, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_135CordzTest_MakeCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!215 = distinct !{!215, !216, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_135CordzTest_MakeCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!216 = distinct !{!216, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_135CordzTest_MakeCordFromExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !217 = !{!218}
 !218 = distinct !{!218, !219, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_: %agg.result"}
 !219 = distinct !{!219, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherIN4absl27HasValidCordzInfoOfMatcherPINS2_13cord_internal18CordzUpdateTracker16MethodIdentifierEEEEENS0_29PredicateFormatterFromMatcherIT_EES9_"}
 !220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_: %agg.result"}
-!222 = distinct !{!222, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_"}
+!221 = distinct !{!221, !222, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom: %agg.result"}
+!222 = distinct !{!222, !"_ZN4absl20MakeCordFromExternalIZNS_12_GLOBAL__N_140CordzTest_MakeCordFromEmptyExternal_Test8TestBodyEvE3$_0EENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_.argprom"}
 !223 = !{!224}
 !224 = distinct !{!224, !225, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_9EqMatcherIDnEEEENS0_29PredicateFormatterFromMatcherIT_EES5_: %agg.result"}
 !225 = distinct !{!225, !"_ZN7testing8internal33MakePredicateFormatterFromMatcherINS0_9EqMatcherIDnEEEENS0_29PredicateFormatterFromMatcherIT_EES5_"}
@@ -34890,12 +34890,12 @@ attributes #34 = { nounwind willreturn memory(read) }
 !317 = distinct !{!317, !45}
 !318 = distinct !{!318, !45}
 !319 = !{!320, !322}
-!320 = distinct !{!320, !321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_: %__dest"}
-!321 = distinct !{!321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_"}
-!322 = distinct !{!322, !321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
+!320 = distinct !{!320, !321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom: %__dest"}
+!321 = distinct !{!321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom"}
+!322 = distinct !{!322, !321, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom: %__orig"}
 !323 = distinct !{!323, !45}
 !324 = !{!325, !327}
-!325 = distinct !{!325, !326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_: %__dest"}
-!326 = distinct !{!326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_"}
-!327 = distinct !{!327, !326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_: %__orig"}
+!325 = distinct !{!325, !326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom: %__dest"}
+!326 = distinct !{!326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom"}
+!327 = distinct !{!327, !326, !"_ZSt19__relocate_object_aIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoES7_SaIS7_EEvPT_PT0_RT1_.argprom: %__orig"}
 !328 = distinct !{!328, !45}

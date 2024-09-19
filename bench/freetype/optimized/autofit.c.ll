@@ -922,7 +922,7 @@ af_cjk_metrics_init_blues.exit:                   ; preds = %.outer196._crit_edg
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call fastcc void @af_cjk_metrics_check_digits(ptr noundef nonnull %0)
+  call fastcc void @af_cjk_metrics_check_digits.argprom(ptr noundef nonnull %0)
   br label %167
 
 167:                                              ; preds = %af_cjk_metrics_init_blues.exit, %2
@@ -1015,7 +1015,7 @@ define internal noundef i32 @af_cjk_hints_init(ptr nocapture noundef writeonly %
 define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc i32 @af_glyph_hints_reload(ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %af_glyph_hints_save.exit
+  br i1 %.not, label %6, label %af_glyph_hints_save.argprom.exit
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 5144
@@ -1027,7 +1027,7 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, 
 10:                                               ; preds = %6
   %11 = tail call fastcc i32 @af_cjk_hints_detect_features(ptr noundef nonnull %1, i32 noundef 0)
   %.not41 = icmp eq i32 %11, 0
-  br i1 %.not41, label %12, label %af_glyph_hints_save.exit
+  br i1 %.not41, label %12, label %af_glyph_hints_save.argprom.exit
 
 12:                                               ; preds = %10
   tail call fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef nonnull %1, ptr noundef %3, i32 noundef 0)
@@ -1043,7 +1043,7 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, 
 16:                                               ; preds = %13
   %17 = tail call fastcc i32 @af_cjk_hints_detect_features(ptr noundef nonnull %1, i32 noundef 1)
   %.not43 = icmp eq i32 %17, 0
-  br i1 %.not43, label %18, label %af_glyph_hints_save.exit
+  br i1 %.not43, label %18, label %af_glyph_hints_save.argprom.exit
 
 18:                                               ; preds = %16
   tail call fastcc void @af_cjk_hints_compute_blue_edges(ptr noundef nonnull %1, ptr noundef %3, i32 noundef 1)
@@ -1289,7 +1289,7 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, 
   %120 = sext i32 %.val to i64
   %121 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val46, i64 %120
   %122 = icmp sgt i32 %.val, 0
-  br i1 %122, label %.lr.ph.i56.preheader, label %af_glyph_hints_save.exit
+  br i1 %122, label %.lr.ph.i56.preheader, label %af_glyph_hints_save.argprom.exit
 
 .lr.ph.i56.preheader:                             ; preds = %.thread
   %123 = getelementptr i8, ptr %2, i64 16
@@ -1322,9 +1322,9 @@ define internal i32 @af_cjk_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, 
   %135 = getelementptr inbounds i8, ptr %.0192.i, i64 16
   %136 = getelementptr inbounds i8, ptr %.03.i, i64 1
   %137 = icmp ult ptr %134, %121
-  br i1 %137, label %.lr.ph.i56, label %af_glyph_hints_save.exit, !llvm.loop !18
+  br i1 %137, label %.lr.ph.i56, label %af_glyph_hints_save.argprom.exit, !llvm.loop !18
 
-af_glyph_hints_save.exit:                         ; preds = %.lr.ph.i56, %.thread, %16, %10, %4
+af_glyph_hints_save.argprom.exit:                 ; preds = %.lr.ph.i56, %.thread, %16, %10, %4
   %.032 = phi i32 [ %5, %4 ], [ %17, %16 ], [ %11, %10 ], [ 0, %.thread ], [ 0, %.lr.ph.i56 ]
   ret i32 %.032
 }
@@ -1360,7 +1360,7 @@ define internal noundef i32 @af_dummy_hints_init(ptr nocapture noundef writeonly
 define internal i32 @af_dummy_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call fastcc i32 @af_glyph_hints_reload(ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %af_glyph_hints_save.exit
+  br i1 %.not, label %6, label %af_glyph_hints_save.argprom.exit
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %1, i64 44
@@ -1370,7 +1370,7 @@ define internal i32 @af_dummy_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2
   %9 = sext i32 %.val to i64
   %10 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val7, i64 %9
   %11 = icmp sgt i32 %.val, 0
-  br i1 %11, label %.lr.ph.i.preheader, label %af_glyph_hints_save.exit
+  br i1 %11, label %.lr.ph.i.preheader, label %af_glyph_hints_save.argprom.exit
 
 .lr.ph.i.preheader:                               ; preds = %6
   %12 = getelementptr i8, ptr %2, i64 16
@@ -1403,9 +1403,9 @@ define internal i32 @af_dummy_hints_apply(i32 %0, ptr noundef %1, ptr noundef %2
   %24 = getelementptr inbounds i8, ptr %.0192.i, i64 16
   %25 = getelementptr inbounds i8, ptr %.03.i, i64 1
   %26 = icmp ult ptr %23, %10
-  br i1 %26, label %.lr.ph.i, label %af_glyph_hints_save.exit, !llvm.loop !18
+  br i1 %26, label %.lr.ph.i, label %af_glyph_hints_save.argprom.exit, !llvm.loop !18
 
-af_glyph_hints_save.exit:                         ; preds = %.lr.ph.i, %6, %4
+af_glyph_hints_save.argprom.exit:                 ; preds = %.lr.ph.i, %6, %4
   ret i32 %5
 }
 
@@ -1424,7 +1424,7 @@ define internal noundef i32 @af_indic_metrics_init(ptr nocapture noundef %0, ptr
 
 10:                                               ; preds = %2
   tail call fastcc void @af_cjk_metrics_init_widths(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  tail call fastcc void @af_cjk_metrics_check_digits(ptr noundef nonnull %0)
+  tail call fastcc void @af_cjk_metrics_check_digits.argprom(ptr noundef nonnull %0)
   br label %11
 
 11:                                               ; preds = %2, %10
@@ -2730,7 +2730,7 @@ af_latin_metrics_init_blues.exit:                 ; preds = %495, %480
   %.013.i = phi ptr [ %.013.ph.ph.i, %.outer.outer.i ], [ %502, %.outer.i26.backedge ]
   %500 = load i8, ptr %.013.i, align 1
   %.not.i27 = icmp eq i8 %500, 0
-  br i1 %.not.i27, label %af_latin_metrics_check_digits.exit, label %501
+  br i1 %.not.i27, label %af_latin_metrics_check_digits.argprom.exit, label %501
 
 501:                                              ; preds = %.outer.i26
   %502 = call ptr @af_shaper_get_cluster(ptr noundef nonnull %.013.i, ptr noundef nonnull %0, ptr noundef %499, ptr noundef nonnull %5)
@@ -2766,9 +2766,9 @@ af_shaper_get_elem.exit.i30:                      ; preds = %505
 
 515:                                              ; preds = %513
   %.not19.i = icmp eq i64 %.015.ph.ph.i.ph, %514
-  br i1 %.not19.i, label %.outer.outer.i, label %af_latin_metrics_check_digits.exit, !llvm.loop !41
+  br i1 %.not19.i, label %.outer.outer.i, label %af_latin_metrics_check_digits.argprom.exit, !llvm.loop !41
 
-af_latin_metrics_check_digits.exit:               ; preds = %515, %.outer.i26
+af_latin_metrics_check_digits.argprom.exit:       ; preds = %515, %.outer.i26
   %.014.i = phi i8 [ 1, %.outer.i26 ], [ 0, %515 ]
   call void @hb_buffer_destroy(ptr noundef %499) #20
   %516 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2777,8 +2777,8 @@ af_latin_metrics_check_digits.exit:               ; preds = %515, %.outer.i26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %517
 
-517:                                              ; preds = %af_latin_metrics_init_blues.exit, %2, %af_latin_metrics_check_digits.exit
-  %.0 = phi i32 [ 0, %2 ], [ 0, %af_latin_metrics_check_digits.exit ], [ -1, %af_latin_metrics_init_blues.exit ]
+517:                                              ; preds = %af_latin_metrics_init_blues.exit, %2, %af_latin_metrics_check_digits.argprom.exit
+  %.0 = phi i32 [ 0, %2 ], [ 0, %af_latin_metrics_check_digits.argprom.exit ], [ -1, %af_latin_metrics_init_blues.exit ]
   store ptr %17, ptr %16, align 8
   ret i32 %.0
 }
@@ -2893,7 +2893,7 @@ define internal noundef i32 @af_latin_hints_init(ptr nocapture noundef writeonly
 define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc i32 @af_glyph_hints_reload(ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %af_glyph_hints_save.exit
+  br i1 %.not, label %6, label %af_glyph_hints_save.argprom.exit
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 5144
@@ -2908,7 +2908,7 @@ define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr inbounds i8, ptr %3, i64 104
   %14 = tail call fastcc i32 @af_latin_hints_detect_features(ptr noundef nonnull %1, i32 noundef %12, ptr noundef nonnull %13, i32 noundef 0)
   %.not45 = icmp eq i32 %14, 0
-  br i1 %.not45, label %._crit_edge, label %af_glyph_hints_save.exit
+  br i1 %.not45, label %._crit_edge, label %af_glyph_hints_save.argprom.exit
 
 ._crit_edge:                                      ; preds = %10
   %.pre = load i32, ptr %7, align 8
@@ -2926,7 +2926,7 @@ define internal i32 @af_latin_hints_apply(i32 noundef %0, ptr noundef %1, ptr no
   %21 = getelementptr inbounds i8, ptr %3, i64 1128
   %22 = tail call fastcc i32 @af_latin_hints_detect_features(ptr noundef nonnull %1, i32 noundef %20, ptr noundef nonnull %21, i32 noundef 1)
   %.not47 = icmp eq i32 %22, 0
-  br i1 %.not47, label %23, label %af_glyph_hints_save.exit
+  br i1 %.not47, label %23, label %af_glyph_hints_save.argprom.exit
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %3, i64 64
@@ -3226,7 +3226,7 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %._crit_edge.thread.
   %172 = sext i32 %.val to i64
   %173 = getelementptr inbounds %struct.AF_PointRec_, ptr %.val51, i64 %172
   %174 = icmp sgt i32 %.val, 0
-  br i1 %174, label %.lr.ph.i60.preheader, label %af_glyph_hints_save.exit
+  br i1 %174, label %.lr.ph.i60.preheader, label %af_glyph_hints_save.argprom.exit
 
 .lr.ph.i60.preheader:                             ; preds = %.thread
   %175 = getelementptr i8, ptr %2, i64 16
@@ -3259,9 +3259,9 @@ af_latin_hints_compute_blue_edges.exit:           ; preds = %._crit_edge.thread.
   %187 = getelementptr inbounds i8, ptr %.0192.i, i64 16
   %188 = getelementptr inbounds i8, ptr %.03.i, i64 1
   %189 = icmp ult ptr %186, %173
-  br i1 %189, label %.lr.ph.i60, label %af_glyph_hints_save.exit, !llvm.loop !18
+  br i1 %189, label %.lr.ph.i60, label %af_glyph_hints_save.argprom.exit, !llvm.loop !18
 
-af_glyph_hints_save.exit:                         ; preds = %.lr.ph.i60, %.thread, %18, %10, %4
+af_glyph_hints_save.argprom.exit:                 ; preds = %.lr.ph.i60, %.thread, %18, %10, %4
   %.036 = phi i32 [ %5, %4 ], [ %22, %18 ], [ %14, %10 ], [ 0, %.thread ], [ 0, %.lr.ph.i60 ]
   ret i32 %.036
 }
@@ -3538,7 +3538,7 @@ af_face_globals_get_metrics.exit.i:               ; preds = %92
   br i1 %.not199.i, label %138, label %139
 
 138:                                              ; preds = %135, %128
-  call fastcc void @af_loader_embolden_glyph_in_slot(ptr noundef %12, ptr noundef nonnull %20, ptr noundef nonnull %.0.i215231.i)
+  call fastcc void @af_loader_embolden_glyph_in_slot.argelim(ptr noundef %12, ptr noundef nonnull %20, ptr noundef nonnull %.0.i215231.i)
   br label %139
 
 139:                                              ; preds = %138, %135, %133, %125
@@ -4718,7 +4718,7 @@ af_shaper_get_elem.exit:                          ; preds = %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @af_cjk_metrics_check_digits(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @af_cjk_metrics_check_digits.argprom(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [20 x i8], align 16
   %4 = alloca i32, align 4
@@ -7799,7 +7799,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %51 = sub nsw i64 %48, %50
   %52 = getelementptr inbounds i8, ptr %.0186262, i64 24
   %53 = load i8, ptr %52, align 8
-  %54 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val, ptr readonly %.val241, i32 noundef %1, i64 noundef %51)
+  %54 = tail call fastcc i64 @af_cjk_compute_stem_width.argprom.argelim(i32 %.val, ptr readonly %.val241, i32 noundef %1, i64 noundef %51)
   %55 = add nsw i64 %54, %43
   %56 = getelementptr inbounds i8, ptr %.0186262, i64 16
   store i64 %55, ptr %56, align 8
@@ -7876,7 +7876,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %88 = getelementptr inbounds i8, ptr %67, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = sub nsw i64 %87, %89
-  %91 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val242, ptr readonly %.val243, i32 noundef %1, i64 noundef %90)
+  %91 = tail call fastcc i64 @af_cjk_compute_stem_width.argprom.argelim(i32 %.val242, ptr readonly %.val243, i32 noundef %1, i64 noundef %90)
   %92 = getelementptr inbounds i8, ptr %67, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = add nsw i64 %93, %91
@@ -7898,7 +7898,7 @@ define internal fastcc void @af_cjk_hint_edges(ptr nocapture noundef readonly %0
   %102 = getelementptr inbounds i8, ptr %67, i64 8
   %103 = load i64, ptr %102, align 8
   %104 = sub nsw i64 %101, %103
-  %105 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %.val244, ptr readonly %.val245, i32 noundef %1, i64 noundef %104)
+  %105 = tail call fastcc i64 @af_cjk_compute_stem_width.argprom.argelim(i32 %.val244, ptr readonly %.val245, i32 noundef %1, i64 noundef %104)
   %106 = getelementptr inbounds i8, ptr %67, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = add nsw i64 %107, %105
@@ -9070,7 +9070,7 @@ define internal fastcc range(i64 -63, 65) i64 @af_hint_normal_stem(ptr nocapture
   %23 = sub nsw i64 %20, %22
   %24 = getelementptr i8, ptr %0, i64 5152
   %.val128 = load ptr, ptr %24, align 8
-  %25 = tail call fastcc i64 @af_cjk_compute_stem_width(i32 %7, ptr %.val128, i32 noundef %4, i64 noundef %23)
+  %25 = tail call fastcc i64 @af_cjk_compute_stem_width.argprom.argelim(i32 %7, ptr %.val128, i32 noundef %4, i64 noundef %23)
   %26 = add nsw i64 %22, %20
   %27 = sdiv i64 %26, 2
   %28 = add nsw i64 %27, %3
@@ -9176,7 +9176,7 @@ define internal fastcc range(i64 -63, 65) i64 @af_hint_normal_stem(ptr nocapture
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapture readonly %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1) unnamed_addr #11 {
+define internal fastcc i64 @af_cjk_compute_stem_width.argprom.argelim(i32 %.5148.val, ptr nocapture readonly %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %.5152.val, i64 80
   %4 = zext nneg i32 %0 to i64
   %5 = getelementptr inbounds [2 x %struct.AF_CJKAxisRec_], ptr %3, i64 0, i64 %4
@@ -10316,7 +10316,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %84 = getelementptr inbounds i8, ptr %.0355470479, i64 24
   %85 = load i8, ptr %84, align 8
   %86 = zext i8 %85 to i32
-  %87 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val450, ptr readonly %.val451, i32 noundef 1, i64 noundef %81, i64 noundef %82, i32 noundef %83, i32 noundef %86)
+  %87 = tail call fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.val450, ptr readonly %.val451, i32 noundef 1, i64 noundef %81, i64 noundef %82, i32 noundef %83, i32 noundef %86)
   %88 = add nsw i64 %87, %73
   %89 = getelementptr inbounds i8, ptr %.0355470479, i64 16
   store i64 %88, ptr %89, align 8
@@ -10387,7 +10387,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %119 = getelementptr inbounds i8, ptr %104, i64 24
   %120 = load i8, ptr %119, align 8
   %121 = zext i8 %120 to i32
-  %122 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val452, ptr readonly %.val453, i32 noundef %1, i64 noundef %115, i64 noundef %118, i32 noundef %121, i32 noundef %100)
+  %122 = tail call fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.val452, ptr readonly %.val453, i32 noundef %1, i64 noundef %115, i64 noundef %118, i32 noundef %121, i32 noundef %100)
   %123 = add nsw i64 %122, %117
   %124 = getelementptr inbounds i8, ptr %.1495, i64 16
   store i64 %123, ptr %124, align 8
@@ -10410,7 +10410,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %135 = zext i8 %134 to i32
   %.val = load i32, ptr %95, align 4
   %.val445 = load ptr, ptr %96, align 8
-  %136 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val, ptr %.val445, i32 noundef %1, i64 noundef %132, i64 noundef 0, i32 noundef %100, i32 noundef %135)
+  %136 = tail call fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.val, ptr %.val445, i32 noundef %1, i64 noundef %132, i64 noundef 0, i32 noundef %100, i32 noundef %135)
   %137 = icmp slt i64 %136, 96
   br i1 %137, label %138, label %153
 
@@ -10463,7 +10463,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %165 = zext i8 %161 to i32
   %166 = load i8, ptr %133, align 8
   %167 = zext i8 %166 to i32
-  %168 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val454, ptr readonly %.val455, i32 noundef %1, i64 noundef %163, i64 noundef %164, i32 noundef %165, i32 noundef %167)
+  %168 = tail call fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.val454, ptr readonly %.val455, i32 noundef %1, i64 noundef %163, i64 noundef %164, i32 noundef %165, i32 noundef %167)
   %169 = add nsw i64 %168, %158
   %170 = getelementptr inbounds i8, ptr %104, i64 16
   store i64 %169, ptr %170, align 8
@@ -10486,7 +10486,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
   %185 = zext i8 %184 to i32
   %.val446 = load i32, ptr %95, align 4
   %.val447 = load ptr, ptr %96, align 8
-  %186 = tail call fastcc i64 @af_latin_compute_stem_width(i32 %.val446, ptr %.val447, i32 noundef %1, i64 noundef %180, i64 noundef 0, i32 noundef %100, i32 noundef %185)
+  %186 = tail call fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.val446, ptr %.val447, i32 noundef %1, i64 noundef %180, i64 noundef 0, i32 noundef %100, i32 noundef %185)
   %187 = and i32 %185, 4
   %.not419 = icmp eq i32 %187, 0
   br i1 %.not419, label %192, label %188
@@ -10924,7 +10924,7 @@ define internal fastcc void @af_latin_hint_edges(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr nocapture readonly %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #12 {
+define internal fastcc i64 @af_latin_compute_stem_width.argprom(i32 %.5148.val, ptr nocapture readonly %.5152.val, i32 noundef range(i32 0, 2) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #12 {
   %6 = getelementptr inbounds i8, ptr %.5152.val, i64 80
   %7 = zext nneg i32 %0 to i64
   %8 = getelementptr inbounds [2 x %struct.AF_LatinAxisRec_], ptr %6, i64 0, i64 %7
@@ -11186,7 +11186,7 @@ af_latin_snap_width.exit:                         ; preds = %82, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @af_loader_embolden_glyph_in_slot.argelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.FT_Matrix_, align 8
@@ -11248,7 +11248,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr nocapture noun
   %.val.val = load ptr, ptr %39, align 8
   %40 = getelementptr i8, ptr %.val51, i64 24
   %.val51.val = load i16, ptr %40, align 8
-  %41 = call fastcc i64 @af_loader_compute_darkening(ptr %.val.val, i16 %.val50, i16 %.val51.val, i64 noundef %.pre)
+  %41 = call fastcc i64 @af_loader_compute_darkening.argprom.argprom(ptr %.val.val, i16 %.val50, i16 %.val51.val, i64 noundef %.pre)
   %42 = getelementptr inbounds i8, ptr %14, i64 24
   %43 = load i64, ptr %42, align 8
   %sext55 = shl i64 %41, 32
@@ -11295,7 +11295,7 @@ define internal fastcc void @af_loader_embolden_glyph_in_slot(ptr nocapture noun
   %.val52.val = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val54, i64 24
   %.val54.val = load i16, ptr %65, align 8
-  %66 = call fastcc i64 @af_loader_compute_darkening(ptr %.val52.val, i16 %.val53, i16 %.val54.val, i64 noundef %63)
+  %66 = call fastcc i64 @af_loader_compute_darkening.argprom.argprom(ptr %.val52.val, i16 %.val53, i16 %.val54.val, i64 noundef %63)
   %67 = getelementptr inbounds i8, ptr %14, i64 32
   %68 = load i64, ptr %67, align 8
   %sext = shl i64 %66, 32
@@ -11402,13 +11402,13 @@ define internal fastcc i32 @af_face_globals_new(ptr noundef %0, ptr nocapture no
   %37 = trunc i64 %36 to i32
   %38 = call ptr @hb_face_create(ptr noundef %34, i32 noundef %37) #20
   call void @hb_blob_destroy(ptr noundef %34) #20
-  br label %hb_ft_font_create_.exit
+  br label %hb_ft_font_create_.argprom.exit
 
 39:                                               ; preds = %15
   %40 = call ptr @hb_face_create_for_tables(ptr noundef nonnull @hb_ft_reference_table_, ptr noundef nonnull %0, ptr noundef null) #20
-  br label %hb_ft_font_create_.exit
+  br label %hb_ft_font_create_.argprom.exit
 
-hb_ft_font_create_.exit:                          ; preds = %29, %39
+hb_ft_font_create_.argprom.exit:                  ; preds = %29, %39
   %.0.i.i = phi ptr [ %40, %39 ], [ %38, %29 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8
@@ -11435,8 +11435,8 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %.not150.i = icmp eq i32 %55, 0
   br i1 %.not150.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %hb_ft_font_create_.exit, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %hb_ft_font_create_.exit ]
+.lr.ph.i:                                         ; preds = %hb_ft_font_create_.argprom.exit, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %hb_ft_font_create_.argprom.exit ]
   %56 = getelementptr inbounds i16, ptr %54, i64 %indvars.iv.i
   store i16 16383, ptr %56, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -11445,7 +11445,7 @@ hb_ft_font_create_.exit:                          ; preds = %29, %39
   %59 = icmp ult i64 %indvars.iv.next.i, %58
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !143
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %hb_ft_font_create_.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %hb_ft_font_create_.argprom.exit
   %60 = call i32 @FT_Select_Charmap(ptr noundef %51, i32 noundef 1970170211) #20
   %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %.preheader124.i, label %.loopexit121.i
@@ -11878,7 +11878,7 @@ declare void @hb_font_destroy(ptr noundef) local_unnamed_addr #6
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @af_loader_compute_darkening(ptr nocapture readonly %.8.val.792.val, i16 %.136.val, i16 %.160.val.24.val, i64 noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @af_loader_compute_darkening.argprom.argprom(ptr nocapture readonly %.8.val.792.val, i16 %.136.val, i16 %.160.val.24.val, i64 noundef %0) unnamed_addr #0 {
   %2 = icmp ult i16 %.160.val.24.val, 4
   %3 = zext i16 %.160.val.24.val to i64
   %4 = shl nuw nsw i64 %3, 16

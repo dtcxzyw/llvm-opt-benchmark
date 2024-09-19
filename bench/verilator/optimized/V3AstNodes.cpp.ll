@@ -109038,7 +109038,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit.i.i:      ; preds = %.loopexit.split-lp.
   %.sroa.0.0.copyload.i3.i.i.i.i = load i8, ptr %38, align 8
   %39 = add i8 %.sroa.0.0.copyload.i3.i.i.i.i, -1
   %spec.select.i.i.i.i.i = icmp ult i8 %39, 2
-  br i1 %spec.select.i.i.i.i.i, label %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.exit", label %.preheader.thread.i.i
+  br i1 %spec.select.i.i.i.i.i, label %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.argprom.exit", label %.preheader.thread.i.i
 
 40:                                               ; preds = %24
   %41 = getelementptr inbounds i8, ptr %.01030, i64 48
@@ -109261,7 +109261,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   %.sroa.0.0.copyload.i3.i.i28.i.i = load i8, ptr %127, align 8
   %128 = add i8 %.sroa.0.0.copyload.i3.i.i28.i.i, -1
   %spec.select.i.i.i29.i.i = icmp ult i8 %128, 2
-  br i1 %spec.select.i.i.i29.i.i, label %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.exit", label %.backedge.i.i
+  br i1 %spec.select.i.i.i29.i.i, label %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.argprom.exit", label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %148, %145, %126, %123
   %.079.be.i.i = phi ptr [ %149, %148 ], [ %.2.i.i, %126 ], [ %.2.i.i, %123 ], [ %.9.i.i, %145 ]
@@ -109315,7 +109315,7 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   store ptr %147, ptr %.9.i.i, align 8
   br label %.backedge.i.i
 
-"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.exit": ; preds = %37, %126
+"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.argprom.exit": ; preds = %37, %126
   %.sroa.0.615.i = phi ptr [ %.sroa.0.5.i, %126 ], [ %20, %37 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.615.i) #37
   br label %.loopexit
@@ -109328,8 +109328,8 @@ _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit35.i.i: ; preds =
   %.not = icmp eq ptr %.010, null
   br i1 %.not, label %.loopexit, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit, !llvm.loop !129
 
-.loopexit:                                        ; preds = %14, %.preheader.thread.i.i, %11, %8, %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.exit", %5
-  %.0 = phi i1 [ %7, %5 ], [ false, %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.exit" ], [ true, %8 ], [ false, %14 ], [ true, %.preheader.thread.i.i ], [ false, %11 ]
+.loopexit:                                        ; preds = %14, %.preheader.thread.i.i, %11, %8, %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.argprom.exit", %5
+  %.0 = phi i1 [ %7, %5 ], [ false, %"_ZN7AstNode6existsIZNK12AstNodeFTask16getPurityRecurseEvE3$_0EEbOT_.argprom.exit" ], [ true, %8 ], [ false, %14 ], [ true, %.preheader.thread.i.i ], [ false, %11 ]
   ret i1 %.0
 }
 
@@ -171065,7 +171065,7 @@ _ZNK25dpiTypesToStringConverter9openArrayB5cxx11EPK6AstVar.exit: ; preds = %.noe
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %17) #33
   %19 = getelementptr i8, ptr %2, i64 72
   %.val = load ptr, ptr %19, align 8
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val, i64 noundef 0)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val, i64 noundef 0)
           to label %20 unwind label %37
 
 20:                                               ; preds = %18
@@ -171200,7 +171200,7 @@ _ZNK25dpiTypesToStringConverter14bitLogicVectorB5cxx11EPK6AstVarb.exit: ; preds 
 
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %21, %18
   %27 = phi i64 [ %26, %21 ], [ 0, %18 ]
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %8, ptr %20, i64 noundef %27)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m.argprom(ptr dead_on_unwind noalias writable align 8 %8, ptr %20, i64 noundef %27)
           to label %28 unwind label %45
 
 28:                                               ; preds = %_ZNK7AstNode10widthWordsEv.exit
@@ -171410,7 +171410,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %52
 
 68:                                               ; preds = %.critedge
   %.val = load ptr, ptr %8, align 8
-  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val, i64 noundef 0)
+  invoke fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m.argprom(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val, i64 noundef 0)
           to label %69 unwind label %84
 
 69:                                               ; preds = %68
@@ -171479,7 +171479,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.72.val, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK6AstVar13dpiTmpVarTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK9converter11arraySuffixB5cxx11EPKS_m.argprom(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.72.val, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

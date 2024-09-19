@@ -31,8 +31,8 @@ define void @Gia_Iso3Init(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %Gia_Iso3Node.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_Iso3Node.exit ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %Gia_Iso3Node.argprom.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %Gia_Iso3Node.argprom.exit ], [ 0, %1 ]
   %.val = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %.not = icmp eq ptr %.val, null
@@ -55,20 +55,20 @@ define void @Gia_Iso3Init(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %16 = add nuw nsw i64 %13, %15
   %17 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
-  br label %Gia_Iso3Node.exit
+  br label %Gia_Iso3Node.argprom.exit
 
 19:                                               ; preds = %7
   %20 = and i64 %.val7, 2684354559
   %narrow.i11.not.i = icmp eq i64 %20, 2684354559
-  br i1 %narrow.i11.not.i, label %Gia_Iso3Node.exit, label %21
+  br i1 %narrow.i11.not.i, label %Gia_Iso3Node.argprom.exit, label %21
 
 21:                                               ; preds = %19
   %.not.i12.i = icmp ne i64 %8, 0
   %narrow.i13.i = and i1 %.not.i12.i, %10
   %..i = select i1 %narrow.i13.i, i32 -567204165, i32 -558112784
-  br label %Gia_Iso3Node.exit
+  br label %Gia_Iso3Node.argprom.exit
 
-Gia_Iso3Node.exit:                                ; preds = %11, %19, %21
+Gia_Iso3Node.argprom.exit:                        ; preds = %11, %19, %21
   %.0.i = phi i32 [ %18, %11 ], [ -220502792, %19 ], [ %..i, %21 ]
   %22 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %.0.i, ptr %22, align 4
@@ -78,7 +78,7 @@ Gia_Iso3Node.exit:                                ; preds = %11, %19, %21
   %25 = icmp slt i64 %indvars.iv.next, %24
   br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %.lr.ph, %Gia_Iso3Node.exit, %1
+.critedge:                                        ; preds = %.lr.ph, %Gia_Iso3Node.argprom.exit, %1
   ret void
 }
 
@@ -289,8 +289,8 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %Gia_Iso3Init.exit
 
-.lr.ph.i:                                         ; preds = %Abc_Clock.exit, %Gia_Iso3Node.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_Iso3Node.exit.i ], [ 0, %Abc_Clock.exit ]
+.lr.ph.i:                                         ; preds = %Abc_Clock.exit, %Gia_Iso3Node.argprom.exit.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Gia_Iso3Node.argprom.exit.i ], [ 0, %Abc_Clock.exit ]
   %.val.i = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val.i, i64 %indvars.iv.i
   %.not.i = icmp eq ptr %.val.i, null
@@ -313,20 +313,20 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %24 = add nuw nsw i64 %21, %23
   %25 = getelementptr inbounds [6 x i32], ptr @Iso_Nodes, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
-  br label %Gia_Iso3Node.exit.i
+  br label %Gia_Iso3Node.argprom.exit.i
 
 27:                                               ; preds = %15
   %28 = and i64 %.val7.i, 2684354559
   %narrow.i11.not.i.i = icmp eq i64 %28, 2684354559
-  br i1 %narrow.i11.not.i.i, label %Gia_Iso3Node.exit.i, label %29
+  br i1 %narrow.i11.not.i.i, label %Gia_Iso3Node.argprom.exit.i, label %29
 
 29:                                               ; preds = %27
   %.not.i12.i.i = icmp ne i64 %16, 0
   %narrow.i13.i.i = and i1 %.not.i12.i.i, %18
   %..i.i = select i1 %narrow.i13.i.i, i32 -567204165, i32 -558112784
-  br label %Gia_Iso3Node.exit.i
+  br label %Gia_Iso3Node.argprom.exit.i
 
-Gia_Iso3Node.exit.i:                              ; preds = %29, %27, %19
+Gia_Iso3Node.argprom.exit.i:                      ; preds = %29, %27, %19
   %.0.i.i = phi i32 [ %26, %19 ], [ -220502792, %27 ], [ %..i.i, %29 ]
   %30 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.0.i.i, ptr %30, align 4
@@ -336,7 +336,7 @@ Gia_Iso3Node.exit.i:                              ; preds = %29, %27, %19
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   br i1 %33, label %.lr.ph.i, label %Gia_Iso3Init.exit, !llvm.loop !4
 
-Gia_Iso3Init.exit:                                ; preds = %.lr.ph.i, %Gia_Iso3Node.exit.i, %Abc_Clock.exit
+Gia_Iso3Init.exit:                                ; preds = %.lr.ph.i, %Gia_Iso3Node.argprom.exit.i, %Abc_Clock.exit
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   br label %35
 
@@ -476,9 +476,9 @@ Gia_Iso3Save.exit.thread:                         ; preds = %Gia_Iso3Save.exit, 
   %.val47.i = load ptr, ptr %44, align 8
   br label %90
 
-90:                                               ; preds = %Vec_IntUniqueLookup.exit.i, %.lr.ph9.i
-  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next.i23, %Vec_IntUniqueLookup.exit.i ]
-  %.08.i = phi i32 [ 0, %.lr.ph9.i ], [ %.1.i, %Vec_IntUniqueLookup.exit.i ]
+90:                                               ; preds = %Vec_IntUniqueLookup.argprom.exit.i, %.lr.ph9.i
+  %indvars.iv.i20 = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next.i23, %Vec_IntUniqueLookup.argprom.exit.i ]
+  %.08.i = phi i32 [ 0, %.lr.ph9.i ], [ %.1.i, %Vec_IntUniqueLookup.argprom.exit.i ]
   %91 = getelementptr inbounds i32, ptr %.val47.i, i64 %indvars.iv.i20
   br label %92
 
@@ -516,48 +516,48 @@ Vec_IntUniqueHashKey.exit.i:                      ; preds = %92
   %116 = getelementptr inbounds i32, ptr %87, i64 %115
   %117 = load i32, ptr %116, align 4
   %.not1.i.i = icmp eq i32 %117, -1
-  br i1 %.not1.i.i, label %Vec_IntUniqueLookup.exit.thread.i, label %.lr.ph.i.preheader.i
+  br i1 %.not1.i.i, label %Vec_IntUniqueLookup.argprom.exit.thread.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %Vec_IntUniqueHashKey.exit.i
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds i32, ptr %.val47.i, i64 %118
   %bcmp.i5.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %91, ptr noundef nonnull readonly dereferenceable(4) %119, i64 4)
   %.not14.i6.i = icmp eq i32 %bcmp.i5.i, 0
-  br i1 %.not14.i6.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i21
+  br i1 %.not14.i6.i, label %Vec_IntUniqueLookup.argprom.exit.i, label %.lr.ph.i21
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i21
   %120 = sext i32 %124 to i64
   %121 = getelementptr inbounds i32, ptr %.val47.i, i64 %120
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %91, ptr noundef nonnull readonly dereferenceable(4) %121, i64 4)
   %.not14.i.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not14.i.i, label %Vec_IntUniqueLookup.exit.i, label %.lr.ph.i21, !llvm.loop !10
+  br i1 %.not14.i.i, label %Vec_IntUniqueLookup.argprom.exit.i, label %.lr.ph.i21, !llvm.loop !10
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i
   %122 = phi i64 [ %120, %.lr.ph.i.i ], [ %118, %.lr.ph.i.preheader.i ]
   %123 = getelementptr inbounds i32, ptr %88, i64 %122
   %124 = load i32, ptr %123, align 4
   %.not.i.i22 = icmp eq i32 %124, -1
-  br i1 %.not.i.i22, label %Vec_IntUniqueLookup.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i22, label %Vec_IntUniqueLookup.argprom.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !10
 
-Vec_IntUniqueLookup.exit.thread.i.loopexit:       ; preds = %.lr.ph.i21
+Vec_IntUniqueLookup.argprom.exit.thread.i.loopexit: ; preds = %.lr.ph.i21
   %125 = getelementptr inbounds i32, ptr %88, i64 %122
-  br label %Vec_IntUniqueLookup.exit.thread.i
+  br label %Vec_IntUniqueLookup.argprom.exit.thread.i
 
-Vec_IntUniqueLookup.exit.thread.i:                ; preds = %Vec_IntUniqueLookup.exit.thread.i.loopexit, %Vec_IntUniqueHashKey.exit.i
-  %.013.lcssa.i2.i = phi ptr [ %116, %Vec_IntUniqueHashKey.exit.i ], [ %125, %Vec_IntUniqueLookup.exit.thread.i.loopexit ]
+Vec_IntUniqueLookup.argprom.exit.thread.i:        ; preds = %Vec_IntUniqueLookup.argprom.exit.thread.i.loopexit, %Vec_IntUniqueHashKey.exit.i
+  %.013.lcssa.i2.i = phi ptr [ %116, %Vec_IntUniqueHashKey.exit.i ], [ %125, %Vec_IntUniqueLookup.argprom.exit.thread.i.loopexit ]
   %126 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   store i32 %126, ptr %.013.lcssa.i2.i, align 4
   %127 = add nsw i32 %.08.i, 1
-  br label %Vec_IntUniqueLookup.exit.i
+  br label %Vec_IntUniqueLookup.argprom.exit.i
 
-Vec_IntUniqueLookup.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_IntUniqueLookup.exit.thread.i, %.lr.ph.i.preheader.i
-  %.1.i = phi i32 [ %127, %Vec_IntUniqueLookup.exit.thread.i ], [ %.08.i, %.lr.ph.i.preheader.i ], [ %.08.i, %.lr.ph.i.i ]
+Vec_IntUniqueLookup.argprom.exit.i:               ; preds = %.lr.ph.i.i, %Vec_IntUniqueLookup.argprom.exit.thread.i, %.lr.ph.i.preheader.i
+  %.1.i = phi i32 [ %127, %Vec_IntUniqueLookup.argprom.exit.thread.i ], [ %.08.i, %.lr.ph.i.preheader.i ], [ %.08.i, %.lr.ph.i.i ]
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %90, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %Vec_IntUniqueLookup.exit.i, %Gia_Iso3Save.exit.thread
-  %.0.lcssa.i = phi i32 [ 0, %Gia_Iso3Save.exit.thread ], [ %.1.i, %Vec_IntUniqueLookup.exit.i ]
+._crit_edge.i:                                    ; preds = %Vec_IntUniqueLookup.argprom.exit.i, %Gia_Iso3Save.exit.thread
+  %.0.lcssa.i = phi i32 [ 0, %Gia_Iso3Save.exit.thread ], [ %.1.i, %Vec_IntUniqueLookup.argprom.exit.i ]
   %.not.i19 = icmp eq ptr %87, null
   br i1 %.not.i19, label %129, label %128
 
@@ -567,20 +567,20 @@ Vec_IntUniqueLookup.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_In
 
 129:                                              ; preds = %128, %._crit_edge.i
   %.not46.i = icmp eq ptr %88, null
-  br i1 %.not46.i, label %Vec_IntUniqueCount.exit, label %130
+  br i1 %.not46.i, label %Vec_IntUniqueCount.argprom.exit, label %130
 
 130:                                              ; preds = %129
   call void @free(ptr noundef nonnull %88) #18
-  br label %Vec_IntUniqueCount.exit
+  br label %Vec_IntUniqueCount.argprom.exit
 
-Vec_IntUniqueCount.exit:                          ; preds = %129, %130
+Vec_IntUniqueCount.argprom.exit:                  ; preds = %129, %130
   %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.046, i32 noundef %.0.lcssa.i, i32 noundef %.val.i1856)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %132 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %Abc_Clock.exit25, label %134
 
-134:                                              ; preds = %Vec_IntUniqueCount.exit
+134:                                              ; preds = %Vec_IntUniqueCount.argprom.exit
   %135 = load i64, ptr %2, align 8
   %136 = mul nsw i64 %135, 1000000
   %137 = load i64, ptr %34, align 8
@@ -588,8 +588,8 @@ Vec_IntUniqueCount.exit:                          ; preds = %129, %130
   %139 = add nsw i64 %138, %136
   br label %Abc_Clock.exit25
 
-Abc_Clock.exit25:                                 ; preds = %Vec_IntUniqueCount.exit, %134
-  %.0.i24 = phi i64 [ %139, %134 ], [ -1, %Vec_IntUniqueCount.exit ]
+Abc_Clock.exit25:                                 ; preds = %Vec_IntUniqueCount.argprom.exit, %134
+  %.0.i24 = phi i64 [ %139, %134 ], [ -1, %Vec_IntUniqueCount.argprom.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %140 = add i64 %.0.i24, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1)
@@ -1048,7 +1048,7 @@ define void @Gia_IsoCompareVecs(ptr noundef %0, ptr nocapture noundef readonly %
   %25 = icmp sgt i32 %.val, 0
   %26 = icmp sgt i32 %.val28, 0
   %27 = and i1 %25, %26
-  br i1 %27, label %.lr.ph.i, label %Vec_IntTwoCountCommon.exit
+  br i1 %27, label %.lr.ph.i, label %Vec_IntTwoCountCommon.argprom.exit
 
 .lr.ph.i:                                         ; preds = %12, %41
   %.07.i = phi i32 [ %.1.i, %41 ], [ 0, %12 ]
@@ -1084,9 +1084,9 @@ define void @Gia_IsoCompareVecs(ptr noundef %0, ptr nocapture noundef readonly %
   %42 = icmp ult ptr %.120.i, %23
   %43 = icmp ult ptr %.122.i, %24
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph.i, label %Vec_IntTwoCountCommon.exit, !llvm.loop !20
+  br i1 %44, label %.lr.ph.i, label %Vec_IntTwoCountCommon.argprom.exit, !llvm.loop !20
 
-Vec_IntTwoCountCommon.exit:                       ; preds = %41, %12
+Vec_IntTwoCountCommon.argprom.exit:               ; preds = %41, %12
   %.0.lcssa.i = phi i32 [ 0, %12 ], [ %.1.i, %41 ]
   %45 = sub nsw i32 %.val, %.0.lcssa.i
   %46 = sub nsw i32 %.val28, %.0.lcssa.i
@@ -1095,11 +1095,11 @@ Vec_IntTwoCountCommon.exit:                       ; preds = %41, %12
   %.not.i = icmp eq ptr %.val27, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %49
 
-49:                                               ; preds = %Vec_IntTwoCountCommon.exit
+49:                                               ; preds = %Vec_IntTwoCountCommon.argprom.exit
   tail call void @free(ptr noundef nonnull %.val27) #18
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_IntTwoCountCommon.exit, %49
+Vec_IntFree.exit:                                 ; preds = %Vec_IntTwoCountCommon.argprom.exit, %49
   tail call void @free(ptr noundef nonnull %15) #18
   %.not.i40 = icmp eq ptr %.val29, null
   br i1 %.not.i40, label %Vec_IntFree.exit41, label %50

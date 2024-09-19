@@ -420,7 +420,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
 
 36:                                               ; preds = %31
   %37 = icmp ugt i32 %34, %8
-  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i
   %38 = getelementptr inbounds i8, ptr %11, i64 4
@@ -428,7 +428,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   %40 = add nsw i64 %.01132.i.i, %39
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 6
   %42 = and i16 %41, 7
   %43 = icmp ult i16 %42, %9
@@ -439,9 +439,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIP
   %spec.select31.i.i = select i1 %43, ptr %44, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %36, %29, %22, %15
+  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLEPseudoEhhhhhE4CompEclIPKNS3_9VLEPseudoEKZNS3_12getVLEPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV9VLEPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV9VLEPseudoEZNS1_12getVLEPseudoEhhhhhE7KeyTypeZNS1_12getVLEPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !4
 
@@ -558,7 +558,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
 
 45:                                               ; preds = %40
   %46 = icmp ugt i32 %43, %10
-  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i
   %47 = getelementptr inbounds i8, ptr %13, i64 4
@@ -566,7 +566,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %49 = add nsw i64 %.01132.i.i, %48
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 10
   %51 = and i16 %50, 7
   %52 = icmp ult i16 %51, %11
@@ -577,9 +577,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEc
   %spec.select31.i.i = select i1 %52, ptr %53, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
+  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVLSEGPseudoEhhhhhhE4CompEclIPKNS3_11VLSEGPseudoEKZNS3_14getVLSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV11VLSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VLSEGPseudoEZNS1_14getVLSEGPseudoEhhhhhhE7KeyTypeZNS1_14getVLSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !6
 
@@ -703,7 +703,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
 
 45:                                               ; preds = %40
   %46 = icmp ugt i32 %43, %10
-  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i
   %47 = getelementptr inbounds i8, ptr %13, i64 4
@@ -711,7 +711,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %49 = add nsw i64 %.01132.i.i, %48
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
   %52 = icmp ult i16 %51, %11
@@ -722,9 +722,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompE
   %spec.select31.i.i = select i1 %52, ptr %53, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
+  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVLXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VLXSEGPseudoEKZNS3_15getVLXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VLXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VLXSEGPseudoEZNS1_15getVLXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVLXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !7
 
@@ -836,7 +836,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
 
 36:                                               ; preds = %31
   %37 = icmp ugt i32 %34, %8
-  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
   %38 = getelementptr inbounds i8, ptr %11, i64 4
@@ -844,7 +844,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %40 = add nsw i64 %.01132.i.i, %39
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
   %43 = icmp ult i16 %42, %9
@@ -855,9 +855,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIP
   %spec.select31.i.i = select i1 %43, ptr %44, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %36, %29, %22, %15
+  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVLXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVLXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVLXPseudoEhhhhhE7KeyTypeZNS1_12getVLXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !8
 
@@ -943,7 +943,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
 
 20:                                               ; preds = %16
   %21 = icmp ugt i8 %18, %2
-  br i1 %21, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %21, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %16, %10, %_ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i
   %22 = getelementptr inbounds i8, ptr %5, i64 4
@@ -951,7 +951,7 @@ _ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread27.i
   %24 = add nsw i64 %.01132.i.i, %23
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %20
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %20
   %25 = lshr i8 %.val.i.i.fr, 5
   %26 = icmp ult i8 %25, %3
   %27 = getelementptr inbounds i8, ptr %5, i64 4
@@ -961,9 +961,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPK
   %spec.select31.i.i = select i1 %26, ptr %27, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %20, %14, %8
-  %30 = phi i64 [ %4, %20 ], [ %4, %14 ], [ %4, %8 ], [ %24, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %31 = phi ptr [ %.033.i.i, %20 ], [ %.033.i.i, %14 ], [ %.033.i.i, %8 ], [ %22, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %20, %14, %8
+  %30 = phi i64 [ %4, %20 ], [ %4, %14 ], [ %4, %8 ], [ %24, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %31 = phi ptr [ %.033.i.i, %20 ], [ %.033.i.i, %14 ], [ %.033.i.i, %8 ], [ %22, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSEPseudoEhhhhE4CompEclIPKNS3_9VSEPseudoEKZNS3_12getVSEPseudoEhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %32 = icmp sgt i64 %30, 0
   br i1 %32, label %_ZSt7advanceIPKN4llvm5RISCV9VSEPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV9VSEPseudoEZNS1_12getVSEPseudoEhhhhE7KeyTypeZNS1_12getVSEPseudoEhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !9
 
@@ -1057,7 +1057,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
 
 36:                                               ; preds = %31
   %37 = icmp ugt i32 %34, %8
-  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i
   %38 = getelementptr inbounds i8, ptr %11, i64 4
@@ -1065,7 +1065,7 @@ _ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread2
   %40 = add nsw i64 %.01132.i.i, %39
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 9
   %42 = and i16 %41, 7
   %43 = icmp ult i16 %42, %9
@@ -1076,9 +1076,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEcl
   %spec.select31.i.i = select i1 %43, ptr %44, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %36, %29, %22, %15
+  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV14getVSSEGPseudoEhhhhhE4CompEclIPKNS3_11VSSEGPseudoEKZNS3_14getVSSEGPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV11VSSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV11VSSEGPseudoEZNS1_14getVSSEGPseudoEhhhhhE7KeyTypeZNS1_14getVSSEGPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !10
 
@@ -1195,7 +1195,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
 
 45:                                               ; preds = %40
   %46 = icmp ugt i32 %43, %10
-  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %46, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %40, %33, %26, %19, %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i
   %47 = getelementptr inbounds i8, ptr %13, i64 4
@@ -1203,7 +1203,7 @@ _ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i: ; preds = %.thread
   %49 = add nsw i64 %.01132.i.i, %48
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %45
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %45
   %50 = lshr i16 %.val.i.i.fr, 12
   %51 = and i16 %50, 7
   %52 = icmp ult i16 %51, %11
@@ -1214,9 +1214,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompE
   %spec.select31.i.i = select i1 %52, ptr %53, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
-  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %45, %38, %31, %24, %17
+  %56 = phi i64 [ %12, %45 ], [ %12, %38 ], [ %12, %31 ], [ %12, %24 ], [ %12, %17 ], [ %49, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %57 = phi ptr [ %.033.i.i, %45 ], [ %.033.i.i, %38 ], [ %.033.i.i, %31 ], [ %.033.i.i, %24 ], [ %.033.i.i, %17 ], [ %47, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV15getVSXSEGPseudoEhhhhhhE4CompEclIPKNS3_12VSXSEGPseudoEKZNS3_15getVSXSEGPseudoEhhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %58 = icmp sgt i64 %56, 0
   br i1 %58, label %_ZSt7advanceIPKN4llvm5RISCV12VSXSEGPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV12VSXSEGPseudoEZNS1_15getVSXSEGPseudoEhhhhhhE7KeyTypeZNS1_15getVSXSEGPseudoEhhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !11
 
@@ -1328,7 +1328,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
 
 36:                                               ; preds = %31
   %37 = icmp ugt i32 %34, %8
-  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i
+  br i1 %37, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i
 
 .thread.i.i:                                      ; preds = %31, %24, %17, %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i
   %38 = getelementptr inbounds i8, ptr %11, i64 4
@@ -1336,7 +1336,7 @@ _ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i: ; preds = %.threa
   %40 = add nsw i64 %.01132.i.i, %39
   br label %.thread27.i.i
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i: ; preds = %36
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i: ; preds = %36
   %41 = lshr i16 %.val.i.i.fr, 8
   %42 = and i16 %41, 7
   %43 = icmp ult i16 %42, %9
@@ -1347,9 +1347,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIP
   %spec.select31.i.i = select i1 %43, ptr %44, ptr %.033.i.i
   br label %.thread27.i.i
 
-.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i, %.thread.i.i, %36, %29, %22, %15
-  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
-  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.exit.i.i ]
+.thread27.i.i:                                    ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i, %.thread.i.i, %36, %29, %22, %15
+  %47 = phi i64 [ %10, %36 ], [ %10, %29 ], [ %10, %22 ], [ %10, %15 ], [ %40, %.thread.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
+  %48 = phi ptr [ %.033.i.i, %36 ], [ %.033.i.i, %29 ], [ %.033.i.i, %22 ], [ %.033.i.i, %15 ], [ %38, %.thread.i.i ], [ %spec.select31.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm5RISCV12getVSXPseudoEhhhhhE4CompEclIPKNS3_13VLX_VSXPseudoEKZNS3_12getVSXPseudoEhhhhhE7KeyTypeEEbT_RT0_.argprom.exit.i.i ]
   %49 = icmp sgt i64 %47, 0
   br i1 %49, label %_ZSt7advanceIPKN4llvm5RISCV13VLX_VSXPseudoElEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKN4llvm5RISCV13VLX_VSXPseudoEZNS1_12getVSXPseudoEhhhhhE7KeyTypeZNS1_12getVSXPseudoEhhhhhE4CompET_S7_S7_RKT0_T1_.exit, !llvm.loop !12
 
@@ -2692,7 +2692,7 @@ _ZN4llvm7RISCVIIL24isFirstDefTiedToFirstUseERKNS_11MCInstrDescE.exit: ; preds = 
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %60 = load ptr, ptr %59, align 8
   %.sroa.020.0.copyload = load ptr, ptr %60, align 8
-  %61 = call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.020.0.copyload)
+  %61 = call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr %.sroa.020.0.copyload)
   br i1 %61, label %62, label %.backedge
 
 62:                                               ; preds = %58
@@ -4917,7 +4917,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit57:                    ; preds = %102, %105
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %108 = load i32, ptr %30, align 8
   store i32 %108, ptr %107, align 8
-  %109 = call fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE"(ptr nonnull %0, ptr nonnull %.sroa.065.0.copyload, i32 noundef %103, i32 noundef %42, ptr noundef %11, i16 %.sroa.0.0.copyload.i.i)
+  %109 = call fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE.argprom.argelim"(ptr nonnull %0, ptr nonnull %.sroa.065.0.copyload, i32 noundef %103, i32 noundef %42, ptr noundef %11, i16 %.sroa.0.0.copyload.i.i)
   %110 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i58 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i58, label %_ZN4llvm5SDLocD2Ev.exit59, label %111
@@ -4948,7 +4948,7 @@ _ZN4llvm5SDLocD2Ev.exit61:                        ; preds = %17, %113, %_ZN4llvm
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, i16 %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm17RISCVDAGToDAGISel24trySignedBitfieldExtractEPNS_6SDNodeEENK3$_0clENS_7SDValueEjjNS_5SDLocENS_3MVTE.argprom.argelim"(ptr nocapture readonly %.0.val, ptr nocapture readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, i16 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
   %8 = alloca %"class.llvm::SDValue", align 8
@@ -6875,7 +6875,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit:                      ; preds = %.critedge, %790
   %792 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %793 = load i32, ptr %173, align 8
   store i32 %793, ptr %792, align 8
-  %794 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %47, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.02181.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef %788, i32 noundef %701)
+  %794 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj.argprom"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %47, i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.02181.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef %788, i32 noundef %701)
   %795 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i1553 = icmp eq ptr %795, null
   br i1 %.not.i.i.i.i.i1553, label %_ZN4llvm5SDLocD2Ev.exit, label %796
@@ -7662,7 +7662,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit1591:                  ; preds = %1164, %1169
   %1171 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %1172 = load i32, ptr %173, align 8
   store i32 %1172, ptr %1171, align 8
-  %1173 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %92, i16 %.sroa.0.0.copyload.i.i, ptr nonnull %.sroa.02244.0.copyload, i32 %.sroa.14.0.copyload, i32 noundef %1167, i32 noundef 0)
+  %1173 = call fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj.argprom"(ptr nonnull %0, ptr noundef nonnull %1, ptr noundef %92, i16 %.sroa.0.0.copyload.i.i, ptr nonnull %.sroa.02244.0.copyload, i32 %.sroa.14.0.copyload, i32 noundef %1167, i32 noundef 0)
   %1174 = load ptr, ptr %92, align 8
   %.not.i.i.i.i.i1592 = icmp eq ptr %1174, null
   br i1 %.not.i.i.i.i.i1592, label %_ZN4llvm5SDLocD2Ev.exit1593, label %1175
@@ -10152,7 +10152,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG22getTargetExtractSubregEiRKNS_5SDLo
 declare noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull %1, i16 %2, ptr %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel6SelectEPNS_6SDNodeEENK3$_0clES2_NS_5SDLocENS_3MVTENS_7SDValueEjj.argprom"(ptr nocapture readonly %.0.val, ptr noundef %0, ptr noundef nonnull %1, i16 %2, ptr %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::SDValue", align 8
   %9 = alloca %"class.llvm::SDValue", align 8
   %10 = alloca %"class.llvm::SDValue", align 8
@@ -11179,7 +11179,7 @@ _ZL17isWorthFoldingAddN4llvm7SDValueE.exit.thread: ; preds = %227, %222, %_ZNK4l
   %251 = load ptr, ptr %82, align 8
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %253 = load ptr, ptr %252, align 8
-  %254 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb(ptr noundef %251, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %253, ptr %188, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext false, i1 noundef zeroext %5)
+  %254 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb.argelim(ptr noundef %251, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %253, ptr %188, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext false, i1 noundef zeroext %5)
   br i1 %254, label %255, label %259
 
 255:                                              ; preds = %.loopexit
@@ -11195,7 +11195,7 @@ _ZL17isWorthFoldingAddN4llvm7SDValueE.exit.thread: ; preds = %227, %222, %_ZNK4l
   %260 = load ptr, ptr %82, align 8
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %262 = load ptr, ptr %261, align 8
-  %263 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb(ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %262, ptr %1, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext false, i1 noundef zeroext %5)
+  %263 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb.argelim(ptr noundef %260, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %262, ptr %1, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext false, i1 noundef zeroext %5)
   br i1 %263, label %_ZN4llvm5SDLocD2Ev.exit, label %264
 
 264:                                              ; preds = %259
@@ -11725,7 +11725,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2ENS
 declare i8 @_ZNK4llvm5Value19getPointerAlignmentERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i16 %2, ptr noundef %3, ptr nocapture readonly %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb.argelim(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i16 %2, ptr noundef %3, ptr nocapture readonly %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %"class.llvm::SDValue", align 8
   %11 = alloca %"class.llvm::SmallVector.423", align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -12072,7 +12072,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit105: ; preds = %81, %88
   %103 = load ptr, ptr %22, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %105 = load ptr, ptr %104, align 8
-  %106 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb(ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %105, ptr nonnull %71, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext true, i1 noundef zeroext false)
+  %106 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb.argelim(ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %105, ptr nonnull %71, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %102
@@ -12086,7 +12086,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit105: ; preds = %81, %88
   %112 = load ptr, ptr %22, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %114 = load ptr, ptr %113, align 8
-  %115 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb(ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %114, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext true, i1 noundef zeroext false)
+  %115 = call fastcc noundef zeroext i1 @_ZL18selectConstantAddrPN4llvm12SelectionDAGERKNS_5SDLocENS_3MVTEPKNS_14RISCVSubtargetENS_7SDValueERS9_SA_bb.argelim(ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(12) %6, i16 %.sroa.0.0.copyload.i.i.i, ptr noundef %114, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4, i1 noundef zeroext true, i1 noundef zeroext false)
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %111
@@ -12956,7 +12956,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %48 = sub i32 %47, %3
   %49 = load i32, ptr %10, align 8
   %.not.i33 = icmp eq i32 %49, 190
-  br i1 %.not.i33, label %50, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit"
+  br i1 %.not.i33, label %50, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit"
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -12965,7 +12965,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i32, ptr %55, align 8
-  switch i32 %56, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit" [
+  switch i32 %56, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit" [
     i32 35, label %57
     i32 11, label %57
   ]
@@ -12975,7 +12975,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i36, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 189
-  br i1 %60, label %61, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit"
+  br i1 %60, label %61, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit"
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i36, i64 40
@@ -12984,7 +12984,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i32, ptr %66, align 8
-  switch i32 %67, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit" [
+  switch i32 %67, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit" [
     i32 35, label %68
     i32 11, label %68
   ]
@@ -13001,7 +13001,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %.0.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8
   %76 = zext i32 %48 to i64
   %77 = icmp eq i64 %.0.i.i.i.i.i.i, %76
-  br i1 %77, label %78, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit"
+  br i1 %77, label %78, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit"
 
 78:                                               ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 88
@@ -13014,15 +13014,15 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   %.0.in.i.i.i.i.i13.i = select i1 %84, ptr %81, ptr %85
   %.0.i.i.i.i.i14.i = load i64, ptr %.0.in.i.i.i.i.i13.i, align 8
   %86 = icmp eq i64 %.0.i.i.i.i.i14.i, %.0.i.i.i.i.i.i
-  br i1 %86, label %87, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit"
+  br i1 %86, label %87, label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit"
 
 87:                                               ; preds = %78
   %.sroa.4.0..sroa_idx4.i = getelementptr inbounds i8, ptr %63, i64 8
   %.sroa.4.0.copyload5.i = load i32, ptr %.sroa.4.0..sroa_idx4.i, align 8
   %.sroa.0.0.in.sroa.speculate.load.9.i = load ptr, ptr %63, align 8
-  br label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit"
+  br label %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit"
 
-"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit": ; preds = %45, %50, %57, %61, %68, %78, %87
+"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit": ; preds = %45, %50, %57, %61, %68, %78, %87
   %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.0.0.in.sroa.speculate.load.9.i, %87 ], [ %1, %50 ], [ %1, %45 ], [ %1, %78 ], [ %1, %68 ], [ %1, %61 ], [ %1, %57 ]
   %.sroa.4.0.i = phi i32 [ %.sroa.4.0.copyload5.i, %87 ], [ %2, %50 ], [ %2, %45 ], [ %2, %78 ], [ %2, %68 ], [ %2, %61 ], [ %2, %57 ]
   store ptr %.sroa.0.0.in.sroa.speculated.i, ptr %4, align 8
@@ -13030,8 +13030,8 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %20, %24
   store i32 %.sroa.4.0.i, ptr %.sroa.28.0..sroa_idx, align 8
   br label %88
 
-88:                                               ; preds = %.critedge, %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit", %29
-  %.0 = phi i1 [ true, %29 ], [ true, %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.exit" ], [ false, %.critedge ]
+88:                                               ; preds = %.critedge, %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit", %29
+  %.0 = phi i1 [ true, %29 ], [ true, %"_ZZN4llvm17RISCVDAGToDAGISel14selectSExtBitsENS_7SDValueEjRS1_ENK3$_0clES1_j.argprom.exit" ], [ false, %.critedge ]
   ret i1 %.0
 }
 
@@ -15301,7 +15301,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel27performCombine
   br i1 %.not3.i, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.0267.0.copyload)
+  %32 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr %.sroa.0267.0.copyload)
   br i1 %32, label %33, label %_ZN4llvm5SDLocD2Ev.exit
 
 33:                                               ; preds = %31, %28
@@ -15373,7 +15373,7 @@ _ZN4llvm7RISCVIIL24isFirstDefTiedToFirstUseERKNS_11MCInstrDescE.exit: ; preds = 
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0230.0.copyload, i64 40
   %77 = load ptr, ptr %76, align 8
   %.sroa.0107.0.copyload = load ptr, ptr %77, align 8
-  %78 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.0107.0.copyload)
+  %78 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr %.sroa.0107.0.copyload)
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %75
@@ -15520,7 +15520,7 @@ _ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread17.i: ; preds = %_ZL13getMaskSet
   br i1 %or.cond, label %.critedge, label %_ZL15usesAllOnesMaskN4llvm7SDValueES0_.exit.thread
 
 _ZL15usesAllOnesMaskN4llvm7SDValueES0_.exit.thread: ; preds = %140, %132, %129, %126, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread17.i, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.i
-  %151 = tail call fastcc { ptr, i32 } @_ZL13getMaskSetterN4llvm7SDValueES0_(ptr nonnull %.sroa.0210.0.copyload, ptr %.sroa.0203.0.copyload)
+  %151 = tail call fastcc { ptr, i32 } @_ZL13getMaskSetterN4llvm7SDValueES0_.argelim(ptr nonnull %.sroa.0210.0.copyload, ptr %.sroa.0203.0.copyload)
   %.fca.0.extract81 = extractvalue { ptr, i32 } %151, 0
   %.fca.1.extract82 = extractvalue { ptr, i32 } %151, 1
   %152 = icmp ne ptr %.fca.0.extract81, %.sroa.013.0.i
@@ -15650,7 +15650,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZN4llvm11SmallPtrS
   %216 = zext i32 %215 to i64
   %217 = getelementptr inbounds %"class.llvm::SDUse", ptr %207, i64 %216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %217, i64 16, i1 false)
-  %218 = call fastcc { ptr, i32 } @"_ZZN4llvm17RISCVDAGToDAGISel27performCombineVMergeAndVOpsEPNS_6SDNodeEENK3$_0clENS_7SDValueES4_"(ptr %.sroa.0187.0.copyload, i32 %.sroa.4.0.copyload, ptr %.sroa.0218.0.copyload, i32 %.sroa.11.0.copyload)
+  %218 = call fastcc { ptr, i32 } @"_ZZN4llvm17RISCVDAGToDAGISel27performCombineVMergeAndVOpsEPNS_6SDNodeEENK3$_0clENS_7SDValueES4_.argprom"(ptr %.sroa.0187.0.copyload, i32 %.sroa.4.0.copyload, ptr %.sroa.0218.0.copyload, i32 %.sroa.11.0.copyload)
   %.fca.0.extract56 = extractvalue { ptr, i32 } %218, 0
   %.fca.1.extract57 = extractvalue { ptr, i32 } %218, 1
   %.not277 = icmp eq ptr %.fca.0.extract56, null
@@ -15683,7 +15683,7 @@ _ZNK4llvm3EVTeqES0_.exit:                         ; preds = %_ZN4llvm11SmallPtrS
   br i1 %or.cond274, label %236, label %238
 
 236:                                              ; preds = %232
-  %237 = call fastcc noundef zeroext i1 @_ZL15usesAllOnesMaskN4llvm7SDValueES0_(ptr nonnull %.sroa.0210.0.copyload, ptr %.sroa.0203.0.copyload)
+  %237 = call fastcc noundef zeroext i1 @_ZL15usesAllOnesMaskN4llvm7SDValueES0_.argelim(ptr nonnull %.sroa.0210.0.copyload, ptr %.sroa.0203.0.copyload)
   br i1 %237, label %238, label %_ZN4llvm5SDLocD2Ev.exit
 
 238:                                              ; preds = %236, %232
@@ -15751,7 +15751,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %.critedge2, %248
   %267 = icmp eq ptr %.fca.0.extract56, %.sroa.0218.0.copyload
   %268 = icmp eq i32 %.fca.1.extract57, %.sroa.11.0.copyload
   %.not3.i169.not = select i1 %267, i1 %268, i1 false
-  %269 = call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.0267.0.copyload)
+  %269 = call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr %.sroa.0267.0.copyload)
   %270 = and i1 %.not3.i169.not, %269
   %271 = zext i1 %270 to i64
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15892,7 +15892,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %.thread, %333, %._c
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr nocapture readonly %0) unnamed_addr #10 {
+define internal fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr nocapture readonly %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 0
@@ -15918,7 +15918,7 @@ define internal fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds %"class.llvm::SDUse", ptr %11, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8
-  %15 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr %.sroa.0.0.copyload)
+  %15 = tail call fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE.argelim(ptr %.sroa.0.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %16 = icmp ult i64 %indvars.iv.next, %12
   %or.cond = select i1 %15, i1 %16, i1 false
@@ -15936,7 +15936,7 @@ define internal fastcc noundef zeroext i1 @_ZL13isImplicitDefN4llvm7SDValueE(ptr
 declare noundef ptr @_ZN4llvm5RISCV31lookupMaskedIntrinsicByUnmaskedEj(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i32 } @_ZL13getMaskSetterN4llvm7SDValueES0_(ptr nocapture readonly %0, ptr readonly %1) unnamed_addr #11 {
+define internal fastcc { ptr, i32 } @_ZL13getMaskSetterN4llvm7SDValueES0_.argelim(ptr nocapture readonly %0, ptr readonly %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 9
@@ -15999,7 +15999,7 @@ define internal fastcc { ptr, i32 } @_ZL13getMaskSetterN4llvm7SDValueES0_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL15usesAllOnesMaskN4llvm7SDValueES0_(ptr nocapture readonly %0, ptr readonly %1) unnamed_addr #11 {
+define internal fastcc noundef zeroext i1 @_ZL15usesAllOnesMaskN4llvm7SDValueES0_.argelim(ptr nocapture readonly %0, ptr readonly %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 9
@@ -16400,7 +16400,7 @@ _ZN4llvm15SmallVectorImplIPKNS_6SDNodeEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i32 } @"_ZZN4llvm17RISCVDAGToDAGISel27performCombineVMergeAndVOpsEPNS_6SDNodeEENK3$_0clENS_7SDValueES4_"(ptr %0, i32 %1, ptr %2, i32 %3) unnamed_addr #0 align 2 {
+define internal fastcc { ptr, i32 } @"_ZZN4llvm17RISCVDAGToDAGISel27performCombineVMergeAndVOpsEPNS_6SDNodeEENK3$_0clENS_7SDValueES4_.argprom"(ptr %0, i32 %1, ptr %2, i32 %3) unnamed_addr #0 align 2 {
   %5 = icmp eq ptr %0, %2
   %6 = icmp eq i32 %1, %3
   %7 = select i1 %5, i1 %6, i1 false
@@ -26090,20 +26090,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel17selectVSplatSimm5ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -26117,20 +26117,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel22selectVSplatSimm5Plus1ENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -26146,20 +26146,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel29selectVSplatSimm5Plus1NonZeroENS1_7SDValueERS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -26167,7 +26167,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #18 align 2 {
   %.val = load i32, ptr %0, align 8
   %3 = icmp ugt i32 %.val, 63
-  br i1 %3, label %"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit", label %4
+  br i1 %3, label %"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit", label %4
 
 4:                                                ; preds = %2
   %.val2 = load i64, ptr %1, align 8
@@ -26177,16 +26177,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
   %7 = lshr i64 -1, %6
   %.0.i.i.i.i.i = select i1 %5, i64 0, i64 %7
   %8 = icmp ule i64 %.val2, %.0.i.i.i.i.i
-  br label %"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
+  br label %"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit"
 
-"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit": ; preds = %2, %4
+"_ZSt10__invoke_rIbRZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS0_7SDValueEjRS2_E3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.argprom.exit": ; preds = %2, %4
   %9 = phi i1 [ true, %2 ], [ %8, %4 ]
   ret i1 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #20 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
     i32 1, label %4
     i32 0, label %5
     i32 2, label %6
@@ -26194,18 +26194,18 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFblEZN4llvm17RISCV
 
 4:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val = load i32, ptr %1, align 8
   store i32 %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm17RISCVDAGToDAGISel16selectVSplatUimmENS1_7SDValueEjRS3_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
 

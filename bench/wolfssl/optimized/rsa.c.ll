@@ -328,38 +328,38 @@ do.end:                                           ; preds = %entry
   %cmp.i15 = icmp eq ptr %optLabel, null
   %cmp1.i16 = icmp ne i32 %labelLen, 0
   %or.cond.i17 = and i1 %cmp.i15, %cmp1.i16
-  br i1 %or.cond.i17, label %RsaPad_OAEP.exit, label %if.end.i18
+  br i1 %or.cond.i17, label %RsaPad_OAEP.argprom.exit, label %if.end.i18
 
 if.end.i18:                                       ; preds = %do.end
   %call.i19 = tail call i32 @wc_HashGetDigestSize(i32 noundef %hType) #11
   %cmp2.i = icmp slt i32 %call.i19, 0
-  br i1 %cmp2.i, label %RsaPad_OAEP.exit, label %if.end4.i
+  br i1 %cmp2.i, label %RsaPad_OAEP.argprom.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i18
   %conv.i = zext nneg i32 %call.i19 to i64
   %cmp5.i20 = icmp ugt i32 %call.i19, 64
-  br i1 %cmp5.i20, label %RsaPad_OAEP.exit, label %if.end8.i21
+  br i1 %cmp5.i20, label %RsaPad_OAEP.argprom.exit, label %if.end8.i21
 
 if.end8.i21:                                      ; preds = %if.end4.i
   %call9.i = call i32 @wc_Hash(i32 noundef %hType, ptr noundef %optLabel, i32 noundef %labelLen, ptr noundef nonnull %lHash.i, i32 noundef %call.i19) #11
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %if.end15.i, label %RsaPad_OAEP.exit
+  br i1 %cmp10.not.i, label %if.end15.i, label %RsaPad_OAEP.argprom.exit
 
 if.end15.i:                                       ; preds = %if.end8.i21
   %mul.i = shl nuw nsw i32 %call.i19, 1
   %add.i = add nuw nsw i32 %mul.i, 2
   %cmp16.i = icmp ugt i32 %add.i, %pkcsBlockLen
-  br i1 %cmp16.i, label %RsaPad_OAEP.exit, label %if.end21.i
+  br i1 %cmp16.i, label %RsaPad_OAEP.argprom.exit, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end15.i
   %sub.i23 = add i32 %pkcsBlockLen, -2
   %sub23.i = sub i32 %sub.i23, %mul.i
   %cmp24.i = icmp ugt i32 %inputLen, %sub23.i
-  br i1 %cmp24.i, label %RsaPad_OAEP.exit, label %if.end29.i
+  br i1 %cmp24.i, label %RsaPad_OAEP.argprom.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end21.i
   %cmp36.i = icmp ult i32 %pkcsBlockLen, %inputLen
-  br i1 %cmp36.i, label %RsaPad_OAEP.exit, label %if.end39.i
+  br i1 %cmp36.i, label %RsaPad_OAEP.argprom.exit, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end29.i
   %sub32.i = sub nuw i32 %pkcsBlockLen, %inputLen
@@ -390,20 +390,20 @@ if.end39.i:                                       ; preds = %if.end29.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr52.i, ptr nonnull align 16 %lHash.i, i64 %conv.i, i1 false)
   %call56.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %rng, ptr noundef nonnull %seed.i, i32 noundef %call.i19) #11
   %cmp57.not.i = icmp eq i32 %call56.i, 0
-  br i1 %cmp57.not.i, label %if.end60.i, label %RsaPad_OAEP.exit
+  br i1 %cmp57.not.i, label %if.end60.i, label %RsaPad_OAEP.argprom.exit
 
 if.end60.i:                                       ; preds = %if.end39.i
   %4 = xor i32 %call.i19, -1
   %sub62.i = add i32 %pkcsBlockLen, %4
   %cmp64.i = icmp ugt i32 %sub62.i, 520
-  br i1 %cmp64.i, label %RsaPad_OAEP.exit, label %if.end67.i
+  br i1 %cmp64.i, label %RsaPad_OAEP.argprom.exit, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.end60.i
   %conv63.i = zext nneg i32 %sub62.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %dbMask.i, i8 0, i64 %conv63.i, i1 false)
-  %call76.i = call fastcc i32 @RsaMGF(i32 noundef %mgf, ptr noundef nonnull %seed.i, i32 noundef %call.i19, ptr noundef nonnull %dbMask.i, i32 noundef %sub62.i)
+  %call76.i = call fastcc i32 @RsaMGF.argprom(i32 noundef %mgf, ptr noundef nonnull %seed.i, i32 noundef %call.i19, ptr noundef nonnull %dbMask.i, i32 noundef %sub62.i)
   %cmp77.not.i = icmp eq i32 %call76.i, 0
-  br i1 %cmp77.not.i, label %if.end80.i, label %RsaPad_OAEP.exit
+  br i1 %cmp77.not.i, label %if.end80.i, label %RsaPad_OAEP.argprom.exit
 
 if.end80.i:                                       ; preds = %if.end67.i
   %add.ptr82.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %conv.i
@@ -411,16 +411,16 @@ if.end80.i:                                       ; preds = %if.end67.i
   call fastcc void @xorbuf(ptr noundef nonnull %add.ptr83.i, ptr noundef nonnull %dbMask.i, i32 noundef %sub62.i)
   store i8 0, ptr %pkcsBlock, align 1
   %add.ptr93.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 1
-  %call94.i = call fastcc i32 @RsaMGF(i32 noundef %mgf, ptr noundef nonnull %add.ptr83.i, i32 noundef %sub62.i, ptr noundef nonnull %add.ptr93.i, i32 noundef %call.i19)
+  %call94.i = call fastcc i32 @RsaMGF.argprom(i32 noundef %mgf, ptr noundef nonnull %add.ptr83.i, i32 noundef %sub62.i, ptr noundef nonnull %add.ptr93.i, i32 noundef %call.i19)
   %cmp95.not.i = icmp eq i32 %call94.i, 0
-  br i1 %cmp95.not.i, label %if.end98.i, label %RsaPad_OAEP.exit
+  br i1 %cmp95.not.i, label %if.end98.i, label %RsaPad_OAEP.argprom.exit
 
 if.end98.i:                                       ; preds = %if.end80.i
   call fastcc void @xorbuf(ptr noundef nonnull %add.ptr93.i, ptr noundef nonnull %seed.i, i32 noundef %call.i19)
   call fastcc void @ForceZero(ptr noundef nonnull %seed.i, i32 noundef %call.i19)
-  br label %RsaPad_OAEP.exit
+  br label %RsaPad_OAEP.argprom.exit
 
-RsaPad_OAEP.exit:                                 ; preds = %do.end, %if.end.i18, %if.end4.i, %if.end8.i21, %if.end15.i, %if.end21.i, %if.end29.i, %if.end39.i, %if.end60.i, %if.end67.i, %if.end80.i, %if.end98.i
+RsaPad_OAEP.argprom.exit:                         ; preds = %do.end, %if.end.i18, %if.end4.i, %if.end8.i21, %if.end15.i, %if.end21.i, %if.end29.i, %if.end39.i, %if.end60.i, %if.end67.i, %if.end80.i, %if.end98.i
   %retval.0.i22 = phi i32 [ 0, %if.end98.i ], [ -132, %do.end ], [ %call.i19, %if.end.i18 ], [ -125, %if.end4.i ], [ %call9.i, %if.end8.i21 ], [ -173, %if.end15.i ], [ -173, %if.end21.i ], [ -132, %if.end29.i ], [ %call56.i, %if.end39.i ], [ -125, %if.end60.i ], [ %call76.i, %if.end67.i ], [ %call94.i, %if.end80.i ]
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %dbMask.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %lHash.i)
@@ -523,7 +523,7 @@ if.end65.i:                                       ; preds = %if.end57.i
   %idxprom.i42 = zext i32 %sub24.i to i64
   %arrayidx.i43 = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %idxprom.i42
   store i8 -68, ptr %arrayidx.i43, align 1
-  %call64.i = tail call fastcc i32 @RsaMGF(i32 noundef %mgf, ptr noundef %add.ptr55.i, i32 noundef %inputLen, ptr noundef %pkcsBlock.addr.0.i, i32 noundef %sub25.i)
+  %call64.i = tail call fastcc i32 @RsaMGF.argprom(i32 noundef %mgf, ptr noundef %add.ptr55.i, i32 noundef %inputLen, ptr noundef %pkcsBlock.addr.0.i, i32 noundef %sub25.i)
   %cmp66.i = icmp eq i32 %call64.i, 0
   br i1 %cmp66.i, label %if.then68.i, label %if.then90.i
 
@@ -558,8 +558,8 @@ if.then90.i:                                      ; preds = %if.end77.i, %if.end
   tail call void @wolfSSL_Free(ptr noundef nonnull %call28.i) #11
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then90.i, %if.end23.i, %if.end19.i, %if.else.i35, %if.end3.i, %if.end.i29, %do.end5, %if.end34.i, %if.else.i, %if.end.i, %sw.bb, %entry, %RsaPad_OAEP.exit
-  %ret.0 = phi i32 [ %retval.0.i22, %RsaPad_OAEP.exit ], [ -201, %entry ], [ 0, %if.end34.i ], [ -173, %sw.bb ], [ -201, %if.end.i ], [ %call.i, %if.else.i ], [ %ret.29.i, %if.then90.i ], [ -125, %do.end5 ], [ %call.i30, %if.end.i29 ], [ -173, %if.end3.i ], [ -250, %if.else.i35 ], [ -250, %if.end19.i ], [ -125, %if.end23.i ]
+sw.epilog:                                        ; preds = %if.then90.i, %if.end23.i, %if.end19.i, %if.else.i35, %if.end3.i, %if.end.i29, %do.end5, %if.end34.i, %if.else.i, %if.end.i, %sw.bb, %entry, %RsaPad_OAEP.argprom.exit
+  %ret.0 = phi i32 [ %retval.0.i22, %RsaPad_OAEP.argprom.exit ], [ -201, %entry ], [ 0, %if.end34.i ], [ -173, %sw.bb ], [ -201, %if.end.i ], [ %call.i, %if.else.i ], [ %ret.29.i, %if.then90.i ], [ -125, %do.end5 ], [ %call.i30, %if.end.i29 ], [ -173, %if.end3.i ], [ -250, %if.else.i35 ], [ -250, %if.end19.i ], [ -125, %if.end23.i ]
   ret i32 %ret.0
 }
 
@@ -707,18 +707,18 @@ do.end:                                           ; preds = %entry
   %cmp.i10 = icmp eq ptr %optLabel, null
   %cmp1.i = icmp ne i32 %labelLen, 0
   %or.cond.i = and i1 %cmp.i10, %cmp1.i
-  br i1 %or.cond.i, label %RsaUnPad_OAEP.exit, label %if.end.i11
+  br i1 %or.cond.i, label %RsaUnPad_OAEP.argprom.exit, label %if.end.i11
 
 if.end.i11:                                       ; preds = %do.end
   %call.i = tail call i32 @wc_HashGetDigestSize(i32 noundef %hType) #11
   %cmp2.i = icmp slt i32 %call.i, 0
-  br i1 %cmp2.i, label %RsaUnPad_OAEP.exit, label %lor.lhs.false.i
+  br i1 %cmp2.i, label %RsaUnPad_OAEP.argprom.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i11
   %mul.i = shl nuw i32 %call.i, 1
   %add.i = add i32 %mul.i, 2
   %cmp3.i = icmp ult i32 %pkcsBlockLen, %add.i
-  br i1 %cmp3.i, label %RsaUnPad_OAEP.exit, label %if.end5.i
+  br i1 %cmp3.i, label %RsaUnPad_OAEP.argprom.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
   %conv.i12 = zext i32 %pkcsBlockLen to i64
@@ -728,8 +728,8 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   %add.ptr.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext.i
   %24 = xor i32 %call.i, -1
   %sub7.i = add i32 %pkcsBlockLen, %24
-  switch i32 %mgf, label %RsaUnPad_OAEP.exit [
-    i32 26, label %RsaMGF.exit.i
+  switch i32 %mgf, label %RsaUnPad_OAEP.argprom.exit [
+    i32 26, label %RsaMGF.argprom.exit.i
     i32 4, label %sw.bb1.i.i
     i32 1, label %sw.bb3.i.i
     i32 2, label %sw.bb5.i.i
@@ -739,30 +739,30 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
 sw.bb3.i.i:                                       ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
 sw.bb5.i.i:                                       ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
 sw.bb7.i.i:                                       ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
 sw.bb9.i.i:                                       ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
 sw.bb11.i.i:                                      ; preds = %if.end5.i
-  br label %RsaMGF.exit.i
+  br label %RsaMGF.argprom.exit.i
 
-RsaMGF.exit.i:                                    ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end5.i
+RsaMGF.argprom.exit.i:                            ; preds = %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.end5.i
   %.sink.i.i = phi i32 [ 17, %sw.bb11.i.i ], [ 16, %sw.bb9.i.i ], [ 8, %sw.bb7.i.i ], [ 7, %sw.bb5.i.i ], [ 6, %sw.bb3.i.i ], [ 5, %sw.bb1.i.i ], [ 4, %if.end5.i ]
-  %call12.i.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %sub7.i, ptr noundef nonnull %tmp.i, i32 noundef %call.i)
+  %call12.i.i = call fastcc i32 @RsaMGF1.argprom(i32 noundef %.sink.i.i, ptr noundef nonnull readonly %add.ptr.i, i32 noundef %sub7.i, ptr noundef nonnull %tmp.i, i32 noundef %call.i)
   %cmp10.not.i = icmp eq i32 %call12.i.i, 0
-  br i1 %cmp10.not.i, label %if.end13.i, label %RsaUnPad_OAEP.exit
+  br i1 %cmp10.not.i, label %if.end13.i, label %RsaUnPad_OAEP.argprom.exit
 
-if.end13.i:                                       ; preds = %RsaMGF.exit.i
+if.end13.i:                                       ; preds = %RsaMGF.argprom.exit.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 1
   %25 = ptrtoint ptr %add.ptr15.i to i64
   %rem1.i.i = and i64 %25, 7
@@ -821,7 +821,7 @@ xorbuf.exit.i:                                    ; preds = %for.body.i.i, %if.e
   %idx.ext18.i = zext nneg i32 %call.i to i64
   %add.ptr19.i = getelementptr inbounds i8, ptr %tmp.i, i64 %idx.ext18.i
   switch i32 %mgf, label %for.cond.preheader.i.i [
-    i32 26, label %RsaMGF.exit64.i
+    i32 26, label %RsaMGF.argprom.exit64.i
     i32 4, label %sw.bb1.i63.i
     i32 1, label %sw.bb3.i62.i
     i32 2, label %sw.bb5.i61.i
@@ -831,31 +831,31 @@ xorbuf.exit.i:                                    ; preds = %for.body.i.i, %if.e
   ]
 
 sw.bb1.i63.i:                                     ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
 sw.bb3.i62.i:                                     ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
 sw.bb5.i61.i:                                     ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
 sw.bb7.i60.i:                                     ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
 sw.bb9.i59.i:                                     ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
 sw.bb11.i54.i:                                    ; preds = %xorbuf.exit.i
-  br label %RsaMGF.exit64.i
+  br label %RsaMGF.argprom.exit64.i
 
-RsaMGF.exit64.i:                                  ; preds = %sw.bb11.i54.i, %sw.bb9.i59.i, %sw.bb7.i60.i, %sw.bb5.i61.i, %sw.bb3.i62.i, %sw.bb1.i63.i, %xorbuf.exit.i
+RsaMGF.argprom.exit64.i:                          ; preds = %sw.bb11.i54.i, %sw.bb9.i59.i, %sw.bb7.i60.i, %sw.bb5.i61.i, %sw.bb3.i62.i, %sw.bb1.i63.i, %xorbuf.exit.i
   %.sink.i56.i = phi i32 [ 17, %sw.bb11.i54.i ], [ 16, %sw.bb9.i59.i ], [ 8, %sw.bb7.i60.i ], [ 7, %sw.bb5.i61.i ], [ 6, %sw.bb3.i62.i ], [ 5, %sw.bb1.i63.i ], [ 4, %xorbuf.exit.i ]
-  %call12.i57.i = call fastcc i32 @RsaMGF1(i32 noundef %.sink.i56.i, ptr noundef nonnull readonly %tmp.i, i32 noundef %call.i, ptr noundef nonnull %add.ptr19.i, i32 noundef %sub7.i)
+  %call12.i57.i = call fastcc i32 @RsaMGF1.argprom(i32 noundef %.sink.i56.i, ptr noundef nonnull readonly %tmp.i, i32 noundef %call.i, ptr noundef nonnull %add.ptr19.i, i32 noundef %sub7.i)
   %cmp23.not.i = icmp eq i32 %call12.i57.i, 0
   br i1 %cmp23.not.i, label %if.end27.i, label %for.cond.preheader.i.i
 
-for.cond.preheader.i.i:                           ; preds = %RsaMGF.exit64.i, %xorbuf.exit.i
-  %ret.0.i585.i = phi i32 [ %call12.i57.i, %RsaMGF.exit64.i ], [ -173, %xorbuf.exit.i ]
+for.cond.preheader.i.i:                           ; preds = %RsaMGF.argprom.exit64.i, %xorbuf.exit.i
+  %ret.0.i585.i = phi i32 [ %call12.i57.i, %RsaMGF.argprom.exit64.i ], [ -173, %xorbuf.exit.i ]
   %cmp515.i.i = icmp ugt i32 %call.i, 7
   br i1 %cmp515.i.i, label %for.body.i68.i, label %while.cond9.preheader.i.i
 
@@ -863,7 +863,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i68.i, %fo
   %len.addr.0.lcssa.i.i = phi i32 [ %call.i, %for.cond.preheader.i.i ], [ %sub8.i.i, %for.body.i68.i ]
   %w.0.lcssa.i.i = phi ptr [ %tmp.i, %for.cond.preheader.i.i ], [ %incdec.ptr7.i.i, %for.body.i68.i ]
   %tobool11.not20.i.i = icmp eq i32 %len.addr.0.lcssa.i.i, 0
-  br i1 %tobool11.not20.i.i, label %RsaUnPad_OAEP.exit, label %while.body12.i.i
+  br i1 %tobool11.not20.i.i, label %RsaUnPad_OAEP.argprom.exit, label %while.body12.i.i
 
 for.body.i68.i:                                   ; preds = %for.cond.preheader.i.i, %for.body.i68.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i68.i ], [ %tmp.i, %for.cond.preheader.i.i ]
@@ -881,9 +881,9 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
   %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %z.122.i.i, i64 1
   store volatile i8 0, ptr %z.122.i.i, align 1
   %tobool11.not.i.i = icmp eq i32 %dec10.i.i, 0
-  br i1 %tobool11.not.i.i, label %RsaUnPad_OAEP.exit, label %while.body12.i.i, !llvm.loop !7
+  br i1 %tobool11.not.i.i, label %RsaUnPad_OAEP.argprom.exit, label %while.body12.i.i, !llvm.loop !7
 
-if.end27.i:                                       ; preds = %RsaMGF.exit64.i
+if.end27.i:                                       ; preds = %RsaMGF.argprom.exit64.i
   %add.ptr29.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext18.i
   %add.ptr30.i = getelementptr inbounds i8, ptr %add.ptr29.i, i64 1
   %30 = ptrtoint ptr %add.ptr30.i to i64
@@ -1019,7 +1019,7 @@ for.end.i14:                                      ; preds = %for.body.i15, %Forc
   %idx.0.lcssa.i = phi i32 [ %add38.i, %ForceZero.exit145.i ], [ %add47.i, %for.body.i15 ]
   %call50.i = call i32 @wc_Hash(i32 noundef %hType, ptr noundef %optLabel, i32 noundef %labelLen, ptr noundef nonnull %h.i, i32 noundef %call.i) #11
   %cmp51.not.i = icmp eq i32 %call50.i, 0
-  br i1 %cmp51.not.i, label %if.end54.i, label %RsaUnPad_OAEP.exit
+  br i1 %cmp51.not.i, label %if.end54.i, label %RsaUnPad_OAEP.argprom.exit
 
 if.end54.i:                                       ; preds = %for.end.i14
   %cmp6.not.i.i = icmp eq i32 %call.i, 0
@@ -1057,10 +1057,10 @@ ConstantCompare.exit.i:                           ; preds = %for.body.i148.i, %i
   %add.ptr72.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext71.i
   store ptr %add.ptr72.i, ptr %out, align 8
   %sub73.i = sub i32 %pkcsBlockLen, %or.i154.i
-  br label %RsaUnPad_OAEP.exit
+  br label %RsaUnPad_OAEP.argprom.exit
 
-RsaUnPad_OAEP.exit:                               ; preds = %while.body12.i.i, %do.end, %if.end.i11, %lor.lhs.false.i, %if.end5.i, %RsaMGF.exit.i, %while.cond9.preheader.i.i, %for.end.i14, %ConstantCompare.exit.i
-  %retval.0.i13 = phi i32 [ %sub73.i, %ConstantCompare.exit.i ], [ -132, %do.end ], [ -173, %lor.lhs.false.i ], [ -173, %if.end.i11 ], [ %call12.i.i, %RsaMGF.exit.i ], [ %call50.i, %for.end.i14 ], [ %ret.0.i585.i, %while.cond9.preheader.i.i ], [ -173, %if.end5.i ], [ %ret.0.i585.i, %while.body12.i.i ]
+RsaUnPad_OAEP.argprom.exit:                       ; preds = %while.body12.i.i, %do.end, %if.end.i11, %lor.lhs.false.i, %if.end5.i, %RsaMGF.argprom.exit.i, %while.cond9.preheader.i.i, %for.end.i14, %ConstantCompare.exit.i
+  %retval.0.i13 = phi i32 [ %sub73.i, %ConstantCompare.exit.i ], [ -132, %do.end ], [ -173, %lor.lhs.false.i ], [ -173, %if.end.i11 ], [ %call12.i.i, %RsaMGF.argprom.exit.i ], [ %call50.i, %for.end.i14 ], [ %ret.0.i585.i, %while.cond9.preheader.i.i ], [ -173, %if.end5.i ], [ %ret.0.i585.i, %while.body12.i.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %h.i)
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %tmp.i)
   br label %sw.epilog
@@ -1126,7 +1126,7 @@ if.end42.i:                                       ; preds = %if.end33.i
 
 if.end48.i:                                       ; preds = %if.end42.i
   %add.ptr.i27 = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %conv43.i
-  %call49.i = tail call fastcc i32 @RsaMGF(i32 noundef %mgf, ptr noundef nonnull %add.ptr.i27, i32 noundef %call.i19, ptr noundef nonnull %call44.i, i32 noundef %sub11.i)
+  %call49.i = tail call fastcc i32 @RsaMGF.argprom(i32 noundef %mgf, ptr noundef nonnull %add.ptr.i27, i32 noundef %call.i19, ptr noundef nonnull %call44.i, i32 noundef %sub11.i)
   %cmp50.not.i = icmp eq i32 %call49.i, 0
   br i1 %cmp50.not.i, label %if.end55.i, label %if.then53.i
 
@@ -1202,8 +1202,8 @@ if.end107.i:                                      ; preds = %for.end.i29
   %add121.i = add nuw nsw i32 %saltLen.addr.0.i, %call.i19
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.end107.i, %if.then103.i, %if.then87.i, %if.then53.i, %if.end42.i, %if.end33.i, %if.end29.i, %if.else.i, %if.end5.i25, %if.end.i21, %do.end5, %for.end68.i, %if.end39.i, %lor.lhs.false29.i, %for.end.i, %lor.lhs.false10.i, %if.then6.i, %sw.bb, %entry, %RsaUnPad_OAEP.exit
-  %ret.0 = phi i32 [ %retval.0.i13, %RsaUnPad_OAEP.exit ], [ -201, %entry ], [ -173, %sw.bb ], [ -201, %lor.lhs.false10.i ], [ -201, %if.then6.i ], [ -201, %lor.lhs.false29.i ], [ -201, %for.end.i ], [ %sub42.i, %if.end39.i ], [ %and104.i, %for.end68.i ], [ %call49.i, %if.then53.i ], [ -250, %if.then87.i ], [ -250, %if.then103.i ], [ %add121.i, %if.end107.i ], [ %call.i19, %do.end5 ], [ -193, %if.end.i21 ], [ -234, %if.end5.i25 ], [ -250, %if.else.i ], [ -250, %if.end29.i ], [ -193, %if.end33.i ], [ -125, %if.end42.i ]
+sw.epilog:                                        ; preds = %if.end107.i, %if.then103.i, %if.then87.i, %if.then53.i, %if.end42.i, %if.end33.i, %if.end29.i, %if.else.i, %if.end5.i25, %if.end.i21, %do.end5, %for.end68.i, %if.end39.i, %lor.lhs.false29.i, %for.end.i, %lor.lhs.false10.i, %if.then6.i, %sw.bb, %entry, %RsaUnPad_OAEP.argprom.exit
+  %ret.0 = phi i32 [ %retval.0.i13, %RsaUnPad_OAEP.argprom.exit ], [ -201, %entry ], [ -173, %sw.bb ], [ -201, %lor.lhs.false10.i ], [ -201, %if.then6.i ], [ -201, %lor.lhs.false29.i ], [ -201, %for.end.i ], [ %sub42.i, %if.end39.i ], [ %and104.i, %for.end68.i ], [ %call49.i, %if.then53.i ], [ -250, %if.then87.i ], [ -250, %if.then103.i ], [ %add121.i, %if.end107.i ], [ %call.i19, %do.end5 ], [ -193, %if.end.i21 ], [ -234, %if.end5.i25 ], [ -250, %if.else.i ], [ -250, %if.end29.i ], [ -193, %if.end33.i ], [ -125, %if.end42.i ]
   ret i32 %ret.0
 }
 
@@ -2439,7 +2439,7 @@ while.end14:                                      ; preds = %while.body12, %whil
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaMGF(i32 noundef %type, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
+define internal fastcc i32 @RsaMGF.argprom(i32 noundef %type, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 26, label %sw.epilog.sink.split
@@ -2471,7 +2471,7 @@ sw.bb11:                                          ; preds = %entry
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb1, %sw.bb3, %sw.bb5, %sw.bb7, %sw.bb9, %sw.bb11
   %.sink = phi i32 [ 17, %sw.bb11 ], [ 16, %sw.bb9 ], [ 8, %sw.bb7 ], [ 7, %sw.bb5 ], [ 6, %sw.bb3 ], [ 5, %sw.bb1 ], [ 4, %entry ]
-  %call12 = tail call fastcc i32 @RsaMGF1(i32 noundef %.sink, ptr noundef %seed, i32 noundef %seedSz, ptr noundef %out, i32 noundef %outSz)
+  %call12 = tail call fastcc i32 @RsaMGF1.argprom(i32 noundef %.sink, ptr noundef %seed, i32 noundef %seedSz, ptr noundef %out, i32 noundef %outSz)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
@@ -2563,7 +2563,7 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %hType, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
+define internal fastcc i32 @RsaMGF1.argprom(i32 noundef range(i32 4, 18) %hType, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
 entry:
   %tmp = alloca [512 x i8], align 16
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hType) #11

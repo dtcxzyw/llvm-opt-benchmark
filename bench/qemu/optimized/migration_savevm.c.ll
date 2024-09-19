@@ -850,20 +850,20 @@ entry:
   %0 = getelementptr i8, ptr %nse, i64 304
   %nse.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %nse.val, null
-  br i1 %tobool.not.i, label %if.end, label %save_state_priority.exit
+  br i1 %tobool.not.i, label %if.end, label %save_state_priority.argprom.exit
 
-save_state_priority.exit:                         ; preds = %entry
+save_state_priority.argprom.exit:                 ; preds = %entry
   %priority.i = getelementptr inbounds i8, ptr %nse.val, i64 20
   %1 = load i32, ptr %priority.i, align 4
   %cmp = icmp ult i32 %1, 7
   br i1 %cmp, label %if.end, label %if.else
 
-if.else:                                          ; preds = %save_state_priority.exit
+if.else:                                          ; preds = %save_state_priority.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.3, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__.savevm_state_handler_insert) #19
   unreachable
 
-if.end:                                           ; preds = %entry, %save_state_priority.exit
-  %retval.0.i34 = phi i32 [ %1, %save_state_priority.exit ], [ 0, %entry ]
+if.end:                                           ; preds = %entry, %save_state_priority.argprom.exit
+  %retval.0.i34 = phi i32 [ %1, %save_state_priority.argprom.exit ], [ 0, %entry ]
   %idstr = getelementptr inbounds i8, ptr %nse, i64 16
   %instance_id = getelementptr inbounds i8, ptr %nse, i64 272
   %2 = load i32, ptr %instance_id, align 8
@@ -948,23 +948,23 @@ if.then9:                                         ; preds = %for.body
   %10 = getelementptr i8, ptr %9, i64 304
   %.val = load ptr, ptr %10, align 8
   %tobool.not.i27 = icmp eq ptr %.val, null
-  br i1 %tobool.not.i27, label %save_state_priority.exit31, label %if.then.i28
+  br i1 %tobool.not.i27, label %save_state_priority.argprom.exit31, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.then9
   %priority.i29 = getelementptr inbounds i8, ptr %.val, i64 20
   %11 = load i32, ptr %priority.i29, align 4
-  br label %save_state_priority.exit31
+  br label %save_state_priority.argprom.exit31
 
-save_state_priority.exit31:                       ; preds = %if.then9, %if.then.i28
+save_state_priority.argprom.exit31:               ; preds = %if.then9, %if.then.i28
   %retval.0.i30 = phi i32 [ %11, %if.then.i28 ], [ 0, %if.then9 ]
   %cmp11 = icmp ult i32 %retval.0.i30, %retval.0.i34
   br i1 %cmp11, label %do.body, label %if.else13
 
-if.else13:                                        ; preds = %save_state_priority.exit31
+if.else13:                                        ; preds = %save_state_priority.argprom.exit31
   tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.3, i32 noundef 736, ptr noundef nonnull @__PRETTY_FUNCTION__.savevm_state_handler_insert) #19
   unreachable
 
-do.body:                                          ; preds = %save_state_priority.exit31
+do.body:                                          ; preds = %save_state_priority.argprom.exit31
   %tql_prev = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load ptr, ptr %tql_prev, align 8
   %tql_prev20 = getelementptr inbounds i8, ptr %nse, i64 8
@@ -1045,14 +1045,14 @@ if.then16:                                        ; preds = %land.lhs.true
   %4 = getelementptr i8, ptr %se.011, i64 304
   %se.val.i = load ptr, ptr %4, align 8
   %tobool.not.i.i = icmp eq ptr %se.val.i, null
-  br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %save_state_priority.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then16
   %priority.i.i = getelementptr inbounds i8, ptr %se.val.i, i64 20
   %5 = load i32, ptr %priority.i.i, align 4
-  br label %save_state_priority.exit.i
+  br label %save_state_priority.argprom.exit.i
 
-save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then16
+save_state_priority.argprom.exit.i:               ; preds = %if.then.i.i, %if.then16
   %retval.0.i.i = phi i32 [ %5, %if.then.i.i ], [ 0, %if.then16 ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
@@ -1060,7 +1060,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %cmp.i = icmp eq ptr %se.011, %6
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
 
-if.then.i:                                        ; preds = %save_state_priority.exit.i
+if.then.i:                                        ; preds = %save_state_priority.argprom.exit.i
   %cmp2.not.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
 
@@ -1068,29 +1068,29 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %7 = getelementptr i8, ptr %2, i64 304
   %.val.i = load ptr, ptr %7, align 8
   %tobool.not.i18.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
+  br i1 %tobool.not.i18.i, label %save_state_priority.argprom.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i
   %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %8 = load i32, ptr %priority.i20.i, align 4
-  br label %save_state_priority.exit22.i
+  br label %save_state_priority.argprom.exit22.i
 
-save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
+save_state_priority.argprom.exit22.i:             ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %8, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
   br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+if.else.i:                                        ; preds = %save_state_priority.argprom.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %2, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.argprom.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %2, %save_state_priority.argprom.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.011, align 8
   br label %savevm_state_handler_remove.exit
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
-  %9 = phi ptr [ %2, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
+savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.argprom.exit.i, %do.body.sink.split.i
+  %9 = phi ptr [ %2, %save_state_priority.argprom.exit.i ], [ %.pre, %do.body.sink.split.i ]
   %cmp12.not.i = icmp eq ptr %9, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.011, i64 8
   %10 = load ptr, ptr %tql_prev20.i, align 8
@@ -1188,14 +1188,14 @@ if.then:                                          ; preds = %land.lhs.true17.i, 
   %6 = getelementptr i8, ptr %se.019.i, i64 304
   %se.val.i = load ptr, ptr %6, align 8
   %tobool.not.i.i = icmp eq ptr %se.val.i, null
-  br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %save_state_priority.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %priority.i.i = getelementptr inbounds i8, ptr %se.val.i, i64 20
   %7 = load i32, ptr %priority.i.i, align 4
-  br label %save_state_priority.exit.i
+  br label %save_state_priority.argprom.exit.i
 
-save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then
+save_state_priority.argprom.exit.i:               ; preds = %if.then.i.i, %if.then
   %retval.0.i.i = phi i32 [ %7, %if.then.i.i ], [ 0, %if.then ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
@@ -1203,7 +1203,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %cmp.i4 = icmp eq ptr %se.019.i, %8
   br i1 %cmp.i4, label %if.then.i, label %savevm_state_handler_remove.exit
 
-if.then.i:                                        ; preds = %save_state_priority.exit.i
+if.then.i:                                        ; preds = %save_state_priority.argprom.exit.i
   %9 = load ptr, ptr %se.019.i, align 8
   %cmp2.not.i = icmp eq ptr %9, null
   br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i5
@@ -1212,27 +1212,27 @@ land.lhs.true.i5:                                 ; preds = %if.then.i
   %10 = getelementptr i8, ptr %9, i64 304
   %.val.i = load ptr, ptr %10, align 8
   %tobool.not.i18.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
+  br i1 %tobool.not.i18.i, label %save_state_priority.argprom.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i5
   %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %11 = load i32, ptr %priority.i20.i, align 4
-  br label %save_state_priority.exit22.i
+  br label %save_state_priority.argprom.exit22.i
 
-save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i5
+save_state_priority.argprom.exit22.i:             ; preds = %if.then.i19.i, %land.lhs.true.i5
   %retval.0.i21.i = phi i32 [ %11, %if.then.i19.i ], [ 0, %land.lhs.true.i5 ]
   %cmp4.i6 = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
   br i1 %cmp4.i6, label %do.body.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+if.else.i:                                        ; preds = %save_state_priority.argprom.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %9, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.argprom.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %9, %save_state_priority.argprom.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   br label %savevm_state_handler_remove.exit
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
+savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.argprom.exit.i, %do.body.sink.split.i
   %12 = load ptr, ptr %se.019.i, align 8
   %cmp12.not.i = icmp eq ptr %12, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.019.i, i64 8
@@ -1550,14 +1550,14 @@ land.lhs.true:                                    ; preds = %land.rhs
   br i1 %cmp4, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %save_state_priority.argprom.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %priority.i.i = getelementptr inbounds i8, ptr %2, i64 20
   %4 = load i32, ptr %priority.i.i, align 4
-  br label %save_state_priority.exit.i
+  br label %save_state_priority.argprom.exit.i
 
-save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.then
+save_state_priority.argprom.exit.i:               ; preds = %if.then.i.i, %if.then
   %retval.0.i.i = phi i32 [ %4, %if.then.i.i ], [ 0, %if.then ]
   %idxprom.i = zext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr [7 x ptr], ptr getelementptr inbounds (i8, ptr @savevm_state, i64 16), i64 0, i64 %idxprom.i
@@ -1565,7 +1565,7 @@ save_state_priority.exit.i:                       ; preds = %if.then.i.i, %if.th
   %cmp.i = icmp eq ptr %se.08, %5
   br i1 %cmp.i, label %if.then.i, label %savevm_state_handler_remove.exit
 
-if.then.i:                                        ; preds = %save_state_priority.exit.i
+if.then.i:                                        ; preds = %save_state_priority.argprom.exit.i
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
 
@@ -1573,29 +1573,29 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   %6 = getelementptr i8, ptr %1, i64 304
   %.val.i = load ptr, ptr %6, align 8
   %tobool.not.i18.i = icmp eq ptr %.val.i, null
-  br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
+  br i1 %tobool.not.i18.i, label %save_state_priority.argprom.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i
   %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %7 = load i32, ptr %priority.i20.i, align 4
-  br label %save_state_priority.exit22.i
+  br label %save_state_priority.argprom.exit22.i
 
-save_state_priority.exit22.i:                     ; preds = %if.then.i19.i, %land.lhs.true.i
+save_state_priority.argprom.exit22.i:             ; preds = %if.then.i19.i, %land.lhs.true.i
   %retval.0.i21.i = phi i32 [ %7, %if.then.i19.i ], [ 0, %land.lhs.true.i ]
   %cmp4.i = icmp eq i32 %retval.0.i21.i, %retval.0.i.i
   br i1 %cmp4.i, label %do.body.sink.split.i, label %if.else.i
 
-if.else.i:                                        ; preds = %save_state_priority.exit22.i, %if.then.i
+if.else.i:                                        ; preds = %save_state_priority.argprom.exit22.i, %if.then.i
   br label %do.body.sink.split.i
 
-do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.exit22.i
-  %.sink.i = phi ptr [ null, %if.else.i ], [ %1, %save_state_priority.exit22.i ]
+do.body.sink.split.i:                             ; preds = %if.else.i, %save_state_priority.argprom.exit22.i
+  %.sink.i = phi ptr [ null, %if.else.i ], [ %1, %save_state_priority.argprom.exit22.i ]
   store ptr %.sink.i, ptr %arrayidx.i, align 8
   %.pre = load ptr, ptr %se.08, align 8
   br label %savevm_state_handler_remove.exit
 
-savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
-  %8 = phi ptr [ %1, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
+savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.argprom.exit.i, %do.body.sink.split.i
+  %8 = phi ptr [ %1, %save_state_priority.argprom.exit.i ], [ %.pre, %do.body.sink.split.i ]
   %cmp12.not.i = icmp eq ptr %8, null
   %tql_prev20.i = getelementptr inbounds i8, ptr %se.08, i64 8
   %9 = load ptr, ptr %tql_prev20.i, align 8
@@ -4376,14 +4376,14 @@ sw.bb:                                            ; preds = %trace_qemu_loadvm_s
 
 if.then.i:                                        ; preds = %sw.bb
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.153, i32 noundef %call.i) #18
-  br label %qemu_loadvm_section_start_full.exit.thread
+  br label %qemu_loadvm_section_start_full.argprom.exit.thread
 
 if.end.i:                                         ; preds = %sw.bb
   %call3.i = call i32 @qemu_get_be32(ptr noundef %f.addr.0) #18
   %call4.i = call i32 @qemu_get_be32(ptr noundef %f.addr.0) #18
   %call5.i = call i32 @qemu_file_get_error(ptr noundef %f.addr.0) #18
   %tobool6.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool6.not.i, label %if.end8.i, label %qemu_loadvm_section_start_full.exit
+  br i1 %tobool6.not.i, label %if.end8.i, label %qemu_loadvm_section_start_full.argprom.exit
 
 if.end8.i:                                        ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -4477,7 +4477,7 @@ for.inc.i.i:                                      ; preds = %lor.lhs.false21.i.i
 
 if.then14.i:                                      ; preds = %trace_qemu_loadvm_state_section_startfull.exit.i, %for.inc.i.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.155, ptr noundef nonnull %idstr.i, i32 noundef %call3.i) #18
-  br label %qemu_loadvm_section_start_full.exit.thread
+  br label %qemu_loadvm_section_start_full.argprom.exit.thread
 
 if.end16.i:                                       ; preds = %lor.lhs.false21.i.i, %land.lhs.true17.i.i, %lor.lhs.false.i.i, %land.lhs.true.i.i
   %version_id17.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 280
@@ -4487,7 +4487,7 @@ if.end16.i:                                       ; preds = %lor.lhs.false21.i.i
 
 if.then20.i:                                      ; preds = %if.end16.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.156, i32 noundef %call4.i, ptr noundef nonnull %idstr.i, i32 noundef %18) #18
-  br label %qemu_loadvm_section_start_full.exit.thread
+  br label %qemu_loadvm_section_start_full.argprom.exit.thread
 
 if.end23.i:                                       ; preds = %if.end16.i
   %load_version_id.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 284
@@ -4506,7 +4506,7 @@ land.lhs.true.i:                                  ; preds = %if.end23.i
 
 if.then27.i:                                      ; preds = %land.lhs.true.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.157, ptr noundef nonnull %idstr.i) #18
-  br label %qemu_loadvm_section_start_full.exit.thread
+  br label %qemu_loadvm_section_start_full.argprom.exit.thread
 
 if.end29.i:                                       ; preds = %land.lhs.true.i, %if.end23.i
   br i1 %cmp.i, label %if.end33.i, label %if.end33.thread.i
@@ -4525,7 +4525,7 @@ if.end33.thread.i:                                ; preds = %if.end29.i
 if.then37.i:                                      ; preds = %if.end33.thread.i, %if.end33.i
   %call348.i = phi i32 [ %call345.i, %if.end33.thread.i ], [ %call34.i, %if.end33.i ]
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.158, i32 noundef %call3.i, ptr noundef nonnull %idstr.i) #18
-  br label %qemu_loadvm_section_start_full.exit.thread
+  br label %qemu_loadvm_section_start_full.argprom.exit.thread
 
 if.then41.i:                                      ; preds = %if.end33.i
   %div.i.neg.i = sdiv i64 %call.i29.i, -1000
@@ -4571,18 +4571,18 @@ trace_vmstate_downtime_load.exit:                 ; preds = %if.then41.i, %land.
 
 if.end46.i:                                       ; preds = %trace_vmstate_downtime_load.exit, %if.end33.thread.i
   %call47.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef %se.019.i.i)
-  br i1 %call47.i, label %qemu_loadvm_section_start_full.exit.thread348, label %qemu_loadvm_section_start_full.exit.thread
+  br i1 %call47.i, label %qemu_loadvm_section_start_full.argprom.exit.thread348, label %qemu_loadvm_section_start_full.argprom.exit.thread
 
-qemu_loadvm_section_start_full.exit.thread348:    ; preds = %if.end46.i
+qemu_loadvm_section_start_full.argprom.exit.thread348: ; preds = %if.end46.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %idstr.i)
   br label %sw.epilog
 
-qemu_loadvm_section_start_full.exit.thread:       ; preds = %if.end46.i, %if.then14.i, %if.then20.i, %if.then27.i, %if.then37.i, %if.then.i
+qemu_loadvm_section_start_full.argprom.exit.thread: ; preds = %if.end46.i, %if.then14.i, %if.then20.i, %if.then27.i, %if.then37.i, %if.then.i
   %retval.0.i.ph = phi i32 [ -22, %if.then.i ], [ %call348.i, %if.then37.i ], [ -22, %if.then27.i ], [ -22, %if.then20.i ], [ -22, %if.then14.i ], [ -22, %if.end46.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %idstr.i)
   br label %if.then26
 
-qemu_loadvm_section_start_full.exit:              ; preds = %if.end.i
+qemu_loadvm_section_start_full.argprom.exit:      ; preds = %if.end.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.154, ptr noundef nonnull @__func__.qemu_loadvm_section_start_full, i32 noundef %call5.i) #18
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %idstr.i)
   %cmp = icmp slt i32 %call5.i, 0
@@ -4593,7 +4593,7 @@ sw.bb8:                                           ; preds = %trace_qemu_loadvm_s
   %call.i24 = call i32 @qemu_get_be32(ptr noundef %f.addr.0) #18
   %call2.i25 = call i32 @qemu_file_get_error(ptr noundef %f.addr.0) #18
   %tobool.not.i26 = icmp eq i32 %call2.i25, 0
-  br i1 %tobool.not.i26, label %if.end.i29, label %qemu_loadvm_section_part_end.exit
+  br i1 %tobool.not.i26, label %if.end.i29, label %qemu_loadvm_section_part_end.argprom.exit
 
 if.end.i29:                                       ; preds = %sw.bb8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i22)
@@ -4714,7 +4714,7 @@ if.end27.i:                                       ; preds = %trace_vmstate_downt
   %call28.i = call fastcc zeroext i1 @check_section_footer(ptr noundef %f.addr.0, ptr noundef %se.0.i)
   br i1 %call28.i, label %sw.epilog, label %if.then26
 
-qemu_loadvm_section_part_end.exit:                ; preds = %sw.bb8
+qemu_loadvm_section_part_end.argprom.exit:        ; preds = %sw.bb8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.168, ptr noundef nonnull @__func__.qemu_loadvm_section_part_end, i32 noundef %call2.i25) #18
   %cmp10 = icmp slt i32 %call2.i25, 0
   br i1 %cmp10, label %if.then26, label %sw.epilog
@@ -5748,7 +5748,7 @@ sw.default:                                       ; preds = %trace_qemu_loadvm_s
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.28, i32 noundef %conv2) #18
   br label %if.then26
 
-sw.epilog:                                        ; preds = %if.end27.i, %qemu_loadvm_section_start_full.exit.thread348, %trace_qemu_loadvm_state_section_command.exit, %qemu_loadvm_section_part_end.exit, %qemu_loadvm_section_start_full.exit
+sw.epilog:                                        ; preds = %if.end27.i, %qemu_loadvm_section_start_full.argprom.exit.thread348, %trace_qemu_loadvm_state_section_command.exit, %qemu_loadvm_section_part_end.argprom.exit, %qemu_loadvm_section_start_full.argprom.exit
   %call = call i32 @qemu_get_byte(ptr noundef %f.addr.0) #18
   %160 = load ptr, ptr %postcopy_qemufile_dst, align 8
   %call1 = call i32 @qemu_file_get_error_obj_any(ptr noundef %f.addr.0, ptr noundef %160, ptr noundef null) #18
@@ -5760,8 +5760,8 @@ out:                                              ; preds = %trace_qemu_loadvm_s
   %cmp24 = icmp slt i32 %ret.0, 0
   br i1 %cmp24, label %if.then26, label %if.end37
 
-if.then26:                                        ; preds = %if.end27.i, %qemu_loadvm_section_start_full.exit, %qemu_loadvm_section_part_end.exit, %if.then20.i35, %if.then11.i, %qemu_loadvm_section_start_full.exit.thread, %sw.default, %out
-  %ret.0360 = phi i32 [ %ret.0, %out ], [ %retval.0.i.ph, %qemu_loadvm_section_start_full.exit.thread ], [ -22, %sw.default ], [ %call175.i, %if.then20.i35 ], [ -22, %if.then11.i ], [ -22, %if.end27.i ], [ %call2.i25, %qemu_loadvm_section_part_end.exit ], [ %call5.i, %qemu_loadvm_section_start_full.exit ]
+if.then26:                                        ; preds = %if.end27.i, %qemu_loadvm_section_start_full.argprom.exit, %qemu_loadvm_section_part_end.argprom.exit, %if.then20.i35, %if.then11.i, %qemu_loadvm_section_start_full.argprom.exit.thread, %sw.default, %out
+  %ret.0360 = phi i32 [ %ret.0, %out ], [ %retval.0.i.ph, %qemu_loadvm_section_start_full.argprom.exit.thread ], [ -22, %sw.default ], [ %call175.i, %if.then20.i35 ], [ -22, %if.then11.i ], [ -22, %if.end27.i ], [ %call2.i25, %qemu_loadvm_section_part_end.argprom.exit ], [ %call5.i, %qemu_loadvm_section_start_full.argprom.exit ]
   call void @qemu_file_set_error(ptr noundef %f.addr.0, i32 noundef %ret.0360) #18
   call void @dirty_bitmap_mig_cancel_incoming() #18
   %call27 = call i32 @postcopy_state_get() #18
@@ -6621,13 +6621,13 @@ if.then87:                                        ; preds = %if.end85
 cleanup:                                          ; preds = %if.end85, %if.then87, %if.end30, %if.else20, %if.then15, %if.end8, %do.end, %if.then27, %if.then7
   %retval.0 = phi i1 [ false, %if.then27 ], [ false, %if.then7 ], [ false, %do.end ], [ false, %if.end8 ], [ false, %if.then15 ], [ false, %if.else20 ], [ false, %if.end30 ], [ %ret.054, %if.then87 ], [ %ret.054, %if.end85 ]
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDateTime.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GDateTime.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @g_date_time_unref(ptr noundef nonnull %call) #18
-  br label %glib_autoptr_cleanup_GDateTime.exit
+  br label %glib_autoptr_cleanup_GDateTime.argprom.exit
 
-glib_autoptr_cleanup_GDateTime.exit:              ; preds = %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GDateTime.argprom.exit:      ; preds = %cleanup, %if.then.i.i
   ret i1 %retval.0
 }
 

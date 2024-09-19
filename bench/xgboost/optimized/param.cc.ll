@@ -727,13 +727,13 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %49, %47
 52:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit
   %53 = load ptr, ptr %9, align 8
   %.not.i.i.i19 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i19, label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i", label %54
+  br i1 %.not.i.i.i19, label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i", label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %53, i64 8
   %56 = atomicrmw sub ptr %55, i32 1 release, align 4
   %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i"
+  br i1 %57, label %58, label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i"
 
 58:                                               ; preds = %54
   fence acquire
@@ -741,9 +741,9 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %49, %47
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
-  br label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i"
+  br label %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i"
 
-"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i": ; preds = %52, %54, %58
+"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i": ; preds = %52, %54, %58
   %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   store i64 %62, ptr %10, align 8
   store ptr null, ptr %13, align 8, !alias.scope !7
@@ -751,7 +751,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %49, %47
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10collective15GlobalCommGroupEv()
           to label %.noexc unwind label %117
 
-.noexc:                                           ; preds = %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i"
+.noexc:                                           ; preds = %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i"
   %64 = load ptr, ptr %63, align 8, !noalias !15
   store i64 1, ptr %5, align 8, !noalias !15
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -925,7 +925,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc35, %_ZN4dmlc
   call void %116(ptr noundef nonnull align 8 dereferenceable(16) %108) #15
   br label %_ZN7xgboost4JsonD2Ev.exit37
 
-117:                                              ; preds = %.noexc, %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.exit.i"
+117:                                              ; preds = %.noexc, %"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom.exit.i"
   %118 = landingpad { ptr, i32 }
           cleanup
   br label %121
@@ -6874,10 +6874,10 @@ attributes #31 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !9, !"_ZN7xgboost10collective7SuccessEv: argument 0"}
 !9 = distinct !{!9, !"_ZN7xgboost10collective7SuccessEv"}
 !10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv: argument 0"}
-!12 = distinct !{!12, !"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv"}
-!13 = distinct !{!13, !14, !"_ZN7xgboost10collectivelsIZNKS_4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEE3$_0EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_: argument 0"}
-!14 = distinct !{!14, !"_ZN7xgboost10collectivelsIZNKS_4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEE3$_0EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_"}
+!11 = distinct !{!11, !12, !"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom: argument 0"}
+!12 = distinct !{!12, !"_ZZNK7xgboost4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEENK3$_0clEv.argprom.argprom"}
+!13 = distinct !{!13, !14, !"_ZN7xgboost10collectivelsIZNKS_4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEE3$_0EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_.argprom: argument 0"}
+!14 = distinct !{!14, !"_ZN7xgboost10collectivelsIZNKS_4tree19HistMakerTrainParam22CheckTreesSynchronizedEPKNS_7ContextEPKNS_7RegTreeEE3$_0EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSD_OSC_.argprom"}
 !15 = !{!16, !11, !13}
 !16 = distinct !{!16, !17, !"_ZN7xgboost10collective9BroadcastIlEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi: argument 0"}
 !17 = distinct !{!17, !"_ZN7xgboost10collective9BroadcastIlEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEEi"}

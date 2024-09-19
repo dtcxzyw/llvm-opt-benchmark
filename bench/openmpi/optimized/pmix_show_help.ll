@@ -1017,7 +1017,7 @@ define internal fastcc void @local_delivery(ptr noundef %0, ptr noundef %1, ptr 
 
 14:                                               ; preds = %13, %8
   %.not22.i = icmp eq ptr %10, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %15
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %15
 
 15:                                               ; preds = %14
   %16 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %10, ptr noundef null) #18
@@ -1032,7 +1032,7 @@ define internal fastcc void @local_delivery(ptr noundef %0, ptr noundef %1, ptr 
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_shift_caddy_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %23 = phi ptr [ %25, %.lr.ph.i.i ], [ %22, %15 ]
@@ -1041,9 +1041,9 @@ define internal fastcc void @local_delivery(ptr noundef %0, ptr noundef %1, ptr 
   %24 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !6
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %14, %15
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %14, %15
   %26 = getelementptr inbounds i8, ptr %10, i64 568
   store i64 1, ptr %26, align 8
   %27 = tail call ptr @PMIx_Info_create(i64 noundef 1) #18
@@ -1072,7 +1072,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %14, %1
   tail call void @event_active(ptr noundef nonnull %40, i32 noundef 4, i16 noundef signext 1) #18
   br label %43
 
-43:                                               ; preds = %pmix_obj_new_tma.exit, %6
+43:                                               ; preds = %pmix_obj_new_tma.argprom.exit, %6
   ret void
 }
 

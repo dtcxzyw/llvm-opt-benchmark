@@ -187,7 +187,7 @@ if.then51:                                        ; preds = %land.lhs.true45
   br i1 %tobool56.not, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.then51
-  call fastcc void @vnc_clipboard_provide(ptr noundef nonnull %vs, ptr noundef nonnull %9)
+  call fastcc void @vnc_clipboard_provide.argelim(ptr noundef nonnull %vs, ptr noundef nonnull %9)
   br label %if.end62
 
 if.else:                                          ; preds = %if.then51
@@ -213,7 +213,7 @@ declare i32 @read_u32(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @qemu_clipboard_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_clipboard_provide(ptr noundef %vs, ptr nocapture noundef readonly %info) unnamed_addr #0 {
+define internal fastcc void @vnc_clipboard_provide.argelim(ptr noundef %vs, ptr nocapture noundef readonly %info) unnamed_addr #0 {
 entry:
   %stream.i = alloca %struct.z_stream_s, align 8
   %size = getelementptr inbounds i8, ptr %info, i64 40
@@ -460,7 +460,7 @@ for.body.i:                                       ; preds = %if.end9.i
 if.then16.i:                                      ; preds = %for.body.i
   %and19.i = and i32 %6, -2
   store i32 %and19.i, ptr %cbpending14.i, align 8
-  tail call fastcc void @vnc_clipboard_provide(ptr noundef nonnull %add.ptr, ptr noundef nonnull %2)
+  tail call fastcc void @vnc_clipboard_provide.argelim(ptr noundef nonnull %add.ptr, ptr noundef nonnull %2)
   br label %vnc_clipboard_update_info.exit
 
 vnc_clipboard_update_info.exit:                   ; preds = %if.then.i, %if.then4.i, %if.end9.i, %for.body.i, %if.then16.i

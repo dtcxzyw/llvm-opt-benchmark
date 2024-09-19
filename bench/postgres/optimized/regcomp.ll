@@ -397,7 +397,7 @@ initcm.exit:                                      ; preds = %58, %74, %80
   call fastcc void @markst(ptr noundef %129)
   call fastcc void @cleanst(ptr noundef %6)
   %130 = load ptr, ptr %31, align 8
-  %131 = call fastcc i64 @nfatree(ptr noundef %6, ptr noundef %130)
+  %131 = call fastcc i64 @nfatree.argprom(ptr noundef %6, ptr noundef %130)
   %132 = load i64, ptr %36, align 8
   %133 = or i64 %132, %131
   store i64 %133, ptr %36, align 8
@@ -419,7 +419,7 @@ initcm.exit:                                      ; preds = %58, %74, %80
   %141 = and i8 %140, 2
   %.not185 = icmp eq i8 %141, 0
   %142 = zext i1 %.not185 to i32
-  %143 = call fastcc i64 @nfanode(ptr noundef %6, ptr noundef %138, i32 noundef %142)
+  %143 = call fastcc i64 @nfanode.argprom(ptr noundef %6, ptr noundef %138, i32 noundef %142)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = load i32, ptr %34, align 8
   %145 = sext i32 %144 to i64
@@ -449,7 +449,7 @@ initcm.exit:                                      ; preds = %58, %74, %80
 
 156:                                              ; preds = %151, %._crit_edge193.thread
   %157 = load ptr, ptr %27, align 8
-  %158 = call fastcc i64 @optimize(ptr noundef %157)
+  %158 = call fastcc i64 @optimize.argprom(ptr noundef %157)
   %159 = load i32, ptr %16, align 8
   %.not181 = icmp eq i32 %159, 0
   br i1 %.not181, label %160, label %.sink.split
@@ -1947,8 +1947,8 @@ define internal fastcc void @okcolors(ptr nocapture noundef %0, ptr nocapture no
   %.not4458 = icmp eq ptr %38, null
   br i1 %.not4458, label %._crit_edge, label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %33, %colorchain.exit
-  %39 = phi ptr [ %66, %colorchain.exit ], [ %38, %33 ]
+.lr.ph59:                                         ; preds = %33, %colorchain.argprom.exit
+  %39 = phi ptr [ %66, %colorchain.argprom.exit ], [ %38, %33 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
@@ -1991,15 +1991,15 @@ uncolorchain.exit:                                ; preds = %55, %57
   %61 = getelementptr %struct.colordesc, ptr %.val, i64 %35, i32 3
   %62 = load ptr, ptr %61, align 8
   %.not.i46 = icmp eq ptr %62, null
-  br i1 %.not.i46, label %colorchain.exit, label %63
+  br i1 %.not.i46, label %colorchain.argprom.exit, label %63
 
 63:                                               ; preds = %uncolorchain.exit
   %64 = getelementptr inbounds i8, ptr %62, i64 64
   store ptr %39, ptr %64, align 8
   %.pre.i = load ptr, ptr %61, align 8
-  br label %colorchain.exit
+  br label %colorchain.argprom.exit
 
-colorchain.exit:                                  ; preds = %uncolorchain.exit, %63
+colorchain.argprom.exit:                          ; preds = %uncolorchain.exit, %63
   %65 = phi ptr [ %.pre.i, %63 ], [ null, %uncolorchain.exit ]
   store ptr %65, ptr %59, align 8
   store ptr null, ptr %40, align 8
@@ -2008,7 +2008,7 @@ colorchain.exit:                                  ; preds = %uncolorchain.exit, 
   %.not44 = icmp eq ptr %66, null
   br i1 %.not44, label %._crit_edge, label %.lr.ph59, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %colorchain.exit, %33
+._crit_edge:                                      ; preds = %colorchain.argprom.exit, %33
   %67 = load ptr, ptr %3, align 8
   %68 = sext i16 %.04060 to i64
   %69 = getelementptr %struct.colordesc, ptr %67, i64 %68
@@ -2373,15 +2373,15 @@ allocarc.exit.i:                                  ; preds = %201, %196, %181, %1
   %246 = getelementptr %struct.colordesc, ptr %.val.i, i64 %245, i32 3
   %247 = load ptr, ptr %246, align 8
   %.not.i38.i = icmp eq ptr %247, null
-  br i1 %.not.i38.i, label %colorchain.exit.i, label %248
+  br i1 %.not.i38.i, label %colorchain.argprom.exit.i, label %248
 
 248:                                              ; preds = %242
   %249 = getelementptr inbounds i8, ptr %247, i64 64
   store ptr %.0.i.i, ptr %249, align 8
   %.pre.i.i = load ptr, ptr %246, align 8
-  br label %colorchain.exit.i
+  br label %colorchain.argprom.exit.i
 
-colorchain.exit.i:                                ; preds = %248, %242
+colorchain.argprom.exit.i:                        ; preds = %248, %242
   %250 = phi ptr [ %.pre.i.i, %248 ], [ null, %242 ]
   %251 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
   store ptr %250, ptr %251, align 8
@@ -2390,7 +2390,7 @@ colorchain.exit.i:                                ; preds = %248, %242
   store ptr %.0.i.i, ptr %246, align 8
   br label %newarc.exit
 
-newarc.exit:                                      ; preds = %139, %152, %colorchain.exit.i, %239, %237, %230, %allocarc.exit.i
+newarc.exit:                                      ; preds = %139, %152, %colorchain.argprom.exit.i, %239, %237, %230, %allocarc.exit.i
   %253 = getelementptr inbounds i8, ptr %.04157, i64 56
   %.041 = load ptr, ptr %253, align 8
   %.not = icmp eq ptr %.041, null
@@ -3111,7 +3111,7 @@ define internal fastcc void @cleanst(ptr nocapture noundef nonnull %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 4097) i64 @nfatree(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4097) i64 @nfatree.argprom(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %.01 = load ptr, ptr %3, align 8
   %.not2 = icmp eq ptr %.01, null
@@ -3119,19 +3119,19 @@ define internal fastcc range(i64 0, 4097) i64 @nfatree(ptr noundef nonnull %0, p
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.03 = phi ptr [ %.0, %.lr.ph ], [ %.01, %2 ]
-  %4 = tail call fastcc i64 @nfatree(ptr noundef %0, ptr noundef nonnull %.03)
+  %4 = tail call fastcc i64 @nfatree.argprom(ptr noundef %0, ptr noundef nonnull %.03)
   %5 = getelementptr inbounds i8, ptr %.03, i64 32
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %6 = tail call fastcc i64 @nfanode(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  %6 = tail call fastcc i64 @nfanode.argprom(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 4097) i64 @nfanode(ptr noundef nonnull %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4097) i64 @nfanode.argprom(ptr noundef nonnull %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3163,7 +3163,7 @@ define internal fastcc range(i64 0, 4097) i64 @nfanode(ptr noundef nonnull %0, p
   br i1 %.not25, label %22, label %.thread
 
 22:                                               ; preds = %21
-  %23 = tail call fastcc i64 @optimize(ptr noundef nonnull %8)
+  %23 = tail call fastcc i64 @optimize.argprom(ptr noundef nonnull %8)
   %.pr2.pre5.pre = load i32, ptr %9, align 8
   br label %.thread
 
@@ -3258,7 +3258,7 @@ freenfa.exit:                                     ; preds = %43, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 4097) i64 @optimize(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4097) i64 @optimize.argprom(ptr noundef %0) unnamed_addr #0 {
   tail call fastcc void @cleanup(ptr noundef %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -3370,7 +3370,7 @@ define internal fastcc range(i64 0, 4097) i64 @optimize(ptr noundef %0) unnamed_
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
   %.not138.i = icmp eq i32 %49, 0
-  br i1 %.not138.i, label %50, label %fixempties.exit
+  br i1 %.not138.i, label %50, label %fixempties.argprom.exit
 
 50:                                               ; preds = %.critedge2.i
   %51 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3396,7 +3396,7 @@ define internal fastcc range(i64 0, 4097) i64 @optimize(ptr noundef %0) unnamed_
   %.not153.i = icmp eq i32 %62, 0
   %spec.select.i = select i1 %.not153.i, i32 12, i32 %62
   store i32 %spec.select.i, ptr %61, align 8
-  br label %fixempties.exit
+  br label %fixempties.argprom.exit
 
 .lr.ph17.i:                                       ; preds = %.preheader5.i, %.lr.ph17.i
   %.216.i = phi ptr [ %.2.i, %.lr.ph17.i ], [ %.213.i, %.preheader5.i ]
@@ -3442,7 +3442,7 @@ define internal fastcc range(i64 0, 4097) i64 @optimize(ptr noundef %0) unnamed_
   %spec.select162.i = select i1 %.not152.i, i32 12, i32 %81
   store i32 %spec.select162.i, ptr %80, align 8
   tail call void @pfree(ptr noundef nonnull %55) #22
-  br label %fixempties.exit
+  br label %fixempties.argprom.exit
 
 .lr.ph42.i:                                       ; preds = %.preheader4.i, %hasnonemptyout.exit.thread.i
   %.340.i = phi ptr [ %.3.i, %hasnonemptyout.exit.thread.i ], [ %.338.i, %.preheader4.i ]
@@ -3750,12 +3750,12 @@ hasnonemptyout.exit.thread.i:                     ; preds = %.preheader3.i, %._c
   %215 = getelementptr inbounds i8, ptr %214, i64 24
   %216 = load i32, ptr %215, align 8
   %.not142.i = icmp eq i32 %216, 0
-  br i1 %.not142.i, label %.preheader.i, label %fixempties.exit
+  br i1 %.not142.i, label %.preheader.i, label %fixempties.argprom.exit
 
 .preheader.i:                                     ; preds = %.critedge4.i
   %.449.i = load ptr, ptr %2, align 8
   %.not14350.i = icmp eq ptr %.449.i, null
-  br i1 %.not14350.i, label %fixconstraintloops.exit.thread, label %.lr.ph52.i
+  br i1 %.not14350.i, label %fixconstraintloops.argprom.exit.thread, label %.lr.ph52.i
 
 .lr.ph52.i:                                       ; preds = %.preheader.i
   %217 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3842,7 +3842,7 @@ freearc.exit.i:                                   ; preds = %247, %236
 ._crit_edge53.i:                                  ; preds = %._crit_edge48.i
   %.pre59.i = load ptr, ptr %2, align 8
   %.not14454.i = icmp eq ptr %.pre59.i, null
-  br i1 %.not14454.i, label %fixconstraintloops.exit.thread, label %.lr.ph57.i
+  br i1 %.not14454.i, label %fixconstraintloops.argprom.exit.thread, label %.lr.ph57.i
 
 .lr.ph57.i:                                       ; preds = %._crit_edge53.i, %268
   %.555.i = phi ptr [ %256, %268 ], [ %.pre59.i, %._crit_edge53.i ]
@@ -3871,14 +3871,14 @@ freearc.exit.i:                                   ; preds = %247, %236
 
 268:                                              ; preds = %267, %264, %260
   %.not144.i = icmp eq ptr %256, null
-  br i1 %.not144.i, label %fixempties.exit, label %.lr.ph57.i, !llvm.loop !40
+  br i1 %.not144.i, label %fixempties.argprom.exit, label %.lr.ph57.i, !llvm.loop !40
 
-fixempties.exit:                                  ; preds = %268, %.critedge2.i, %57, %76, %.critedge4.i
+fixempties.argprom.exit:                          ; preds = %268, %.critedge2.i, %57, %76, %.critedge4.i
   %.pr = load ptr, ptr %2, align 8
   %.not9.i = icmp eq ptr %.pr, null
-  br i1 %.not9.i, label %fixconstraintloops.exit.thread, label %.lr.ph12.i
+  br i1 %.not9.i, label %fixconstraintloops.argprom.exit.thread, label %.lr.ph12.i
 
-.lr.ph12.i:                                       ; preds = %fixempties.exit
+.lr.ph12.i:                                       ; preds = %fixempties.argprom.exit
   %269 = getelementptr inbounds i8, ptr %0, i64 144
   %270 = getelementptr inbounds i8, ptr %0, i64 104
   %271 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3891,7 +3891,7 @@ fixempties.exit:                                  ; preds = %268, %.critedge2.i,
   %274 = getelementptr inbounds i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8
   %.not50.i = icmp eq i32 %275, 0
-  br i1 %.not50.i, label %276, label %fixconstraintloops.exit.sink.split
+  br i1 %.not50.i, label %276, label %fixconstraintloops.argprom.exit.sink.split
 
 276:                                              ; preds = %272
   %277 = getelementptr inbounds i8, ptr %.04510.i, i64 40
@@ -3901,9 +3901,9 @@ fixempties.exit:                                  ; preds = %268, %.critedge2.i,
   %.not574.i = icmp eq ptr %280, null
   br i1 %.not574.i, label %.critedge2.i14, label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %276, %isconstraintarc.exit.thread.i
-  %.16.i = phi i32 [ %.2.i16, %isconstraintarc.exit.thread.i ], [ %.011.i, %276 ]
-  %.0485.i = phi ptr [ %286, %isconstraintarc.exit.thread.i ], [ %280, %276 ]
+.lr.ph.i13:                                       ; preds = %276, %isconstraintarc.argprom.exit.thread.i
+  %.16.i = phi i32 [ %.2.i16, %isconstraintarc.argprom.exit.thread.i ], [ %.011.i, %276 ]
+  %.0485.i = phi ptr [ %286, %isconstraintarc.argprom.exit.thread.i ], [ %280, %276 ]
   %281 = load ptr, ptr %4, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 24
   %283 = load i32, ptr %282, align 8
@@ -3914,21 +3914,21 @@ fixempties.exit:                                  ; preds = %268, %.critedge2.i,
   %285 = getelementptr inbounds i8, ptr %.0485.i, i64 24
   %286 = load ptr, ptr %285, align 8
   %.048.val.i = load i32, ptr %.0485.i, align 8
-  switch i32 %.048.val.i, label %isconstraintarc.exit.thread.i [
-    i32 94, label %isconstraintarc.exit.i
-    i32 36, label %isconstraintarc.exit.i
-    i32 114, label %isconstraintarc.exit.i
-    i32 97, label %isconstraintarc.exit.i
-    i32 76, label %isconstraintarc.exit.i
+  switch i32 %.048.val.i, label %isconstraintarc.argprom.exit.thread.i [
+    i32 94, label %isconstraintarc.argprom.exit.i
+    i32 36, label %isconstraintarc.argprom.exit.i
+    i32 114, label %isconstraintarc.argprom.exit.i
+    i32 97, label %isconstraintarc.argprom.exit.i
+    i32 76, label %isconstraintarc.argprom.exit.i
   ]
 
-isconstraintarc.exit.i:                           ; preds = %284, %284, %284, %284, %284
+isconstraintarc.argprom.exit.i:                   ; preds = %284, %284, %284, %284, %284
   %287 = getelementptr inbounds i8, ptr %.0485.i, i64 16
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, %.04510.i
-  br i1 %289, label %290, label %isconstraintarc.exit.thread.i
+  br i1 %289, label %290, label %isconstraintarc.argprom.exit.thread.i
 
-290:                                              ; preds = %isconstraintarc.exit.i
+290:                                              ; preds = %isconstraintarc.argprom.exit.i
   %291 = getelementptr inbounds i8, ptr %.0485.i, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds i8, ptr %.0485.i, i64 4
@@ -4036,15 +4036,15 @@ freearc.exit.i21:                                 ; preds = %340, %329
   %345 = load ptr, ptr %271, align 8
   store ptr %345, ptr %285, align 8
   store ptr %.0485.i, ptr %271, align 8
-  br label %isconstraintarc.exit.thread.i
+  br label %isconstraintarc.argprom.exit.thread.i
 
-isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i21, %isconstraintarc.exit.i, %284
-  %.2.i16 = phi i32 [ %.16.i, %freearc.exit.i21 ], [ 1, %isconstraintarc.exit.i ], [ %.16.i, %284 ]
+isconstraintarc.argprom.exit.thread.i:            ; preds = %freearc.exit.i21, %isconstraintarc.argprom.exit.i, %284
+  %.2.i16 = phi i32 [ %.16.i, %freearc.exit.i21 ], [ 1, %isconstraintarc.argprom.exit.i ], [ %.16.i, %284 ]
   %.not57.i = icmp eq ptr %286, null
   br i1 %.not57.i, label %.critedge2.i14, label %.lr.ph.i13, !llvm.loop !41
 
-.critedge2.i14:                                   ; preds = %isconstraintarc.exit.thread.i, %.lr.ph.i13, %276
-  %.1.lcssa.i = phi i32 [ %.011.i, %276 ], [ %.16.i, %.lr.ph.i13 ], [ %.2.i16, %isconstraintarc.exit.thread.i ]
+.critedge2.i14:                                   ; preds = %isconstraintarc.argprom.exit.thread.i, %.lr.ph.i13, %276
+  %.1.lcssa.i = phi i32 [ %.011.i, %276 ], [ %.16.i, %.lr.ph.i13 ], [ %.2.i16, %isconstraintarc.argprom.exit.thread.i ]
   %346 = getelementptr inbounds i8, ptr %.04510.i, i64 12
   %347 = load i32, ptr %346, align 4
   %348 = icmp eq i32 %347, 0
@@ -4072,7 +4072,7 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i21, %
   %355 = icmp ne i32 %.1.lcssa.i, 0
   %or.cond.i = select i1 %354, i1 %355, i1 false
   %.pre67 = load ptr, ptr %2, align 8
-  br i1 %or.cond.i, label %.preheader.i12, label %fixconstraintloops.exit
+  br i1 %or.cond.i, label %.preheader.i12, label %fixconstraintloops.argprom.exit
 
 .preheader.i12:                                   ; preds = %.critedge.i11
   %.not511723.i = icmp eq ptr %.pre67, null
@@ -4116,11 +4116,11 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i21, %
   %364 = getelementptr inbounds i8, ptr %363, i64 24
   %365 = load i32, ptr %364, align 8
   %.not53.i = icmp eq i32 %365, 0
-  br i1 %.not53.i, label %366, label %fixconstraintloops.exit
+  br i1 %.not53.i, label %366, label %fixconstraintloops.argprom.exit
 
 366:                                              ; preds = %.critedge5.i
   %.not5425.i = icmp eq ptr %.pre68, null
-  br i1 %.not5425.i, label %fixconstraintloops.exit.thread, label %.lr.ph27.i
+  br i1 %.not5425.i, label %fixconstraintloops.argprom.exit.thread, label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %366, %381
   %.24726.i = phi ptr [ %368, %381 ], [ %.pre68, %366 ]
@@ -4151,9 +4151,9 @@ isconstraintarc.exit.thread.i:                    ; preds = %freearc.exit.i21, %
 
 381:                                              ; preds = %380, %377, %373
   %.not54.i = icmp eq ptr %368, null
-  br i1 %.not54.i, label %fixconstraintloops.exit.sink.split, label %.lr.ph27.i, !llvm.loop !44
+  br i1 %.not54.i, label %fixconstraintloops.argprom.exit.sink.split, label %.lr.ph27.i, !llvm.loop !44
 
-fixconstraintloops.exit.thread:                   ; preds = %._crit_edge53.i, %.preheader.i, %fixempties.exit, %366
+fixconstraintloops.argprom.exit.thread:           ; preds = %._crit_edge53.i, %.preheader.i, %fixempties.argprom.exit, %366
   %382 = getelementptr inbounds i8, ptr %0, i64 56
   %383 = getelementptr inbounds i8, ptr %0, i64 72
   %384 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4166,12 +4166,12 @@ fixconstraintloops.exit.thread:                   ; preds = %._crit_edge53.i, %.
   %391 = getelementptr inbounds i8, ptr %0, i64 104
   br label %.critedge5.i26
 
-fixconstraintloops.exit.sink.split:               ; preds = %272, %381
+fixconstraintloops.argprom.exit.sink.split:       ; preds = %272, %381
   %.pre6772 = load ptr, ptr %2, align 8
-  br label %fixconstraintloops.exit
+  br label %fixconstraintloops.argprom.exit
 
-fixconstraintloops.exit:                          ; preds = %fixconstraintloops.exit.sink.split, %.critedge.i11, %.critedge5.i
-  %392 = phi ptr [ %.pre67, %.critedge.i11 ], [ %.pre68, %.critedge5.i ], [ %.pre6772, %fixconstraintloops.exit.sink.split ]
+fixconstraintloops.argprom.exit:                  ; preds = %fixconstraintloops.argprom.exit.sink.split, %.critedge.i11, %.critedge5.i
+  %392 = phi ptr [ %.pre67, %.critedge.i11 ], [ %.pre68, %.critedge5.i ], [ %.pre6772, %fixconstraintloops.argprom.exit.sink.split ]
   %393 = getelementptr inbounds i8, ptr %0, i64 56
   %394 = getelementptr inbounds i8, ptr %0, i64 72
   %395 = getelementptr inbounds i8, ptr %0, i64 88
@@ -4190,9 +4190,9 @@ fixconstraintloops.exit:                          ; preds = %fixconstraintloops.
   %.not43.i = icmp eq ptr %.pr.i, null
   br i1 %.not43.i, label %.critedge5.i26, label %.lr.ph47.i23.backedge
 
-.lr.ph47.i23:                                     ; preds = %fixconstraintloops.exit, %.lr.ph47.i23.backedge
-  %.045.i = phi ptr [ %.045.i.be, %.lr.ph47.i23.backedge ], [ %392, %fixconstraintloops.exit ]
-  %.04344.i = phi i32 [ %.04344.i.be, %.lr.ph47.i23.backedge ], [ 0, %fixconstraintloops.exit ]
+.lr.ph47.i23:                                     ; preds = %fixconstraintloops.argprom.exit, %.lr.ph47.i23.backedge
+  %.045.i = phi ptr [ %.045.i.be, %.lr.ph47.i23.backedge ], [ %392, %fixconstraintloops.argprom.exit ]
+  %.04344.i = phi i32 [ %.04344.i.be, %.lr.ph47.i23.backedge ], [ 0, %fixconstraintloops.argprom.exit ]
   %404 = load ptr, ptr %4, align 8
   %405 = getelementptr inbounds i8, ptr %404, i64 24
   %406 = load i32, ptr %405, align 8
@@ -4685,15 +4685,15 @@ allocarc.exit.i136.i:                             ; preds = %611, %606, %591, %5
   %656 = getelementptr %struct.colordesc, ptr %.val.i141.i, i64 %655, i32 3
   %657 = load ptr, ptr %656, align 8
   %.not.i38.i142.i = icmp eq ptr %657, null
-  br i1 %.not.i38.i142.i, label %colorchain.exit.i144.i, label %658
+  br i1 %.not.i38.i142.i, label %colorchain.argprom.exit.i144.i, label %658
 
 658:                                              ; preds = %652
   %659 = getelementptr inbounds i8, ptr %657, i64 64
   store ptr %.0.i.i137.i, ptr %659, align 8
   %.pre.i.i143.i = load ptr, ptr %656, align 8
-  br label %colorchain.exit.i144.i
+  br label %colorchain.argprom.exit.i144.i
 
-colorchain.exit.i144.i:                           ; preds = %658, %652
+colorchain.argprom.exit.i144.i:                   ; preds = %658, %652
   %660 = phi ptr [ %.pre.i.i143.i, %658 ], [ null, %652 ]
   %661 = getelementptr inbounds i8, ptr %.0.i.i137.i, i64 56
   store ptr %660, ptr %661, align 8
@@ -4702,7 +4702,7 @@ colorchain.exit.i144.i:                           ; preds = %658, %652
   store ptr %.0.i.i137.i, ptr %656, align 8
   br label %createarc.exit152.i
 
-createarc.exit152.i:                              ; preds = %colorchain.exit.i144.i, %649, %647, %639, %allocarc.exit.i136.i
+createarc.exit152.i:                              ; preds = %colorchain.argprom.exit.i144.i, %649, %647, %639, %allocarc.exit.i136.i
   %663 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 40
   %.0.i.i.i = load ptr, ptr %663, align 8
   %.not.i77.i.i = icmp eq ptr %.0.i.i.i, null
@@ -4964,15 +4964,15 @@ allocarc.exit.i118.i:                             ; preds = %743, %738, %723, %7
   %788 = getelementptr %struct.colordesc, ptr %.val.i123.i, i64 %787, i32 3
   %789 = load ptr, ptr %788, align 8
   %.not.i38.i124.i = icmp eq ptr %789, null
-  br i1 %.not.i38.i124.i, label %colorchain.exit.i126.i, label %790
+  br i1 %.not.i38.i124.i, label %colorchain.argprom.exit.i126.i, label %790
 
 790:                                              ; preds = %784
   %791 = getelementptr inbounds i8, ptr %789, i64 64
   store ptr %.0.i.i119.i, ptr %791, align 8
   %.pre.i.i125.i = load ptr, ptr %788, align 8
-  br label %colorchain.exit.i126.i
+  br label %colorchain.argprom.exit.i126.i
 
-colorchain.exit.i126.i:                           ; preds = %790, %784
+colorchain.argprom.exit.i126.i:                   ; preds = %790, %784
   %792 = phi ptr [ %.pre.i.i125.i, %790 ], [ null, %784 ]
   %793 = getelementptr inbounds i8, ptr %.0.i.i119.i, i64 56
   store ptr %792, ptr %793, align 8
@@ -4981,7 +4981,7 @@ colorchain.exit.i126.i:                           ; preds = %790, %784
   store ptr %.0.i.i119.i, ptr %788, align 8
   br label %cparc.exit.i.i
 
-cparc.exit.i.i:                                   ; preds = %681, %694, %colorchain.exit.i126.i, %781, %779, %772, %allocarc.exit.i118.i
+cparc.exit.i.i:                                   ; preds = %681, %694, %colorchain.argprom.exit.i126.i, %781, %779, %772, %allocarc.exit.i118.i
   %795 = load ptr, ptr %420, align 8
   %796 = load ptr, ptr %422, align 8
   %797 = load i16, ptr %665, align 4
@@ -5786,15 +5786,15 @@ allocarc.exit.i91.i:                              ; preds = %1156, %1151, %1136,
   %1201 = getelementptr %struct.colordesc, ptr %.val.i96.i, i64 %1200, i32 3
   %1202 = load ptr, ptr %1201, align 8
   %.not.i38.i97.i = icmp eq ptr %1202, null
-  br i1 %.not.i38.i97.i, label %colorchain.exit.i99.i, label %1203
+  br i1 %.not.i38.i97.i, label %colorchain.argprom.exit.i99.i, label %1203
 
 1203:                                             ; preds = %1197
   %1204 = getelementptr inbounds i8, ptr %1202, i64 64
   store ptr %.0.i.i92.i, ptr %1204, align 8
   %.pre.i.i98.i = load ptr, ptr %1201, align 8
-  br label %colorchain.exit.i99.i
+  br label %colorchain.argprom.exit.i99.i
 
-colorchain.exit.i99.i:                            ; preds = %1203, %1197
+colorchain.argprom.exit.i99.i:                    ; preds = %1203, %1197
   %1205 = phi ptr [ %.pre.i.i98.i, %1203 ], [ null, %1197 ]
   %1206 = getelementptr inbounds i8, ptr %.0.i.i92.i, i64 56
   store ptr %1205, ptr %1206, align 8
@@ -5803,7 +5803,7 @@ colorchain.exit.i99.i:                            ; preds = %1203, %1197
   store ptr %.0.i.i92.i, ptr %1201, align 8
   br label %cparc.exit111.i.i
 
-cparc.exit111.i.i:                                ; preds = %1094, %1107, %colorchain.exit.i99.i, %1194, %1192, %1185, %allocarc.exit.i91.i
+cparc.exit111.i.i:                                ; preds = %1094, %1107, %colorchain.argprom.exit.i99.i, %1194, %1192, %1185, %allocarc.exit.i91.i
   %1208 = load i32, ptr %.068169.i.i, align 8
   %1209 = getelementptr inbounds i8, ptr %.068169.i.i, i64 4
   %1210 = load i16, ptr %1209, align 4
@@ -6056,15 +6056,15 @@ allocarc.exit.i73.i:                              ; preds = %1285, %1280, %1265,
   %1329 = getelementptr %struct.colordesc, ptr %.val.i78.i, i64 %1328, i32 3
   %1330 = load ptr, ptr %1329, align 8
   %.not.i38.i79.i = icmp eq ptr %1330, null
-  br i1 %.not.i38.i79.i, label %colorchain.exit.i81.i, label %1331
+  br i1 %.not.i38.i79.i, label %colorchain.argprom.exit.i81.i, label %1331
 
 1331:                                             ; preds = %1325
   %1332 = getelementptr inbounds i8, ptr %1330, i64 64
   store ptr %.0.i.i74.i, ptr %1332, align 8
   %.pre.i.i80.i = load ptr, ptr %1329, align 8
-  br label %colorchain.exit.i81.i
+  br label %colorchain.argprom.exit.i81.i
 
-colorchain.exit.i81.i:                            ; preds = %1331, %1325
+colorchain.argprom.exit.i81.i:                    ; preds = %1331, %1325
   %1333 = phi ptr [ %.pre.i.i80.i, %1331 ], [ null, %1325 ]
   %1334 = getelementptr inbounds i8, ptr %.0.i.i74.i, i64 56
   store ptr %1333, ptr %1334, align 8
@@ -6073,7 +6073,7 @@ colorchain.exit.i81.i:                            ; preds = %1331, %1325
   store ptr %.0.i.i74.i, ptr %1329, align 8
   br label %cparc.exit130.i.i
 
-cparc.exit130.i.i:                                ; preds = %1224, %1236, %colorchain.exit.i81.i, %1322, %1320, %1313, %allocarc.exit.i73.i
+cparc.exit130.i.i:                                ; preds = %1224, %1236, %colorchain.argprom.exit.i81.i, %1322, %1320, %1313, %allocarc.exit.i73.i
   %1336 = load ptr, ptr %1078, align 8
   %1337 = getelementptr inbounds i8, ptr %.068169.i.i, i64 16
   %1338 = load ptr, ptr %1337, align 8
@@ -6419,15 +6419,15 @@ allocarc.exit.i.i:                                ; preds = %1463, %1458, %1443,
   %1507 = getelementptr %struct.colordesc, ptr %.val.i.i, i64 %1506, i32 3
   %1508 = load ptr, ptr %1507, align 8
   %.not.i38.i.i = icmp eq ptr %1508, null
-  br i1 %.not.i38.i.i, label %colorchain.exit.i.i, label %1509
+  br i1 %.not.i38.i.i, label %colorchain.argprom.exit.i.i, label %1509
 
 1509:                                             ; preds = %1503
   %1510 = getelementptr inbounds i8, ptr %1508, i64 64
   store ptr %.0.i.i69.i, ptr %1510, align 8
   %.pre.i.i.i = load ptr, ptr %1507, align 8
-  br label %colorchain.exit.i.i
+  br label %colorchain.argprom.exit.i.i
 
-colorchain.exit.i.i:                              ; preds = %1509, %1503
+colorchain.argprom.exit.i.i:                      ; preds = %1509, %1503
   %1511 = phi ptr [ %.pre.i.i.i, %1509 ], [ null, %1503 ]
   %1512 = getelementptr inbounds i8, ptr %.0.i.i69.i, i64 56
   store ptr %1511, ptr %1512, align 8
@@ -6436,7 +6436,7 @@ colorchain.exit.i.i:                              ; preds = %1509, %1503
   store ptr %.0.i.i69.i, ptr %1507, align 8
   br label %newarc.exit.i.i
 
-newarc.exit.i.i:                                  ; preds = %1402, %1414, %colorchain.exit.i.i, %1500, %1498, %1491, %allocarc.exit.i.i
+newarc.exit.i.i:                                  ; preds = %1402, %1414, %colorchain.argprom.exit.i.i, %1500, %1498, %1491, %allocarc.exit.i.i
   %1514 = load ptr, ptr %1387, align 8
   %1515 = getelementptr inbounds i8, ptr %.068169.i.i, i64 16
   %1516 = load ptr, ptr %1515, align 8
@@ -6753,29 +6753,29 @@ pull.exit.i:                                      ; preds = %.loopexit161.sink.s
   %.not51.i25 = icmp eq i32 %1646, 0
   br i1 %.not51.i25, label %.splitthread-pre-split.i, label %.critedge5.i26, !llvm.loop !51
 
-.critedge5.i26:                                   ; preds = %1643, %.critedge.i24, %.splitthread-pre-split.i, %fixconstraintloops.exit.thread, %fixconstraintloops.exit
-  %1647 = phi ptr [ %391, %fixconstraintloops.exit.thread ], [ %402, %fixconstraintloops.exit ], [ %402, %.splitthread-pre-split.i ], [ %402, %.critedge.i24 ], [ %402, %1643 ]
-  %1648 = phi ptr [ %390, %fixconstraintloops.exit.thread ], [ %401, %fixconstraintloops.exit ], [ %401, %.splitthread-pre-split.i ], [ %401, %.critedge.i24 ], [ %401, %1643 ]
-  %1649 = phi ptr [ %389, %fixconstraintloops.exit.thread ], [ %400, %fixconstraintloops.exit ], [ %400, %.splitthread-pre-split.i ], [ %400, %.critedge.i24 ], [ %400, %1643 ]
-  %1650 = phi ptr [ %388, %fixconstraintloops.exit.thread ], [ %399, %fixconstraintloops.exit ], [ %399, %.splitthread-pre-split.i ], [ %399, %.critedge.i24 ], [ %399, %1643 ]
-  %1651 = phi ptr [ %387, %fixconstraintloops.exit.thread ], [ %398, %fixconstraintloops.exit ], [ %398, %.splitthread-pre-split.i ], [ %398, %.critedge.i24 ], [ %398, %1643 ]
-  %1652 = phi ptr [ %386, %fixconstraintloops.exit.thread ], [ %397, %fixconstraintloops.exit ], [ %397, %.splitthread-pre-split.i ], [ %397, %.critedge.i24 ], [ %397, %1643 ]
-  %1653 = phi ptr [ %385, %fixconstraintloops.exit.thread ], [ %396, %fixconstraintloops.exit ], [ %396, %.splitthread-pre-split.i ], [ %396, %.critedge.i24 ], [ %396, %1643 ]
-  %1654 = phi ptr [ %384, %fixconstraintloops.exit.thread ], [ %395, %fixconstraintloops.exit ], [ %395, %.splitthread-pre-split.i ], [ %395, %.critedge.i24 ], [ %395, %1643 ]
-  %1655 = phi ptr [ %383, %fixconstraintloops.exit.thread ], [ %394, %fixconstraintloops.exit ], [ %394, %.splitthread-pre-split.i ], [ %394, %.critedge.i24 ], [ %394, %1643 ]
-  %1656 = phi ptr [ %382, %fixconstraintloops.exit.thread ], [ %393, %fixconstraintloops.exit ], [ %393, %.splitthread-pre-split.i ], [ %393, %.critedge.i24 ], [ %393, %1643 ]
+.critedge5.i26:                                   ; preds = %1643, %.critedge.i24, %.splitthread-pre-split.i, %fixconstraintloops.argprom.exit.thread, %fixconstraintloops.argprom.exit
+  %1647 = phi ptr [ %391, %fixconstraintloops.argprom.exit.thread ], [ %402, %fixconstraintloops.argprom.exit ], [ %402, %.splitthread-pre-split.i ], [ %402, %.critedge.i24 ], [ %402, %1643 ]
+  %1648 = phi ptr [ %390, %fixconstraintloops.argprom.exit.thread ], [ %401, %fixconstraintloops.argprom.exit ], [ %401, %.splitthread-pre-split.i ], [ %401, %.critedge.i24 ], [ %401, %1643 ]
+  %1649 = phi ptr [ %389, %fixconstraintloops.argprom.exit.thread ], [ %400, %fixconstraintloops.argprom.exit ], [ %400, %.splitthread-pre-split.i ], [ %400, %.critedge.i24 ], [ %400, %1643 ]
+  %1650 = phi ptr [ %388, %fixconstraintloops.argprom.exit.thread ], [ %399, %fixconstraintloops.argprom.exit ], [ %399, %.splitthread-pre-split.i ], [ %399, %.critedge.i24 ], [ %399, %1643 ]
+  %1651 = phi ptr [ %387, %fixconstraintloops.argprom.exit.thread ], [ %398, %fixconstraintloops.argprom.exit ], [ %398, %.splitthread-pre-split.i ], [ %398, %.critedge.i24 ], [ %398, %1643 ]
+  %1652 = phi ptr [ %386, %fixconstraintloops.argprom.exit.thread ], [ %397, %fixconstraintloops.argprom.exit ], [ %397, %.splitthread-pre-split.i ], [ %397, %.critedge.i24 ], [ %397, %1643 ]
+  %1653 = phi ptr [ %385, %fixconstraintloops.argprom.exit.thread ], [ %396, %fixconstraintloops.argprom.exit ], [ %396, %.splitthread-pre-split.i ], [ %396, %.critedge.i24 ], [ %396, %1643 ]
+  %1654 = phi ptr [ %384, %fixconstraintloops.argprom.exit.thread ], [ %395, %fixconstraintloops.argprom.exit ], [ %395, %.splitthread-pre-split.i ], [ %395, %.critedge.i24 ], [ %395, %1643 ]
+  %1655 = phi ptr [ %383, %fixconstraintloops.argprom.exit.thread ], [ %394, %fixconstraintloops.argprom.exit ], [ %394, %.splitthread-pre-split.i ], [ %394, %.critedge.i24 ], [ %394, %1643 ]
+  %1656 = phi ptr [ %382, %fixconstraintloops.argprom.exit.thread ], [ %393, %fixconstraintloops.argprom.exit ], [ %393, %.splitthread-pre-split.i ], [ %393, %.critedge.i24 ], [ %393, %1643 ]
   %1657 = load ptr, ptr %4, align 8
   %1658 = getelementptr inbounds i8, ptr %1657, i64 24
   %1659 = load i32, ptr %1658, align 8
   %.not52.i27 = icmp eq i32 %1659, 0
-  br i1 %.not52.i27, label %1660, label %pullback.exit
+  br i1 %.not52.i27, label %1660, label %pullback.argprom.exit
 
 1660:                                             ; preds = %.critedge5.i26
   %1661 = load ptr, ptr %0, align 8
   %1662 = getelementptr inbounds i8, ptr %1661, i64 24
   %1663 = load ptr, ptr %1662, align 8
   %.not5351.i = icmp eq ptr %1663, null
-  br i1 %.not5351.i, label %pullback.exit, label %.lr.ph54.i
+  br i1 %.not5351.i, label %pullback.argprom.exit, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %1660
   %1664 = getelementptr inbounds i8, ptr %0, i64 112
@@ -6990,9 +6990,9 @@ freearc.exit.i32:                                 ; preds = %1761, %1750
 
 1767:                                             ; preds = %freearc.exit.i32, %1665
   %.not53.i28 = icmp eq ptr %1667, null
-  br i1 %.not53.i28, label %pullback.exit, label %1665, !llvm.loop !53
+  br i1 %.not53.i28, label %pullback.argprom.exit, label %1665, !llvm.loop !53
 
-pullback.exit:                                    ; preds = %1767, %.critedge5.i26, %1660
+pullback.argprom.exit:                            ; preds = %1767, %.critedge5.i26, %1660
   %1768 = load ptr, ptr %2, align 8
   %1769 = icmp eq ptr %1768, null
   br i1 %1769, label %.critedge5.i64, label %.lr.ph38.i
@@ -7002,9 +7002,9 @@ pullback.exit:                                    ; preds = %1767, %.critedge5.i
   %.not34.i = icmp eq ptr %.pr.i87, null
   br i1 %.not34.i, label %.critedge5.i64, label %.lr.ph38.i.backedge
 
-.lr.ph38.i:                                       ; preds = %pullback.exit, %.lr.ph38.i.backedge
-  %.036.i = phi ptr [ %.036.i.be, %.lr.ph38.i.backedge ], [ %1768, %pullback.exit ]
-  %.04335.i = phi i32 [ %.04335.i.be, %.lr.ph38.i.backedge ], [ 0, %pullback.exit ]
+.lr.ph38.i:                                       ; preds = %pullback.argprom.exit, %.lr.ph38.i.backedge
+  %.036.i = phi ptr [ %.036.i.be, %.lr.ph38.i.backedge ], [ %1768, %pullback.argprom.exit ]
+  %.04335.i = phi i32 [ %.04335.i.be, %.lr.ph38.i.backedge ], [ 0, %pullback.argprom.exit ]
   %1770 = load ptr, ptr %4, align 8
   %1771 = getelementptr inbounds i8, ptr %1770, i64 24
   %1772 = load i32, ptr %1771, align 8
@@ -7491,15 +7491,15 @@ allocarc.exit.i112.i:                             ; preds = %1974, %1969, %1954,
   %2019 = getelementptr %struct.colordesc, ptr %.val.i117.i, i64 %2018, i32 3
   %2020 = load ptr, ptr %2019, align 8
   %.not.i38.i118.i = icmp eq ptr %2020, null
-  br i1 %.not.i38.i118.i, label %colorchain.exit.i120.i, label %2021
+  br i1 %.not.i38.i118.i, label %colorchain.argprom.exit.i120.i, label %2021
 
 2021:                                             ; preds = %2015
   %2022 = getelementptr inbounds i8, ptr %2020, i64 64
   store ptr %.0.i.i113.i, ptr %2022, align 8
   %.pre.i.i119.i = load ptr, ptr %2019, align 8
-  br label %colorchain.exit.i120.i
+  br label %colorchain.argprom.exit.i120.i
 
-colorchain.exit.i120.i:                           ; preds = %2021, %2015
+colorchain.argprom.exit.i120.i:                   ; preds = %2021, %2015
   %2023 = phi ptr [ %.pre.i.i119.i, %2021 ], [ null, %2015 ]
   %2024 = getelementptr inbounds i8, ptr %.0.i.i113.i, i64 56
   store ptr %2023, ptr %2024, align 8
@@ -7508,7 +7508,7 @@ colorchain.exit.i120.i:                           ; preds = %2021, %2015
   store ptr %.0.i.i113.i, ptr %2019, align 8
   br label %createarc.exit128.i
 
-createarc.exit128.i:                              ; preds = %colorchain.exit.i120.i, %2012, %2010, %2002, %allocarc.exit.i112.i
+createarc.exit128.i:                              ; preds = %colorchain.argprom.exit.i120.i, %2012, %2010, %2002, %allocarc.exit.i112.i
   %.0.in.i.i.i197 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
   %.0.i.i.i198 = load ptr, ptr %.0.in.i.i.i197, align 8
   %.not.i77.i.i199 = icmp eq ptr %.0.i.i.i198, null
@@ -7770,15 +7770,15 @@ allocarc.exit.i94.i:                              ; preds = %2105, %2100, %2085,
   %2150 = getelementptr %struct.colordesc, ptr %.val.i99.i, i64 %2149, i32 3
   %2151 = load ptr, ptr %2150, align 8
   %.not.i38.i100.i = icmp eq ptr %2151, null
-  br i1 %.not.i38.i100.i, label %colorchain.exit.i102.i, label %2152
+  br i1 %.not.i38.i100.i, label %colorchain.argprom.exit.i102.i, label %2152
 
 2152:                                             ; preds = %2146
   %2153 = getelementptr inbounds i8, ptr %2151, i64 64
   store ptr %.0.i.i95.i, ptr %2153, align 8
   %.pre.i.i101.i = load ptr, ptr %2150, align 8
-  br label %colorchain.exit.i102.i
+  br label %colorchain.argprom.exit.i102.i
 
-colorchain.exit.i102.i:                           ; preds = %2152, %2146
+colorchain.argprom.exit.i102.i:                   ; preds = %2152, %2146
   %2154 = phi ptr [ %.pre.i.i101.i, %2152 ], [ null, %2146 ]
   %2155 = getelementptr inbounds i8, ptr %.0.i.i95.i, i64 56
   store ptr %2154, ptr %2155, align 8
@@ -7787,7 +7787,7 @@ colorchain.exit.i102.i:                           ; preds = %2152, %2146
   store ptr %.0.i.i95.i, ptr %2150, align 8
   br label %cparc.exit.i.i179
 
-cparc.exit.i.i179:                                ; preds = %2043, %2056, %colorchain.exit.i102.i, %2143, %2141, %2134, %allocarc.exit.i94.i
+cparc.exit.i.i179:                                ; preds = %2043, %2056, %colorchain.argprom.exit.i102.i, %2143, %2141, %2134, %allocarc.exit.i94.i
   %2157 = load ptr, ptr %1786, align 8
   %2158 = load ptr, ptr %1788, align 8
   %2159 = load i16, ptr %2027, align 4
@@ -8593,15 +8593,15 @@ allocarc.exit.i72.i:                              ; preds = %2517, %2512, %2497,
   %2562 = getelementptr %struct.colordesc, ptr %.val.i77.i, i64 %2561, i32 3
   %2563 = load ptr, ptr %2562, align 8
   %.not.i38.i78.i = icmp eq ptr %2563, null
-  br i1 %.not.i38.i78.i, label %colorchain.exit.i80.i, label %2564
+  br i1 %.not.i38.i78.i, label %colorchain.argprom.exit.i80.i, label %2564
 
 2564:                                             ; preds = %2558
   %2565 = getelementptr inbounds i8, ptr %2563, i64 64
   store ptr %.0.i.i73.i, ptr %2565, align 8
   %.pre.i.i79.i = load ptr, ptr %2562, align 8
-  br label %colorchain.exit.i80.i
+  br label %colorchain.argprom.exit.i80.i
 
-colorchain.exit.i80.i:                            ; preds = %2564, %2558
+colorchain.argprom.exit.i80.i:                    ; preds = %2564, %2558
   %2566 = phi ptr [ %.pre.i.i79.i, %2564 ], [ null, %2558 ]
   %2567 = getelementptr inbounds i8, ptr %.0.i.i73.i, i64 56
   store ptr %2566, ptr %2567, align 8
@@ -8610,7 +8610,7 @@ colorchain.exit.i80.i:                            ; preds = %2564, %2558
   store ptr %.0.i.i73.i, ptr %2562, align 8
   br label %cparc.exit114.i.i
 
-cparc.exit114.i.i:                                ; preds = %2455, %2468, %colorchain.exit.i80.i, %2555, %2553, %2546, %allocarc.exit.i72.i
+cparc.exit114.i.i:                                ; preds = %2455, %2468, %colorchain.argprom.exit.i80.i, %2555, %2553, %2546, %allocarc.exit.i72.i
   %2569 = load i32, ptr %.068186.i.i, align 8
   %2570 = getelementptr inbounds i8, ptr %.068186.i.i, i64 4
   %2571 = load i16, ptr %2570, align 4
@@ -8863,15 +8863,15 @@ allocarc.exit.i.i125:                             ; preds = %2647, %2642, %2627,
   %2691 = getelementptr %struct.colordesc, ptr %.val.i.i134, i64 %2690, i32 3
   %2692 = load ptr, ptr %2691, align 8
   %.not.i38.i.i135 = icmp eq ptr %2692, null
-  br i1 %.not.i38.i.i135, label %colorchain.exit.i.i137, label %2693
+  br i1 %.not.i38.i.i135, label %colorchain.argprom.exit.i.i137, label %2693
 
 2693:                                             ; preds = %2687
   %2694 = getelementptr inbounds i8, ptr %2692, i64 64
   store ptr %.0.i.i68.i, ptr %2694, align 8
   %.pre.i.i.i136 = load ptr, ptr %2691, align 8
-  br label %colorchain.exit.i.i137
+  br label %colorchain.argprom.exit.i.i137
 
-colorchain.exit.i.i137:                           ; preds = %2693, %2687
+colorchain.argprom.exit.i.i137:                   ; preds = %2693, %2687
   %2695 = phi ptr [ %.pre.i.i.i136, %2693 ], [ null, %2687 ]
   %2696 = getelementptr inbounds i8, ptr %.0.i.i68.i, i64 56
   store ptr %2695, ptr %2696, align 8
@@ -8880,7 +8880,7 @@ colorchain.exit.i.i137:                           ; preds = %2693, %2687
   store ptr %.0.i.i68.i, ptr %2691, align 8
   br label %cparc.exit133.i.i
 
-cparc.exit133.i.i:                                ; preds = %2585, %2598, %colorchain.exit.i.i137, %2684, %2682, %2675, %allocarc.exit.i.i125
+cparc.exit133.i.i:                                ; preds = %2585, %2598, %colorchain.argprom.exit.i.i137, %2684, %2682, %2675, %allocarc.exit.i.i125
   %2698 = getelementptr inbounds i8, ptr %.068186.i.i, i64 8
   %2699 = load ptr, ptr %2698, align 8
   %2700 = load ptr, ptr %2439, align 8
@@ -9370,12 +9370,12 @@ push.exit.i:                                      ; preds = %.loopexit178.sink.s
   %.not51.i63 = icmp eq i32 %2914, 0
   br i1 %.not51.i63, label %.splitthread-pre-split.i86, label %.critedge5.i64, !llvm.loop !60
 
-.critedge5.i64:                                   ; preds = %2911, %.critedge.i61, %.splitthread-pre-split.i86, %pullback.exit
+.critedge5.i64:                                   ; preds = %2911, %.critedge.i61, %.splitthread-pre-split.i86, %pullback.argprom.exit
   %2915 = load ptr, ptr %4, align 8
   %2916 = getelementptr inbounds i8, ptr %2915, i64 24
   %2917 = load i32, ptr %2916, align 8
   %.not52.i65 = icmp eq i32 %2917, 0
-  br i1 %.not52.i65, label %2918, label %pushfwd.exit
+  br i1 %.not52.i65, label %2918, label %pushfwd.argprom.exit
 
 2918:                                             ; preds = %.critedge5.i64
   %2919 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9383,7 +9383,7 @@ push.exit.i:                                      ; preds = %.loopexit178.sink.s
   %2921 = getelementptr inbounds i8, ptr %2920, i64 16
   %2922 = load ptr, ptr %2921, align 8
   %.not5342.i = icmp eq ptr %2922, null
-  br i1 %.not5342.i, label %pushfwd.exit, label %.lr.ph45.i
+  br i1 %.not5342.i, label %pushfwd.argprom.exit, label %.lr.ph45.i
 
 .lr.ph45.i:                                       ; preds = %2918
   %2923 = getelementptr inbounds i8, ptr %0, i64 116
@@ -9598,9 +9598,9 @@ freearc.exit.i79:                                 ; preds = %3020, %3010
 
 3026:                                             ; preds = %freearc.exit.i79, %2924
   %.not53.i66 = icmp eq ptr %2926, null
-  br i1 %.not53.i66, label %pushfwd.exit, label %2924, !llvm.loop !61
+  br i1 %.not53.i66, label %pushfwd.argprom.exit, label %2924, !llvm.loop !61
 
-pushfwd.exit:                                     ; preds = %3026, %.critedge5.i64, %2918
+pushfwd.argprom.exit:                             ; preds = %3026, %.critedge5.i64, %2918
   tail call fastcc void @cleanup(ptr noundef %0)
   %3027 = load ptr, ptr %4, align 8
   %3028 = getelementptr inbounds i8, ptr %3027, i64 24
@@ -9608,7 +9608,7 @@ pushfwd.exit:                                     ; preds = %3026, %.critedge5.i
   %.not.i207 = icmp eq i32 %3029, 0
   br i1 %.not.i207, label %3030, label %analyze.exit
 
-3030:                                             ; preds = %pushfwd.exit
+3030:                                             ; preds = %pushfwd.argprom.exit
   %3031 = load ptr, ptr %0, align 8
   %3032 = getelementptr inbounds i8, ptr %3031, i64 24
   %3033 = load ptr, ptr %3032, align 8
@@ -10045,7 +10045,7 @@ check_in_colors_match.exit.thread:                ; preds = %check_out_colors_ma
   %3202 = load ptr, ptr %3166, align 8
   %3203 = getelementptr i8, ptr %0, i64 118
   %3204 = load i16, ptr %3203, align 2
-  %3205 = tail call fastcc zeroext i1 @check_in_colors_match(ptr noundef %3202, i16 noundef signext %3204)
+  %3205 = tail call fastcc zeroext i1 @check_in_colors_match.argelim(ptr noundef %3202, i16 noundef signext %3204)
   br i1 %3205, label %3206, label %checkmatchall.exit.i
 
 3206:                                             ; preds = %check_in_colors_match.exit.thread
@@ -10211,8 +10211,8 @@ checkmatchall.exit.i:                             ; preds = %3094, %3086, %3078,
   %3270 = icmp eq ptr %3268, %3269
   br i1 %3270, label %analyze.exit, label %3265, !llvm.loop !75
 
-analyze.exit:                                     ; preds = %.loopexit.i, %3266, %pushfwd.exit, %3030, %checkmatchall.exit.i
-  %.012.i = phi i64 [ 0, %pushfwd.exit ], [ 4096, %3030 ], [ 0, %checkmatchall.exit.i ], [ 2048, %3266 ], [ 0, %.loopexit.i ]
+analyze.exit:                                     ; preds = %.loopexit.i, %3266, %pushfwd.argprom.exit, %3030, %checkmatchall.exit.i
+  %.012.i = phi i64 [ 0, %pushfwd.argprom.exit ], [ 4096, %3030 ], [ 0, %checkmatchall.exit.i ], [ 2048, %3266 ], [ 0, %.loopexit.i ]
   ret i64 %.012.i
 }
 
@@ -10764,15 +10764,15 @@ allocarc.exit.i:                                  ; preds = %193, %188, %173, %1
   %238 = getelementptr %struct.colordesc, ptr %.val.i, i64 %237, i32 3
   %239 = load ptr, ptr %238, align 8
   %.not.i38.i = icmp eq ptr %239, null
-  br i1 %.not.i38.i, label %colorchain.exit.i, label %240
+  br i1 %.not.i38.i, label %colorchain.argprom.exit.i, label %240
 
 240:                                              ; preds = %234
   %241 = getelementptr inbounds i8, ptr %239, i64 64
   store ptr %.0.i.i132, ptr %241, align 8
   %.pre.i.i = load ptr, ptr %238, align 8
-  br label %colorchain.exit.i
+  br label %colorchain.argprom.exit.i
 
-colorchain.exit.i:                                ; preds = %240, %234
+colorchain.argprom.exit.i:                        ; preds = %240, %234
   %242 = phi ptr [ %.pre.i.i, %240 ], [ null, %234 ]
   %243 = getelementptr inbounds i8, ptr %.0.i.i132, i64 56
   store ptr %242, ptr %243, align 8
@@ -10781,7 +10781,7 @@ colorchain.exit.i:                                ; preds = %240, %234
   store ptr %.0.i.i132, ptr %238, align 8
   br label %createarc.exit
 
-createarc.exit:                                   ; preds = %allocarc.exit.i, %221, %229, %231, %colorchain.exit.i
+createarc.exit:                                   ; preds = %allocarc.exit.i, %221, %229, %231, %colorchain.argprom.exit.i
   %.0.in.i108 = getelementptr inbounds i8, ptr %.012.i, i64 24
   %.0.i109 = load ptr, ptr %.0.in.i108, align 8
   %.not.i110 = icmp eq ptr %.0.i109, null
@@ -11065,15 +11065,15 @@ allocarc.exit.i135:                               ; preds = %333, %328, %313, %3
   %377 = getelementptr %struct.colordesc, ptr %.val.i140, i64 %376, i32 3
   %378 = load ptr, ptr %377, align 8
   %.not.i38.i141 = icmp eq ptr %378, null
-  br i1 %.not.i38.i141, label %colorchain.exit.i143, label %379
+  br i1 %.not.i38.i141, label %colorchain.argprom.exit.i143, label %379
 
 379:                                              ; preds = %373
   %380 = getelementptr inbounds i8, ptr %378, i64 64
   store ptr %.0.i.i136, ptr %380, align 8
   %.pre.i.i142 = load ptr, ptr %377, align 8
-  br label %colorchain.exit.i143
+  br label %colorchain.argprom.exit.i143
 
-colorchain.exit.i143:                             ; preds = %379, %373
+colorchain.argprom.exit.i143:                     ; preds = %379, %373
   %381 = phi ptr [ %.pre.i.i142, %379 ], [ null, %373 ]
   %382 = getelementptr inbounds i8, ptr %.0.i.i136, i64 56
   store ptr %381, ptr %382, align 8
@@ -11082,7 +11082,7 @@ colorchain.exit.i143:                             ; preds = %379, %373
   store ptr %.0.i.i136, ptr %377, align 8
   br label %cparc.exit
 
-cparc.exit:                                       ; preds = %272, %284, %colorchain.exit.i143, %370, %368, %361, %allocarc.exit.i135
+cparc.exit:                                       ; preds = %272, %284, %colorchain.argprom.exit.i143, %370, %368, %361, %allocarc.exit.i135
   %384 = load ptr, ptr %253, align 8
   %385 = getelementptr inbounds i8, ptr %.2174, i64 16
   %386 = load ptr, ptr %385, align 8
@@ -12074,7 +12074,7 @@ define internal fastcc void @freesrnode(ptr noundef %0, ptr noundef %1) unnamed_
 declare zeroext i1 @stack_is_too_deep() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rainbow(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @rainbow.argelim(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef signext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 24
@@ -12726,15 +12726,15 @@ allocarc.exit:                                    ; preds = %8, %20, %35, %52, %
   %108 = getelementptr %struct.colordesc, ptr %.val, i64 %107, i32 3
   %109 = load ptr, ptr %108, align 8
   %.not.i38 = icmp eq ptr %109, null
-  br i1 %.not.i38, label %colorchain.exit, label %110
+  br i1 %.not.i38, label %colorchain.argprom.exit, label %110
 
 110:                                              ; preds = %103
   %111 = getelementptr inbounds i8, ptr %109, i64 64
   store ptr %.0.i, ptr %111, align 8
   %.pre.i = load ptr, ptr %108, align 8
-  br label %colorchain.exit
+  br label %colorchain.argprom.exit
 
-colorchain.exit:                                  ; preds = %103, %110
+colorchain.argprom.exit:                          ; preds = %103, %110
   %112 = phi ptr [ %.pre.i, %110 ], [ null, %103 ]
   %113 = getelementptr inbounds i8, ptr %.0.i, i64 56
   store ptr %112, ptr %113, align 8
@@ -12743,7 +12743,7 @@ colorchain.exit:                                  ; preds = %103, %110
   store ptr %.0.i, ptr %108, align 8
   br label %115
 
-115:                                              ; preds = %97, %allocarc.exit, %colorchain.exit, %99, %88
+115:                                              ; preds = %97, %allocarc.exit, %colorchain.argprom.exit, %99, %88
   ret void
 }
 
@@ -14595,7 +14595,7 @@ charclass.exit:                                   ; preds = %702, %712
 
 726:                                              ; preds = %724, %719
   %727 = phi i16 [ %725, %724 ], [ -1, %719 ]
-  tail call fastcc void @rainbow(ptr noundef %720, ptr noundef %721, i16 noundef signext %727, ptr noundef %.1, ptr noundef %4)
+  tail call fastcc void @rainbow.argelim(ptr noundef %720, ptr noundef %721, i16 noundef signext %727, ptr noundef %.1, ptr noundef %4)
   %728 = tail call fastcc i32 @next(ptr noundef %0)
   br label %942
 
@@ -15240,7 +15240,7 @@ thread-pre-split322:                              ; preds = %971, %961, %scannum
   %988 = load ptr, ptr %987, align 8
   %989 = getelementptr inbounds i8, ptr %988, i64 32
   store ptr %988, ptr %989, align 8
-  tail call fastcc void @deltraverse(ptr noundef %986, ptr noundef %.1)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %986, ptr noundef %.1)
   %990 = getelementptr inbounds i8, ptr %986, i64 136
   %991 = load ptr, ptr %990, align 8
   %992 = getelementptr inbounds i8, ptr %991, i64 24
@@ -15259,7 +15259,7 @@ delsub.exit106:                                   ; preds = %985, %994
   %997 = getelementptr inbounds i8, ptr %.0630.i, i64 48
   %998 = load ptr, ptr %997, align 8
   store ptr %4, ptr %59, align 8
-  tail call fastcc void @deltraverse(ptr noundef %996, ptr noundef %998)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %996, ptr noundef %998)
   %999 = getelementptr inbounds i8, ptr %996, i64 136
   %1000 = load ptr, ptr %999, align 8
   %1001 = getelementptr inbounds i8, ptr %1000, i64 24
@@ -15274,7 +15274,7 @@ delsub.exit106:                                   ; preds = %985, %994
 .critedge.i:                                      ; preds = %1003, %980
   %1004 = load ptr, ptr %48, align 8
   store ptr %4, ptr %59, align 8
-  tail call fastcc void @deltraverse(ptr noundef %1004, ptr noundef %.1)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %1004, ptr noundef %.1)
   %1005 = getelementptr inbounds i8, ptr %1004, i64 136
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds i8, ptr %1006, i64 24
@@ -15553,7 +15553,7 @@ subre.exit81:                                     ; preds = %1082, %1090
   %1121 = load ptr, ptr %48, align 8
   %1122 = getelementptr inbounds i8, ptr %.pre461, i64 32
   store ptr %.pre461, ptr %1122, align 8
-  tail call fastcc void @deltraverse(ptr noundef %1121, ptr noundef %.1)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %1121, ptr noundef %.1)
   %1123 = getelementptr inbounds i8, ptr %1121, i64 136
   %1124 = load ptr, ptr %1123, align 8
   %1125 = getelementptr inbounds i8, ptr %1124, i64 24
@@ -15571,7 +15571,7 @@ delsub.exit72:                                    ; preds = %1120, %1127
   %1129 = load ptr, ptr %48, align 8
   %1130 = load ptr, ptr %1107, align 8
   store ptr %4, ptr %59, align 8
-  tail call fastcc void @deltraverse(ptr noundef %1129, ptr noundef %1130)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %1129, ptr noundef %1130)
   %1131 = getelementptr inbounds i8, ptr %1129, i64 136
   %1132 = load ptr, ptr %1131, align 8
   %1133 = getelementptr inbounds i8, ptr %1132, i64 24
@@ -15877,7 +15877,7 @@ subre.exit588:                                    ; preds = %1235, %1244, %1249
   %1270 = load ptr, ptr %1269, align 8
   %1271 = getelementptr inbounds i8, ptr %1270, i64 32
   store ptr %1270, ptr %1271, align 8
-  tail call fastcc void @deltraverse(ptr noundef %1267, ptr noundef %1268)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %1267, ptr noundef %1268)
   %1272 = getelementptr inbounds i8, ptr %1267, i64 136
   %1273 = load ptr, ptr %1272, align 8
   %1274 = getelementptr inbounds i8, ptr %1273, i64 24
@@ -20196,7 +20196,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   %17 = load ptr, ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %.tr256, i64 32
   store ptr %.tr256, ptr %18, align 8
-  tail call fastcc void @deltraverse(ptr noundef %17, ptr noundef %1)
+  tail call fastcc void @deltraverse.argprom(ptr noundef %17, ptr noundef %1)
   %19 = getelementptr inbounds i8, ptr %17, i64 136
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
@@ -26188,7 +26188,7 @@ freearc.exit16:                                   ; preds = %119, %130
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deltraverse(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @deltraverse.argprom(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -26242,7 +26242,7 @@ define internal fastcc void @deltraverse(ptr nocapture noundef %0, ptr noundef %
   %32 = phi ptr [ %26, %.lr.ph ], [ %115, %114 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @deltraverse(ptr noundef nonnull %0, ptr noundef %34)
+  tail call fastcc void @deltraverse.argprom(ptr noundef nonnull %0, ptr noundef %34)
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
@@ -27820,7 +27820,7 @@ define internal fastcc void @cleanup(ptr nocapture noundef %0) unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  tail call fastcc void @markreachable(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %7)
+  tail call fastcc void @markreachable.argprom(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
@@ -27889,7 +27889,7 @@ define internal fastcc void @cleanup(ptr nocapture noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @markreachable(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @markreachable.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -27930,7 +27930,7 @@ define internal fastcc void @markreachable(ptr nocapture noundef readonly %0, pt
   %.04 = phi ptr [ %.0, %.lr.ph ], [ %.02, %21 ]
   %22 = getelementptr inbounds i8, ptr %.04, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @markreachable(ptr noundef %0, ptr noundef %23, ptr noundef %2)
+  tail call fastcc void @markreachable.argprom(ptr noundef %0, ptr noundef %23, ptr noundef %2)
   %.0.in = getelementptr inbounds i8, ptr %.04, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not19 = icmp eq ptr %.0, null
@@ -28124,25 +28124,25 @@ define internal fastcc range(i32 0, 2) i32 @findconstraintloop(ptr noundef %0, p
 27:                                               ; preds = %.lr.ph.i
   %.052.val.i = load i32, ptr %.05287.i, align 8
   switch i32 %.052.val.i, label %28 [
-    i32 94, label %isconstraintarc.exit.i
-    i32 36, label %isconstraintarc.exit.i
-    i32 114, label %isconstraintarc.exit.i
-    i32 97, label %isconstraintarc.exit.i
-    i32 76, label %isconstraintarc.exit.i
+    i32 94, label %isconstraintarc.argprom.exit.i
+    i32 36, label %isconstraintarc.argprom.exit.i
+    i32 114, label %isconstraintarc.argprom.exit.i
+    i32 97, label %isconstraintarc.argprom.exit.i
+    i32 76, label %isconstraintarc.argprom.exit.i
   ]
 
 28:                                               ; preds = %27
-  br label %isconstraintarc.exit.i
+  br label %isconstraintarc.argprom.exit.i
 
-isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, %27, %27
+isconstraintarc.argprom.exit.i:                   ; preds = %28, %27, %27, %27, %27, %27
   %not..not70.i = phi i32 [ 0, %28 ], [ 1, %27 ], [ 1, %27 ], [ 1, %27 ], [ 1, %27 ], [ 1, %27 ]
   %29 = phi ptr [ %.285.i, %28 ], [ %.05287.i, %27 ], [ %.05287.i, %27 ], [ %.05287.i, %27 ], [ %.05287.i, %27 ], [ %.05287.i, %27 ]
   %spec.select71.i = add i32 %not..not70.i, %.086.i
   br label %30
 
-30:                                               ; preds = %isconstraintarc.exit.i, %.lr.ph.i
-  %.3.i = phi ptr [ %.285.i, %.lr.ph.i ], [ %29, %isconstraintarc.exit.i ]
-  %.1.i = phi i32 [ %.086.i, %.lr.ph.i ], [ %spec.select71.i, %isconstraintarc.exit.i ]
+30:                                               ; preds = %isconstraintarc.argprom.exit.i, %.lr.ph.i
+  %.3.i = phi ptr [ %.285.i, %.lr.ph.i ], [ %29, %isconstraintarc.argprom.exit.i ]
+  %.1.i = phi i32 [ %.086.i, %.lr.ph.i ], [ %spec.select71.i, %isconstraintarc.argprom.exit.i ]
   %.052.in.i = getelementptr inbounds i8, ptr %.05287.i, i64 24
   %.052.i = load ptr, ptr %.052.in.i, align 8
   %.not.i = icmp eq ptr %.052.i, null
@@ -28266,22 +28266,22 @@ isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, 
   %73 = getelementptr inbounds i8, ptr %.15397.i, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, %.058.i
-  br i1 %75, label %76, label %isconstraintarc.exit74.thread.i
+  br i1 %75, label %76, label %isconstraintarc.argprom.exit74.thread.i
 
 76:                                               ; preds = %.backedge.i
   %.153.val.i = load i32, ptr %.15397.i, align 8
-  switch i32 %.153.val.i, label %isconstraintarc.exit74.thread.i [
-    i32 94, label %isconstraintarc.exit74.i
-    i32 36, label %isconstraintarc.exit74.i
-    i32 114, label %isconstraintarc.exit74.i
-    i32 97, label %isconstraintarc.exit74.i
-    i32 76, label %isconstraintarc.exit74.i
+  switch i32 %.153.val.i, label %isconstraintarc.argprom.exit74.thread.i [
+    i32 94, label %isconstraintarc.argprom.exit74.i
+    i32 36, label %isconstraintarc.argprom.exit74.i
+    i32 114, label %isconstraintarc.argprom.exit74.i
+    i32 97, label %isconstraintarc.argprom.exit74.i
+    i32 76, label %isconstraintarc.argprom.exit74.i
   ]
 
-isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, %76
+isconstraintarc.argprom.exit74.i:                 ; preds = %76, %76, %76, %76, %76
   br i1 %.not68.i, label %cparc.exit.i, label %77
 
-77:                                               ; preds = %isconstraintarc.exit74.i
+77:                                               ; preds = %isconstraintarc.argprom.exit74.i
   %78 = getelementptr inbounds i8, ptr %.15397.i, i64 4
   %79 = load i16, ptr %78, align 4
   %80 = load volatile i32, ptr @InterruptPending, align 4
@@ -28360,7 +28360,7 @@ isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, 
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %.153.val.i, i16 noundef signext %79, ptr noundef %.056.i, ptr noundef nonnull %.057.i)
   br label %cparc.exit.i
 
-cparc.exit.i:                                     ; preds = %92, %104, %.loopexit.i.i.i, %isconstraintarc.exit74.i
+cparc.exit.i:                                     ; preds = %92, %104, %.loopexit.i.i.i, %isconstraintarc.argprom.exit74.i
   %109 = getelementptr inbounds i8, ptr %.15397.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %73, align 8
@@ -28477,44 +28477,44 @@ freearc.exit.i:                                   ; preds = %160, %149
   %or.cond.i = select i1 %.not69.i, i1 true, i1 %.not66.i
   br i1 %or.cond.i, label %breakconstraintloop.exit, label %.backedge.i.backedge
 
-isconstraintarc.exit74.thread.i:                  ; preds = %76, %.backedge.i
+isconstraintarc.argprom.exit74.thread.i:          ; preds = %76, %.backedge.i
   %.not66.old.i = icmp eq ptr %72, null
   br i1 %.not66.old.i, label %breakconstraintloop.exit, label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %isconstraintarc.exit74.thread.i, %freearc.exit.i
+.backedge.i.backedge:                             ; preds = %isconstraintarc.argprom.exit74.thread.i, %freearc.exit.i
   br label %.backedge.i, !llvm.loop !150
 
-.lr.ph:                                           ; preds = %.preheader, %isconstraintarc.exit.thread
-  %.02139 = phi ptr [ %.021, %isconstraintarc.exit.thread ], [ %.02137, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %isconstraintarc.argprom.exit.thread
+  %.02139 = phi ptr [ %.021, %isconstraintarc.argprom.exit.thread ], [ %.02137, %.preheader ]
   %.021.val = load i32, ptr %.02139, align 8
-  switch i32 %.021.val, label %isconstraintarc.exit.thread [
-    i32 94, label %isconstraintarc.exit
-    i32 36, label %isconstraintarc.exit
-    i32 114, label %isconstraintarc.exit
-    i32 97, label %isconstraintarc.exit
-    i32 76, label %isconstraintarc.exit
+  switch i32 %.021.val, label %isconstraintarc.argprom.exit.thread [
+    i32 94, label %isconstraintarc.argprom.exit
+    i32 36, label %isconstraintarc.argprom.exit
+    i32 114, label %isconstraintarc.argprom.exit
+    i32 97, label %isconstraintarc.argprom.exit
+    i32 76, label %isconstraintarc.argprom.exit
   ]
 
-isconstraintarc.exit:                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+isconstraintarc.argprom.exit:                     ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %169 = getelementptr inbounds i8, ptr %.02139, i64 16
   %170 = load ptr, ptr %169, align 8
   store ptr %170, ptr %18, align 8
   %171 = tail call fastcc i32 @findconstraintloop(ptr noundef %0, ptr noundef %170)
   %.not28 = icmp eq i32 %171, 0
-  br i1 %.not28, label %isconstraintarc.exit.thread, label %breakconstraintloop.exit
+  br i1 %.not28, label %isconstraintarc.argprom.exit.thread, label %breakconstraintloop.exit
 
-isconstraintarc.exit.thread:                      ; preds = %.lr.ph, %isconstraintarc.exit
+isconstraintarc.argprom.exit.thread:              ; preds = %.lr.ph, %isconstraintarc.argprom.exit
   %.021.in = getelementptr inbounds i8, ptr %.02139, i64 24
   %.021 = load ptr, ptr %.021.in, align 8
   %.not26 = icmp eq ptr %.021, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !151
 
-._crit_edge:                                      ; preds = %isconstraintarc.exit.thread, %.preheader
+._crit_edge:                                      ; preds = %isconstraintarc.argprom.exit.thread, %.preheader
   store ptr %1, ptr %18, align 8
   br label %breakconstraintloop.exit
 
-breakconstraintloop.exit:                         ; preds = %isconstraintarc.exit74.thread.i, %freearc.exit.i, %isconstraintarc.exit, %62, %41, %._crit_edge95.i, %20, %._crit_edge, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %._crit_edge ], [ 0, %20 ], [ 1, %._crit_edge95.i ], [ 1, %41 ], [ 1, %62 ], [ 1, %isconstraintarc.exit ], [ 1, %freearc.exit.i ], [ 1, %isconstraintarc.exit74.thread.i ]
+breakconstraintloop.exit:                         ; preds = %isconstraintarc.argprom.exit74.thread.i, %freearc.exit.i, %isconstraintarc.argprom.exit, %62, %41, %._crit_edge95.i, %20, %._crit_edge, %11
+  %.0 = phi i32 [ 1, %11 ], [ 0, %._crit_edge ], [ 0, %20 ], [ 1, %._crit_edge95.i ], [ 1, %41 ], [ 1, %62 ], [ 1, %isconstraintarc.argprom.exit ], [ 1, %freearc.exit.i ], [ 1, %isconstraintarc.argprom.exit74.thread.i ]
   ret i32 %.0
 }
 
@@ -28612,27 +28612,27 @@ define internal fastcc void @clonesuccessorstates(ptr noundef %0, ptr nocapture 
   %53 = getelementptr inbounds i8, ptr %.098191, i64 16
   %54 = load ptr, ptr %53, align 8
   %.098.val = load i32, ptr %.098191, align 8
-  switch i32 %.098.val, label %isconstraintarc.exit.thread [
-    i32 94, label %isconstraintarc.exit.i.preheader
-    i32 36, label %isconstraintarc.exit.i.preheader
-    i32 114, label %isconstraintarc.exit.i.preheader
-    i32 97, label %isconstraintarc.exit.i.preheader
-    i32 76, label %isconstraintarc.exit.i.preheader
+  switch i32 %.098.val, label %isconstraintarc.argprom.exit.thread [
+    i32 94, label %isconstraintarc.argprom.exit.i.preheader
+    i32 36, label %isconstraintarc.argprom.exit.i.preheader
+    i32 114, label %isconstraintarc.argprom.exit.i.preheader
+    i32 97, label %isconstraintarc.argprom.exit.i.preheader
+    i32 76, label %isconstraintarc.argprom.exit.i.preheader
   ]
 
-isconstraintarc.exit.i.preheader:                 ; preds = %52, %52, %52, %52, %52
-  br label %isconstraintarc.exit.i
+isconstraintarc.argprom.exit.i.preheader:         ; preds = %52, %52, %52, %52, %52
+  br label %isconstraintarc.argprom.exit.i
 
-isconstraintarc.exit.i:                           ; preds = %isconstraintarc.exit.i.preheader, %55
-  %.pn.i = phi ptr [ %.0.i134, %55 ], [ %54, %isconstraintarc.exit.i.preheader ]
+isconstraintarc.argprom.exit.i:                   ; preds = %isconstraintarc.argprom.exit.i.preheader, %55
+  %.pn.i = phi ptr [ %.0.i134, %55 ], [ %54, %isconstraintarc.argprom.exit.i.preheader ]
   %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %.0.i134 = load ptr, ptr %.0.in.i, align 8
   %.not.i = icmp eq ptr %.0.i134, null
-  br i1 %.not.i, label %isconstraintarc.exit.thread, label %55
+  br i1 %.not.i, label %isconstraintarc.argprom.exit.thread, label %55
 
-55:                                               ; preds = %isconstraintarc.exit.i
+55:                                               ; preds = %isconstraintarc.argprom.exit.i
   %.0.val.i = load i32, ptr %.0.i134, align 8
-  switch i32 %.0.val.i, label %isconstraintarc.exit.i [
+  switch i32 %.0.val.i, label %isconstraintarc.argprom.exit.i [
     i32 94, label %hasconstraintout.exit
     i32 36, label %hasconstraintout.exit
     i32 114, label %hasconstraintout.exit
@@ -28902,18 +28902,18 @@ hasconstraintout.exit:                            ; preds = %55, %55, %55, %55, 
   tail call fastcc void @createarc(ptr noundef %0, i32 noundef %137, i16 noundef signext %139, ptr noundef %2, ptr noundef nonnull %133)
   br label %cparc.exit
 
-isconstraintarc.exit.thread:                      ; preds = %isconstraintarc.exit.i, %52
+isconstraintarc.argprom.exit.thread:              ; preds = %isconstraintarc.argprom.exit.i, %52
   %171 = getelementptr inbounds i8, ptr %.098191, i64 4
   %172 = load i16, ptr %171, align 4
   %173 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i154 = icmp eq i32 %173, 0
   br i1 %.not.i.i154, label %175, label %174
 
-174:                                              ; preds = %isconstraintarc.exit.thread
+174:                                              ; preds = %isconstraintarc.argprom.exit.thread
   tail call void @ProcessInterrupts() #22
   br label %175
 
-175:                                              ; preds = %174, %isconstraintarc.exit.thread
+175:                                              ; preds = %174, %isconstraintarc.argprom.exit.thread
   %176 = load i32, ptr %47, align 4
   %177 = getelementptr inbounds i8, ptr %54, i64 8
   %178 = load i32, ptr %177, align 8
@@ -29034,7 +29034,7 @@ cparc.exit:                                       ; preds = %114, %127, %153, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @check_in_colors_match(ptr nocapture noundef readonly %0, i16 noundef signext %1) unnamed_addr #16 {
+define internal fastcc zeroext i1 @check_in_colors_match.argelim(ptr nocapture noundef readonly %0, i16 noundef signext %1) unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.029 = load ptr, ptr %3, align 8
   %.not30 = icmp eq ptr %.029, null

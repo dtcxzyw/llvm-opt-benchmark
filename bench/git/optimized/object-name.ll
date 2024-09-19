@@ -4359,22 +4359,22 @@ if.end56:                                         ; preds = %if.then54, %_.exit
   %collect.val14 = load i64, ptr %38, align 8
   %call.i81 = call i32 @git_qsort_s(ptr noundef %collect.val, i64 noundef %collect.val14, i64 noundef 36, ptr noundef nonnull @sort_ambiguous, ptr noundef %r) #20
   %tobool.not.i82 = icmp eq i32 %call.i81, 0
-  br i1 %tobool.not.i82, label %sort_ambiguous_oid_array.exit, label %if.then.i
+  br i1 %tobool.not.i82, label %sort_ambiguous_oid_array.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end56
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.12, i32 noundef 523, ptr noundef nonnull @.str.39) #22
   unreachable
 
-sort_ambiguous_oid_array.exit:                    ; preds = %if.end56
+sort_ambiguous_oid_array.argprom.exit:            ; preds = %if.end56
   %call60 = call i32 @oid_array_for_each(ptr noundef nonnull %collect, ptr noundef nonnull @show_ambiguous_object, ptr noundef nonnull %out) #20
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end63, label %if.then62
 
-if.then62:                                        ; preds = %sort_ambiguous_oid_array.exit
+if.then62:                                        ; preds = %sort_ambiguous_oid_array.argprom.exit
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.12, i32 noundef 593, ptr noundef nonnull @.str.37) #22
   unreachable
 
-if.end63:                                         ; preds = %sort_ambiguous_oid_array.exit
+if.end63:                                         ; preds = %sort_ambiguous_oid_array.argprom.exit
   %39 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i84 = icmp eq i32 %39, 0
   br i1 %tobool1.not.i84, label %_.exit88, label %if.end3.i85

@@ -2122,7 +2122,7 @@ if.end29.i:                                       ; preds = %cp_get.exit300.i
   br i1 %cmp.i280.not.i, label %if.end.i284.i, label %cp_next_.exit
 
 if.end.i284.i:                                    ; preds = %if.end29.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb31.i:                                        ; preds = %if.end.i
@@ -2187,7 +2187,7 @@ if.end36.i:                                       ; preds = %cp_get.exit274.i
   br i1 %cmp.i254.not.i, label %if.end.i258.i, label %cp_next_.exit
 
 if.end.i258.i:                                    ; preds = %if.end36.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb38.i:                                        ; preds = %if.end.i
@@ -2252,7 +2252,7 @@ if.end43.i:                                       ; preds = %cp_get.exit248.i
   br i1 %cmp.i228.not.i, label %if.end.i232.i, label %cp_next_.exit
 
 if.end.i232.i:                                    ; preds = %if.end43.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb45.i:                                        ; preds = %if.end.i
@@ -2317,7 +2317,7 @@ if.end50.i:                                       ; preds = %cp_get.exit222.i
   br i1 %cmp.i202.not.i, label %if.end.i206.i, label %cp_next_.exit
 
 if.end.i206.i:                                    ; preds = %if.end50.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb52.i:                                        ; preds = %if.end.i
@@ -2384,7 +2384,7 @@ if.then56.i:                                      ; preds = %cp_get.exit196.i
   br i1 %cmp.i176.not.i, label %if.end.i180.i, label %cp_next_.exit
 
 if.end.i180.i:                                    ; preds = %if.then56.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 if.then62.i:                                      ; preds = %cp_get.exit196.i
@@ -2397,7 +2397,7 @@ if.then62.i:                                      ; preds = %cp_get.exit196.i
   br i1 %cmp.i163.not.i, label %if.end.i167.i, label %cp_next_.exit
 
 if.end.i167.i:                                    ; preds = %if.then62.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb66.i:                                        ; preds = %if.end.i
@@ -2464,7 +2464,7 @@ if.then70.i:                                      ; preds = %cp_get.exit157.i
   br i1 %cmp.i137.not.i, label %if.end.i141.i, label %cp_next_.exit
 
 if.end.i141.i:                                    ; preds = %if.then70.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 if.then76.i:                                      ; preds = %cp_get.exit157.i
@@ -2477,7 +2477,7 @@ if.then76.i:                                      ; preds = %cp_get.exit157.i
   br i1 %cmp.i124.not.i, label %if.end.i128.i, label %cp_next_.exit
 
 if.end.i128.i:                                    ; preds = %if.then76.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb80.i:                                        ; preds = %if.end.i
@@ -2542,7 +2542,7 @@ if.end85.i:                                       ; preds = %cp_get.exit118.i
   br i1 %cmp.i98.not.i, label %if.end.i102.i, label %cp_next_.exit
 
 if.end.i102.i:                                    ; preds = %if.end85.i
-  tail call fastcc void @cp_get_bs(ptr noundef nonnull %cp)
+  tail call fastcc void @cp_get_bs.retelim(ptr noundef nonnull %cp)
   br label %cp_next_.exit
 
 sw.bb87.i:                                        ; preds = %if.end.i
@@ -2757,7 +2757,7 @@ cp_next_.exit:                                    ; preds = %if.end.i, %cp_get.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cp_get_bs(ptr nocapture noundef %cp) unnamed_addr #5 {
+define internal fastcc void @cp_get_bs.retelim(ptr nocapture noundef %cp) unnamed_addr #5 {
 entry:
   %p.i16 = getelementptr inbounds i8, ptr %cp, i64 32
   %p.i16.promoted = load ptr, ptr %p.i16, align 8

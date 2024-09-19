@@ -3105,7 +3105,7 @@ kwsysProcessCleanupDescriptor.exit82:             ; preds = %kwsysProcessCleanup
   %132 = call i32 @fork() #25
   %133 = icmp slt i32 %132, 0
   %or.cond.i = select i1 %.not.i, i1 true, i1 %133
-  br i1 %or.cond.i, label %kwsysProcessFork.exit, label %134
+  br i1 %or.cond.i, label %kwsysProcessFork.argprom.exit, label %134
 
 134:                                              ; preds = %130
   %135 = icmp eq i32 %132, 0
@@ -3115,7 +3115,7 @@ kwsysProcessCleanupDescriptor.exit82:             ; preds = %kwsysProcessCleanup
   %137 = call i32 @fork() #25
   store i32 %137, ptr %6, align 4
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %kwsysProcessFork.exit, label %.preheader.i86
+  br i1 %138, label %kwsysProcessFork.argprom.exit, label %.preheader.i86
 
 .preheader.i86:                                   ; preds = %136, %142
   %139 = load i32, ptr %40, align 4
@@ -3161,9 +3161,9 @@ kwsysProcessCleanupDescriptor.exit82:             ; preds = %kwsysProcessCleanup
 
 .critedge4.i:                                     ; preds = %155, %.critedge2.i
   %159 = load i32, ptr %7, align 4
-  br label %kwsysProcessFork.exit
+  br label %kwsysProcessFork.argprom.exit
 
-kwsysProcessFork.exit:                            ; preds = %130, %136, %.critedge4.i
+kwsysProcessFork.argprom.exit:                    ; preds = %130, %136, %.critedge4.i
   %.0.i = phi i32 [ %159, %.critedge4.i ], [ 0, %136 ], [ %132, %130 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -3179,7 +3179,7 @@ kwsysProcessFork.exit:                            ; preds = %130, %136, %.crited
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %168, label %206
 
-168:                                              ; preds = %kwsysProcessFork.exit
+168:                                              ; preds = %kwsysProcessFork.argprom.exit
   %169 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %10, ptr noundef null) #25
   %170 = load i32, ptr %13, align 4
   %171 = icmp sgt i32 %170, 2
@@ -3260,7 +3260,7 @@ kwsysProcessCleanupDescriptor.exit96:             ; preds = %kwsysProcessCleanup
   %205 = icmp eq i32 %204, 4
   br i1 %205, label %.preheader.i97, label %kwsysProcessCleanupDescriptor.exit61, !llvm.loop !31
 
-206:                                              ; preds = %kwsysProcessFork.exit
+206:                                              ; preds = %kwsysProcessFork.argprom.exit
   %207 = load volatile ptr, ptr %160, align 8
   %208 = getelementptr inbounds i32, ptr %207, i64 %162
   %209 = load volatile i32, ptr %208, align 4

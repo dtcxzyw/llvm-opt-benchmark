@@ -240,19 +240,19 @@ define dso_local noundef i32 @onig_names_free(ptr nocapture noundef %0) local_un
   %2 = getelementptr i8, ptr %0, i64 88
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %names_clear.exit.thread, label %names_clear.exit
+  br i1 %.not.i, label %names_clear.argprom.exit.thread, label %names_clear.argprom.exit
 
-names_clear.exit:                                 ; preds = %1
+names_clear.argprom.exit:                         ; preds = %1
   %3 = tail call i32 @rb_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #24
   %.pr = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %names_clear.exit.thread, label %4
+  br i1 %.not, label %names_clear.argprom.exit.thread, label %4
 
-4:                                                ; preds = %names_clear.exit
+4:                                                ; preds = %names_clear.argprom.exit
   tail call void @rb_st_free_table(ptr noundef nonnull %.pr) #24
-  br label %names_clear.exit.thread
+  br label %names_clear.argprom.exit.thread
 
-names_clear.exit.thread:                          ; preds = %1, %4, %names_clear.exit
+names_clear.argprom.exit.thread:                  ; preds = %1, %4, %names_clear.argprom.exit
   store ptr null, ptr %2, align 8
   ret i32 0
 }
@@ -405,7 +405,7 @@ define internal range(i32 -1, 1) i32 @copy_named_captures_iter(ptr noundef %0, p
   %29 = add i64 %12, %28
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #25
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %strdup_with_null.exit, label %32
+  br i1 %31, label %strdup_with_null.argprom.exit, label %32
 
 32:                                               ; preds = %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %0, i64 %12, i1 false)
@@ -418,7 +418,7 @@ define internal range(i32 -1, 1) i32 @copy_named_captures_iter(ptr noundef %0, p
   tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %35, i1 false)
   br label %36
 
-strdup_with_null.exit:                            ; preds = %23
+strdup_with_null.argprom.exit:                    ; preds = %23
   tail call void @free(ptr noundef nonnull %20) #24
   br label %onig_st_insert_strend.exit.thread.sink.split
 
@@ -443,7 +443,7 @@ strdup_with_null.exit:                            ; preds = %23
   tail call void @free(ptr noundef %45) #24
   br label %onig_st_insert_strend.exit.thread.sink.split
 
-onig_st_insert_strend.exit.thread.sink.split:     ; preds = %9, %strdup_with_null.exit, %43
+onig_st_insert_strend.exit.thread.sink.split:     ; preds = %9, %strdup_with_null.argprom.exit, %43
   tail call void @free(ptr noundef nonnull %7) #24
   br label %onig_st_insert_strend.exit.thread
 
@@ -567,13 +567,13 @@ define dso_local i32 @onig_name_to_group_numbers(ptr nocapture noundef readonly 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %name_find.exit.thread, label %name_find.exit
+  br i1 %.not.i, label %name_find.argprom.exit.thread, label %name_find.argprom.exit
 
-name_find.exit.thread:                            ; preds = %4
+name_find.argprom.exit.thread:                    ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %22
 
-name_find.exit:                                   ; preds = %4
+name_find.argprom.exit:                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -586,7 +586,7 @@ name_find.exit:                                   ; preds = %4
   %11 = icmp eq ptr %.pre.i, null
   br i1 %11, label %22, label %12
 
-12:                                               ; preds = %name_find.exit
+12:                                               ; preds = %name_find.argprom.exit
   %13 = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %17 [
@@ -609,8 +609,8 @@ name_find.exit:                                   ; preds = %4
   %21 = load i32, ptr %13, align 8
   br label %22
 
-22:                                               ; preds = %name_find.exit.thread, %name_find.exit, %20
-  %.0 = phi i32 [ %21, %20 ], [ -217, %name_find.exit ], [ -217, %name_find.exit.thread ]
+22:                                               ; preds = %name_find.argprom.exit.thread, %name_find.argprom.exit, %20
+  %.0 = phi i32 [ %21, %20 ], [ -217, %name_find.argprom.exit ], [ -217, %name_find.argprom.exit.thread ]
   ret i32 %.0
 }
 
@@ -623,13 +623,13 @@ define dso_local i32 @onig_name_to_backref_number(ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i, label %name_find.exit.thread.i, label %name_find.exit.i
+  br i1 %.not.i.i, label %name_find.argprom.exit.thread.i, label %name_find.argprom.exit.i
 
-name_find.exit.thread.i:                          ; preds = %4
+name_find.argprom.exit.thread.i:                  ; preds = %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %onig_name_to_group_numbers.exit.thread
 
-name_find.exit.i:                                 ; preds = %4
+name_find.argprom.exit.i:                         ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
@@ -642,7 +642,7 @@ name_find.exit.i:                                 ; preds = %4
   %11 = icmp eq ptr %.pre.i.i, null
   br i1 %11, label %onig_name_to_group_numbers.exit.thread, label %12
 
-12:                                               ; preds = %name_find.exit.i
+12:                                               ; preds = %name_find.argprom.exit.i
   %13 = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %onig_name_to_group_numbers.exit [
@@ -697,8 +697,8 @@ onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge: ; preds = %onig_na
   %33 = load i32, ptr %32, align 4
   br label %onig_name_to_group_numbers.exit.thread
 
-onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
-  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %33, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %27, %24 ]
+onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find.argprom.exit.thread.i, %name_find.argprom.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
+  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %33, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.argprom.exit.i ], [ -217, %name_find.argprom.exit.thread.i ], [ -11, %12 ], [ %27, %24 ]
   ret i32 %.0
 }
 
@@ -1466,13 +1466,13 @@ define dso_local i32 @onig_parse_make_tree(ptr nocapture noundef %0, ptr noundef
   %8 = getelementptr i8, ptr %3, i64 88
   %.val = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %names_clear.exit, label %9
+  br i1 %.not.i, label %names_clear.argprom.exit, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @rb_st_foreach(ptr noundef nonnull %.val, ptr noundef nonnull @i_free_name_entry, i64 noundef 0) #24
-  br label %names_clear.exit
+  br label %names_clear.argprom.exit
 
-names_clear.exit:                                 ; preds = %5, %9
+names_clear.argprom.exit:                         ; preds = %5, %9
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = getelementptr inbounds i8, ptr %4, i64 56
   %13 = getelementptr inbounds i8, ptr %4, i64 88
@@ -1507,7 +1507,7 @@ names_clear.exit:                                 ; preds = %5, %9
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %parse_regexp.exit, label %30
 
-30:                                               ; preds = %names_clear.exit
+30:                                               ; preds = %names_clear.argprom.exit
   %31 = call fastcc i32 @parse_subexp(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, ptr noundef %7, ptr noundef %2, ptr noundef nonnull %4)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %parse_regexp.exit, label %33
@@ -1559,8 +1559,8 @@ scan_env_set_mem_node.exit.i:                     ; preds = %40
   store ptr %38, ptr %0, align 8
   br label %parse_regexp.exit
 
-parse_regexp.exit:                                ; preds = %names_clear.exit, %30, %33, %36, %scan_env_set_mem_node.exit.i, %51
-  %.0.i = phi i32 [ -11, %scan_env_set_mem_node.exit.i ], [ %28, %names_clear.exit ], [ %31, %30 ], [ 0, %51 ], [ 0, %33 ], [ -5, %36 ]
+parse_regexp.exit:                                ; preds = %names_clear.argprom.exit, %30, %33, %36, %scan_env_set_mem_node.exit.i, %51
+  %.0.i = phi i32 [ -11, %scan_env_set_mem_node.exit.i ], [ %28, %names_clear.argprom.exit ], [ %31, %30 ], [ 0, %51 ], [ 0, %33 ], [ -5, %36 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %56 = getelementptr inbounds i8, ptr %4, i64 92
   %57 = load i32, ptr %56, align 4
@@ -3669,7 +3669,7 @@ get_name_end_code_point.exit:                     ; preds = %579, %581, %582, %5
   br i1 %1015, label %1016, label %.thread964
 
 1016:                                             ; preds = %1011
-  tail call fastcc void @CLOSE_BRACKET_WITHOUT_ESC_WARN(ptr noundef nonnull %3)
+  tail call fastcc void @CLOSE_BRACKET_WITHOUT_ESC_WARN.argprom(ptr noundef nonnull %3)
   br label %.thread964
 
 1017:                                             ; preds = %724
@@ -4933,13 +4933,13 @@ fetch_name_with_level.exit:                       ; preds = %185, %.thread160.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i.i57 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i57, label %name_find.exit.thread.i, label %name_find.exit.i
+  br i1 %.not.i.i57, label %name_find.argprom.exit.thread.i, label %name_find.argprom.exit.i
 
-name_find.exit.thread.i:                          ; preds = %223
+name_find.argprom.exit.thread.i:                  ; preds = %223
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %onig_name_to_group_numbers.exit.thread
 
-name_find.exit.i:                                 ; preds = %223
+name_find.argprom.exit.i:                         ; preds = %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %11, ptr %6, align 8
   %227 = getelementptr inbounds i8, ptr %6, i64 8
@@ -4952,7 +4952,7 @@ name_find.exit.i:                                 ; preds = %223
   %230 = icmp eq ptr %.pre.i.i58, null
   br i1 %230, label %onig_name_to_group_numbers.exit.thread, label %231
 
-231:                                              ; preds = %name_find.exit.i
+231:                                              ; preds = %name_find.argprom.exit.i
   %232 = getelementptr inbounds i8, ptr %.pre.i.i58, i64 16
   %233 = load i32, ptr %232, align 8
   switch i32 %233, label %onig_name_to_group_numbers.exit [
@@ -4970,7 +4970,7 @@ onig_name_to_group_numbers.exit:                  ; preds = %231
   %237 = icmp slt i32 %233, 1
   br i1 %237, label %onig_name_to_group_numbers.exit.thread, label %240
 
-onig_name_to_group_numbers.exit.thread:           ; preds = %231, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit
+onig_name_to_group_numbers.exit.thread:           ; preds = %231, %name_find.argprom.exit.thread.i, %name_find.argprom.exit.i, %onig_name_to_group_numbers.exit
   %238 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr %11, ptr %238, align 8
   %239 = getelementptr inbounds i8, ptr %4, i64 64
@@ -5770,7 +5770,7 @@ conv_backslash_value.exit:                        ; preds = %UNKNOWN_ESC_WARN.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @CLOSE_BRACKET_WITHOUT_ESC_WARN(ptr nocapture noundef readonly %0) unnamed_addr #5 {
+define internal fastcc void @CLOSE_BRACKET_WITHOUT_ESC_WARN.argprom(ptr nocapture noundef readonly %0) unnamed_addr #5 {
   %2 = load ptr, ptr @onig_warn, align 8
   %3 = icmp eq ptr %2, @onig_null_warn
   br i1 %3, label %11, label %4
@@ -9308,7 +9308,7 @@ define internal fastcc i32 @add_ctype_to_cc(ptr noundef %0, i32 noundef %1, i32 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %17, i8 0, i64 44, i1 false)
   %18 = load i32, ptr %7, align 4
   %19 = load ptr, ptr %6, align 8
-  %20 = call fastcc i32 @add_ctype_to_cc_by_range(ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %18, ptr noundef %19)
+  %20 = call fastcc i32 @add_ctype_to_cc_by_range.argelim(ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %18, ptr noundef %19)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %323
 
@@ -9383,7 +9383,7 @@ bbuf_free.exit213:                                ; preds = %47
 51:                                               ; preds = %15
   %52 = load i32, ptr %7, align 4
   %53 = load ptr, ptr %6, align 8
-  %54 = call fastcc i32 @add_ctype_to_cc_by_range(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %52, ptr noundef %53)
+  %54 = call fastcc i32 @add_ctype_to_cc_by_range.argelim(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4, i32 noundef %52, ptr noundef %53)
   br label %323
 
 55:                                               ; preds = %5
@@ -11133,7 +11133,7 @@ bbuf_free.exit404:                                ; preds = %500, %bbuf_free.exi
   br i1 %.not360, label %579, label %578
 
 578:                                              ; preds = %574
-  call fastcc void @CC_DUP_WARN(ptr noundef nonnull %5)
+  call fastcc void @CC_DUP_WARN.argelim(ptr noundef nonnull %5)
   %.pre597 = load i32, ptr %575, align 8
   br label %579
 
@@ -11468,9 +11468,9 @@ define internal fastcc range(i32 -219, 1) i32 @name_add(ptr nocapture noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %19, label %name_find.exit
+  br i1 %.not.i, label %19, label %name_find.argprom.exit
 
-name_find.exit:                                   ; preds = %14
+name_find.argprom.exit:                           ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 8
@@ -11489,8 +11489,8 @@ name_find.exit:                                   ; preds = %14
   store ptr %20, ptr %8, align 8
   br label %21
 
-21:                                               ; preds = %name_find.exit, %19
-  %.061 = phi ptr [ %20, %19 ], [ %9, %name_find.exit ]
+21:                                               ; preds = %name_find.argprom.exit, %19
+  %.061 = phi ptr [ %20, %19 ], [ %9, %name_find.argprom.exit ]
   %22 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #25
   %23 = icmp eq ptr %22, null
   br i1 %23, label %97, label %24
@@ -11549,7 +11549,7 @@ name_find.exit:                                   ; preds = %14
   store i32 1, ptr %48, align 8
   br label %64
 
-49:                                               ; preds = %name_find.exit
+49:                                               ; preds = %name_find.argprom.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %50 = getelementptr inbounds i8, ptr %.pre.i, i64 16
@@ -12235,7 +12235,7 @@ new_code_range.exit.thread:                       ; preds = %20, %11, %8, %229, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @CC_DUP_WARN(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @CC_DUP_WARN.argelim(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @onig_warn, align 8
   %3 = icmp eq ptr %2, @onig_null_warn
   br i1 %3, label %20, label %4
@@ -12614,7 +12614,7 @@ define internal fastcc i32 @not_code_range_buf(ptr nocapture noundef readonly %0
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @add_ctype_to_cc_by_range(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc i32 @add_ctype_to_cc_by_range.argelim(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
   %6 = load i32, ptr %4, align 4
   %7 = icmp eq i32 %1, 0
   %8 = icmp sgt i32 %6, 0
@@ -14673,7 +14673,7 @@ define internal fastcc i32 @fetch_token_in_cc(ptr nocapture noundef nonnull %0, 
   %322 = sext i32 %321 to i64
   %323 = getelementptr i8, ptr %37, i64 %322
   store ptr %323, ptr %6, align 8
-  %324 = call fastcc i32 @str_exist_check_with_esc(ptr noundef %7, ptr noundef %323, ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef nonnull %9)
+  %324 = call fastcc i32 @str_exist_check_with_esc.argelim(ptr noundef %7, ptr noundef %323, ptr noundef nonnull %2, ptr noundef nonnull %11, ptr noundef nonnull %9)
   %.not310 = icmp eq i32 %324, 0
   br i1 %.not310, label %326, label %325
 
@@ -15103,7 +15103,7 @@ add_code_range.exit.thread:                       ; preds = %172, %158, %106, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @str_exist_check_with_esc(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @str_exist_check_with_esc.argelim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #5 {
   %6 = icmp ult ptr %1, %2
   br i1 %6, label %.lr.ph87, label %._crit_edge88
 

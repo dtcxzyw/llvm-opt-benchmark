@@ -268,7 +268,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end8, %if.end12.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i)
-  br i1 %15, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end.i.i.i.i.i.i
+  br i1 %15, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 32
@@ -296,7 +296,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i27.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i28.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i29.i.i.i.i.i.i)
-  br i1 %18, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end4.i.i.i.i.i.i
+  br i1 %18, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end4.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   %incdec.ptr5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 64
@@ -324,7 +324,7 @@ if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i41.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i42.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i43.i.i.i.i.i.i)
-  br i1 %21, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end8.i.i.i.i.i.i
+  br i1 %21, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end8.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
   %incdec.ptr9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 96
@@ -352,7 +352,7 @@ if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i55.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i56.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i57.i.i.i.i.i.i)
-  br i1 %24, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12.i.i.i.i.i.i
+  br i1 %24, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end12.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i.i
   %incdec.ptr13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 128
@@ -400,7 +400,7 @@ sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i69.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i70.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i71.i.i.i.i.i.i)
-  br i1 %28, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end20.i.i.i.i.i.i
+  br i1 %28, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end20.i.i.i.i.i.i
 
 if.end20.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   %incdec.ptr21.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i.i.i, i64 32
@@ -432,7 +432,7 @@ sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i83.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i84.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i85.i.i.i.i.i.i)
-  br i1 %31, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end25.i.i.i.i.i.i
+  br i1 %31, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end25.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i:                             ; preds = %sw.bb22.i.i.i.i.i.i
   %incdec.ptr26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i.i, i64 32
@@ -464,14 +464,14 @@ sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %S.i.i97.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i98.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i.i99.i.i.i.i.i.i)
-  br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12
+  br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", label %if.end12
 
-"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
+"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit": ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i ], [ %incdec.ptr9.i.i.i.i.i.i, %if.end8.i.i.i.i.i.i ], [ %incdec.ptr5.i.i.i.i.i.i, %if.end4.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__first.addr.0112.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %cmp.i.i.i.not = icmp eq ptr %add.ptr.i.i.i.i.i8, %retval.0.i.i.i.i.i.i
   br i1 %cmp.i.i.i.not, label %if.end12, label %for.inc
 
-if.end12:                                         ; preds = %sw.bb27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit"
+if.end12:                                         ; preds = %sw.bb27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit"
   %agg.tmp13.sroa.0.0.copyload = load ptr, ptr %Dir, align 8
   %agg.tmp13.sroa.2.0.copyload = load i64, ptr %Length.i40, align 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %FilePath, align 8
@@ -571,7 +571,7 @@ _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %cleanup, %if.then.i
   %or.cond = select i1 %cmp.i.not.i.not, i1 true, i1 %cmp.not
   br i1 %or.cond, label %for.end.loopexit, label %for.body.backedge
 
-for.inc:                                          ; preds = %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", %for.body
+for.inc:                                          ; preds = %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.argprom.exit", %for.body
   %incdec.ptr.old = getelementptr inbounds i8, ptr %__begin1.029, i64 16
   %cmp.not.old = icmp eq ptr %incdec.ptr.old, %add.ptr.i
   br i1 %cmp.not.old, label %for.end.loopexit, label %for.body.backedge
@@ -829,28 +829,28 @@ do.body.i8:                                       ; preds = %if.end13, %land.rhs
   store i32 0, ptr %call, align 4
   %call.i.i = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.16, i32 noundef 2) #18
   %cmp.i9 = icmp eq i32 %call.i.i, -1
-  br i1 %cmp.i9, label %land.rhs.i10, label %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit"
+  br i1 %cmp.i9, label %land.rhs.i10, label %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.argprom.exit"
 
 land.rhs.i10:                                     ; preds = %do.body.i8
   %3 = load i32, ptr %call, align 4
   %cmp3.i = icmp eq i32 %3, 4
   br i1 %cmp3.i, label %do.body.i8, label %cleanup.thread, !llvm.loop !17
 
-"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit": ; preds = %do.body.i8
+"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.argprom.exit": ; preds = %do.body.i8
   %cmp18 = icmp slt i32 %call.i.i, 0
   br i1 %cmp18, label %if.then19.loopexit45, label %if.end23
 
-if.then19.loopexit45:                             ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit"
+if.then19.loopexit45:                             ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.argprom.exit"
   %.pre59 = load i32, ptr %call, align 4
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %land.rhs.i10, %if.then19.loopexit45
   %4 = phi i32 [ %.pre59, %if.then19.loopexit45 ], [ %3, %land.rhs.i10 ]
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #20
-  br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
+  br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.argprom.exit
 
-if.end23:                                         ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit", %if.end13
-  %NullFD.3 = phi i32 [ %call.i.i, %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.exit" ], [ %NullFD.042, %if.end13 ]
+if.end23:                                         ; preds = %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.argprom.exit", %if.end13
+  %NullFD.3 = phi i32 [ %call.i.i, %"_ZN4llvh3sys16RetryAfterSignalIiZNS0_7Process28FixupStandardFileDescriptorsEvE3$_0JEEEDTclfp0_spfp1_EERKT_RKT0_DpRKT1_.argprom.exit" ], [ %NullFD.042, %if.end13 ]
   %cmp24 = icmp eq i32 %NullFD.3, %0
   br i1 %cmp24, label %for.inc, label %if.else
 
@@ -882,13 +882,13 @@ cleanup:                                          ; preds = %for.end, %if.then28
   %retval.sroa.5.0 = phi ptr [ %call.i15, %for.end ], [ %call30, %if.then28 ], [ %call9, %if.then7 ]
   %cmp.i16 = icmp slt i32 %NullFD.1, 0
   %or.cond.not = select i1 %FDC.sroa.2.032, i1 true, i1 %cmp.i16
-  br i1 %or.cond.not, label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit, label %if.then.i
+  br i1 %or.cond.not, label %_ZN12_GLOBAL__N_18FDCloserD2Ev.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
   %call.i17 = tail call i32 @close(i32 noundef %NullFD.1) #18
-  br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.exit
+  br label %_ZN12_GLOBAL__N_18FDCloserD2Ev.argprom.exit
 
-_ZN12_GLOBAL__N_18FDCloserD2Ev.exit:              ; preds = %cleanup.thread, %cleanup, %if.then.i
+_ZN12_GLOBAL__N_18FDCloserD2Ev.argprom.exit:      ; preds = %cleanup.thread, %cleanup, %if.then.i
   %retval.sroa.5.068 = phi ptr [ %call21, %cleanup.thread ], [ %retval.sroa.5.0, %cleanup ], [ %retval.sroa.5.0, %if.then.i ]
   %retval.sroa.0.067 = phi i32 [ %4, %cleanup.thread ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.067, 0

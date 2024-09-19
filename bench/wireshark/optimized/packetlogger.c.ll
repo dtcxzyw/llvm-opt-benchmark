@@ -74,21 +74,21 @@ packetlogger_read_header.exit:                    ; preds = %12
   %or.cond.i = icmp ult i32 %27, -65528
   %28 = icmp ugt i32 %.val53, 999999
   %or.cond1.i = select i1 %or.cond.i, i1 true, i1 %28
-  br i1 %or.cond1.i, label %packetlogger_check_record.exit.thread, label %29
+  br i1 %or.cond1.i, label %packetlogger_check_record.argprom.exit.thread, label %29
 
 29:                                               ; preds = %26
   %.not.i56 = icmp eq i32 %.val, 8
-  br i1 %.not.i56, label %packetlogger_check_record.exit.thread89, label %30
+  br i1 %.not.i56, label %packetlogger_check_record.argprom.exit.thread89, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %0, align 8
   %32 = call i32 @wtap_read_bytes(ptr noundef %31, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %1, ptr noundef %2) #5
   %.not18.i = icmp eq i32 %32, 0
-  br i1 %.not18.i, label %packetlogger_check_record.exit, label %33
+  br i1 %.not18.i, label %packetlogger_check_record.argprom.exit, label %33
 
 33:                                               ; preds = %30
   %34 = load i8, ptr %5, align 1
-  switch i8 %34, label %packetlogger_check_record.exit.thread [
+  switch i8 %34, label %packetlogger_check_record.argprom.exit.thread [
     i8 0, label %35
     i8 1, label %35
     i8 2, label %35
@@ -110,37 +110,37 @@ packetlogger_read_header.exit:                    ; preds = %12
 35:                                               ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33, %33
   %36 = add nsw i32 %.val, -9
   %.not20.i = icmp eq i32 %36, 0
-  br i1 %.not20.i, label %packetlogger_check_record.exit.thread89, label %37
+  br i1 %.not20.i, label %packetlogger_check_record.argprom.exit.thread89, label %37
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %0, align 8
   %39 = call i32 @wtap_read_bytes(ptr noundef %38, ptr noundef null, i32 noundef %36, ptr noundef %1, ptr noundef %2) #5
   %.not21.i = icmp eq i32 %39, 0
-  br i1 %.not21.i, label %packetlogger_check_record.exit.thread76, label %packetlogger_check_record.exit.thread89
+  br i1 %.not21.i, label %packetlogger_check_record.argprom.exit.thread76, label %packetlogger_check_record.argprom.exit.thread89
 
-packetlogger_check_record.exit.thread76:          ; preds = %37
+packetlogger_check_record.argprom.exit.thread76:  ; preds = %37
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %.pr91 = load i32, ptr %1, align 4
   %40 = icmp eq i32 %.pr91, -12
   br i1 %40, label %.loopexit, label %.critedge
 
-packetlogger_check_record.exit.thread:            ; preds = %26, %33
+packetlogger_check_record.argprom.exit.thread:    ; preds = %26, %33
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %.critedge
 
-packetlogger_check_record.exit.thread89:          ; preds = %37, %35, %29
+packetlogger_check_record.argprom.exit.thread89:  ; preds = %37, %35, %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   br label %42
 
-packetlogger_check_record.exit:                   ; preds = %30
+packetlogger_check_record.argprom.exit:           ; preds = %30
   %41 = load i32, ptr %1, align 4
   %.not19.i.not = icmp ne i32 %41, -12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %spec.select93 = sext i1 %.not19.i.not to i32
   br label %.critedge
 
-42:                                               ; preds = %packetlogger_check_record.exit.thread89, %packetlogger_check_record.exit72.thread83
-  %.085 = phi i32 [ 1, %packetlogger_check_record.exit.thread89 ], [ %72, %packetlogger_check_record.exit72.thread83 ]
+42:                                               ; preds = %packetlogger_check_record.argprom.exit.thread89, %packetlogger_check_record.argprom.exit72.thread83
+  %.085 = phi i32 [ 1, %packetlogger_check_record.argprom.exit.thread89 ], [ %72, %packetlogger_check_record.argprom.exit72.thread83 ]
   %43 = load ptr, ptr %0, align 8
   %44 = call i32 @wtap_read_bytes_or_eof(ptr noundef %43, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %1, ptr noundef %2) #5
   %.not.i58 = icmp eq i32 %44, 0
@@ -189,21 +189,21 @@ packetlogger_read_header.exit62:                  ; preds = %50, %49
   %or.cond.i63 = icmp ult i32 %58, -65528
   %59 = icmp ugt i32 %.val55, 999999
   %or.cond1.i64 = select i1 %or.cond.i63, i1 true, i1 %59
-  br i1 %or.cond1.i64, label %packetlogger_check_record.exit72.thread, label %60
+  br i1 %or.cond1.i64, label %packetlogger_check_record.argprom.exit72.thread, label %60
 
 60:                                               ; preds = %packetlogger_read_header.exit62
   %.not.i65 = icmp eq i32 %.val54, 8
-  br i1 %.not.i65, label %packetlogger_check_record.exit72.thread83, label %61
+  br i1 %.not.i65, label %packetlogger_check_record.argprom.exit72.thread83, label %61
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %0, align 8
   %63 = call i32 @wtap_read_bytes(ptr noundef %62, ptr noundef nonnull %4, i32 noundef 1, ptr noundef %1, ptr noundef %2) #5
   %.not18.i66 = icmp eq i32 %63, 0
-  br i1 %.not18.i66, label %packetlogger_check_record.exit72, label %64
+  br i1 %.not18.i66, label %packetlogger_check_record.argprom.exit72, label %64
 
 64:                                               ; preds = %61
   %65 = load i8, ptr %4, align 1
-  switch i8 %65, label %packetlogger_check_record.exit72.thread [
+  switch i8 %65, label %packetlogger_check_record.argprom.exit72.thread [
     i8 0, label %66
     i8 1, label %66
     i8 2, label %66
@@ -225,38 +225,38 @@ packetlogger_read_header.exit62:                  ; preds = %50, %49
 66:                                               ; preds = %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64, %64
   %67 = add nsw i32 %.val54, -9
   %.not20.i67 = icmp eq i32 %67, 0
-  br i1 %.not20.i67, label %packetlogger_check_record.exit72.thread83, label %68
+  br i1 %.not20.i67, label %packetlogger_check_record.argprom.exit72.thread83, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %0, align 8
   %70 = call i32 @wtap_read_bytes(ptr noundef %69, ptr noundef null, i32 noundef %67, ptr noundef %1, ptr noundef %2) #5
   %.not21.i68 = icmp eq i32 %70, 0
-  br i1 %.not21.i68, label %packetlogger_check_record.exit72.thread81, label %packetlogger_check_record.exit72.thread83
+  br i1 %.not21.i68, label %packetlogger_check_record.argprom.exit72.thread81, label %packetlogger_check_record.argprom.exit72.thread83
 
-packetlogger_check_record.exit72.thread81:        ; preds = %68
+packetlogger_check_record.argprom.exit72.thread81: ; preds = %68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.pr = load i32, ptr %1, align 4
   %71 = icmp eq i32 %.pr, -12
   br i1 %71, label %.loopexit, label %.critedge
 
-packetlogger_check_record.exit72.thread83:        ; preds = %60, %66, %68
+packetlogger_check_record.argprom.exit72.thread83: ; preds = %60, %66, %68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %72 = add nuw nsw i32 %.085, 1
   %exitcond.not = icmp eq i32 %72, 5
   br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !4
 
-packetlogger_check_record.exit72.thread:          ; preds = %packetlogger_read_header.exit62, %64
+packetlogger_check_record.argprom.exit72.thread:  ; preds = %packetlogger_read_header.exit62, %64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %.critedge
 
-packetlogger_check_record.exit72:                 ; preds = %61
+packetlogger_check_record.argprom.exit72:         ; preds = %61
   %73 = load i32, ptr %1, align 4
   %.not19.i70.not = icmp ne i32 %73, -12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %spec.select = sext i1 %.not19.i70.not to i32
   br label %.critedge
 
-.loopexit:                                        ; preds = %packetlogger_check_record.exit72.thread83, %55, %packetlogger_check_record.exit72.thread81, %packetlogger_check_record.exit.thread76
+.loopexit:                                        ; preds = %packetlogger_check_record.argprom.exit72.thread83, %55, %packetlogger_check_record.argprom.exit72.thread81, %packetlogger_check_record.argprom.exit.thread76
   %74 = load ptr, ptr %0, align 8
   %75 = call i64 @file_seek(ptr noundef %74, i64 noundef 0, i32 noundef 0, ptr noundef %1) #5
   %76 = icmp eq i64 %75, -1
@@ -281,8 +281,8 @@ packetlogger_check_record.exit72:                 ; preds = %61
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %.critedge
 
-.critedge:                                        ; preds = %packetlogger_check_record.exit, %packetlogger_check_record.exit72, %packetlogger_check_record.exit72.thread, %packetlogger_check_record.exit.thread, %15, %.loopexit, %packetlogger_check_record.exit72.thread81, %55, %packetlogger_check_record.exit.thread76, %77, %57
-  %.038 = phi i32 [ 1, %77 ], [ 0, %57 ], [ -1, %packetlogger_check_record.exit.thread76 ], [ -1, %55 ], [ -1, %packetlogger_check_record.exit72.thread81 ], [ -1, %.loopexit ], [ %17, %15 ], [ 0, %packetlogger_check_record.exit.thread ], [ 0, %packetlogger_check_record.exit72.thread ], [ %spec.select, %packetlogger_check_record.exit72 ], [ %spec.select93, %packetlogger_check_record.exit ]
+.critedge:                                        ; preds = %packetlogger_check_record.argprom.exit, %packetlogger_check_record.argprom.exit72, %packetlogger_check_record.argprom.exit72.thread, %packetlogger_check_record.argprom.exit.thread, %15, %.loopexit, %packetlogger_check_record.argprom.exit72.thread81, %55, %packetlogger_check_record.argprom.exit.thread76, %77, %57
+  %.038 = phi i32 [ 1, %77 ], [ 0, %57 ], [ -1, %packetlogger_check_record.argprom.exit.thread76 ], [ -1, %55 ], [ -1, %packetlogger_check_record.argprom.exit72.thread81 ], [ -1, %.loopexit ], [ %17, %15 ], [ 0, %packetlogger_check_record.argprom.exit.thread ], [ 0, %packetlogger_check_record.argprom.exit72.thread ], [ %spec.select, %packetlogger_check_record.argprom.exit72 ], [ %spec.select93, %packetlogger_check_record.argprom.exit ]
   ret i32 %.038
 }
 
@@ -300,7 +300,7 @@ define internal i32 @packetlogger_read(ptr nocapture noundef readonly %0, ptr no
   %10 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %10, align 8
   %.val.val = load i32, ptr %.val, align 4
-  %11 = tail call fastcc i32 @packetlogger_read_packet(i32 %.val.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %11 = tail call fastcc i32 @packetlogger_read_packet.argprom.argprom(i32 %.val.val, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %11
 }
 
@@ -317,7 +317,7 @@ define internal range(i32 0, 2) i32 @packetlogger_seek_read(ptr nocapture nounde
   %13 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %13, align 8
   %.val.val = load i32, ptr %.val, align 4
-  %14 = tail call fastcc i32 @packetlogger_read_packet(i32 %.val.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %14 = tail call fastcc i32 @packetlogger_read_packet.argprom.argprom(i32 %.val.val, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %19
 
@@ -352,7 +352,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @packetlogger_read_packet(i32 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @packetlogger_read_packet.argprom.argprom(i32 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.packetlogger_header, align 4
   %7 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 4, ptr noundef %3, ptr noundef %4) #5
   %.not.i = icmp eq i32 %7, 0

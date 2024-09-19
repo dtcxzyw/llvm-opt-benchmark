@@ -2360,7 +2360,7 @@ define dso_local void @ExecPartitionCheckEmitError(ptr noundef %0, ptr noundef %
   %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #10
   %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #10
   %31 = tail call ptr @bms_union(ptr noundef %29, ptr noundef %30) #10
-  %32 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %.028, ptr noundef %.1, ptr noundef %.029, ptr noundef %31)
+  %32 = tail call fastcc ptr @ExecBuildSlotValueDescription.argelim(i32 noundef %.028, ptr noundef %.1, ptr noundef %.029, ptr noundef %31)
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 67391682) #10
@@ -2397,7 +2397,7 @@ declare ptr @ExecGetInsertedCols(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ExecGetUpdatedCols(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @ExecBuildSlotValueDescription.argelim(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = alloca i32, align 4
@@ -2715,7 +2715,7 @@ slot_attisnull.exit:                              ; preds = %25, %slot_getsomeat
   %.1 = phi ptr [ %.0, %46 ], [ %1, %51 ]
   %56 = getelementptr inbounds i8, ptr %.076, i64 72
   %57 = load i32, ptr %56, align 8
-  %58 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %57, ptr noundef %.1, ptr noundef %.078, ptr noundef %.080)
+  %58 = tail call fastcc ptr @ExecBuildSlotValueDescription.argelim(i32 noundef %57, ptr noundef %.1, ptr noundef %.078, ptr noundef %.080)
   %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %59)
   %60 = tail call i32 @errcode(i32 noundef 33575106) #10
@@ -2898,7 +2898,7 @@ ExecRelCheck.exit:                                ; preds = %.lr.ph44.i
   %.3 = phi ptr [ %.2, %147 ], [ %1, %152 ]
   %157 = getelementptr inbounds i8, ptr %.177, i64 72
   %158 = load i32, ptr %157, align 8
-  %159 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %158, ptr noundef %.3, ptr noundef %.179, ptr noundef %.181)
+  %159 = tail call fastcc ptr @ExecBuildSlotValueDescription.argelim(i32 noundef %158, ptr noundef %.3, ptr noundef %.179, ptr noundef %.181)
   %160 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %160)
   %161 = tail call i32 @errcode(i32 noundef 67391682) #10
@@ -3069,7 +3069,7 @@ ExecQual.exit:                                    ; preds = %47
   %.1 = phi ptr [ %.0, %70 ], [ %2, %75 ]
   %80 = getelementptr inbounds i8, ptr %.064, i64 72
   %81 = load i32, ptr %80, align 8
-  %82 = call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %81, ptr noundef %.1, ptr noundef %.065, ptr noundef %.066)
+  %82 = call fastcc ptr @ExecBuildSlotValueDescription.argelim(i32 noundef %81, ptr noundef %.1, ptr noundef %.065, ptr noundef %.066)
   %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %83)
   %84 = call i32 @errcode(i32 noundef 260) #10
@@ -4083,7 +4083,7 @@ ExecGetJunkAttribute.exit37:                      ; preds = %54, %slot_getsomeat
   %104 = load i8, ptr @bsysscan, align 1
   %105 = trunc i8 %104 to i1
   %.not5.i = select i1 %103, i1 true, i1 %105
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %106
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.argprom.exit, label %106
 
 106:                                              ; preds = %101
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -4092,7 +4092,7 @@ ExecGetJunkAttribute.exit37:                      ; preds = %54, %slot_getsomeat
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 1294, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #10
   unreachable
 
-table_tuple_fetch_row_version.exit:               ; preds = %101
+table_tuple_fetch_row_version.argprom.exit:       ; preds = %101
   %109 = inttoptr i64 %68 to ptr
   %110 = getelementptr inbounds i8, ptr %71, i64 312
   %111 = load ptr, ptr %110, align 8
@@ -4101,7 +4101,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %101
   %114 = tail call zeroext i1 %113(ptr noundef nonnull %71, ptr noundef %109, ptr noundef nonnull @SnapshotAnyData, ptr noundef %2) #10
   br i1 %114, label %135, label %115
 
-115:                                              ; preds = %table_tuple_fetch_row_version.exit
+115:                                              ; preds = %table_tuple_fetch_row_version.argprom.exit
   %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %116)
   %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34) #10
@@ -4137,8 +4137,8 @@ ExecGetJunkAttribute.exit39:                      ; preds = %118, %slot_getsomea
   tail call void @ExecStoreHeapTupleDatum(i64 noundef %134, ptr noundef %2) #10
   br label %135
 
-135:                                              ; preds = %ExecGetJunkAttribute.exit39, %table_tuple_fetch_row_version.exit, %94, %ExecGetJunkAttribute.exit37, %39, %ExecGetJunkAttribute.exit, %130
-  %.0 = phi i1 [ true, %130 ], [ false, %ExecGetJunkAttribute.exit ], [ false, %39 ], [ false, %ExecGetJunkAttribute.exit37 ], [ true, %94 ], [ true, %table_tuple_fetch_row_version.exit ], [ false, %ExecGetJunkAttribute.exit39 ]
+135:                                              ; preds = %ExecGetJunkAttribute.exit39, %table_tuple_fetch_row_version.argprom.exit, %94, %ExecGetJunkAttribute.exit37, %39, %ExecGetJunkAttribute.exit, %130
+  %.0 = phi i1 [ true, %130 ], [ false, %ExecGetJunkAttribute.exit ], [ false, %39 ], [ false, %ExecGetJunkAttribute.exit37 ], [ true, %94 ], [ true, %table_tuple_fetch_row_version.argprom.exit ], [ false, %ExecGetJunkAttribute.exit39 ]
   ret i1 %.0
 }
 

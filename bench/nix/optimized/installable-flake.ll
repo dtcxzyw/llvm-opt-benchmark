@@ -4310,7 +4310,7 @@ _ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i:  ; preds = %632, %624
   store i8 1, ptr %638, align 8, !alias.scope !38
   %639 = load ptr, ptr %378, align 8, !noalias !38
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %639)
-          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.exit.i.i" unwind label %640
+          to label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.argprom.exit.i.i" unwind label %640
 
 640:                                              ; preds = %_ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i
   %641 = landingpad { ptr, i32 }
@@ -4324,7 +4324,7 @@ _ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i:  ; preds = %632, %624
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27, !noalias !38
   br label %.body128
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.exit.i.i": ; preds = %_ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.argprom.exit.i.i": ; preds = %_ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !37
@@ -4347,7 +4347,7 @@ _ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i:  ; preds = %632, %624
   %646 = getelementptr inbounds i8, ptr %1, i64 256
   %647 = load i8, ptr %646, align 8, !noalias !53
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %647, 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %648, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.exit.i.i"
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %648, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom.exit.i.i"
 
 648:                                              ; preds = %644
   %649 = getelementptr inbounds i8, ptr %43, i64 24
@@ -4363,7 +4363,7 @@ _ZN3nix11OutputsSpec5NamesD2Ev.exit.i.i.i.i.i.i:  ; preds = %632, %624
   %654 = getelementptr inbounds i8, ptr %1, i64 224
   %655 = load ptr, ptr %654, align 8, !noalias !53
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %655, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.exit.i.i", label %656
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom.exit.i.i", label %656
 
 656:                                              ; preds = %648
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !53
@@ -4397,7 +4397,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !53
   store ptr %657, ptr %650, align 8, !alias.scope !53
   %.pre.i.i.i.i6.i.i = load i8, ptr %646, align 8, !noalias !53
-  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.exit.i.i"
+  br label %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom.exit.i.i"
 
 666:                                              ; preds = %656
   %667 = landingpad { ptr, i32 }
@@ -4405,12 +4405,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN3nix11OutputsSpec3AllENS3_5NamesEEED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %368) #27
   br label %.body128
 
-"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.exit.i.i": ; preds = %663, %648, %644
+"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom.exit.i.i": ; preds = %663, %648, %644
   %668 = phi i8 [ %647, %644 ], [ 1, %648 ], [ %.pre.i.i.i.i6.i.i, %663 ]
   store i8 %668, ptr %645, align 8, !alias.scope !53
   br label %"_ZSt5visitIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRSt7variantIJNS0_19ExtendedOutputsSpec7DefaultENS0_11OutputsSpecEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit"
 
-"_ZSt5visitIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRSt7variantIJNS0_19ExtendedOutputsSpec7DefaultENS0_11OutputsSpecEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.exit.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.exit.i.i"
+"_ZSt5visitIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRSt7variantIJNS0_19ExtendedOutputsSpec7DefaultENS0_11OutputsSpecEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISF_EEEEE4typeEE4typeEOSO_EEEE4typeEOSD_DpOSF_.exit": ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom.exit.i.i", %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.argprom.exit.i.i"
   %669 = load ptr, ptr %43, align 8
   store ptr %669, ptr %42, align 8
   %670 = getelementptr inbounds i8, ptr %42, i64 8
@@ -28265,33 +28265,33 @@ attributes #32 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !24, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN3nix11OutputsSpecEEENS3_10overloadedIJZNS3_16InstallableFlake14toDerivedPathsEvE3$_0ZNS7_14toDerivedPathsEvE3$_1EEEJRSt7variantIJNS3_19ExtendedOutputsSpec7DefaultES4_EEEEDcOT0_DpOT1_: argument 0"}
 !24 = distinct !{!24, !"_ZSt10__do_visitINSt8__detail9__variant21__deduce_visit_resultIN3nix11OutputsSpecEEENS3_10overloadedIJZNS3_16InstallableFlake14toDerivedPathsEvE3$_0ZNS7_14toDerivedPathsEvE3$_1EEEJRSt7variantIJNS3_19ExtendedOutputsSpec7DefaultES4_EEEEDcOT0_DpOT1_"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_: argument 0"}
-!27 = distinct !{!27, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_"}
+!26 = distinct !{!26, !27, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESC_SH_.argprom"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_: argument 0"}
-!30 = distinct !{!30, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_"}
+!29 = distinct !{!29, !30, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEENSt15__invoke_resultIT_JDpT0_EE4typeEOSA_DpOSB_.argprom"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!33 = distinct !{!33, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEET_St14__invoke_otherOT0_DpOT1_"}
+!32 = distinct !{!32, !33, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRNS0_19ExtendedOutputsSpec7DefaultEEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_0clERKNS_19ExtendedOutputsSpec7DefaultE: argument 0"}
-!36 = distinct !{!36, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_0clERKNS_19ExtendedOutputsSpec7DefaultE"}
+!35 = distinct !{!35, !36, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_0clERKNS_19ExtendedOutputsSpec7DefaultE.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_0clERKNS_19ExtendedOutputsSpec7DefaultE.argprom"}
 !37 = !{!32, !29, !26, !23, !20}
 !38 = !{!35, !32, !29, !26, !23, !20}
 !39 = distinct !{!39, !5}
 !40 = distinct !{!40, !5}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_: argument 0"}
-!43 = distinct !{!43, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_"}
+!42 = distinct !{!42, !43, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom: argument 0"}
+!43 = distinct !{!43, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix11OutputsSpecEEEONS4_10overloadedIJZNS4_16InstallableFlake14toDerivedPathsEvE3$_0ZNS8_14toDerivedPathsEvE3$_1EEERSt7variantIJNS4_19ExtendedOutputsSpec7DefaultES5_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESC_SH_.argprom"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_11OutputsSpecEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_: argument 0"}
-!46 = distinct !{!46, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_11OutputsSpecEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_"}
+!45 = distinct !{!45, !46, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_11OutputsSpecEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom: argument 0"}
+!46 = distinct !{!46, !"_ZSt8__invokeIN3nix10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS2_14toDerivedPathsEvE3$_1EEEJRNS0_11OutputsSpecEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS9_DpOSA_.argprom"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRS1_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!49 = distinct !{!49, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRS1_EET_St14__invoke_otherOT0_DpOT1_"}
+!48 = distinct !{!48, !49, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRS1_EET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZSt13__invoke_implIN3nix11OutputsSpecENS0_10overloadedIJZNS0_16InstallableFlake14toDerivedPathsEvE3$_0ZNS3_14toDerivedPathsEvE3$_1EEEJRS1_EET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_1clERKNS_11OutputsSpecE: argument 0"}
-!52 = distinct !{!52, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_1clERKNS_11OutputsSpecE"}
+!51 = distinct !{!51, !52, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_1clERKNS_11OutputsSpecE.argprom: argument 0"}
+!52 = distinct !{!52, !"_ZZN3nix16InstallableFlake14toDerivedPathsEvENK3$_1clERKNS_11OutputsSpecE.argprom"}
 !53 = !{!51, !48, !45, !42, !23, !20}
 !54 = !{!55}
 !55 = distinct !{!55, !56, !"_ZSt11make_sharedIN3nix18ExtraPathInfoFlakeEJNS0_18ExtraPathInfoValue5ValueENS1_5FlakeEEESt10shared_ptrIT_EDpOT0_: argument 0"}

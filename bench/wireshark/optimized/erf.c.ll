@@ -660,10 +660,10 @@ erf_if_mapping_create.exit.i:                     ; preds = %92
   %104 = getelementptr inbounds i8, ptr %59, i64 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %populate_module_info.exit.i, %.lr.ph.lr.ph.i
-  %105 = phi i32 [ %51, %.lr.ph.lr.ph.i ], [ %869, %populate_module_info.exit.i ]
-  %106 = phi ptr [ %100, %.lr.ph.lr.ph.i ], [ %868, %populate_module_info.exit.i ]
-  %.077.ph272.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.1.i, %populate_module_info.exit.i ]
+.lr.ph.i:                                         ; preds = %populate_module_info.argprom.exit.i, %.lr.ph.lr.ph.i
+  %105 = phi i32 [ %51, %.lr.ph.lr.ph.i ], [ %869, %populate_module_info.argprom.exit.i ]
+  %106 = phi ptr [ %100, %.lr.ph.lr.ph.i ], [ %868, %populate_module_info.argprom.exit.i ]
+  %.077.ph272.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.1.i, %populate_module_info.argprom.exit.i ]
   br label %107
 
 107:                                              ; preds = %.backedge.i, %.lr.ph.i
@@ -995,7 +995,7 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   br label %.backedge.i
 
 280:                                              ; preds = %212
-  switch i8 %.val20.i.i, label %populate_module_info.exit.i [
+  switch i8 %.val20.i.i, label %populate_module_info.argprom.exit.i [
     i8 0, label %281
     i8 1, label %281
     i8 2, label %396
@@ -1007,13 +1007,13 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   %.val113.i = load ptr, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   %.not.i131.i = icmp eq ptr %.val113.i, null
-  br i1 %.not.i131.i, label %populate_capture_host_info.exit.i, label %282
+  br i1 %.not.i131.i, label %populate_capture_host_info.argprom.exit.i, label %282
 
 282:                                              ; preds = %281
   %283 = getelementptr inbounds i8, ptr %.val113.i, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = icmp eq i32 %284, 0
-  br i1 %285, label %populate_capture_host_info.exit.i, label %286
+  br i1 %285, label %populate_capture_host_info.argprom.exit.i, label %286
 
 286:                                              ; preds = %282
   %287 = load ptr, ptr %.val113.i, align 8
@@ -1066,7 +1066,7 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   %312 = load i64, ptr %103, align 8
   %313 = load i64, ptr %35, align 8
   %314 = icmp ugt i64 %312, %313
-  br i1 %314, label %populate_capture_host_info.exit.thread.i, label %315
+  br i1 %314, label %populate_capture_host_info.argprom.exit.thread.i, label %315
 
 315:                                              ; preds = %311
   %cond.i146.i = icmp eq i16 %307, 1
@@ -1091,7 +1091,7 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   %325 = load i64, ptr %102, align 8
   %326 = load i64, ptr %35, align 8
   %327 = icmp ugt i64 %325, %326
-  br i1 %327, label %populate_capture_host_info.exit.thread.i, label %328
+  br i1 %327, label %populate_capture_host_info.argprom.exit.thread.i, label %328
 
 328:                                              ; preds = %324
   switch i16 %307, label %355 [
@@ -1262,13 +1262,13 @@ erf_meta_read_tag.exit124.thread.i:               ; preds = %191, %179, %173
   %394 = load i64, ptr %35, align 8
   %..i = select i1 %393, ptr %103, ptr %102
   store i64 %394, ptr %..i, align 8
-  br label %populate_capture_host_info.exit.thread.i
+  br label %populate_capture_host_info.argprom.exit.thread.i
 
-populate_capture_host_info.exit.thread.i:         ; preds = %324, %311, %.thread54.i.i
+populate_capture_host_info.argprom.exit.thread.i: ; preds = %324, %311, %.thread54.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %populate_module_info.exit.i
+  br label %populate_module_info.argprom.exit.i
 
-populate_capture_host_info.exit.i:                ; preds = %282, %281
+populate_capture_host_info.argprom.exit.i:        ; preds = %282, %281
   %.str.12.sink.i = phi ptr [ @.str.12, %281 ], [ @.str.13, %282 ]
   store i32 -21, ptr %3, align 4
   %395 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.12.sink.i) #15
@@ -1282,7 +1282,7 @@ populate_capture_host_info.exit.i:                ; preds = %282, %281
   %399 = load i64, ptr %398, align 8
   %400 = load i64, ptr %35, align 8
   %401 = icmp ugt i64 %399, %400
-  br i1 %401, label %populate_module_info.exit.i, label %.preheader.i147.i
+  br i1 %401, label %populate_module_info.argprom.exit.i, label %.preheader.i147.i
 
 .preheader.i147.i:                                ; preds = %396
   br i1 %or.cond3.i118.i, label %.critedge.i156.i, label %.lr.ph.i148.i
@@ -1403,7 +1403,7 @@ populate_capture_host_info.exit.i:                ; preds = %282, %281
   %471 = phi i64 [ %.pre.i155.i, %.critedge.loopexit.i.i ], [ %400, %.preheader.i147.i ]
   %472 = getelementptr inbounds i8, ptr %470, i64 312
   store i64 %471, ptr %472, align 8
-  br label %populate_module_info.exit.i
+  br label %populate_module_info.argprom.exit.i
 
 473:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
@@ -2097,7 +2097,7 @@ erf_set_interface_descr.exit168.i.i:              ; preds = %722, %720
 
 populate_interface_info.exit.thread.i:            ; preds = %861, %597, %584, %580, %.critedge.i169.i, %477
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  br label %populate_module_info.exit.i
+  br label %populate_module_info.argprom.exit.i
 
 populate_interface_info.exit.sink.split.i:        ; preds = %582, %475
   %.sink324.i = phi ptr [ %476, %475 ], [ %583, %582 ]
@@ -2111,10 +2111,10 @@ populate_interface_info.exit.i:                   ; preds = %.critedge.thread.i.
 865:                                              ; preds = %280
   %866 = call dereferenceable_or_null(48) ptr @g_memdup2(ptr noundef nonnull %20, i64 noundef 48) #17
   %867 = call ptr @g_list_append(ptr noundef %.077.ph272.i, ptr noundef %866) #15
-  br label %populate_module_info.exit.i
+  br label %populate_module_info.argprom.exit.i
 
-populate_module_info.exit.i:                      ; preds = %865, %populate_interface_info.exit.thread.i, %.critedge.i156.i, %396, %populate_capture_host_info.exit.thread.i, %280
-  %.1.i = phi ptr [ %.077.ph272.i, %280 ], [ %867, %865 ], [ %.077.ph272.i, %populate_capture_host_info.exit.thread.i ], [ %.077.ph272.i, %396 ], [ %.077.ph272.i, %.critedge.i156.i ], [ %.077.ph272.i, %populate_interface_info.exit.thread.i ]
+populate_module_info.argprom.exit.i:              ; preds = %865, %populate_interface_info.exit.thread.i, %.critedge.i156.i, %396, %populate_capture_host_info.argprom.exit.thread.i, %280
+  %.1.i = phi ptr [ %.077.ph272.i, %280 ], [ %867, %865 ], [ %.077.ph272.i, %populate_capture_host_info.argprom.exit.thread.i ], [ %.077.ph272.i, %396 ], [ %.077.ph272.i, %.critedge.i156.i ], [ %.077.ph272.i, %populate_interface_info.exit.thread.i ]
   %868 = load ptr, ptr %20, align 8
   %869 = load i32, ptr %30, align 8
   %.not.i116243.i = icmp eq ptr %868, null
@@ -2122,8 +2122,8 @@ populate_module_info.exit.i:                      ; preds = %865, %populate_inte
   %or.cond3.i244.i = or i1 %.not.i116243.i, %870
   br i1 %or.cond3.i244.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-.outer._crit_edge.i:                              ; preds = %populate_module_info.exit.i, %.backedge.i, %107
-  %.077.ph.lcssa.i = phi ptr [ %.077.ph272.i, %107 ], [ %.077.ph272.i, %.backedge.i ], [ %.1.i, %populate_module_info.exit.i ]
+.outer._crit_edge.i:                              ; preds = %populate_module_info.argprom.exit.i, %.backedge.i, %107
+  %.077.ph.lcssa.i = phi ptr [ %.077.ph272.i, %107 ], [ %.077.ph272.i, %.backedge.i ], [ %.1.i, %populate_module_info.argprom.exit.i ]
   %.not93.i = icmp eq ptr %.077.ph.lcssa.i, null
   br i1 %.not93.i, label %.outer._crit_edge.thread.i, label %.preheader.i
 
@@ -2448,9 +2448,9 @@ populate_module_info.exit.i:                      ; preds = %865, %populate_inte
   %.3.i.i = phi i32 [ %935, %933 ], [ %935, %960 ], [ %935, %944 ], [ %935, %947 ], [ %935, %.preheader.i187.i ], [ %1043, %1040 ], [ %.444.i.i, %976 ], [ %.444.i.i, %964 ]
   %indvars.iv.next.i183.i = add nuw nsw i64 %indvars.iv.i180.i, 1
   %exitcond.not.i184.i = icmp eq i64 %indvars.iv.next.i183.i, 8
-  br i1 %exitcond.not.i184.i, label %populate_stream_info.exit.i, label %933, !llvm.loop !19
+  br i1 %exitcond.not.i184.i, label %populate_stream_info.argprom.exit.i, label %933, !llvm.loop !19
 
-populate_stream_info.exit.i:                      ; preds = %.critedge2.i182.i
+populate_stream_info.argprom.exit.i:              ; preds = %.critedge2.i182.i
   store ptr %.376.i.i, ptr %871, align 8
   store i32 %.3.i.i, ptr %878, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -2467,7 +2467,7 @@ populate_stream_info.exit.i:                      ; preds = %.critedge2.i182.i
   call void @g_list_free(ptr noundef nonnull %.077.ph.lcssa.i) #15
   br label %1059
 
-1047:                                             ; preds = %populate_stream_info.exit.i, %.preheader.i
+1047:                                             ; preds = %populate_stream_info.argprom.exit.i, %.preheader.i
   %1048 = getelementptr inbounds i8, ptr %.076.i, i64 8
   %1049 = load ptr, ptr %1048, align 8
   %.not94.i = icmp eq ptr %1049, null
@@ -2499,7 +2499,7 @@ populate_summary_info.exit:                       ; preds = %145, %146, %.outer.
   %.pr = load i8, ptr %27, align 8
   br label %1060
 
-1059:                                             ; preds = %1045, %60, %populate_capture_host_info.exit.i, %populate_interface_info.exit.i
+1059:                                             ; preds = %1045, %60, %populate_capture_host_info.argprom.exit.i, %populate_interface_info.exit.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
   br label %.loopexit
 
@@ -3958,26 +3958,26 @@ define internal noundef i32 @erf_dump_open(ptr nocapture noundef %0, ptr nocaptu
   %19 = getelementptr i8, ptr %0, i64 88
   %.val = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %get_user_comment_string.exit, label %20
+  br i1 %.not.i, label %get_user_comment_string.argprom.exit, label %20
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds i8, ptr %.val, i64 8
   %22 = load i32, ptr %21, align 8
   %.not9.i = icmp eq i32 %22, 0
-  br i1 %.not9.i, label %get_user_comment_string.exit, label %23
+  br i1 %.not9.i, label %get_user_comment_string.argprom.exit, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %.val, align 8
   %25 = load ptr, ptr %24, align 8
   %.not10.i = icmp eq ptr %25, null
-  br i1 %.not10.i, label %get_user_comment_string.exit, label %26
+  br i1 %.not10.i, label %get_user_comment_string.argprom.exit, label %26
 
 26:                                               ; preds = %23
   %27 = call i32 @wtap_block_get_nth_string_option_value(ptr noundef nonnull %25, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #15
   %.pre = load ptr, ptr %5, align 8
-  br label %get_user_comment_string.exit
+  br label %get_user_comment_string.argprom.exit
 
-get_user_comment_string.exit:                     ; preds = %26, %3, %20, %23
+get_user_comment_string.argprom.exit:             ; preds = %26, %3, %20, %23
   %28 = phi ptr [ %.pre, %26 ], [ null, %3 ], [ null, %20 ], [ null, %23 ]
   %29 = call noalias ptr @g_strdup(ptr noundef %28) #15
   %30 = getelementptr inbounds i8, ptr %6, i64 64
@@ -3985,13 +3985,13 @@ get_user_comment_string.exit:                     ; preds = %26, %3, %20, %23
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %31, label %34
 
-31:                                               ; preds = %get_user_comment_string.exit
+31:                                               ; preds = %get_user_comment_string.argprom.exit
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 8
   %.not11 = icmp eq i32 %33, 98
   br i1 %.not11, label %35, label %34
 
-34:                                               ; preds = %31, %get_user_comment_string.exit
+34:                                               ; preds = %31, %get_user_comment_string.argprom.exit
   store i32 1, ptr %6, align 8
   br label %35
 
@@ -4448,7 +4448,7 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %130, %._crit_edge.i
   %.not.i35.i = icmp eq ptr %2, null
   %219 = icmp ult i16 %.0149.val, 4
   %or.cond3.i36.i = or i1 %.not.i35.i, %219
-  br i1 %or.cond3.i36.i, label %erf_dump_priv_compare_capture_comment.exit, label %.lr.ph.preheader.i
+  br i1 %or.cond3.i36.i, label %erf_dump_priv_compare_capture_comment.argprom.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %217
   %220 = zext i16 %.0149.val to i32
@@ -4536,13 +4536,13 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %130, %._crit_edge.i
   %260 = zext i16 %226 to i64
   %261 = call noalias ptr @g_strndup(ptr noundef %238, i64 noundef %260) #15
   %.not35.i = icmp eq i32 %.02942.i, 0
-  br i1 %.not35.i, label %erf_dump_priv_compare_capture_comment.exit, label %263
+  br i1 %.not35.i, label %erf_dump_priv_compare_capture_comment.argprom.exit, label %263
 
 .thread20.i:                                      ; preds = %254, %.lr.ph.i189
   %.029.lcssa.ph.i = phi i32 [ %.130.i, %254 ], [ %.02942.i, %.lr.ph.i189 ]
   %.028.lcssa.ph.i = phi i32 [ %.1.i190, %254 ], [ %.02843.i, %.lr.ph.i189 ]
   %262 = icmp eq i32 %.029.lcssa.ph.i, 0
-  br i1 %262, label %erf_dump_priv_compare_capture_comment.exit, label %.thread25.i
+  br i1 %262, label %erf_dump_priv_compare_capture_comment.argprom.exit, label %.thread25.i
 
 263:                                              ; preds = %259
   %.not.i194 = icmp eq ptr %261, null
@@ -4558,7 +4558,7 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %130, %._crit_edge.i
   %264 = getelementptr inbounds i8, ptr %13, i64 64
   %265 = load ptr, ptr %264, align 8
   %.not36.i = icmp eq ptr %265, null
-  br i1 %.not36.i, label %erf_dump_priv_compare_capture_comment.exit, label %266
+  br i1 %.not36.i, label %erf_dump_priv_compare_capture_comment.argprom.exit, label %266
 
 266:                                              ; preds = %.thread25.i, %._crit_edge.i195
   %267 = phi ptr [ %265, %.thread25.i ], [ %.pre.i, %._crit_edge.i195 ]
@@ -4588,9 +4588,9 @@ erf_update_host_id_ext_hdrs_list.exit:            ; preds = %130, %._crit_edge.i
   %.sink.i = phi i32 [ 0, %277 ], [ 1, %274 ], [ 1, %270 ]
   %.031.ph.i = phi i32 [ %.02830.i, %277 ], [ 1, %274 ], [ 1, %270 ]
   store i32 %.sink.i, ptr %13, align 8
-  br label %erf_dump_priv_compare_capture_comment.exit
+  br label %erf_dump_priv_compare_capture_comment.argprom.exit
 
-erf_dump_priv_compare_capture_comment.exit:       ; preds = %217, %259, %.thread20.i, %.thread25.i, %.thread20.thread.sink.split.i
+erf_dump_priv_compare_capture_comment.argprom.exit: ; preds = %217, %259, %.thread20.i, %.thread25.i, %.thread20.thread.sink.split.i
   %.024.sink.i = phi ptr [ null, %.thread20.i ], [ null, %.thread25.i ], [ %261, %259 ], [ null, %217 ], [ %.02328.i, %.thread20.thread.sink.split.i ]
   %.031.i = phi i32 [ %.028.lcssa.ph.i, %.thread20.i ], [ %.02831.i, %.thread25.i ], [ %.02843.i, %259 ], [ 0, %217 ], [ %.031.ph.i, %.thread20.thread.sink.split.i ]
   call void @g_free(ptr noundef %.024.sink.i) #15
@@ -4626,7 +4626,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %217, %259, %.thread
   store ptr %292, ptr %289, align 8
   %293 = getelementptr inbounds i8, ptr %13, i64 64
   %294 = load ptr, ptr %293, align 8
-  call fastcc void @erf_comment_to_sections(i16 noundef zeroext -256, i16 noundef zeroext 0, ptr noundef %294, ptr noundef %292)
+  call fastcc void @erf_comment_to_sections.argprom.retelim(i16 noundef zeroext -256, i16 noundef zeroext 0, ptr noundef %294, ptr noundef %292)
   %.pre212 = load ptr, ptr %289, align 8
   br label %295
 
@@ -4679,7 +4679,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %217, %259, %.thread
 321:                                              ; preds = %318
   %322 = call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @erf_meta_section_free) #15
   store ptr %322, ptr %319, align 8
-  call fastcc void @erf_wtap_info_to_sections(ptr noundef %0, ptr noundef %322)
+  call fastcc void @erf_wtap_info_to_sections.retelim(ptr noundef %0, ptr noundef %322)
   br label %323
 
 323:                                              ; preds = %318, %321, %316
@@ -4701,7 +4701,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %217, %259, %.thread
   store i64 %332, ptr %314, align 8
   br label %333
 
-333:                                              ; preds = %305, %323, %331, %313, %306, %erf_dump_priv_compare_capture_comment.exit
+333:                                              ; preds = %305, %323, %331, %313, %306, %erf_dump_priv_compare_capture_comment.argprom.exit
   %334 = getelementptr inbounds i8, ptr %1, i64 240
   %335 = load i32, ptr %334, align 8
   %.not178 = icmp eq i32 %335, 0
@@ -4731,7 +4731,7 @@ erf_dump_priv_compare_capture_comment.exit:       ; preds = %217, %259, %.thread
   %347 = load i16, ptr %346, align 2
   %348 = zext i16 %347 to i64
   %349 = add i64 %345, %348
-  %350 = call fastcc i32 @erf_write_phdr(ptr noundef %0, ptr noundef %.1150, ptr noundef %3)
+  %350 = call fastcc i32 @erf_write_phdr.argelim(ptr noundef %0, ptr noundef %.1150, ptr noundef %3)
   %.not181 = icmp eq i32 %350, 0
   br i1 %.not181, label %.loopexit, label %351
 
@@ -4811,11 +4811,11 @@ define internal range(i32 0, 2) i32 @erf_dump_finish(ptr noundef %0, ptr noundef
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %5, i64 64
   %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @erf_comment_to_sections(i16 noundef zeroext -256, i16 noundef zeroext 0, ptr noundef %20, ptr noundef %11)
+  tail call fastcc void @erf_comment_to_sections.argprom.retelim(i16 noundef zeroext -256, i16 noundef zeroext 0, ptr noundef %20, ptr noundef %11)
   br label %22
 
 21:                                               ; preds = %15, %10
-  tail call fastcc void @erf_wtap_info_to_sections(ptr noundef nonnull %0, ptr noundef %11)
+  tail call fastcc void @erf_wtap_info_to_sections.retelim(ptr noundef nonnull %0, ptr noundef %11)
   br label %22
 
 22:                                               ; preds = %18, %21, %7
@@ -4893,7 +4893,7 @@ define internal void @erf_meta_section_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_comment_to_sections(i16 noundef zeroext range(i16 -256, -249) %0, i16 noundef zeroext range(i16 -32768, 1) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @erf_comment_to_sections.argprom.retelim(i16 noundef zeroext range(i16 -256, -249) %0, i16 noundef zeroext range(i16 -32768, 1) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #14
   store i16 %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
@@ -5064,7 +5064,7 @@ define internal fastcc range(i32 0, 2) i32 @erf_write_meta_record(ptr noundef %0
   %60 = load i64, ptr %59, align 8
   %61 = zext nneg i32 %35 to i64
   %62 = add i64 %60, %61
-  %63 = call fastcc i32 @erf_write_phdr(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %5)
+  %63 = call fastcc i32 @erf_write_phdr.argelim(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %5)
   %.not56 = icmp eq i32 %63, 0
   br i1 %.not56, label %.loopexit, label %64
 
@@ -5215,7 +5215,7 @@ erf_meta_write_section.exit:                      ; preds = %110, %74, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_wtap_info_to_sections(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @erf_wtap_info_to_sections.retelim(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5709,7 +5709,7 @@ erf_append_ext_hdr_to_list.exit133:               ; preds = %148, %158
 
 166:                                              ; preds = %._crit_edge156, %165
   %167 = phi ptr [ %.pre, %._crit_edge156 ], [ null, %165 ]
-  call fastcc void @erf_comment_to_sections(i16 noundef zeroext -250, i16 noundef zeroext -32768, ptr noundef %167, ptr noundef %161)
+  call fastcc void @erf_comment_to_sections.argprom.retelim(i16 noundef zeroext -250, i16 noundef zeroext -32768, ptr noundef %167, ptr noundef %161)
   %168 = load i64, ptr %3, align 8
   %169 = call fastcc i32 @erf_write_meta_record(ptr noundef %0, ptr noundef %1, i64 noundef %168, ptr noundef %161, ptr noundef %123, ptr noundef %4)
   %170 = call ptr @g_ptr_array_free(ptr noundef %161, i32 noundef 1) #15
@@ -5722,7 +5722,7 @@ erf_append_ext_hdr_to_list.exit133:               ; preds = %148, %158
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @erf_write_phdr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @erf_write_phdr.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [152 x i8], align 16
   %5 = alloca [4 x i8], align 2
   %6 = alloca [128 x i8], align 16

@@ -2344,7 +2344,7 @@ for.body99:                                       ; preds = %for.cond97.preheade
   br i1 %exitcond.not, label %if.end136, label %for.body99, !llvm.loop !17
 
 if.end136:                                        ; preds = %for.body99, %for.body, %for.cond97.preheader, %for.cond.preheader
-  call fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr noundef %out, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef %icc, ptr noundef %whitepoint)
+  call fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_.retelim(ptr noundef %out, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef %icc, ptr noundef %whitepoint)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end10, %if.then, %if.end136
@@ -3640,7 +3640,7 @@ if.end49:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr nocapture noundef %im, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %info, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc, ptr nocapture noundef writeonly %whitepoint) unnamed_addr #10 {
+define internal fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_.retelim(ptr nocapture noundef %im, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %info, i32 noundef range(i32 0, 2) %use_icc, ptr nocapture noundef nonnull readonly %icc, ptr nocapture noundef writeonly %whitepoint) unnamed_addr #10 {
 entry:
   %m = alloca [9 x float], align 16
   %mul = mul i32 %h, %w
@@ -4085,7 +4085,7 @@ for.inc74.i:                                      ; preds = %cond.end66.i
   br i1 %exitcond67.not.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit, label %for.cond52.preheader.i, !llvm.loop !38
 
 _ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit: ; preds = %for.inc18.i, %for.inc45.i, %for.inc74.i, %for.end.thread.i, %if.then23.i, %if.then25.i, %if.else48.i
-  call fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr noundef %out, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef %icc, ptr noundef %whitepoint)
+  call fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_.retelim(ptr noundef %out, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef %icc, ptr noundef %whitepoint)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then, %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
@@ -4316,7 +4316,7 @@ if.then7:                                         ; preds = %if.end6
   %6 = load float, ptr %arrayidx12, align 4
   %arrayidx13 = getelementptr inbounds i8, ptr %white, i64 8
   %7 = load float, ptr %arrayidx13, align 4
-  call fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr noundef %a, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7)
+  call fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff.argelim(ptr noundef %a, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7)
   %8 = load float, ptr %a, align 16
   %conv.i = fpext float %8 to double
   %arrayidx4.i = getelementptr inbounds i8, ptr %a, i64 12
@@ -6377,7 +6377,7 @@ for.cond36.preheader.i:                           ; preds = %if.then.i
   %8 = load float, ptr %arrayidx13.i, align 4
   %arrayidx15.i = getelementptr inbounds i8, ptr %icc, i64 80
   %9 = load float, ptr %arrayidx15.i, align 8
-  call fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr noundef %a.i, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9)
+  call fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff.argelim(ptr noundef %a.i, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9)
   %.pre.i = load float, ptr %a.i, align 16
   %.pre115.i = load float, ptr %arrayidx1.i45.phi.trans.insert.i, align 4
   %arrayidx4.i48.phi.trans.insert.i = getelementptr inbounds i8, ptr %a.i, i64 8
@@ -6938,7 +6938,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr nocapture noundef nonnull %m, float noundef %wx0, float noundef %wy0, float noundef %wz0, float noundef %wx1, float noundef %wy1, float noundef %wz1) unnamed_addr #10 {
+define internal fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff.argelim(ptr nocapture noundef nonnull %m, float noundef %wx0, float noundef %wy0, float noundef %wz0, float noundef %wx1, float noundef %wy1, float noundef %wz1) unnamed_addr #10 {
 entry:
   %conv = fpext float %wx0 to double
   %conv14 = fpext float %wy0 to double

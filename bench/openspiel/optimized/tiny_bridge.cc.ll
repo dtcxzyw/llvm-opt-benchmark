@@ -4443,7 +4443,7 @@ common.resume:                                    ; preds = %34, %.body.i, %.bod
   br i1 %.not.i.i, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_130ChanceOutcomeToHandAbstractionEi.exit.i, label %31
 
 31:                                               ; preds = %29
-  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv()
+  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv.argprom()
           to label %32 unwind label %34, !noalias !21
 
 32:                                               ; preds = %31
@@ -8165,7 +8165,7 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %.not.i, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_130ChanceOutcomeToHandAbstractionEi.exit, label %67
 
 67:                                               ; preds = %65
-  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv()
+  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv.argprom()
           to label %68 unwind label %70
 
 68:                                               ; preds = %67
@@ -8580,7 +8580,7 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %.not.i, label %_ZN10open_spiel11tiny_bridge12_GLOBAL__N_130ChanceOutcomeToHandAbstractionEi.exit, label %68
 
 68:                                               ; preds = %66
-  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv()
+  invoke fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv.argprom()
           to label %69 unwind label %71
 
 69:                                               ; preds = %68
@@ -12967,7 +12967,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt6vectorIN10ope
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel11tiny_bridge12_GLOBAL__N_118ConcreteToAbstractEv.argprom() unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %0 = alloca %"class.absl::debian2::string_view", align 8
   %1 = alloca %"class.std::__cxx11::basic_string", align 8

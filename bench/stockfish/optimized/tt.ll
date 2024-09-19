@@ -183,16 +183,16 @@ define dso_local void @_ZN9Stockfish18TranspositionTable5clearEm(ptr noundef non
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.5.029, ptr noundef nonnull %4, ptr noundef null) #18
   %8 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i: ; preds = %5
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #18
-  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i"
+  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i"
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %5
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit"
 
@@ -239,23 +239,23 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %23, %_
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %3, ptr noundef null) #18
   %30 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #18
-  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
+  br label %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i"
 
-"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
+"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i": ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not10.i.i.i.i.i = icmp eq ptr %.sroa.020.030, %.sroa.5.029
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i", %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i ], [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
-  %.0911.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i", %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i ], [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i" ]
+  %.0911.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %34 = load i64, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !8, !noalias !5
@@ -266,8 +266,8 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %_
   %.not.i.i.i.i3.i = icmp eq ptr %35, %.sroa.5.029
   br i1 %.not.i.i.i.i3.i, label %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
-_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i"
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i.i" ], [ %36, %.lr.ph.i.i.i.i.i ]
+_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i"
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %26, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i.i" ], [ %36, %.lr.ph.i.i.i.i.i ]
   %.not.i23.i.i = icmp eq ptr %.sroa.020.030, null
   br i1 %.not.i23.i.i, label %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", label %37
 
@@ -279,10 +279,10 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds =
   %38 = getelementptr inbounds %"class.std::thread", ptr %26, i64 %22
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit"
 
-"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i", %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
-  %.sroa.11.1 = phi ptr [ %38, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.11.028, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
-  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.5.029, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
-  %.sroa.020.1 = phi ptr [ %26, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.exit.i" ]
+"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEERS0_DpOT_.exit": ; preds = %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i", %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i"
+  %.sroa.11.1 = phi ptr [ %38, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.11.028, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i" ]
+  %.0.lcssa.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.5.029, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i" ]
+  %.sroa.020.1 = phi ptr [ %26, %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i" ], [ %.sroa.020.030, %"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN9Stockfish18TranspositionTable5clearEmE3$_0EEEvRS1_PT_DpOT0_.argprom.exit.i" ]
   %.sroa.5.1 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.pn, i64 8
   %39 = add nuw i64 %.031, 1
   %exitcond.not = icmp eq i64 %39, %1

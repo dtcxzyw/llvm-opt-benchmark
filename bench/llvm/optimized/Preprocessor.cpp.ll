@@ -8676,13 +8676,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceL
   %89 = call noalias noundef nonnull ptr @_Znam(i64 noundef %88) #28, !noalias !137
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %89, i8 0, i64 %88, i1 false), !noalias !137
   %.not.i.i.i.i.i.i = icmp eq i64 %83, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit", label %90
+  br i1 %.not.i.i.i.i.i.i, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit", label %90
 
 90:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr readonly align 8 %82, i64 %87, i1 false)
-  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit"
+  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit"
 
-"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit": ; preds = %84, %90
+"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit": ; preds = %84, %90
   %91 = trunc i64 %83 to i32
   call void @_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull %89, i32 noundef %91, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #29
   br label %314
@@ -8821,13 +8821,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i, %
   %167 = call noalias noundef nonnull ptr @_Znam(i64 noundef %166) #28, !noalias !146
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %167, i8 0, i64 %166, i1 false), !noalias !146
   %.not.i.i.i.i.i.i66 = icmp eq i64 %162, 0
-  br i1 %.not.i.i.i.i.i.i66, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67", label %168
+  br i1 %.not.i.i.i.i.i.i66, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67", label %168
 
 168:                                              ; preds = %156
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %167, ptr readonly align 8 %161, i64 %165, i1 false)
-  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67"
+  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67"
 
-"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67": ; preds = %156, %168
+"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67": ; preds = %156, %168
   %169 = trunc i64 %162 to i32
   call void @_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull %167, i32 noundef %169, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #29
   br label %314
@@ -8842,13 +8842,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i, %
   %177 = call noalias noundef nonnull ptr @_Znam(i64 noundef %176) #28, !noalias !149
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %177, i8 0, i64 %176, i1 false), !noalias !149
   %.not.i.i.i.i.i.i68 = icmp eq i64 %172, 0
-  br i1 %.not.i.i.i.i.i.i68, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69", label %178
+  br i1 %.not.i.i.i.i.i.i68, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69", label %178
 
 178:                                              ; preds = %170
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %171, i64 %175, i1 false)
-  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69"
+  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69"
 
-"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69": ; preds = %170, %178
+"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69": ; preds = %170, %178
   %179 = trunc i64 %172 to i32
   call void @_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull %177, i32 noundef %179, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #29
   br label %314
@@ -8931,7 +8931,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceL
   br i1 %.not125, label %219, label %218
 
 218:                                              ; preds = %210
-  call fastcc void @"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE"(ptr nonnull %0, ptr %216, i64 %217)
+  call fastcc void @"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom"(ptr nonnull %0, ptr %216, i64 %217)
   br label %314
 
 219:                                              ; preds = %210
@@ -9096,24 +9096,24 @@ _ZNK5clang12Preprocessor28isInImportingCXXNamedModulesEv.exit.thread: ; preds = 
   %310 = call noalias noundef nonnull ptr @_Znam(i64 noundef %309) #28, !noalias !152
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %310, i8 0, i64 %309, i1 false), !noalias !152
   %.not.i.i.i.i.i.i83 = icmp eq i64 %305, 0
-  br i1 %.not.i.i.i.i.i.i83, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit84", label %311
+  br i1 %.not.i.i.i.i.i.i83, label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit84", label %311
 
 311:                                              ; preds = %303
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %310, ptr readonly align 8 %304, i64 %308, i1 false)
-  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit84"
+  br label %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit84"
 
-"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit84": ; preds = %303, %311
+"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit84": ; preds = %303, %311
   %312 = trunc i64 %305 to i32
   call void @_ZN5clang12Preprocessor16EnterTokenStreamEPKNS_5TokenEjbbb(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef nonnull %310, i32 noundef %312, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #29
   br label %313
 
-313:                                              ; preds = %301, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit84"
+313:                                              ; preds = %301, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit84"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #29
   br label %314
 
-314:                                              ; preds = %208, %.thread, %313, %218, %205, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69", %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67", %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit"
-  %315 = phi ptr [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit" ], [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69" ], [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67" ], [ %181, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74 ], [ %181, %218 ], [ %181, %313 ], [ %181, %205 ], [ %181, %208 ], [ %181, %.thread ]
-  %.1 = phi i1 [ false, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit" ], [ false, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit69" ], [ true, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.exit67" ], [ true, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74 ], [ false, %218 ], [ %302, %313 ], [ true, %205 ], [ true, %208 ], [ true, %.thread ]
+314:                                              ; preds = %208, %.thread, %313, %218, %205, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69", %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67", %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit"
+  %315 = phi ptr [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit" ], [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69" ], [ %75, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67" ], [ %181, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74 ], [ %181, %218 ], [ %181, %313 ], [ %181, %205 ], [ %181, %208 ], [ %181, %.thread ]
+  %.1 = phi i1 [ false, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit" ], [ false, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit69" ], [ true, %"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom.exit67" ], [ true, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EE9push_backES6_.exit74 ], [ false, %218 ], [ %302, %313 ], [ true, %205 ], [ true, %208 ], [ true, %.thread ]
   %316 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   %317 = load ptr, ptr %7, align 8
   %318 = icmp eq ptr %317, %315
@@ -9179,7 +9179,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE28reserveForParamAndGetAddr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE"(ptr %.0.val, ptr nocapture readonly %0, i64 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang12Preprocessor20LexAfterModuleImportERNS_5TokenEENK3$_0clEN4llvm8ArrayRefIS1_EE.argprom"(ptr %.0.val, ptr nocapture readonly %0, i64 %1) unnamed_addr #0 align 2 {
   %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 24)
   %4 = extractvalue { i64, i1 } %3, 1
   %5 = extractvalue { i64, i1 } %3, 0
@@ -15329,12 +15329,12 @@ _ZNK5clang12Preprocessor4DiagENS_14SourceLocationEj.exit.i: ; preds = %.lr.ph.i.
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %38, %_ZNK5clang12Preprocessor4DiagENS_14SourceLocationEj.exit.i
   %43 = load ptr, ptr %7, align 8
   %.not.i.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.exit", label %44
+  br i1 %.not.i.i.i.i, label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.argprom.argprom.exit", label %44
 
 44:                                               ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
   %45 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i.i, label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.exit", label %46
+  br i1 %.not.i.i.i.i.i, label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.argprom.argprom.exit", label %46
 
 46:                                               ; preds = %44
   %47 = icmp uge ptr %43, %45
@@ -15351,14 +15351,14 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %38, %_ZNK5clang12Pr
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds [16 x ptr], ptr %48, i64 0, i64 %54
   store ptr %43, ptr %55, align 8
-  br label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.exit"
+  br label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.argprom.argprom.exit"
 
 56:                                               ; preds = %46
   call void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %43) #29
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef 928) #30
-  br label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.exit"
+  br label %"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.argprom.argprom.exit"
 
-"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.exit": ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i, %44, %50, %56
+"_ZZN5clang12Preprocessor17makeModuleVisibleEPNS_6ModuleENS_14SourceLocationEENK3$_1clEN4llvm8ArrayRefIS2_EES2_NS5_9StringRefE.argprom.argprom.exit": ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i, %44, %50, %56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)

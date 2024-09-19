@@ -522,7 +522,7 @@ target triple = "x86_64-pc-linux-gnu"
 @bscvlc_header_flags = internal constant [5 x ptr] [ptr @hf_bscvlc_header_opt_type, ptr @hf_bscvlc_header_opt_data, ptr @hf_bscvlc_header_opt_must_understand, ptr @hf_bscvlc_header_opt_more, ptr null], align 16
 @.str.420 = private unnamed_addr constant [13 x i8] c"Data Options\00", align 1
 @.str.421 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@switch.table.dissect_ipv6_bvlc = private unnamed_addr constant [13 x i32] [i32 9, i32 10, i32 7, i32 10, i32 28, i32 10, i32 7, i32 10, i32 25, i32 9, i32 25, i32 4, i32 7], align 4
+@switch.table.dissect_ipv6_bvlc.argprom = private unnamed_addr constant [13 x i32] [i32 9, i32 10, i32 7, i32 10, i32 28, i32 10, i32 7, i32 10, i32 25, i32 9, i32 25, i32 4, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_bvlc() local_unnamed_addr #0 {
@@ -580,11 +580,11 @@ define internal i32 @dissect_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 13:                                               ; preds = %9
-  %14 = tail call fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %14 = tail call fastcc i32 @dissect_ipv4_bvlc.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %17
 
 15:                                               ; preds = %9
-  %16 = tail call fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %16 = tail call fastcc i32 @dissect_ipv6_bvlc.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %17
 
 17:                                               ; preds = %9, %13, %15, %4
@@ -1097,7 +1097,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ipv4_bvlc.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
@@ -1236,7 +1236,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br label %102
 
 87:                                               ; preds = %81
-  %88 = tail call fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %88 = tail call fastcc i32 @dissect_ipv4_bvlc.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %.loopexit
 
 89:                                               ; preds = %32
@@ -1268,7 +1268,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ipv6_bvlc.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
@@ -1283,7 +1283,7 @@ define internal fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %3
   %11 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.dissect_ipv6_bvlc, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table.dissect_ipv6_bvlc.argprom, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = zext i16 %6 to i32
   %13 = icmp ugt i32 %switch.load, %12
@@ -1385,7 +1385,7 @@ switch.lookup:                                    ; preds = %3
   br label %79
 
 68:                                               ; preds = %.thread3
-  %69 = tail call fastcc i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %69 = tail call fastcc i32 @dissect_ipv6_bvlc.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   br label %70
 
 70:                                               ; preds = %34, %68, %58, %55, %50, %43, %40, %37

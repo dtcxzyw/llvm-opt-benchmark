@@ -952,7 +952,7 @@ subdivideLine.exit355.thread:                     ; preds = %subdivideLine.exit3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 0, 2) i8 @subdivideLine.argelim(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #1 {
   %6 = fcmp olt float %1, %3
   %. = select i1 %6, float %1, float %3
   %.41 = select i1 %6, float %3, float %1
@@ -2603,7 +2603,7 @@ GetSpanData.exit:                                 ; preds = %17
   br i1 %or.cond224, label %.thread212._crit_edge, label %.critedge204
 
 .thread212._crit_edge:                            ; preds = %.thread212
-  %217 = tail call fastcc zeroext i8 @subdivideLine(ptr noundef nonnull %18, float noundef %212, float noundef %.pre, float noundef %214, float noundef %.pre222)
+  %217 = tail call fastcc zeroext i8 @subdivideLine.argelim(ptr noundef nonnull %18, float noundef %212, float noundef %.pre, float noundef %214, float noundef %.pre222)
   %.not197 = icmp eq i8 %217, 0
   br i1 %.not197, label %223, label %218
 

@@ -2950,9 +2950,9 @@ if.end2.i:                                        ; preds = %_ZN6icu_755units6Fa
   %singleUnits.i = getelementptr inbounds i8, ptr %source, i64 8
   %25 = load i32, ptr %singleUnits.i, align 8
   %cmp4.i = icmp eq i32 %25, 0
-  br i1 %cmp4.i, label %land.lhs.true, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
+  br i1 %cmp4.i, label %land.lhs.true, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit
 
-_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit: ; preds = %if.end2.i
+_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit: ; preds = %if.end2.i
   %fPool.i.i = getelementptr inbounds i8, ptr %source, i64 16
   %26 = load ptr, ptr %fPool.i.i, align 8
   %27 = load ptr, ptr %26, align 8
@@ -2973,13 +2973,13 @@ land.lhs.true:                                    ; preds = %if.end2.i
   %cmp.not.i57.old = icmp eq i32 %.old, 0
   br i1 %cmp.not.i57.old, label %if.end2.i60, label %if.end17
 
-if.end2.i60:                                      ; preds = %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit, %land.lhs.true
+if.end2.i60:                                      ; preds = %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit, %land.lhs.true
   %singleUnits.i61 = getelementptr inbounds i8, ptr %target, i64 8
   %29 = load i32, ptr %singleUnits.i61, align 8
   %cmp4.i62 = icmp eq i32 %29, 0
-  br i1 %cmp4.i62, label %if.then9, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
+  br i1 %cmp4.i62, label %if.then9, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit73
 
-_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73: ; preds = %if.end2.i60
+_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit73: ; preds = %if.end2.i60
   %fPool.i.i64 = getelementptr inbounds i8, ptr %target, i64 16
   %30 = load ptr, ptr %fPool.i.i64, align 8
   %31 = load ptr, ptr %30, align 8
@@ -2992,7 +2992,7 @@ _ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UError
   %or.cond.not.i71.not = select i1 %cmp9.i69, i1 true, i1 %cmp10.i70
   br i1 %or.cond.not.i71.not, label %if.end17, label %if.then9
 
-if.then9:                                         ; preds = %if.end2.i60, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
+if.then9:                                         ; preds = %if.end2.i60, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit73
   %mul = fmul double %1, %4
   %div = fdiv double %mul, %0
   %sourceOffset = getelementptr inbounds i8, ptr %conversionRate, i64 344
@@ -3003,7 +3003,7 @@ if.then9:                                         ; preds = %if.end2.i60, %_ZN6i
   store double %div16, ptr %targetOffset, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %land.lhs.true, %_ZN6icu_755units6Factor19substituteConstantsEv.exit, %if.then9, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
+if.end17:                                         ; preds = %land.lhs.true, %_ZN6icu_755units6Factor19substituteConstantsEv.exit, %if.then9, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit73, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.argprom.exit
   %cmp18 = icmp eq i32 %unitsState, 0
   %reciprocal = getelementptr inbounds i8, ptr %conversionRate, i64 360
   %frombool = zext i1 %cmp18 to i8

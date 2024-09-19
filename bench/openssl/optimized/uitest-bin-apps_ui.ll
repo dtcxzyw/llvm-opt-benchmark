@@ -307,7 +307,7 @@ if.then17:                                        ; preds = %if.end11
   %conv.i = sext i32 %bufsiz to i64
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv.i, ptr noundef nonnull @.str.4, i32 noundef 154) #5
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.then.i, label %ui_malloc.exit
+  br i1 %cmp.i, label %if.then.i, label %ui_malloc.argprom.exit
 
 if.then.i:                                        ; preds = %if.then17
   %3 = load ptr, ptr @bio_err, align 8
@@ -317,13 +317,13 @@ if.then.i:                                        ; preds = %if.then17
   tail call void @exit(i32 noundef 1) #6
   unreachable
 
-ui_malloc.exit:                                   ; preds = %if.then17
+ui_malloc.argprom.exit:                           ; preds = %if.then17
   %call20 = tail call i32 @UI_add_verify_string(ptr noundef nonnull %call, ptr noundef nonnull %call7, i32 noundef 2, ptr noundef nonnull %call.i, i32 noundef 4, i32 noundef %sub, ptr noundef %buf) #5
   br label %if.end21
 
-if.end21:                                         ; preds = %ui_malloc.exit, %if.end11
-  %ok.0 = phi i32 [ %call20, %ui_malloc.exit ], [ %call14, %if.end11 ]
-  %buff.0 = phi ptr [ %call.i, %ui_malloc.exit ], [ null, %if.end11 ]
+if.end21:                                         ; preds = %ui_malloc.argprom.exit, %if.end11
+  %ok.0 = phi i32 [ %call20, %ui_malloc.argprom.exit ], [ %call14, %if.end11 ]
+  %buff.0 = phi ptr [ %call.i, %ui_malloc.argprom.exit ], [ null, %if.end11 ]
   %cmp22 = icmp sgt i32 %ok.0, -1
   br i1 %cmp22, label %do.body, label %if.end34
 

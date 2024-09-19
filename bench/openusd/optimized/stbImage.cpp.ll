@@ -759,7 +759,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %42
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = mul nsw i32 %92, %34
-  invoke fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %91, i32 noundef %92, i32 noundef %94, i32 noundef %95, i32 noundef %89)
+  invoke fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %91, i32 noundef %92, i32 noundef %94, i32 noundef %95, i32 noundef %89)
           to label %108 unwind label %46
 
 96:                                               ; preds = %.thread76, %85
@@ -775,11 +775,11 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %42
   br i1 %98, label %106, label %107
 
 106:                                              ; preds = %96
-  invoke fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %100, i32 noundef %101, i32 noundef %103, i32 noundef %104, i32 noundef %105)
+  invoke fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout.retelim(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %100, i32 noundef %101, i32 noundef %103, i32 noundef %104, i32 noundef %105)
           to label %108 unwind label %46
 
 107:                                              ; preds = %96
-  invoke fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %100, i32 noundef %101, i32 noundef %103, i32 noundef %104, i32 noundef %105)
+  invoke fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef %.064, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %100, i32 noundef %101, i32 noundef %103, i32 noundef %104, i32 noundef %105)
           to label %108 unwind label %46
 
 108:                                              ; preds = %107, %106, %88, %._crit_edge
@@ -887,7 +887,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12Hio_StbImage1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.STBIR_RESIZE, align 8
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds [17 x i32], ptr @_ZL46stbir__pixel_layout_convert_public_to_internal, i64 0, i64 %11
@@ -992,7 +992,7 @@ _ZL25stbir__check_output_stuffPPvPiS_iiii27stbir_internal_pixel_layout.exit.thre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.STBIR_RESIZE, align 8
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds [17 x i32], ptr @_ZL46stbir__pixel_layout_convert_public_to_internal, i64 0, i64 %11
@@ -1098,7 +1098,7 @@ _ZL25stbir__check_output_stuffPPvPiS_iiii27stbir_internal_pixel_layout.exit.thre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.STBIR_RESIZE, align 8
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds [17 x i32], ptr @_ZL46stbir__pixel_layout_convert_public_to_internal, i64 0, i64 %11
@@ -1439,7 +1439,7 @@ _ZL15stbi__jpeg_infoP13stbi__contextPiS1_S1_.exit.i.i: ; preds = %.noexc
   store ptr %10, ptr %9, align 8
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store float 0.000000e+00, ptr %84, align 4
-  %85 = invoke fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %9, i32 noundef 2)
+  %85 = invoke fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii.argelim(ptr noundef %9, i32 noundef 2)
           to label %.noexc16 unwind label %211
 
 .noexc16:                                         ; preds = %83
@@ -2237,11 +2237,11 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12Hio_StbImage11
   br i1 %.not.i.i, label %77, label %75
 
 75:                                               ; preds = %.noexc
-  %76 = invoke fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %11, ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  %76 = invoke fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.argelim(ptr noundef %11, ptr noundef %61, ptr noundef %62, ptr noundef %63)
           to label %124 unwind label %151
 
 77:                                               ; preds = %.noexc
-  %78 = invoke fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef %11, ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  %78 = invoke fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i.argelim(ptr noundef %11, ptr noundef %61, ptr noundef %62, ptr noundef %63)
           to label %.noexc81 unwind label %151
 
 .noexc81:                                         ; preds = %77
@@ -2456,7 +2456,7 @@ _ZL19stbi__vertical_flipPviii.exit:               ; preds = %._crit_edge.i, %128
   store ptr %65, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 200
   store ptr %65, ptr %160, align 8
-  %161 = invoke fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef %9, ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  %161 = invoke fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i.argelim(ptr noundef %9, ptr noundef %61, ptr noundef %62, ptr noundef %63)
           to label %162 unwind label %151
 
 162:                                              ; preds = %153
@@ -2686,7 +2686,7 @@ _ZL19stbi__vertical_flipPviii.exit96:             ; preds = %._crit_edge.i93, %1
   %274 = load i32, ptr %5, align 8
   %275 = load i32, ptr %234, align 4
   %276 = mul nsw i32 %274, %227
-  invoke fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout(ptr noundef nonnull %.067, i32 noundef %270, i32 noundef %271, i32 noundef %230, ptr noundef %273, i32 noundef %274, i32 noundef %275, i32 noundef %276, i32 noundef %266)
+  invoke fastcc void @_ZL23stbir_resize_uint8_srgbPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef nonnull %.067, i32 noundef %270, i32 noundef %271, i32 noundef %230, ptr noundef %273, i32 noundef %274, i32 noundef %275, i32 noundef %276, i32 noundef %266)
           to label %290 unwind label %151
 
 277:                                              ; preds = %.thread109, %265
@@ -2703,11 +2703,11 @@ _ZL19stbi__vertical_flipPviii.exit96:             ; preds = %._crit_edge.i93, %1
   br i1 %280, label %288, label %289
 
 288:                                              ; preds = %277
-  invoke fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout(ptr noundef nonnull %.067, i32 noundef %281, i32 noundef %282, i32 noundef %230, ptr noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %287, i32 noundef %278)
+  invoke fastcc void @_ZL25stbir_resize_float_linearPKfiiiPfiii18stbir_pixel_layout.retelim(ptr noundef nonnull %.067, i32 noundef %281, i32 noundef %282, i32 noundef %230, ptr noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %287, i32 noundef %278)
           to label %290 unwind label %151
 
 289:                                              ; preds = %277
-  invoke fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout(ptr noundef nonnull %.067, i32 noundef %281, i32 noundef %282, i32 noundef %230, ptr noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %287, i32 noundef %278)
+  invoke fastcc void @_ZL25stbir_resize_uint8_linearPKhiiiPhiii18stbir_pixel_layout.retelim(ptr noundef nonnull %.067, i32 noundef %281, i32 noundef %282, i32 noundef %230, ptr noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef %287, i32 noundef %278)
           to label %290 unwind label %151
 
 290:                                              ; preds = %289, %288, %269
@@ -3575,13 +3575,13 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %301 = getelementptr inbounds i8, ptr %.sroa.speculated, i64 %300
   %302 = getelementptr inbounds i8, ptr %.sroa.speculated, i64 %299
   %303 = icmp sgt i32 %215, 0
-  br i1 %303, label %.preheader276.lr.ph.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i
+  br i1 %303, label %.preheader276.lr.ph.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i
 
 .preheader276.lr.ph.i.i:                          ; preds = %255
   %304 = icmp sgt i32 %214, 0
   %305 = add nsw i32 %215, -1
   %306 = add nsw i32 %214, -1
-  br i1 %304, label %.preheader276.us.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i
+  br i1 %304, label %.preheader276.us.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i
 
 .preheader276.us.i.i:                             ; preds = %.preheader276.lr.ph.i.i, %._crit_edge.us.i.i
   %indvars.iv334.i.i = phi i32 [ %indvars.iv.next335.i.i, %._crit_edge.us.i.i ], [ 8, %.preheader276.lr.ph.i.i ]
@@ -3661,15 +3661,15 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not.us.i.i, label %.preheader.split.us.us.i.i, label %.preheader.split.us307.i.i
 
 .split.us301.i.i:                                 ; preds = %311, %358
-  %350 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %6, i32 noundef %.3293.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YAC_HT)
+  %350 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_.argelim(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %6, i32 noundef %.3293.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE6YAC_HT)
           to label %.noexc101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc101:                                        ; preds = %.split.us301.i.i
-  %351 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %14, ptr noundef %7, i32 noundef %.3240292.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
+  %351 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_.argelim(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %14, ptr noundef %7, i32 noundef %.3240292.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc102:                                        ; preds = %.noexc101
-  %352 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %15, ptr noundef %7, i32 noundef %.3244291.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
+  %352 = invoke fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_.argelim(ptr noundef readonly %16, ptr noundef %11, ptr noundef %12, ptr noundef %15, ptr noundef %7, i32 noundef %.3244291.us.i.i, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVDC_HT, ptr noundef nonnull @_ZZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKviE7UVAC_HT)
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc103:                                        ; preds = %.noexc102
@@ -3744,7 +3744,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
 ._crit_edge300.i.i:                               ; preds = %._crit_edge.us.i.i
   %.pre343.i.i = load i32, ptr %12, align 4
   %398 = icmp sgt i32 %.pre343.i.i, 0
-  br i1 %398, label %.lr.ph.i.i.preheader.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i
+  br i1 %398, label %.lr.ph.i.i.preheader.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %._crit_edge300.i.i
   %399 = sub nsw i32 17, %.pre343.i.i
@@ -3771,15 +3771,15 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
 407:                                              ; preds = %406, %.lr.ph.i.i.i
   %408 = add nsw i32 %.0181.i.i.i, -8
   %409 = icmp sgt i32 %.0181.i.i.i, 15
-  br i1 %409, label %.lr.ph.i.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i, !llvm.loop !34
+  br i1 %409, label %.lr.ph.i.i.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i: ; preds = %407, %._crit_edge300.i.i, %.preheader276.lr.ph.i.i, %255
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i: ; preds = %407, %._crit_edge300.i.i, %.preheader276.lr.ph.i.i, %255
   %fputc28.i = call i32 @fputc(i32 -1, ptr %218)
   %fputc30.i = call i32 @fputc(i32 -39, ptr %218)
   br label %_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi.exit.i
 
-_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi.exit.i: ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i, %220
-  %.0.i.i = phi i32 [ 1, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit.i.i ], [ 0, %220 ]
+_ZL19stbi_write_jpg_coreP19stbi__write_contextiiiPKvi.exit.i: ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i, %220
+  %.0.i.i = phi i32 [ 1, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit.i.i ], [ 0, %220 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
@@ -7486,16 +7486,16 @@ _ZL29stbir__get_filter_pixel_widthPFffPvEfS_.exit.i28.i: ; preds = %121, %117
   %137 = tail call noundef float %112(float noundef %115, ptr noundef %76)
   %138 = fmul float %137, 2.000000e+00
   %139 = fdiv float %138, %115
-  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i
+  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i33.i
 
 140:                                              ; preds = %_ZL29stbir__get_filter_pixel_widthPFffPvEfS_.exit.i28.i
   store i32 1, ptr %135, align 8
   %141 = fdiv float 1.000000e+00, %115
   %142 = tail call noundef float %112(float noundef %141, ptr noundef %76)
   %143 = fmul float %142, 2.000000e+00
-  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i
+  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i33.i
 
-_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i: ; preds = %140, %136
+_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i33.i: ; preds = %140, %136
   %.sink10.i.i34.i = phi float [ %139, %136 ], [ %143, %140 ]
   %144 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %.sink10.i.i34.i, i64 0
   %145 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %144)
@@ -7512,7 +7512,7 @@ _ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i: ; preds = %140
   %155 = icmp eq i32 %75, 2
   br i1 %155, label %156, label %161
 
-156:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i
+156:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i33.i
   %157 = load i32, ptr %37, align 8
   %158 = mul nsw i32 %157, 3
   %159 = icmp slt i32 %158, %.0.i.i30.i
@@ -7522,7 +7522,7 @@ _ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i: ; preds = %140
   store i32 %158, ptr %134, align 8
   br label %164
 
-161:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i33.i
+161:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i33.i
   %162 = sdiv i32 %.0.i.i30.i, 2
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 %162, ptr %163, align 4
@@ -7907,21 +7907,21 @@ _ZL29stbir__get_filter_pixel_widthPFffPvEfS_.exit.i.i: ; preds = %389, %385
   %407 = fdiv float 1.000000e+00, %383
   %408 = tail call noundef float %.val7282.i.i(float noundef %407, ptr noundef %345)
   %409 = fmul float %408, 2.000000e+00
-  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i
+  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i
 
 410:                                              ; preds = %404
   store i32 2, ptr %403, align 8
   %411 = tail call noundef float %.val7282.i.i(float noundef %383, ptr noundef %345)
   %412 = fmul float %411, 2.000000e+00
   %413 = fdiv float %412, %383
-  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i
+  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i
 
 414:                                              ; preds = %404
   %415 = tail call noundef float %.val7282.i.i(float noundef %383, ptr noundef %345)
   %416 = fmul float %415, 2.000000e+00
-  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i
+  br label %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i
 
-_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i: ; preds = %414, %410, %406
+_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i: ; preds = %414, %410, %406
   %.not.i.i15.i = phi i1 [ true, %414 ], [ false, %410 ], [ false, %406 ]
   %.not.i.i.i = phi i64 [ 0, %414 ], [ 1, %410 ], [ 1, %406 ]
   %.not344.i.i = phi i1 [ false, %414 ], [ true, %410 ], [ true, %406 ]
@@ -7942,7 +7942,7 @@ _ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i: ; preds = %414, 
   %429 = icmp eq i32 %344, 2
   br i1 %429, label %430, label %435
 
-430:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i
+430:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i
   %431 = load i32, ptr %50, align 8
   %432 = mul nsw i32 %431, 3
   %433 = icmp slt i32 %432, %.0.i.i14.i
@@ -7952,7 +7952,7 @@ _ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i: ; preds = %414, 
   store i32 %432, ptr %402, align 8
   br label %438
 
-435:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.exit.i.i
+435:                                              ; preds = %_ZL28stbir__get_coefficient_widthP14stbir__sampleriPv.argprom.exit.i.i
   %436 = sdiv i32 %.0.i.i14.i, 2
   %437 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %436, ptr %437, align 4
@@ -8122,26 +8122,26 @@ _ZL20stbir__get_max_splitii.exit.i.i:             ; preds = %.lr.ph.i.i.i, %sele
 528:                                              ; preds = %520
   %529 = icmp slt i32 %67, %64
   %530 = select i1 %529, i64 6, i64 7
-  br label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
+  br label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
 
 531:                                              ; preds = %520
   %532 = fcmp ugt float %383, 1.000000e+00
-  br i1 %532, label %533, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
+  br i1 %532, label %533, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
 
 533:                                              ; preds = %531
   %534 = fcmp ugt float %383, 2.000000e+00
-  br i1 %534, label %535, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
+  br i1 %534, label %535, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
 
 535:                                              ; preds = %533
   %536 = fcmp ugt float %383, 3.000000e+00
-  br i1 %536, label %537, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
+  br i1 %536, label %537, label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
 
 537:                                              ; preds = %535
   %538 = fcmp ugt float %383, 4.000000e+00
   %..i.i.i = select i1 %538, i64 6, i64 5
-  br label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
+  br label %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
 
-_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i: ; preds = %537, %535, %533, %531, %528
+_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i: ; preds = %537, %535, %533, %531, %528
   %.0.i.i9.i = phi i64 [ %530, %528 ], [ 2, %533 ], [ 3, %535 ], [ %..i.i.i, %537 ], [ %.not.i.i.i, %531 ]
   %539 = getelementptr inbounds [4 x float], ptr %525, i64 %.0.i.i9.i
   %540 = load float, ptr %539, align 16
@@ -8221,10 +8221,10 @@ _ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i:
   %.mux500.i.i = select i1 %513, ptr %579, ptr %578
   br label %598
 
-598:                                              ; preds = %.thread391.i.i, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i
-  %599 = phi i32 [ %417, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i ], [ %660, %.thread391.i.i ]
-  %.0321.i.i = phi i64 [ 0, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i ], [ %1234, %.thread391.i.i ]
-  %.0312.i.i = phi ptr [ null, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.exit.i.i ], [ %1235, %.thread391.i.i ]
+598:                                              ; preds = %.thread391.i.i, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i
+  %599 = phi i32 [ %417, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i ], [ %660, %.thread391.i.i ]
+  %.0321.i.i = phi i64 [ 0, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i ], [ %1234, %.thread391.i.i ]
+  %.0312.i.i = phi ptr [ null, %_ZL31stbir__should_do_vertical_firstPA4_fifiifiiP19STBIR__V_FIRST_INFO.argprom.exit.i.i ], [ %1235, %.thread391.i.i ]
   %600 = ptrtoint ptr %.0312.i.i to i64
   %601 = add i64 %600, 15
   %602 = and i64 %601, -16
@@ -40392,7 +40392,7 @@ _ZL10stbi__get8P13stbi__context.exit221:          ; preds = %209, %_ZL19stbi__re
   %323 = add nuw nsw i32 %322, 1
   %324 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.30, ptr %324, align 8
-  tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii(ptr noundef %0, i32 noundef %323)
+  tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii.argelim(ptr noundef %0, i32 noundef %323)
   br label %.loopexit
 
 325:                                              ; preds = %294
@@ -40421,7 +40421,7 @@ _ZL10stbi__get8P13stbi__context.exit221:          ; preds = %209, %_ZL19stbi__re
   %339 = add nuw nsw i32 %338, 1
   %340 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.30, ptr %340, align 8
-  tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii(ptr noundef %0, i32 noundef %339)
+  tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii.argelim(ptr noundef %0, i32 noundef %339)
   br label %.loopexit
 
 341:                                              ; preds = %332
@@ -40943,7 +40943,7 @@ _ZL21stbi__mad2sizes_validiii.exit.thread:        ; preds = %3, %_ZL21stbi__mul2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii.argelim(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -41047,7 +41047,7 @@ _ZL21stbi__mad3sizes_validiiii.exit.thread:       ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL20stbi__parse_png_fileP9stbi__pngii.argelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [3 x i8], align 1
   %5 = alloca [3 x i16], align 2
@@ -42345,11 +42345,11 @@ _ZL10stbi__getnP13stbi__contextPhi.exit.thread:   ; preds = %558, %_ZL10stbi__ge
   br i1 %611, label %614, label %615
 
 614:                                              ; preds = %609
-  call fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %.val.val, i32 %.val.val268, ptr %.val267, ptr noundef %5, i32 noundef %612)
+  call fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val268, ptr %.val267, ptr noundef %5, i32 noundef %612)
   br label %616
 
 615:                                              ; preds = %609
-  call fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %.val.val, i32 %.val.val268, ptr %.val267, ptr noundef %4, i32 noundef %612)
+  call fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi.argprom.argprom.argelim(i32 %.val.val, i32 %.val.val268, ptr %.val267, ptr noundef %4, i32 noundef %612)
   br label %616
 
 616:                                              ; preds = %615, %614
@@ -42362,7 +42362,7 @@ _ZL10stbi__getnP13stbi__contextPhi.exit.thread:   ; preds = %558, %_ZL10stbi__ge
   %618 = zext nneg i8 %.0202 to i32
   store i32 %618, ptr %58, align 8
   store i32 %618, ptr %603, align 4
-  %619 = call fastcc noundef i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr noundef %0, ptr noundef %3, i32 noundef %618)
+  %619 = call fastcc noundef i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii.argelim(ptr noundef %0, ptr noundef %3, i32 noundef %618)
   %.not238 = icmp eq i32 %619, 0
   br i1 %.not238, label %.loopexit, label %.thread355
 
@@ -44154,7 +44154,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread:           ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #18 {
+define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #18 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -44223,7 +44223,7 @@ define internal fastcc void @_ZL28stbi__compute_transparency16P9stbi__pngPti(i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #18 {
+define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi.argprom.argprom.argelim(i32 %.0.val.0.val, i32 %.0.val.4.val, ptr nocapture %.24.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #18 {
   %3 = mul i32 %.0.val.4.val, %.0.val.0.val
   %4 = icmp eq i32 %1, 2
   %.not8 = icmp eq i32 %3, 0
@@ -44295,7 +44295,7 @@ define internal fastcc void @_ZL26stbi__compute_transparencyP9stbi__pngPhi(i32 %
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #22
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL24stbi__expand_png_paletteP9stbi__pngPhii.argelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -46789,7 +46789,7 @@ _ZL10stbi__get8P13stbi__context.exit.thread:      ; preds = %48, %11, %_ZL10stbi
   br i1 %138, label %186, label %185
 
 185:                                              ; preds = %180
-  tail call fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai(ptr noundef %1, i32 noundef %129)
+  tail call fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai.argelim(ptr noundef %1, i32 noundef %129)
   br label %186
 
 186:                                              ; preds = %185, %180
@@ -46830,7 +46830,7 @@ define internal fastcc noundef i32 @_ZL13stbi__get32leP13stbi__context(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483648, 3) %1) unnamed_addr #27 {
+define internal fastcc void @_ZL27stbi__bmp_set_mask_defaultsP14stbi__bmp_datai.argelim(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483648, 3) %1) unnamed_addr #27 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %15
 
@@ -47681,7 +47681,7 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i30: ; preds = %131, %130
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [4 x i8], align 4
@@ -47799,7 +47799,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 %44, ptr %1, align 4
   store i32 %35, ptr %2, align 4
   store i32 3, ptr %3, align 4
-  %53 = call fastcc noundef i32 @_ZL21stbi__mad4sizes_validiiiii(i32 noundef %44, i32 noundef %35, i32 noundef 3, i32 noundef 4)
+  %53 = call fastcc noundef i32 @_ZL21stbi__mad4sizes_validiiiii.argelim(i32 noundef %44, i32 noundef %35, i32 noundef 3, i32 noundef 4)
   %.not139 = icmp eq i32 %53, 0
   br i1 %.not139, label %54, label %56
 
@@ -47809,7 +47809,7 @@ sub_1:                                            ; preds = %sub_0
   br label %._crit_edge60.thread
 
 56:                                               ; preds = %52
-  %57 = call fastcc noundef ptr @_ZL17stbi__malloc_mad4iiiii(i32 noundef %44, i32 noundef %35, i32 noundef 3, i32 noundef 4)
+  %57 = call fastcc noundef ptr @_ZL17stbi__malloc_mad4iiiii.argelim(i32 noundef %44, i32 noundef %35, i32 noundef 3, i32 noundef 4)
   %.not140 = icmp eq ptr %57, null
   br i1 %.not140, label %58, label %60
 
@@ -47891,7 +47891,7 @@ _ZL17stbi__malloc_mad2iii.exit.us:                ; preds = %87
   %92 = getelementptr inbounds i8, ptr %57, i64 %.idx
   %93 = shl nsw i64 %indvars.iv142, 2
   %94 = getelementptr inbounds i8, ptr %.1118.us, i64 %93
-  call fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr noundef %92, ptr noundef %94)
+  call fastcc void @_ZL17stbi__hdr_convertPfPhi.argelim(ptr noundef %92, ptr noundef %94)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %75
   br i1 %exitcond146.not, label %._crit_edge56.us, label %90, !llvm.loop !1053
@@ -48257,7 +48257,7 @@ _ZL17stbi__hdr_convertPfPhi.exit:                 ; preds = %_ZL10stbi__getnP13s
   %265 = call fastcc noundef zeroext i8 @_ZL10stbi__get8P13stbi__context(ptr noundef nonnull %0)
   %266 = getelementptr inbounds i8, ptr %8, i64 3
   store i8 %265, ptr %266, align 1
-  call fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr noundef %57, ptr noundef %8)
+  call fastcc void @_ZL17stbi__hdr_convertPfPhi.argelim(ptr noundef %57, ptr noundef %8)
   call void @free(ptr noundef %.011758.us) #46
   br label %206
 
@@ -48298,7 +48298,7 @@ _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %_ZL17stbi__malloc_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL31stbi__load_and_postprocess_8bitP13stbi__contextPiS1_S1_i.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [10 x %struct.stbi__pic_packet], align 16
   %6 = alloca [4 x i8], align 1
   %7 = alloca [4 x i8], align 1
@@ -48407,7 +48407,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i.i:       ; preds = %_ZL19stbi__refill_b
   store ptr %0, ptr %15, align 8
   %66 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store float 0.000000e+00, ptr %66, align 4
-  %67 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii(ptr noundef %15, i32 noundef 0)
+  %67 = call fastcc noundef i32 @_ZL20stbi__parse_png_fileP9stbi__pngii.argelim(ptr noundef %15, i32 noundef 0)
   %.not.i.i83.i = icmp eq i32 %67, 0
   br i1 %.not.i.i83.i, label %._crit_edge.i.i, label %68
 
@@ -48632,7 +48632,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
   store i32 255, ptr %169, align 4
   %170 = call fastcc noundef ptr @_ZL22stbi__bmp_parse_headerP13stbi__contextP14stbi__bmp_data(ptr noundef %0, ptr noundef %14)
   %171 = icmp eq ptr %170, null
-  br i1 %171, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, label %172
+  br i1 %171, label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i, label %172
 
 172:                                              ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -48645,7 +48645,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
 
 178:                                              ; preds = %172
   store ptr @.str.47, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 179:                                              ; preds = %172
   %180 = load i32, ptr %0, align 8
@@ -48654,7 +48654,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
 
 182:                                              ; preds = %179
   store ptr @.str.47, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -48725,7 +48725,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
 
 230:                                              ; preds = %.thread.i.i
   store ptr @.str.111, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 231:                                              ; preds = %.thread.i.i
   %232 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -48740,7 +48740,7 @@ _ZL14stbi__bmp_testP13stbi__context.exit.i:       ; preds = %151
 
 238:                                              ; preds = %235, %231
   store ptr @.str.112, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 239:                                              ; preds = %235
   tail call fastcc void @_ZL10stbi__skipP13stbi__contexti(ptr noundef nonnull %0, i32 noundef %236)
@@ -48798,7 +48798,7 @@ _ZL21stbi__mul2sizes_validii.exit12.i.i.i:        ; preds = %260
 
 263:                                              ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i.i, %247
   store ptr @.str.47, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 _ZL21stbi__mad3sizes_validiiii.exit.i.i:          ; preds = %_ZL21stbi__mul2sizes_validii.exit12.i.i.i, %260
   br i1 %256, label %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i.i, label %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i
@@ -48825,7 +48825,7 @@ _ZL17stbi__malloc_mad3iiii.exit.i.i:              ; preds = %_ZL21stbi__mul2size
 
 _ZL17stbi__malloc_mad3iiii.exit.thread.i.i:       ; preds = %_ZL17stbi__malloc_mad3iiii.exit.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i
   store ptr @.str.30, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 269:                                              ; preds = %_ZL17stbi__malloc_mad3iiii.exit.i.i
   %270 = icmp slt i32 %250, 16
@@ -48849,7 +48849,7 @@ _ZL17stbi__malloc_mad3iiii.exit.thread.i.i:       ; preds = %_ZL17stbi__malloc_m
 274:                                              ; preds = %271
   tail call void @free(ptr noundef nonnull %268) #46
   store ptr @.str.113, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 275:                                              ; preds = %_ZL10stbi__get8P13stbi__context.exit378.i.i, %.lr.ph53.i.i
   %276 = phi ptr [ %.pre105.i.i, %.lr.ph53.i.i ], [ %394, %_ZL10stbi__get8P13stbi__context.exit378.i.i ]
@@ -49120,7 +49120,7 @@ _ZL10stbi__get8P13stbi__context.exit378.i.i:      ; preds = %_ZL10stbi__get8P13s
 410:                                              ; preds = %._crit_edge.i95.i
   tail call void @free(ptr noundef %268) #46
   store ptr @.str.114, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 .preheader29.i.i:                                 ; preds = %408, %404
   %.0323.ph.i.i = phi i32 [ %409, %408 ], [ %407, %404 ]
@@ -49716,7 +49716,7 @@ _ZL10stbi__skipP13stbi__contexti.exit414.i.i:     ; preds = %702, %697, %685, %6
 718:                                              ; preds = %.thread12.i.i
   tail call void @free(ptr noundef nonnull %268) #46
   store ptr @.str.115, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 719:                                              ; preds = %.thread12.i.i
   %720 = tail call fastcc noundef i32 @_ZL14stbi__high_bitj(i32 noundef %185)
@@ -49743,7 +49743,7 @@ _ZL10stbi__skipP13stbi__contexti.exit414.i.i:     ; preds = %702, %697, %685, %6
 736:                                              ; preds = %719
   tail call void @free(ptr noundef nonnull %268) #46
   store ptr @.str.115, ptr %92, align 8
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
 .thread18.i.i:                                    ; preds = %719, %710, %.thread9.i.i
   %737 = phi i1 [ true, %710 ], [ false, %719 ], [ false, %.thread9.i.i ]
@@ -50289,9 +50289,9 @@ _ZL10stbi__skipP13stbi__contexti.exit447.i.i:     ; preds = %984, %980, %.loopex
   store i32 %1019, ptr %2, align 4
   %1020 = load i32, ptr %252, align 8
   store i32 %1020, ptr %3, align 4
-  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
-_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i: ; preds = %.loopexit.i.i, %736, %718, %410, %274, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i, %263, %238, %230, %182, %178, %168
+_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i: ; preds = %.loopexit.i.i, %736, %718, %410, %274, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i, %263, %238, %230, %182, %178, %168
   %.0.i.i = phi ptr [ null, %178 ], [ null, %182 ], [ null, %230 ], [ null, %238 ], [ null, %274 ], [ %268, %.loopexit.i.i ], [ null, %410 ], [ null, %736 ], [ null, %718 ], [ null, %_ZL17stbi__malloc_mad3iiii.exit.thread.i.i ], [ null, %263 ], [ null, %168 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14)
@@ -50653,7 +50653,7 @@ _ZL14stbi__gif_testP13stbi__context.exit.i:       ; preds = %1174, %1170
   %1193 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %1194 = call fastcc noundef i32 @_ZL16stbi__gif_headerP13stbi__contextP9stbi__gifPii(ptr noundef %0, ptr noundef %12, ptr noundef %3, i32 noundef 0)
   %.not161.i.i.i = icmp eq i32 %1194, 0
-  br i1 %.not161.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i, label %1195
+  br i1 %.not161.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i, label %1195
 
 1195:                                             ; preds = %1192
   %1196 = load i32, ptr %12, align 8
@@ -50776,7 +50776,7 @@ _ZL10stbi__get8P13stbi__context.exit.i.i114.i:    ; preds = %_ZL19stbi__refill_b
   switch i8 %.0.i.i.i115.i, label %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i [
     i8 44, label %1247
     i8 33, label %1562
-    i8 59, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i
+    i8 59, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i
   ]
 
 1247:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i114.i
@@ -50973,7 +50973,7 @@ _ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i.i: ; preds = %1346, %1345
 _ZL10stbi__get8P13stbi__context.exit.i.i.i.i:     ; preds = %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i.i, %1326
   %.0.i.i.i.i.i = phi i8 [ %1328, %1326 ], [ %1349, %_ZL19stbi__refill_bufferP13stbi__context.exit.i.i.i.i.i ]
   %1350 = icmp ugt i8 %.0.i.i.i.i.i, 12
-  br i1 %1350, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i, label %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i
+  br i1 %1350, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i, label %_ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i
 
 _ZL10stbi__get8P13stbi__context.exit.thread.i.i.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1329
   %.0.i129.i.i.i.i = phi i8 [ %.0.i.i.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i ], [ 0, %1329 ]
@@ -51369,7 +51369,7 @@ _ZL10stbi__skipP13stbi__contexti.exit.i.i.i.i.backedge: ; preds = %._crit_edge.i
 _ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit108.i.i.i.i, %1374, %_ZL10stbi__get8P13stbi__context.exit122.i.i.i.i, %1469
   %.0.i183.i.i.i = load ptr, ptr %1193, align 8
   %.not172.i.i.i = icmp eq ptr %.0.i183.i.i.i, null
-  br i1 %.not172.i.i.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, label %1537
+  br i1 %.not172.i.i.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i, label %1537
 
 1537:                                             ; preds = %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i
   %1538 = load i32, ptr %12, align 8
@@ -51380,7 +51380,7 @@ _ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i: ; preds = %
   %1543 = icmp sgt i32 %1542, 0
   %1544 = icmp sgt i32 %1540, 0
   %or.cond31.i.i.i = select i1 %1543, i1 %1544, i1 false
-  br i1 %or.cond31.i.i.i, label %.lr.ph29.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.i.i
+  br i1 %or.cond31.i.i.i, label %.lr.ph29.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.i.i
 
 .lr.ph29.i.i.i:                                   ; preds = %1537
   %wide.trip.count43.i.i.i = zext nneg i32 %1540 to i64
@@ -51412,7 +51412,7 @@ _ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i: ; preds = %
 1561:                                             ; preds = %1550, %1545
   %indvars.iv.next41.i.i.i = add nuw nsw i64 %indvars.iv40.i.i.i, 1
   %exitcond44.not.i.i.i = icmp eq i64 %indvars.iv.next41.i.i.i, %wide.trip.count43.i.i.i
-  br i1 %exitcond44.not.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.i.i, label %1545, !llvm.loop !1074
+  br i1 %exitcond44.not.i.i.i, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.i.i, label %1545, !llvm.loop !1074
 
 1562:                                             ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i114.i
   %1563 = icmp ult ptr %1246, %1245
@@ -51829,30 +51829,30 @@ _ZL10stbi__skipP13stbi__contexti.exit226.i.i.i.backedge: ; preds = %._crit_edge.
 _ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i114.i, %1224, %1528, %1509, %1506, %1315, %1254, %1247, %1212, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i108.i, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i, %1195
   %.str.121.sink.i.i.i = phi ptr [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit12.i.i.i108.i ], [ @.str.47, %1195 ], [ @.str.47, %_ZL21stbi__mul2sizes_validii.exit.thread15.i.i.i106.i ], [ @.str.30, %1212 ], [ @.str.30, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i ], [ @.str.116, %1254 ], [ @.str.116, %1247 ], [ @.str.117, %1315 ], [ %.str.121.mux, %1506 ], [ @.str.121, %1528 ], [ @.str.120, %1509 ], [ @.str.118, %1224 ], [ @.str.118, %_ZL10stbi__get8P13stbi__context.exit.i.i114.i ]
   store ptr %.str.121.sink.i.i.i, ptr %92, align 8
-  br label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i
+  br label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i
 
-_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.i.i: ; preds = %1561, %1537
+_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.i.i: ; preds = %1561, %1537
   %1764 = icmp eq ptr %.0.i183.i.i.i, %0
-  br i1 %1764, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i, label %1765
+  br i1 %1764, label %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i, label %1765
 
-1765:                                             ; preds = %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.i.i
+1765:                                             ; preds = %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.i.i
   %1766 = load i32, ptr %12, align 8
   store i32 %1766, ptr %1, align 4
   %1767 = load i32, ptr %1197, align 4
   store i32 %1767, ptr %2, align 4
-  br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
-_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i114.i, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.i.i, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1192
+_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i: ; preds = %_ZL10stbi__get8P13stbi__context.exit.i.i114.i, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.i.i, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.thread.sink.split.i.i.i, %_ZL10stbi__get8P13stbi__context.exit.i.i.i.i, %1192
   %.pr.i.i = load ptr, ptr %1193, align 8
   %.not15.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not15.i.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, label %1768
+  br i1 %.not15.i.i, label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i, label %1768
 
-1768:                                             ; preds = %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i
+1768:                                             ; preds = %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i
   call void @free(ptr noundef nonnull %.pr.i.i) #46
-  br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i
+  br label %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i
 
-_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i: ; preds = %1768, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i, %1765, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i
-  %.0.i107.i = phi ptr [ %.0.i183.i.i.i, %1765 ], [ null, %1768 ], [ null, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.exit.thread.i.i ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i ]
+_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i: ; preds = %1768, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i, %1765, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i
+  %.0.i107.i = phi ptr [ %.0.i183.i.i.i, %1765 ], [ null, %1768 ], [ null, %_ZL19stbi__gif_load_nextP13stbi__contextP9stbi__gifPiiPh.argprom.exit.thread.i.i ], [ null, %_ZL24stbi__process_gif_rasterP13stbi__contextP9stbi__gif.exit.i.i.i ]
   %1769 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %1770 = load ptr, ptr %1769, align 8
   call void @free(ptr noundef %1770) #46
@@ -57246,7 +57246,7 @@ _ZL10stbi__get8P13stbi__context.exit14.i:         ; preds = %_ZL19stbi__refill_b
   br i1 %or.cond8.i, label %4315, label %_ZL14stbi__pnm_testP13stbi__context.exit
 
 _ZL14stbi__pnm_testP13stbi__context.exit:         ; preds = %_ZL10stbi__get8P13stbi__context.exit14.i
-  %4314 = call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
+  %4314 = call fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %16)
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
 4315:                                             ; preds = %4291, %_ZL10stbi__get8P13stbi__context.exit14.i
@@ -57259,7 +57259,7 @@ _ZL14stbi__pnm_testP13stbi__context.exit:         ; preds = %_ZL10stbi__get8P13s
   br i1 %.not81.i, label %4325, label %4319
 
 4319:                                             ; preds = %4315
-  %4320 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %4320 = tail call fastcc noundef ptr @_ZL14stbi__hdr_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %4321 = load i32, ptr %1, align 4
   %4322 = load i32, ptr %2, align 4
   %4323 = load i32, ptr %3, align 4
@@ -57272,15 +57272,15 @@ _ZL14stbi__pnm_testP13stbi__context.exit:         ; preds = %_ZL10stbi__get8P13s
   br i1 %.not82.i, label %4329, label %4327
 
 4327:                                             ; preds = %4325
-  %4328 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %4328 = tail call fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit
 
 4329:                                             ; preds = %4325
   store ptr @.str.29, ptr %92, align 8
   br label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread
 
-_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i, %._crit_edge.i.i99, %2555, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %.loopexit.i126.i, %_ZL14stbi__pnm_testP13stbi__context.exit, %4319, %4327
-  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i107.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %4314, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4324, %4319 ], [ %4328, %4327 ], [ %1845, %.loopexit.i126.i ], [ %2714, %._crit_edge.i.i99 ], [ %.039.i, %2555 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
+_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit: ; preds = %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i, %._crit_edge.i.i99, %2555, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i, %.loopexit.i126.i, %_ZL14stbi__pnm_testP13stbi__context.exit, %4319, %4327
+  %.0.i = phi ptr [ %.043.i.i.i, %_ZL14stbi__png_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.exit.i ], [ %.0.i.i, %_ZL14stbi__bmp_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i ], [ %.0.i107.i, %_ZL14stbi__gif_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.exit.i ], [ %4314, %_ZL14stbi__pnm_testP13stbi__context.exit ], [ %4324, %4319 ], [ %4328, %4327 ], [ %1845, %.loopexit.i126.i ], [ %2714, %._crit_edge.i.i99 ], [ %.039.i, %2555 ], [ %.0.i.i33, %_ZL15load_jpeg_imageP10stbi__jpegPiS1_S1_i.exit.i ]
   %4330 = icmp eq ptr %.0.i, null
   br i1 %4330, label %_ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread, label %4331
 
@@ -57335,7 +57335,7 @@ _ZL15stbi__load_mainP13stbi__contextPiS1_S1_iP17stbi__result_infoi.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbi__mad4sizes_validiiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -268435456, 268435456) %3) unnamed_addr #9 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL21stbi__mad4sizes_validiiiii.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -268435456, 268435456) %3) unnamed_addr #9 {
   %5 = or i32 %1, %0
   %or.cond.not.i = icmp sgt i32 %5, -1
   br i1 %or.cond.not.i, label %6, label %_ZL21stbi__mul2sizes_validii.exit.thread
@@ -57388,7 +57388,7 @@ _ZL21stbi__mul2sizes_validii.exit.thread:         ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @_ZL17stbi__malloc_mad4iiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -268435456, 268435456) %3) unnamed_addr #24 {
+define internal fastcc noalias noundef ptr @_ZL17stbi__malloc_mad4iiiii.argelim(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -268435456, 268435456) %3) unnamed_addr #24 {
   %5 = or i32 %1, %0
   %or.cond.not.i.i = icmp sgt i32 %5, -1
   br i1 %or.cond.not.i.i, label %6, label %_ZL21stbi__mad4sizes_validiiiii.exit.thread
@@ -57444,7 +57444,7 @@ _ZL21stbi__mad4sizes_validiiiii.exit.thread:      ; preds = %_ZL21stbi__mul2size
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #29 {
+define internal fastcc void @_ZL17stbi__hdr_convertPfPhi.argelim(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #29 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
@@ -57487,7 +57487,7 @@ define internal fastcc void @_ZL17stbi__hdr_convertPfPhi(ptr nocapture noundef n
 declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14stbi__pnm_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call fastcc noundef i32 @_ZL14stbi__pnm_infoP13stbi__contextPiS1_S1_(ptr noundef %0, ptr noundef %0, ptr noundef %6, ptr noundef %7)
@@ -58296,7 +58296,7 @@ _ZL10stbi__get8P13stbi__context.exit79.thread:    ; preds = %138, %switch.early.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info.argprom.argelim(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
@@ -61617,7 +61617,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_contextPiS1_PfiS2_iPA2_KtS5_.argelim(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i8, align 1
@@ -61840,7 +61840,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %174 = shl i32 %172, %173
   %175 = or i32 %174, %168
   %176 = icmp sgt i32 %171, 7
-  br i1 %176, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
+  br i1 %176, label %.lr.ph.i, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
 
 .lr.ph.i:                                         ; preds = %166
   %177 = getelementptr i8, ptr %0, i64 8
@@ -61874,7 +61874,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %185 = shl i32 %.02.i, 8
   %186 = add nsw i32 %.0181.i, -8
   %187 = icmp sgt i32 %.0181.i, 15
-  br i1 %187, label %178, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !34
+  br i1 %187, label %178, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, !llvm.loop !34
 
 188:                                              ; preds = %163
   %189 = sub nsw i32 %164, %5
@@ -61903,7 +61903,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %206 = shl i32 %204, %205
   %207 = or i32 %206, %200
   %208 = icmp sgt i32 %203, 7
-  br i1 %208, label %.lr.ph.i151, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158
+  br i1 %208, label %.lr.ph.i151, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158
 
 .lr.ph.i151:                                      ; preds = %188
   %209 = getelementptr i8, ptr %0, i64 8
@@ -61937,9 +61937,9 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %217 = shl i32 %.02.i152, 8
   %218 = add nsw i32 %.0181.i153, -8
   %219 = icmp sgt i32 %.0181.i153, 15
-  br i1 %219, label %210, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158, !llvm.loop !34
+  br i1 %219, label %210, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158: ; preds = %216, %188
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158: ; preds = %216, %188
   %.018.lcssa.i149 = phi i32 [ %203, %188 ], [ %218, %216 ]
   %.0.lcssa.i150 = phi i32 [ %207, %188 ], [ %217, %216 ]
   store i32 %.0.lcssa.i150, ptr %1, align 4
@@ -61952,9 +61952,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158: ; preds = %216,
   %225 = shl i32 %223, %224
   %226 = or i32 %220, %225
   %227 = icmp sgt i32 %221, 7
-  br i1 %227, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit
+  br i1 %227, label %.lr.ph.i161, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit
 
-.lr.ph.i161:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158
+.lr.ph.i161:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158
   %228 = getelementptr i8, ptr %0, i64 8
   br label %229
 
@@ -61986,17 +61986,17 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158: ; preds = %216,
   %236 = shl i32 %.02.i162, 8
   %237 = add nsw i32 %.0181.i163, -8
   %238 = icmp sgt i32 %.0181.i163, 15
-  br i1 %238, label %229, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, !llvm.loop !34
+  br i1 %238, label %229, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %235, %184, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158, %166
-  %storemerge232 = phi i32 [ %175, %166 ], [ %226, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %185, %184 ], [ %236, %235 ]
-  %239 = phi i32 [ %171, %166 ], [ %221, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit158 ], [ %186, %184 ], [ %237, %235 ]
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit: ; preds = %235, %184, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158, %166
+  %storemerge232 = phi i32 [ %175, %166 ], [ %226, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158 ], [ %185, %184 ], [ %236, %235 ]
+  %239 = phi i32 [ %171, %166 ], [ %221, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit158 ], [ %186, %184 ], [ %237, %235 ]
   store i32 %storemerge232, ptr %1, align 4
   store i32 %239, ptr %2, align 4
   br label %240
 
-240:                                              ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit, %245
-  %.0126260 = phi i32 [ 63, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit ], [ %246, %245 ]
+240:                                              ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit, %245
+  %.0126260 = phi i32 [ 63, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit ], [ %246, %245 ]
   %241 = zext nneg i32 %.0126260 to i64
   %242 = getelementptr inbounds [64 x i32], ptr %25, i64 0, i64 %241
   %243 = load i32, ptr %242, align 4
@@ -62064,9 +62064,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %235, %1
   %271 = icmp sgt i32 %.0181.i173, 15
   br i1 %271, label %262, label %.sink.split, !llvm.loop !34
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212
-  %272 = phi i32 [ %239, %.preheader.lr.ph ], [ %.018.lcssa.i203, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212 ]
-  %.0122264 = phi i32 [ 1, %.preheader.lr.ph ], [ %350, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212
+  %272 = phi i32 [ %239, %.preheader.lr.ph ], [ %.018.lcssa.i203, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212 ]
+  %.0122264 = phi i32 [ 1, %.preheader.lr.ph ], [ %350, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212 ]
   %273 = sext i32 %.0122264 to i64
   br label %274
 
@@ -62093,16 +62093,16 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %235, %1
   %umax = call i32 @llvm.umax.i32(i32 %284, i32 1)
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188
-  %285 = phi i32 [ %.018.lcssa.i179, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188 ], [ %272, %.lr.ph.preheader ]
-  %.0262 = phi i32 [ %301, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188 ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188
+  %285 = phi i32 [ %.018.lcssa.i179, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188 ], [ %272, %.lr.ph.preheader ]
+  %.0262 = phi i32 [ %301, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188 ], [ 1, %.lr.ph.preheader ]
   %286 = load i32, ptr %1, align 4
   %287 = add nsw i32 %285, %248
   %288 = sub nsw i32 24, %287
   %289 = shl i32 %249, %288
   %290 = or i32 %289, %286
   %291 = icmp sgt i32 %287, 7
-  br i1 %291, label %.lr.ph.i181, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188
+  br i1 %291, label %.lr.ph.i181, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188
 
 .lr.ph.i181:                                      ; preds = %.lr.ph, %297
   %.02.i182 = phi i32 [ %298, %297 ], [ %290, %.lr.ph ]
@@ -62132,9 +62132,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit: ; preds = %235, %1
   %298 = shl i32 %.02.i182, 8
   %299 = add nsw i32 %.0181.i183, -8
   %300 = icmp sgt i32 %.0181.i183, 15
-  br i1 %300, label %.lr.ph.i181, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188, !llvm.loop !34
+  br i1 %300, label %.lr.ph.i181, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188: ; preds = %297, %.lr.ph
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188: ; preds = %297, %.lr.ph
   %.018.lcssa.i179 = phi i32 [ %287, %.lr.ph ], [ %299, %297 ]
   %.0.lcssa.i180 = phi i32 [ %290, %.lr.ph ], [ %298, %297 ]
   store i32 %.0.lcssa.i180, ptr %1, align 4
@@ -62143,7 +62143,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188: ; preds = %297,
   %exitcond305.not = icmp eq i32 %.0262, %umax
   br i1 %exitcond305.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1183
 
-._crit_edge:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188
+._crit_edge:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit188
   %302 = and i32 %282, 15
   br label %303
 
@@ -62174,7 +62174,7 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188: ; preds = %297,
   %321 = shl i32 %319, %320
   %322 = or i32 %321, %316
   %323 = icmp sgt i32 %318, 7
-  br i1 %323, label %.lr.ph.i195, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202
+  br i1 %323, label %.lr.ph.i195, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202
 
 .lr.ph.i195:                                      ; preds = %303, %329
   %.02.i196 = phi i32 [ %330, %329 ], [ %322, %303 ]
@@ -62204,9 +62204,9 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit188: ; preds = %297,
   %330 = shl i32 %.02.i196, 8
   %331 = add nsw i32 %.0181.i197, -8
   %332 = icmp sgt i32 %.0181.i197, 15
-  br i1 %332, label %.lr.ph.i195, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202, !llvm.loop !34
+  br i1 %332, label %.lr.ph.i195, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202: ; preds = %329, %303
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202: ; preds = %329, %303
   %.018.lcssa.i193 = phi i32 [ %318, %303 ], [ %331, %329 ]
   %.0.lcssa.i194 = phi i32 [ %322, %303 ], [ %330, %329 ]
   store i32 %.0.lcssa.i194, ptr %1, align 4
@@ -62219,11 +62219,11 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202: ; preds = %329,
   %338 = shl i32 %336, %337
   %339 = or i32 %333, %338
   %340 = icmp sgt i32 %334, 7
-  br i1 %340, label %.lr.ph.i205, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212
+  br i1 %340, label %.lr.ph.i205, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212
 
-.lr.ph.i205:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202, %346
-  %.02.i206 = phi i32 [ %347, %346 ], [ %339, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202 ]
-  %.0181.i207 = phi i32 [ %348, %346 ], [ %334, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202 ]
+.lr.ph.i205:                                      ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202, %346
+  %.02.i206 = phi i32 [ %347, %346 ], [ %339, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202 ]
+  %.0181.i207 = phi i32 [ %348, %346 ], [ %334, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202 ]
   %341 = lshr i32 %.02.i206, 16
   %342 = trunc i32 %341 to i8
   %.val20.i208 = load ptr, ptr %0, align 8
@@ -62249,18 +62249,18 @@ _ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202: ; preds = %329,
   %347 = shl i32 %.02.i206, 8
   %348 = add nsw i32 %.0181.i207, -8
   %349 = icmp sgt i32 %.0181.i207, 15
-  br i1 %349, label %.lr.ph.i205, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212, !llvm.loop !34
+  br i1 %349, label %.lr.ph.i205, label %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212, !llvm.loop !34
 
-_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212: ; preds = %346, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202
-  %.018.lcssa.i203 = phi i32 [ %334, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202 ], [ %348, %346 ]
-  %.0.lcssa.i204 = phi i32 [ %339, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit202 ], [ %347, %346 ]
+_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212: ; preds = %346, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202
+  %.018.lcssa.i203 = phi i32 [ %334, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202 ], [ %348, %346 ]
+  %.0.lcssa.i204 = phi i32 [ %339, %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit202 ], [ %347, %346 ]
   store i32 %.0.lcssa.i204, ptr %1, align 4
   store i32 %.018.lcssa.i203, ptr %2, align 4
   %350 = add nsw i32 %281, 1
   %.not.not = icmp sgt i32 %.0126260, %281
   br i1 %.not.not, label %.preheader, label %._crit_edge265, !llvm.loop !1184
 
-._crit_edge265:                                   ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.exit212
+._crit_edge265:                                   ; preds = %_ZL20stbiw__jpg_writeBitsP19stbi__write_contextPiS1_PKt.argprom.exit212
   %.not132 = icmp eq i32 %.0126260, 63
   br i1 %.not132, label %371, label %._crit_edge265.thread
 

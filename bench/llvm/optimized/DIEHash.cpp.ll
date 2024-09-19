@@ -164,8 +164,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3DIEELb1EE9push_backES3_.exit: ; preds = 
   %.not2630 = icmp eq ptr %23, %24
   br i1 %.not2630, label %._crit_edge32, label %_ZN4llvm7DIEHash10addULEB128Em.exit
 
-_ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %._crit_edge, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
-  %.sroa.017.031 = phi ptr [ %25, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread ], [ %23, %._crit_edge ]
+_ZN4llvm7DIEHash10addULEB128Em.exit:              ; preds = %._crit_edge, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
+  %.sroa.017.031 = phi ptr [ %25, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread ], [ %23, %._crit_edge ]
   %25 = getelementptr inbounds i8, ptr %.sroa.017.031, i64 -8
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -195,13 +195,13 @@ _ZN4llvm7DIEHash10addULEB128Em.exit13:            ; preds = %30
   %34 = getelementptr i8, ptr %26, i64 8
   %.val = load ptr, ptr %34, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
+  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
 
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit13
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not7.i = icmp eq i64 %35, 0
-  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %50, %select.unfold.i ], [ %35, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
@@ -222,13 +222,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10a
 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds i8, ptr %44, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %48, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %44, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
@@ -237,28 +237,28 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %50 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
   %.not13.i = icmp eq i64 %50, 0
   %.not.i14 = or i1 %.not.i.i.i9.i, %.not13.i
-  br i1 %.not.i14, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not.i14, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %45, %47
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit: ; preds = %45, %47
   %.sroa.0.0.i.i.i = phi ptr [ %46, %45 ], [ %.sroa.0.0.copyload.i.i.i, %47 ]
   %.sroa.3.0.in.i.i.i = phi ptr [ %44, %45 ], [ %.sroa.3.0..sroa_idx.i.i.i, %47 ]
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
   %51 = icmp eq i64 %.sroa.3.0.i.i.i, 0
-  br i1 %51, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %52
+  br i1 %51, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %52
 
-52:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+52:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i) #9
   store i8 0, ptr %3, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %3, i64 1) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %_ZN4llvm7DIEHash10addULEB128Em.exit13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, %52
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread: ; preds = %select.unfold.i, %_ZN4llvm7DIEHash10addULEB128Em.exit13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, %52
   %.not26 = icmp eq ptr %25, %24
   br i1 %.not26, label %._crit_edge32, label %_ZN4llvm7DIEHash10addULEB128Em.exit
 
-._crit_edge32:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, %._crit_edge
+._crit_edge32:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, %._crit_edge
   %53 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #9
   %54 = load ptr, ptr %6, align 8
   %55 = icmp eq ptr %54, %7
@@ -5626,19 +5626,19 @@ define dso_local void @_ZN4llvm7DIEHash12hashDIEEntryENS_5dwarf9AttributeENS1_3T
   %or.cond8 = or i1 %13, %or.cond5
   %14 = icmp eq i16 %1, 73
   %or.cond11 = and i1 %14, %or.cond8
-  br i1 %or.cond11, label %15, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
+  br i1 %or.cond11, label %15, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %.val = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
+  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
 
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not7.i = icmp eq i64 %17, 0
-  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %32, %select.unfold.i ], [ %17, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
@@ -5659,13 +5659,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %26, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %30, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %26, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
@@ -5674,20 +5674,20 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %32 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
   %.not13.i = icmp eq i64 %32, 0
   %.not.i = or i1 %.not.i.i.i9.i, %.not13.i
-  br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %27, %29
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit: ; preds = %27, %29
   %.sroa.0.0.i.i.i = phi ptr [ %28, %27 ], [ %.sroa.0.0.copyload.i.i.i, %29 ]
   %.sroa.3.0.in.i.i.i = phi ptr [ %26, %27 ], [ %.sroa.3.0..sroa_idx.i.i.i, %29 ]
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
   %33 = icmp eq i64 %.sroa.3.0.i.i.i, 0
-  br i1 %33, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %34
+  br i1 %33, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %34
 
-34:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+34:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
   tail call void @_ZN4llvm7DIEHash24hashShallowTypeReferenceENS_5dwarf9AttributeERKNS_3DIEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 noundef zeroext 73, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i)
   br label %87
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %15, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, %4
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread: ; preds = %select.unfold.i, %15, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, %4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %3, ptr %10, align 8
   %36 = load ptr, ptr %35, align 8
@@ -5696,7 +5696,7 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %1
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i, label %40
 
-40:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
+40:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
   %41 = ptrtoint ptr %3 to i64
   %42 = trunc i64 %41 to i32
   %43 = lshr i32 %42, 4
@@ -5738,8 +5738,8 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %1
   %64 = icmp eq ptr %3, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixEOS4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i: ; preds = %54, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
-  %.sink.i.i.i.i = phi ptr [ %55, %54 ], [ null, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i.i: ; preds = %54, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
+  %.sink.i.i.i.i = phi ptr [ %55, %54 ], [ null, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread ]
   %65 = call noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_3DIEEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sink.i.i.i.i)
   %66 = load ptr, ptr %10, align 8
   store ptr %66, ptr %65, align 8
@@ -5885,26 +5885,26 @@ _ZNK4llvm3DIE8childrenEv.exit:                    ; preds = %_ZN4llvm7DIEHash10a
 21:                                               ; preds = %.lr.ph
   %22 = load i16, ptr %18, align 4
   %23 = icmp eq i16 %22, 46
-  br i1 %23, label %24, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
+  br i1 %23, label %24, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
 
 24:                                               ; preds = %21
   %25 = call noundef ptr @_ZNK4llvm3DIE9getParentEv(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.035) #9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %27 = load i16, ptr %26, align 4
   %28 = call noundef zeroext i1 @_ZN4llvm5dwarf6isTypeENS0_3TagE(i16 noundef zeroext %27)
-  br i1 %28, label %29, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread
+  br i1 %28, label %29, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread
 
 29:                                               ; preds = %24, %.lr.ph
   %30 = getelementptr i8, ptr %.sroa.024.035, i64 8
   %.val = load ptr, ptr %30, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
+  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
 
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %31 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not7.i = icmp eq i64 %31, 0
-  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %46, %select.unfold.i ], [ %31, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
@@ -5925,13 +5925,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds i8, ptr %40, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %44, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %40, i64 32
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
@@ -5940,16 +5940,16 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %46 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
   %.not13.i = icmp eq i64 %46, 0
   %.not.i18 = or i1 %.not.i.i.i9.i, %.not13.i
-  br i1 %.not.i18, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  br i1 %.not.i18, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %.lr.ph.i
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %41, %43
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit: ; preds = %41, %43
   %.sroa.0.0.i.i.i19 = phi ptr [ %42, %41 ], [ %.sroa.0.0.copyload.i.i.i, %43 ]
   %.sroa.3.0.in.i.i.i = phi ptr [ %40, %41 ], [ %.sroa.3.0..sroa_idx.i.i.i, %43 ]
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
   %47 = icmp eq i64 %.sroa.3.0.i.i.i, 0
-  br i1 %47, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %48
+  br i1 %47, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, label %48
 
-48:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+48:                                               ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 83, ptr %4, align 1
   call void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %4, i64 1) #9
@@ -5980,11 +5980,11 @@ _ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %select.unfold
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread:  ; preds = %select.unfold.i, %29, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, %24, %21
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread: ; preds = %select.unfold.i, %29, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, %24, %21
   call void @_ZN4llvm7DIEHash11computeHashERKNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.024.035)
   br label %select.unfold
 
-select.unfold:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit
+select.unfold:                                    ; preds = %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit.thread, %_ZN4llvm7DIEHash14hashNestedTypeERKNS_3DIEENS_9StringRefE.exit
   %.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.024.035, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i, 4
   %.not.i.i = icmp ne i64 %55, 0
@@ -6148,13 +6148,13 @@ define dso_local void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_
   %23 = getelementptr i8, ptr %22, i64 8
   %.val = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %.val, null
-  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
+  br i1 %.not.i.i.i.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, label %_ZNK4llvm12DIEValueList6valuesEv.exit.i
 
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %24 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not7.i = icmp eq i64 %24, 0
-  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
+  br i1 %.not7.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %select.unfold.i
   %.sroa.01.08.in.i = phi i64 [ %39, %select.unfold.i ], [ %24, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
@@ -6187,7 +6187,7 @@ _ZNK4llvm9DIEString9getStringEv.exit.i:           ; preds = %36, %34
   %.sroa.0.0.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.0.0.copyload.i.i.i, %36 ]
   %.sroa.3.0.in.i.i.i = phi ptr [ %33, %34 ], [ %.sroa.3.0..sroa_idx.i.i.i, %36 ]
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8
-  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
+  br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
 
 select.unfold.i:                                  ; preds = %.lr.ph.i
   %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.08.i, align 8
@@ -6196,9 +6196,9 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %39 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
   %.not13.i = icmp eq i64 %39, 0
   %.not.i = or i1 %.not.i.i.i9.i, %.not13.i
-  br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit, label %.lr.ph.i
 
-_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZNK4llvm9DIEString9getStringEv.exit.i
+_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit: ; preds = %select.unfold.i, %13, %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %_ZNK4llvm9DIEString9getStringEv.exit.i
   %.sroa.05.0.i = phi ptr [ %.sroa.0.0.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ @.str, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ @.str, %13 ], [ @.str, %select.unfold.i ]
   %.sroa.3.0.i = phi i64 [ %.sroa.3.0.i.i.i, %_ZNK4llvm9DIEString9getStringEv.exit.i ], [ 0, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ], [ 0, %13 ], [ 0, %select.unfold.i ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -6211,8 +6211,8 @@ _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %select.unfold.i, %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   br label %43
 
-43:                                               ; preds = %43, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
-  %.0.i4.i = phi i64 [ %42, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit ], [ %46, %43 ]
+43:                                               ; preds = %43, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit
+  %.0.i4.i = phi i64 [ %42, %_ZL16getDIEStringAttrRKN4llvm3DIEEt.argprom.exit ], [ %46, %43 ]
   %44 = trunc i64 %.0.i4.i to i8
   %45 = and i8 %44, 127
   %46 = lshr i64 %.0.i4.i, 7

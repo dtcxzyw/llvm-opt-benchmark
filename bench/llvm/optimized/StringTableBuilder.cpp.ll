@@ -680,18 +680,18 @@ define internal fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairIN
   %.val36 = load i32, ptr %19, align 8
   %20 = zext i32 %.val36 to i64
   %.not.i37 = icmp ult i64 %indvars.iv, %20
-  br i1 %.not.i37, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread
+  br i1 %.not.i37, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39.thread
 
-_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39: ; preds = %16
+_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39: ; preds = %16
   %.val35 = load ptr, ptr %18, align 8
   %21 = getelementptr i8, ptr %.val35, i64 %20
   %22 = getelementptr i8, ptr %21, i64 %15
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = icmp slt i32 %.0.i, %24
-  br i1 %25, label %26, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread
+  br i1 %25, label %26, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39.thread
 
-26:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39
+26:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39
   %27 = add i64 %.02756, 1
   %28 = getelementptr inbounds ptr, ptr %.sroa.0.059, i64 %.02756
   %29 = add nuw i64 %.03054, 1
@@ -700,12 +700,12 @@ _ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39: ; preds = %16
   store ptr %30, ptr %17, align 8
   br label %38
 
-_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread: ; preds = %16, %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39
-  %.0.i3853 = phi i32 [ %24, %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39 ], [ -1, %16 ]
+_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39.thread: ; preds = %16, %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39
+  %.0.i3853 = phi i32 [ %24, %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39 ], [ -1, %16 ]
   %31 = icmp slt i32 %.0.i3853, %.0.i
   br i1 %31, label %32, label %36
 
-32:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread
+32:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39.thread
   %33 = add i64 %.02855, -1
   %34 = getelementptr inbounds ptr, ptr %.sroa.0.059, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -713,7 +713,7 @@ _ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread: ; preds =
   store ptr %35, ptr %17, align 8
   br label %38
 
-36:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit39.thread
+36:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.argprom.exit39.thread
   %37 = add nuw i64 %.03054, 1
   br label %38
 

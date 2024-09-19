@@ -1212,7 +1212,7 @@ entry:
 
 cleanup.thread:                                   ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.10, i32 noundef 657, ptr noundef nonnull @__func__.qmp_dumpdtb, ptr noundef nonnull @.str.25) #12
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
 if.end:                                           ; preds = %entry
   %totalsize = getelementptr inbounds i8, ptr %1, i64 4
@@ -1257,13 +1257,13 @@ if.then7:                                         ; preds = %do.end
 cleanup:                                          ; preds = %do.end, %if.then7
   %err.val = phi ptr [ %err.val.pre4, %do.end ], [ %err.val.pre, %if.then7 ]
   %tobool.not.i.i = icmp eq ptr %err.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
   call void @g_error_free(ptr noundef nonnull %err.val) #12
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
-glib_autoptr_cleanup_GError.exit:                 ; preds = %cleanup.thread, %cleanup, %if.then.i.i
+glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %cleanup.thread, %cleanup, %if.then.i.i
   ret void
 }
 

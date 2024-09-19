@@ -45,7 +45,7 @@ if.then:                                          ; preds = %land.lhs.true.tail
   unreachable
 
 if.end:                                           ; preds = %sub_1, %land.lhs.true, %land.lhs.true.tail, %entry
-  %call1 = tail call fastcc ptr @_()
+  %call1 = tail call fastcc ptr @_.argprom()
   tail call void (ptr, ...) @die(ptr noundef %call1) #5
   unreachable
 }
@@ -60,7 +60,7 @@ declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #3 {
+define internal fastcc ptr @_.argprom() unnamed_addr #3 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

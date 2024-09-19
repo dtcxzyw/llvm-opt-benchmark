@@ -1901,7 +1901,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
 
 57:                                               ; preds = %52
   %58 = sext i8 %54 to i32
-  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef %3, i64 noundef 0, i32 noundef %58, i1 noundef zeroext true, ptr noundef %1)
+  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE.argprom.retelim(ptr noundef %3, i64 noundef 0, i32 noundef %58, i1 noundef zeroext true, ptr noundef %1)
   br label %129
 
 59:                                               ; preds = %.lr.ph
@@ -2050,7 +2050,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129: ; preds
 
 127:                                              ; preds = %125
   %128 = sub nsw i32 0, %.0.i128
-  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef %3, i64 noundef 0, i32 noundef %128, i1 noundef zeroext true, ptr noundef %1)
+  call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE.argprom.retelim(ptr noundef %3, i64 noundef 0, i32 noundef %128, i1 noundef zeroext true, ptr noundef %1)
   br label %129
 
 129:                                              ; preds = %127, %57, %123, %_ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129
@@ -2092,7 +2092,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit129: ; preds
 
 .lr.ph204:                                        ; preds = %.preheader178, %.lr.ph204
   %.1108203 = phi i64 [ %146, %.lr.ph204 ], [ 0, %.preheader178 ]
-  call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef %3, i64 noundef %.1108203, ptr noundef %0, ptr noundef %1)
+  call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE.argprom.argelim(ptr noundef %3, i64 noundef %.1108203, ptr noundef %0, ptr noundef %1)
   %146 = add nuw nsw i64 %.1108203, 1
   %.pr = load i64, ptr %15, align 8
   %147 = icmp slt i64 %146, %.pr
@@ -3005,7 +3005,7 @@ _ZL9yytnamerrPcPKc.exit65:                        ; preds = %83, %.preheader, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 -32768, 32769) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE.argprom.retelim(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 -32768, 32769) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 {
   %6 = alloca [8 x %union.yyGLRStackItem], align 16
   %7 = alloca %union.YYSTYPE, align 8
   %8 = alloca %"struct.nix::ParserLocation", align 4
@@ -3057,8 +3057,8 @@ define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserSta
   store i64 %39, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 -88
   store ptr %40, ptr %10, align 8
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %2, i32 noundef %29, ptr noundef nonnull %12, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4)
-  br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.argprom.argelim(i32 noundef %2, i32 noundef %29, ptr noundef nonnull %12, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4)
+  br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.argprom.exit
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds i8, ptr %6, i64 624
@@ -3097,10 +3097,10 @@ define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserSta
 _ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i: ; preds = %52, %._crit_edge.i
   store ptr %.040.lcssa.i, ptr %11, align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 528
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %2, i32 noundef %25, ptr noundef nonnull %53, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4)
-  br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.argprom.argelim(i32 noundef %2, i32 noundef %25, ptr noundef nonnull %53, ptr noundef %0, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4)
+  br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.argprom.exit
 
-_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit: ; preds = %28, %_ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i
+_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.argprom.exit: ; preds = %28, %_ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i
   %54 = phi i64 [ %31, %28 ], [ %22, %_ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i ]
   call void @llvm.lifetime.end.p0(i64 704, ptr nonnull %6)
   %55 = load ptr, ptr %9, align 8
@@ -3119,7 +3119,7 @@ _ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserSta
   %or.cond.i = icmp ult i32 %67, 333
   br i1 %or.cond.i, label %68, label %78
 
-68:                                               ; preds = %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
+68:                                               ; preds = %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.argprom.exit
   %69 = zext nneg i32 %67 to i64
   %70 = getelementptr inbounds [333 x i16], ptr @_ZL7yycheck, i64 0, i64 %69
   %71 = load i16, ptr %70, align 2
@@ -3133,7 +3133,7 @@ _ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserSta
   %77 = sext i16 %76 to i32
   br label %_ZL13yyLRgotoStatei15yysymbol_kind_t.exit
 
-78:                                               ; preds = %68, %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
+78:                                               ; preds = %68, %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.argprom.exit
   %79 = getelementptr inbounds [21 x i8], ptr @_ZL9yydefgoto, i64 0, i64 %63
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
@@ -3442,7 +3442,7 @@ _ZL10yyglrShiftP10yyGLRStacklilP7YYSTYPEPN3nix14ParserLocationE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
+define internal fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE.argprom.argelim(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 576
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 %1
@@ -3643,8 +3643,8 @@ _ZL12yysplitStackP10yyGLRStackl.exit:             ; preds = %83, %102
   %115 = add nsw i64 %114, 1
   store i64 %115, ptr %15, align 8
   %116 = sext i16 %76 to i32
-  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef %0, i64 noundef %114, i32 noundef %116, i1 noundef zeroext false, ptr noundef %3)
-  tail call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef %0, i64 noundef %114, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE.argprom.retelim(ptr noundef %0, i64 noundef %114, i32 noundef %116, i1 noundef zeroext false, ptr noundef %3)
+  tail call fastcc void @_ZL17yyprocessOneStackP10yyGLRStackllPN3nix14ParserLocationEPvPNS1_11ParserStateE.argprom.argelim(ptr noundef %0, i64 noundef %114, ptr noundef %2, ptr noundef %3)
   %117 = getelementptr inbounds i8, ptr %.123, i64 2
   %118 = load i16, ptr %117, align 2
   %.not68 = icmp eq i16 %118, 0
@@ -3671,7 +3671,7 @@ _ZL12yysplitStackP10yyGLRStackl.exit:             ; preds = %83, %102
 
 128:                                              ; preds = %126, %30
   %.sink = phi i32 [ %127, %126 ], [ %31, %30 ]
-  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef %0, i64 noundef %1, i32 noundef %.sink, i1 noundef zeroext false, ptr noundef %3)
+  tail call fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE.argprom.retelim(ptr noundef %0, i64 noundef %1, i32 noundef %.sink, i1 noundef zeroext false, ptr noundef %3)
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds ptr, ptr %129, i64 %1
   %131 = load ptr, ptr %130, align 8
@@ -3819,8 +3819,8 @@ _ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i:  ; preds = %28, %25, %8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %_ZN3nix10SourcePathC2ERKS0_.exit unwind label %32
 
-common.resume:                                    ; preds = %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit19", %.body, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn12, %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit19" ], [ %.pn, %.body ]
+common.resume:                                    ; preds = %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit19", %.body, %32
+  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %.pn12, %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit19" ], [ %.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i
@@ -3937,7 +3937,7 @@ _ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.e
   %73 = load ptr, ptr %16, align 8
   %.val.val = load ptr, ptr %12, align 8
   %74 = invoke noundef i32 @_Z13yylex_destroyPv(ptr noundef %.val.val)
-          to label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit" unwind label %75
+          to label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit" unwind label %75
 
 75:                                               ; preds = %72
   %76 = landingpad { ptr, i32 }
@@ -3946,7 +3946,7 @@ _ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.e
   call void @__clang_call_terminate(ptr %77) #40
   unreachable
 
-"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit": ; preds = %72
+"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit": ; preds = %72
   call void @_ZN3nix11ParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %13) #38
   ret ptr %73
 
@@ -3958,14 +3958,14 @@ _ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.e
 78:                                               ; preds = %_ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.exit
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit19"
+  br label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit19"
 
 80:                                               ; preds = %69, %66
   %81 = landingpad { ptr, i32 }
           cleanup
   %.val15.val = load ptr, ptr %12, align 8
   %82 = invoke noundef i32 @_Z13yylex_destroyPv(ptr noundef %.val15.val)
-          to label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit19" unwind label %83
+          to label %"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit19" unwind label %83
 
 83:                                               ; preds = %80
   %84 = landingpad { ptr, i32 }
@@ -3974,7 +3974,7 @@ _ZNSt7variantIJSt9monostateN3nix3Pos5StdinENS2_6StringENS1_10SourcePathEEED2Ev.e
   call void @__clang_call_terminate(ptr %85) #40
   unreachable
 
-"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.exit19": ; preds = %80, %78
+"_ZN7FinallyIZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS0_3Pos5StdinENS4_6StringENS0_10SourcePathEEERKS7_RNS0_11SymbolTableERNS0_8PosTableENS0_3refINS0_13InputAccessorEEERKNS0_4Expr10AstSymbolsEE3$_0ED2Ev.argprom.argprom.exit19": ; preds = %80, %78
   %.pn12 = phi { ptr, i32 } [ %79, %78 ], [ %81, %80 ]
   call void @_ZN3nix11ParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %13) #38
   br label %common.resume
@@ -14505,7 +14505,7 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #24
 declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %0, i32 noundef range(i32 -128, 128) %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.argprom.argelim(i32 noundef %0, i32 noundef range(i32 -128, 128) %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca %"struct.nix::ErrorInfo", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25531,8 +25531,8 @@ define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRSt
   %24 = getelementptr i8, ptr %20, i64 8
   br label %25
 
-25:                                               ; preds = %.lr.ph, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
-  %26 = phi ptr [ %.pr, %.lr.ph ], [ %89, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit ]
+25:                                               ; preds = %.lr.ph, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit
+  %26 = phi ptr [ %.pr, %.lr.ph ], [ %89, %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit ]
   %27 = load i32, ptr %23, align 4
   %28 = getelementptr inbounds i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4
@@ -25544,7 +25544,7 @@ define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRSt
   %33 = getelementptr inbounds [88 x i8], ptr @_ZL4yyr2, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp sgt i8 %34, 0
-  br i1 %35, label %.lr.ph.preheader.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit
+  br i1 %35, label %.lr.ph.preheader.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit
 
 .lr.ph.preheader.i:                               ; preds = %31
   %36 = zext nneg i8 %34 to i32
@@ -25575,7 +25575,7 @@ define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRSt
   %44 = getelementptr i8, ptr %26, i64 8
   %.val74.i = load ptr, ptr %44, align 8
   %45 = icmp eq ptr %.val73.i, %.val74.i
-  br i1 %45, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, label %.lr.ph12.preheader.i
+  br i1 %45, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit, label %.lr.ph12.preheader.i
 
 .lr.ph12.preheader.i:                             ; preds = %.loopexit
   %46 = zext nneg i8 %34 to i32
@@ -25665,9 +25665,9 @@ define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRSt
   %86 = icmp slt i32 %.03810.i, 2
   %87 = icmp eq ptr %82, %84
   %or.cond41.i = select i1 %86, i1 true, i1 %87
-  br i1 %or.cond41.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, label %.lr.ph12.i, !llvm.loop !197
+  br i1 %or.cond41.i, label %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit, label %.lr.ph12.i, !llvm.loop !197
 
-_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit: ; preds = %80, %31, %.loopexit
+_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit: ; preds = %80, %31, %.loopexit
   %88 = getelementptr inbounds i8, ptr %26, i64 80
   %89 = load ptr, ptr %88, align 8
   store ptr %89, ptr %22, align 8
@@ -25675,11 +25675,11 @@ _ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit: ; preds = %80, %31, %.loopexi
   br i1 %.not.i, label %.loopexit43, label %25, !llvm.loop !198
 
 _ZL18yyidenticalOptionsP16yySemanticOptionS0_.exit: ; preds = %25, %.lr.ph.i22
-  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE.argprom(ptr noundef %0, i32 noundef 1)
   tail call void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef nonnull %21, ptr readnone poison, ptr noundef %4, ptr noundef nonnull @.str.126)
   unreachable
 
-.loopexit43:                                      ; preds = %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.exit, %18
+.loopexit43:                                      ; preds = %_ZL17yymergeOptionSetsP16yySemanticOptionS0_.argprom.exit, %18
   call void @llvm.lifetime.start.p0(i64 704, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -25720,7 +25720,7 @@ _ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocat
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(32) %112, i64 32, i1 false)
   %113 = load i32, ptr %90, align 4
   %114 = getelementptr inbounds i8, ptr %6, i64 528
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %113, i32 noundef %95, ptr noundef nonnull %114, ptr noundef %2, ptr noundef %8, ptr noundef nonnull %21, ptr noundef %4)
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE.argprom.argelim(i32 noundef %113, i32 noundef %95, ptr noundef nonnull %114, ptr noundef %2, ptr noundef %8, ptr noundef nonnull %21, ptr noundef %4)
   store i32 %106, ptr %105, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false)
@@ -25737,7 +25737,7 @@ _ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocat
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr nocapture noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #30 {
+define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE.argprom(ptr nocapture noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #30 {
   %3 = alloca [8 x %union.yyGLRStackItem], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %57, label %4
@@ -25746,7 +25746,7 @@ define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackP
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %1, -1
-  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %6, i32 noundef %7)
+  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE.argprom(ptr noundef %6, i32 noundef %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
@@ -25767,7 +25767,7 @@ define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackP
   %21 = zext nneg i8 %18 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %23, i32 noundef %21)
+  tail call fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE.argprom(ptr noundef %23, i32 noundef %21)
   %24 = zext nneg i8 %18 to i64
   br label %25
 

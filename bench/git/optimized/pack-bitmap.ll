@@ -1192,9 +1192,9 @@ if.end4.i:                                        ; preds = %bitmap_bsearch_pos.
   %conv.i.i = zext i32 %bitmap_git.val.i to i64
   %call.i.i = call ptr @bsearch(ptr noundef nonnull %commit_pos.addr.i.i, ptr noundef %bitmap_git.val40.i, i64 noundef %conv.i.i, i64 noundef 16, ptr noundef nonnull @triplet_cmp) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %bitmap_bsearch_triplet_by_pos.exit.thread.i, label %if.end7.i
+  br i1 %tobool.not.i.i, label %bitmap_bsearch_triplet_by_pos.argprom.exit.thread.i, label %if.end7.i
 
-bitmap_bsearch_triplet_by_pos.exit.thread.i:      ; preds = %if.end4.i
+bitmap_bsearch_triplet_by_pos.argprom.exit.thread.i: ; preds = %if.end4.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %commit_pos.addr.i.i)
   br label %lazy_bitmap_for_commit.exit.thread
 
@@ -1700,7 +1700,7 @@ corrupt.i:                                        ; preds = %read_bitmap_1.exit.
   store i1 true, ptr @lazy_bitmap_for_commit.is_corrupt, align 4
   br label %lazy_bitmap_for_commit.exit.thread
 
-lazy_bitmap_for_commit.exit.thread:               ; preds = %corrupt.i, %if.end, %bitmap_bsearch_pos.exit.i, %bitmap_bsearch_triplet_by_pos.exit.thread.i
+lazy_bitmap_for_commit.exit.thread:               ; preds = %corrupt.i, %if.end, %bitmap_bsearch_pos.exit.i, %bitmap_bsearch_triplet_by_pos.argprom.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %commit_pos.i)
   br label %return
 
@@ -4638,7 +4638,7 @@ declare i32 @pack_pos_to_midx(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @pack_pos_to_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nth_bitmap_object_oid(ptr nocapture noundef readonly %index, ptr noundef %oid, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc void @nth_bitmap_object_oid.retelim(ptr nocapture noundef readonly %index, ptr noundef %oid, i32 noundef %n) unnamed_addr #0 {
 entry:
   %midx = getelementptr inbounds i8, ptr %index, i64 8
   %0 = load ptr, ptr %midx, align 8
@@ -7100,7 +7100,7 @@ if.end:                                           ; preds = %if.else, %if.then2
 
 if.then13:                                        ; preds = %if.end
   %call14 = call i32 @pack_pos_to_index(ptr noundef %pack.0, i32 noundef %pos) #18
-  call fastcc void @nth_bitmap_object_oid(ptr noundef nonnull %bitmap_git, ptr noundef nonnull %oid, i32 noundef %call14)
+  call fastcc void @nth_bitmap_object_oid.retelim(ptr noundef nonnull %bitmap_git, ptr noundef nonnull %oid, i32 noundef %call14)
   %call16 = call fastcc ptr @_(ptr noundef nonnull @.str.57)
   %call17 = call ptr @oid_to_hex(ptr noundef nonnull %oid) #18
   call void (ptr, ...) @die(ptr noundef %call16, ptr noundef %call17) #20

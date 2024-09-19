@@ -880,7 +880,7 @@ OutputFsync.exit.i:                               ; preds = %283, %280, %279, %2
 
 292:                                              ; preds = %290
   %293 = load ptr, ptr @conn, align 8
-  %294 = call fastcc zeroext i1 @sendFeedback(ptr noundef %293, i64 noundef %269)
+  %294 = call fastcc zeroext i1 @sendFeedback.argelim(ptr noundef %293, i64 noundef %269)
   br i1 %294, label %295, label %.loopexit170.i
 
 295:                                              ; preds = %292, %290, %OutputFsync.exit.i
@@ -1211,7 +1211,7 @@ sub_0163.i:                                       ; preds = %OutputFsync.exit157
 
 flushAndSendFeedback.exit.i:                      ; preds = %441, %438, %437, %433
   %446 = call i64 @feGetCurrentTimestamp() #13
-  %447 = call fastcc noundef zeroext i1 @sendFeedback(ptr noundef %434, i64 noundef %446)
+  %447 = call fastcc noundef zeroext i1 @sendFeedback.argelim(ptr noundef %434, i64 noundef %446)
   br i1 %447, label %448, label %.loopexit170.i
 
 448:                                              ; preds = %flushAndSendFeedback.exit.i, %427
@@ -1273,7 +1273,7 @@ flushAndSendFeedback.exit.i:                      ; preds = %441, %438, %437, %4
 
 flushAndSendFeedback.exit75:                      ; preds = %459, %464, %465, %468
   %473 = call i64 @feGetCurrentTimestamp() #13
-  %474 = call fastcc noundef zeroext i1 @sendFeedback(ptr noundef %460, i64 noundef %473)
+  %474 = call fastcc noundef zeroext i1 @sendFeedback.argelim(ptr noundef %460, i64 noundef %473)
   br i1 %474, label %.loopexit.sink.split.i, label %.loopexit170.i
 
 .lr.ph204.preheader.i:                            ; preds = %454
@@ -1360,7 +1360,7 @@ flushAndSendFeedback.exit75:                      ; preds = %459, %464, %465, %4
 
 flushAndSendFeedback.exit:                        ; preds = %499, %504, %505, %508
   %513 = call i64 @feGetCurrentTimestamp() #13
-  %514 = call fastcc noundef zeroext i1 @sendFeedback(ptr noundef %500, i64 noundef %513)
+  %514 = call fastcc noundef zeroext i1 @sendFeedback.argelim(ptr noundef %500, i64 noundef %513)
   br i1 %514, label %.loopexit.sink.split.i, label %.loopexit170.i
 
 .loopexit.sink.split.i:                           ; preds = %448, %flushAndSendFeedback.exit, %flushAndSendFeedback.exit75
@@ -1726,7 +1726,7 @@ declare i64 @feGetCurrentTimestamp() local_unnamed_addr #1
 declare zeroext i1 @feTimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @sendFeedback.argelim(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = alloca [34 x i8], align 16
   %4 = load i32, ptr @verbose, align 4
   %.not = icmp eq i32 %4, 0

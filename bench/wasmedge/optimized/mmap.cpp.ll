@@ -66,11 +66,11 @@ thread-pre-split:                                 ; preds = %11
 
 21:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3), !noalias !4
-  br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
+  br label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.argprom.exit.i
 
 .thread7:                                         ; preds = %thread-pre-split, %.thread8
   %22 = invoke i32 @close(i32 noundef %8)
-          to label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i unwind label %23
+          to label %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.argprom.exit.i unwind label %23
 
 23:                                               ; preds = %.thread7
   %24 = landingpad { ptr, i32 }
@@ -79,11 +79,11 @@ thread-pre-split:                                 ; preds = %11
   tail call void @__clang_call_terminate(ptr %25) #14
   unreachable
 
-_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i: ; preds = %21, %.thread7
+_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.argprom.exit.i: ; preds = %21, %.thread7
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 24) #15
   br label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN8WasmEdge12_GLOBAL__N_19ImplementEEclEPS2_.argprom.exit.i
   ret void
 
 26:                                               ; preds = %2

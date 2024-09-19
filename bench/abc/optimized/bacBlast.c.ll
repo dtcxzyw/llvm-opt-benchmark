@@ -3886,20 +3886,20 @@ Bac_ManNtk.exit46:                                ; preds = %Bac_ManNtk.exit46.l
   %43 = getelementptr i8, ptr %42, i64 12
   %.val42 = load i32, ptr %43, align 4
   %44 = icmp sgt i32 %.val42, 0
-  br i1 %44, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_NtkCopyNtk.exit
+  br i1 %44, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_NtkCopyNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %Bac_ManNtk.exit46
   %.val.i.i.i = load i32, ptr %26, align 4
   %.not4.i.i = icmp sgt i32 %.val42, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_NtkCopyNtk.exit, label %45
+  br i1 %.not4.i.i, label %Bac_NtkCopyNtk.argprom.exit, label %45
 
 45:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
   %46 = load ptr, ptr %30, align 8
   %47 = zext nneg i32 %.val42 to i64
   %48 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %46, i64 %47
-  br label %Bac_NtkCopyNtk.exit
+  br label %Bac_NtkCopyNtk.argprom.exit
 
-Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit46, %Bac_ManNtkIsOk.exit.i.i, %45
+Bac_NtkCopyNtk.argprom.exit:                      ; preds = %Bac_ManNtk.exit46, %Bac_ManNtkIsOk.exit.i.i, %45
   %49 = phi ptr [ %48, %45 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %Bac_ManNtk.exit46 ]
   %50 = getelementptr i8, ptr %42, i64 8
   %.val72.i = load i32, ptr %50, align 8
@@ -3912,7 +3912,7 @@ Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit46, 
   %54 = icmp sgt i32 %.val66.i, 0
   br i1 %54, label %.lr.ph.i.i.i.i, label %Bac_NtkCoNum.exit.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %Bac_NtkCopyNtk.exit
+.lr.ph.i.i.i.i:                                   ; preds = %Bac_NtkCopyNtk.argprom.exit
   %55 = getelementptr inbounds i8, ptr %42, i64 88
   %56 = load ptr, ptr %55, align 8
   %wide.trip.count.i.i.i.i = zext nneg i32 %.val66.i to i64
@@ -3931,8 +3931,8 @@ Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit46, 
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %Bac_NtkCoNum.exit.i, label %57, !llvm.loop !36
 
-Bac_NtkCoNum.exit.i:                              ; preds = %57, %Bac_NtkCopyNtk.exit
-  %.0.lcssa.i.i.i.i = phi i32 [ 0, %Bac_NtkCopyNtk.exit ], [ %62, %57 ]
+Bac_NtkCoNum.exit.i:                              ; preds = %57, %Bac_NtkCopyNtk.argprom.exit
+  %.0.lcssa.i.i.i.i = phi i32 [ 0, %Bac_NtkCopyNtk.argprom.exit ], [ %62, %57 ]
   %63 = add nsw i32 %.0.lcssa.i.i.i.i, %.val71.i
   %64 = mul nsw i32 %63, 3
   %65 = add nsw i32 %64, %.val66.i
@@ -5195,13 +5195,13 @@ Vec_IntFillExtra.exit111:                         ; preds = %Bac_ObjName.exit76.
   %536 = getelementptr inbounds i32, ptr %.val51.i.i, i64 %indvars.iv166.i
   %537 = load i32, ptr %536, align 4
   %538 = icmp sgt i32 %537, 0
-  br i1 %538, label %Bac_ManNtkIsOk.exit.i.i.i.i, label %Bac_BoxNtk.exit.thread.i.i
+  br i1 %538, label %Bac_ManNtkIsOk.exit.i.i.i.i, label %Bac_BoxNtk.argprom.exit.thread.i.i
 
 Bac_ManNtkIsOk.exit.i.i.i.i:                      ; preds = %535
   %539 = getelementptr i8, ptr %.val50.i.i, i64 36
   %.val.i.i.i77.i.i = load i32, ptr %539, align 4
   %.not4.i.i.i.i = icmp sgt i32 %537, %.val.i.i.i77.i.i
-  br i1 %.not4.i.i.i.i, label %Bac_BoxNtk.exit.thread.i.i, label %Bac_ManNtkIsOk.exit.i.i78.i.i
+  br i1 %.not4.i.i.i.i, label %Bac_BoxNtk.argprom.exit.thread.i.i, label %Bac_ManNtkIsOk.exit.i.i78.i.i
 
 Bac_ManNtkIsOk.exit.i.i78.i.i:                    ; preds = %Bac_ManNtkIsOk.exit.i.i.i.i
   %540 = getelementptr inbounds i8, ptr %.val50.i.i, i64 40
@@ -5293,15 +5293,15 @@ Vec_IntFillExtra.exit97:                          ; preds = %Bac_ManNtkIsOk.exit
   %572 = sext i32 %453 to i64
   %573 = getelementptr inbounds i32, ptr %.val.i.i82.i.i, i64 %572
   store i32 %.val47.i.i, ptr %573, align 4
-  br label %Bac_BoxNtk.exit.thread.i.i
+  br label %Bac_BoxNtk.argprom.exit.thread.i.i
 
-Bac_BoxNtk.exit.thread.i.i:                       ; preds = %Vec_IntFillExtra.exit97, %Bac_ManNtkIsOk.exit.i.i.i.i, %535
+Bac_BoxNtk.argprom.exit.thread.i.i:               ; preds = %Vec_IntFillExtra.exit97, %Bac_ManNtkIsOk.exit.i.i.i.i, %535
   %.val46107.i.i = load i32, ptr %53, align 4
   %574 = sext i32 %.val46107.i.i to i64
   %575 = icmp slt i64 %476, %574
   br i1 %575, label %.lr.ph110.i.i.preheader, label %Bac_BoxDup.exit.i
 
-.lr.ph110.i.i.preheader:                          ; preds = %Bac_BoxNtk.exit.thread.i.i
+.lr.ph110.i.i.preheader:                          ; preds = %Bac_BoxNtk.argprom.exit.thread.i.i
   %.val45.i.i220 = load ptr, ptr %245, align 8
   %576 = getelementptr inbounds i8, ptr %.val45.i.i220, i64 %476
   %577 = load i8, ptr %576, align 1
@@ -5612,10 +5612,10 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i98.i, 
   %688 = icmp slt i64 %indvars.iv.next115.i.i, %687
   br i1 %688, label %.lr.ph110.i.i, label %Bac_BoxDup.exit.i, !llvm.loop !41
 
-Bac_BoxDup.exit.i:                                ; preds = %.lr.ph110.i.i, %Vec_IntFillExtra.exit.i, %.lr.ph110.i.i.preheader, %Bac_BoxNtk.exit.thread.i.i, %.Bac_BoxDup.exit_crit_edge.i
-  %.pre-phi = phi i64 [ %574, %.lr.ph110.i.i.preheader ], [ %574, %Bac_BoxNtk.exit.thread.i.i ], [ %.pre272, %.Bac_BoxDup.exit_crit_edge.i ], [ %687, %Vec_IntFillExtra.exit.i ], [ %687, %.lr.ph110.i.i ]
-  %indvars.iv.next167.pre-phi.i = phi i64 [ %476, %.lr.ph110.i.i.preheader ], [ %476, %Bac_BoxNtk.exit.thread.i.i ], [ %.pre186.i, %.Bac_BoxDup.exit_crit_edge.i ], [ %476, %Vec_IntFillExtra.exit.i ], [ %476, %.lr.ph110.i.i ]
-  %.val65.i = phi i32 [ %.val46107.i.i, %.lr.ph110.i.i.preheader ], [ %.val46107.i.i, %Bac_BoxNtk.exit.thread.i.i ], [ %.val65176.i, %.Bac_BoxDup.exit_crit_edge.i ], [ %.val46.i.i, %Vec_IntFillExtra.exit.i ], [ %.val46.i.i, %.lr.ph110.i.i ]
+Bac_BoxDup.exit.i:                                ; preds = %.lr.ph110.i.i, %Vec_IntFillExtra.exit.i, %.lr.ph110.i.i.preheader, %Bac_BoxNtk.argprom.exit.thread.i.i, %.Bac_BoxDup.exit_crit_edge.i
+  %.pre-phi = phi i64 [ %574, %.lr.ph110.i.i.preheader ], [ %574, %Bac_BoxNtk.argprom.exit.thread.i.i ], [ %.pre272, %.Bac_BoxDup.exit_crit_edge.i ], [ %687, %Vec_IntFillExtra.exit.i ], [ %687, %.lr.ph110.i.i ]
+  %indvars.iv.next167.pre-phi.i = phi i64 [ %476, %.lr.ph110.i.i.preheader ], [ %476, %Bac_BoxNtk.argprom.exit.thread.i.i ], [ %.pre186.i, %.Bac_BoxDup.exit_crit_edge.i ], [ %476, %Vec_IntFillExtra.exit.i ], [ %476, %.lr.ph110.i.i ]
+  %.val65.i = phi i32 [ %.val46107.i.i, %.lr.ph110.i.i.preheader ], [ %.val46107.i.i, %Bac_BoxNtk.argprom.exit.thread.i.i ], [ %.val65176.i, %.Bac_BoxDup.exit_crit_edge.i ], [ %.val46.i.i, %Vec_IntFillExtra.exit.i ], [ %.val46.i.i, %.lr.ph110.i.i ]
   %689 = icmp slt i64 %indvars.iv.next167.pre-phi.i, %.pre-phi
   br i1 %689, label %324, label %.preheader.i, !llvm.loop !42
 
@@ -5824,20 +5824,20 @@ Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.
   %9 = getelementptr i8, ptr %8, i64 12
   %.val7 = load i32, ptr %9, align 4
   %10 = icmp sgt i32 %.val7, 0
-  br i1 %10, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_NtkCopyNtk.exit
+  br i1 %10, label %Bac_ManNtkIsOk.exit.i.i, label %Bac_NtkCopyNtk.argprom.exit
 
 Bac_ManNtkIsOk.exit.i.i:                          ; preds = %Bac_ManNtk.exit
   %.val.i.i.i = load i32, ptr %5, align 4
   %.not4.i.i = icmp sgt i32 %.val7, %.val.i.i.i
-  br i1 %.not4.i.i, label %Bac_NtkCopyNtk.exit, label %11
+  br i1 %.not4.i.i, label %Bac_NtkCopyNtk.argprom.exit, label %11
 
 11:                                               ; preds = %Bac_ManNtkIsOk.exit.i.i
   %12 = load ptr, ptr %6, align 8
   %13 = zext nneg i32 %.val7 to i64
   %14 = getelementptr inbounds %struct.Bac_Ntk_t_, ptr %12, i64 %13
-  br label %Bac_NtkCopyNtk.exit
+  br label %Bac_NtkCopyNtk.argprom.exit
 
-Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit, %Bac_ManNtkIsOk.exit.i.i, %11
+Bac_NtkCopyNtk.argprom.exit:                      ; preds = %Bac_ManNtk.exit, %Bac_ManNtkIsOk.exit.i.i, %11
   %15 = phi ptr [ %14, %11 ], [ null, %Bac_ManNtkIsOk.exit.i.i ], [ null, %Bac_ManNtk.exit ]
   %16 = getelementptr inbounds i8, ptr %15, i64 128
   %17 = getelementptr i8, ptr %15, i64 80
@@ -5846,7 +5846,7 @@ Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit, %B
   %.not.i.i.i.i = icmp slt i32 %18, %.val.i.i8
   br i1 %.not.i.i.i.i, label %19, label %Vec_IntGrow.exit.i.i.i
 
-19:                                               ; preds = %Bac_NtkCopyNtk.exit
+19:                                               ; preds = %Bac_NtkCopyNtk.argprom.exit
   %20 = getelementptr inbounds i8, ptr %15, i64 136
   %21 = load ptr, ptr %20, align 8
   %.not9.i.i.i.i = icmp eq ptr %21, null
@@ -5868,7 +5868,7 @@ Bac_NtkCopyNtk.exit:                              ; preds = %Bac_ManNtk.exit, %B
   store i32 %.val.i.i8, ptr %16, align 8
   br label %Vec_IntGrow.exit.i.i.i
 
-Vec_IntGrow.exit.i.i.i:                           ; preds = %28, %Bac_NtkCopyNtk.exit
+Vec_IntGrow.exit.i.i.i:                           ; preds = %28, %Bac_NtkCopyNtk.argprom.exit
   %30 = icmp sgt i32 %.val.i.i8, 0
   br i1 %30, label %.lr.ph.i.i.i, label %Bac_NtkStartNames.exit.i
 

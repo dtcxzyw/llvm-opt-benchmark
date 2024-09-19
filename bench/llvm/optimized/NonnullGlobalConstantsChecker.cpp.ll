@@ -610,7 +610,7 @@ define internal void @_ZN5clang4ento5check8Location14_checkLocationIN12_GLOBAL__
 _ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker18initIdentifierInfoERN5clang10ASTContextE.exit.i: ; preds = %21, %6
   %spec.select.i.i.i = icmp ugt i8 %2, 1
   %or.cond.i = select i1 %3, i1 %spec.select.i.i.i, i1 false
-  br i1 %or.cond.i, label %34, label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.exit
+  br i1 %or.cond.i, label %34, label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
 34:                                               ; preds = %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker18initIdentifierInfoERN5clang10ASTContextE.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -868,13 +868,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br label %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i: ; preds = %134, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %.loopexit.i, %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker19isGlobalConstStringEN5clang4ento4SValE.exit.thread.i
-  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.exit, label %135
+  br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.argprom.exit, label %135
 
 135:                                              ; preds = %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %38) #16
-  br label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.exit
+  br label %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.argprom.exit
 
-_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.exit: ; preds = %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker18initIdentifierInfoERN5clang10ASTContextE.exit.i, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i, %135
+_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker13checkLocationEN5clang4ento4SValEbPKNS1_4StmtERNS2_14CheckerContextE.argprom.exit: ; preds = %_ZNK12_GLOBAL__N_129NonnullGlobalConstantsChecker18initIdentifierInfoERN5clang10ASTContextE.exit.i, %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i, %135
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   ret void
 }

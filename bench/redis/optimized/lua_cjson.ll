@@ -1434,7 +1434,7 @@ if.then4:                                         ; preds = %entry
   br i1 %3, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then4
-  tail call fastcc void @strbuf_append_mem(ptr noundef %json)
+  tail call fastcc void @strbuf_append_mem.argprom.argelim(ptr noundef %json)
   br label %cleanup
 
 if.else7:                                         ; preds = %entry
@@ -1502,7 +1502,7 @@ cleanup:                                          ; preds = %strbuf_ensure_empty
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @strbuf_append_mem(ptr noundef %s) unnamed_addr #4 {
+define internal fastcc void @strbuf_append_mem.argprom.argelim(ptr noundef %s) unnamed_addr #4 {
 entry:
   %size.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %size.i.i, align 8, !tbaa !27
@@ -2188,7 +2188,7 @@ if.else62:                                        ; preds = %if.else54
   br i1 %tobool65.not, label %if.end75, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %if.else62
-  %call67 = tail call fastcc i32 @json_is_invalid_number(ptr nonnull %json.val)
+  %call67 = tail call fastcc i32 @json_is_invalid_number.argprom(ptr nonnull %json.val)
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.end75, label %if.then69
 
@@ -2471,7 +2471,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number(ptr nocapture readonly %json.8.val) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @json_is_invalid_number.argprom(ptr nocapture readonly %json.8.val) unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %json.8.val, align 1, !tbaa !13
   switch i8 %0, label %if.end6 [

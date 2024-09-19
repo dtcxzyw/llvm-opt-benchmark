@@ -141,7 +141,7 @@ define void @prte_iof_hnp_recv(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
 
 50:                                               ; preds = %49, %44
   %.not22.i = icmp eq ptr %46, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %51
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %51
 
 51:                                               ; preds = %50
   %52 = call i32 @pthread_mutex_init(ptr noundef nonnull %46, ptr noundef null) #9
@@ -156,7 +156,7 @@ define void @prte_iof_hnp_recv(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof_deliver_t_class, i64 40), align 8
   %58 = load ptr, ptr %57, align 8
   %.not6.i.i = icmp eq ptr %58, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %51, %.lr.ph.i.i
   %59 = phi ptr [ %61, %.lr.ph.i.i ], [ %58, %51 ]
@@ -165,9 +165,9 @@ define void @prte_iof_hnp_recv(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   %60 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !4
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %50, %51
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %50, %51
   %62 = getelementptr inbounds i8, ptr %46, i64 120
   call void @PMIx_Xfer_procid(ptr noundef nonnull %62, ptr noundef nonnull %6) #9
   %63 = load i32, ptr %9, align 4
@@ -181,12 +181,12 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %50, %5
     i32 -2, label %70
   ]
 
-68:                                               ; preds = %pmix_obj_new_tma.exit
+68:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %69 = call ptr @PMIx_Error_string(i32 noundef %67) #9
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %69, ptr noundef nonnull @.str.2, i32 noundef 121) #9
   br label %70
 
-70:                                               ; preds = %pmix_obj_new_tma.exit, %68
+70:                                               ; preds = %pmix_obj_new_tma.argprom.exit, %68
   %71 = call i32 @pthread_mutex_lock(ptr noundef nonnull %46) #9
   %72 = icmp eq i32 %71, 35
   br i1 %72, label %73, label %75
@@ -240,7 +240,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   call void @free(ptr noundef nonnull %46) #9
   br label %151
 
-95:                                               ; preds = %pmix_obj_new_tma.exit
+95:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %96 = load i32, ptr %9, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %46, i64 392
@@ -281,7 +281,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   br i1 %113, label %.loopexit, label %110
 
 ._crit_edge:                                      ; preds = %110, %109
-  %114 = call fastcc ptr @pmix_obj_new_tma(ptr noundef nonnull @prte_iof_proc_t_class)
+  %114 = call fastcc ptr @pmix_obj_new_tma.argprom(ptr noundef nonnull @prte_iof_proc_t_class)
   %115 = getelementptr inbounds i8, ptr %114, i64 144
   call void @PMIx_Xfer_procid(ptr noundef nonnull %115, ptr noundef nonnull %6) #9
   %116 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_iof_hnp_component, i64 472), align 8
@@ -378,7 +378,7 @@ declare i32 @PMIx_Data_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pmix_obj_new_tma(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @pmix_obj_new_tma.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #10

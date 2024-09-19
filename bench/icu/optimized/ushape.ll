@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL14convertLamAlef = internal unnamed_addr constant [8 x i16] [i16 1570, i16 1570, i16 1571, i16 1571, i16 1573, i16 1573, i16 1575, i16 1575], align 16
 @_ZL13yehHamzaToYeh = internal unnamed_addr constant [2 x i16] [i16 -273, i16 -272], align 2
 @_ZL14tashkeelMedial = internal unnamed_addr constant [16 x i8] c"\00\01\00\00\00\00\00\01\00\01\00\01\00\01\00\01", align 16
-@switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables = private unnamed_addr constant [6 x i16] [i16 1628, i16 1629, i16 1628, i16 1630, i16 1628, i16 1631], align 2
+@switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim = private unnamed_addr constant [6 x i16] [i16 1628, i16 1629, i16 1628, i16 1630, i16 1628, i16 1631], align 2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @u_shapeArabic_75(ptr noundef %source, i32 noundef %sourceLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %pErrorCode) local_unnamed_addr #0 {
@@ -279,7 +279,7 @@ if.end178:                                        ; preds = %while.end, %if.then
   br i1 %or.cond248, label %if.then184, label %if.end187
 
 if.then184:                                       ; preds = %if.end178
-  %call185 = tail call fastcc noundef i32 @_ZL13calculateSizePKDsiij(ptr noundef %source.addr.0, i32 noundef %sourceLength.addr.1, i32 noundef %options)
+  %call185 = tail call fastcc noundef i32 @_ZL13calculateSizePKDsiij.argelim(ptr noundef %source.addr.0, i32 noundef %sourceLength.addr.1, i32 noundef %options)
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end178, %if.then184
@@ -347,7 +347,7 @@ if.end221:                                        ; preds = %if.then215, %if.end
   br i1 %cmp223, label %if.then224, label %if.end225
 
 if.then224:                                       ; preds = %if.end221
-  call fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, ptr noundef %spacesCountl, ptr noundef %spacesCountr)
+  call fastcc void @_ZL11countSpacesPDsijPiS0_.argelim(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, ptr noundef %spacesCountl, ptr noundef %spacesCountr)
   %13 = load i32, ptr %spacesCountl, align 4
   %14 = load i32, ptr %spacesCountr, align 4
   %15 = xor i32 %14, -1
@@ -416,7 +416,7 @@ if.then240:                                       ; preds = %sw.bb
   store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp.sroa_idx, align 8
   %shapeVars.sroa.11.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp.sroa_idx, align 4
-  %call241 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 2, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp)
+  %call241 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 2, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp)
   br label %sw.epilog
 
 if.else242:                                       ; preds = %sw.bb, %sw.bb
@@ -433,12 +433,12 @@ if.else242:                                       ; preds = %sw.bb, %sw.bb
   store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp243.sroa_idx, align 8
   %shapeVars.sroa.11.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp243.sroa_idx, align 4
-  %call244 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 1, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp243)
+  %call244 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 1, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp243)
   %cmp246 = icmp eq i32 %and, 786432
   br i1 %cmp246, label %if.then247, label %sw.epilog
 
 if.then247:                                       ; preds = %if.else242
-  %22 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef %tempbuffer.0, i32 noundef %call244)
+  %22 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode.argprom.argelim(ptr noundef %tempbuffer.0, i32 noundef %call244)
   br label %sw.epilog
 
 sw.bb251:                                         ; preds = %if.end233
@@ -455,7 +455,7 @@ sw.bb251:                                         ; preds = %if.end233
   store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp252.sroa_idx, align 8
   %shapeVars.sroa.11.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp252.sroa_idx, align 4
-  %call253 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 0, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp252)
+  %call253 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, i32 noundef 0, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp252)
   br label %sw.epilog
 
 sw.bb254:                                         ; preds = %if.end233
@@ -472,7 +472,7 @@ sw.bb254:                                         ; preds = %if.end233
   store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp255.sroa_idx, align 8
   %shapeVars.sroa.11.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp255.sroa_idx, align 4
-  %call256 = call fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp255)
+  %call256 = call fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables.argelim(ptr noundef %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef %pErrorCode, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp255)
   br label %sw.epilog
 
 default.unreachable:                              ; preds = %if.end233
@@ -483,7 +483,7 @@ sw.epilog:                                        ; preds = %if.end233, %if.then
   br i1 %cmp223, label %if.then259, label %if.end260
 
 if.then259:                                       ; preds = %sw.epilog
-  call fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef %tempbuffer.0, i32 noundef %destLength.0, ptr noundef %spacesCountl, ptr noundef %spacesCountr)
+  call fastcc void @_ZL11countSpacesPDsijPiS0_.argelim(ptr noundef %tempbuffer.0, i32 noundef %destLength.0, ptr noundef %spacesCountl, ptr noundef %spacesCountr)
   %23 = load i32, ptr %spacesCountl, align 4
   %24 = load i32, ptr %spacesCountr, align 4
   %25 = xor i32 %24, -1
@@ -701,7 +701,7 @@ return:                                           ; preds = %if.else26, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL13calculateSizePKDsiij(ptr nocapture noundef readonly %source, i32 noundef %sourceLength, i32 noundef %options) unnamed_addr #5 {
+define internal fastcc noundef i32 @_ZL13calculateSizePKDsiij.argelim(ptr nocapture noundef readonly %source, i32 noundef %sourceLength, i32 noundef %options) unnamed_addr #5 {
 entry:
   %0 = and i32 %options, 65547
   %or.cond38 = icmp eq i32 %0, 8
@@ -844,7 +844,7 @@ declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL11countSpacesPDsijPiS0_(ptr nocapture noundef nonnull readonly %dest, i32 noundef %size, ptr nocapture noundef nonnull writeonly %spacesCountl, ptr nocapture noundef nonnull writeonly %spacesCountr) unnamed_addr #7 {
+define internal fastcc void @_ZL11countSpacesPDsijPiS0_.argelim(ptr nocapture noundef nonnull readonly %dest, i32 noundef %size, ptr nocapture noundef nonnull writeonly %spacesCountl, ptr nocapture noundef nonnull writeonly %spacesCountr) unnamed_addr #7 {
 entry:
   %0 = load i16, ptr %dest, align 2
   %cmp10 = icmp eq i16 %0, 32
@@ -894,7 +894,7 @@ if.end:                                           ; preds = %while.body9, %while
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, i32 noundef range(i32 0, 3) %tashkeelFlag, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, i32 noundef range(i32 0, 3) %tashkeelFlag, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
 entry:
   %and = and i32 %options, 32768
   %cmp = icmp eq i32 %and, 0
@@ -1191,7 +1191,7 @@ switch.hole_check:                                ; preds = %if.then70
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i16], ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds [6 x i16], ptr @switch.table._ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables.argelim, i64 0, i64 %35
   %switch.load = load i16, ptr %switch.gep, align 2
   store i16 -1, ptr %arrayidx72, align 2
   %idxprom79 = sext i32 %lastPos.0284 to i64
@@ -1813,7 +1813,7 @@ if.end284:                                        ; preds = %_ZL7getLinkDs.exit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr nocapture noundef nonnull %dest, i32 noundef returned %sourceLength) unnamed_addr #7 {
+define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode.argprom.argelim(ptr nocapture noundef nonnull %dest, i32 noundef returned %sourceLength) unnamed_addr #7 {
 entry:
   %cmp15 = icmp sgt i32 %sourceLength, 0
   br i1 %cmp15, label %for.body.preheader, label %for.end
@@ -1892,7 +1892,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables.argelim(ptr noundef nonnull %dest, i32 noundef %sourceLength, i32 noundef %options, ptr nocapture noundef nonnull %pErrorCode, ptr nocapture noundef readonly byval(%struct.uShapeVariables) align 8 %shapeVars) unnamed_addr #0 {
 entry:
   %and = and i32 %options, 58720256
   %cmp = icmp eq i32 %and, 16777216
@@ -2336,25 +2336,25 @@ if.then2:                                         ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then2
-  %call = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   %1 = load i32, ptr %pErrorCode, align 4
   %cmp5 = icmp eq i32 %1, 20
   br i1 %cmp5, label %if.then6, label %if.then21
 
 if.then6:                                         ; preds = %if.then4
   store i32 0, ptr %pErrorCode, align 4
-  %call7 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call7 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   br label %if.end13
 
 if.else:                                          ; preds = %if.then2
-  %call8 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call8 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp9 = icmp eq i32 %2, 20
   br i1 %cmp9, label %if.then10, label %if.then21
 
 if.then10:                                        ; preds = %if.else
   store i32 0, ptr %pErrorCode, align 4
-  %call11 = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call11 = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.then6
@@ -2416,7 +2416,7 @@ if.then21:                                        ; preds = %if.then4, %if.else,
   br i1 %cmp23, label %if.then24, label %if.then29
 
 if.then24:                                        ; preds = %if.then21
-  %call25 = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call25 = tail call fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   br label %if.then29
 
 if.then29:                                        ; preds = %if.then21, %if.then24
@@ -2427,7 +2427,7 @@ if.then29:                                        ; preds = %if.then21, %if.then
   br i1 %cmp31, label %if.then32, label %if.end46
 
 if.then32:                                        ; preds = %if.then29
-  %call33 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
+  %call33 = tail call fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode.argelim(ptr noundef %dest, i32 noundef %sourceLength, ptr noundef %pErrorCode)
   br label %if.end46
 
 if.then37:                                        ; preds = %if.end19
@@ -3041,7 +3041,7 @@ return:                                           ; preds = %if.end60, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL23expandCompositCharAtEndPDsiiP10UErrorCode.argelim(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
 entry:
   %add = shl i32 %sourceLength, 1
   %mul = add i32 %add, 2
@@ -3184,7 +3184,7 @@ return:                                           ; preds = %if.end60, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL25expandCompositCharAtBeginPDsiiP10UErrorCode.argelim(ptr noundef nonnull %dest, i32 noundef %sourceLength, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
 entry:
   %add = shl i32 %sourceLength, 1
   %mul = add i32 %add, 2

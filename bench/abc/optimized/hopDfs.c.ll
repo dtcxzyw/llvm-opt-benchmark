@@ -760,7 +760,7 @@ define void @Hop_Transfer_rec(ptr noundef %0, ptr nocapture noundef %1) local_un
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0Copy.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0Copy.argprom.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -769,27 +769,27 @@ define void @Hop_Transfer_rec(ptr noundef %0, ptr nocapture noundef %1) local_un
   %20 = ptrtoint ptr %18 to i64
   %21 = xor i64 %19, %20
   %22 = inttoptr i64 %21 to ptr
-  br label %Hop_ObjChild0Copy.exit
+  br label %Hop_ObjChild0Copy.argprom.exit
 
-Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
+Hop_ObjChild0Copy.argprom.exit:                   ; preds = %5, %16
   %23 = phi ptr [ %22, %16 ], [ null, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %24 = ptrtoint ptr %.val16 to i64
   %25 = and i64 %24, -2
   %.not.i17 = icmp eq i64 %25, 0
-  br i1 %.not.i17, label %Hop_ObjChild1Copy.exit, label %26
+  br i1 %.not.i17, label %Hop_ObjChild1Copy.argprom.exit, label %26
 
-26:                                               ; preds = %Hop_ObjChild0Copy.exit
+26:                                               ; preds = %Hop_ObjChild0Copy.argprom.exit
   %27 = inttoptr i64 %25 to ptr
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %24, 1
   %30 = ptrtoint ptr %28 to i64
   %31 = xor i64 %29, %30
   %32 = inttoptr i64 %31 to ptr
-  br label %Hop_ObjChild1Copy.exit
+  br label %Hop_ObjChild1Copy.argprom.exit
 
-Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %26
-  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.exit ]
+Hop_ObjChild1Copy.argprom.exit:                   ; preds = %Hop_ObjChild0Copy.argprom.exit, %26
+  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.argprom.exit ]
   %34 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %23, ptr noundef %33) #11
   store ptr %34, ptr %1, align 8
   %35 = load i32, ptr %3, align 8
@@ -797,7 +797,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
   store i32 %36, ptr %3, align 8
   br label %37
 
-37:                                               ; preds = %2, %Hop_ObjChild1Copy.exit
+37:                                               ; preds = %2, %Hop_ObjChild1Copy.argprom.exit
   ret void
 }
 
@@ -913,7 +913,7 @@ define void @Hop_Compose_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %21 = ptrtoint ptr %.val25 to i64
   %22 = and i64 %21, -2
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %Hop_ObjChild0Copy.exit, label %23
+  br i1 %.not.i, label %Hop_ObjChild0Copy.argprom.exit, label %23
 
 23:                                               ; preds = %12
   %24 = inttoptr i64 %22 to ptr
@@ -922,27 +922,27 @@ define void @Hop_Compose_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %27 = ptrtoint ptr %25 to i64
   %28 = xor i64 %26, %27
   %29 = inttoptr i64 %28 to ptr
-  br label %Hop_ObjChild0Copy.exit
+  br label %Hop_ObjChild0Copy.argprom.exit
 
-Hop_ObjChild0Copy.exit:                           ; preds = %12, %23
+Hop_ObjChild0Copy.argprom.exit:                   ; preds = %12, %23
   %30 = phi ptr [ %29, %23 ], [ null, %12 ]
   %.val26 = load ptr, ptr %17, align 8
   %31 = ptrtoint ptr %.val26 to i64
   %32 = and i64 %31, -2
   %.not.i29 = icmp eq i64 %32, 0
-  br i1 %.not.i29, label %Hop_ObjChild1Copy.exit, label %33
+  br i1 %.not.i29, label %Hop_ObjChild1Copy.argprom.exit, label %33
 
-33:                                               ; preds = %Hop_ObjChild0Copy.exit
+33:                                               ; preds = %Hop_ObjChild0Copy.argprom.exit
   %34 = inttoptr i64 %32 to ptr
   %35 = load ptr, ptr %34, align 8
   %36 = and i64 %31, 1
   %37 = ptrtoint ptr %35 to i64
   %38 = xor i64 %36, %37
   %39 = inttoptr i64 %38 to ptr
-  br label %Hop_ObjChild1Copy.exit
+  br label %Hop_ObjChild1Copy.argprom.exit
 
-Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %33
-  %40 = phi ptr [ %39, %33 ], [ null, %Hop_ObjChild0Copy.exit ]
+Hop_ObjChild1Copy.argprom.exit:                   ; preds = %Hop_ObjChild0Copy.argprom.exit, %33
+  %40 = phi ptr [ %39, %33 ], [ null, %Hop_ObjChild0Copy.argprom.exit ]
   %41 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %30, ptr noundef %40) #11
   store ptr %41, ptr %1, align 8
   %42 = load i32, ptr %5, align 8
@@ -950,7 +950,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
   store i32 %43, ptr %5, align 8
   br label %44
 
-44:                                               ; preds = %4, %Hop_ObjChild1Copy.exit, %9
+44:                                               ; preds = %4, %Hop_ObjChild1Copy.argprom.exit, %9
   ret void
 }
 
@@ -1032,7 +1032,7 @@ define void @Hop_Complement_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %23 = ptrtoint ptr %.val23 to i64
   %24 = and i64 %23, -2
   %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %Hop_ObjChild0Copy.exit, label %25
+  br i1 %.not.i, label %Hop_ObjChild0Copy.argprom.exit, label %25
 
 25:                                               ; preds = %14
   %26 = inttoptr i64 %24 to ptr
@@ -1041,27 +1041,27 @@ define void @Hop_Complement_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %29 = ptrtoint ptr %27 to i64
   %30 = xor i64 %28, %29
   %31 = inttoptr i64 %30 to ptr
-  br label %Hop_ObjChild0Copy.exit
+  br label %Hop_ObjChild0Copy.argprom.exit
 
-Hop_ObjChild0Copy.exit:                           ; preds = %14, %25
+Hop_ObjChild0Copy.argprom.exit:                   ; preds = %14, %25
   %32 = phi ptr [ %31, %25 ], [ null, %14 ]
   %.val24 = load ptr, ptr %19, align 8
   %33 = ptrtoint ptr %.val24 to i64
   %34 = and i64 %33, -2
   %.not.i27 = icmp eq i64 %34, 0
-  br i1 %.not.i27, label %Hop_ObjChild1Copy.exit, label %35
+  br i1 %.not.i27, label %Hop_ObjChild1Copy.argprom.exit, label %35
 
-35:                                               ; preds = %Hop_ObjChild0Copy.exit
+35:                                               ; preds = %Hop_ObjChild0Copy.argprom.exit
   %36 = inttoptr i64 %34 to ptr
   %37 = load ptr, ptr %36, align 8
   %38 = and i64 %33, 1
   %39 = ptrtoint ptr %37 to i64
   %40 = xor i64 %38, %39
   %41 = inttoptr i64 %40 to ptr
-  br label %Hop_ObjChild1Copy.exit
+  br label %Hop_ObjChild1Copy.argprom.exit
 
-Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %35
-  %42 = phi ptr [ %41, %35 ], [ null, %Hop_ObjChild0Copy.exit ]
+Hop_ObjChild1Copy.argprom.exit:                   ; preds = %Hop_ObjChild0Copy.argprom.exit, %35
+  %42 = phi ptr [ %41, %35 ], [ null, %Hop_ObjChild0Copy.argprom.exit ]
   %43 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %32, ptr noundef %42) #11
   store ptr %43, ptr %1, align 8
   %44 = load i32, ptr %4, align 8
@@ -1069,7 +1069,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
   store i32 %45, ptr %4, align 8
   br label %46
 
-46:                                               ; preds = %3, %Hop_ObjChild1Copy.exit, %8
+46:                                               ; preds = %3, %Hop_ObjChild1Copy.argprom.exit, %8
   ret void
 }
 
@@ -1133,7 +1133,7 @@ define void @Hop_Remap_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnam
   %14 = ptrtoint ptr %.val15 to i64
   %15 = and i64 %14, -2
   %.not.i = icmp eq i64 %15, 0
-  br i1 %.not.i, label %Hop_ObjChild0Copy.exit, label %16
+  br i1 %.not.i, label %Hop_ObjChild0Copy.argprom.exit, label %16
 
 16:                                               ; preds = %5
   %17 = inttoptr i64 %15 to ptr
@@ -1142,27 +1142,27 @@ define void @Hop_Remap_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnam
   %20 = ptrtoint ptr %18 to i64
   %21 = xor i64 %19, %20
   %22 = inttoptr i64 %21 to ptr
-  br label %Hop_ObjChild0Copy.exit
+  br label %Hop_ObjChild0Copy.argprom.exit
 
-Hop_ObjChild0Copy.exit:                           ; preds = %5, %16
+Hop_ObjChild0Copy.argprom.exit:                   ; preds = %5, %16
   %23 = phi ptr [ %22, %16 ], [ null, %5 ]
   %.val16 = load ptr, ptr %10, align 8
   %24 = ptrtoint ptr %.val16 to i64
   %25 = and i64 %24, -2
   %.not.i17 = icmp eq i64 %25, 0
-  br i1 %.not.i17, label %Hop_ObjChild1Copy.exit, label %26
+  br i1 %.not.i17, label %Hop_ObjChild1Copy.argprom.exit, label %26
 
-26:                                               ; preds = %Hop_ObjChild0Copy.exit
+26:                                               ; preds = %Hop_ObjChild0Copy.argprom.exit
   %27 = inttoptr i64 %25 to ptr
   %28 = load ptr, ptr %27, align 8
   %29 = and i64 %24, 1
   %30 = ptrtoint ptr %28 to i64
   %31 = xor i64 %29, %30
   %32 = inttoptr i64 %31 to ptr
-  br label %Hop_ObjChild1Copy.exit
+  br label %Hop_ObjChild1Copy.argprom.exit
 
-Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.exit, %26
-  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.exit ]
+Hop_ObjChild1Copy.argprom.exit:                   ; preds = %Hop_ObjChild0Copy.argprom.exit, %26
+  %33 = phi ptr [ %32, %26 ], [ null, %Hop_ObjChild0Copy.argprom.exit ]
   %34 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %23, ptr noundef %33) #11
   store ptr %34, ptr %1, align 8
   %35 = load i32, ptr %3, align 8
@@ -1170,7 +1170,7 @@ Hop_ObjChild1Copy.exit:                           ; preds = %Hop_ObjChild0Copy.e
   store i32 %36, ptr %3, align 8
   br label %37
 
-37:                                               ; preds = %2, %Hop_ObjChild1Copy.exit
+37:                                               ; preds = %2, %Hop_ObjChild1Copy.argprom.exit
   ret void
 }
 

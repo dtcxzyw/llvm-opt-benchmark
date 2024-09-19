@@ -479,18 +479,18 @@ if.then7:                                         ; preds = %if.end3
 if.end9:                                          ; preds = %if.end3
   %.val5 = load ptr, ptr %3, align 8
   %cmp.i.not.i = icmp eq ptr %.val5, %defining_class
-  br i1 %cmp.i.not.i, label %if.then12, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then12, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end9
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end9
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val5, ptr noundef %defining_class) #4
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end14, label %if.then12
 
-if.then12:                                        ; preds = %if.end9, %PyObject_TypeCheck.exit
+if.then12:                                        ; preds = %if.end9, %PyObject_TypeCheck.argprom.exit
   tail call void @_Py_IncRef(ptr noundef nonnull %2) #4
   br label %return
 
-if.end14:                                         ; preds = %PyObject_TypeCheck.exit
+if.end14:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   tail call void @_Py_IncRef(ptr noundef nonnull @_Py_NoneStruct) #4
   br label %return
 

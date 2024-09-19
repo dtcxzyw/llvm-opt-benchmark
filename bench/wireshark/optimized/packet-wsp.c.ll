@@ -5069,7 +5069,7 @@ define internal i32 @wkh_if_range(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %25 = add i32 %24, %9
   %26 = sub i32 %25, %2
   %27 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %26, ptr noundef %23) #4
-  br label %wkh_text_or_date_value_header_func.exit
+  br label %wkh_text_or_date_value_header_func.argprom.exit
 
 28:                                               ; preds = %19
   %29 = icmp eq i8 %10, 31
@@ -5128,15 +5128,15 @@ define internal i32 @wkh_if_range(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %57 = call ptr @abs_time_secs_to_str_ex(ptr noundef %55, i64 noundef %56, i32 noundef 18, i32 noundef 1) #4
   %58 = sub i32 %40, %2
   %59 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %58, ptr noundef %57) #4
-  br label %wkh_text_or_date_value_header_func.exit
+  br label %wkh_text_or_date_value_header_func.argprom.exit
 
 60:                                               ; preds = %42, %36, %.thread.i, %17
   %.065.ph.i = phi i32 [ %40, %42 ], [ %35, %.thread.i ], [ %40, %36 ], [ %18, %17 ]
   %61 = load ptr, ptr %5, align 8
   %62 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %61, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
-  br label %wkh_text_or_date_value_header_func.exit
+  br label %wkh_text_or_date_value_header_func.argprom.exit
 
-wkh_text_or_date_value_header_func.exit:          ; preds = %21, %54, %60
+wkh_text_or_date_value_header_func.argprom.exit:  ; preds = %21, %54, %60
   %.06510.i = phi i32 [ %.065.ph.i, %60 ], [ %25, %21 ], [ %40, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -6095,7 +6095,7 @@ define internal i32 @wkh_bearer_indication(ptr noundef %0, ptr noundef %1, i32 n
 
 24:                                               ; preds = %20
   %25 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef nonnull %23) #4
-  br label %wkh_integer_lookup_value_header_func.exit
+  br label %wkh_integer_lookup_value_header_func.argprom.exit
 
 26:                                               ; preds = %20
   %27 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 2, ptr noundef %14) #4
@@ -6152,19 +6152,19 @@ define internal i32 @wkh_bearer_indication(ptr noundef %0, ptr noundef %1, i32 n
 
 56:                                               ; preds = %53
   %57 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %55, ptr noundef nonnull %54) #4
-  br label %wkh_integer_lookup_value_header_func.exit
+  br label %wkh_integer_lookup_value_header_func.argprom.exit
 
 58:                                               ; preds = %53
   %59 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %55, ptr noundef %14) #4
-  br label %wkh_integer_lookup_value_header_func.exit
+  br label %wkh_integer_lookup_value_header_func.argprom.exit
 
 60:                                               ; preds = %49, %43, %.thread.i, %30, %26
   %.074.ph.i = phi i32 [ %42, %.thread.i ], [ %47, %43 ], [ %47, %49 ], [ %34, %30 ], [ %21, %26 ]
   %61 = load ptr, ptr %5, align 8
   %62 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %61, ptr noundef nonnull @ei_wsp_header_invalid_value) #4
-  br label %wkh_integer_lookup_value_header_func.exit
+  br label %wkh_integer_lookup_value_header_func.argprom.exit
 
-wkh_integer_lookup_value_header_func.exit:        ; preds = %24, %56, %58, %60
+wkh_integer_lookup_value_header_func.argprom.exit: ; preds = %24, %56, %58, %60
   %.0746.i = phi i32 [ %.074.ph.i, %60 ], [ %21, %24 ], [ %47, %56 ], [ %47, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)

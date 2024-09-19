@@ -357,7 +357,7 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
 ._crit_edge:                                      ; preds = %.lr.ph62, %39
   %50 = getelementptr inbounds i8, ptr %0, i64 520
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call fastcc i32 @ddCheckPermuation(ptr noundef %0, ptr noundef %51, ptr noundef %43)
+  %52 = tail call fastcc i32 @ddCheckPermuation.argprom(ptr noundef %0, ptr noundef %51, ptr noundef %43)
   %.not46 = icmp eq i32 %52, 0
   br i1 %.not46, label %53, label %55
 
@@ -370,7 +370,7 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
   br label %.critedge
 
 55:                                               ; preds = %._crit_edge
-  %56 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %43)
+  %56 = tail call fastcc i32 @ddUpdateMtrTree.argprom(ptr noundef nonnull %0, ptr noundef %51, ptr noundef %43)
   %.not48 = icmp eq i32 %56, 0
   %.not49 = icmp eq ptr %43, null
   br i1 %.not48, label %57, label %59
@@ -450,7 +450,7 @@ ddShuffle.exit:                                   ; preds = %ddSiftUp.exit.i, %7
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation.argprom(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #3 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %37, label %5
 
@@ -502,7 +502,7 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
   br i1 %.not40, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %2)
+  %30 = tail call fastcc i32 @ddCheckPermuation.argprom(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %2)
   %.not41 = icmp eq i32 %30, 0
   br i1 %.not41, label %37, label %31
 
@@ -513,7 +513,7 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
   br i1 %.not42, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call fastcc i32 @ddCheckPermuation(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %2)
+  %35 = tail call fastcc i32 @ddCheckPermuation.argprom(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %2)
   %.not43 = icmp eq i32 %35, 0
   br i1 %.not43, label %37, label %36
 
@@ -529,7 +529,7 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %._crit_edge.thread, label %5
 
@@ -587,7 +587,7 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   br i1 %.not, label %34, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %2)
+  %33 = tail call fastcc i32 @ddUpdateMtrTree.argprom(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %2)
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %._crit_edge.thread, label %34
 
@@ -598,7 +598,7 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   br i1 %.not48, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %2)
+  %38 = tail call fastcc i32 @ddUpdateMtrTree.argprom(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %2)
   %.not49 = icmp eq i32 %38, 0
   br i1 %.not49, label %._crit_edge.thread, label %39
 

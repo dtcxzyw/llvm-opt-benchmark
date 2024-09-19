@@ -491,9 +491,9 @@ if.end.i.i:                                       ; preds = %if.then4
   %tobool3.i.i = icmp ne i32 %and2.i.i, 0
   %tobool4.i.i = icmp ne ptr %blk, null
   %or.cond.i.i = or i1 %tobool4.i.i, %tobool3.i.i
-  br i1 %or.cond.i.i, label %if.end.i11, label %init_check_command.exit.i
+  br i1 %or.cond.i.i, label %if.end.i11, label %init_check_command.argprom.exit.i
 
-init_check_command.exit.i:                        ; preds = %if.end.i.i
+init_check_command.argprom.exit.i:                ; preds = %if.end.i.i
   %7 = load ptr, ptr @stderr, align 8
   %8 = call i64 @fwrite(ptr nonnull @.str.9, i64 30, i64 1, ptr %7) #28
   br label %command.exit
@@ -585,8 +585,8 @@ if.end47.i:                                       ; preds = %if.then40.i, %if.th
   %call48.i = call i32 %17(ptr noundef %blk, i32 noundef %c.0.ph.i30, ptr noundef nonnull %rval.0.ph.i31) #25
   br label %command.exit
 
-command.exit:                                     ; preds = %init_check_command.exit.i, %if.then8.i, %if.then15.i, %if.else19.i, %if.then44.i, %if.end47.i
-  %retval.0.i15 = phi i32 [ %call42.i, %if.then44.i ], [ %call48.i, %if.end47.i ], [ -22, %init_check_command.exit.i ], [ -22, %if.then15.i ], [ -22, %if.else19.i ], [ -22, %if.then8.i ]
+command.exit:                                     ; preds = %init_check_command.argprom.exit.i, %if.then8.i, %if.then15.i, %if.else19.i, %if.then44.i, %if.end47.i
+  %retval.0.i15 = phi i32 [ %call42.i, %if.then44.i ], [ %call48.i, %if.end47.i ], [ -22, %init_check_command.argprom.exit.i ], [ -22, %if.then15.i ], [ -22, %if.else19.i ], [ -22, %if.then8.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %orig_perm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %orig_shared_perm.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
@@ -1687,7 +1687,7 @@ timestr.exit:                                     ; preds = %if.then15.i, %if.el
   br i1 %Cflag, label %if.else, label %if.then
 
 if.then:                                          ; preds = %timestr.exit
-  call fastcc void @cvtstr(double noundef %conv13, ptr noundef %s1)
+  call fastcc void @cvtstr.argelim(double noundef %conv13, ptr noundef %s1)
   %1 = load i64, ptr %t, align 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %conv.i13 = sitofp i64 %1 to double
@@ -1695,7 +1695,7 @@ if.then:                                          ; preds = %timestr.exit
   %div.i14 = fdiv double %conv1.i, 1.000000e+09
   %add.i = fadd double %div.i14, %conv.i13
   %div2.i = fdiv double %conv13, %add.i
-  call fastcc void @cvtstr(double noundef %div2.i, ptr noundef %s2)
+  call fastcc void @cvtstr.argelim(double noundef %div2.i, ptr noundef %s2)
   %call5 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %op, i64 noundef %total, i64 noundef %count, i64 noundef %offset)
   %conv9 = uitofp nneg i32 %cnt to double
   %3 = load i64, ptr %t, align 8
@@ -1762,7 +1762,7 @@ declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 n
 declare ptr @__ctype_b_loc() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @cvtstr(double noundef %value, ptr noundef nonnull %str) unnamed_addr #6 {
+define internal fastcc void @cvtstr.argelim(double noundef %value, ptr noundef nonnull %str) unnamed_addr #6 {
 entry:
   %cmp = fcmp ult double %value, 0x43B0000000000000
   br i1 %cmp, label %if.else, label %if.then
@@ -4187,7 +4187,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv4 = uitofp nneg i64 %call to double
-  call fastcc void @cvtstr(double noundef %conv4, ptr noundef %s1)
+  call fastcc void @cvtstr.argelim(double noundef %conv4, ptr noundef %s1)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %s1)
   br label %return
 
@@ -4246,16 +4246,16 @@ if.then15:                                        ; preds = %land.lhs.true12
 if.end19:                                         ; preds = %do.end, %if.then15, %land.lhs.true12, %if.end9
   %call20 = call i32 @bdrv_get_info(ptr noundef nonnull %call, ptr noundef nonnull %bdi) #25
   %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %if.end23, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %tobool21.not, label %if.end23, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end23:                                         ; preds = %if.end19
   %4 = load i32, ptr %bdi, align 8
   %conv = sitofp i32 %4 to double
-  call fastcc void @cvtstr(double noundef %conv, ptr noundef %s1)
+  call fastcc void @cvtstr.argelim(double noundef %conv, ptr noundef %s1)
   %vm_state_offset = getelementptr inbounds i8, ptr %bdi, i64 8
   %5 = load i64, ptr %vm_state_offset, align 8
   %conv24 = sitofp i64 %5 to double
-  call fastcc void @cvtstr(double noundef %conv24, ptr noundef %s2)
+  call fastcc void @cvtstr.argelim(double noundef %conv24, ptr noundef %s2)
   %call27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.151, ptr noundef nonnull %s1)
   %call29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.152, ptr noundef nonnull %s2)
   %call30 = call ptr @bdrv_get_specific_info(ptr noundef nonnull %call, ptr noundef nonnull %local_err) #25
@@ -4265,18 +4265,18 @@ if.end23:                                         ; preds = %if.end19
 
 if.then32:                                        ; preds = %if.end23
   call void @error_report_err(ptr noundef nonnull %6) #25
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 if.end33:                                         ; preds = %if.end23
   %tobool34.not = icmp eq ptr %call30, null
-  br i1 %tobool34.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.then35
+  br i1 %tobool34.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   call void @bdrv_image_info_specific_dump(ptr noundef nonnull %call30, ptr noundef nonnull @.str.153, i32 noundef 0) #25
   call void @qapi_free_ImageInfoSpecific(ptr noundef nonnull %call30) #25
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end33, %if.then35, %if.end19, %if.then32
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end33, %if.then35, %if.end19, %if.then32
   %retval.0 = phi i32 [ -5, %if.then32 ], [ %call20, %if.end19 ], [ 0, %if.then35 ], [ 0, %if.end33 ]
   call void @bdrv_graph_rdunlock_main_loop() #25
   ret i32 %retval.0
@@ -4561,7 +4561,7 @@ while.end:                                        ; preds = %if.end21, %if.end14
   %count.1.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select33, %if.end21 ]
   %sum_alloc.0.lcssa = phi i64 [ 0, %if.end14 ], [ %spec.select, %if.end21 ]
   %conv32 = uitofp nneg i64 %retval.0.i to double
-  call fastcc void @cvtstr(double noundef %conv32, ptr noundef %s1)
+  call fastcc void @cvtstr.argelim(double noundef %conv32, ptr noundef %s1)
   %call34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.166, i64 noundef %sum_alloc.0.lcssa, i64 noundef %count.1.lcssa, ptr noundef nonnull %s1)
   br label %return
 
@@ -4647,9 +4647,9 @@ if.end13:                                         ; preds = %if.else
   %tobool14.not = icmp eq i32 %call.i, 0
   %cond = select i1 %tobool14.not, ptr @.str.174, ptr @.str.173
   %conv15 = sitofp i64 %num.219 to double
-  call fastcc void @cvtstr(double noundef %conv15, ptr noundef %s1)
+  call fastcc void @cvtstr.argelim(double noundef %conv15, ptr noundef %s1)
   %conv16 = sitofp i64 %offset.023 to double
-  call fastcc void @cvtstr(double noundef %conv16, ptr noundef %s2)
+  call fastcc void @cvtstr.argelim(double noundef %conv16, ptr noundef %s2)
   %call20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.175, ptr noundef nonnull %s1, i64 noundef %num.219, ptr noundef nonnull %cond, ptr noundef nonnull %s2, i64 noundef %offset.023)
   %add = add i64 %num.219, %offset.023
   %sub21 = sub i64 %bytes.022, %num.219

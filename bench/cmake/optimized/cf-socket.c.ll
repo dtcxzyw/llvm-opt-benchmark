@@ -301,11 +301,11 @@ define internal range(i32 0, 46) i32 @cf_tcp_connect(ptr noundef %0, ptr noundef
   %30 = and i32 %29, 16777216
   %31 = icmp ne i32 %30, 0
   %.val105 = load ptr, ptr %8, align 8
-  %32 = tail call fastcc i32 @do_connect(ptr %.val105, ptr noundef %1, i1 noundef zeroext %31)
+  %32 = tail call fastcc i32 @do_connect.argprom(ptr %.val105, ptr noundef %1, i1 noundef zeroext %31)
   %33 = tail call ptr @__errno_location() #14
   %34 = load i32, ptr %33, align 4
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @set_local_ip(ptr %.val, ptr noundef %1)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %1)
   %.not93 = icmp eq ptr %1, null
   br i1 %.not93, label %48, label %35
 
@@ -418,7 +418,7 @@ verifyconnect.exit:                               ; preds = %73, %77
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 352
   store i32 %83, ptr %.sroa.2.0..sroa_idx, align 8
   %.val103 = load ptr, ptr %8, align 8
-  call fastcc void @set_local_ip(ptr %.val103, ptr noundef %1)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val103, ptr noundef %1)
   store i8 1, ptr %3, align 1
   %84 = load i8, ptr %10, align 4
   %85 = or i8 %84, 1
@@ -452,7 +452,7 @@ verifyconnect.exit:                               ; preds = %73, %77
 98:                                               ; preds = %96
   %99 = load i32, ptr %16, align 8
   %100 = getelementptr inbounds i8, ptr %9, i64 376
-  tail call fastcc void @verifyconnect(i32 noundef %99, ptr noundef nonnull %100)
+  tail call fastcc void @verifyconnect.retelim(i32 noundef %99, ptr noundef nonnull %100)
   br label %.thread
 
 101:                                              ; preds = %verifyconnect.exit, %96, %50
@@ -469,7 +469,7 @@ verifyconnect.exit:                               ; preds = %73, %77
 
 104:                                              ; preds = %.thread
   %.val104 = load ptr, ptr %8, align 8
-  call fastcc void @set_local_ip(ptr %.val104, ptr noundef %1)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val104, ptr noundef %1)
   %105 = load i32, ptr %102, align 8
   %106 = getelementptr inbounds i8, ptr %1, i64 3340
   store i32 %105, ptr %106, align 4
@@ -1108,7 +1108,7 @@ define internal noundef i32 @cf_socket_cntrl(ptr nocapture noundef readonly %0, 
   %33 = getelementptr inbounds i8, ptr %.val.i, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(46) %32, ptr noundef nonnull readonly align 8 dereferenceable(46) %33, i64 46, i1 false)
   %.val20.i = load ptr, ptr %6, align 8
-  tail call fastcc void @set_local_ip(ptr %.val20.i, ptr noundef %1)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %.val20.i, ptr noundef %1)
   %34 = load ptr, ptr %11, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 276
   %36 = getelementptr inbounds i8, ptr %7, i64 324
@@ -1538,7 +1538,7 @@ define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %0, ptr noundef
   %58 = or i8 %57, 4
   store i8 %58, ptr %56, align 4
   %.val.i = load ptr, ptr %8, align 8
-  tail call fastcc void @set_local_ip(ptr %.val.i, ptr noundef %1)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %.val.i, ptr noundef %1)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %79, label %59
 
@@ -1868,7 +1868,7 @@ define dso_local i32 @Curl_conn_tcp_listen_set(ptr noundef %0, ptr noundef %1, i
   %23 = load ptr, ptr %5, align 8
   %24 = getelementptr i8, ptr %23, i64 16
   %.val = load ptr, ptr %24, align 8
-  call fastcc void @set_local_ip(ptr %.val, ptr noundef %0)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %0)
   %25 = load i8, ptr %14, align 4
   %26 = or i8 %25, 8
   store i8 %26, ptr %14, align 4
@@ -1926,7 +1926,7 @@ declare void @Curl_conn_cf_discard_all(ptr noundef, ptr noundef, i32 noundef) lo
 declare void @Curl_conn_cf_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_local_ip(ptr %.16.val, ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @set_local_ip.argprom.retelim(ptr %.16.val, ptr noundef %0) unnamed_addr #2 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca %struct.Curl_sockaddr_storage, align 8
   %4 = alloca i32, align 4
@@ -2038,7 +2038,7 @@ socket_close.exit:                                ; preds = %21, %26
 36:                                               ; preds = %socket_close.exit
   %37 = load i32, ptr %7, align 4
   %38 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %6, i32 noundef %37, ptr noundef nonnull %31, ptr noundef nonnull %32) #13
-  br i1 %38, label %set_accepted_remote_ip.exit, label %.sink.split.i
+  br i1 %38, label %set_accepted_remote_ip.argprom.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36, %socket_close.exit
   %.str.54.sink.i = phi ptr [ @.str.53, %socket_close.exit ], [ @.str.54, %36 ]
@@ -2046,14 +2046,14 @@ socket_close.exit:                                ; preds = %21, %26
   %40 = load i32, ptr %39, align 4
   %41 = call ptr @Curl_strerror(i32 noundef %40, ptr noundef nonnull %5, i64 noundef 256) #13
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.54.sink.i, i32 noundef %40, ptr noundef %41) #13
-  br label %set_accepted_remote_ip.exit
+  br label %set_accepted_remote_ip.argprom.exit
 
-set_accepted_remote_ip.exit:                      ; preds = %36, %.sink.split.i
+set_accepted_remote_ip.argprom.exit:              ; preds = %36, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.val = load ptr, ptr %15, align 8
-  call fastcc void @set_local_ip(ptr %.val, ptr noundef %0)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %0)
   %42 = getelementptr inbounds i8, ptr %16, i64 380
   %43 = load i8, ptr %42, align 4
   %44 = or i8 %43, 10
@@ -2072,7 +2072,7 @@ set_accepted_remote_ip.exit:                      ; preds = %36, %.sink.split.i
   %.not34 = icmp eq ptr %0, null
   br i1 %.not34, label %66, label %52
 
-52:                                               ; preds = %set_accepted_remote_ip.exit
+52:                                               ; preds = %set_accepted_remote_ip.argprom.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 2642
   %54 = load i64, ptr %53, align 2
   %55 = and i64 %54, 268435456
@@ -2094,8 +2094,8 @@ set_accepted_remote_ip.exit:                      ; preds = %36, %.sink.split.i
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %62, ptr noundef nonnull %63, i32 noundef %65) #13
   br label %66
 
-66:                                               ; preds = %61, %56, %52, %set_accepted_remote_ip.exit, %4, %12
-  %.0 = phi i32 [ 2, %12 ], [ 2, %4 ], [ 0, %set_accepted_remote_ip.exit ], [ 0, %52 ], [ 0, %56 ], [ 0, %61 ]
+66:                                               ; preds = %61, %56, %52, %set_accepted_remote_ip.argprom.exit, %4, %12
+  %.0 = phi i32 [ 2, %12 ], [ 2, %4 ], [ 0, %set_accepted_remote_ip.argprom.exit ], [ 0, %52 ], [ 0, %56 ], [ 0, %61 ]
   ret i32 %.0
 }
 
@@ -2167,7 +2167,7 @@ cf_is_socket.exit:                                ; preds = %8
 
 34:                                               ; preds = %31
   %.val = load ptr, ptr %15, align 8
-  tail call fastcc void @set_local_ip(ptr %.val, ptr noundef %1)
+  tail call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef %1)
   br i1 %33, label %35, label %37
 
 35:                                               ; preds = %34
@@ -2282,9 +2282,9 @@ define internal fastcc range(i32 0, 46) i32 @cf_socket_open(ptr noundef %0, ptr 
   %53 = getelementptr inbounds i8, ptr %.val102, i64 224
   %54 = getelementptr inbounds i8, ptr %.val102, i64 272
   %55 = tail call zeroext i1 @Curl_addr2string(ptr noundef nonnull %50, i32 noundef %52, ptr noundef nonnull %53, ptr noundef nonnull %54) #13
-  br i1 %55, label %60, label %set_remote_ip.exit
+  br i1 %55, label %60, label %set_remote_ip.argprom.exit
 
-set_remote_ip.exit:                               ; preds = %49
+set_remote_ip.argprom.exit:                       ; preds = %49
   %56 = tail call ptr @__errno_location() #14
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds i8, ptr %.val102, i64 376
@@ -2784,8 +2784,8 @@ bindlocal.exit:                                   ; preds = %103, %146, %150, %2
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
   br label %262
 
-262:                                              ; preds = %set_remote_ip.exit, %95, %36, %261, %.thread119
-  %.074.ph = phi i32 [ 45, %.thread119 ], [ 7, %261 ], [ 7, %36 ], [ 42, %95 ], [ 2, %set_remote_ip.exit ]
+262:                                              ; preds = %set_remote_ip.argprom.exit, %95, %36, %261, %.thread119
+  %.074.ph = phi i32 [ 45, %.thread119 ], [ 7, %261 ], [ 7, %36 ], [ 42, %95 ], [ 2, %set_remote_ip.argprom.exit ]
   %263 = load i32, ptr %21, align 8
   %.not100 = icmp eq i32 %263, -1
   br i1 %.not100, label %294, label %264
@@ -2836,7 +2836,7 @@ socket_close.exit:                                ; preds = %270, %.thread.i110
 
 286:                                              ; preds = %276
   %.val = load ptr, ptr %14, align 8
-  call fastcc void @set_local_ip(ptr %.val, ptr noundef nonnull %1)
+  call fastcc void @set_local_ip.argprom.retelim(ptr %.val, ptr noundef nonnull %1)
   %287 = getelementptr inbounds i8, ptr %15, i64 344
   %288 = call { i64, i32 } @Curl_now() #13
   %289 = extractvalue { i64, i32 } %288, 0
@@ -2877,7 +2877,7 @@ socket_close.exit:                                ; preds = %270, %.thread.i110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_connect(ptr %.16.val, ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc i32 @do_connect.argprom(ptr %.16.val, ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %.16.val, i64 152
@@ -2963,7 +2963,7 @@ define internal fastcc range(i32 0, 8) i32 @socket_connect_result(ptr noundef %0
 declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verifyconnect(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
+define internal fastcc void @verifyconnect.retelim(i32 noundef %0, ptr noundef writeonly %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 0, ptr %3, align 4

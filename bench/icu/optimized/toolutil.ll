@@ -471,7 +471,7 @@ entry:
   %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, 1
-  tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
+  tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi.retelim(ptr noundef %mem, i32 noundef %add)
   %array = getelementptr inbounds i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
   %size = getelementptr inbounds i8, ptr %mem, i64 72
@@ -486,7 +486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %capacity) unnamed_addr #15 {
+define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi.retelim(ptr noundef %mem, i32 noundef %capacity) unnamed_addr #15 {
 entry:
   %capacity1 = getelementptr inbounds i8, ptr %mem, i64 64
   %0 = load i32, ptr %capacity1, align 16
@@ -574,7 +574,7 @@ entry:
   %idx = getelementptr inbounds i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, %n
-  tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
+  tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi.retelim(ptr noundef %mem, i32 noundef %add)
   %array = getelementptr inbounds i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
   %size = getelementptr inbounds i8, ptr %mem, i64 72

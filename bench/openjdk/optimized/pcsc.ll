@@ -192,14 +192,14 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %throwOutOfMemoryError.exit, label %20
+  br i1 %.not.i, label %throwOutOfMemoryError.argprom.exit, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 .lr.ph61:                                         ; preds = %._crit_edge, %.lr.ph61
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %._crit_edge ]
@@ -230,7 +230,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 37:                                               ; preds = %._crit_edge62
   tail call void @free(ptr noundef nonnull %31) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 38:                                               ; preds = %._crit_edge62
   %39 = load ptr, ptr %0, align 8
@@ -264,7 +264,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 55:                                               ; preds = %.lr.ph64
   tail call void @free(ptr noundef nonnull %31) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 56:                                               ; preds = %.lr.ph64
   %57 = load ptr, ptr %0, align 8
@@ -281,7 +281,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 65:                                               ; preds = %56
   tail call void @free(ptr noundef nonnull %31) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %0, align 8
@@ -293,9 +293,9 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 .loopexit:                                        ; preds = %66, %38
   tail call void @free(ptr noundef nonnull %31) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
-throwOutOfMemoryError.exit:                       ; preds = %20, %15, %.loopexit, %65, %55, %37
+throwOutOfMemoryError.argprom.exit:               ; preds = %20, %15, %.loopexit, %65, %55, %37
   %.045 = phi ptr [ null, %37 ], [ null, %55 ], [ null, %65 ], [ %42, %.loopexit ], [ null, %15 ], [ null, %20 ]
   ret ptr %.045
 }
@@ -324,7 +324,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %throwOutOfMemoryError.exit, label %14
+  br i1 %13, label %throwOutOfMemoryError.argprom.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
@@ -332,7 +332,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %throwOutOfMemoryError.exit, label %20
+  br i1 %19, label %throwOutOfMemoryError.argprom.exit, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
@@ -341,19 +341,19 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
   %24 = trunc i64 %6 to i32
   %25 = call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %24) #7
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %throwOutOfMemoryError.exit, label %26
+  br i1 %.not.i.i, label %throwOutOfMemoryError.argprom.exit, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 handleRV.exit:                                    ; preds = %3
   %31 = load i64, ptr %4, align 8
   %.not17 = icmp eq i64 %31, 0
-  br i1 %.not17, label %throwOutOfMemoryError.exit, label %32
+  br i1 %.not17, label %throwOutOfMemoryError.argprom.exit, label %32
 
 32:                                               ; preds = %handleRV.exit
   %33 = call noalias ptr @malloc(i64 noundef %31) #9
@@ -366,14 +366,14 @@ handleRV.exit:                                    ; preds = %3
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %38(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %throwOutOfMemoryError.exit, label %40
+  br i1 %.not.i, label %throwOutOfMemoryError.argprom.exit, label %40
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 112
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef null) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 45:                                               ; preds = %32
   %46 = load ptr, ptr @scardListReaders, align 8
@@ -415,14 +415,14 @@ handleRV.exit:                                    ; preds = %3
 
 72:                                               ; preds = %49, %55, %61, %67
   call void @free(ptr noundef nonnull %33) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 handleRV.exit21:                                  ; preds = %45
   %73 = call ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef nonnull %33)
   call void @free(ptr noundef nonnull %33) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
-throwOutOfMemoryError.exit:                       ; preds = %26, %20, %14, %8, %40, %35, %handleRV.exit, %handleRV.exit21, %72
+throwOutOfMemoryError.argprom.exit:               ; preds = %26, %20, %14, %8, %40, %35, %handleRV.exit, %handleRV.exit21, %72
   %.0 = phi ptr [ null, %72 ], [ %73, %handleRV.exit21 ], [ null, %handleRV.exit ], [ null, %35 ], [ null, %40 ], [ null, %8 ], [ null, %14 ], [ null, %20 ], [ null, %26 ]
   ret ptr %.0
 }
@@ -748,14 +748,14 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %throwOutOfMemoryError.exit, label %21
+  br i1 %.not.i, label %throwOutOfMemoryError.argprom.exit, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds i8, ptr %16, i64 1496
@@ -773,7 +773,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 31:                                               ; preds = %26
   tail call void @free(ptr noundef %13) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
 .lr.ph106.preheader:                              ; preds = %.lr.ph
   %wide.trip.count119 = zext nneg i32 %11 to i64
@@ -799,7 +799,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i8 %40(ptr noundef nonnull %0) #7
   %.not96 = icmp eq i8 %41, 0
-  br i1 %.not96, label %42, label %throwOutOfMemoryError.exit98
+  br i1 %.not96, label %42, label %throwOutOfMemoryError.argprom.exit98
 
 42:                                               ; preds = %.lr.ph106
   %43 = load ptr, ptr %0, align 8
@@ -807,7 +807,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %37, ptr noundef null) #7
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %throwOutOfMemoryError.exit98, label %48
+  br i1 %47, label %throwOutOfMemoryError.argprom.exit98, label %48
 
 48:                                               ; preds = %42
   %49 = tail call noalias ptr @strdup(ptr noundef nonnull %46) #7
@@ -826,14 +826,14 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i97 = icmp eq ptr %59, null
-  br i1 %.not.i97, label %throwOutOfMemoryError.exit98, label %60
+  br i1 %.not.i97, label %throwOutOfMemoryError.argprom.exit98, label %60
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 112
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef null) #7
-  br label %throwOutOfMemoryError.exit98
+  br label %throwOutOfMemoryError.argprom.exit98
 
 65:                                               ; preds = %48
   %66 = getelementptr inbounds i8, ptr %50, i64 8
@@ -863,7 +863,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr %80(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %throwOutOfMemoryError.exit98.thread, label %83
+  br i1 %82, label %throwOutOfMemoryError.argprom.exit98.thread, label %83
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %0, align 8
@@ -871,7 +871,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %throwOutOfMemoryError.exit98.thread, label %89
+  br i1 %88, label %throwOutOfMemoryError.argprom.exit98.thread, label %89
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %0, align 8
@@ -880,14 +880,14 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   %93 = trunc i64 %75 to i32
   %94 = tail call ptr (ptr, ptr, ptr, ...) %92(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %87, i32 noundef %93) #7
   %.not.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i, label %throwOutOfMemoryError.exit98.thread, label %95
+  br i1 %.not.i.i, label %throwOutOfMemoryError.argprom.exit98.thread, label %95
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %0, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 104
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 %98(ptr noundef nonnull %0, ptr noundef nonnull %94) #7
-  br label %throwOutOfMemoryError.exit98.thread
+  br label %throwOutOfMemoryError.argprom.exit98.thread
 
 handleRV.exit:                                    ; preds = %.preheader103, %._crit_edge
   %100 = load ptr, ptr %0, align 8
@@ -895,12 +895,12 @@ handleRV.exit:                                    ; preds = %.preheader103, %._c
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr %102(ptr noundef nonnull %0, i32 noundef %11) #7
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %throwOutOfMemoryError.exit98, label %.preheader
+  br i1 %104, label %throwOutOfMemoryError.argprom.exit98, label %.preheader
 
 .preheader:                                       ; preds = %handleRV.exit
-  br i1 %15, label %.lr.ph108.preheader, label %throwOutOfMemoryError.exit98.thread134
+  br i1 %15, label %.lr.ph108.preheader, label %throwOutOfMemoryError.argprom.exit98.thread134
 
-throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
+throwOutOfMemoryError.argprom.exit98.thread134:   ; preds = %.preheader
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 1560
   %107 = load ptr, ptr %106, align 8
@@ -914,7 +914,7 @@ throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
 108:                                              ; preds = %.lr.ph108
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %throwOutOfMemoryError.exit98, label %.lr.ph108, !llvm.loop !12
+  br i1 %exitcond125.not, label %throwOutOfMemoryError.argprom.exit98, label %.lr.ph108, !llvm.loop !12
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %108
   %indvars.iv121 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next122, %108 ]
@@ -932,16 +932,16 @@ throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
   %118 = load ptr, ptr %117, align 8
   %119 = call zeroext i8 %118(ptr noundef nonnull %0) #7
   %.not95 = icmp eq i8 %119, 0
-  br i1 %.not95, label %108, label %throwOutOfMemoryError.exit98
+  br i1 %.not95, label %108, label %throwOutOfMemoryError.argprom.exit98
 
-throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
+throwOutOfMemoryError.argprom.exit98.thread:      ; preds = %95, %89, %83, %77
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 1560
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br label %.lr.ph112.preheader
 
-throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
+throwOutOfMemoryError.argprom.exit98:             ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
   %.089 = phi ptr [ null, %handleRV.exit ], [ null, %55 ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph108 ], [ null, %.lr.ph106 ], [ null, %42 ]
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 1560
@@ -949,8 +949,8 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   call void %125(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br i1 %15, label %.lr.ph112.preheader, label %._crit_edge113
 
-.lr.ph112.preheader:                              ; preds = %throwOutOfMemoryError.exit98.thread, %throwOutOfMemoryError.exit98
-  %.089133 = phi ptr [ null, %throwOutOfMemoryError.exit98.thread ], [ %.089, %throwOutOfMemoryError.exit98 ]
+.lr.ph112.preheader:                              ; preds = %throwOutOfMemoryError.argprom.exit98.thread, %throwOutOfMemoryError.argprom.exit98
+  %.089133 = phi ptr [ null, %throwOutOfMemoryError.argprom.exit98.thread ], [ %.089, %throwOutOfMemoryError.argprom.exit98 ]
   %wide.trip.count129 = zext nneg i32 %11 to i64
   br label %.lr.ph112
 
@@ -963,12 +963,12 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !13
 
-._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.exit98.thread134, %throwOutOfMemoryError.exit98
-  %.089132 = phi ptr [ %.089, %throwOutOfMemoryError.exit98 ], [ %103, %throwOutOfMemoryError.exit98.thread134 ], [ %.089133, %.lr.ph112 ]
+._crit_edge113:                                   ; preds = %.lr.ph112, %throwOutOfMemoryError.argprom.exit98.thread134, %throwOutOfMemoryError.argprom.exit98
+  %.089132 = phi ptr [ %.089, %throwOutOfMemoryError.argprom.exit98 ], [ %103, %throwOutOfMemoryError.argprom.exit98.thread134 ], [ %.089133, %.lr.ph112 ]
   call void @free(ptr noundef %13) #7
-  br label %throwOutOfMemoryError.exit
+  br label %throwOutOfMemoryError.argprom.exit
 
-throwOutOfMemoryError.exit:                       ; preds = %21, %17, %._crit_edge113, %31
+throwOutOfMemoryError.argprom.exit:               ; preds = %21, %17, %._crit_edge113, %31
   %.0 = phi ptr [ null, %31 ], [ %.089132, %._crit_edge113 ], [ null, %17 ], [ null, %21 ]
   ret ptr %.0
 }

@@ -11610,7 +11610,7 @@ entry:
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.nla::emonics::head_tail", ptr %call.val.val, i64 %idxprom.i.i.i.i
   %1 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %do.body.i.i.i
+  br i1 %tobool.not.i.i.i, label %"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.argprom.exit", label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %entry, %do.body.i.i.i
   %c.0.i.i.i = phi ptr [ %3, %do.body.i.i.i ], [ %1, %entry ]
@@ -11620,9 +11620,9 @@ do.body.i.i.i:                                    ; preds = %entry, %do.body.i.i
   %3 = load ptr, ptr %c.0.i.i.i, align 8
   %cmp5.i.i.i = icmp eq ptr %3, %1
   %.not.i.i.i = select i1 %cmp5.i.i.i, i1 true, i1 %cmp.i.i.i
-  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %do.body.i.i.i, !llvm.loop !61
+  br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.argprom.exit", label %do.body.i.i.i, !llvm.loop !61
 
-"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %do.body.i.i.i, %entry
+"_ZSt10__invoke_rIbRZNK3nla7emonics9invariantEvE3$_0JjjEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.argprom.argprom.exit": ; preds = %do.body.i.i.i, %entry
   %retval.0.i.i.i = phi i1 [ false, %entry ], [ %cmp.i.i.i, %do.body.i.i.i ]
   ret i1 %retval.0.i.i.i
 }

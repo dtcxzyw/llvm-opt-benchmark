@@ -3211,9 +3211,9 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %8
   %34 = getelementptr inbounds i8, ptr %1, i64 64
   br label %35
 
-35:                                               ; preds = %.lr.ph121, %Gia_ObjSibl.exit.thread
-  %indvars.iv = phi i64 [ 1, %.lr.ph121 ], [ %indvars.iv.next, %Gia_ObjSibl.exit.thread ]
-  %.064118 = phi ptr [ null, %.lr.ph121 ], [ %.1, %Gia_ObjSibl.exit.thread ]
+35:                                               ; preds = %.lr.ph121, %Gia_ObjSibl.argprom.exit.thread
+  %indvars.iv = phi i64 [ 1, %.lr.ph121 ], [ %indvars.iv.next, %Gia_ObjSibl.argprom.exit.thread ]
+  %.064118 = phi ptr [ null, %.lr.ph121 ], [ %.1, %Gia_ObjSibl.argprom.exit.thread ]
   %.val77 = load ptr, ptr %27, align 8
   %36 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val77, i64 %indvars.iv
   %.val83 = load i64, ptr %36, align 4
@@ -3328,19 +3328,19 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %8
   store i32 %.1.val, ptr %107, align 4
   %.val98 = load ptr, ptr %4, align 8
   %.not.i106 = icmp eq ptr %.val98, null
-  br i1 %.not.i106, label %Gia_ObjSibl.exit.thread, label %Gia_ObjSibl.exit
+  br i1 %.not.i106, label %Gia_ObjSibl.argprom.exit.thread, label %Gia_ObjSibl.argprom.exit
 
-Gia_ObjSibl.exit:                                 ; preds = %105
+Gia_ObjSibl.argprom.exit:                         ; preds = %105
   %108 = getelementptr inbounds i32, ptr %.val98, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %.not72 = icmp eq i32 %109, 0
-  br i1 %.not72, label %Gia_ObjSibl.exit.thread, label %110
+  br i1 %.not72, label %Gia_ObjSibl.argprom.exit.thread, label %110
 
-110:                                              ; preds = %Gia_ObjSibl.exit
+110:                                              ; preds = %Gia_ObjSibl.argprom.exit
   %111 = load i64, ptr %36, align 4
   %112 = and i64 %111, 1073741824
   %.not73 = icmp eq i64 %112, 0
-  br i1 %.not73, label %Gia_ObjSibl.exit.thread, label %.lr.ph.preheader
+  br i1 %.not73, label %Gia_ObjSibl.argprom.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %110
   %.val.i108 = load ptr, ptr %27, align 8
@@ -3397,16 +3397,16 @@ Gia_ObjSibl.exit:                                 ; preds = %105
   %139 = load ptr, ptr %138, align 8
   tail call void @If_ManCreateChoice(ptr noundef nonnull %7, ptr noundef %139) #25
   store i32 0, ptr %34, align 8
-  br label %Gia_ObjSibl.exit.thread
+  br label %Gia_ObjSibl.argprom.exit.thread
 
-Gia_ObjSibl.exit.thread:                          ; preds = %105, %Gia_ObjSibl.exit, %110, %._crit_edge
+Gia_ObjSibl.argprom.exit.thread:                  ; preds = %105, %Gia_ObjSibl.argprom.exit, %110, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = load i32, ptr %14, align 8
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next, %141
   br i1 %142, label %35, label %.critedge, !llvm.loop !43
 
-.critedge:                                        ; preds = %Gia_ObjSibl.exit.thread, %24
+.critedge:                                        ; preds = %Gia_ObjSibl.argprom.exit.thread, %24
   %.val86 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.val86, null
   br i1 %.not, label %144, label %143
@@ -7655,7 +7655,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 168:                                              ; preds = %165
   %169 = ashr i32 %3, 1
-  tail call void (ptr, ptr, ...) @Vec_StrPrintF(ptr noundef %4, ptr nonnull poison, i32 noundef %169)
+  tail call void (ptr, ptr, ...) @Vec_StrPrintF.retelim(ptr noundef %4, ptr nonnull poison, i32 noundef %169)
   %170 = getelementptr inbounds i8, ptr %4, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = load i32, ptr %4, align 8
@@ -8377,7 +8377,7 @@ declare i32 @If_DsdManTtBitNum(ptr noundef) local_unnamed_addr #6
 declare i32 @If_DsdManPermBitNum(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @Vec_StrPrintF(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #3 {
+define internal void @Vec_StrPrintF.retelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr i8, ptr %0, i64 4
@@ -12875,16 +12875,16 @@ define range(i32 0, 2) i32 @Gia_ManMappingVerify_rec(ptr nocapture noundef reado
   %17 = and i64 %.val36, 536870911
   %18 = icmp eq i64 %17, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %18
-  br i1 %narrow.i.not.i, label %.critedge, label %Gia_ObjIsAndNotBuf.exit
+  br i1 %narrow.i.not.i, label %.critedge, label %Gia_ObjIsAndNotBuf.argprom.exit
 
-Gia_ObjIsAndNotBuf.exit:                          ; preds = %15
+Gia_ObjIsAndNotBuf.argprom.exit:                  ; preds = %15
   %19 = lshr i64 %.val36, 32
   %20 = xor i64 %19, %.val36
   %21 = and i64 %20, 536870911
   %.not40 = icmp eq i64 %21, 0
   br i1 %.not40, label %.critedge, label %22
 
-22:                                               ; preds = %Gia_ObjIsAndNotBuf.exit
+22:                                               ; preds = %Gia_ObjIsAndNotBuf.argprom.exit
   %.val35 = load ptr, ptr %5, align 8
   %23 = ptrtoint ptr %.val35 to i64
   %24 = sub i64 %6, %23
@@ -12946,8 +12946,8 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %15
   %53 = icmp slt i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %.critedge, !llvm.loop !126
 
-.critedge:                                        ; preds = %45, %.preheader, %15, %Gia_ObjIsAndNotBuf.exit, %2, %35
-  %.026 = phi i32 [ 0, %35 ], [ 1, %2 ], [ 1, %Gia_ObjIsAndNotBuf.exit ], [ 1, %15 ], [ 1, %.preheader ], [ %.1, %45 ]
+.critedge:                                        ; preds = %45, %.preheader, %15, %Gia_ObjIsAndNotBuf.argprom.exit, %2, %35
+  %.026 = phi i32 [ 0, %35 ], [ 1, %2 ], [ 1, %Gia_ObjIsAndNotBuf.argprom.exit ], [ 1, %15 ], [ 1, %.preheader ], [ %.1, %45 ]
   ret i32 %.026
 }
 
@@ -12975,8 +12975,8 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #3 {
   %8 = getelementptr i8, ptr %0, i64 264
   br label %9
 
-9:                                                ; preds = %.lr.ph, %Gia_ObjIsAndNotBuf.exit.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsAndNotBuf.exit.thread ]
+9:                                                ; preds = %.lr.ph, %Gia_ObjIsAndNotBuf.argprom.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsAndNotBuf.argprom.exit.thread ]
   %.val48 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val48, i64 %indvars.iv
   %.not39 = icmp eq ptr %.val48, null
@@ -12995,7 +12995,7 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #3 {
   %18 = and i64 %.val58, 2147483648
   %.not4.i = icmp ne i64 %18, 0
   %narrow.i.not = or i1 %.not4.i, %or.cond.not.i.not65
-  br i1 %narrow.i.not, label %Gia_ObjIsAndNotBuf.exit.thread, label %19
+  br i1 %narrow.i.not, label %Gia_ObjIsAndNotBuf.argprom.exit.thread, label %19
 
 19:                                               ; preds = %11
   %20 = and i64 %.val58, 536870911
@@ -13007,16 +13007,16 @@ define void @Gia_ManMappingVerify(ptr noundef %0) local_unnamed_addr #3 {
   %24 = and i64 %.val56, 536870911
   %25 = icmp eq i64 %24, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %25
-  br i1 %narrow.i.not.i, label %Gia_ObjIsAndNotBuf.exit.thread, label %Gia_ObjIsAndNotBuf.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsAndNotBuf.argprom.exit.thread, label %Gia_ObjIsAndNotBuf.argprom.exit
 
-Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
+Gia_ObjIsAndNotBuf.argprom.exit:                  ; preds = %19
   %26 = lshr i64 %.val56, 32
   %27 = xor i64 %26, %.val56
   %28 = and i64 %27, 536870911
   %.not66 = icmp eq i64 %28, 0
-  br i1 %.not66, label %Gia_ObjIsAndNotBuf.exit.thread, label %29
+  br i1 %.not66, label %Gia_ObjIsAndNotBuf.argprom.exit.thread, label %29
 
-29:                                               ; preds = %Gia_ObjIsAndNotBuf.exit
+29:                                               ; preds = %Gia_ObjIsAndNotBuf.argprom.exit
   %30 = ptrtoint ptr %22 to i64
   %31 = ptrtoint ptr %.val48 to i64
   %32 = sub i64 %30, %31
@@ -13034,21 +13034,21 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
 38:                                               ; preds = %29
   %39 = trunc i64 %33 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.45, i32 noundef %39)
-  br label %Gia_ObjIsAndNotBuf.exit.thread
+  br label %Gia_ObjIsAndNotBuf.argprom.exit.thread
 
 40:                                               ; preds = %29
   %41 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %22)
-  br label %Gia_ObjIsAndNotBuf.exit.thread
+  br label %Gia_ObjIsAndNotBuf.argprom.exit.thread
 
-Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_ObjIsAndNotBuf.exit, %38
+Gia_ObjIsAndNotBuf.argprom.exit.thread:           ; preds = %19, %40, %11, %Gia_ObjIsAndNotBuf.argprom.exit, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %6, align 8
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
   br i1 %44, label %9, label %.critedge, !llvm.loop !127
 
-.critedge:                                        ; preds = %9, %Gia_ObjIsAndNotBuf.exit.thread, %.thread, %4
-  %45 = phi ptr [ %3, %.thread ], [ %5, %4 ], [ %5, %Gia_ObjIsAndNotBuf.exit.thread ], [ %5, %9 ]
+.critedge:                                        ; preds = %9, %Gia_ObjIsAndNotBuf.argprom.exit.thread, %.thread, %4
+  %45 = phi ptr [ %3, %.thread ], [ %5, %4 ], [ %5, %Gia_ObjIsAndNotBuf.argprom.exit.thread ], [ %5, %9 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 4
@@ -13060,9 +13060,9 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_
   %50 = getelementptr i8, ptr %0, i64 264
   br label %51
 
-51:                                               ; preds = %.lr.ph78, %Gia_ObjIsAndNotBuf.exit61.thread
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next82, %Gia_ObjIsAndNotBuf.exit61.thread ]
-  %52 = phi ptr [ %47, %.lr.ph78 ], [ %82, %Gia_ObjIsAndNotBuf.exit61.thread ]
+51:                                               ; preds = %.lr.ph78, %Gia_ObjIsAndNotBuf.argprom.exit61.thread
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next82, %Gia_ObjIsAndNotBuf.argprom.exit61.thread ]
+  %52 = phi ptr [ %47, %.lr.ph78 ], [ %82, %Gia_ObjIsAndNotBuf.argprom.exit61.thread ]
   %.val49 = load ptr, ptr %45, align 8
   %.not40 = icmp eq ptr %.val49, null
   br i1 %.not40, label %.critedge2, label %53
@@ -13084,16 +13084,16 @@ Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_
   %64 = and i64 %.val55, 536870911
   %65 = icmp eq i64 %64, 536870911
   %narrow.i.not.i60 = or i1 %.not.i.i59, %65
-  br i1 %narrow.i.not.i60, label %Gia_ObjIsAndNotBuf.exit61.thread, label %Gia_ObjIsAndNotBuf.exit61
+  br i1 %narrow.i.not.i60, label %Gia_ObjIsAndNotBuf.argprom.exit61.thread, label %Gia_ObjIsAndNotBuf.argprom.exit61
 
-Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
+Gia_ObjIsAndNotBuf.argprom.exit61:                ; preds = %53
   %66 = lshr i64 %.val55, 32
   %67 = xor i64 %66, %.val55
   %68 = and i64 %67, 536870911
   %.not68 = icmp eq i64 %68, 0
-  br i1 %.not68, label %Gia_ObjIsAndNotBuf.exit61.thread, label %69
+  br i1 %.not68, label %Gia_ObjIsAndNotBuf.argprom.exit61.thread, label %69
 
-69:                                               ; preds = %Gia_ObjIsAndNotBuf.exit61
+69:                                               ; preds = %Gia_ObjIsAndNotBuf.argprom.exit61
   %70 = ptrtoint ptr %62 to i64
   %71 = ptrtoint ptr %.val49 to i64
   %72 = sub i64 %70, %71
@@ -13111,13 +13111,13 @@ Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
 78:                                               ; preds = %69
   %79 = trunc i64 %73 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.45, i32 noundef %79)
-  br label %Gia_ObjIsAndNotBuf.exit61.thread
+  br label %Gia_ObjIsAndNotBuf.argprom.exit61.thread
 
 80:                                               ; preds = %69
   %81 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %62)
-  br label %Gia_ObjIsAndNotBuf.exit61.thread
+  br label %Gia_ObjIsAndNotBuf.argprom.exit61.thread
 
-Gia_ObjIsAndNotBuf.exit61.thread:                 ; preds = %53, %Gia_ObjIsAndNotBuf.exit61, %80, %78
+Gia_ObjIsAndNotBuf.argprom.exit61.thread:         ; preds = %53, %Gia_ObjIsAndNotBuf.argprom.exit61, %80, %78
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %82 = load ptr, ptr %46, align 8
   %83 = getelementptr i8, ptr %82, i64 4
@@ -13126,7 +13126,7 @@ Gia_ObjIsAndNotBuf.exit61.thread:                 ; preds = %53, %Gia_ObjIsAndNo
   %85 = icmp slt i64 %indvars.iv.next82, %84
   br i1 %85, label %51, label %.critedge2, !llvm.loop !128
 
-.critedge2:                                       ; preds = %51, %Gia_ObjIsAndNotBuf.exit61.thread, %.critedge
+.critedge2:                                       ; preds = %51, %Gia_ObjIsAndNotBuf.argprom.exit61.thread, %.critedge
   ret void
 }
 

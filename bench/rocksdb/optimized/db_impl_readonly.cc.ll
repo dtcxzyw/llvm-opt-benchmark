@@ -3442,7 +3442,7 @@ invoke.cont:
   %options.val = load i8, ptr %options, align 8
   %1 = getelementptr inbounds i8, ptr %options, i64 8
   %options.val11 = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, i8 %options.val, ptr %options.val11, ptr noundef nonnull align 8 dereferenceable(32) %dbname)
+  tail call fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noalias align 8 %agg.result, i8 %options.val, ptr %options.val11, ptr noundef nonnull align 8 dereferenceable(32) %dbname)
   %2 = load i8, ptr %agg.result, align 8
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %if.end, label %nrvo.skipdtor
@@ -3954,7 +3954,7 @@ _ZN7rocksdb6StatusD2Ev.exit50:                    ; preds = %ehcleanup26, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, i8 %db_options.0.val, ptr %db_options.8.val, ptr noundef nonnull align 8 dereferenceable(32) %dbname) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noalias align 8 %agg.result, i8 %db_options.0.val, ptr %db_options.8.val, ptr noundef nonnull align 8 dereferenceable(32) %dbname) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %manifest_path = alloca %"class.std::__cxx11::basic_string", align 8
   %manifest_file_number = alloca i64, align 8
@@ -5825,7 +5825,7 @@ invoke.cont:
   %db_options.val = load i8, ptr %db_options, align 8
   %0 = getelementptr inbounds i8, ptr %db_options, i64 8
   %db_options.val3 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %s, i8 %db_options.val, ptr %db_options.val3, ptr noundef nonnull align 8 dereferenceable(32) %dbname)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_129OpenForReadOnlyCheckExistenceERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom(ptr noalias nonnull align 8 %s, i8 %db_options.val, ptr %db_options.val3, ptr noundef nonnull align 8 dereferenceable(32) %dbname)
   %1 = load i8, ptr %s, align 8
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %if.end, label %if.then

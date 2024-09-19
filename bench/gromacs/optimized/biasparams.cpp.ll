@@ -156,25 +156,25 @@ define void @_ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8Arra
 28:                                               ; preds = %11
   %.val50 = load i8, ptr %27, align 1
   %29 = trunc i8 %.val50 to i1
-  br i1 %29, label %30, label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
+  br i1 %29, label %30, label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit
 
 30:                                               ; preds = %28, %11, %11
   %31 = srem i32 100, %24
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %31, i32 %24)
   %32 = mul nsw i32 %.sroa.speculated.i, %.val
   %33 = sext i32 %32 to i64
-  br label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
+  br label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit
 
 34:                                               ; preds = %11
   %35 = mul nsw i32 %24, %.val
   %36 = sext i32 %35 to i64
-  br label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
+  br label %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit
 
 37:                                               ; preds = %11
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsEENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 113) #17
   unreachable
 
-_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit: ; preds = %28, %30, %34
+_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit: ; preds = %28, %30, %34
   %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ 0, %28 ]
   store i64 %.0.i, ptr %25, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 32
@@ -187,7 +187,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
   %.not.i = icmp eq ptr %41, %39
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
+.lr.ph.preheader.i:                               ; preds = %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit
   %45 = sdiv exact i64 %44, 48
   %umax.i = tail call i64 @llvm.umax.i64(i64 %45, i64 1)
   br label %.lr.ph.i
@@ -306,8 +306,8 @@ _ZNK3gmx9DimParams12fepDimParamsEv.exit.i:        ; preds = %80
   %exitcond.not.i = icmp eq i64 %89, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %88, %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit
-  %.038.lcssa.i = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit ], [ %.sroa.speculated27.i, %88 ]
+._crit_edge.i:                                    ; preds = %88, %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit
+  %.038.lcssa.i = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.argprom.exit ], [ %.sroa.speculated27.i, %88 ]
   %90 = load i32, ptr %23, align 8
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %_ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit, label %92
@@ -349,13 +349,13 @@ _ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKN
   %115 = zext i1 %114 to i8
   store i8 %115, ptr %113, align 8
   %116 = icmp sgt i32 %8, 0
-  br i1 %116, label %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit, label %117
+  br i1 %116, label %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.argprom.exit, label %117
 
 117:                                              ; preds = %_ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEiENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 217) #17
   unreachable
 
-_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds = %_ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit
+_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.argprom.exit: ; preds = %_ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit
   %118 = getelementptr inbounds i8, ptr %2, i64 88
   %.val51 = load i32, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %0, i64 76
@@ -383,7 +383,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %134 = load ptr, ptr %2, align 8
   br i1 %.not.i, label %.noexc15.i, label %.lr.ph.preheader.i54
 
-.lr.ph.preheader.i54:                             ; preds = %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit
+.lr.ph.preheader.i54:                             ; preds = %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.argprom.exit
   %135 = sdiv exact i64 %44, 48
   %umax.i55 = tail call i64 @llvm.umax.i64(i64 %135, i64 1)
   br label %.lr.ph.i56
@@ -427,7 +427,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %154 = fcmp ogt double %.sroa.speculated.i57, 0.000000e+00
   br i1 %154, label %_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit, label %.noexc15.i
 
-.noexc15.i:                                       ; preds = %._crit_edge.i59, %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit
+.noexc15.i:                                       ; preds = %._crit_edge.i59, %_ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.argprom.exit
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEddENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 202) #17
   unreachable
 

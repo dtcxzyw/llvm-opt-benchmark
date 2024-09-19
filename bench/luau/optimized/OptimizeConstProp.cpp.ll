@@ -4047,7 +4047,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1031.thread: ; preds = %._ZN
   %1095 = zext nneg i32 %1094 to i64
   %1096 = getelementptr inbounds %"struct.Luau::CodeGen::IrConst", ptr %1086, i64 %1095, i32 1
   %1097 = load i32, ptr %1096, align 8
-  tail call fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1088, i32 noundef %1090)
+  tail call fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji.argelim(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1088, i32 noundef %1090)
   switch i32 %1088, label %_ZN4Luau7CodeGen14ConstPropState24invalidateHeapBufferDataEv.exit [
     i32 20, label %1098
     i32 14, label %1098
@@ -4086,7 +4086,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit1031.thread: ; preds = %._ZN
   %1117 = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.099.0.copyload = load i32, ptr %1117, align 4
   %1118 = lshr i32 %.sroa.099.0.copyload, 4
-  tail call fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1116, i32 noundef %1118)
+  tail call fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji.argelim(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1116, i32 noundef %1118)
   br label %_ZN4Luau7CodeGen14ConstPropState24invalidateHeapBufferDataEv.exit
 
 1119:                                             ; preds = %6
@@ -6365,7 +6365,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4Luau7CodeGenL20handleBuiltinEffectsERNS0_14ConstPropStateE19LuauBuiltinFunctionji.argelim(ptr noundef nonnull align 8 dereferenceable(5416) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 5132
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   switch i32 %1, label %_ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit19 [

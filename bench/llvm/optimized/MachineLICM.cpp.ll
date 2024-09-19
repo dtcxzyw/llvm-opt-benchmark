@@ -3790,21 +3790,21 @@ _ZN12_GLOBAL__N_115MachineLICMBase29InitializeLoadsHoistableLoopsEv.exit: ; pred
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21)
   %1212 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not.i.i47 = icmp eq ptr %1212, null
-  br i1 %.not.i.i47, label %1213, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread52.i
+  br i1 %.not.i.i47, label %1213, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread52.i
 
 1213:                                             ; preds = %1211
   %1214 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE18getLoopPredecessorEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not17.i.i = icmp eq ptr %1214, null
-  br i1 %.not17.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i
+  br i1 %.not17.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i
 
-_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i: ; preds = %1213
+_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i: ; preds = %1213
   %1215 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %1216 = call noundef ptr @_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_PNS_4PassEPNS_15AnalysisManagerINS_15MachineFunctionEJEEEPSt6vectorINS_15SparseBitVectorILj128EEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(288) %1214, ptr noundef %1215, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #16
   %.not.i78 = icmp eq ptr %1216, null
-  br i1 %.not.i78, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread52.i
+  br i1 %.not.i78, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread52.i
 
-_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread52.i: ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i, %1211
-  %.0.i55.i = phi ptr [ %1216, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i ], [ %1212, %1211 ]
+_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread52.i: ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i, %1211
+  %.0.i55.i = phi ptr [ %1216, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i ], [ %1212, %1211 ]
   %1217 = load ptr, ptr %52, align 8
   %1218 = getelementptr inbounds i8, ptr %1217, i64 44
   %1219 = load i32, ptr %1218, align 4
@@ -3822,8 +3822,8 @@ _ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17
   store i32 0, ptr %1172, align 4
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread52.i
-  %.06.i.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ], [ 8, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread52.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread52.i
+  %.06.i.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i ], [ 8, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread52.i ]
   %.06.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %.06.i.i.i.i.idx.i.i
   store i32 2147483647, ptr %.06.i.i.i.i.ptr.i.i, align 4
   %.06.i.i.i.i.add.i.i = add nuw nsw i64 %.06.i.i.i.i.idx.i.i, 4
@@ -5307,19 +5307,19 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   %1987 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not.i.i99.i = icmp eq ptr %1987, null
-  br i1 %.not.i.i99.i, label %1988, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i
+  br i1 %.not.i.i99.i, label %1988, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i
 
 1988:                                             ; preds = %._crit_edge149.i
   %1989 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE18getLoopPredecessorEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not17.i.i108.i = icmp eq ptr %1989, null
-  br i1 %.not17.i.i108.i, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i, label %1990
+  br i1 %.not17.i.i108.i, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i, label %1990
 
 1990:                                             ; preds = %1988
   %1991 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %1992 = call noundef ptr @_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_PNS_4PassEPNS_15AnalysisManagerINS_15MachineFunctionEJEEEPSt6vectorINS_15SparseBitVectorILj128EEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(288) %1989, ptr noundef %1991, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #16
-  br label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i
+  br label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i: ; preds = %1990, %1988, %._crit_edge149.i
+_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i: ; preds = %1990, %1988, %._crit_edge149.i
   %.0.i.i.i58 = phi ptr [ null, %1988 ], [ %1987, %._crit_edge149.i ], [ %1992, %1990 ]
   %1993 = getelementptr inbounds nuw i8, ptr %1929, i64 24
   %1994 = load ptr, ptr %1993, align 8
@@ -5327,7 +5327,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17
   %.not.i10.i.i = icmp eq ptr %1995, %1929
   br i1 %.not.i10.i.i, label %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_.exit.i.i, label %.preheader.i.i.i.preheader.i.i.i
 
-.preheader.i.i.i.preheader.i.i.i:                 ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i
+.preheader.i.i.i.preheader.i.i.i:                 ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1929, align 8
   %1996 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i100.i = icmp eq i64 %1996, 0
@@ -5394,7 +5394,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.
   store i64 %2027, ptr %1995, align 8
   br label %_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_.exit.i.i
 
-_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_.exit.i.i: ; preds = %2009, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i.i
+_ZN4llvm17MachineBasicBlock6spliceENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEPS0_S3_.exit.i.i: ; preds = %2009, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i.i
   store ptr null, ptr %15, align 8
   %2028 = getelementptr inbounds nuw i8, ptr %1929, i64 56
   %2029 = icmp eq ptr %15, %2028
@@ -5423,7 +5423,7 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %2032, %_ZN4llvm13Tr
   %2036 = extractvalue { ptr, i64 } %2034, 1
   %2037 = getelementptr inbounds ptr, ptr %2035, i64 %2036
   %.not57.i.i.i = icmp eq i64 %2036, 0
-  br i1 %.not57.i.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.exit.i, label %.lr.ph60.i.i.i
+  br i1 %.not57.i.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i, label %.lr.ph60.i.i.i
 
 .lr.ph60.i.i.i:                                   ; preds = %_ZN4llvm8DebugLocD2Ev.exit.i.i
   %2038 = trunc i32 %1986 to i16
@@ -5639,14 +5639,14 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
 ._crit_edge56.i.i.i:                              ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i, %_ZN4llvm17MachineBasicBlock9addLiveInENS_10MCRegisterENS_11LaneBitmaskE.exit.i.i.i
   %2119 = getelementptr inbounds i8, ptr %.058.i.i.i, i64 8
   %.not.i12.i.i = icmp eq ptr %2119, %2037
-  br i1 %.not.i12.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.exit.i, label %2041
+  br i1 %.not.i12.i.i, label %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i, label %2041
 
-_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.exit.i: ; preds = %._crit_edge56.i.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i.i
+_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i: ; preds = %._crit_edge56.i.i.i, %_ZN4llvm8DebugLocD2Ev.exit.i.i
   store i8 1, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   br label %_ZNK4llvm6detail12DenseSetImplIiNS_13SmallDenseMapIiNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit.i
 
-_ZNK4llvm6detail12DenseSetImplIiNS_13SmallDenseMapIiNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit.i: ; preds = %1888, %1921, %1912, %1972, %1963, %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.exit.i, %1879
+_ZNK4llvm6detail12DenseSetImplIiNS_13SmallDenseMapIiNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E5countERKi.exit.i: ; preds = %1888, %1921, %1912, %1972, %1963, %_ZN12_GLOBAL__N_115MachineLICMBase11HoistPostRAEPN4llvm12MachineInstrEjPNS1_11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i, %1879
   %2120 = getelementptr inbounds i8, ptr %.066151.i, i64 16
   %.not73.i = icmp eq ptr %2120, %1868
   br i1 %.not73.i, label %._crit_edge154.i, label %.lr.ph153.i
@@ -5699,13 +5699,13 @@ _ZN4llvm9BitVectorD2Ev.exit110.i:                 ; preds = %2139, %_ZN4llvm11Sm
   %2140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #16
   %2141 = load ptr, ptr %17, align 8
   %2142 = icmp eq ptr %2141, %1167
-  br i1 %2142, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit, label %2143
+  br i1 %2142, label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit, label %2143
 
 2143:                                             ; preds = %_ZN4llvm9BitVectorD2Ev.exit110.i
   call void @free(ptr noundef %2141) #16
-  br label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit
+  br label %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit
 
-_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit: ; preds = %1213, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i, %_ZN4llvm9BitVectorD2Ev.exit110.i, %2143
+_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit: ; preds = %1213, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i, %_ZN4llvm9BitVectorD2Ev.exit110.i, %2143
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %19)
@@ -5727,21 +5727,21 @@ _ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   %2148 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not.i.i79 = icmp eq ptr %2148, null
-  br i1 %.not.i.i79, label %2149, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread17.i
+  br i1 %.not.i.i79, label %2149, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread17.i
 
 2149:                                             ; preds = %2144
   %2150 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE18getLoopPredecessorEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %.not17.i.i123 = icmp eq ptr %2150, null
-  br i1 %.not17.i.i123, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i124
+  br i1 %.not17.i.i123, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i124
 
-_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i124: ; preds = %2149
+_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i124: ; preds = %2149
   %2151 = call noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1206) #16
   %2152 = call noundef ptr @_ZN4llvm17MachineBasicBlock17SplitCriticalEdgeEPS0_PNS_4PassEPNS_15AnalysisManagerINS_15MachineFunctionEJEEEPSt6vectorINS_15SparseBitVectorILj128EEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(288) %2150, ptr noundef %2151, ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #16
   %.not.i125 = icmp eq ptr %2152, null
-  br i1 %.not.i125, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread17.i
+  br i1 %.not.i125, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit, label %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread17.i
 
-_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread17.i: ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i124, %2144
-  %.0.i20.i = phi ptr [ %2152, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i124 ], [ %2148, %2144 ]
+_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread17.i: ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i124, %2144
+  %.0.i20.i = phi ptr [ %2152, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i124 ], [ %2148, %2144 ]
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %1182, i64 noundef 32) #16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %1183, i64 noundef 8) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
@@ -5752,11 +5752,11 @@ _ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17
   %.not.i.i.i.i80 = icmp ugt i64 %2154, %2155
   br i1 %.not.i.i.i.i80, label %2156, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELb1EE9push_backES4_.exit.i
 
-2156:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread17.i
+2156:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread17.i
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %1183, i64 noundef %2154, i64 noundef 8) #16
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELb1EE9push_backES4_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELb1EE9push_backES4_.exit.i: ; preds = %2156, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.thread17.i
+_ZN4llvm23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELb1EE9push_backES4_.exit.i: ; preds = %2156, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.thread17.i
   %2157 = load ptr, ptr %8, align 8
   %2158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %2159 = getelementptr inbounds ptr, ptr %2157, i64 %2158
@@ -6692,20 +6692,20 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlock
   %2603 = load ptr, ptr %2601, align 8
   %2604 = getelementptr inbounds i8, ptr %2601, i64 16
   %2605 = icmp eq ptr %2603, %2604
-  br i1 %2605, label %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.exit.i.i, label %2606
+  br i1 %2605, label %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.argprom.exit.i.i, label %2606
 
 2606:                                             ; preds = %.preheader.i.i
   call void @free(ptr noundef %2603) #16
-  br label %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.exit.i.i
+  br label %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.argprom.exit.i.i
 
-_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.exit.i.i: ; preds = %2606, %.preheader.i.i
+_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.argprom.exit.i.i: ; preds = %2606, %.preheader.i.i
   %2607 = load ptr, ptr %4, align 8
   %2608 = load ptr, ptr %9, align 8
   %2609 = load i32, ptr %1185, align 8
   %2610 = icmp eq i32 %2609, 0
   br i1 %2610, label %_ZN12_GLOBAL__N_115MachineLICMBase15ExitScopeIfDoneEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEERNS1_8DenseMapIS5_jNS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_jEEEERKNS6_IS5_S5_S8_NSA_IS5_S5_EEEE.exit.i, label %2611
 
-2611:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.exit.i.i
+2611:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.argprom.exit.i.i
   %2612 = ptrtoint ptr %2607 to i64
   %2613 = trunc i64 %2612 to i32
   %2614 = lshr i32 %2613, 4
@@ -6815,7 +6815,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlock
   store ptr %2666, ptr %4, align 8
   br label %.preheader.i.i, !llvm.loop !91
 
-_ZN12_GLOBAL__N_115MachineLICMBase15ExitScopeIfDoneEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEERNS1_8DenseMapIS5_jNS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_jEEEERKNS6_IS5_S5_S8_NSA_IS5_S5_EEEE.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_EixERKS5_.exit18.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E6lookupEPKS4_.exit.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.exit.i.i, %.lr.ph.i.i.i.i78.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_EixERKS5_.exit.i.i
+_ZN12_GLOBAL__N_115MachineLICMBase15ExitScopeIfDoneEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEERNS1_8DenseMapIS5_jNS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_jEEEERKNS6_IS5_S5_S8_NSA_IS5_S5_EEEE.exit.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_EixERKS5_.exit18.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEES5_NS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S5_EEEES5_S5_S7_SA_E6lookupEPKS4_.exit.i.i, %_ZN12_GLOBAL__N_115MachineLICMBase9ExitScopeEPN4llvm17MachineBasicBlockE.argprom.exit.i.i, %.lr.ph.i.i.i.i78.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_EixERKS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %2671 = getelementptr inbounds i8, ptr %.04670.i, i64 8
@@ -6846,13 +6846,13 @@ _ZN4llvm11SmallVectorIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELj8EED2Ev.e
   %2684 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %2685 = load ptr, ptr %7, align 8
   %2686 = icmp eq ptr %2685, %1182
-  br i1 %2686, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit, label %2687
+  br i1 %2686, label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit, label %2687
 
 2687:                                             ; preds = %_ZN4llvm11SmallVectorIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELj8EED2Ev.exit.i
   call void @free(ptr noundef %2685) #16
-  br label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit
+  br label %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit
 
-_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit: ; preds = %2149, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit.i124, %_ZN4llvm11SmallVectorIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELj8EED2Ev.exit.i, %2687
+_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit: ; preds = %2149, %_ZN12_GLOBAL__N_115MachineLICMBase15getCurPreheaderEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit.i124, %_ZN4llvm11SmallVectorIPNS_15DomTreeNodeBaseINS_17MachineBasicBlockEEELj8EED2Ev.exit.i, %2687
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -6862,7 +6862,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS1_IjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS3_vEENSC_IS3_SE_EEEES3_SE_SF_SG_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %1200)
   br label %2688
 
-2688:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.exit, %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.exit
+2688:                                             ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase14HoistOutOfLoopEPN4llvm15DomTreeNodeBaseINS1_17MachineBasicBlockEEEPNS1_11MachineLoopEPS3_.argprom.exit, %_ZN12_GLOBAL__N_115MachineLICMBase17HoistRegionPostRAEPN4llvm11MachineLoopEPNS1_17MachineBasicBlockE.argprom.exit
   %2689 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #16
   br i1 %2689, label %._crit_edge, label %1201, !llvm.loop !92
 
@@ -10473,13 +10473,13 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i: ; preds = %_ZNK4l
   %390 = getelementptr inbounds i8, ptr %389, i64 224
   %391 = load ptr, ptr %390, align 8
   %392 = call noundef zeroext i1 %391(ptr noundef nonnull align 8 dereferenceable(80) %384, ptr noundef nonnull align 8 dereferenceable(70) %.095, ptr noundef nonnull align 8 dereferenceable(70) %383, ptr noundef %388) #16
-  br i1 %392, label %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit.i, label %381
+  br i1 %392, label %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit.i, label %381
 
-_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit.i: ; preds = %.lr.ph.i.i33
+_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit.i: ; preds = %.lr.ph.i.i33
   %.not.i35 = icmp eq ptr %383, null
   br i1 %.not.i35, label %_ZN12_GLOBAL__N_115MachineLICMBase12EliminateCSEEPN4llvm12MachineInstrERNS1_16DenseMapIteratorIjSt6vectorIS3_SaIS3_EENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS7_EELb0EEE.exit.thread, label %393
 
-393:                                              ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit.i
+393:                                              ; preds = %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit.i
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %320, i64 noundef 2) #16
   %394 = load i24, ptr %321, align 8
   %.not6386.i = icmp eq i24 %394, 0
@@ -10725,7 +10725,7 @@ _ZN4llvm11SmallVectorIPKNS_19TargetRegisterClassELj2EED2Ev.exit.i: ; preds = %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br i1 %.not6481.i, label %.critedge21, label %514
 
-_ZN12_GLOBAL__N_115MachineLICMBase12EliminateCSEEPN4llvm12MachineInstrERNS1_16DenseMapIteratorIjSt6vectorIS3_SaIS3_EENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS7_EELb0EEE.exit.thread: ; preds = %381, %355, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit.i, %378
+_ZN12_GLOBAL__N_115MachineLICMBase12EliminateCSEEPN4llvm12MachineInstrERNS1_16DenseMapIteratorIjSt6vectorIS3_SaIS3_EENS1_12DenseMapInfoIjvEENS1_6detail12DenseMapPairIjS7_EELb0EEE.exit.thread: ; preds = %381, %355, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit.i, %378
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %514
@@ -13200,7 +13200,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
   %587 = load i24, ptr %390, align 8
   %588 = zext i24 %587 to i64
   %589 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %586, i64 %588
-  %590 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %585, ptr %589, ptr %0)
+  %590 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_.argprom"(ptr %585, ptr %589, ptr %0)
   br i1 %590, label %591, label %.thread114
 
 591:                                              ; preds = %582
@@ -13220,7 +13220,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
   store i32 %580, ptr %600, align 8
   %601 = getelementptr inbounds i8, ptr %9, i64 24
   call void @_ZN4llvm8DenseMapIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(20) %601, ptr noundef nonnull align 8 dereferenceable(20) %8)
-  %602 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr %597, ptr %598, ptr noundef %9)
+  %602 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_.argprom"(ptr %597, ptr %598, ptr noundef %9)
   %.val42 = load ptr, ptr %601, align 8
   %603 = getelementptr inbounds i8, ptr %9, i64 40
   %.val43 = load i32, ptr %603, align 8
@@ -13231,7 +13231,7 @@ _ZN12_GLOBAL__N_115MachineLICMBase23CanCauseHighRegPressureERKN4llvm8DenseMapIji
 
 .thread114:                                       ; preds = %573, %591, %582, %576, %594
   %.val39 = load ptr, ptr %89, align 8
-  %606 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115MachineLICMBase27isTriviallyReMaterializableERKN4llvm12MachineInstrE(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(70) %1)
+  %606 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115MachineLICMBase27isTriviallyReMaterializableERKN4llvm12MachineInstrE.argprom(ptr %.val39, ptr noundef nonnull align 8 dereferenceable(70) %1)
   br i1 %606, label %609, label %607
 
 607:                                              ; preds = %.thread114
@@ -13262,7 +13262,7 @@ declare i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getBlockFreqEPKNS_17MachineBa
 declare noundef zeroext i1 @_ZNK4llvm11MachineLoop15isLoopInvariantERNS_12MachineInstrENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(70), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115MachineLICMBase27isTriviallyReMaterializableERKN4llvm12MachineInstrE(ptr %.56.val, ptr noundef nonnull align 8 dereferenceable(70) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115MachineLICMBase27isTriviallyReMaterializableERKN4llvm12MachineInstrE.argprom(ptr %.56.val, ptr noundef nonnull align 8 dereferenceable(70) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, 10
@@ -13483,9 +13483,9 @@ _ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetE
 83:                                               ; preds = %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit
   %84 = and i32 %81, 67108864
   %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit, label %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit.thread
+  br i1 %.not.i, label %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit, label %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit.thread
 
-_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit: ; preds = %83
+_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit: ; preds = %83
   %.val41 = load i32, ptr %31, align 4
   %85 = load ptr, ptr %21, align 8
   %86 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512) %85, i32 %.val41) #16
@@ -13495,19 +13495,19 @@ _ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit: ; pr
   %.sroa.0.0.copyload.mux = select i1 %brmerge39.not, i32 %.sroa.0.0.copyload, i32 0
   br i1 %67, label %select.unfold, label %89
 
-_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit.thread: ; preds = %83
+_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit.thread: ; preds = %83
   br i1 %67, label %.thread, label %.thread98
 
-.thread98:                                        ; preds = %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit.thread
+.thread98:                                        ; preds = %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit.thread
   %88 = sub i32 0, %.sroa.0.0.copyload
   br label %select.unfold
 
-89:                                               ; preds = %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit
+89:                                               ; preds = %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit
   %90 = sub i32 0, %.sroa.0.0.copyload
   br i1 %86, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %.thread98, %89, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit
-  %.033 = phi i32 [ %.sroa.0.0.copyload, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit ], [ %.sroa.0.0.copyload.mux, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit ], [ %90, %89 ], [ %88, %.thread98 ]
+select.unfold:                                    ; preds = %.thread98, %89, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit
+  %.033 = phi i32 [ %.sroa.0.0.copyload, %_ZN4llvm6detail12DenseSetImplINS_8RegisterENS_13SmallDenseMapIS2_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_E6insertERKS2_.exit ], [ %.sroa.0.0.copyload.mux, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit ], [ %90, %89 ], [ %88, %.thread98 ]
   %91 = icmp eq i32 %.033, 0
   br i1 %91, label %.thread, label %92
 
@@ -13662,7 +13662,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.not36 = icmp eq i32 %162, -1
   br i1 %.not36, label %.thread, label %.lr.ph, !llvm.loop !162
 
-.thread:                                          ; preds = %160, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.exit.thread, %92, %89, %select.unfold, %30, %25
+.thread:                                          ; preds = %160, %_ZL13isOperandKillRKN4llvm14MachineOperandEPNS_19MachineRegisterInfoE.argprom.exit.thread, %92, %89, %select.unfold, %30, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %.not, label %.loopexit, label %25, !llvm.loop !163
@@ -13846,13 +13846,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS4_EENS_12D
   %94 = getelementptr inbounds i8, ptr %93, i64 224
   %95 = load ptr, ptr %94, align 8
   %96 = tail call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(80) %88, ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(70) %87, ptr noundef %92) #16
-  br i1 %96, label %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit, label %85
+  br i1 %96, label %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit, label %85
 
-_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit: ; preds = %.lr.ph.i
+_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit: ; preds = %.lr.ph.i
   %.not = icmp eq ptr %87, null
   br i1 %.not, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %85, %82, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit, %48, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit, %79
+.critedge:                                        ; preds = %85, %82, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS4_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4findERKj.exit, %48, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit, %79
   %97 = getelementptr inbounds i8, ptr %.sroa.023.034, i64 32
   %.not5.i3.i = icmp eq ptr %97, %38
   br i1 %.not5.i3.i, label %_ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS2_vEENSC_IS2_SE_EELb0EEppEv.exit, label %.lr.ph.i4.i
@@ -13876,13 +13876,13 @@ _ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_1
   %.not30 = icmp eq ptr %.sroa.023.2, %38
   br i1 %.not30, label %.loopexit, label %48
 
-.loopexit:                                        ; preds = %.critedge2.i8.i14.i6.i, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit, %_ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS2_vEENSC_IS2_SE_EELb0EEppEv.exit, %27, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS1_IjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS3_vEENSC_IS3_SE_EEEES3_SE_SF_SG_E5beginEv.exit, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
-  %.0 = phi i1 [ false, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS1_IjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS3_vEENSC_IS3_SE_EEEES3_SE_SF_SG_E5beginEv.exit ], [ false, %27 ], [ true, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.exit ], [ false, %_ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS2_vEENSC_IS2_SE_EELb0EEppEv.exit ], [ false, %.critedge2.i8.i14.i6.i ]
+.loopexit:                                        ; preds = %.critedge2.i8.i14.i6.i, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit, %_ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS2_vEENSC_IS2_SE_EELb0EEppEv.exit, %27, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS1_IjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS3_vEENSC_IS3_SE_EEEES3_SE_SF_SG_E5beginEv.exit, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
+  %.0 = phi i1 [ false, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread ], [ false, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS1_IjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS3_vEENSC_IS3_SE_EEEES3_SE_SF_SG_E5beginEv.exit ], [ false, %27 ], [ true, %_ZN12_GLOBAL__N_115MachineLICMBase16LookForDuplicateEPKN4llvm12MachineInstrERSt6vectorIPS2_SaIS6_EE.argprom.exit ], [ false, %_ZN4llvm16DenseMapIteratorIPNS_17MachineBasicBlockENS_8DenseMapIjSt6vectorIPNS_12MachineInstrESaIS6_EENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEENS9_IS2_vEENSC_IS2_SE_EELb0EEppEv.exit ], [ false, %.critedge2.i8.i14.i6.i ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_14MachineOperandEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_0EEbOT_T0_.argprom"(ptr %.0.val, ptr %.8.val, ptr nocapture nonnull readonly %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %.8.val to i64
   %3 = ptrtoint ptr %.0.val to i64
   %4 = sub i64 %2, %3
@@ -13894,9 +13894,9 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %8
 
-8:                                                ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i", %.lr.ph.i.i.i.i
-  %.070.i.i.i.i = phi i64 [ %5, %.lr.ph.i.i.i.i ], [ %37, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i" ]
-  %.02969.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %36, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i" ]
+8:                                                ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i", %.lr.ph.i.i.i.i
+  %.070.i.i.i.i = phi i64 [ %5, %.lr.ph.i.i.i.i ], [ %37, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i" ]
+  %.02969.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %36, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i" ]
   %.029.val.i.i.i.i = load i32, ptr %.02969.i.i.i.i, align 8
   %9 = getelementptr i8, ptr %.02969.i.i.i.i, i64 4
   %.029.val30.i.i.i.i = load i32, ptr %9, align 4
@@ -13904,14 +13904,14 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %11 = icmp ne i32 %10, 0
   %12 = icmp slt i32 %.029.val30.i.i.i.i, 0
   %or.cond.i.i.i.i.i.i = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i"
+  br i1 %or.cond.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i": ; preds = %8
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i": ; preds = %8
   %13 = load ptr, ptr %7, align 8
   %14 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %13, i32 %.029.val30.i.i.i.i) #16
-  br i1 %14, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
+  br i1 %14, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %8
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i", %8
   %15 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 32
   %.val32.i.i.i.i = load i32, ptr %15, align 8
   %16 = getelementptr i8, ptr %.02969.i.i.i.i, i64 36
@@ -13920,14 +13920,14 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %18 = icmp ne i32 %17, 0
   %19 = icmp slt i32 %.val33.i.i.i.i, 0
   %or.cond.i.i47.i.i.i.i = select i1 %18, i1 true, i1 %19
-  br i1 %or.cond.i.i47.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.i.i.i.i"
+  br i1 %or.cond.i.i47.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i"
   %20 = load ptr, ptr %7, align 8
   %21 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %20, i32 %.val33.i.i.i.i) #16
-  br i1 %21, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
+  br i1 %21, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.thread.i.i.i.i"
   %22 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 64
   %.val35.i.i.i.i = load i32, ptr %22, align 8
   %23 = getelementptr i8, ptr %.02969.i.i.i.i, i64 68
@@ -13936,14 +13936,14 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %25 = icmp ne i32 %24, 0
   %26 = icmp slt i32 %.val36.i.i.i.i, 0
   %or.cond.i.i49.i.i.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i49.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.i.i.i.i"
+  br i1 %or.cond.i.i49.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i"
   %27 = load ptr, ptr %7, align 8
   %28 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %27, i32 %.val36.i.i.i.i) #16
-  br i1 %28, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13"
+  br i1 %28, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.thread.i.i.i.i"
   %29 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 96
   %.val38.i.i.i.i = load i32, ptr %29, align 8
   %30 = getelementptr i8, ptr %.02969.i.i.i.i, i64 100
@@ -13952,20 +13952,20 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %32 = icmp ne i32 %31, 0
   %33 = icmp slt i32 %.val39.i.i.i.i, 0
   %or.cond.i.i51.i.i.i.i = select i1 %32, i1 true, i1 %33
-  br i1 %or.cond.i.i51.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.i.i.i.i"
+  br i1 %or.cond.i.i51.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i"
   %34 = load ptr, ptr %7, align 8
   %35 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %34, i32 %.val39.i.i.i.i) #16
-  br i1 %35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15"
+  br i1 %35, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.thread.i.i.i.i"
   %36 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 128
   %37 = add nsw i64 %.070.i.i.i.i, -1
   %38 = icmp sgt i64 %.070.i.i.i.i, 1
   br i1 %38, label %8, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !164
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.thread.i.i.i.i"
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.thread.i.i.i.i"
   %.pre.i.i.i.i = ptrtoint ptr %36 to i64
   %.pre75.i.i.i.i = sub i64 %2, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
@@ -13974,7 +13974,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %.pre-phi76.i.i.i.i = phi i64 [ %.pre75.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %4, %1 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %36, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %1 ]
   %39 = ashr exact i64 %.pre-phi76.i.i.i.i, 5
-  switch i64 %39, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i" [
+  switch i64 %39, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i" [
     i64 3, label %40
     i64 2, label %49
     i64 1, label %58
@@ -13988,20 +13988,20 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %43 = icmp ne i32 %42, 0
   %44 = icmp slt i32 %.029.val42.i.i.i.i, 0
   %or.cond.i.i53.i.i.i.i = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond.i.i53.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.i.i.i.i"
+  br i1 %or.cond.i.i53.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.i.i.i.i": ; preds = %40
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.i.i.i.i": ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %46, i32 %.029.val42.i.i.i.i) #16
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.i.i.i.i", %40
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.i.i.i.i", %40
   %48 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 32
   br label %49
 
-49:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %48, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.thread.i.i.i.i" ]
+49:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %48, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.thread.i.i.i.i" ]
   %.1.val.i.i.i.i = load i32, ptr %.1.i.i.i.i, align 8
   %50 = getelementptr i8, ptr %.1.i.i.i.i, i64 4
   %.1.val44.i.i.i.i = load i32, ptr %50, align 4
@@ -14009,20 +14009,20 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %52 = icmp ne i32 %51, 0
   %53 = icmp slt i32 %.1.val44.i.i.i.i, 0
   %or.cond.i.i55.i.i.i.i = select i1 %52, i1 true, i1 %53
-  br i1 %or.cond.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.i.i.i.i"
+  br i1 %or.cond.i.i55.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.i.i.i.i": ; preds = %49
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.i.i.i.i": ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %55, i32 %.1.val44.i.i.i.i) #16
-  br i1 %56, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
+  br i1 %56, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.i.i.i.i", %49
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.i.i.i.i", %49
   %57 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 32
   br label %58
 
-58:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.thread.i.i.i.i" ]
+58:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %57, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.thread.i.i.i.i" ]
   %.2.val.i.i.i.i = load i32, ptr %.2.i.i.i.i, align 8
   %59 = getelementptr i8, ptr %.2.i.i.i.i, i64 4
   %.2.val46.i.i.i.i = load i32, ptr %59, align 4
@@ -14030,37 +14030,37 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeI
   %61 = icmp ne i32 %60, 0
   %62 = icmp slt i32 %.2.val46.i.i.i.i, 0
   %or.cond.i.i57.i.i.i.i = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond.i.i57.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.i.i.i.i"
+  br i1 %or.cond.i.i57.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.i.i.i.i": ; preds = %58
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.i.i.i.i": ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isConstantPhysRegENS_10MCRegisterE(ptr noundef nonnull align 8 dereferenceable(512) %64, i32 %.2.val46.i.i.i.i) #16
-  br i1 %65, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
+  br i1 %65, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i", label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.i.i.i.i", %58, %._crit_edge.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.i.i.i.i", %58, %._crit_edge.i.i.i.i
   br label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit48.i.i.i.i"
+"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit48.i.i.i.i"
   %66 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 32
   br label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit50.i.i.i.i"
+"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit50.i.i.i.i"
   %67 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 64
   br label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit52.i.i.i.i"
+"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit52.i.i.i.i"
   %68 = getelementptr inbounds i8, ptr %.02969.i.i.i.i, i64 96
   br label %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit"
 
-"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i"
-  %.028.i.i.i.i = phi ptr [ %.8.val, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit54.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit56.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit58.i.i.i.i" ], [ %66, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %67, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13" ], [ %68, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15" ], [ %.02969.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.exit.i.i.i.i" ]
+"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13", %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i"
+  %.028.i.i.i.i = phi ptr [ %.8.val, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit54.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit56.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit58.i.i.i.i" ], [ %66, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit" ], [ %67, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit13" ], [ %68, %"_ZSt6all_ofIPN4llvm14MachineOperandEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_0EbT_SA_T0_.exit.loopexit.split.loop.exit15" ], [ %.02969.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERN4llvm12MachineInstrEPNS4_11MachineLoopEE3$_0EclIPNS4_14MachineOperandEEEbT_.argprom.exit.i.i.i.i" ]
   %69 = icmp eq ptr %.8.val, %.028.i.i.i.i
   ret i1 %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMBase19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_.argprom"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8

@@ -1681,11 +1681,11 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 .thread.i:                                        ; preds = %54, %46
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
   %57 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.139, ptr noundef %56) #15
-  br label %_wait_cgroup_empty.exit
+  br label %_wait_cgroup_empty.argprom.exit
 
 58:                                               ; preds = %54
   %59 = icmp eq i32 %.pre.i, 0
-  br i1 %59, label %_wait_cgroup_empty.exit, label %60
+  br i1 %59, label %_wait_cgroup_empty.argprom.exit, label %60
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @int_cg, i64 216), align 8
@@ -1696,7 +1696,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 
 64:                                               ; preds = %60
   %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.141) #15
-  br label %_wait_cgroup_empty.exit
+  br label %_wait_cgroup_empty.argprom.exit
 
 66:                                               ; preds = %60
   %67 = load ptr, ptr %2, align 8
@@ -1793,9 +1793,9 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 111:                                              ; preds = %109, %106, %103, %101, %98, %70
   %112 = call i32 @close(i32 noundef %62) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
-  br label %_wait_cgroup_empty.exit
+  br label %_wait_cgroup_empty.argprom.exit
 
-_wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64, %111
+_wait_cgroup_empty.argprom.exit:                  ; preds = %.thread.i, %58, %64, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -1807,7 +1807,7 @@ _wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64
   %.not13 = icmp eq i32 %115, 0
   br i1 %.not13, label %121, label %116
 
-116:                                              ; preds = %_wait_cgroup_empty.exit
+116:                                              ; preds = %_wait_cgroup_empty.argprom.exit
   %117 = call i32 @get_log_level() #15
   %118 = icmp sgt i32 %117, 5
   br i1 %118, label %119, label %143
@@ -1817,7 +1817,7 @@ _wait_cgroup_empty.exit:                          ; preds = %.thread.i, %58, %64
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.30, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_p_step_destroy, ptr noundef %120) #15
   br label %143
 
-121:                                              ; preds = %_wait_cgroup_empty.exit
+121:                                              ; preds = %_wait_cgroup_empty.argprom.exit
   call void @common_cgroup_destroy(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200)) #15
   %122 = call i32 @common_cgroup_delete(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 240)) #15
   %.not14 = icmp eq i32 %122, 0

@@ -374,7 +374,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call ptr @PyErr_Occurred() #7
   %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %return.sink.split.i, label %heaptype_with_member_extract_and_check_memb.exit
+  br i1 %tobool3.not.i, label %return.sink.split.i, label %heaptype_with_member_extract_and_check_memb.argprom.exit
 
 if.end5.i:                                        ; preds = %entry
   %1 = load ptr, ptr %call1.i, align 8
@@ -396,15 +396,15 @@ if.end19.i:                                       ; preds = %if.end13.i
   %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
-  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
+  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.argprom.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end19.i, %if.end13.i, %if.end8.i, %if.end5.i, %if.then.i
   %.str.21.sink.i = phi ptr [ @.str.21, %if.then.i ], [ @.str.22, %if.end5.i ], [ @.str.23, %if.end8.i ], [ @.str.24, %if.end13.i ], [ @.str.25, %if.end19.i ]
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull %.str.21.sink.i) #7
-  br label %heaptype_with_member_extract_and_check_memb.exit
+  br label %heaptype_with_member_extract_and_check_memb.argprom.exit
 
-heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.then.i, %if.end19.i, %return.sink.split.i
+heaptype_with_member_extract_and_check_memb.argprom.exit: ; preds = %if.then.i, %if.end19.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end19.i ], [ null, %return.sink.split.i ]
   %call1 = tail call ptr @PyMember_GetOne(ptr noundef nonnull %self, ptr noundef %retval.0.i) #7
   ret ptr %call1
@@ -422,7 +422,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call ptr @PyErr_Occurred() #7
   %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %return.sink.split.i, label %heaptype_with_member_extract_and_check_memb.exit
+  br i1 %tobool3.not.i, label %return.sink.split.i, label %heaptype_with_member_extract_and_check_memb.argprom.exit
 
 if.end5.i:                                        ; preds = %entry
   %1 = load ptr, ptr %call1.i, align 8
@@ -444,15 +444,15 @@ if.end19.i:                                       ; preds = %if.end13.i
   %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
-  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
+  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.argprom.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end19.i, %if.end13.i, %if.end8.i, %if.end5.i, %if.then.i
   %.str.21.sink.i = phi ptr [ @.str.21, %if.then.i ], [ @.str.22, %if.end5.i ], [ @.str.23, %if.end8.i ], [ @.str.24, %if.end13.i ], [ @.str.25, %if.end19.i ]
   %4 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull %.str.21.sink.i) #7
-  br label %heaptype_with_member_extract_and_check_memb.exit
+  br label %heaptype_with_member_extract_and_check_memb.argprom.exit
 
-heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.then.i, %if.end19.i, %return.sink.split.i
+heaptype_with_member_extract_and_check_memb.argprom.exit: ; preds = %if.then.i, %if.end19.i, %return.sink.split.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end19.i ], [ null, %return.sink.split.i ]
   %call1 = tail call i32 @PyMember_SetOne(ptr noundef nonnull %self, ptr noundef %retval.0.i, ptr noundef %value) #7
   %cmp = icmp slt i32 %call1, 0
@@ -495,7 +495,7 @@ if.end19.i:                                       ; preds = %if.end13.i
   %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
-  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
+  br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.argprom.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then.i, %if.end19.i, %if.end13.i, %if.end8.i, %if.end5.i
   %.str.21.sink.i = phi ptr [ @.str.21, %if.then.i ], [ @.str.22, %if.end5.i ], [ @.str.23, %if.end8.i ], [ @.str.24, %if.end13.i ], [ @.str.25, %if.end19.i ]
@@ -503,7 +503,7 @@ return.sink.split.i:                              ; preds = %if.then.i, %if.end1
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull %.str.21.sink.i) #7
   unreachable
 
-heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.end19.i
+heaptype_with_member_extract_and_check_memb.argprom.exit: ; preds = %if.end19.i
   %offset = getelementptr inbounds i8, ptr %call1.i, i64 16
   %5 = load i64, ptr %offset, align 8
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %5) #7

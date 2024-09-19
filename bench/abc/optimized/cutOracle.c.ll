@@ -64,7 +64,7 @@ Vec_PtrAlloc.exit.thread:                         ; preds = %1
   %23 = getelementptr inbounds i8, ptr %calloc, i64 24
   store ptr %14, ptr %23, align 8
   %.not.i.i30 = icmp sgt i32 %13, 0
-  br i1 %.not.i.i30, label %.thread, label %Vec_PtrFill.exit
+  br i1 %.not.i.i30, label %.thread, label %Vec_PtrFill.argprom.exit
 
 .thread:                                          ; preds = %Vec_PtrAlloc.exit.thread
   %24 = zext nneg i32 %13 to i64
@@ -97,7 +97,7 @@ Vec_PtrAlloc.exit.thread:                         ; preds = %1
 Vec_PtrGrow.exit.i:                               ; preds = %35, %Vec_PtrAlloc.exit
   %38 = phi ptr [ %36, %35 ], [ %20, %Vec_PtrAlloc.exit ]
   %39 = icmp sgt i32 %13, 0
-  br i1 %39, label %.lr.ph.i, label %Vec_PtrFill.exit
+  br i1 %39, label %.lr.ph.i, label %Vec_PtrFill.argprom.exit
 
 .lr.ph.i:                                         ; preds = %Vec_PtrGrow.exit.i
   %wide.trip.count.i = zext nneg i32 %13 to i64
@@ -110,9 +110,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %35, %Vec_PtrAlloc.e
   store ptr null, ptr %42, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrFill.exit, label %40, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Vec_PtrFill.argprom.exit, label %40, !llvm.loop !4
 
-Vec_PtrFill.exit:                                 ; preds = %40, %Vec_PtrAlloc.exit.thread, %Vec_PtrGrow.exit.i
+Vec_PtrFill.argprom.exit:                         ; preds = %40, %Vec_PtrAlloc.exit.thread, %Vec_PtrGrow.exit.i
   store i32 %13, ptr %16, align 4
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %44 = getelementptr inbounds i8, ptr %43, i64 4
@@ -142,7 +142,7 @@ Vec_PtrFill.exit:                                 ; preds = %40, %Vec_PtrAlloc.e
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %71, label %59
 
-59:                                               ; preds = %Vec_PtrFill.exit
+59:                                               ; preds = %Vec_PtrFill.argprom.exit
   %60 = icmp sgt i32 %53, 8
   br i1 %60, label %61, label %62
 
@@ -164,8 +164,8 @@ Vec_PtrFill.exit:                                 ; preds = %40, %Vec_PtrAlloc.e
   store i32 %70, ptr %56, align 8
   br label %71
 
-71:                                               ; preds = %61, %62, %Vec_PtrFill.exit
-  %72 = phi i32 [ %55, %61 ], [ %70, %62 ], [ %55, %Vec_PtrFill.exit ]
+71:                                               ; preds = %61, %62, %Vec_PtrFill.argprom.exit
+  %72 = phi i32 [ %55, %61 ], [ %70, %62 ], [ %55, %Vec_PtrFill.argprom.exit ]
   %73 = tail call ptr @Extra_MmFixedStart(i32 noundef %72) #17
   %74 = getelementptr inbounds i8, ptr %calloc, i64 72
   store ptr %73, ptr %74, align 8

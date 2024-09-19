@@ -502,7 +502,7 @@ invoke.cont10.i:                                  ; preds = %call5.i.i.i.i2.i.i1
   store ptr %add.ptr.i.i.sink.i.i.i, ptr %32, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i, align 8
   %cmp.i.i22.i = icmp ugt i64 %sub.ptr.div.i.i, 384307168202282325
-  br i1 %cmp.i.i22.i, label %if.then.i.i30.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+  br i1 %cmp.i.i22.i, label %if.then.i.i30.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i.i
 
 if.then.i.i30.i:                                  ; preds = %invoke.cont10.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
@@ -511,16 +511,16 @@ if.then.i.i30.i:                                  ; preds = %invoke.cont10.i
 .noexc31.i:                                       ; preds = %if.then.i.i30.i
   unreachable
 
-_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %invoke.cont10.i
+_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i.i: ; preds = %invoke.cont10.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %states.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %28, %29
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.exit.thread.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.argprom.exit.thread.i.i, label %for.body.lr.ph.i.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.exit.thread.i.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.argprom.exit.thread.i.i: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i.i
   %_M_finish.i.i2.i.i = getelementptr inbounds i8, ptr %info, i64 192
   br label %invoke.cont13.i
 
-for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+for.body.lr.ph.i.i.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EE17_S_check_init_lenEmRKS3_.argprom.exit.i.i
   %mul.i.i.i.i.i.i.i = mul nuw nsw i64 %sub.ptr.div.i.i, 24
   %call5.i.i.i.i2.i.i32.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #19
           to label %call5.i.i.i.i2.i.i.noexc.i unwind label %lpad12.i
@@ -661,9 +661,9 @@ if.then.i.i.i26.i:                                ; preds = %lpad.body.i.i
   call void @_ZdlPv(ptr noundef nonnull %this.val.i.i) #21
   br label %lpad12.body.i
 
-invoke.cont13.i:                                  ; preds = %for.inc.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.exit.thread.i.i
-  %_M_finish.i.i5.i.i = phi ptr [ %_M_finish.i.i2.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.exit.thread.i.i ], [ %_M_finish.i.i.i23.i, %for.inc.i.i.i.i.i.i.us.i ], [ %_M_finish.i.i.i23.i, %for.inc.i.i.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i29.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.exit.thread.i.i ], [ %incdec.ptr.i.i.i.i.i.i.us.i, %for.inc.i.i.i.i.i.i.us.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
+invoke.cont13.i:                                  ; preds = %for.inc.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.argprom.exit.thread.i.i
+  %_M_finish.i.i5.i.i = phi ptr [ %_M_finish.i.i2.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.argprom.exit.thread.i.i ], [ %_M_finish.i.i.i23.i, %for.inc.i.i.i.i.i.i.us.i ], [ %_M_finish.i.i.i23.i, %for.inc.i.i.i.i.i.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i29.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EEC2EmRKS3_.argprom.exit.thread.i.i ], [ %incdec.ptr.i.i.i.i.i.i.us.i, %for.inc.i.i.i.i.i.i.us.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i29.i, ptr %_M_finish.i.i5.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %31, %__cur.0.lcssa.i.i.i.i.i.i.i
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
@@ -2884,13 +2884,13 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN3ue2
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
   %this.val = phi ptr [ %this.val.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
   %tobool.not.i.i = icmp eq ptr %this.val, null
-  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   tail call void @_ZdlPv(ptr noundef nonnull %this.val) #21
-  br label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.exit
+  br label %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.argprom.exit
 
-_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_119hopcroft_state_infoESaIS2_EED2Ev.argprom.exit: ; preds = %invoke.cont, %if.then.i.i
   ret void
 }
 

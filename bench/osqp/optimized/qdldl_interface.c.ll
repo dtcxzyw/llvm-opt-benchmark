@@ -360,7 +360,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef write
   br i1 %.not116, label %.thread, label %71
 
 71:                                               ; preds = %69
-  call fastcc void @permute_KKT(ptr noundef %7, ptr noundef nonnull %10, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @permute_KKT.retelim(ptr noundef %7, ptr noundef nonnull %10, i64 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %124
 
 72:                                               ; preds = %56
@@ -448,7 +448,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef write
   %121 = load ptr, ptr %79, align 8
   %122 = load ptr, ptr %86, align 8
   %123 = load ptr, ptr %89, align 8
-  call fastcc void @permute_KKT(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %115, i64 noundef %120, i64 noundef %15, ptr noundef %121, ptr noundef %122, ptr noundef %123)
+  call fastcc void @permute_KKT.retelim(ptr noundef %7, ptr noundef nonnull %10, i64 noundef %115, i64 noundef %120, i64 noundef %15, ptr noundef %121, ptr noundef %122, ptr noundef %123)
   br label %124
 
 124:                                              ; preds = %110, %71
@@ -1052,7 +1052,7 @@ _colcount_diag.exit126.i:                         ; preds = %157, %_colcount_blo
   br i1 %.not.not.i.i, label %167, label %_colcount_to_colptr.exit.i, !llvm.loop !15
 
 _colcount_to_colptr.exit.i:                       ; preds = %167, %_colcount_diag.exit126.i
-  br i1 %41, label %.lr.ph.i128.i, label %_fill_diag_values.exit.i
+  br i1 %41, label %.lr.ph.i128.i, label %_fill_diag_values.argprom.exit.i
 
 .lr.ph.i128.i:                                    ; preds = %_colcount_to_colptr.exit.i
   %174 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1078,16 +1078,16 @@ _colcount_to_colptr.exit.i:                       ; preds = %167, %_colcount_dia
   store i64 %187, ptr %185, align 8
   %188 = add nuw nsw i64 %.01.us.i.i, 1
   %exitcond3.not.i.i = icmp eq i64 %188, %29
-  br i1 %exitcond3.not.i.i, label %_fill_diag_values.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !16
+  br i1 %exitcond3.not.i.i, label %_fill_diag_values.argprom.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !16
 
-_fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i, %_colcount_to_colptr.exit.i
+_fill_diag_values.argprom.exit.i:                 ; preds = %.lr.ph.split.us.i.i, %_colcount_to_colptr.exit.i
   %189 = load ptr, ptr %1, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 8
   %191 = load i64, ptr %190, align 8
   %192 = icmp sgt i64 %191, 0
-  br i1 %192, label %.lr.ph3.i.i, label %_fill_block.exit.i
+  br i1 %192, label %.lr.ph3.i.i, label %_fill_block.argprom.exit.i
 
-.lr.ph3.i.i:                                      ; preds = %_fill_diag_values.exit.i
+.lr.ph3.i.i:                                      ; preds = %_fill_diag_values.argprom.exit.i
   %193 = getelementptr inbounds i8, ptr %189, i64 16
   %194 = getelementptr inbounds i8, ptr %189, i64 24
   %195 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1117,7 +1117,7 @@ _fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i
   %207 = phi i64 [ %.pre7.i.i, %.loopexit.us.loopexit.i.i ], [ %199, %.lr.ph3.split.us.i.i ]
   %208 = phi ptr [ %226, %.loopexit.us.loopexit.i.i ], [ %200, %.lr.ph3.split.us.i.i ]
   %209 = icmp slt i64 %203, %207
-  br i1 %209, label %.lr.ph3.split.us.i.i, label %_fill_block.exit.i, !llvm.loop !17
+  br i1 %209, label %.lr.ph3.split.us.i.i, label %_fill_block.argprom.exit.i, !llvm.loop !17
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph3.split.us.i.i, %.lr.ph.us.i.i
   %.0341.us.us.i.i = phi i64 [ %225, %.lr.ph.us.i.i ], [ %202, %.lr.ph3.split.us.i.i ]
@@ -1146,14 +1146,14 @@ _fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i
   %229 = icmp slt i64 %225, %228
   br i1 %229, label %.lr.ph.us.i.i, label %.loopexit.us.loopexit.i.i, !llvm.loop !18
 
-_fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %_fill_diag_values.exit.i
+_fill_block.argprom.exit.i:                       ; preds = %.loopexit.us.i.i, %_fill_diag_values.argprom.exit.i
   %230 = load ptr, ptr %2, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 8
   %232 = load i64, ptr %231, align 8
   %233 = icmp sgt i64 %232, 0
-  br i1 %233, label %.lr.ph3.i129.i, label %_fill_block.exit138.i
+  br i1 %233, label %.lr.ph3.i129.i, label %_fill_block.argprom.exit138.i
 
-.lr.ph3.i129.i:                                   ; preds = %_fill_block.exit.i
+.lr.ph3.i129.i:                                   ; preds = %_fill_block.argprom.exit.i
   %234 = getelementptr inbounds i8, ptr %230, i64 16
   %235 = getelementptr inbounds i8, ptr %230, i64 24
   %236 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1183,7 +1183,7 @@ _fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %
   %248 = phi i64 [ %.pre7.i137.i, %.loopexit.us.loopexit.i136.i ], [ %240, %.lr.ph3.split.us.i131.i ]
   %249 = phi ptr [ %267, %.loopexit.us.loopexit.i136.i ], [ %241, %.lr.ph3.split.us.i131.i ]
   %250 = icmp slt i64 %244, %248
-  br i1 %250, label %.lr.ph3.split.us.i131.i, label %_fill_block.exit138.i, !llvm.loop !17
+  br i1 %250, label %.lr.ph3.split.us.i131.i, label %_fill_block.argprom.exit138.i, !llvm.loop !17
 
 .lr.ph.us.i134.i:                                 ; preds = %.lr.ph3.split.us.i131.i, %.lr.ph.us.i134.i
   %.0341.us.us.i135.i = phi i64 [ %266, %.lr.ph.us.i134.i ], [ %243, %.lr.ph3.split.us.i131.i ]
@@ -1213,14 +1213,14 @@ _fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %
   %270 = icmp slt i64 %266, %269
   br i1 %270, label %.lr.ph.us.i134.i, label %.loopexit.us.loopexit.i136.i, !llvm.loop !18
 
-_fill_block.exit138.i:                            ; preds = %.loopexit.us.i133.i, %_fill_block.exit.i
+_fill_block.argprom.exit138.i:                    ; preds = %.loopexit.us.i133.i, %_fill_block.argprom.exit.i
   %271 = load ptr, ptr %3, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 8
   %273 = load i64, ptr %272, align 8
   %274 = icmp sgt i64 %273, 0
-  br i1 %274, label %.lr.ph3.i139.i, label %_fill_block.exit149.i
+  br i1 %274, label %.lr.ph3.i139.i, label %_fill_block.argprom.exit149.i
 
-.lr.ph3.i139.i:                                   ; preds = %_fill_block.exit138.i
+.lr.ph3.i139.i:                                   ; preds = %_fill_block.argprom.exit138.i
   %275 = getelementptr inbounds i8, ptr %271, i64 16
   %276 = getelementptr inbounds i8, ptr %271, i64 24
   %277 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1250,7 +1250,7 @@ _fill_block.exit138.i:                            ; preds = %.loopexit.us.i133.i
   %289 = phi i64 [ %.pre7.i148.i, %.loopexit.us.loopexit.i147.i ], [ %281, %.lr.ph3.split.us.i141.i ]
   %290 = phi ptr [ %308, %.loopexit.us.loopexit.i147.i ], [ %282, %.lr.ph3.split.us.i141.i ]
   %291 = icmp slt i64 %285, %289
-  br i1 %291, label %.lr.ph3.split.us.i141.i, label %_fill_block.exit149.i, !llvm.loop !17
+  br i1 %291, label %.lr.ph3.split.us.i141.i, label %_fill_block.argprom.exit149.i, !llvm.loop !17
 
 .lr.ph.us.i144.i:                                 ; preds = %.lr.ph3.split.us.i141.i, %.lr.ph.us.i144.i
   %.0341.us.us.i145.i = phi i64 [ %307, %.lr.ph.us.i144.i ], [ %284, %.lr.ph3.split.us.i141.i ]
@@ -1280,14 +1280,14 @@ _fill_block.exit138.i:                            ; preds = %.loopexit.us.i133.i
   %311 = icmp slt i64 %307, %310
   br i1 %311, label %.lr.ph.us.i144.i, label %.loopexit.us.loopexit.i147.i, !llvm.loop !18
 
-_fill_block.exit149.i:                            ; preds = %.loopexit.us.i143.i, %_fill_block.exit138.i
+_fill_block.argprom.exit149.i:                    ; preds = %.loopexit.us.i143.i, %_fill_block.argprom.exit138.i
   %312 = load ptr, ptr %4, align 8
   %313 = getelementptr inbounds i8, ptr %312, i64 8
   %314 = load i64, ptr %313, align 8
   %315 = icmp sgt i64 %314, 0
-  br i1 %315, label %.lr.ph3.i150.i, label %_fill_block.exit153.i
+  br i1 %315, label %.lr.ph3.i150.i, label %_fill_block.argprom.exit153.i
 
-.lr.ph3.i150.i:                                   ; preds = %_fill_block.exit149.i
+.lr.ph3.i150.i:                                   ; preds = %_fill_block.argprom.exit149.i
   %316 = getelementptr inbounds i8, ptr %312, i64 16
   %317 = getelementptr inbounds i8, ptr %312, i64 24
   %318 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1305,7 +1305,7 @@ _fill_block.exit149.i:                            ; preds = %.loopexit.us.i143.i
   %322 = phi i64 [ %.pre5.i.i, %.loopexit.loopexit.i.i ], [ %325, %.lr.ph3.split.i.i ]
   %323 = phi ptr [ %349, %.loopexit.loopexit.i.i ], [ %326, %.lr.ph3.split.i.i ]
   %324 = icmp slt i64 %329, %322
-  br i1 %324, label %.lr.ph3.split.i.i, label %_fill_block.exit153.i, !llvm.loop !17
+  br i1 %324, label %.lr.ph3.split.i.i, label %_fill_block.argprom.exit153.i, !llvm.loop !17
 
 .lr.ph3.split.i.i:                                ; preds = %.loopexit.i.i, %.lr.ph3.i150.i
   %325 = phi i64 [ %322, %.loopexit.i.i ], [ %314, %.lr.ph3.i150.i ]
@@ -1346,11 +1346,11 @@ _fill_block.exit149.i:                            ; preds = %.loopexit.us.i143.i
   %352 = icmp slt i64 %348, %351
   br i1 %352, label %.lr.ph.i152.i, label %.loopexit.loopexit.i.i, !llvm.loop !18
 
-_fill_block.exit153.i:                            ; preds = %.loopexit.i.i, %_fill_block.exit149.i
+_fill_block.argprom.exit153.i:                    ; preds = %.loopexit.i.i, %_fill_block.argprom.exit149.i
   %353 = load ptr, ptr %5, align 8
-  br i1 %127, label %.lr.ph.i154.i, label %_fill_diag_values.exit159.i
+  br i1 %127, label %.lr.ph.i154.i, label %_fill_diag_values.argprom.exit159.i
 
-.lr.ph.i154.i:                                    ; preds = %_fill_block.exit153.i
+.lr.ph.i154.i:                                    ; preds = %_fill_block.argprom.exit153.i
   %354 = getelementptr inbounds i8, ptr %21, i64 16
   %355 = getelementptr inbounds i8, ptr %21, i64 24
   %.not.i.i = icmp eq ptr %353, null
@@ -1377,7 +1377,7 @@ _fill_block.exit153.i:                            ; preds = %.loopexit.i.i, %_fi
   store i64 %369, ptr %367, align 8
   %370 = add nuw nsw i64 %.01.us.i157.i, 1
   %exitcond3.not.i158.i = icmp eq i64 %370, %26
-  br i1 %exitcond3.not.i158.i, label %_fill_diag_values.exit159.i, label %.lr.ph.split.us.i156.i, !llvm.loop !16
+  br i1 %exitcond3.not.i158.i, label %_fill_diag_values.argprom.exit159.i, label %.lr.ph.split.us.i156.i, !llvm.loop !16
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i154.i, %.lr.ph.split.i.i
   %.01.i.i = phi i64 [ %386, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i154.i ]
@@ -1401,16 +1401,16 @@ _fill_block.exit153.i:                            ; preds = %.loopexit.i.i, %_fi
   store i64 %385, ptr %383, align 8
   %386 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i155.i = icmp eq i64 %386, %26
-  br i1 %exitcond.not.i155.i, label %_fill_diag_values.exit159.i, label %.lr.ph.split.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i155.i, label %_fill_diag_values.argprom.exit159.i, label %.lr.ph.split.i.i, !llvm.loop !16
 
-_fill_diag_values.exit159.i:                      ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i156.i, %_fill_block.exit153.i
+_fill_diag_values.argprom.exit159.i:              ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i156.i, %_fill_block.argprom.exit153.i
   %387 = load ptr, ptr %3, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = load i64, ptr %388, align 8
   %390 = icmp sgt i64 %389, 0
-  br i1 %390, label %.lr.ph3.i160.i, label %_fill_block.exit169.i
+  br i1 %390, label %.lr.ph3.i160.i, label %_fill_block.argprom.exit169.i
 
-.lr.ph3.i160.i:                                   ; preds = %_fill_diag_values.exit159.i
+.lr.ph3.i160.i:                                   ; preds = %_fill_diag_values.argprom.exit159.i
   %391 = getelementptr inbounds i8, ptr %387, i64 16
   %392 = getelementptr inbounds i8, ptr %387, i64 24
   %393 = getelementptr inbounds i8, ptr %21, i64 16
@@ -1428,7 +1428,7 @@ _fill_diag_values.exit159.i:                      ; preds = %.lr.ph.split.i.i, %
   %397 = phi i64 [ %.pre5.i168.i, %.loopexit.loopexit.i167.i ], [ %400, %.lr.ph3.split.i162.i ]
   %398 = phi ptr [ %424, %.loopexit.loopexit.i167.i ], [ %401, %.lr.ph3.split.i162.i ]
   %399 = icmp slt i64 %404, %397
-  br i1 %399, label %.lr.ph3.split.i162.i, label %_fill_block.exit169.i, !llvm.loop !17
+  br i1 %399, label %.lr.ph3.split.i162.i, label %_fill_block.argprom.exit169.i, !llvm.loop !17
 
 .lr.ph3.split.i162.i:                             ; preds = %.loopexit.i164.i, %.lr.ph3.i160.i
   %400 = phi i64 [ %397, %.loopexit.i164.i ], [ %389, %.lr.ph3.i160.i ]
@@ -1469,10 +1469,10 @@ _fill_diag_values.exit159.i:                      ; preds = %.lr.ph.split.i.i, %
   %427 = icmp slt i64 %423, %426
   br i1 %427, label %.lr.ph.i165.i, label %.loopexit.loopexit.i167.i, !llvm.loop !18
 
-_fill_block.exit169.i:                            ; preds = %.loopexit.i164.i, %_fill_diag_values.exit159.i
-  br i1 %41, label %.lr.ph.i170.i, label %_fill_diag_values.exit174.i
+_fill_block.argprom.exit169.i:                    ; preds = %.loopexit.i164.i, %_fill_diag_values.argprom.exit159.i
+  br i1 %41, label %.lr.ph.i170.i, label %_fill_diag_values.argprom.exit174.i
 
-.lr.ph.i170.i:                                    ; preds = %_fill_block.exit169.i
+.lr.ph.i170.i:                                    ; preds = %_fill_block.argprom.exit169.i
   %428 = getelementptr inbounds i8, ptr %21, i64 16
   %429 = getelementptr inbounds i8, ptr %21, i64 24
   %430 = getelementptr inbounds i8, ptr %21, i64 32
@@ -1497,15 +1497,15 @@ _fill_block.exit169.i:                            ; preds = %.loopexit.i164.i, %
   store i64 %442, ptr %440, align 8
   %443 = add nuw nsw i64 %.01.us.i172.i, 1
   %exitcond3.not.i173.i = icmp eq i64 %443, %29
-  br i1 %exitcond3.not.i173.i, label %_fill_diag_values.exit174.i, label %.lr.ph.split.us.i171.i, !llvm.loop !16
+  br i1 %exitcond3.not.i173.i, label %_fill_diag_values.argprom.exit174.i, label %.lr.ph.split.us.i171.i, !llvm.loop !16
 
-_fill_diag_values.exit174.i:                      ; preds = %.lr.ph.split.us.i171.i, %_fill_block.exit169.i
+_fill_diag_values.argprom.exit174.i:              ; preds = %.lr.ph.split.us.i171.i, %_fill_block.argprom.exit169.i
   %444 = load i64, ptr %164, align 8
   %445 = trunc i64 %444 to i32
   %446 = icmp sgt i32 %445, 0
   br i1 %446, label %.lr.ph.i175.i, label %_adj_assemble_csc.exit
 
-.lr.ph.i175.i:                                    ; preds = %_fill_diag_values.exit174.i
+.lr.ph.i175.i:                                    ; preds = %_fill_diag_values.argprom.exit174.i
   %447 = getelementptr inbounds i8, ptr %21, i64 16
   %448 = and i64 %444, 2147483647
   br label %449
@@ -1521,7 +1521,7 @@ _fill_diag_values.exit174.i:                      ; preds = %.lr.ph.split.us.i17
   %454 = icmp ugt i64 %indvars.iv.i.i, 1
   br i1 %454, label %449, label %_adj_assemble_csc.exit, !llvm.loop !19
 
-_adj_assemble_csc.exit:                           ; preds = %449, %_fill_diag_values.exit174.i
+_adj_assemble_csc.exit:                           ; preds = %449, %_fill_diag_values.argprom.exit174.i
   %455 = getelementptr inbounds i8, ptr %21, i64 16
   %456 = load ptr, ptr %455, align 8
   store i64 0, ptr %456, align 8
@@ -1966,7 +1966,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @form_KKT(ptr noundef, ptr noundef, i64 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @permute_KKT(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc void @permute_KKT.retelim(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #12
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8

@@ -9424,13 +9424,13 @@ entry:
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !43
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %use_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %use_count_.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i = icmp eq i32 %1, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !33
@@ -9443,14 +9443,14 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %weak_count_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.i.i.i.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !33
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit unwind label %terminate.lpad.i.i.i.i
+          to label %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -9459,7 +9459,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
-_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
+_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit: ; preds = %entry, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i.i.i
   tail call void @_ZN8QuantLib13TermStructureD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureE, i64 24)) #29
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %add.ptr6.i, align 8, !tbaa !33
   %observers_.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -9468,14 +9468,14 @@ _ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit: ; preds = %en
   invoke void @_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %observers_.i, ptr noundef %7)
           to label %_ZN8QuantLib10ObservableD2Ev.exit unwind label %terminate.lpad.i.i.i
 
-terminate.lpad.i.i.i:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit
+terminate.lpad.i.i.i:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   tail call void @__clang_call_terminate(ptr %9) #30
   unreachable
 
-_ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.exit
+_ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %_ZN8QuantLib12_GLOBAL__N_128ShiftedBlackVolTermStructureD2Ev.argprom.exit
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %add.ptr.i, align 8, !tbaa !33
   %observables_.i = getelementptr inbounds i8, ptr %this, i64 104
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 128

@@ -1734,10 +1734,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i.i.i.i.i.i.
   %7 = load double, ptr %alpha_.i.i.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i", %for.body.lr.ph.i
-  %__first1.sroa.0.010.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
-  %__result.sroa.0.09.i = phi ptr [ %call5.i.i.i.i2.i.i5, %for.body.lr.ph.i ], [ %incdec.ptr.i2.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
-  %__first2.sroa.0.08.i = phi ptr [ %4, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
+for.body.i:                                       ; preds = %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i", %for.body.lr.ph.i
+  %__first1.sroa.0.010.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
+  %__result.sroa.0.09.i = phi ptr [ %call5.i.i.i.i2.i.i5, %for.body.lr.ph.i ], [ %incdec.ptr.i2.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
+  %__first2.sroa.0.08.i = phi ptr [ %4, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
   %8 = load double, ptr %__first1.sroa.0.010.i, align 8, !tbaa !32
   %9 = load double, ptr %__first2.sroa.0.08.i, align 8, !tbaa !32
   %cmp.i.i.i.i = fcmp oeq double %8, %.pre
@@ -1765,15 +1765,15 @@ _ZN8QuantLib5closeEdd.exit.i.i.i:                 ; preds = %if.end.i.i.i.i
 if.then.i.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit.i.i.i, %if.then3.i.i.i.i, %for.body.i
   %call3.i.i.i = tail call double @pow(double noundef %.pre, double noundef %sub.i.i.i) #28, !tbaa !24
   %mul.i.i.i = fmul double %call3.i.i.i, %7
-  br label %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i"
 
 if.else.i.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit.i.i.i, %if.then3.i.i.i.i
   %div.i.i.i = fdiv double %.pre, %8
   %call5.i.i.i = tail call double @log(double noundef %div.i.i.i) #28, !tbaa !24
   %div6.i.i.i = fdiv double %call5.i.i.i, %9
-  br label %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i"
 
-"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
+"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi double [ %mul.i.i.i, %if.then.i.i.i ], [ %div6.i.i.i, %if.else.i.i.i ]
   store double %retval.0.i.i.i, ptr %__result.sroa.0.09.i, align 8, !tbaa !32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
@@ -1789,8 +1789,8 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i, 
   %tobool.not.i.i.i15 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i15, label %_ZNSt6vectorIdSaIdEED2Ev.exit21, label %if.then.i.i.i16
 
-nrvo.skipdtor:                                    ; preds = %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i", %invoke.cont
-  %15 = phi ptr [ %3, %invoke.cont ], [ %4, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
+nrvo.skipdtor:                                    ; preds = %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i", %invoke.cont
+  %15 = phi ptr [ %3, %invoke.cont ], [ %4, %"_ZZNK8QuantLib9ZabrModel19lognormalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
   %tobool.not.i.i.i8 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt6vectorIdSaIdEED2Ev.exit14, label %if.then.i.i.i9
 
@@ -2389,9 +2389,9 @@ for.body.i.us:                                    ; preds = %for.body.lr.ph.i, %
   %cmp.i.i.i.not.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %0
   br i1 %cmp.i.i.i.not.i.us, label %invoke.cont122, label %for.body.i.us, !llvm.loop !80
 
-for.body.i:                                       ; preds = %for.body.lr.ph.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i"
-  %agg.tmp.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ], [ %3, %for.body.lr.ph.i ]
-  %__result.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ], [ %call5.i.i.i.i2.i.i66, %for.body.lr.ph.i ]
+for.body.i:                                       ; preds = %for.body.lr.ph.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i"
+  %agg.tmp.sroa.0.0 = phi ptr [ %incdec.ptr.i.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ], [ %3, %for.body.lr.ph.i ]
+  %__result.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ], [ %call5.i.i.i.i2.i.i66, %for.body.lr.ph.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0, i64 -8
   %62 = load double, ptr %incdec.ptr.i.i.i, align 8, !tbaa !32
   br i1 %cmp1.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN8QuantLib5closeEdd.exit.i.i.i
@@ -2407,7 +2407,7 @@ if.then.i.i.i:                                    ; preds = %_ZN8QuantLib5closeE
   %call2.i.i.i = tail call double @log(double noundef %div.i.i.i) #28, !tbaa !24
   %call3.i.i.i = tail call double @pow(double noundef %59, double noundef %sub21.i.i.i) #28, !tbaa !24
   %mul.i.i.i = fmul double %call2.i.i.i, %call3.i.i.i
-  br label %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i"
 
 if.else.i.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit.i.i.i, %if.then3.i.i.i.i
   %cmp.i.i.i125 = fcmp olt double %62, 0.000000e+00
@@ -2430,22 +2430,22 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %call22.i.i.i = tail call double @pow(double noundef %59, double noundef %sub21.i.i.i) #28, !tbaa !24
   %mul23.i.i.i = fmul double %cond.i.i.i, %call22.i.i.i
   %div26.i.i.i = fdiv double %mul23.i.i.i, %sub6.i.i.i
-  br label %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i"
 
-"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i": ; preds = %cond.end.i.i.i, %if.then.i.i.i
+"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i": ; preds = %cond.end.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi double [ %mul.i.i.i, %if.then.i.i.i ], [ %div26.i.i.i, %cond.end.i.i.i ]
   store double %retval.0.i.i.i, ptr %__result.sroa.0.07.i, align 8, !tbaa !32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.07.i, i64 8
   %cmp.i.i.i.not.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.i.i.not.i, label %invoke.cont122, label %for.body.i, !llvm.loop !80
 
-invoke.cont122:                                   ; preds = %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i", %for.body.i.us, %invoke.cont111.invoke.cont122_crit_edge
-  %63 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %call5.i.i.i.i2.i.i123, %for.body.i.us ], [ %call5.i.i.i.i2.i.i123, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
-  %64 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %add.ptr.i.i.i112, %for.body.i.us ], [ %add.ptr.i.i.i112, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
-  %y.sroa.30.0331348 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %add.ptr.i.i.i, %for.body.i.us ], [ %add.ptr.i.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
-  %y.sroa.0.0335346 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %call5.i.i.i.i2.i.i66, %for.body.i.us ], [ %call5.i.i.i.i2.i.i66, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
-  %__first.addr.0.i.i.i.i.i337344 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %__first.addr.0.i.i.i.i.i.ph, %for.body.i.us ], [ %__first.addr.0.i.i.i.i.i.ph, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
-  %65 = phi double [ %.pre, %invoke.cont111.invoke.cont122_crit_edge ], [ %60, %for.body.i.us ], [ %60, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.exit.i" ]
+invoke.cont122:                                   ; preds = %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i", %for.body.i.us, %invoke.cont111.invoke.cont122_crit_edge
+  %63 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %call5.i.i.i.i2.i.i123, %for.body.i.us ], [ %call5.i.i.i.i2.i.i123, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
+  %64 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %add.ptr.i.i.i112, %for.body.i.us ], [ %add.ptr.i.i.i112, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
+  %y.sroa.30.0331348 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %add.ptr.i.i.i, %for.body.i.us ], [ %add.ptr.i.i.i, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
+  %y.sroa.0.0335346 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %call5.i.i.i.i2.i.i66, %for.body.i.us ], [ %call5.i.i.i.i2.i.i66, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
+  %__first.addr.0.i.i.i.i.i337344 = phi ptr [ null, %invoke.cont111.invoke.cont122_crit_edge ], [ %__first.addr.0.i.i.i.i.i.ph, %for.body.i.us ], [ %__first.addr.0.i.i.i.i.i.ph, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
+  %65 = phi double [ %.pre, %invoke.cont111.invoke.cont122_crit_edge ], [ %60, %for.body.i.us ], [ %60, %"_ZZNK8QuantLib9ZabrModel1xERKSt6vectorIdSaIdEEENK3$_1clEd.argprom.exit.i" ]
   %gamma_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i127 = fcmp oeq double %65, 1.000000e+00
   br i1 %cmp.i127, label %for.cond128.preheader, label %if.end.i
@@ -3004,10 +3004,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i.i.i.i.i.i.
   %7 = load double, ptr %alpha_.i.i.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i", %for.body.lr.ph.i
-  %__first1.sroa.0.010.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
-  %__result.sroa.0.09.i = phi ptr [ %call5.i.i.i.i2.i.i5, %for.body.lr.ph.i ], [ %incdec.ptr.i2.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
-  %__first2.sroa.0.08.i = phi ptr [ %4, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
+for.body.i:                                       ; preds = %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i", %for.body.lr.ph.i
+  %__first1.sroa.0.010.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
+  %__result.sroa.0.09.i = phi ptr [ %call5.i.i.i.i2.i.i5, %for.body.lr.ph.i ], [ %incdec.ptr.i2.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
+  %__first2.sroa.0.08.i = phi ptr [ %4, %for.body.lr.ph.i ], [ %incdec.ptr.i1.i, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
   %8 = load double, ptr %__first1.sroa.0.010.i, align 8, !tbaa !32
   %9 = load double, ptr %__first2.sroa.0.08.i, align 8, !tbaa !32
   %cmp.i.i.i.i = fcmp oeq double %8, %.pre
@@ -3035,14 +3035,14 @@ _ZN8QuantLib5closeEdd.exit.i.i.i:                 ; preds = %if.end.i.i.i.i
 if.then.i.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit.i.i.i, %if.then3.i.i.i.i, %for.body.i
   %call3.i.i.i = tail call double @pow(double noundef %.pre, double noundef %6) #28, !tbaa !24
   %mul.i.i.i = fmul double %call3.i.i.i, %7
-  br label %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i"
 
 if.else.i.i.i:                                    ; preds = %_ZN8QuantLib5closeEdd.exit.i.i.i, %if.then3.i.i.i.i
   %sub.i.i.i = fsub double %.pre, %8
   %div.i.i.i = fdiv double %sub.i.i.i, %9
-  br label %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i"
+  br label %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i"
 
-"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
+"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i": ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi double [ %mul.i.i.i, %if.then.i.i.i ], [ %div.i.i.i, %if.else.i.i.i ]
   store double %retval.0.i.i.i, ptr %__result.sroa.0.09.i, align 8, !tbaa !32
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.010.i, i64 8
@@ -3058,8 +3058,8 @@ lpad:                                             ; preds = %if.then.i.i.i.i.i, 
   %tobool.not.i.i.i15 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i15, label %_ZNSt6vectorIdSaIdEED2Ev.exit21, label %if.then.i.i.i16
 
-nrvo.skipdtor:                                    ; preds = %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i", %invoke.cont
-  %15 = phi ptr [ %3, %invoke.cont ], [ %4, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.exit.i" ]
+nrvo.skipdtor:                                    ; preds = %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i", %invoke.cont
+  %15 = phi ptr [ %3, %invoke.cont ], [ %4, %"_ZZNK8QuantLib9ZabrModel16normalVolatilityERKSt6vectorIdSaIdEEENK3$_0clEdd.argprom.exit.i" ]
   %tobool.not.i.i.i8 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt6vectorIdSaIdEED2Ev.exit14, label %if.then.i.i.i9
 

@@ -2945,13 +2945,13 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit120:                ; preds = %_ZSt8_DestroyIPSt4p
   %191 = getelementptr inbounds i8, ptr %.sroa.0187.0232, i64 32
   %192 = load i32, ptr %191, align 4
   %193 = icmp ult i32 %192, 25
-  br i1 %193, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit, label %194
+  br i1 %193, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit, label %194
 
 194:                                              ; preds = %190
   call void @abort() #24
   unreachable
 
-_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit: ; preds = %190
+_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit: ; preds = %190
   %195 = zext nneg i32 %192 to i64
   %196 = getelementptr inbounds [25 x %"struct.vcpkg::DefineMetricEntry"], ptr @_ZN5vcpkg18all_define_metricsE, i64 0, i64 %195
   %197 = getelementptr inbounds i8, ptr %196, i64 8
@@ -2965,14 +2965,14 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntry
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %_ZN5vcpkg4Json5Value6stringIA8_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit unwind label %198, !noalias !87
 
-198:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+198:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
   call void @__clang_call_terminate(ptr %200) #24
   unreachable
 
-_ZN5vcpkg4Json5Value6stringIA8_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+_ZN5vcpkg4Json5Value6stringIA8_cTnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_S8_.exit: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12DefineMetricENS1_17DefineMetricEntryELm25EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   call void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Json::Value") align 8 %58, ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -3148,13 +3148,13 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %255 = getelementptr inbounds i8, ptr %.sroa.0183.0234, i64 32
   %256 = load i32, ptr %255, align 8
   %257 = icmp ult i32 %256, 18
-  br i1 %257, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit, label %258
+  br i1 %257, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit, label %258
 
 258:                                              ; preds = %.lr.ph236
   call void @abort() #24
   unreachable
 
-_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit: ; preds = %.lr.ph236
+_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit: ; preds = %.lr.ph236
   %259 = zext nneg i32 %256 to i64
   %260 = getelementptr inbounds [18 x %"struct.vcpkg::StringMetricEntry"], ptr @_ZN5vcpkg18all_string_metricsE, i64 0, i64 %259
   %261 = getelementptr inbounds i8, ptr %260, i64 8
@@ -3168,14 +3168,14 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntry
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit127 unwind label %263, !noalias !93
 
-263:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+263:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   %264 = landingpad { ptr, i32 }
           catch ptr null
   %265 = extractvalue { ptr, i32 } %264, 0
   call void @__clang_call_terminate(ptr %265) #24
   unreachable
 
-_ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit127: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+_ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3stdE18is_constructible_vINS_10StringViewERKT_EEiE4typeELi0EEES1_SD_.exit127: ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg12StringMetricENS1_17StringMetricEntryELm18EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   call void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Json::Value") align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -3213,13 +3213,13 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %276 = getelementptr inbounds i8, ptr %.sroa.0179.0239, i64 32
   %277 = load i32, ptr %276, align 4
   %278 = icmp ult i32 %277, 10
-  br i1 %278, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit, label %279
+  br i1 %278, label %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit, label %279
 
 279:                                              ; preds = %.lr.ph241
   call void @abort() #24
   unreachable
 
-_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit: ; preds = %.lr.ph241
+_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit: ; preds = %.lr.ph241
   %280 = zext nneg i32 %277 to i64
   %281 = getelementptr inbounds [10 x %"struct.vcpkg::BoolMetricEntry"], ptr @_ZN5vcpkg16all_bool_metricsE, i64 0, i64 %280
   %282 = getelementptr inbounds i8, ptr %281, i64 8
@@ -3233,13 +3233,13 @@ _ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm1
   %286 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg4Json6Object17insert_or_replaceENS_10StringViewEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(24) %177, ptr %.sroa.0.0.copyload.i128, i64 %.sroa.2.0.copyload.i130, ptr noundef nonnull align 8 dereferenceable(8) %61)
           to label %287 unwind label %289
 
-287:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+287:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #19
   %288 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0179.0239) #20
   %.not229 = icmp eq ptr %288, %275
   br i1 %.not229, label %._crit_edge242, label %.lr.ph241
 
-289:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.exit
+289:                                              ; preds = %_ZN12_GLOBAL__N_115get_metric_nameIN5vcpkg10BoolMetricENS1_15BoolMetricEntryELm10EEENS1_13StringLiteralET_RKSt5arrayIT0_XT1_EE.argprom.exit
   %290 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #19
@@ -6613,14 +6613,14 @@ attributes #25 = { cold nounwind }
 !39 = distinct !{!39, !40, !"_ZN12_GLOBAL__N_121get_os_version_stringB5cxx11Ev: argument 0"}
 !40 = distinct !{!40, !"_ZN12_GLOBAL__N_121get_os_version_stringB5cxx11Ev"}
 !41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_18MetricsSessionData11from_systemEvE3$_0EES8_NS_13StringLiteralERKT_T0_: argument 0"}
-!43 = distinct !{!43, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_18MetricsSessionData11from_systemEvE3$_0EES8_NS_13StringLiteralERKT_T0_"}
+!42 = distinct !{!42, !43, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_18MetricsSessionData11from_systemEvE3$_0EES8_NS_13StringLiteralERKT_T0_.argprom: argument 0"}
+!43 = distinct !{!43, !"_ZN5vcpkg7Strings4joinISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_18MetricsSessionData11from_systemEvE3$_0EES8_NS_13StringLiteralERKT_T0_.argprom"}
 !44 = !{!45, !42}
 !45 = distinct !{!45, !46, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEZNS_18MetricsSessionData11from_systemEvE3$_0EES9_NS_13StringLiteralET_SJ_T0_: argument 0"}
 !46 = distinct !{!46, !"_ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEZNS_18MetricsSessionData11from_systemEvE3$_0EES9_NS_13StringLiteralET_SJ_T0_"}
 !47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZZN5vcpkg18MetricsSessionData11from_systemEvENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaOT_: argument 0"}
-!49 = distinct !{!49, !"_ZZN5vcpkg18MetricsSessionData11from_systemEvENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaOT_"}
+!48 = distinct !{!48, !49, !"_ZZN5vcpkg18MetricsSessionData11from_systemEvENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaOT_.argprom: argument 0"}
+!49 = distinct !{!49, !"_ZZN5vcpkg18MetricsSessionData11from_systemEvENK3$_0clIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEDaOT_.argprom"}
 !50 = !{!48, !45, !42}
 !51 = distinct !{!51, !6}
 !52 = distinct !{!52, !6}

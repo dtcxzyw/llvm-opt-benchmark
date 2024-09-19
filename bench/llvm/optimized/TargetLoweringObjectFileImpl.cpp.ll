@@ -6228,29 +6228,29 @@ _ZN4llvmeqENS_9StringRefES0_.exit50.thread79:     ; preds = %_ZN4llvmeqENS_9Stri
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  br i1 %35, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %36
+  br i1 %35, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %36
 
 .thread98:                                        ; preds = %18, %_ZN4llvmeqENS_9StringRefES0_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .critedge:                                        ; preds = %23, %_ZN4llvmeqENS_9StringRefES0_.exit46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .critedge101:                                     ; preds = %28, %_ZN4llvmeqENS_9StringRefES0_.exit50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .critedge103:                                     ; preds = %33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .critedge102:                                     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit50.thread79
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
@@ -6265,7 +6265,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit50.thread79:     ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.0.0.extract.trunc.i = trunc i32 %2 to i8
   %38 = icmp eq i32 %.val, 35
   switch i8 %.sroa.0.0.extract.trunc.i, label %39 [
-    i8 0, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+    i8 0, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
     i8 1, label %.fold.split.i
   ]
 
@@ -6276,45 +6276,45 @@ _ZN4llvmeqENS_9StringRefES0_.exit50.thread79:     ; preds = %_ZN4llvmeqENS_9Stri
 
 41:                                               ; preds = %39
   %42 = select i1 %38, i32 1610743840, i32 1610612768
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 43:                                               ; preds = %39
   %.off.i.i = add i8 %.sroa.0.0.extract.trunc.i, -15
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %44
+  br i1 %switch.i.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %44
 
 44:                                               ; preds = %43
   %.off.i9.i = add i8 %.sroa.0.0.extract.trunc.i, -12
   %switch.i10.i = icmp ult i8 %.off.i9.i, 3
-  br i1 %switch.i10.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %45
+  br i1 %switch.i10.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %45
 
 45:                                               ; preds = %44
   %46 = and i8 %.sroa.0.0.extract.trunc.i, -4
   switch i8 %46, label %47 [
-    i8 8, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
-    i8 4, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+    i8 8, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
+    i8 4, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
   ]
 
 47:                                               ; preds = %45
   %48 = icmp eq i8 %.sroa.0.0.extract.trunc.i, 20
-  br i1 %48, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %49
+  br i1 %48, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %49
 
 49:                                               ; preds = %47
   %50 = icmp ult i8 %.off.i9.i, 9
   %spec.select.i = select i1 %50, i32 -1073741760, i32 0
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .fold.split.i:                                    ; preds = %36
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
-_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds = %.critedge103, %.critedge101, %.critedge, %.thread98, %.thread, %36, %41, %43, %44, %45, %45, %47, %49, %.fold.split.i
+_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit: ; preds = %.critedge103, %.critedge101, %.critedge, %.thread98, %.thread, %36, %41, %43, %44, %45, %45, %47, %49, %.fold.split.i
   %.0.i55 = phi i32 [ %42, %41 ], [ 33554432, %36 ], [ -1073741696, %43 ], [ -1073741760, %44 ], [ 1073741888, %47 ], [ 1073741888, %45 ], [ %spec.select.i, %49 ], [ 33556480, %.fold.split.i ], [ 1073741888, %45 ], [ 33554432, %.thread ], [ 33554432, %.thread98 ], [ 33554432, %.critedge ], [ 33554432, %.critedge101 ], [ 33554432, %.critedge103 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %86, label %53
 
-53:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+53:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
   %54 = call noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #24
   %.not.i56 = icmp eq ptr %54, null
   br i1 %.not.i56, label %69, label %55
@@ -6394,11 +6394,11 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %75, %80
   %85 = or disjoint i32 %.0.i55, 4096
   br label %86
 
-86:                                               ; preds = %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread, %_ZNK4llvm8MCSymbol7getNameEv.exit, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
-  %.sroa.3.0 = phi i64 [ 0, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.sroa.4.0.i60, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ]
-  %.sroa.0.0 = phi ptr [ @.str.41, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.sroa.0.0.i59, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ @.str.41, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ]
-  %.040 = phi i32 [ %.0.i55, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %85, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ %.0.i55, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ]
-  %.039 = phi i32 [ 0, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.0.i57100, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ]
+86:                                               ; preds = %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread, %_ZNK4llvm8MCSymbol7getNameEv.exit, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
+  %.sroa.3.0 = phi i64 [ 0, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.sroa.4.0.i60, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ]
+  %.sroa.0.0 = phi ptr [ @.str.41, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.sroa.0.0.i59, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ @.str.41, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ]
+  %.040 = phi i32 [ %.0.i55, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %85, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ %.0.i55, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ]
+  %.039 = phi i32 [ 0, %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit.thread ], [ %.0.i57100, %_ZNK4llvm8MCSymbol7getNameEv.exit ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjS1_ij(ptr noundef nonnull align 8 dereferenceable(2432) %88, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i, i32 noundef %.040, ptr %.sroa.0.0, i64 %.sroa.3.0, i32 noundef %.039, i32 noundef -1) #24
@@ -6548,7 +6548,7 @@ _ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit: ; preds = %.thr
   %.val = load i32, ptr %30, align 8
   %31 = icmp eq i32 %.val, 35
   switch i8 %.sroa.073.0.extract.trunc, label %32 [
-    i8 0, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+    i8 0, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
     i8 1, label %.fold.split.i
   ]
 
@@ -6557,45 +6557,45 @@ _ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit: ; preds = %.thr
 
 33:                                               ; preds = %32
   %34 = select i1 %31, i32 1610743840, i32 1610612768
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 35:                                               ; preds = %32
   %.off.i.i47 = add i8 %.sroa.073.0.extract.trunc, -15
   %switch.i.i48 = icmp ult i8 %.off.i.i47, 3
-  br i1 %switch.i.i48, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %36
+  br i1 %switch.i.i48, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %36
 
 36:                                               ; preds = %35
   %.off.i9.i = add i8 %.sroa.073.0.extract.trunc, -12
   %switch.i10.i = icmp ult i8 %.off.i9.i, 3
-  br i1 %switch.i10.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %37
+  br i1 %switch.i10.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %37
 
 37:                                               ; preds = %36
   %38 = and i8 %.sroa.073.0.extract.trunc, -4
   switch i8 %38, label %39 [
-    i8 8, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
-    i8 4, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+    i8 8, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
+    i8 4, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
   ]
 
 39:                                               ; preds = %37
   %40 = icmp eq i8 %.sroa.073.0.extract.trunc, 20
-  br i1 %40, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %41
+  br i1 %40, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %41
 
 41:                                               ; preds = %39
   %42 = icmp ult i8 %.off.i9.i, 9
   %spec.select.i49 = select i1 %42, i32 -1073741760, i32 0
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
 .fold.split.i:                                    ; preds = %_ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
-_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds = %_ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit, %33, %35, %36, %37, %37, %39, %41, %.fold.split.i
+_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit: ; preds = %_ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit, %33, %35, %36, %37, %37, %39, %41, %.fold.split.i
   %.0.i = phi i32 [ %34, %33 ], [ 33554432, %_ZL33getCOFFSectionNameForUniqueGlobalN4llvm11SectionKindE.exit ], [ -1073741696, %35 ], [ -1073741760, %36 ], [ 1073741888, %39 ], [ 1073741888, %37 ], [ %spec.select.i49, %41 ], [ 33556480, %.fold.split.i ], [ 1073741888, %37 ]
   %43 = or disjoint i32 %.0.i, 4096
   %44 = call noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #24
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit, label %45
 
-45:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+45:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
   %46 = call fastcc noundef ptr @_ZL18getComdatGVForCOFFPKN4llvm11GlobalValueE(ptr noundef nonnull %1)
   %47 = load i8, ptr %46, align 8
   %.not13.i = icmp eq i8 %47, 1
@@ -6622,8 +6622,8 @@ switch.lookup:                                    ; preds = %52
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit
 
-_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit: ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, %52, %switch.lookup, %50
-  %.0.i50 = phi i32 [ 5, %50 ], [ %switch.load, %switch.lookup ], [ 0, %52 ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ]
+_ZL19getSelectionForCOFFPKN4llvm11GlobalValueE.exit: ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, %52, %switch.lookup, %50
+  %.0.i50 = phi i32 [ 5, %50 ], [ %switch.load, %switch.lookup ], [ 0, %52 ], [ 0, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ]
   %spec.store.select = call i32 @llvm.umax.i32(i32 %.0.i50, i32 1)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %58 = load ptr, ptr %57, align 8
@@ -6985,16 +6985,16 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF22getSectio
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 1
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, label %28
+  br i1 %.not.i, label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %24, i64 -8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load i64, ptr %30, align 8
-  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit
+  br label %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit
 
-_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds = %28, %23
+_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit: ; preds = %28, %23
   %.sroa.0.0.i = phi ptr [ %31, %28 ], [ null, %23 ]
   %.sroa.4.0.i = phi i64 [ %32, %28 ], [ 0, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 968
@@ -7006,8 +7006,8 @@ _ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit: ; preds 
   %38 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEjS1_ij(ptr noundef nonnull align 8 dereferenceable(2432) %37, ptr nonnull @.str.50, i64 6, i32 noundef 1073745984, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i, i32 noundef 5, i32 noundef %34) #24
   br label %39
 
-39:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit, %20, %12
-  %.0 = phi ptr [ %22, %20 ], [ %38, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.exit ], [ %14, %12 ]
+39:                                               ; preds = %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit, %20, %12
+  %.0 = phi ptr [ %22, %20 ], [ %38, %_ZL19getCOFFSectionFlagsN4llvm11SectionKindERKNS_13TargetMachineE.argprom.exit ], [ %14, %12 ]
   ret ptr %.0
 }
 
@@ -7582,12 +7582,12 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF20getStatic
   %.val = load i32, ptr %8, align 4
   %9 = getelementptr i8, ptr %5, i64 72
   %.val2 = load i32, ptr %9, align 8
-  %10 = tail call fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE(ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 %.val, i32 %.val2, i1 noundef zeroext true, i32 noundef %1, ptr noundef %2, ptr noundef %7)
+  %10 = tail call fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE.argprom(ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 %.val, i32 %.val2, i1 noundef zeroext true, i32 noundef %1, ptr noundef %2, ptr noundef %7)
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE(ptr noundef nonnull align 8 dereferenceable(2432) %0, i32 %.44.val, i32 %.48.val, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE.argprom(ptr noundef nonnull align 8 dereferenceable(2432) %0, i32 %.44.val, i32 %.48.val, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallString.569", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
   %8 = alloca %"class.llvm::format_object", align 8
@@ -7793,7 +7793,7 @@ define dso_local noundef ptr @_ZNK4llvm28TargetLoweringObjectFileCOFF20getStatic
   %.val = load i32, ptr %8, align 4
   %9 = getelementptr i8, ptr %5, i64 72
   %.val2 = load i32, ptr %9, align 8
-  %10 = tail call fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE(ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 %.val, i32 %.val2, i1 noundef zeroext false, i32 noundef %1, ptr noundef %2, ptr noundef %7)
+  %10 = tail call fastcc noundef ptr @_ZL28getCOFFStaticStructorSectionRN4llvm9MCContextERKNS_6TripleEbjPKNS_8MCSymbolEPNS_13MCSectionCOFFE.argprom(ptr noundef nonnull align 8 dereferenceable(2432) %5, i32 %.val, i32 %.val2, i1 noundef zeroext false, i32 noundef %1, ptr noundef %2, ptr noundef %7)
   ret ptr %10
 }
 
@@ -9962,14 +9962,14 @@ _ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i: ; preds = %_ZNK4llvm13MCS
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.0.0.i.i, ptr noundef nonnull dereferenceable(7) @.str.60, i64 7)
   %28 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %28, label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
+  br i1 %28, label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit", label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 4294967296
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %32, label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit"
+  br i1 %.not.i, label %32, label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit"
 
 32:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 35
@@ -9982,16 +9982,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmeqENS_9Stri
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 4
   %40 = select i1 %39, i16 22, i16 3
-  br label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit"
+  br label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit"
 
 41:                                               ; preds = %32
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 1
   %45 = select i1 %44, i16 22, i16 3
-  br label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit"
+  br label %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit"
 
-"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i, %36, %41
+"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i, %36, %41
   %.0.i = phi i16 [ %45, %41 ], [ %40, %36 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ 22, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %47 = load ptr, ptr %46, align 8
@@ -9999,14 +9999,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread2.i:      ; preds = %_ZN4llvmeqENS_9Stri
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %_ZNK4llvm8MCSymbol7getNameEv.exit.i.i
 
-50:                                               ; preds = %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit"
+50:                                               ; preds = %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit"
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i = load ptr, ptr %51, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %_ZNK4llvm13MCSymbolXCOFF18getSymbolTableNameEv.exit
 
-_ZNK4llvm8MCSymbol7getNameEv.exit.i.i:            ; preds = %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.exit"
+_ZNK4llvm8MCSymbol7getNameEv.exit.i.i:            ; preds = %"_ZZNK4llvm29TargetLoweringObjectFileXCOFF21getSectionForTOCEntryEPKNS_8MCSymbolERKNS_13TargetMachineEENK3$_0clES3_S6_.argprom.exit"
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 1

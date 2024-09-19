@@ -3686,7 +3686,7 @@ mmbit_iterate.exit.i:                             ; preds = %if.then11.i441.i, %
 
 for.end.i:                                        ; preds = %if.end19.i.i, %mmbit_iterate.exit.i, %mmbit_get_flat_block.exit535.i, %for.end.i267.i, %if.else.i338.i, %if.then4.i358.i, %do.end166.i, %if.end19.i419.i, %mmbit_iterate.exit208.i, %mmbit_get_flat_block.exit633.i, %for.end.i.i, %if.end.i227.i, %if.end153.i
   %currOffset.1.lcssa.i = phi i64 [ %add154.i, %mmbit_iterate.exit208.i ], [ %add154.i, %if.end153.i ], [ %add154.i, %if.end.i227.i ], [ %add154.i, %mmbit_get_flat_block.exit633.i ], [ %add154.i, %for.end.i.i ], [ %add176.i, %if.end19.i419.i ], [ %add176.i, %do.end166.i ], [ %add176.i, %if.then4.i358.i ], [ %add176.i, %if.else.i338.i ], [ %add176.i, %for.end.i267.i ], [ %add176.i, %mmbit_get_flat_block.exit535.i ], [ %add176.i, %mmbit_iterate.exit.i ], [ %add154.i, %if.end19.i.i ]
-  %call181.i = tail call fastcc i64 @sc_left_compress(ptr noundef readonly %rose, i64 noundef %currOffset.1.lcssa.i, ptr noundef readonly %stream, ptr noundef nonnull %buf)
+  %call181.i = tail call fastcc i64 @sc_left_compress.argelim(ptr noundef readonly %rose, i64 noundef %currOffset.1.lcssa.i, ptr noundef readonly %stream, ptr noundef nonnull %buf)
   %tobool182.not.i = icmp eq i64 %call181.i, 0
   br i1 %tobool182.not.i, label %sc_compress.exit, label %if.end184.i
 
@@ -4852,7 +4852,7 @@ for.end.i:                                        ; preds = %if.end19.i.i, %mmbi
   %activeLeftIterOffset.i.i = getelementptr inbounds i8, ptr %rose, i64 416
   %121 = load i32, ptr %activeLeftIterOffset.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %121, 0
-  br i1 %tobool.not.i.i, label %sc_left_size.exit.i, label %if.end.i365.i
+  br i1 %tobool.not.i.i, label %sc_left_size.argprom.exit.i, label %if.end.i365.i
 
 if.end.i365.i:                                    ; preds = %for.end.i
   %idx.ext.i25.i.i = zext i32 %121 to i64
@@ -4909,7 +4909,7 @@ mmbit_get_flat_block.exit91.i.i.i:                ; preds = %sw.default.i83.i.i.
   %126 = load i64, ptr %add.ptr.i26.i.i, align 8
   %and.i.i.i = and i64 %126, %retval.i59.i.0.i.i
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.not.i.i, label %sc_left_size.exit.i, label %for.body.lr.ph.split.us.i.thread.i
+  br i1 %tobool.i.not.i.i, label %sc_left_size.argprom.exit.i, label %for.body.lr.ph.split.us.i.thread.i
 
 for.body.lr.ph.split.us.i.thread.i:               ; preds = %mmbit_get_flat_block.exit91.i.i.i
   %127 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i.i.i, i1 true)
@@ -4924,7 +4924,7 @@ for.body.lr.ph.split.us.i.thread.i:               ; preds = %mmbit_get_flat_bloc
 if.end7.i.i.i:                                    ; preds = %if.then.i.i.i
   %130 = load i64, ptr %add.ptr.i26.i.i, align 8
   %tobool9.i.not6.i.i = icmp eq i64 %130, 0
-  br i1 %tobool9.i.not6.i.i, label %sc_left_size.exit.i, label %for.body.i.lr.ph.i.i
+  br i1 %tobool9.i.not6.i.i, label %sc_left_size.argprom.exit.i, label %for.body.i.lr.ph.i.i
 
 for.body.i.lr.ph.i.i:                             ; preds = %if.end7.i.i.i
   %val.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i26.i.i, i64 8
@@ -5018,14 +5018,14 @@ if.end46.i.i.i:                                   ; preds = %if.end30.i.i.i
   %sub47.i.i.i = add i64 %root.i.07.i.i, -1
   %and48.i.i.i = and i64 %sub47.i.i.i, %root.i.07.i.i
   %tobool9.i.not.i.i = icmp eq i64 %and48.i.i.i, 0
-  br i1 %tobool9.i.not.i.i, label %sc_left_size.exit.i, label %for.body.i.i.i, !llvm.loop !8
+  br i1 %tobool9.i.not.i.i, label %sc_left_size.argprom.exit.i, label %for.body.i.i.i, !llvm.loop !8
 
 if.else.i.i.i:                                    ; preds = %if.end.i365.i
   %141 = load i64, ptr %add.ptr32.i, align 1
   %142 = load i64, ptr %add.ptr.i26.i.i, align 8
   %and.i68.i.i = and i64 %142, %141
   %tobool.i69.not.i.i = icmp eq i64 %and.i68.i.i, 0
-  br i1 %tobool.i69.not.i.i, label %sc_left_size.exit.i, label %if.end.i71.i.i
+  br i1 %tobool.i69.not.i.i, label %sc_left_size.argprom.exit.i, label %if.end.i71.i.i
 
 if.end.i71.i.i:                                   ; preds = %if.else.i.i.i
   %sub.i.i72.i.i = add i32 %24, -1
@@ -5088,7 +5088,7 @@ if.else.i173.i.i:                                 ; preds = %if.then.i167.i.i
 
 if.else16.i.i.i:                                  ; preds = %for.cond.i161.i.i
   %cmp17.i.i.i = icmp eq i32 %level.addr.i.0.i.i, 0
-  br i1 %cmp17.i.i.i, label %sc_left_size.exit.i, label %if.end20.i.i.i
+  br i1 %cmp17.i.i.i, label %sc_left_size.argprom.exit.i, label %if.end20.i.i.i
 
 if.end20.i.i.i:                                   ; preds = %if.else16.i.i.i
   %dec.i.i.i = add i32 %level.addr.i.0.i.i, -1
@@ -5114,7 +5114,7 @@ for.cond.i161.i.i.backedge:                       ; preds = %if.end20.i.i.i, %if
 
 if.end.i.i.i:                                     ; preds = %if.then.i167.i.i
   %cmp.not17.i.i = icmp eq i32 %add.i169.i.i, -1
-  br i1 %cmp.not17.i.i, label %sc_left_size.exit.i, label %for.body.lr.ph.i.i
+  br i1 %cmp.not17.i.i, label %sc_left_size.argprom.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end.i.i.i, %if.then34.i.i.i
   %key.i.057.i.i = phi i32 [ %add.i169.i.i, %if.end.i.i.i ], [ %add45.i.i.i, %if.then34.i.i.i ]
@@ -5165,7 +5165,7 @@ for.body.us.us.i.i:                               ; preds = %for.body.us.us.i.i,
   %tobool.i275.not.us.us.i.i = icmp eq i64 %and.i274.us.us.i.i, 0
   %163 = tail call range(i64 1, 65) i64 @llvm.cttz.i64(i64 %and.i274.us.us.i.i, i1 true)
   %cast.i.i277.us.us.i.i = trunc nuw nsw i64 %163 to i32
-  br i1 %tobool.i275.not.us.us.i.i, label %sc_left_size.exit.i, label %for.body.us.us.i.i, !llvm.loop !12
+  br i1 %tobool.i275.not.us.us.i.i, label %sc_left_size.argprom.exit.i, label %for.body.us.us.i.i, !llvm.loop !12
 
 for.body.us.i.i:                                  ; preds = %for.body.us.i.i.preheader, %mmbit_sparse_iter_next.exit.us.i.i
   %and37.i.lcssa.us29.i.i = phi i64 [ %.lcssa8.us.i.i, %mmbit_sparse_iter_next.exit.us.i.i ], [ %si_state.promoted.i.pre.i, %for.body.us.i.i.preheader ]
@@ -5192,7 +5192,7 @@ if.end31.i.us.i.i:                                ; preds = %if.end72.i.us.i.i
   %sub34.i.us.i.i = add i64 %and37.i.us24.i.i, -1
   %and37.i.us.i.i = and i64 %sub34.i.us.i.i, %and37.i.us24.i.i
   %tobool40.i.not.us.i.i = icmp eq i64 %and37.i.us.i.i, 0
-  br i1 %tobool40.i.not.us.i.i, label %sc_left_size.exit.i, label %if.end42.i.us.i.i
+  br i1 %tobool40.i.not.us.i.i, label %sc_left_size.argprom.exit.i, label %if.end42.i.us.i.i
 
 if.end42.i.us.i.i:                                ; preds = %if.end42.i.us.lr.ph.i.i, %if.end31.i.us.i.i
   %and37.i.us24.i.i = phi i64 [ %and37.i.us22.i.i, %if.end42.i.us.lr.ph.i.i ], [ %and37.i.us.i.i, %if.end31.i.us.i.i ]
@@ -5280,7 +5280,7 @@ if.end31.i.lr.ph.us.i.i:                          ; preds = %for.body.us.i.i
   %sub34.i.us21.i.i = add i64 %and37.i.lcssa.us29.i.i, -1
   %and37.i.us22.i.i = and i64 %sub34.i.us21.i.i, %and37.i.lcssa.us29.i.i
   %tobool40.i.not.us23.i.i = icmp eq i64 %and37.i.us22.i.i, 0
-  br i1 %tobool40.i.not.us23.i.i, label %sc_left_size.exit.i, label %if.end42.i.us.lr.ph.i.i
+  br i1 %tobool40.i.not.us23.i.i, label %sc_left_size.argprom.exit.i, label %if.end42.i.us.lr.ph.i.i
 
 if.end42.i.us.lr.ph.i.i:                          ; preds = %if.end31.i.lr.ph.us.i.i
   %176 = load i32, ptr %val48.i.i9.i, align 8
@@ -5372,7 +5372,7 @@ if.else.i.i314.i.i:                               ; preds = %if.then.i.i310.i.i
 
 if.else16.i.i.i.i:                                ; preds = %for.cond.i.i.i.i
   %cmp17.i.i.i.i = icmp eq i32 %level.addr.i.i283.0.i.i, 0
-  br i1 %cmp17.i.i.i.i, label %sc_left_size.exit.i, label %if.end20.i.i.i.i
+  br i1 %cmp17.i.i.i.i, label %sc_left_size.argprom.exit.i, label %if.end20.i.i.i.i
 
 if.end20.i.i.i.i:                                 ; preds = %if.else16.i.i.i.i
   %dec.i.i.i.i = add i32 %level.addr.i.i283.0.i.i, -1
@@ -5397,19 +5397,19 @@ for.cond.i.i.i.i.backedge:                        ; preds = %if.end20.i.i.i.i, %
 
 mmbit_sparse_iter_next.exit.loopexit1.i.i:        ; preds = %if.then.i.i310.i.i
   %cmp.not.i.i = icmp eq i32 %add.i.i311.i.i, -1
-  br i1 %cmp.not.i.i, label %sc_left_size.exit.i, label %for.body.i369.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %sc_left_size.argprom.exit.i, label %for.body.i369.i, !llvm.loop !12
 
-sc_left_size.exit.i:                              ; preds = %if.else16.i.i.i, %if.end46.i.i.i, %mmbit_sparse_iter_next.exit.loopexit1.i.i, %if.else16.i.i.i.i, %if.end31.i.lr.ph.us.i.i, %if.end31.i.us.i.i, %for.body.us.us.i.i, %if.end.i.i.i, %if.else.i.i.i, %if.end7.i.i.i, %mmbit_get_flat_block.exit91.i.i.i, %for.end.i
+sc_left_size.argprom.exit.i:                      ; preds = %if.else16.i.i.i, %if.end46.i.i.i, %mmbit_sparse_iter_next.exit.loopexit1.i.i, %if.else16.i.i.i.i, %if.end31.i.lr.ph.us.i.i, %if.end31.i.us.i.i, %for.body.us.us.i.i, %if.end.i.i.i, %if.else.i.i.i, %if.end7.i.i.i, %mmbit_get_flat_block.exit91.i.i.i, %for.end.i
   %retval.0.i.i = phi i64 [ %currOffset.1.lcssa.i, %for.end.i ], [ %currOffset.1.lcssa.i, %if.end.i.i.i ], [ %currOffset.1.lcssa.i, %mmbit_get_flat_block.exit91.i.i.i ], [ %currOffset.1.lcssa.i, %if.else.i.i.i ], [ %currOffset.1.lcssa.i, %if.end7.i.i.i ], [ %add12.us.us.i.i, %for.body.us.us.i.i ], [ %add12.us.i.i, %if.end31.i.us.i.i ], [ %add12.us.i.i, %if.end31.i.lr.ph.us.i.i ], [ %add12.i.i, %if.else16.i.i.i.i ], [ %add12.i.i, %mmbit_sparse_iter_next.exit.loopexit1.i.i ], [ %currOffset.1.lcssa.i, %if.end46.i.i.i ], [ %currOffset.1.lcssa.i, %if.else16.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %si_state.i.i)
   %tobool.not.i = icmp eq i64 %retval.0.i.i, 0
-  br i1 %tobool.not.i, label %sc_size.exit, label %if.end120.i
+  br i1 %tobool.not.i, label %sc_size.argprom.exit, label %if.end120.i
 
-if.end120.i:                                      ; preds = %sc_left_size.exit.i
+if.end120.i:                                      ; preds = %sc_left_size.argprom.exit.i
   %somLocation.i.i = getelementptr inbounds i8, ptr %rose, i64 352
   %193 = load i32, ptr %somLocation.i.i, align 4
   %tobool.not.i373.i = icmp eq i32 %193, 0
-  br i1 %tobool.not.i373.i, label %sc_size.exit, label %if.end.i374.i
+  br i1 %tobool.not.i373.i, label %sc_size.argprom.exit, label %if.end.i374.i
 
 if.end.i374.i:                                    ; preds = %if.end120.i
   %somWritable.i.i = getelementptr inbounds i8, ptr %rose, i64 360
@@ -5435,7 +5435,7 @@ mmbit_compsize.exit668.thread.i.i:                ; preds = %if.end.i374.i
   %somHorizon43.i.i = getelementptr inbounds i8, ptr %rose, i64 8
   %197 = load i8, ptr %somHorizon43.i.i, align 8
   %tobool.i33.not44.i.i = icmp eq i32 %.fr.i.i, 0
-  br i1 %tobool.i33.not44.i.i, label %sc_size.exit, label %if.then4.i44.i.i
+  br i1 %tobool.i33.not44.i.i, label %sc_size.argprom.exit, label %if.then4.i44.i.i
 
 if.end.i609.i.i:                                  ; preds = %if.end.i374.i
   %198 = load i64, ptr %add.ptr1.i377.i, align 1
@@ -5658,7 +5658,7 @@ sw.default.i394.i.i:                              ; preds = %if.then.i61.i.i
 if.end.i62.i.i:                                   ; preds = %sw.default.i394.i.i, %sw.bb3.i379.i.i, %sw.bb1.i389.i.i, %sw.bb.i392.i.i
   %retval.i370.0.i.i = phi i64 [ %shr14.i401.i.i, %sw.default.i394.i.i ], [ %conv6.i388.i.i, %sw.bb3.i379.i.i ], [ %conv2.i391.i.i, %sw.bb1.i389.i.i ], [ %conv.i393.i.i, %sw.bb.i392.i.i ]
   %tobool.i63.not.i.i = icmp eq i64 %retval.i370.0.i.i, 0
-  br i1 %tobool.i63.not.i.i, label %sc_size.exit, label %if.then6.i.i.i
+  br i1 %tobool.i63.not.i.i, label %sc_size.argprom.exit, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i62.i.i
   %220 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i370.0.i.i, i1 true)
@@ -5693,7 +5693,7 @@ if.end67.i.i.i:                                   ; preds = %for.body.i.i397.i
 for.end.i.i.i:                                    ; preds = %if.end67.i.i.i
   %223 = and i32 %.fr.i.i, 63
   %tobool70.i.not.i.i = icmp eq i32 %223, 0
-  br i1 %tobool70.i.not.i.i, label %sc_size.exit, label %if.then71.i.i.i
+  br i1 %tobool70.i.not.i.i, label %sc_size.argprom.exit, label %if.then71.i.i.i
 
 if.then71.i.i.i:                                  ; preds = %for.end.i.i.i
   %mul74.i.i.i = and i32 %.fr.i.i, 448
@@ -5743,7 +5743,7 @@ sw.default.i459.i.i:                              ; preds = %if.then71.i.i.i
 mmbit_get_flat_block.exit467.i.i:                 ; preds = %sw.default.i459.i.i, %sw.bb3.i444.i.i, %sw.bb1.i454.i.i, %sw.bb.i457.i.i
   %retval.i435.0.i.i = phi i64 [ %shr14.i466.i.i, %sw.default.i459.i.i ], [ %conv6.i453.i.i, %sw.bb3.i444.i.i ], [ %conv2.i456.i.i, %sw.bb1.i454.i.i ], [ %conv.i458.i.i, %sw.bb.i457.i.i ]
   %tobool93.i.not.i.i = icmp eq i64 %retval.i435.0.i.i, 0
-  br i1 %tobool93.i.not.i.i, label %sc_size.exit, label %if.then94.i.i.i
+  br i1 %tobool93.i.not.i.i, label %sc_size.argprom.exit, label %if.then94.i.i.i
 
 if.then94.i.i.i:                                  ; preds = %mmbit_get_flat_block.exit467.i.i
   %229 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i435.0.i.i, i1 true)
@@ -5795,7 +5795,7 @@ if.end17.i.i.i:                                   ; preds = %if.then11.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %if.then5.i.i.i, %while.body.i.i.i
   %cmp20.i.i.i = icmp eq i32 %level.i.1.i.i, 0
-  br i1 %cmp20.i.i.i, label %sc_size.exit, label %if.end23.i.i.i
+  br i1 %cmp20.i.i.i, label %sc_size.argprom.exit, label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end19.i.i.i
   %dec.i.i381.i = add i32 %level.i.1.i.i, -1
@@ -5817,7 +5817,7 @@ mmbit_iterate.exit47.i.i:                         ; preds = %if.then11.i.i.i, %i
   %add.ptr7825.i.i = phi ptr [ %add.ptr75.i.i, %if.then60.i.i.i ], [ %add.ptr717.i.i, %if.then11.i.i.i ]
   %retval.i28.0.i.i = phi i32 [ %conv66.i.i.i, %if.then60.i.i.i ], [ %add13.i.i.i, %if.then11.i.i.i ]
   %cmp.not63.i.i = icmp eq i32 %retval.i28.0.i.i, -1
-  br i1 %cmp.not63.i.i, label %sc_size.exit, label %mmbit_iterate.exit47.i.do.body21.lr.ph.split.i_crit_edge.i
+  br i1 %cmp.not63.i.i, label %sc_size.argprom.exit, label %mmbit_iterate.exit47.i.do.body21.lr.ph.split.i_crit_edge.i
 
 mmbit_iterate.exit47.i.do.body21.lr.ph.split.i_crit_edge.i: ; preds = %mmbit_iterate.exit47.i.i
   %.pre101.i = add nuw nsw i32 %.fr.i.i, 7
@@ -5859,7 +5859,7 @@ do.body21.lr.ph.split.split.us.i.i:               ; preds = %do.body21.lr.ph.spl
 do.body21.us67.us.i.preheader.i:                  ; preds = %do.body21.lr.ph.split.split.us.i.i
   %add23.us70.us.i53.i = add i64 %add1127105.i.i, %conv22.i.i
   %cmp.i.us.us.i54.i = icmp eq i32 %retval.i28.0107.i.i, %sub.i.i384.i
-  br i1 %cmp.i.us.us.i54.i, label %sc_size.exit, label %if.end2.i.us.us.i.i
+  br i1 %cmp.i.us.us.i54.i, label %sc_size.argprom.exit, label %if.end2.i.us.us.i.i
 
 do.body21.us67.preheader.i.i:                     ; preds = %do.body21.lr.ph.split.split.us.i.i
   %wide.trip.count88.i.i = zext nneg i32 %div.i95231.i.i to i64
@@ -5905,21 +5905,21 @@ if.then4.i193.us.us.i.i:                          ; preds = %sw.default.i.us.us.
   %not.i196.us.us.i.i = select i1 %cmp.i471.us.us.i.i, i64 0, i64 %notmask237.us.us.i.i
   %and.i197.us.us.i.i = and i64 %retval.i291.0.us.us.i.i, %not.i196.us.us.i.i
   %tobool.i189.not.us.us.i.i = icmp eq i64 %and.i197.us.us.i.i, 0
-  br i1 %tobool.i189.not.us.us.i.i, label %sc_size.exit, label %mmbit_iterate.exit.us71.us.i.i
+  br i1 %tobool.i189.not.us.us.i.i, label %sc_size.argprom.exit, label %mmbit_iterate.exit.us71.us.i.i
 
 mmbit_iterate.exit.us71.us.i.i:                   ; preds = %if.then4.i193.us.us.i.i
   %242 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i197.us.us.i.i, i1 true)
   %cast.i.i192.us.us.i.i = trunc nuw nsw i64 %242 to i32
   %add23.us70.us.i.i = add i64 %add23.us70.us.i56.i, %conv22.i.i
   %cmp.i.us.us.i.i = icmp eq i32 %sub.i.i384.i, %cast.i.i192.us.us.i.i
-  br i1 %cmp.i.us.us.i.i, label %sc_size.exit, label %if.end2.i.us.us.i.i, !llvm.loop !13
+  br i1 %cmp.i.us.us.i.i, label %sc_size.argprom.exit, label %if.end2.i.us.us.i.i, !llvm.loop !13
 
 do.body21.us67.i.i:                               ; preds = %mmbit_iterate.exit.us71.i.i, %do.body21.us67.preheader.i.i
   %slot.065.us68.i.i = phi i32 [ %retval.i.0.us72.i.i, %mmbit_iterate.exit.us71.i.i ], [ %retval.i28.0107.i.i, %do.body21.us67.preheader.i.i ]
   %currOffset.addr.064.us69.i.i = phi i64 [ %add23.us70.i.i, %mmbit_iterate.exit.us71.i.i ], [ %add1127105.i.i, %do.body21.us67.preheader.i.i ]
   %add23.us70.i.i = add i64 %currOffset.addr.064.us69.i.i, %conv22.i.i
   %cmp.i.us.i.i = icmp eq i32 %slot.065.us68.i.i, %sub.i.i384.i
-  br i1 %cmp.i.us.i.i, label %sc_size.exit, label %if.end2.i.us.i.i
+  br i1 %cmp.i.us.i.i, label %sc_size.argprom.exit, label %if.end2.i.us.i.i
 
 if.end2.i.us.i.i:                                 ; preds = %do.body21.us67.i.i
   %inc15.i145.us.i.i = add nuw i32 %slot.065.us68.i.i, 1
@@ -5995,11 +5995,11 @@ if.else.i173.us.i.i:                              ; preds = %mmbit_get_flat_bloc
   %conv41.i174.us.i.i = zext i32 %mul.i153.us.i.i to i64
   %add42.i175.us.i.i = add nuw nsw i64 %conv41.i174.us.i.i, 64
   %cmp44.i177.not.us.i.i = icmp ult i64 %add42.i175.us.i.i, %conv.i91.i.i
-  br i1 %cmp44.i177.not.us.i.i, label %for.cond.i100.preheader.us.i.i, label %sc_size.exit
+  br i1 %cmp44.i177.not.us.i.i, label %for.cond.i100.preheader.us.i.i, label %sc_size.argprom.exit
 
 for.end.i102.us.i.i:                              ; preds = %if.end67.i135.us.i.i, %for.cond.i100.preheader.us.i.i
   %start.i83.1.lcssa.us.i.i = phi i32 [ %244, %for.cond.i100.preheader.us.i.i ], [ %div.i95231.i.i, %if.end67.i135.us.i.i ]
-  br i1 %tobool70.i105.not.i.i, label %sc_size.exit, label %if.then71.i107.us.i.i
+  br i1 %tobool70.i105.not.i.i, label %sc_size.argprom.exit, label %if.then71.i107.us.i.i
 
 if.then71.i107.us.i.i:                            ; preds = %for.end.i102.us.i.i
   %conv73.i108.us.i.i = zext nneg i32 %start.i83.1.lcssa.us.i.i to i64
@@ -6051,7 +6051,7 @@ sw.default.i361.us.i.i:                           ; preds = %if.then71.i107.us.i
 mmbit_get_flat_block.exit369.us.i.i:              ; preds = %sw.default.i361.us.i.i, %sw.bb.i359.us.i.i, %sw.bb1.i356.us.i.i, %sw.bb3.i346.us.i.i
   %retval.i337.0.us.i.i = phi i64 [ %shr14.i368.us.i.i, %sw.default.i361.us.i.i ], [ %conv6.i355.us.i.i, %sw.bb3.i346.us.i.i ], [ %conv2.i358.us.i.i, %sw.bb1.i356.us.i.i ], [ %conv.i360.us.i.i, %sw.bb.i359.us.i.i ]
   %tobool93.i124.not.us.i.i = icmp eq i64 %retval.i337.0.us.i.i, 0
-  br i1 %tobool93.i124.not.us.i.i, label %sc_size.exit, label %if.then94.i126.us.i.i
+  br i1 %tobool93.i124.not.us.i.i, label %sc_size.argprom.exit, label %if.then94.i126.us.i.i
 
 if.then94.i126.us.i.i:                            ; preds = %mmbit_get_flat_block.exit369.us.i.i
   %256 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %retval.i337.0.us.i.i, i1 true)
@@ -6082,7 +6082,7 @@ if.end67.i135.us.i.i:                             ; preds = %for.body.i130.us.i.
 mmbit_iterate.exit.us71.i.i:                      ; preds = %if.then60.i137.us.i.i, %if.then94.i126.us.i.i, %if.then38.i181.us.i.i
   %retval.i.0.us72.i.i = phi i32 [ %add40.i183.us.i.i, %if.then38.i181.us.i.i ], [ %conv66.i143.us.i.i, %if.then60.i137.us.i.i ], [ %add96.i128.us.i.i, %if.then94.i126.us.i.i ]
   %cmp.not.us73.i.i = icmp eq i32 %retval.i.0.us72.i.i, -1
-  br i1 %cmp.not.us73.i.i, label %sc_size.exit, label %do.body21.us67.i.i, !llvm.loop !13
+  br i1 %cmp.not.us73.i.i, label %sc_size.argprom.exit, label %do.body21.us67.i.i, !llvm.loop !13
 
 for.cond.i100.preheader.us.i.i:                   ; preds = %if.else.i173.us.i.i
   %cmp52.i10158.us.i.i = icmp ugt i32 %div.i95231.i.i, %244
@@ -6093,7 +6093,7 @@ do.body21.i.i:                                    ; preds = %do.body21.lr.ph.spl
   %currOffset.addr.064.i.i = phi i64 [ %add23.i.i, %mmbit_iterate.exit.i.i ], [ %add1127105.i.i, %do.body21.lr.ph.split.i.i ]
   %add23.i.i = add i64 %currOffset.addr.064.i.i, %conv22.i.i
   %cmp.i.i.i = icmp eq i32 %slot.065.i.i, %sub.i.i384.i
-  br i1 %cmp.i.i.i, label %sc_size.exit, label %if.end2.i.i.i
+  br i1 %cmp.i.i.i, label %sc_size.argprom.exit, label %if.end2.i.i.i
 
 if.end2.i.i.i:                                    ; preds = %do.body21.i.i
   %259 = load i8, ptr %arrayidx.i.i247.i.i, align 1
@@ -6141,7 +6141,7 @@ if.end17.i282.i.i:                                ; preds = %if.then11.i276.i.i
 
 if.end19.i254.i.i:                                ; preds = %if.then5.i264.i.i, %while.body.i251.i.i
   %cmp20.i256.i.i = icmp eq i32 %level.i240.1.i.i, 0
-  br i1 %cmp20.i256.i.i, label %sc_size.exit, label %if.end23.i257.i.i
+  br i1 %cmp20.i256.i.i, label %sc_size.argprom.exit, label %if.end23.i257.i.i
 
 if.end23.i257.i.i:                                ; preds = %if.end19.i254.i.i
   %dec.i255.i.i = add i32 %level.i240.1.i.i, -1
@@ -6158,10 +6158,10 @@ while.body.i251.i.i.backedge:                     ; preds = %if.end23.i257.i.i, 
 
 mmbit_iterate.exit.i.i:                           ; preds = %if.then11.i276.i.i
   %cmp.not.i389.i = icmp eq i32 %add13.i279.i.i, -1
-  br i1 %cmp.not.i389.i, label %sc_size.exit, label %do.body21.i.i, !llvm.loop !13
+  br i1 %cmp.not.i389.i, label %sc_size.argprom.exit, label %do.body21.i.i, !llvm.loop !13
 
-sc_size.exit:                                     ; preds = %if.end19.i.i.i, %do.body21.i.i, %mmbit_iterate.exit.i.i, %if.end19.i254.i.i, %do.body21.us67.i.i, %if.else.i173.us.i.i, %for.end.i102.us.i.i, %mmbit_get_flat_block.exit369.us.i.i, %mmbit_iterate.exit.us71.i.i, %if.then4.i193.us.us.i.i, %mmbit_iterate.exit.us71.us.i.i, %sc_left_size.exit.i, %if.end120.i, %mmbit_compsize.exit668.thread.i.i, %if.end.i62.i.i, %for.end.i.i.i, %mmbit_get_flat_block.exit467.i.i, %mmbit_iterate.exit47.i.i, %do.body21.us67.us.i.preheader.i
-  %retval.0.i = phi i64 [ 0, %sc_left_size.exit.i ], [ %retval.0.i.i, %if.end120.i ], [ %add1127.i.i, %mmbit_iterate.exit47.i.i ], [ %add1142.i.i, %mmbit_compsize.exit668.thread.i.i ], [ %add1142.i.i, %for.end.i.i.i ], [ %add1142.i.i, %mmbit_get_flat_block.exit467.i.i ], [ %add1142.i.i, %if.end.i62.i.i ], [ %add23.us70.us.i53.i, %do.body21.us67.us.i.preheader.i ], [ %add23.us70.us.i56.i, %if.then4.i193.us.us.i.i ], [ %add23.us70.us.i.i, %mmbit_iterate.exit.us71.us.i.i ], [ %add23.us70.i.i, %mmbit_iterate.exit.us71.i.i ], [ %add23.us70.i.i, %mmbit_get_flat_block.exit369.us.i.i ], [ %add23.us70.i.i, %for.end.i102.us.i.i ], [ %add23.us70.i.i, %if.else.i173.us.i.i ], [ %add23.us70.i.i, %do.body21.us67.i.i ], [ %add23.i.i, %if.end19.i254.i.i ], [ %add23.i.i, %mmbit_iterate.exit.i.i ], [ %add23.i.i, %do.body21.i.i ], [ %add112635.i.i, %if.end19.i.i.i ]
+sc_size.argprom.exit:                             ; preds = %if.end19.i.i.i, %do.body21.i.i, %mmbit_iterate.exit.i.i, %if.end19.i254.i.i, %do.body21.us67.i.i, %if.else.i173.us.i.i, %for.end.i102.us.i.i, %mmbit_get_flat_block.exit369.us.i.i, %mmbit_iterate.exit.us71.i.i, %if.then4.i193.us.us.i.i, %mmbit_iterate.exit.us71.us.i.i, %sc_left_size.argprom.exit.i, %if.end120.i, %mmbit_compsize.exit668.thread.i.i, %if.end.i62.i.i, %for.end.i.i.i, %mmbit_get_flat_block.exit467.i.i, %mmbit_iterate.exit47.i.i, %do.body21.us67.us.i.preheader.i
+  %retval.0.i = phi i64 [ 0, %sc_left_size.argprom.exit.i ], [ %retval.0.i.i, %if.end120.i ], [ %add1127.i.i, %mmbit_iterate.exit47.i.i ], [ %add1142.i.i, %mmbit_compsize.exit668.thread.i.i ], [ %add1142.i.i, %for.end.i.i.i ], [ %add1142.i.i, %mmbit_get_flat_block.exit467.i.i ], [ %add1142.i.i, %if.end.i62.i.i ], [ %add23.us70.us.i53.i, %do.body21.us67.us.i.preheader.i ], [ %add23.us70.us.i56.i, %if.then4.i193.us.us.i.i ], [ %add23.us70.us.i.i, %mmbit_iterate.exit.us71.us.i.i ], [ %add23.us70.i.i, %mmbit_iterate.exit.us71.i.i ], [ %add23.us70.i.i, %mmbit_get_flat_block.exit369.us.i.i ], [ %add23.us70.i.i, %for.end.i102.us.i.i ], [ %add23.us70.i.i, %if.else.i173.us.i.i ], [ %add23.us70.i.i, %do.body21.us67.i.i ], [ %add23.i.i, %if.end19.i254.i.i ], [ %add23.i.i, %mmbit_iterate.exit.i.i ], [ %add23.i.i, %do.body21.i.i ], [ %add112635.i.i, %if.end19.i.i.i ]
   ret i64 %retval.0.i
 }
 
@@ -7012,7 +7012,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 declare i64 @llvm.ctpop.i64(i64) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @sc_left_compress(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf) unnamed_addr #0 {
+define internal fastcc i64 @sc_left_compress.argelim(ptr nocapture noundef readonly %rose, i64 noundef %currOffset, ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %buf) unnamed_addr #0 {
 entry:
   %si_state = alloca [7 x %struct.mmbit_sparse_state], align 16
   %activeLeftIterOffset = getelementptr inbounds i8, ptr %rose, i64 416

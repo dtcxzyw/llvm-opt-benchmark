@@ -488,7 +488,7 @@ _ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit: ; preds = %3, %14, %16, %
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %21, ptr %22, align 8
   %23 = icmp eq i32 %.0.i, 1
-  br i1 %23, label %_ZNK4llvm9StringRef5splitEc.exit.i, label %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.exit"
+  br i1 %23, label %_ZNK4llvm9StringRef5splitEc.exit.i, label %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.argprom.exit"
 
 _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %_ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -500,9 +500,9 @@ _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %_ZNK4llvm6object6Bi
   %.sroa.3.03.i = select i1 %25, i64 %.sroa.3.0.copyload2.i, i64 %26
   %.sroa.0.0.i = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.exit"
+  br label %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.argprom.exit"
 
-"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.exit": ; preds = %_ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit, %_ZNK4llvm9StringRef5splitEc.exit.i
+"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.argprom.exit": ; preds = %_ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit, %_ZNK4llvm9StringRef5splitEc.exit.i
   %.sroa.0.0.in.sroa.speculated.i = phi ptr [ %.sroa.0.0.i, %_ZNK4llvm9StringRef5splitEc.exit.i ], [ %20, %_ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit ]
   %.sroa.3.0.i = phi i64 [ %.sroa.3.03.i, %_ZNK4llvm9StringRef5splitEc.exit.i ], [ %21, %_ZNK4llvm6object6Binary21getTripleObjectFormatEv.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -527,7 +527,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i:               ; preds = %_ZNK4llvm6object6Bi
   %.not2.i53 = select i1 %41, i1 true, i1 %.not.i.i.i.i52
   br i1 %.not2.i53, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit
 
-.lr.ph:                                           ; preds = %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.exit"
+.lr.ph:                                           ; preds = %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.argprom.exit"
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %43
@@ -620,7 +620,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit21:     ; preds = %_ZN4llvmeqENS_9Stri
   %.not2.i = select i1 %78, i1 true, i1 %.not.i.i.i.i
   br i1 %.not2.i, label %43, label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit21, %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.exit"
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit21, %"_ZZ19getInstrProfSectionRKN4llvm6object10ObjectFileENS_17InstrProfSectKindEENK3$_0clENS_9StringRefE.argprom.exit"
   store ptr @.str, ptr %10, align 8, !alias.scope !16
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %6, ptr %79, align 8, !alias.scope !16

@@ -57,7 +57,7 @@ define noalias noundef ptr @aglasterr() local_unnamed_addr #1 {
 12:                                               ; preds = %2
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.1, i64 noundef %8) #14
-  tail call fastcc void @graphviz_exit() #15
+  tail call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -261,7 +261,7 @@ define range(i32 4, 3) i32 @agreseterrors() local_unnamed_addr #0 {
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #5 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 }

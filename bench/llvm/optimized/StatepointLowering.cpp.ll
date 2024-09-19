@@ -4379,7 +4379,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit:    ; preds = %43, %52
   %55 = getelementptr inbounds i8, ptr %1, i64 40
   %.val99 = load ptr, ptr %55, align 8
   %.not9.i = icmp eq ptr %.val98, null
-  br i1 %.not9.i, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread, label %.lr.ph.i
+  br i1 %.not9.i, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %_ZN4llvm8dyn_castINS_12GCResultInstEKNS_4UserEEEDcPT0_.exit.thread.i
   %.sroa.05.012.i = phi ptr [ %.sroa.05.1.i, %_ZN4llvm8dyn_castINS_12GCResultInstEKNS_4UserEEEDcPT0_.exit.thread.i ], [ null, %53 ]
@@ -4437,24 +4437,24 @@ _ZN4llvm8dyn_castINS_12GCResultInstEKNS_4UserEEEDcPT0_.exit.thread.i: ; preds = 
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.01.011.i, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i = icmp eq ptr %81, null
-  br i1 %.not.i, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit, label %.lr.ph.i
 
-_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit: ; preds = %_ZN4llvm8dyn_castINS_12GCResultInstEKNS_4UserEEEDcPT0_.exit.thread.i
+_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit: ; preds = %_ZN4llvm8dyn_castINS_12GCResultInstEKNS_4UserEEEDcPT0_.exit.thread.i
   %.not199 = icmp eq ptr %.sroa.05.1.i, null
-  br i1 %.not199, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread, label %82
+  br i1 %.not199, label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread, label %82
 
-82:                                               ; preds = %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit
+82:                                               ; preds = %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.05.1.i, i64 72
   %.sroa.0.0.copyload.i = load ptr, ptr %83, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %7, align 8
   %84 = call ptr @_ZNK4llvm13AttributeList11getRetAttrsEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   %85 = ptrtoint ptr %84 to i64
-  br label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread
+  br label %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread
 
-_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread: ; preds = %53, %82, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit
-  %86 = phi i1 [ true, %82 ], [ false, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit ], [ false, %53 ]
-  %.sroa.3.0.lcssa.i195 = phi ptr [ %.sroa.3.1.i, %82 ], [ %.sroa.3.1.i, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit ], [ null, %53 ]
-  %.sroa.0188.0 = phi i64 [ %85, %82 ], [ 0, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit ], [ 0, %53 ]
+_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread: ; preds = %53, %82, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit
+  %86 = phi i1 [ true, %82 ], [ false, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit ], [ false, %53 ]
+  %.sroa.3.0.lcssa.i195 = phi ptr [ %.sroa.3.1.i, %82 ], [ %.sroa.3.1.i, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit ], [ null, %53 ]
+  %.sroa.0188.0 = phi i64 [ %85, %82 ], [ 0, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit ], [ 0, %53 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %88 = load ptr, ptr %87, align 8
   call void @_ZN4llvm19SelectionDAGBuilder22StatepointLoweringInfoC2ERNS_12SelectionDAGE(ptr noundef nonnull align 8 dereferenceable(4912) %8, ptr noundef nonnull align 8 dereferenceable(904) %88)
@@ -4502,7 +4502,7 @@ _ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread: ; preds = %53, 
   %.not200218 = icmp eq ptr %114, %116
   br i1 %.not200218, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread
+.lr.ph:                                           ; preds = %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %118 = getelementptr inbounds i8, ptr %8, i64 304
   %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
@@ -4516,8 +4516,8 @@ _ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread: ; preds = %53, 
   %.pre = load ptr, ptr %11, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread
-  %123 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %114, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.exit.thread ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread
+  %123 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %114, %_ZL19getGCResultLocalityRKN4llvm16GCStatepointInstE.argprom.exit.thread ]
   %.not.i.i.i = icmp eq ptr %123, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4llvm14GCRelocateInstESaIS3_EED2Ev.exit, label %124
 
@@ -4627,8 +4627,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit105: ; pre
   %.not200 = icmp eq ptr %178, %116
   br i1 %.not200, label %._crit_edge.loopexit, label %138
 
-179:                                              ; preds = %.lr.ph222, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197
-  %.0221 = phi ptr [ %131, %.lr.ph222 ], [ %223, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197 ]
+179:                                              ; preds = %.lr.ph222, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197
+  %.0221 = phi ptr [ %131, %.lr.ph222 ], [ %223, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197 ]
   %180 = load ptr, ptr %.0221, align 8
   %181 = getelementptr i8, ptr %180, i64 8
   %.val = load ptr, ptr %181, align 8
@@ -4652,13 +4652,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit105: ; pre
 _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i:      ; preds = %186, %179
   %.pre-phi.i.i = phi i32 [ %184, %179 ], [ %.pre1.i.i, %186 ]
   %190 = icmp eq i32 %.pre-phi.i.i, 14
-  br i1 %190, label %191, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197
+  br i1 %190, label %191, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197
 
 191:                                              ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i
   %.not.i106 = icmp eq ptr %.val97, null
-  br i1 %.not.i106, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+  br i1 %.not.i106, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit: ; preds = %191
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit: ; preds = %191
   %192 = getelementptr inbounds nuw i8, ptr %.val97, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %193, align 8
@@ -4669,9 +4669,9 @@ _ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit: ; preds = %191
   %.not1.i = icmp eq i16 %198, 0
   %199 = trunc i16 %197 to i1
   %spec.select.i107 = or i1 %.not1.i, %199
-  br i1 %spec.select.i107, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197
+  br i1 %spec.select.i107, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread: ; preds = %191, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread: ; preds = %191, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
   %200 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder8getValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull %180) #18
   %.fca.0.extract26 = extractvalue { ptr, i32 } %200, 0
   %.fca.1.extract27 = extractvalue { ptr, i32 } %200, 1
@@ -4680,9 +4680,9 @@ _ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread: ; preds = %1
   call void @_ZN4llvm8SmallSetINS_7SDValueELj8ESt4lessIS1_EE6insertERKS1_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.387") align 8 %14, ptr noundef nonnull align 8 dereferenceable(192) %10, ptr noundef nonnull align 8 dereferenceable(12) %15)
   %201 = load i8, ptr %134, align 8
   %202 = trunc i8 %201 to i1
-  br i1 %202, label %203, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197
+  br i1 %202, label %203, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197
 
-203:                                              ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread
+203:                                              ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread
   %204 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   %205 = add i64 %204, 1
   %206 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
@@ -4720,14 +4720,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit111: ; pre
   %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %136) #18
   %222 = add i64 %221, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %136, i64 noundef %222) #18
-  br label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197
+  br label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197: ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit111, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197: ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit111, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
   %223 = getelementptr inbounds i8, ptr %.0221, i64 32
   %.not96 = icmp eq ptr %223, %132
   br i1 %.not96, label %._crit_edge223, label %179
 
-._crit_edge223:                                   ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread197, %_ZNSt6vectorIPKN4llvm14GCRelocateInstESaIS3_EED2Ev.exit
+._crit_edge223:                                   ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread197, %_ZNSt6vectorIPKN4llvm14GCRelocateInstESaIS3_EED2Ev.exit
   %224 = load i32, ptr %21, align 4, !noalias !56
   %225 = icmp slt i32 %224, 0
   br i1 %225, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i
@@ -8043,16 +8043,16 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS2_vEENS_6det
 85:                                               ; preds = %76
   %86 = add i16 %.sroa.0.0.copyload.i.i.i, -17
   %spec.select.i.i.i = icmp ult i16 %86, 173
-  br i1 %spec.select.i.i.i, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit.thread", label %88
+  br i1 %spec.select.i.i.i, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit.thread", label %88
 
 _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %76
   %87 = call noundef zeroext i1 @_ZNK4llvm3EVT16isExtendedVectorEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  br i1 %87, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit.thread", label %88
+  br i1 %87, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit.thread", label %88
 
 88:                                               ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %85
   %89 = call noundef i64 @_ZNK4llvm8SmallSetINS_7SDValueELj8ESt4lessIS1_EE5countERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %.val, ptr noundef nonnull align 8 dereferenceable(12) %5)
   %.not.i = icmp eq i64 %89, 0
-  br i1 %.not.i, label %90, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit.thread"
+  br i1 %.not.i, label %90, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit.thread"
 
 90:                                               ; preds = %88
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
@@ -8062,8 +8062,8 @@ _ZNK4llvm3EVT8isVectorEv.exit.i:                  ; preds = %76
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 24
   %92 = load i32, ptr %91, align 8
   switch i32 %92, label %93 [
-    i32 39, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
-    i32 15, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
+    i32 39, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
+    i32 15, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
   ]
 
 93:                                               ; preds = %90
@@ -8109,19 +8109,19 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i:          ; preds = %103, %99
 107:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i
   %108 = load i32, ptr %91, align 8
   switch i32 %108, label %109 [
-    i32 35, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
-    i32 11, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
-    i32 36, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
-    i32 12, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
-    i32 51, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit"
+    i32 35, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
+    i32 11, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
+    i32 36, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
+    i32 12, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
+    i32 51, label %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit"
   ]
 
-"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit.thread": ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %88, %85
+"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit.thread": ; preds = %_ZNK4llvm3EVT8isVectorEv.exit.i, %88, %85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %162
 
-"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit": ; preds = %90, %90, %107, %107, %107, %107, %107
+"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit": ; preds = %90, %90, %107, %107, %107, %107, %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -8216,7 +8216,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEiNS_12DenseMapInfoIS2_vEENS_6det
   store i32 %112, ptr %161, align 4
   br label %162
 
-162:                                              ; preds = %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit", %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.exit.thread", %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_.exit, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_EixERKS2_.exit
+162:                                              ; preds = %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit", %"_ZZL23lowerStatepointMetaArgsRN4llvm15SmallVectorImplINS_7SDValueEEERNS0_IPNS_17MachineMemOperandEEES3_RNS_8DenseMapIS1_iNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_iEEEERNS_19SelectionDAGBuilder22StatepointLoweringInfoERSG_ENK3$_2clES1_.argprom.exit.thread", %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_.exit, %2, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueEiNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_iEEEES2_iS4_S7_EixERKS2_.exit
   ret void
 }
 
@@ -8271,13 +8271,13 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %2
 _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i:      ; preds = %25, %17
   %.pre-phi.i.i = phi i32 [ %23, %17 ], [ %.pre1.i.i, %25 ]
   %29 = icmp eq i32 %.pre-phi.i.i, 14
-  br i1 %29, label %30, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16
+  br i1 %29, label %30, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16
 
 30:                                               ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i
   %.not.i12 = icmp eq ptr %.val11, null
-  br i1 %.not.i12, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+  br i1 %.not.i12, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit: ; preds = %30
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit: ; preds = %30
   %31 = getelementptr inbounds nuw i8, ptr %.val11, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
@@ -8288,14 +8288,14 @@ _ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit: ; preds = %30
   %.not1.i = icmp eq i16 %37, 0
   %38 = trunc i16 %36 to i1
   %spec.select.i = or i1 %.not1.i, %38
-  br i1 %spec.select.i, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread_crit_edge, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16
+  br i1 %spec.select.i, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread_crit_edge, label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread_crit_edge: ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread_crit_edge: ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
   %.pre = load ptr, ptr %0, align 8
-  br label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread
+  br label %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread: ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread_crit_edge, %30
-  %39 = phi ptr [ %.pre, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread_crit_edge ], [ %18, %30 ]
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread: ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread_crit_edge, %30
+  %39 = phi ptr [ %.pre, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit._ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread_crit_edge ], [ %18, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder8getValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(984) %39, ptr noundef nonnull %1) #18
@@ -8307,7 +8307,7 @@ _ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread: ; preds = %_
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %47
 
-47:                                               ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread
+47:                                               ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread
   %48 = ptrtoint ptr %.fca.0.extract to i64
   %49 = lshr i64 %48, 4
   %50 = lshr i64 %48, 9
@@ -8350,21 +8350,21 @@ _ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread: ; preds = %_
   %77 = select i1 %73, i1 %76, i1 false
   br i1 %77, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
-_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16: ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit
+_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16: ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit.i, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
   br i1 %81, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread, label %82
 
-82:                                               ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16
+82:                                               ; preds = %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16
   %83 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL26UseRegistersForDeoptValues, i64 128), align 8
   %84 = trunc i8 %83 to i1
   %85 = xor i1 %84, true
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %67, %.lr.ph.i.i.i.i, %47, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread, %2, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16, %82, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
-  %.0 = phi i1 [ true, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread16 ], [ %85, %82 ], [ true, %2 ], [ true, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.exit.thread ], [ false, %47 ], [ %.not3.i.i.not, %.lr.ph.i.i.i.i ], [ %.not3.i.i.not, %67 ]
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %67, %.lr.ph.i.i.i.i, %47, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread, %2, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16, %82, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
+  %.0 = phi i1 [ true, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit ], [ false, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread16 ], [ %85, %82 ], [ true, %2 ], [ true, %_ZL9isGCValuePKN4llvm5ValueERNS_19SelectionDAGBuilderE.argprom.exit.thread ], [ false, %47 ], [ %.not3.i.i.not, %.lr.ph.i.i.i.i ], [ %.not3.i.i.not, %67 ]
   ret i1 %.0
 }
 

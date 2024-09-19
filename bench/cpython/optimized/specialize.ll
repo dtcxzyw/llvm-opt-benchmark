@@ -1050,9 +1050,9 @@ if.end15.i:                                       ; preds = %if.end8.i
   %7 = load ptr, ptr %ma_keys.i, align 8
   %call18.i = tail call i32 @_PyDictKeys_GetVersionForCurrentState(ptr noundef %6, ptr noundef %7) #7
   %cmp19.i = icmp eq i32 %call18.i, 0
-  br i1 %cmp19.i, label %fail, label %specialize_module_load_attr.exit
+  br i1 %cmp19.i, label %fail, label %specialize_module_load_attr.argprom.exit
 
-specialize_module_load_attr.exit:                 ; preds = %if.end15.i
+specialize_module_load_attr.argprom.exit:         ; preds = %if.end15.i
   %version.i = getelementptr i8, ptr %instr, i64 4
   store i32 %call18.i, ptr %version.i, align 2
   %index24.i = getelementptr i8, ptr %instr, i64 8
@@ -1123,7 +1123,7 @@ sw.bb19:                                          ; preds = %if.end17
 
 if.then21:                                        ; preds = %sw.bb19
   %13 = load ptr, ptr %descr, align 8
-  %call22 = tail call fastcc i32 @specialize_attr_loadclassattr(ptr noundef nonnull %owner, ptr noundef nonnull %instr, ptr noundef %name, ptr noundef %13, i1 noundef zeroext true)
+  %call22 = tail call fastcc i32 @specialize_attr_loadclassattr.argelim(ptr noundef nonnull %owner, ptr noundef nonnull %instr, ptr noundef %name, ptr noundef %13, i1 noundef zeroext true)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %fail, label %return
 
@@ -1156,15 +1156,15 @@ lor.lhs.false.i.i:                                ; preds = %if.end35
   %20 = and i32 %18, 1
   %cmp.not.not.i = icmp eq i32 %20, 0
   %or.cond.i = or i1 %cmp.not.not.i, %tobool1.not.i.i
-  br i1 %or.cond.i, label %fail, label %function_check_args.exit
+  br i1 %or.cond.i, label %fail, label %function_check_args.argprom.exit
 
-function_check_args.exit:                         ; preds = %lor.lhs.false.i.i
+function_check_args.argprom.exit:                 ; preds = %lor.lhs.false.i.i
   %co_argcount.i = getelementptr inbounds i8, ptr %.val62, i64 52
   %21 = load i32, ptr %co_argcount.i, align 4
   %cmp1.not.i76 = icmp eq i32 %21, 1
   br i1 %cmp1.not.i76, label %if.end38, label %fail
 
-if.end38:                                         ; preds = %function_check_args.exit
+if.end38:                                         ; preds = %function_check_args.argprom.exit
   %arg39 = getelementptr inbounds i8, ptr %instr, i64 1
   %22 = load i8, ptr %arg39, align 1
   %23 = and i8 %22, 1
@@ -1208,14 +1208,14 @@ sw.bb57:                                          ; preds = %if.end17
   %32 = load ptr, ptr %d_type, align 8
   %owner.val64 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %owner.val64, %32
-  br i1 %cmp.i.not.i, label %if.end62, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end62, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %sw.bb57
+PyObject_TypeCheck.argprom.exit:                  ; preds = %sw.bb57
   %call2.i78 = tail call i32 @PyType_IsSubtype(ptr noundef %owner.val64, ptr noundef %32) #7
   %tobool3.i.not = icmp eq i32 %call2.i78, 0
   br i1 %tobool3.i.not, label %fail, label %if.end62
 
-if.end62:                                         ; preds = %sw.bb57, %PyObject_TypeCheck.exit
+if.end62:                                         ; preds = %sw.bb57, %PyObject_TypeCheck.argprom.exit
   %flags = getelementptr inbounds i8, ptr %30, i64 24
   %33 = load i32, ptr %flags, align 8
   %and63 = and i32 %33, 2
@@ -1262,15 +1262,15 @@ lor.lhs.false.i.i83:                              ; preds = %sw.bb89
   %40 = and i32 %38, 1
   %cmp.not.not.i86 = icmp eq i32 %40, 0
   %or.cond.i87 = or i1 %cmp.not.not.i86, %tobool1.not.i.i85
-  br i1 %or.cond.i87, label %fail, label %function_check_args.exit91
+  br i1 %or.cond.i87, label %fail, label %function_check_args.argprom.exit91
 
-function_check_args.exit91:                       ; preds = %lor.lhs.false.i.i83
+function_check_args.argprom.exit91:               ; preds = %lor.lhs.false.i.i83
   %co_argcount.i89 = getelementptr inbounds i8, ptr %.val63, i64 52
   %41 = load i32, ptr %co_argcount.i89, align 4
   %cmp1.not.i90 = icmp eq i32 %41, 2
   br i1 %cmp1.not.i90, label %if.end94, label %fail
 
-if.end94:                                         ; preds = %function_check_args.exit91
+if.end94:                                         ; preds = %function_check_args.argprom.exit91
   %arg95 = getelementptr inbounds i8, ptr %instr, i64 1
   %42 = load i8, ptr %arg95, align 1
   %43 = and i8 %42, 1
@@ -1313,16 +1313,16 @@ sw.bb123:                                         ; preds = %if.end17
 
 if.then129:                                       ; preds = %sw.bb123
   %51 = load ptr, ptr %descr, align 8
-  %call130 = tail call fastcc i32 @specialize_attr_loadclassattr(ptr noundef nonnull %owner, ptr noundef nonnull %instr, ptr noundef %name, ptr noundef %51, i1 noundef zeroext false)
+  %call130 = tail call fastcc i32 @specialize_attr_loadclassattr.argelim(ptr noundef nonnull %owner, ptr noundef nonnull %instr, ptr noundef %name, ptr noundef %51, i1 noundef zeroext false)
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %fail, label %return
 
 sw.bb136:                                         ; preds = %if.end17
-  %call137 = tail call fastcc i32 @specialize_dict_access(ptr noundef nonnull %owner, ptr noundef %instr, ptr noundef %owner.val, ptr noundef %name, i32 noundef 189, i32 noundef 198)
+  %call137 = tail call fastcc i32 @specialize_dict_access.argelim(ptr noundef nonnull %owner, ptr noundef %instr, ptr noundef %owner.val, ptr noundef %name, i32 noundef 189, i32 noundef 198)
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %fail, label %return
 
-fail:                                             ; preds = %sw.bb89, %lor.lhs.false.i.i83, %if.end35, %lor.lhs.false.i.i, %if.end15.i, %if.end8.i, %if.end4.i, %if.end.i, %if.then4, %specialize_class_load_attr.exit.thread, %if.end17, %sw.bb136, %if.then129, %sw.bb123, %if.end106, %if.end100, %if.end94, %function_check_args.exit91, %if.end62, %PyObject_TypeCheck.exit, %if.end49, %if.end44, %if.end38, %function_check_args.exit, %if.end31, %sw.bb27, %if.then21, %sw.bb19, %entry
+fail:                                             ; preds = %sw.bb89, %lor.lhs.false.i.i83, %if.end35, %lor.lhs.false.i.i, %if.end15.i, %if.end8.i, %if.end4.i, %if.end.i, %if.then4, %specialize_class_load_attr.exit.thread, %if.end17, %sw.bb136, %if.then129, %sw.bb123, %if.end106, %if.end100, %if.end94, %function_check_args.argprom.exit91, %if.end62, %PyObject_TypeCheck.argprom.exit, %if.end49, %if.end44, %if.end38, %function_check_args.argprom.exit, %if.end31, %sw.bb27, %if.then21, %sw.bb19, %entry
   store i8 82, ptr %instr, align 2
   %52 = load i16, ptr %add.ptr, align 2
   %53 = and i16 %52, 15
@@ -1336,8 +1336,8 @@ fail:                                             ; preds = %sw.bb89, %lor.lhs.f
   %or.i.i = add i16 %shl.i.i, %conv7.i
   br label %return
 
-return:                                           ; preds = %if.end53, %if.end72, %sw.bb78, %if.end111, %if.then21, %if.then129, %sw.bb136, %specialize_module_load_attr.exit, %specialize_class_load_attr.exit, %fail
-  %storemerge = phi i16 [ %or.i.i, %fail ], [ 832, %specialize_class_load_attr.exit ], [ 832, %specialize_module_load_attr.exit ], [ 832, %sw.bb136 ], [ 832, %if.then129 ], [ 832, %if.then21 ], [ 832, %if.end111 ], [ 832, %sw.bb78 ], [ 832, %if.end72 ], [ 832, %if.end53 ]
+return:                                           ; preds = %if.end53, %if.end72, %sw.bb78, %if.end111, %if.then21, %if.then129, %sw.bb136, %specialize_module_load_attr.argprom.exit, %specialize_class_load_attr.exit, %fail
+  %storemerge = phi i16 [ %or.i.i, %fail ], [ 832, %specialize_class_load_attr.exit ], [ 832, %specialize_module_load_attr.argprom.exit ], [ 832, %sw.bb136 ], [ 832, %if.then129 ], [ 832, %if.then21 ], [ 832, %if.end111 ], [ 832, %sw.bb78 ], [ 832, %if.end72 ], [ 832, %if.end53 ]
   store i16 %storemerge, ptr %add.ptr, align 2
   ret void
 }
@@ -1503,7 +1503,7 @@ return:                                           ; preds = %if.then54, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @specialize_attr_loadclassattr(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr noundef %name, ptr noundef %descr, i1 noundef zeroext %is_method) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @specialize_attr_loadclassattr.argelim(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr noundef %name, ptr noundef %descr, i1 noundef zeroext %is_method) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %owner, i64 8
   %owner.val = load ptr, ptr %0, align 8
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %if.else30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @specialize_dict_access(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef range(i32 189, 206) %values_op, i32 noundef range(i32 198, 208) %hint_op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @specialize_dict_access.argelim(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef range(i32 189, 206) %values_op, i32 noundef range(i32 198, 208) %hint_op) unnamed_addr #0 {
 entry:
   %tp_flags = getelementptr inbounds i8, ptr %type, i64 168
   %0 = load i64, ptr %tp_flags, align 8
@@ -1700,14 +1700,14 @@ sw.bb9:                                           ; preds = %if.end5
   %4 = load ptr, ptr %d_type, align 8
   %owner.val21 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %owner.val21, %4
-  br i1 %cmp.i.not.i, label %if.end14, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end14, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %sw.bb9
+PyObject_TypeCheck.argprom.exit:                  ; preds = %sw.bb9
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %owner.val21, ptr noundef %4) #7
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %fail, label %if.end14
 
-if.end14:                                         ; preds = %sw.bb9, %PyObject_TypeCheck.exit
+if.end14:                                         ; preds = %sw.bb9, %PyObject_TypeCheck.argprom.exit
   %flags = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i32, ptr %flags, align 8
   %and = and i32 %5, 1
@@ -1800,7 +1800,7 @@ specialize_dict_access.exit:                      ; preds = %if.end9.i, %if.end3
   store i8 %storemerge.in.i, ptr %instr, align 2
   br label %return
 
-fail:                                             ; preds = %if.end24.i, %if.end21.i, %if.else.i, %lor.lhs.false17.i, %if.then3.i, %sw.bb30, %if.end5, %if.end14, %PyObject_TypeCheck.exit, %if.end, %entry
+fail:                                             ; preds = %if.end24.i, %if.end21.i, %if.else.i, %lor.lhs.false17.i, %if.then3.i, %sw.bb30, %if.end5, %if.end14, %PyObject_TypeCheck.argprom.exit, %if.end, %entry
   store i8 108, ptr %instr, align 2
   %16 = load i16, ptr %add.ptr, align 2
   %17 = and i16 %16, 15

@@ -1491,18 +1491,18 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; p
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %.val.i = load ptr, ptr %.010, align 8
   %.not.i.i19 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i19, label %_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i, label %_ZL17gmx_fio_int_flushP8t_fileio.exit.i
+  br i1 %.not.i.i19, label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread.i, label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.i
 
-_ZL17gmx_fio_int_flushP8t_fileio.exit.i:          ; preds = %63
+_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.i:  ; preds = %63
   %68 = call i32 @fflush(ptr noundef nonnull %.val.i)
   %.not.i20 = icmp eq i32 %68, 0
-  br i1 %.not.i20, label %_ZL17gmx_fio_int_flushP8t_fileio.exit._ZL17gmx_fio_int_flushP8t_fileio.exit.thread_crit_edge.i, label %69
+  br i1 %.not.i20, label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit._ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread_crit_edge.i, label %69
 
-_ZL17gmx_fio_int_flushP8t_fileio.exit._ZL17gmx_fio_int_flushP8t_fileio.exit.thread_crit_edge.i: ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.exit.i
+_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit._ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread_crit_edge.i: ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.i
   %.pre.i21 = load ptr, ptr %.010, align 8
-  br label %_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i
+  br label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread.i
 
-69:                                               ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.exit.i
+69:                                               ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.i
   invoke void @_ZNKSt10filesystem7__cxx114path6stringEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %58)
           to label %.noexc22 unwind label %.loopexit.split-lp
 
@@ -1551,12 +1551,12 @@ _ZL17gmx_fio_int_flushP8t_fileio.exit._ZL17gmx_fio_int_flushP8t_fileio.exit.thre
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   br label %101
 
-_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i:   ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.exit._ZL17gmx_fio_int_flushP8t_fileio.exit.thread_crit_edge.i, %63
-  %83 = phi ptr [ %.pre.i21, %_ZL17gmx_fio_int_flushP8t_fileio.exit._ZL17gmx_fio_int_flushP8t_fileio.exit.thread_crit_edge.i ], [ null, %63 ]
+_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread.i: ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit._ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread_crit_edge.i, %63
+  %83 = phi ptr [ %.pre.i21, %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit._ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread_crit_edge.i ], [ null, %63 ]
   %84 = invoke noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %83)
           to label %85 unwind label %.loopexit
 
-85:                                               ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i
+85:                                               ; preds = %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread.i
   store i64 %84, ptr %67, align 8
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -1573,7 +1573,7 @@ _ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i:   ; preds = %_ZL17gmx_fio_int_fl
   store i32 %87, ptr %90, align 8
   br label %91
 
-.loopexit:                                        ; preds = %85, %47, %_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i, %96, %.noexc27
+.loopexit:                                        ; preds = %85, %47, %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit.thread.i, %96, %.noexc27
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %101
@@ -1731,13 +1731,13 @@ define noundef i32 @_Z13gmx_fio_flushP8t_fileio(ptr noundef %0) local_unnamed_ad
   tail call void @_Z14tMPI_Lock_lockP9tMPI_Lock(ptr noundef nonnull %2)
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZL17gmx_fio_int_flushP8t_fileio.exit, label %3
+  br i1 %.not.i, label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i32 @fflush(ptr noundef nonnull %.val)
-  br label %_ZL17gmx_fio_int_flushP8t_fileio.exit
+  br label %_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit
 
-_ZL17gmx_fio_int_flushP8t_fileio.exit:            ; preds = %1, %3
+_ZL17gmx_fio_int_flushP8t_fileio.argprom.exit:    ; preds = %1, %3
   %.0.i = phi i32 [ %4, %3 ], [ 0, %1 ]
   tail call void @_Z16tMPI_Lock_unlockP9tMPI_Lock(ptr noundef nonnull %2)
   ret i32 %.0.i
@@ -1749,13 +1749,13 @@ define noundef i32 @_Z13gmx_fio_fsyncP8t_fileio(ptr noundef %0) local_unnamed_ad
   tail call void @_Z14tMPI_Lock_lockP9tMPI_Lock(ptr noundef nonnull %2)
   %.val = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %_ZL17gmx_fio_int_fsyncP8t_fileio.exit, label %3
+  br i1 %.not.i, label %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit, label %3
 
 3:                                                ; preds = %1
   %4 = tail call noundef i32 @_Z9gmx_fsyncP8_IO_FILE(ptr noundef nonnull %.val)
-  br label %_ZL17gmx_fio_int_fsyncP8t_fileio.exit
+  br label %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit
 
-_ZL17gmx_fio_int_fsyncP8t_fileio.exit:            ; preds = %1, %3
+_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit:    ; preds = %1, %3
   %.0.i = phi i32 [ %4, %3 ], [ 0, %1 ]
   tail call void @_Z16tMPI_Lock_unlockP9tMPI_Lock(ptr noundef nonnull %2)
   ret i32 %.0.i
@@ -1821,13 +1821,13 @@ _ZL17gmx_fio_get_firstv.exit:                     ; preds = %11, %.noexc17
 18:                                               ; preds = %14
   %.010.val = load ptr, ptr %.010, align 8
   %.not.i = icmp eq ptr %.010.val, null
-  br i1 %.not.i, label %_ZL17gmx_fio_int_fsyncP8t_fileio.exit, label %19
+  br i1 %.not.i, label %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit, label %19
 
 19:                                               ; preds = %18
   %20 = invoke noundef i32 @_Z9gmx_fsyncP8_IO_FILE(ptr noundef nonnull %.010.val)
-          to label %_ZL17gmx_fio_int_fsyncP8t_fileio.exit unwind label %.loopexit
+          to label %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit unwind label %.loopexit
 
-_ZL17gmx_fio_int_fsyncP8t_fileio.exit:            ; preds = %18, %19
+_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit:    ; preds = %18, %19
   %.0.i14 = phi i32 [ 0, %18 ], [ %20, %19 ]
   %21 = icmp eq i32 %.0.i14, 0
   %22 = icmp ne ptr %.0, null
@@ -1850,8 +1850,8 @@ _ZL17gmx_fio_int_fsyncP8t_fileio.exit:            ; preds = %18, %19
   %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL15open_file_mutex) #18
   resume { ptr, i32 } %lpad.phi
 
-25:                                               ; preds = %_ZL17gmx_fio_int_fsyncP8t_fileio.exit, %14
-  %.1 = phi ptr [ %.0, %14 ], [ %spec.select, %_ZL17gmx_fio_int_fsyncP8t_fileio.exit ]
+25:                                               ; preds = %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit, %14
+  %.1 = phi ptr [ %.0, %14 ], [ %spec.select, %_ZL17gmx_fio_int_fsyncP8t_fileio.argprom.exit ]
   %26 = getelementptr inbounds i8, ptr %.010, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @_ZL10open_files, align 8

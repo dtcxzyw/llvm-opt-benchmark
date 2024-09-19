@@ -3529,27 +3529,27 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit.i: ; preds = %71, %.thre
   %exitcond.not.i.us = icmp eq i64 %93, %84
   br i1 %exitcond.not.i.us, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE_JEEEvSH_DpT0_.exit.i", label %.lr.ph.i.i.i.us, !llvm.loop !62
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.exit.i.i.i"
-  %.013.i.i.i = phi i64 [ %101, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.exit.i.i.i" ], [ %80, %.lr.ph.i.i.i.preheader ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.argprom.argprom.exit.i.i.i"
+  %.013.i.i.i = phi i64 [ %101, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.argprom.argprom.exit.i.i.i" ], [ %80, %.lr.ph.i.i.i.preheader ]
   %94 = getelementptr i64, ptr %51, i64 %.013.i.i.i
   %95 = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i64, ptr %95, align 8, !noalias !59
   %97 = load i64, ptr %94, align 8, !noalias !59
   %98 = icmp eq i64 %96, %97
-  br i1 %98, label %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.exit.i.i.i", label %99
+  br i1 %98, label %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.argprom.argprom.exit.i.i.i", label %99
 
 99:                                               ; preds = %.lr.ph.i.i.i
   call void @_ZSt9terminatev() #29, !noalias !59
   unreachable
 
-"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.exit.i.i.i": ; preds = %.lr.ph.i.i.i
+"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.argprom.argprom.exit.i.i.i": ; preds = %.lr.ph.i.i.i
   %100 = getelementptr inbounds i64, ptr %78, i64 %.013.i.i.i
   store i64 0, ptr %100, align 8
   %101 = add i64 %.013.i.i.i, 1
   %exitcond.not.i = icmp eq i64 %101, %84
   br i1 %exitcond.not.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE_JEEEvSH_DpT0_.exit.i", label %.lr.ph.i.i.i, !llvm.loop !62
 
-"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE_JEEEvSH_DpT0_.exit.i": ; preds = %.lr.ph.i.i.i.us, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.exit.i.i.i", %79
+"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE_JEEEvSH_DpT0_.exit.i": ; preds = %.lr.ph.i.i.i.us, %"_ZNK7xgboost6common18IndexTransformIterIZNS_16GHistIndexMatrix9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_0EdeEv.argprom.argprom.exit.i.i.i", %79
   %exitcond59.not.i = icmp eq i64 %82, %.sroa.speculated.i
   br i1 %exitcond59.not.i, label %102, label %79, !llvm.loop !64
 
@@ -3580,15 +3580,15 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit.i: ; preds = %71, %.thre
   %112 = phi ptr [ %.pre.i, %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.loopexit.i" ], [ %75, %102 ]
   br label %113
 
-113:                                              ; preds = %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i", %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.i"
-  %storemerge658.i = phi i64 [ 0, %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.i" ], [ %116, %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i" ]
+113:                                              ; preds = %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i", %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.i"
+  %storemerge658.i = phi i64 [ 0, %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE0_JEEEvSH_DpT0_.exit.i" ], [ %116, %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i" ]
   %114 = mul i64 %storemerge658.i, %76
   %115 = icmp eq i64 %storemerge658.i, %77
   %116 = add nuw i64 %storemerge658.i, 1
   %117 = mul i64 %116, %76
   %118 = select i1 %115, i64 %spec.select.i, i64 %117
   %119 = icmp ult i64 %114, %118
-  br i1 %119, label %.lr.ph.i.i9.preheader.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i"
+  br i1 %119, label %.lr.ph.i.i9.preheader.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i"
 
 .lr.ph.i.i9.preheader.i:                          ; preds = %113
   %120 = getelementptr inbounds i64, ptr %112, i64 %storemerge658.i
@@ -3603,13 +3603,13 @@ _ZN7xgboost6common17MemStackAllocatorImLm128EEC2Em.exit.i: ; preds = %71, %.thre
   store i64 %124, ptr %122, align 8
   %125 = add nuw i64 %.06.i.i.i, 1
   %exitcond61.not.i = icmp eq i64 %125, %118
-  br i1 %exitcond61.not.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i", label %.lr.ph.i.i9.i, !llvm.loop !66
+  br i1 %exitcond61.not.i, label %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i", label %.lr.ph.i.i9.i, !llvm.loop !66
 
-"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i": ; preds = %.lr.ph.i.i9.i, %113
+"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i": ; preds = %.lr.ph.i.i9.i, %113
   %exitcond62.not.i = icmp eq i64 %116, %.sroa.speculated.i
   br i1 %exitcond62.not.i, label %_ZN4dmlc12OMPExceptionD2Ev.exit13.i, label %113, !llvm.loop !67
 
-_ZN4dmlc12OMPExceptionD2Ev.exit13.i:              ; preds = %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.exit.i"
+_ZN4dmlc12OMPExceptionD2Ev.exit13.i:              ; preds = %"_ZN4dmlc12OMPException3RunIZN7xgboost6common10PartialSumINS3_18IndexTransformIterIZNS2_16GHistIndexMatrix9PushBatchERKNS2_10SparsePageENS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEEiE3$_0EEPmmEEviT_SH_T1_T0_EUlvE1_JEEEvSH_DpT0_.argprom.exit.i"
   %126 = load i64, ptr %68, align 8
   %127 = icmp ugt i64 %126, 128
   br i1 %127, label %128, label %.noexc12
@@ -4906,7 +4906,7 @@ _ZN7xgboostlsERSoNS_10StringViewE.exit.i.i62.i.i: ; preds = %.noexc10.i.i59.i.i
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNS_16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS2_9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SC_EUlSF_E_EEDaNS0_11BinTypeSizeEOSF_.exit.i"
 
 616:                                              ; preds = %184
-  call fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_"(ptr noundef nonnull readonly align 8 dereferenceable(56) %42)
+  call fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(56) %42)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNS_16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS2_9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SC_EUlSF_E_EEDaNS0_11BinTypeSizeEOSF_.exit.i"
 
 617:                                              ; preds = %184
@@ -4942,7 +4942,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %_ZN4
 
 .noexc31:                                         ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %38)
-  call fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_"(ptr noundef nonnull readonly align 8 dereferenceable(56) %42)
+  call fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(56) %42)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNS_16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS2_9PushBatchERKNS_10SparsePageENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SC_EUlSF_E_EEDaNS0_11BinTypeSizeEOSF_.exit.i"
 
 627:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i, %624
@@ -7867,7 +7867,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i90.i, %429, %416, %_ZN7xgboost6common5IndexD2Ev.exit.i
   %434 = load ptr, ptr %83, align 8
   %.not.i.i.i92.i = icmp eq ptr %434, null
-  br i1 %.not.i.i.i92.i, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit", label %435
+  br i1 %.not.i.i.i92.i, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit", label %435
 
 435:                                              ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i
   %436 = getelementptr inbounds i8, ptr %434, i64 8
@@ -7903,7 +7903,7 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i: ; preds = %_ZNSt16_Sp_count
 451:                                              ; preds = %449, %447
   %.0.i.i.i.i94.i = phi i32 [ %439, %447 ], [ %450, %449 ]
   %452 = icmp eq i32 %.0.i.i.i.i94.i, 1
-  br i1 %452, label %453, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %452, label %453, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 453:                                              ; preds = %451
   %454 = load ptr, ptr %434, align 8
@@ -7928,14 +7928,14 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i: ; preds = %_ZNSt16_Sp_count
 464:                                              ; preds = %462, %459
   %.0.i.i.i.i.i.i96.i = phi i32 [ %460, %459 ], [ %463, %462 ]
   %465 = icmp eq i32 %.0.i.i.i.i.i.i96.i, 1
-  br i1 %465, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %465, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i: ; preds = %464, %440
   %466 = load ptr, ptr %434, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 24
   %468 = load ptr, ptr %467, align 8
   call void %468(ptr noundef nonnull align 8 dereferenceable(16) %434) #8
-  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit"
+  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 469:                                              ; preds = %342, %142, %115, %113
   %.pn16.i = phi { ptr, i32 } [ %.pn14.i, %342 ], [ %114, %113 ], [ %143, %142 ], [ %116, %115 ]
@@ -7954,7 +7954,7 @@ common.resume:                                    ; preds = %957, %1314, %537, %
   call void @__clang_call_terminate(ptr %472) #29
   unreachable
 
-"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i, %451, %464, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i
+"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i, %451, %464, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
@@ -8900,7 +8900,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i90.i71, %854, %841, %_ZN7xgboost6common5IndexD2Ev.exit.i57
   %859 = load ptr, ptr %508, align 8
   %.not.i.i.i92.i63 = icmp eq ptr %859, null
-  br i1 %.not.i.i.i92.i63, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit", label %860
+  br i1 %.not.i.i.i92.i63, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit", label %860
 
 860:                                              ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62
   %861 = getelementptr inbounds i8, ptr %859, i64 8
@@ -8936,7 +8936,7 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62: ; preds = %_ZNSt16_Sp_cou
 876:                                              ; preds = %874, %872
   %.0.i.i.i.i94.i65 = phi i32 [ %864, %872 ], [ %875, %874 ]
   %877 = icmp eq i32 %.0.i.i.i.i94.i65, 1
-  br i1 %877, label %878, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %877, label %878, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 878:                                              ; preds = %876
   %879 = load ptr, ptr %859, align 8
@@ -8961,14 +8961,14 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62: ; preds = %_ZNSt16_Sp_cou
 889:                                              ; preds = %887, %884
   %.0.i.i.i.i.i.i96.i67 = phi i32 [ %885, %884 ], [ %888, %887 ]
   %890 = icmp eq i32 %.0.i.i.i.i.i.i96.i67, 1
-  br i1 %890, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i68, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %890, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i68, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i68: ; preds = %889, %865
   %891 = load ptr, ptr %859, align 8
   %892 = getelementptr inbounds i8, ptr %891, i64 24
   %893 = load ptr, ptr %892, align 8
   call void %893(ptr noundef nonnull align 8 dereferenceable(16) %859) #8
-  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit"
+  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 894:                                              ; preds = %767, %567, %540, %538
   %.pn16.i22 = phi { ptr, i32 } [ %.pn14.i31, %767 ], [ %539, %538 ], [ %568, %567 ], [ %541, %540 ]
@@ -8983,7 +8983,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @__clang_call_terminate(ptr %897) #29
   unreachable
 
-"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62, %876, %889, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i68
+"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i62, %876, %889, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
@@ -9921,7 +9921,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i90.i172, %1274, %1261, %_ZN7xgboost6common5IndexD2Ev.exit.i158
   %1279 = load ptr, ptr %928, align 8
   %.not.i.i.i92.i164 = icmp eq ptr %1279, null
-  br i1 %.not.i.i.i92.i164, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit", label %1280
+  br i1 %.not.i.i.i92.i164, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit", label %1280
 
 1280:                                             ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163
   %1281 = getelementptr inbounds i8, ptr %1279, i64 8
@@ -9957,7 +9957,7 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163: ; preds = %_ZNSt16_Sp_co
 1296:                                             ; preds = %1294, %1292
   %.0.i.i.i.i94.i166 = phi i32 [ %1284, %1292 ], [ %1295, %1294 ]
   %1297 = icmp eq i32 %.0.i.i.i.i94.i166, 1
-  br i1 %1297, label %1298, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %1297, label %1298, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 1298:                                             ; preds = %1296
   %1299 = load ptr, ptr %1279, align 8
@@ -9982,14 +9982,14 @@ _ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163: ; preds = %_ZNSt16_Sp_co
 1309:                                             ; preds = %1307, %1304
   %.0.i.i.i.i.i.i96.i168 = phi i32 [ %1305, %1304 ], [ %1308, %1307 ]
   %1310 = icmp eq i32 %.0.i.i.i.i.i.i96.i168, 1
-  br i1 %1310, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i169, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit"
+  br i1 %1310, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i169, label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i169: ; preds = %1309, %1285
   %1311 = load ptr, ptr %1279, align 8
   %1312 = getelementptr inbounds i8, ptr %1311, i64 24
   %1313 = load ptr, ptr %1312, align 8
   call void %1313(ptr noundef nonnull align 8 dereferenceable(16) %1279) #8
-  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit"
+  br label %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
 
 1314:                                             ; preds = %1187, %987, %960, %958
   %.pn16.i123 = phi { ptr, i32 } [ %.pn14.i132, %1187 ], [ %959, %958 ], [ %988, %987 ], [ %961, %960 ]
@@ -10004,7 +10004,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @__clang_call_terminate(ptr %1317) #29
   unreachable
 
-"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163, %1296, %1309, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i169
+"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit": ; preds = %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit91.i163, %1296, %1309, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i97.i169
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -10021,7 +10021,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %1318
 
-1318:                                             ; preds = %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.exit", %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.exit", %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.exit"
+1318:                                             ; preds = %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clItEEDaT_NS_6common11BinTypeSizeE.argprom.exit", %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIjEEDaT_NS_6common11BinTypeSizeE.argprom.exit", %"_ZZN7xgboost16GHistIndexMatrix11ResizeIndexEmbENK3$_0clIhEEDaT_NS_6common11BinTypeSizeE.argprom.exit"
   ret void
 }
 
@@ -10446,7 +10446,7 @@ _ZNK7xgboost6common15DenseColumnIterItLb1EEixEm.exit.i.i.i: ; preds = %125
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_1EEDaNS0_11BinTypeSizeEOT_.exit"
 
 145:                                              ; preds = %43
-  %146 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %14)
+  %146 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(24) %14)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_1EEDaNS0_11BinTypeSizeEOT_.exit"
 
 147:                                              ; preds = %43
@@ -10482,7 +10482,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i: ; preds = %.noexc.i, %_ZN4dmlc
 
 158:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %159 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %14)
+  %159 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(24) %14)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_1EEDaNS0_11BinTypeSizeEOT_.exit"
 
 160:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i, %155
@@ -10921,7 +10921,7 @@ _ZN7xgboost6common16SparseColumnIterItEixEm.exit.i.i.i: ; preds = %392
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_3EEDaNS0_11BinTypeSizeEOT_.exit"
 
 410:                                              ; preds = %304
-  %411 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
+  %411 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_3EEDaNS0_11BinTypeSizeEOT_.exit"
 
 412:                                              ; preds = %304
@@ -10957,7 +10957,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i20: ; preds = %.noexc.i21, %_ZN4
 
 423:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i20
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-  %424 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
+  %424 = call fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_.argelim"(ptr noundef nonnull readonly align 8 dereferenceable(24) %15)
   br label %"_ZN7xgboost6common15DispatchBinTypeIZNKS_16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS3_IfSaIfEESB_mjbE3$_3EEDaNS0_11BinTypeSizeEOT_.exit"
 
 425:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i20, %420
@@ -13483,7 +13483,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_1clIjEEDaT_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -13584,7 +13584,7 @@ _ZNK7xgboost6common15DenseColumnIterIjLb1EEixEm.exit.i: ; preds = %45
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @"_ZZNK7xgboost16GHistIndexMatrix9GetFvalueERKSt6vectorIjSaIjEERKS1_IfSaIfEES9_mjbENK3$_3clIjEEDaT_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -22099,7 +22099,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7xgboost16GHistIndexMatrix13PushBatchImplINS_4data22SparsePageAdapterBatchERZNS0_9PushBatchERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEEiE3$_1EEviRKT_mOT0_SB_ENKUlSE_E_clIjEEDaSE_.argelim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %3 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %4 = alloca %"class.std::__exception_ptr::exception_ptr", align 8

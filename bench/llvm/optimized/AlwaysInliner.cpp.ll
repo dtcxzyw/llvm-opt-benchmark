@@ -266,7 +266,7 @@ define dso_local void @_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15Analysi
   %15 = ptrtoint ptr %5 to i64
   %16 = ptrtoint ptr %7 to i64
   %17 = ptrtoint ptr %6 to i64
-  %18 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE(ptr noundef nonnull align 8 dereferenceable(857) %2, i1 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr nonnull @"_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_0EES2_lS4_", i64 %15, ptr nonnull @"_ZN4llvm12function_refIFRNS_9AAResultsERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %16, ptr nonnull @"_ZN4llvm12function_refIFRNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %17)
+  %18 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(857) %2, i1 noundef zeroext %14, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr nonnull @"_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_0EES2_lS4_", i64 %15, ptr nonnull @"_ZN4llvm12function_refIFRNS_9AAResultsERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_1EES2_lS4_", i64 %16, ptr nonnull @"_ZN4llvm12function_refIFRNS_18BlockFrequencyInfoERNS_8FunctionEEE11callback_fnIZNS_17AlwaysInlinerPass3runERNS_6ModuleERNS_15AnalysisManagerIS9_JEEEE3$_2EES2_lS4_", i64 %17)
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %4
@@ -309,7 +309,7 @@ define dso_local void @_ZN4llvm17AlwaysInlinerPass3runERNS_6ModuleERNS_15Analysi
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm25InnerAnalysisManagerProxyINS_15AnalysisManagerINS_8FunctionEJEEENS_6ModuleEJEE6Result10getManagerEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE(ptr noundef nonnull align 8 dereferenceable(857) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(857) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr %3, i64 %4, ptr nocapture readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %7 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %8 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
@@ -669,7 +669,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i: ; preds = %196
   %204 = getelementptr inbounds i8, ptr %203, i64 48
   %205 = load ptr, ptr %204, align 8
   %206 = call noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(32) %202) #15
-  br i1 %206, label %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKc.exit.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit"
+  br i1 %206, label %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKc.exit.i.i, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
 
 _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefEPKc.exit.i.i: ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %196
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -792,13 +792,13 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
 _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEEENK3$_0clEv.exit.i"
   %226 = load ptr, ptr %62, align 8
   %227 = icmp eq ptr %226, %64
-  br i1 %227, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit", label %228
+  br i1 %227, label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit", label %228
 
 228:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i
   call void @free(ptr noundef %226) #15
-  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit"
+  br label %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
 
-"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %228
+"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit": ; preds = %_ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i.i.i, %228
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %14)
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
@@ -861,8 +861,8 @@ _ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit: ; preds = %247, %244, %_ZN4ll
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull %22, ptr noundef nonnull align 4 dereferenceable(8) %248) #15
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %249, %_ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit"
-  %.3 = phi i1 [ %.237, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.exit" ], [ true, %_ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit ], [ true, %249 ]
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %249, %_ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit"
+  %.3 = phi i1 [ %.237, %"_ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_116AlwaysInlineImplERNS_6ModuleEbRNS_18ProfileSummaryInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRNS_9AAResultsESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEE3$_0EEvT_PDTclfL0p_EE.argprom.exit" ], [ true, %_ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit ], [ true, %249 ]
   %250 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #15
   %251 = load ptr, ptr %41, align 8
   %252 = icmp eq ptr %251, %42
@@ -1218,7 +1218,7 @@ _ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit: ; pr
   %25 = trunc i8 %24 to i1
   %26 = ptrtoint ptr %4 to i64
   %27 = ptrtoint ptr %3 to i64
-  %28 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE(ptr noundef nonnull align 8 dereferenceable(857) %1, i1 noundef zeroext %25, ptr noundef nonnull align 8 dereferenceable(80) %22, ptr nonnull @_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERNS_6ModuleEEUlS4_E0_EES2_lS4_, i64 %26, ptr nonnull @_ZN4llvm12function_refIFRNS_9AAResultsERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERNS_6ModuleEEUlS4_E_EES2_lS4_, i64 %27, ptr null, i64 undef)
+  %28 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116AlwaysInlineImplERN4llvm6ModuleEbRNS0_18ProfileSummaryInfoENS0_12function_refIFRNS0_15AssumptionCacheERNS0_8FunctionEEEENS5_IFRNS0_9AAResultsES9_EEENS5_IFRNS0_18BlockFrequencyInfoES9_EEE.argprom(ptr noundef nonnull align 8 dereferenceable(857) %1, i1 noundef zeroext %25, ptr noundef nonnull align 8 dereferenceable(80) %22, ptr nonnull @_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERNS_6ModuleEEUlS4_E0_EES2_lS4_, i64 %26, ptr nonnull @_ZN4llvm12function_refIFRNS_9AAResultsERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERNS_6ModuleEEUlS4_E_EES2_lS4_, i64 %27, ptr null, i64 undef)
   ret i1 %28
 }
 
@@ -1243,7 +1243,7 @@ define internal noundef nonnull align 8 dereferenceable(185) ptr @_ZN4llvm12func
   tail call void @llvm.assume(i1 %.not11.i.i.i.i)
   %6 = load ptr, ptr %.val.val.val, align 8
   %7 = icmp eq ptr %6, @_ZN4llvm22AssumptionCacheTracker2IDE
-  br i1 %7, label %_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit, label %.lr.ph.i.i.i.i
+  br i1 %7, label %_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.sroa.07.012.i4.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %.val.val.val, %2 ]
@@ -1252,9 +1252,9 @@ define internal noundef nonnull align 8 dereferenceable(185) ptr @_ZN4llvm12func
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @_ZN4llvm22AssumptionCacheTracker2IDE
-  br i1 %10, label %_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit, label %.lr.ph.i.i.i.i
+  br i1 %10, label %_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit, label %.lr.ph.i.i.i.i
 
-_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.exit: ; preds = %.lr.ph.i.i.i.i, %2
+_ZZN12_GLOBAL__N_123AlwaysInlinerLegacyPass11runOnModuleERN4llvm6ModuleEENKUlRNS1_8FunctionEE0_clES5_.argprom.argprom.argprom.exit: ; preds = %.lr.ph.i.i.i.i, %2
   %.sroa.07.012.i.lcssa.i.i.i = phi ptr [ %.val.val.val, %2 ], [ %8, %.lr.ph.i.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i.i, i64 8
   %12 = load ptr, ptr %11, align 8

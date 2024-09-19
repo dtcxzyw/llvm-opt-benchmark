@@ -6681,7 +6681,7 @@ define void @_ZN5Yosys11AigerReader12post_processEv(ptr noundef nonnull align 8 
 107:                                              ; preds = %105, %101, %96
   %108 = load i32, ptr @"_ZZZN5Yosys11AigerReader12post_processEvENK3$_0clEvE2id", align 4, !noalias !34
   %.not.i.i.i = icmp eq i32 %108, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.exit", label %109
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom.exit", label %109
 
 109:                                              ; preds = %107
   %110 = sext i32 %108 to i64
@@ -6690,7 +6690,7 @@ define void @_ZN5Yosys11AigerReader12post_processEv(ptr noundef nonnull align 8 
   %113 = load i32, ptr %112, align 4, !noalias !34
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4, !noalias !34
-  br label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.exit"
+  br label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom.exit"
 
 common.resume:                                    ; preds = %159, %223, %336, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit597, %337, %340, %341, %344, %177, %115
   %common.resume.op = phi { ptr, i32 } [ %116, %115 ], [ %178, %177 ], [ %224, %223 ], [ %160, %159 ], [ %.pn220.pn.pn.pn.pn.pn, %336 ], [ %.pn216.pn, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit597 ], [ %338, %337 ], [ %338, %340 ], [ %342, %341 ], [ %342, %344 ]
@@ -6702,12 +6702,12 @@ common.resume:                                    ; preds = %159, %223, %336, %_
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys11AigerReader12post_processEvENK3$_0clEvE2id") #26, !noalias !34
   br label %common.resume
 
-"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.exit": ; preds = %107, %109
+"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom.exit": ; preds = %107, %109
   store i32 %108, ptr %9, align 4, !alias.scope !34
   %117 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %98, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %118 unwind label %159
 
-118:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.exit"
+118:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom.exit"
   %119 = load i32, ptr %9, align 4
   %120 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %121 = trunc i8 %120 to i1
@@ -6791,7 +6791,7 @@ _ZNK5Yosys5RTLIL15SigSpecIteratordeEv.exit:       ; preds = %_ZNK5Yosys5RTLIL7Si
   %.not750 = icmp eq i64 %indvars.iv.next, %139
   br i1 %.not750, label %._crit_edge, label %140
 
-159:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.exit"
+159:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom.exit"
   %160 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #26
@@ -6822,7 +6822,7 @@ _ZNK5Yosys5RTLIL15SigSpecIteratordeEv.exit:       ; preds = %_ZNK5Yosys5RTLIL7Si
 169:                                              ; preds = %167, %163, %._crit_edge
   %170 = load i32, ptr @"_ZZZN5Yosys11AigerReader12post_processEvENK3$_1clEvE2id", align 4, !noalias !38
   %.not.i.i.i231 = icmp eq i32 %170, 0
-  br i1 %.not.i.i.i231, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.exit", label %171
+  br i1 %.not.i.i.i231, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom.exit", label %171
 
 171:                                              ; preds = %169
   %172 = sext i32 %170 to i64
@@ -6831,7 +6831,7 @@ _ZNK5Yosys5RTLIL15SigSpecIteratordeEv.exit:       ; preds = %_ZNK5Yosys5RTLIL7Si
   %175 = load i32, ptr %174, align 4, !noalias !38
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %174, align 4, !noalias !38
-  br label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.exit"
+  br label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom.exit"
 
 177:                                              ; preds = %165
   %178 = landingpad { ptr, i32 }
@@ -6839,12 +6839,12 @@ _ZNK5Yosys5RTLIL15SigSpecIteratordeEv.exit:       ; preds = %_ZNK5Yosys5RTLIL7Si
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys11AigerReader12post_processEvENK3$_1clEvE2id") #26, !noalias !38
   br label %common.resume
 
-"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.exit": ; preds = %169, %171
+"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom.exit": ; preds = %169, %171
   store i32 %170, ptr %10, align 4, !alias.scope !38
   %179 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_7SigSpecENS0_8hash_opsIS3_EEE2atERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %98, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %180 unwind label %223
 
-180:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.exit"
+180:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom.exit"
   %181 = load i32, ptr %10, align 4
   %182 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %183 = trunc i8 %182 to i1
@@ -6930,7 +6930,7 @@ _ZNK5Yosys5RTLIL15SigSpecIteratordeEv.exit241:    ; preds = %_ZNK5Yosys5RTLIL7Si
   %.not751 = icmp eq i64 %indvars.iv.next1134, %201
   br i1 %.not751, label %._crit_edge949, label %202
 
-223:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.exit"
+223:                                              ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom.exit"
   %224 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #26
@@ -10875,9 +10875,9 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEED2Ev.ex
 2011:                                             ; preds = %2009, %2005, %.lr.ph980
   %2012 = load i32, ptr @"_ZZZN5Yosys11AigerReader12post_processEvENK3$_2clEvE2id", align 4, !noalias !68
   %.not.i.i.i574 = icmp eq i32 %2012, 0
-  br i1 %.not.i.i.i574, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit.thread", label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit"
+  br i1 %.not.i.i.i574, label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit.thread", label %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit"
 
-"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit.thread": ; preds = %2011
+"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit.thread": ; preds = %2011
   %2013 = getelementptr inbounds i8, ptr %2002, i64 76
   %2014 = load i32, ptr %2013, align 4
   %.not749 = icmp eq i32 %2014, 0
@@ -10889,7 +10889,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEED2Ev.ex
   call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys11AigerReader12post_processEvENK3$_2clEvE2id") #26, !noalias !68
   br label %.body576
 
-"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit": ; preds = %2011
+"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit": ; preds = %2011
   %2017 = sext i32 %2012 to i64
   %2018 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !noalias !68
   %2019 = getelementptr inbounds i32, ptr %2018, i64 %2017
@@ -10903,7 +10903,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEED2Ev.ex
   %2025 = trunc i8 %2024 to i1
   br i1 %2025, label %2026, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit579
 
-2026:                                             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit"
+2026:                                             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit"
   %2027 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2028 = getelementptr inbounds i32, ptr %2027, i64 %2017
   %2029 = load i32, ptr %2028, align 4
@@ -10923,7 +10923,7 @@ _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt4pairIiiENS0_8hash_opsIS3_EEED2Ev.ex
   call void @__clang_call_terminate(ptr %2035) #27
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit579:             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit", %2026, %2032
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit579:             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit", %2026, %2032
   br i1 %.not748, label %2036, label %2114
 
 .loopexit:                                        ; preds = %2036, %2038, %2057, %2086
@@ -10936,7 +10936,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit579:             ; preds = %"_ZZN5Yosys11AigerR
           cleanup
   br label %.body576
 
-2036:                                             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit579
+2036:                                             ; preds = %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit579
   %2037 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %2002, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1YE)
           to label %2038 unwind label %.loopexit
 
@@ -11103,7 +11103,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit579:             ; preds = %"_ZZN5Yosys11AigerR
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1316) #26
   br label %2114
 
-2114:                                             ; preds = %.sink.split, %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit579
+2114:                                             ; preds = %.sink.split, %"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit579
   %2115 = getelementptr inbounds i8, ptr %.sroa.0673.0979, i64 8
   %.not747 = icmp eq ptr %2115, %1970
   br i1 %.not747, label %._crit_edge981.loopexit, label %.lr.ph980
@@ -30511,12 +30511,12 @@ attributes #28 = { "function-inline-cost-multiplier"="2" }
 !32 = distinct !{!32, !"_ZNK5Yosys5RTLIL8IdString3strB5cxx11Ev"}
 !33 = distinct !{!33, !7}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv: argument 0"}
-!36 = distinct !{!36, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv"}
+!35 = distinct !{!35, !36, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_0clEv.argprom"}
 !37 = !{!"branch_weights", i32 1, i32 1048575}
 !38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv: argument 0"}
-!40 = distinct !{!40, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv"}
+!39 = distinct !{!39, !40, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom: argument 0"}
+!40 = distinct !{!40, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_1clEv.argprom"}
 !41 = distinct !{!41, !7}
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE: argument 0"}
@@ -30545,8 +30545,8 @@ attributes #28 = { "function-inline-cost-multiplier"="2" }
 !66 = distinct !{!66, !7}
 !67 = distinct !{!67, !7}
 !68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv: argument 0"}
-!70 = distinct !{!70, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv"}
+!69 = distinct !{!69, !70, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom: argument 0"}
+!70 = distinct !{!70, !"_ZZN5Yosys11AigerReader12post_processEvENK3$_2clEv.argprom"}
 !71 = distinct !{!71, !7}
 !72 = distinct !{!72, !7}
 !73 = distinct !{!73, !7}
@@ -30562,11 +30562,11 @@ attributes #28 = { "function-inline-cost-multiplier"="2" }
 !83 = distinct !{!83, !7}
 !84 = distinct !{!84, !7}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_0clEv: argument 0"}
-!87 = distinct !{!87, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_0clEv"}
+!86 = distinct !{!86, !87, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_0clEv.argprom: argument 0"}
+!87 = distinct !{!87, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_0clEv.argprom"}
 !88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_1clEv: argument 0"}
-!90 = distinct !{!90, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_1clEv"}
+!89 = distinct !{!89, !90, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_1clEv.argprom: argument 0"}
+!90 = distinct !{!90, !"_ZZN5Yosys11AigerReader12parse_xaigerEvENK3$_1clEv.argprom"}
 !91 = distinct !{!91, !7}
 !92 = distinct !{!92, !7}
 !93 = distinct !{!93, !7}

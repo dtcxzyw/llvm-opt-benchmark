@@ -442,7 +442,7 @@ define internal void @finish_pass1(ptr noundef %0) #0 {
   %.val.i = load ptr, ptr %2, align 8
   %20 = getelementptr i8, ptr %.val.i, i64 48
   %.val.val.i = load ptr, ptr %20, align 8
-  tail call fastcc void @update_box(ptr %.val.val.i, ptr noundef nonnull %14)
+  tail call fastcc void @update_box.argprom.argprom(ptr %.val.val.i, ptr noundef nonnull %14)
   %21 = icmp sgt i32 %8, 1
   br i1 %21, label %.lr.ph.i.i, label %.lr.ph.i
 
@@ -574,11 +574,11 @@ default.unreachable:                              ; preds = %39
   %.val66.i.i = load ptr, ptr %2, align 8
   %79 = getelementptr i8, ptr %.val66.i.i, i64 48
   %.val66.val.i.i = load ptr, ptr %79, align 8
-  tail call fastcc void @update_box(ptr %.val66.val.i.i, ptr noundef nonnull %.059.i.i)
+  tail call fastcc void @update_box.argprom.argprom(ptr %.val66.val.i.i, ptr noundef nonnull %.059.i.i)
   %.val.i.i = load ptr, ptr %2, align 8
   %80 = getelementptr i8, ptr %.val.i.i, i64 48
   %.val.val.i.i = load ptr, ptr %80, align 8
-  tail call fastcc void @update_box(ptr %.val.val.i.i, ptr noundef nonnull %40)
+  tail call fastcc void @update_box.argprom.argprom(ptr %.val.val.i.i, ptr noundef nonnull %40)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %22
   br i1 %exitcond.not.i.i, label %median_cut.exit.i, label %23, !llvm.loop !16
@@ -1093,7 +1093,7 @@ define internal void @finish_pass2(ptr nocapture readnone %0) #3 {
 declare void @jZeroFar(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @update_box(ptr nocapture readonly %.624.val.48.val, ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @update_box.argprom.argprom(ptr nocapture readonly %.624.val.48.val, ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4

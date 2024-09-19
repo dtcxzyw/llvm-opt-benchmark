@@ -1648,7 +1648,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   store i64 %29, ptr %30, align 8
   %31 = getelementptr i8, ptr %24, i64 16
   %.val = load i32, ptr %31, align 1
-  %32 = tail call fastcc ptr @e820_type_to_string(i32 %.val) #15
+  %32 = tail call fastcc ptr @e820_type_to_string.argprom(i32 %.val) #15
   %33 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr %31, align 1
@@ -1659,7 +1659,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   %39 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 %38, ptr %39, align 8
   %.val3 = load i32, ptr %31, align 1
-  %40 = tail call fastcc i64 @e820_type_to_iores_desc(i32 %.val3) #15
+  %40 = tail call fastcc i64 @e820_type_to_iores_desc.argprom(i32 %.val3) #15
   %41 = getelementptr inbounds i8, ptr %21, i64 32
   store i64 %40, ptr %41, align 8
   %42 = icmp ult i64 %25, 1048576
@@ -1700,7 +1700,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
   %62 = add i64 %61, %59
   %63 = getelementptr i8, ptr %58, i64 16
   %.val2 = load i32, ptr %63, align 1
-  %64 = tail call fastcc ptr @e820_type_to_string(i32 %.val2) #15
+  %64 = tail call fastcc ptr @e820_type_to_string.argprom(i32 %.val2) #15
   %65 = tail call i32 @firmware_map_add_early(i64 noundef %59, i64 noundef %62, ptr noundef nonnull %64) #17
   %66 = add nuw i32 %55, 1
   %67 = load ptr, ptr @e820_table_firmware, align 8
@@ -1716,7 +1716,7 @@ define dso_local void @e820__reserve_resources() local_unnamed_addr #3 section "
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(none)
-define internal fastcc noundef nonnull ptr @e820_type_to_string(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc noundef nonnull ptr @e820_type_to_string.argprom(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
   switch i32 %.16.val, label %8 [
     i32 128, label %9
     i32 1, label %9
@@ -1759,7 +1759,7 @@ define internal fastcc noundef nonnull ptr @e820_type_to_string(i32 %.16.val) un
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(none)
-define internal fastcc noundef range(i64 0, 9) i64 @e820_type_to_iores_desc(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
+define internal fastcc noundef range(i64 0, 9) i64 @e820_type_to_iores_desc.argprom(i32 %.16.val) unnamed_addr #12 section ".init.text" align 16 {
   switch i32 %.16.val, label %6 [
     i32 3, label %7
     i32 4, label %1

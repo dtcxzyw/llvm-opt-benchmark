@@ -680,7 +680,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %8
   %.val.i = load ptr, ptr %1, align 8
-  %21 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr %.val.i)
+  %21 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull align 8 dereferenceable(256) %4, ptr %.val.i)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8FindTypeERKNS_7TfTokenE.exit unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -749,7 +749,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %9
   %.val.i = load ptr, ptr %4, align 8
-  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr %.val.i)
+  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr %.val.i)
           to label %25 unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -858,7 +858,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i: ; preds = %.lr.ph.i.i.i7.i.
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds = %9
   %.val.i = load ptr, ptr %4, align 8
-  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr %.val.i)
+  %22 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr %.val.i)
           to label %25 unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -1093,7 +1093,7 @@ _ZNKSt13unordered_mapISt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS1_7Tf
   %83 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i.i, i64 128
   %84 = load ptr, ptr %83, align 8
   %.val.i = load ptr, ptr %84, align 8
-  %85 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr %.val.i)
+  %85 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr %.val.i)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv.exit.i unwind label %101
 
 .loopexit.i:                                      ; preds = %79, %_ZNKSt8__detail15_Hashtable_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS2_7TfTokenEES1_IKS5_NS2_20Sdf_ValueTypePrivate8CoreTypeEENS_10_Select1stESt8equal_toIS5_ENS2_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__6TfTypeENS2_7TfTokenEES1_IKS5_NS2_20Sdf_ValueTypePrivate8CoreTypeEENS_10_Select1stESt8equal_toIS5_ENS2_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i.i, %45, %31
@@ -1816,7 +1816,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindIvEERKS0_v.exit11.i: ; preds = 
           to label %48 unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit13.i
 
 48:                                               ; preds = %47, %45
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE.retelim(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %14)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry7AddTypeERKNS_7TfTokenERKNS_7VtValueES7_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_NS_6TfEnumES4_RKNS_18SdfTupleDimensionsE.exit unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit13.i
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit13.i: ; preds = %48, %47, %42, %41, %36, %34, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -1908,7 +1908,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds 
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %34, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE.retelim(ptr noundef nonnull align 8 dereferenceable(256) %15, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %14)
           to label %35 unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit13.i
 
 35:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
@@ -2343,7 +2343,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr %.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %.not.not.i.i = icmp eq i64 %3, 0
@@ -3259,7 +3259,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nocapture noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry8_AddTypeEPPNS_17Sdf_ValueTypeImplES4_RKNS_7TfTokenERKNS_6TfTypeESA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_S7_RKNS_18SdfTupleDimensionsERKNS_7VtValueESO_NS_6TfEnumE.retelim(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nocapture noundef byval(%"class.pxrInternal_v0_24__pxrReserved__::TfEnum") align 8 %12) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfValueTypeName", align 8
   %15 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfValueTypeName", align 8
   %16 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
@@ -3375,7 +3375,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit87: ; preds = %.cri
 
 .critedge80:                                      ; preds = %56, %.critedge79, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit87
   %.val85 = load ptr, ptr %3, align 8
-  %74 = call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %.val85)
+  %74 = call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %.val85)
   %75 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEvE5empty acquire, align 8
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %77, label %_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv.exit, !prof !6
@@ -3471,7 +3471,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 112:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #11
   %.val = load ptr, ptr %24, align 8
-  %113 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %.val)
+  %113 = invoke fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry9_FindTypeERKNS_7TfTokenE.argprom(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %.val)
           to label %114 unwind label %144
 
 114:                                              ; preds = %112

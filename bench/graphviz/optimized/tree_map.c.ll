@@ -53,7 +53,7 @@ define noalias noundef ptr @tree_map(i64 noundef %0, ptr nocapture noundef reado
 21:                                               ; preds = %20
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef 32) #6
-  tail call fastcc void @graphviz_exit() #7
+  tail call fastcc void @graphviz_exit.argelim() #7
   unreachable
 
 .thread:                                          ; preds = %._crit_edge.thread, %20
@@ -69,7 +69,7 @@ define noalias noundef ptr @tree_map(i64 noundef %0, ptr nocapture noundef reado
   %30 = load ptr, ptr @stderr, align 8
   %31 = shl nuw i64 %0, 5
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.1, i64 noundef %31) #6
-  tail call fastcc void @graphviz_exit() #7
+  tail call fastcc void @graphviz_exit.argelim() #7
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread
@@ -272,7 +272,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #3 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #3 {
   tail call void @exit(i32 noundef 1) #9
   unreachable
 }

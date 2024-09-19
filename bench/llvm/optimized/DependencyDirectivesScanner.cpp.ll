@@ -372,7 +372,7 @@ _ZL21isStartOfRelevantLinec.exit.i.i.i:           ; preds = %125
   call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %151 = load i8, ptr %113, align 8
   %152 = trunc i8 %151 to i1
-  br i1 %152, label %153, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.exit.i.i.i"
+  br i1 %152, label %153, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.argprom.exit.i.i.i"
 
 153:                                              ; preds = %133
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
@@ -387,7 +387,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i:      ; preds = %153
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.i.i.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i, %153
   call fastcc void @_ZN12_GLOBAL__N_17Scanner8skipLineERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.exit.i.i.i"
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.argprom.exit.i.i.i"
 
 155:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
@@ -670,7 +670,7 @@ _ZN12_GLOBAL__N_17Scanner26isNextIdentifierOrSkipLineEN4llvm9StringRefERPKcS4_.e
   %248 = load ptr, ptr %22, align 8
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #11
   %250 = getelementptr inbounds i8, ptr %248, i64 %249
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %25, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %250)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %25, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %250)
   %251 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %99) #11
   br i1 %251, label %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.thread.i.i.i.i, label %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i.i
 
@@ -688,7 +688,7 @@ _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.thread.i.i.i.i: ; preds = %_ZNK1
   br label %258
 
 257:                                              ; preds = %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.i.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext %255)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext %255)
   br label %258
 
 258:                                              ; preds = %257, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.thread.i.i.i.i
@@ -764,13 +764,13 @@ _ZN12_GLOBAL__N_17Scanner10lex_PragmaERPKcS2_.exit.i.i.i: ; preds = %266, %_ZN4l
 
 291:                                              ; preds = %268
   call fastcc void @_ZN12_GLOBAL__N_17Scanner8skipLineERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 292:                                              ; preds = %268
   call fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLineERPKcS2_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
   %293 = load i8, ptr %118, align 8
   %294 = trunc i8 %293 to i1
-  br i1 %294, label %295, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  br i1 %294, label %295, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 295:                                              ; preds = %292
   %.sroa.08.0.copyload.i.i.i = load ptr, ptr %41, align 8
@@ -792,8 +792,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %295
   br i1 %296, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i.i:      ; preds = %295
   %bcmp.i.i76.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %.sroa.08.0.copyload.i.i.i, ptr noundef nonnull dereferenceable(7) @.str.3, i64 7)
@@ -878,7 +878,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i.i:      ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i.i
   %.promoted35.i.i.i.i = load ptr, ptr %42, align 8
   %313 = icmp eq ptr %.promoted35.i.i.i.i, %65
-  br i1 %313, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i", label %.lr.ph.i.i.i.i
+  br i1 %313, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, %337
   %.promoted3637.i.i.i.i = phi ptr [ %338, %337 ], [ %.promoted35.i.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i ]
@@ -888,14 +888,14 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i: ; preds = %_Z
   %316 = load i16, ptr %315, align 2
   %317 = and i16 %316, 2
   %.not12.i.not.i.i.i.i = icmp eq i16 %317, 0
-  br i1 %.not12.i.not.i.i.i.i, label %.preheader.i.i.i.i, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  br i1 %.not12.i.not.i.i.i.i, label %.preheader.i.i.i.i, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %_ZL5isEOLPKcS0_.exit25.i.i.i.i
   %318 = phi ptr [ %319, %_ZL5isEOLPKcS0_.exit25.i.i.i.i ], [ %.promoted3637.i.i.i.i, %.lr.ph.i.i.i.i ]
   %319 = getelementptr inbounds i8, ptr %318, i64 1
   store ptr %319, ptr %42, align 8
   %320 = icmp eq ptr %319, %65
-  br i1 %320, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i", label %321
+  br i1 %320, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i", label %321
 
 321:                                              ; preds = %.preheader.i.i.i.i
   %322 = ptrtoint ptr %319 to i64
@@ -930,21 +930,21 @@ _ZL5isEOLPKcS0_.exit25.thread.i.i.i.i:            ; preds = %_ZL5isEOLPKcS0_.exi
   %.0.i2230.i.i.i.i = phi i64 [ %spec.select.i.i6.i.i, %329 ], [ 1, %_ZL5isEOLPKcS0_.exit25.i.i.i.i ]
   %336 = load i8, ptr %318, align 1
   %.not15.i.i.i.i = icmp eq i8 %336, 92
-  br i1 %.not15.i.i.i.i, label %337, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  br i1 %.not15.i.i.i.i, label %337, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 337:                                              ; preds = %_ZL5isEOLPKcS0_.exit25.thread.i.i.i.i
   %338 = getelementptr inbounds i8, ptr %319, i64 %.0.i2230.i.i.i.i
   store ptr %338, ptr %42, align 8
   %339 = icmp eq ptr %338, %65
-  br i1 %339, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !15
+  br i1 %339, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 .thread.i.i.i:                                    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i11.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i170.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i162.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i.i.i, %295
   call fastcc void @_ZN12_GLOBAL__N_17Scanner8skipLineERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 _ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i178.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner8lexEndifERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner8lexEndifERPKcS2_.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %65)
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
 340:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i.i
   %.sroa.30.13.ph402.i.i.i = phi i8 [ 12, %_ZN4llvmeqENS_9StringRefES0_.exit.i114.i.i.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i106.i.i.i ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i82.i.i.i ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i75.i.i.i ]
@@ -985,26 +985,26 @@ _ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4C
   %359 = getelementptr inbounds i8, ptr %358, i64 -4
   %360 = load i16, ptr %359, align 4
   %361 = icmp eq i16 %360, 2
-  br i1 %361, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i", label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.thread398.i.i.i
+  br i1 %361, label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i", label %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.thread398.i.i.i
 
 _ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.thread398.i.i.i: ; preds = %340, %_ZN4llvmeqENS_9StringRefES0_.exit.i170.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i162.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i.i.i
   %.sroa.30.13400.i.i.i = phi i8 [ %.sroa.30.13.ph402.i.i.i, %340 ], [ 19, %_ZN4llvmeqENS_9StringRefES0_.exit.i170.i.i.i ], [ 18, %_ZN4llvmeqENS_9StringRefES0_.exit.i162.i.i.i ], [ 17, %_ZN4llvmeqENS_9StringRefES0_.exit.i154.i.i.i ], [ 16, %_ZN4llvmeqENS_9StringRefES0_.exit.i146.i.i.i ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit.i138.i.i.i ], [ 14, %_ZN4llvmeqENS_9StringRefES0_.exit.i130.i.i.i ], [ 13, %_ZN4llvmeqENS_9StringRefES0_.exit.i122.i.i.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i98.i.i.i ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i90.i.i.i ]
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext %.sroa.30.13400.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %42)
-  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i"
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext %.sroa.30.13400.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %42)
+  br label %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i"
 
-"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i": ; preds = %337, %_ZL5isEOLPKcS0_.exit25.thread.i.i.i.i, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.thread398.i.i.i, %340, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.i.i.i, %.thread.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, %292, %291
+"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i": ; preds = %337, %_ZL5isEOLPKcS0_.exit25.thread.i.i.i.i, %.lr.ph.i.i.i.i, %.preheader.i.i.i.i, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.thread398.i.i.i, %340, %_ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4CaseENS_13StringLiteralES3_.exit181.i.i.i, %.thread.i.i.i, %_ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit14.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i, %292, %291
   store i8 0, ptr %114, align 8
   %362 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #11
   store i32 0, ptr %83, align 8
   br label %.backedge.sink.split.i.i
 
-"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.exit.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.i.i.i.i.i, %133
+"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.argprom.exit.i.i.i": ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.i.i.i.i.i, %133
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   %363 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %51) #11
   store i32 0, ptr %83, align 8
   br label %.backedge.sink.split.i.i
 
-.backedge.sink.split.i.i:                         ; preds = %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.exit.i.i.i", %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.exit.i.i.i", %_ZN12_GLOBAL__N_17Scanner10lex_PragmaERPKcS2_.exit.i.i.i, %_ZN12_GLOBAL__N_17Scanner26isNextIdentifierOrSkipLineEN4llvm9StringRefERPKcS4_.exit.i.i.i, %_ZN12_GLOBAL__N_17Scanner9lexModuleERPKcS2_.exit.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit43.thread.i.i.i.i, %_ZL21isStartOfRelevantLinec.exit.i.i.i, %122
+.backedge.sink.split.i.i:                         ; preds = %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_0ED2Ev.argprom.exit.i.i.i", %"_ZN4llvm6detail10scope_exitIZN12_GLOBAL__N_17Scanner9lexPPLineERPKcS5_E3$_1ED2Ev.argprom.exit.i.i.i", %_ZN12_GLOBAL__N_17Scanner10lex_PragmaERPKcS2_.exit.i.i.i, %_ZN12_GLOBAL__N_17Scanner26isNextIdentifierOrSkipLineEN4llvm9StringRefERPKcS4_.exit.i.i.i, %_ZN12_GLOBAL__N_17Scanner9lexModuleERPKcS2_.exit.i.i.i, %_ZN4llvmneENS_9StringRefES0_.exit43.thread.i.i.i.i, %_ZL21isStartOfRelevantLinec.exit.i.i.i, %122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   br label %.backedge.i.i
 
@@ -1043,11 +1043,11 @@ _ZN12_GLOBAL__N_17Scanner8scanImplEPKcS2_.exit.thread.i: ; preds = %190, %155
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %369, %366
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext 26)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext 26)
   br label %382
 
 382:                                              ; preds = %381, %369, %.loopexit.i
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext 27)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %44, i8 noundef zeroext 27)
   br label %383
 
 383:                                              ; preds = %382, %_ZN12_GLOBAL__N_17Scanner8scanImplEPKcS2_.exit.thread.i
@@ -1235,7 +1235,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %20, %9
   %30 = getelementptr i8, ptr %.02140, i64 8
   %.021.val = load i16, ptr %30, align 4
   %31 = icmp eq i16 %.sroa.026.138, %.021.val
-  br i1 %31, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit", label %32
+  br i1 %31, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit", label %32
 
 32:                                               ; preds = %29
   switch i16 %.sroa.026.138, label %_ZN4llvm11raw_ostreamlsEc.exit [
@@ -1246,51 +1246,51 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %22, %20, %9
 
 33:                                               ; preds = %32
   switch i16 %.021.val, label %_ZN4llvm11raw_ostreamlsEc.exit [
-    i16 67, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 7, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 16, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 9, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+    i16 67, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 7, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 16, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 9, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
   ]
 
 34:                                               ; preds = %32
   switch i16 %.021.val, label %_ZN4llvm11raw_ostreamlsEc.exit [
-    i16 6, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 67, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 9, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 0, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+    i16 6, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 67, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 9, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 0, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
   ]
 
 35:                                               ; preds = %32
   switch i16 %.021.val, label %_ZN4llvm11raw_ostreamlsEc.exit [
-    i16 22, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 47, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
-    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+    i16 22, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 47, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
+    i16 14, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
   ]
 
-"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit": ; preds = %29
+"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit": ; preds = %29
   %36 = and i16 %.sroa.026.138, -4
   %.not36 = icmp eq i16 %36, 20
-  br i1 %.not36, label %_ZN4llvm11raw_ostreamlsEc.exit, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+  br i1 %.not36, label %_ZN4llvm11raw_ostreamlsEc.exit, label %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
 
-"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread": ; preds = %35, %35, %35, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit"
+"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread": ; preds = %35, %35, %35, %34, %34, %34, %34, %34, %33, %33, %33, %33, %33, %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit"
   %37 = load ptr, ptr %8, align 8
   %38 = load ptr, ptr %7, align 8
   %.not.i = icmp ult ptr %37, %38
   br i1 %.not.i, label %41, label %39
 
-39:                                               ; preds = %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+39:                                               ; preds = %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
   %40 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext 32) #11
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-41:                                               ; preds = %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit.thread"
+41:                                               ; preds = %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit.thread"
   %42 = getelementptr inbounds i8, ptr %37, i64 1
   store ptr %42, ptr %8, align 8
   store i8 32, ptr %37, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
-_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %35, %34, %33, %32, %41, %39, %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.exit", %.lr.ph
+_ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %35, %34, %33, %32, %41, %39, %"_ZZN5clang33printDependencyDirectivesAsSourceEN4llvm9StringRefENS0_8ArrayRefINS_26dependency_directives_scan9DirectiveEEERNS0_11raw_ostreamEENK3$_0clENS_3tok9TokenKindERKNS3_5TokenE.argprom.exit", %.lr.ph
   %43 = getelementptr inbounds nuw i8, ptr %.02140, i64 8
   %44 = load i16, ptr %43, align 2
   %45 = load i32, ptr %.02140, align 4
@@ -1737,7 +1737,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1757,14 +1757,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26d
   %15 = add i64 %14, 1
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
   %.not.i.i.i.i.i = icmp ugt i64 %15, %16
-  br i1 %.not.i.i.i.i.i, label %17, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit.i
+  br i1 %.not.i.i.i.i.i, label %17, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.argprom.exit.i
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 488
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %18, i64 noundef %15, i64 noundef 8) #11
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.argprom.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit.i: ; preds = %17, %13
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.argprom.exit.i: ; preds = %17, %13
   %.sroa.23.0.insert.ext.i.i = shl i64 %10, 32
   %.sroa.0.0.insert.ext.i.i = zext i8 %1 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.23.0.insert.ext.i.i, %.sroa.0.0.insert.ext.i.i
@@ -1784,7 +1784,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18gr
   store i32 %24, ptr %25, align 4
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_119DirectiveWithTokensEE12emplace_backIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_119DirectiveWithTokensEE12emplace_backIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit.i, %21
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_119DirectiveWithTokensEE12emplace_backIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_119DirectiveWithTokensELb1EE18growAndEmplaceBackIJRN5clang26dependency_directives_scan13DirectiveKindEmEEERS2_DpOT_.argprom.exit.i, %21
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
   %27 = add i64 %26, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %27) #11
@@ -2727,7 +2727,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner26tryLexIdentifierOrSkipLi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner9lexPragmaERPKcS2_.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::Token", align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2833,10 +2833,10 @@ _ZN4llvm12StringSwitchIN5clang26dependency_directives_scan13DirectiveKindES3_E4C
   %57 = load i16, ptr %56, align 4
   %.off.i = add i16 %57, -1
   %switch.i = icmp ult i16 %.off.i, 2
-  br i1 %switch.i, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit, label %31
+  br i1 %switch.i, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit, label %31
 
-_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit: ; preds = %31
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %.sroa.10.3)
+_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit: ; preds = %31
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %.sroa.10.3)
   br label %99
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %18
@@ -2922,10 +2922,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %96 = load i16, ptr %95, align 4
   %.off.i59 = add i16 %96, -1
   %switch.i60 = icmp ult i16 %.off.i59, 2
-  br i1 %switch.i60, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit61, label %70
+  br i1 %switch.i60, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit61, label %70
 
-_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit61: ; preds = %70
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 11)
+_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit61: ; preds = %70
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 11)
   br label %99
 
 _ZN4llvmneENS_9StringRefES0_.exit66:              ; preds = %60
@@ -2942,16 +2942,16 @@ _ZN4llvmneENS_9StringRefES0_.exit66.thread116:    ; preds = %_ZN4llvmneENS_9Stri
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit66.thread116
-  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 6)
+  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 6)
   br label %99
 
-99:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit66.thread116, %_ZN4llvmneENS_9StringRefES0_.exit.thread110, %3, %98, %_ZN4llvmneENS_9StringRefES0_.exit66.thread, %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit61, %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit
+99:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit66.thread116, %_ZN4llvmneENS_9StringRefES0_.exit.thread110, %3, %98, %_ZN4llvmneENS_9StringRefES0_.exit66.thread, %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit61, %_ZN4llvmneENS_9StringRefES0_.exit.thread, %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner8lexEndifERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner8lexEndifERPKcS2_.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
   br i1 %5, label %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit.thread, label %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit
@@ -3029,7 +3029,7 @@ _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit9: ; preds = %_ZNK12_GLOBAL__N_17
   br label %45
 
 _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit9.thread: ; preds = %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit7.thread, %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit9
-  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 20, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext 20, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %45
 
 45:                                               ; preds = %_ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit9.thread, %34
@@ -3037,7 +3037,7 @@ _ZNK12_GLOBAL__N_17Scanner12topDirectiveEv.exit9.thread: ; preds = %_ZNK12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26dependency_directives_scan13DirectiveKindERPKcS5_.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::Token", align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3097,10 +3097,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_17Scanner10lexDefaultEN5clang26depe
   %43 = load i16, ptr %42, align 4
   %.off.i = add i16 %43, -1
   %switch.i = icmp ult i16 %.off.i, 2
-  br i1 %switch.i, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit, label %17
+  br i1 %switch.i, label %_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit, label %17
 
-_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.exit: ; preds = %17
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1)
+_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom.exit: ; preds = %17
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1)
   ret void
 }
 
@@ -3225,7 +3225,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %.lr.ph.i.i.i.i.i, %
   br label %_ZN12_GLOBAL__N_17Scanner11reportErrorEPKcj.exit
 
 76:                                               ; preds = %23
-  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1)
+  call fastcc void @_ZN12_GLOBAL__N_17Scanner13pushDirectiveEN5clang26dependency_directives_scan13DirectiveKindE.retelim(ptr noundef nonnull align 8 dereferenceable(2056) %0, i8 noundef zeroext %1)
   call fastcc void @_ZL14skipWhitespaceRPKcS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
   %77 = load ptr, ptr %2, align 8
   %78 = icmp eq ptr %77, %3
@@ -3830,7 +3830,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17Scanner18lexPPDirectiveBodyERPKcS2_.argprom(ptr noundef nonnull align 8 dereferenceable(2056) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::Token", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

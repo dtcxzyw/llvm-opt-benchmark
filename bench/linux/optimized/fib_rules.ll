@@ -886,7 +886,7 @@ define dso_local i32 @fib_nl_newrule(ptr noundef %0, ptr noundef %1, ptr noundef
   %.val = load ptr, ptr %8, align 8
   %54 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %54, align 8
-  %55 = call fastcc i32 @fib_nl2rule(ptr %.val.val, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %55 = call fastcc i32 @fib_nl2rule.argprom.argprom(ptr %.val.val, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.thread29
 
@@ -1319,7 +1319,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule.argprom.argprom(ptr %.24.val.48.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #1 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr i8, ptr %0, i64 18
   %9 = load i8, ptr %8, align 2
@@ -1978,7 +1978,7 @@ define dso_local i32 @fib_nl_delrule(ptr nocapture noundef readonly %0, ptr noun
   %.val = load ptr, ptr %8, align 8
   %50 = getelementptr i8, ptr %.val, i64 48
   %.val.val = load ptr, ptr %50, align 8
-  %51 = call fastcc i32 @fib_nl2rule(ptr %.val.val, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %51 = call fastcc i32 @fib_nl2rule.argprom.argprom(ptr %.val.val, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %..thread39_crit_edge
 
@@ -2694,7 +2694,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @fib_nl_fill_rule(ptr nound
   br i1 %93, label %104, label %94
 
 94:                                               ; preds = %90
-  %95 = call fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef %91)
+  %95 = call fastcc i32 @nla_put_string.argelim(ptr noundef %0, ptr noundef %91)
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %211
 
@@ -2812,7 +2812,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @fib_nl_fill_rule(ptr nound
   br i1 %156, label %160, label %157
 
 157:                                              ; preds = %153
-  %158 = call fastcc i32 @nla_put_uid_range(ptr noundef %0, i32 %151, i32 %155)
+  %158 = call fastcc i32 @nla_put_uid_range.argprom(ptr noundef %0, i32 %151, i32 %155)
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %160, label %211
 
@@ -2935,7 +2935,7 @@ declare dso_local void @rtnl_set_sk_err(ptr noundef, i32 noundef, i32 noundef) l
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @nla_put_string.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = tail call i64 @strlen(ptr noundef %1) #16
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 1
@@ -2944,7 +2944,7 @@ define internal fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef %1) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_uid_range(ptr noundef %0, i32 %.0.val, i32 %.4.val) unnamed_addr #1 align 16 {
+define internal fastcc i32 @nla_put_uid_range.argprom(ptr noundef %0, i32 %.0.val, i32 %.4.val) unnamed_addr #1 align 16 {
   %2 = alloca %struct.fib_rule_uid_range, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   %3 = icmp eq i32 %.0.val, -1

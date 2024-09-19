@@ -727,13 +727,13 @@ define hidden range(i32 0, 2) i32 @mlib_c_convMxNnw_u8(ptr nocapture noundef rea
 
 ._crit_edge.i:                                    ; preds = %._crit_edge70.split.us89.i, %._crit_edge70.split.us.us.us.i, %.lr.ph.i, %55
   %.not505.i = icmp eq ptr %.0470.i, %10
-  br i1 %.not505.i, label %mlib_ImageConv1xN.exit, label %393
+  br i1 %.not505.i, label %mlib_ImageConv1xN.argprom.exit, label %393
 
 393:                                              ; preds = %._crit_edge.i
   call void @mlib_free(ptr noundef %.0470.i) #6
-  br label %mlib_ImageConv1xN.exit
+  br label %mlib_ImageConv1xN.argprom.exit
 
-mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %393
+mlib_ImageConv1xN.argprom.exit:                   ; preds = %._crit_edge.i, %393
   call void @llvm.lifetime.end.p0(i64 12800, ptr nonnull %10)
   %.not1154 = icmp eq ptr %.010221579, %13
   br i1 %.not1154, label %1026, label %.sink.split
@@ -1927,13 +1927,13 @@ mlib_ImageConv1xN.exit:                           ; preds = %._crit_edge.i, %393
   %.not1138 = icmp eq ptr %.010221579, %13
   br i1 %.not1138, label %1026, label %.sink.split
 
-.sink.split:                                      ; preds = %1025, %406, %mlib_ImageConv1xN.exit
-  %.0.ph = phi i32 [ 0, %mlib_ImageConv1xN.exit ], [ 1, %406 ], [ 0, %1025 ]
+.sink.split:                                      ; preds = %1025, %406, %mlib_ImageConv1xN.argprom.exit
+  %.0.ph = phi i32 [ 0, %mlib_ImageConv1xN.argprom.exit ], [ 1, %406 ], [ 0, %1025 ]
   call void @mlib_free(ptr noundef nonnull %.010221579) #6
   br label %1026
 
-1026:                                             ; preds = %.sink.split, %1025, %406, %mlib_ImageConv1xN.exit, %30
-  %.0 = phi i32 [ 1, %30 ], [ 0, %mlib_ImageConv1xN.exit ], [ 1, %406 ], [ 0, %1025 ], [ %.0.ph, %.sink.split ]
+1026:                                             ; preds = %.sink.split, %1025, %406, %mlib_ImageConv1xN.argprom.exit, %30
+  %.0 = phi i32 [ 1, %30 ], [ 0, %mlib_ImageConv1xN.argprom.exit ], [ 1, %406 ], [ 0, %1025 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

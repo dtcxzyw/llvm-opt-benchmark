@@ -1289,14 +1289,14 @@ _PyVectorcall_FunctionInline.exit.i:              ; preds = %entry
 
 if.then.i:                                        ; preds = %_PyVectorcall_FunctionInline.exit.i, %entry
   %call2.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef %call.i, ptr noundef nonnull %func, ptr noundef null, i64 noundef 0, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
 if.end.i:                                         ; preds = %_PyVectorcall_FunctionInline.exit.i
   %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %func, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   %call4.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef %call.i, ptr noundef nonnull %func, ptr noundef %call3.i, ptr noundef null) #15
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
-_PyObject_VectorcallTstate.exit:                  ; preds = %if.then.i, %if.end.i
+_PyObject_VectorcallTstate.argprom.exit:          ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call4.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -2398,7 +2398,7 @@ if.end33:                                         ; preds = %if.end29
   %getfunc39 = getelementptr inbounds i8, ptr %call30, i64 112
   store ptr %23, ptr %getfunc39, align 8
   %24 = load i8, ptr %call11, align 1
-  %call40 = call fastcc ptr @_ctypes_alloc_format_string_for_type(i8 noundef signext %24)
+  %call40 = call fastcc ptr @_ctypes_alloc_format_string_for_type.argelim(i8 noundef signext %24)
   %format = getelementptr inbounds i8, ptr %call30, i64 168
   store ptr %call40, ptr %format, align 8
   %cmp42 = icmp eq ptr %call40, null
@@ -2612,7 +2612,7 @@ land.lhs.true83:                                  ; preds = %land.lhs.true
 
 if.then85:                                        ; preds = %land.lhs.true83
   %55 = load ptr, ptr %proto, align 8
-  %call86 = call fastcc ptr @CreateSwappedType(ptr noundef %args, ptr noundef %kwds, ptr noundef %55, ptr noundef %call24)
+  %call86 = call fastcc ptr @CreateSwappedType.argprom(ptr noundef %args, ptr noundef %kwds, ptr noundef %55, ptr noundef %call24)
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %if.then89, label %if.end90
 
@@ -3387,22 +3387,22 @@ entry:
   %0 = getelementptr i8, ptr %obj, i64 8
   %obj.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %obj.val, @PyCSimpleType_Type
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val, ptr noundef nonnull @PyCSimpleType_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %if.then
 
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %entry, %PyObject_TypeCheck.argprom.exit
   %tp_base = getelementptr inbounds i8, ptr %obj, i64 256
   %1 = load ptr, ptr %tp_base, align 8
   %cmp = icmp ne ptr %1, @Simple_Type
   %conv = zext i1 %cmp to i32
   br label %return
 
-return:                                           ; preds = %PyObject_TypeCheck.exit, %if.then
-  %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %PyObject_TypeCheck.exit ]
+return:                                           ; preds = %PyObject_TypeCheck.argprom.exit, %if.then
+  %retval.0 = phi i32 [ %conv, %if.then ], [ 0, %PyObject_TypeCheck.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -3431,20 +3431,20 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   %1 = getelementptr i8, ptr %type, i64 8
   %obj.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %obj.val.i, @PyCSimpleType_Type
-  br i1 %cmp.i.not.i.i, label %_ctypes_simple_instance.exit, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %_ctypes_simple_instance.exit, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %land.lhs.true5
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %land.lhs.true5
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i, ptr noundef nonnull @PyCSimpleType_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then8, label %_ctypes_simple_instance.exit
 
-_ctypes_simple_instance.exit:                     ; preds = %land.lhs.true5, %PyObject_TypeCheck.exit.i
+_ctypes_simple_instance.exit:                     ; preds = %land.lhs.true5, %PyObject_TypeCheck.argprom.exit.i
   %tp_base.i = getelementptr inbounds i8, ptr %type, i64 256
   %2 = load ptr, ptr %tp_base.i, align 8
   %cmp.i.not = icmp eq ptr %2, @Simple_Type
   br i1 %cmp.i.not, label %if.then8, label %if.end11
 
-if.then8:                                         ; preds = %PyObject_TypeCheck.exit.i, %_ctypes_simple_instance.exit
+if.then8:                                         ; preds = %PyObject_TypeCheck.argprom.exit.i, %_ctypes_simple_instance.exit
   %3 = load ptr, ptr %getfunc3, align 8
   %call10 = tail call ptr %3(ptr noundef %adr, i64 noundef %size) #15
   br label %return
@@ -3464,20 +3464,20 @@ entry:
   %0 = getelementptr i8, ptr %dst, i64 8
   %dst.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %dst.val, @PyCData_Type
-  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %dst.val, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.18) #15
   br label %return
 
-if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %call1 = tail call fastcc ptr @_PyCData_set(ptr noundef %type, ptr noundef %setfunc, ptr noundef %value, i64 noundef %size, ptr noundef %ptr)
+if.end:                                           ; preds = %entry, %PyObject_TypeCheck.argprom.exit
+  %call1 = tail call fastcc ptr @_PyCData_set.argprom(ptr noundef %type, ptr noundef %setfunc, ptr noundef %value, i64 noundef %size, ptr noundef %ptr)
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end3
 
@@ -3491,7 +3491,7 @@ return:                                           ; preds = %if.end, %if.end3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyCData_set(ptr noundef %type, ptr noundef readonly %setfunc, ptr noundef %value, i64 noundef %size, ptr noundef %ptr) unnamed_addr #0 {
+define internal fastcc ptr @_PyCData_set.argprom(ptr noundef %type, ptr noundef readonly %setfunc, ptr noundef %value, i64 noundef %size, ptr noundef %ptr) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %setfunc, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3504,14 +3504,14 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %value, i64 8
   %value.val58 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %value.val58, @PyCData_Type
-  br i1 %cmp.i.not.i, label %if.end30, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end30, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val58, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then3, label %if.end30
 
-if.then3:                                         ; preds = %PyObject_TypeCheck.exit
+if.then3:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %call4 = tail call ptr @PyType_stgdict(ptr noundef %type) #15
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.end11, label %land.lhs.true
@@ -3547,7 +3547,7 @@ if.then17:                                        ; preds = %if.then15
   br label %return
 
 if.end18:                                         ; preds = %if.then15
-  %call19 = tail call fastcc ptr @_PyCData_set(ptr noundef %type, ptr noundef null, ptr noundef nonnull %call16, i64 noundef %size, ptr noundef %ptr)
+  %call19 = tail call fastcc ptr @_PyCData_set.argprom(ptr noundef %type, ptr noundef null, ptr noundef nonnull %call16, i64 noundef %size, ptr noundef %ptr)
   %6 = load i64, ptr %call16, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i75.not = icmp eq i64 %7, 0
@@ -3571,18 +3571,18 @@ land.lhs.true21:                                  ; preds = %if.else
   %8 = getelementptr i8, ptr %type, i64 8
   %type.val57 = load ptr, ptr %8, align 8
   %cmp.i.not.i60 = icmp eq ptr %type.val57, @PyCPointerType_Type
-  br i1 %cmp.i.not.i60, label %if.then24, label %PyObject_TypeCheck.exit65
+  br i1 %cmp.i.not.i60, label %if.then24, label %PyObject_TypeCheck.argprom.exit65
 
-PyObject_TypeCheck.exit65:                        ; preds = %land.lhs.true21
+PyObject_TypeCheck.argprom.exit65:                ; preds = %land.lhs.true21
   %call2.i62 = tail call i32 @PyType_IsSubtype(ptr noundef %type.val57, ptr noundef nonnull @PyCPointerType_Type) #15
   %tobool3.i63.not = icmp eq i32 %call2.i62, 0
   br i1 %tobool3.i63.not, label %land.lhs.true21.split, label %if.then24
 
-land.lhs.true21.split:                            ; preds = %PyObject_TypeCheck.exit65
+land.lhs.true21.split:                            ; preds = %PyObject_TypeCheck.argprom.exit65
   %_Py_NoneStruct.val = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_NoneStruct, i64 8), align 8
   br label %if.else25
 
-if.then24:                                        ; preds = %land.lhs.true21, %PyObject_TypeCheck.exit65
+if.then24:                                        ; preds = %land.lhs.true21, %PyObject_TypeCheck.argprom.exit65
   store ptr null, ptr %ptr, align 8
   br label %return
 
@@ -3596,7 +3596,7 @@ if.else25:                                        ; preds = %if.else, %land.lhs.
   %call29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.114, ptr noundef %9, ptr noundef %11) #15
   br label %return
 
-if.end30:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
+if.end30:                                         ; preds = %if.end, %PyObject_TypeCheck.argprom.exit
   %call31 = tail call i32 @PyObject_IsInstance(ptr noundef nonnull %value, ptr noundef %type) #15
   switch i32 %call31, label %if.then36 [
     i32 -1, label %return
@@ -3673,24 +3673,24 @@ if.end46:                                         ; preds = %if.end30
   %19 = getelementptr i8, ptr %type, i64 8
   %type.val = load ptr, ptr %19, align 8
   %cmp.i.not.i73 = icmp eq ptr %type.val, @PyCPointerType_Type
-  br i1 %cmp.i.not.i73, label %land.lhs.true49, label %PyObject_TypeCheck.exit78
+  br i1 %cmp.i.not.i73, label %land.lhs.true49, label %PyObject_TypeCheck.argprom.exit78
 
-PyObject_TypeCheck.exit78:                        ; preds = %if.end46
+PyObject_TypeCheck.argprom.exit78:                ; preds = %if.end46
   %call2.i75 = tail call i32 @PyType_IsSubtype(ptr noundef %type.val, ptr noundef nonnull @PyCPointerType_Type) #15
   %tobool3.i76.not = icmp eq i32 %call2.i75, 0
   br i1 %tobool3.i76.not, label %if.end69, label %land.lhs.true49
 
-land.lhs.true49:                                  ; preds = %if.end46, %PyObject_TypeCheck.exit78
+land.lhs.true49:                                  ; preds = %if.end46, %PyObject_TypeCheck.argprom.exit78
   %value.val55 = load ptr, ptr %0, align 8
   %cmp.i.not.i79 = icmp eq ptr %value.val55, @PyCArray_Type
-  br i1 %cmp.i.not.i79, label %if.then52, label %PyObject_TypeCheck.exit84
+  br i1 %cmp.i.not.i79, label %if.then52, label %PyObject_TypeCheck.argprom.exit84
 
-PyObject_TypeCheck.exit84:                        ; preds = %land.lhs.true49
+PyObject_TypeCheck.argprom.exit84:                ; preds = %land.lhs.true49
   %call2.i81 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val55, ptr noundef nonnull @PyCArray_Type) #15
   %tobool3.i82.not = icmp eq i32 %call2.i81, 0
   br i1 %tobool3.i82.not, label %if.end69, label %if.then52
 
-if.then52:                                        ; preds = %land.lhs.true49, %PyObject_TypeCheck.exit84
+if.then52:                                        ; preds = %land.lhs.true49, %PyObject_TypeCheck.argprom.exit84
   %call53 = tail call ptr @PyObject_stgdict(ptr noundef nonnull %value) #15
   %call54 = tail call ptr @PyType_stgdict(ptr noundef nonnull %type) #15
   %proto = getelementptr inbounds i8, ptr %call53, i64 96
@@ -3722,7 +3722,7 @@ if.end67:                                         ; preds = %if.end62
   %call68 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef nonnull %call64, ptr noundef nonnull %value) #15
   br label %return
 
-if.end69:                                         ; preds = %PyObject_TypeCheck.exit84, %PyObject_TypeCheck.exit78
+if.end69:                                         ; preds = %PyObject_TypeCheck.argprom.exit84, %PyObject_TypeCheck.argprom.exit78
   %26 = load ptr, ptr @PyExc_TypeError, align 8
   %value.val54 = load ptr, ptr %0, align 8
   %tp_name71 = getelementptr inbounds i8, ptr %value.val54, i64 24
@@ -4270,14 +4270,14 @@ if.end60.i:                                       ; preds = %if.end54.i
   %35 = getelementptr i8, ptr %27, i64 8
   %.val59.i = load ptr, ptr %35, align 8
   %cmp.i.not.i.i = icmp eq ptr %.val59.i, @PyCArrayType_Type
-  br i1 %cmp.i.not.i.i, label %if.then63.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then63.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %if.end60.i
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end60.i
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %.val59.i, ptr noundef nonnull @PyCArrayType_Type) #15
   %tobool3.i72.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i72.not.i, label %if.else.i, label %if.then63.i
 
-if.then63.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end60.i
+if.then63.i:                                      ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end60.i
   %call.i.i.i = call ptr @_PyThreadState_GetCurrent() #15
   %callable.val.i.i.i.i = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %callable.val.i.i.i.i, i64 168
@@ -4303,7 +4303,7 @@ if.end.i.i74.i:                                   ; preds = %_PyVectorcall_Funct
   %call4.i.i.i = call ptr @_Py_CheckFunctionResult(ptr noundef %call.i.i.i, ptr noundef nonnull %27, ptr noundef %call3.i.i.i, ptr noundef null) #15
   br label %if.end67.i
 
-if.else.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.else.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %39 = load ptr, ptr %proto.i, align 8
   %call.i.i75.i = call ptr @_PyThreadState_GetCurrent() #15
   %40 = getelementptr i8, ptr %39, i64 8
@@ -7468,19 +7468,19 @@ Py_INCREF.exit:                                   ; preds = %sw.bb, %if.end.i
   %4 = getelementptr i8, ptr %value, i64 8
   %obj.val.i = load ptr, ptr %4, align 8
   %cmp.i.not.i.i = icmp eq ptr %obj.val.i, @PyCData_Type
-  br i1 %cmp.i.not.i.i, label %if.end.i17, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.end.i17, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %Py_INCREF.exit
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %Py_INCREF.exit
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then.i, label %if.end.i17
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.55) #15
   br label %return
 
-if.end.i17:                                       ; preds = %PyObject_TypeCheck.exit.i, %Py_INCREF.exit
+if.end.i17:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i, %Py_INCREF.exit
   %call1.i = tail call ptr @PyCArgObject_new() #15
   %cmp.i18 = icmp eq ptr %call1.i, null
   br i1 %cmp.i18, label %if.then2.i, label %if.end3.i
@@ -7518,24 +7518,24 @@ sw.epilog:                                        ; preds = %if.end3
   %9 = getelementptr i8, ptr %value, i64 8
   %value.val16 = load ptr, ptr %9, align 8
   %cmp.i.not.i = icmp eq ptr %value.val16, @PyCPointer_Type
-  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %sw.epilog
+PyObject_TypeCheck.argprom.exit:                  ; preds = %sw.epilog
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val16, ptr noundef nonnull @PyCPointer_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.then11
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %value.val = load ptr, ptr %9, align 8
   %cmp.i.not.i21 = icmp eq ptr %value.val, @PyCArray_Type
-  br i1 %cmp.i.not.i21, label %if.then11, label %PyObject_TypeCheck.exit26
+  br i1 %cmp.i.not.i21, label %if.then11, label %PyObject_TypeCheck.argprom.exit26
 
-PyObject_TypeCheck.exit26:                        ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit26:                ; preds = %lor.lhs.false
   %call2.i23 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val, ptr noundef nonnull @PyCArray_Type) #15
   %tobool3.i24.not = icmp eq i32 %call2.i23, 0
   br i1 %tobool3.i24.not, label %if.end23, label %if.then11
 
-if.then11:                                        ; preds = %lor.lhs.false, %sw.epilog, %PyObject_TypeCheck.exit26, %PyObject_TypeCheck.exit
+if.then11:                                        ; preds = %lor.lhs.false, %sw.epilog, %PyObject_TypeCheck.argprom.exit26, %PyObject_TypeCheck.argprom.exit
   %call12 = tail call ptr @PyObject_stgdict(ptr noundef %value) #15
   %proto13 = getelementptr inbounds i8, ptr %call12, i64 96
   %10 = load ptr, ptr %proto13, align 8
@@ -7558,7 +7558,7 @@ if.end.i.i29:                                     ; preds = %if.then20
   store i32 %add.i.i27, ptr %value, align 8
   br label %return
 
-if.end23:                                         ; preds = %if.end18, %PyObject_TypeCheck.exit26
+if.end23:                                         ; preds = %if.end18, %PyObject_TypeCheck.argprom.exit26
   %call24 = tail call ptr @CDataType_from_param(ptr noundef %type, ptr noundef %value)
   br label %return
 
@@ -8193,7 +8193,7 @@ if.end25:                                         ; preds = %Py_DECREF.exit54
   br i1 %tobool26.not, label %if.end33, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  %call28 = call fastcc i32 @_Py_EnterRecursiveCall()
+  %call28 = call fastcc i32 @_Py_EnterRecursiveCall.argprom()
   %tobool29.not = icmp eq i32 %call28, 0
   %9 = load ptr, ptr %as_parameter, align 8
   br i1 %tobool29.not, label %if.end31, label %if.then30
@@ -8268,7 +8268,7 @@ declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall() unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_Py_EnterRecursiveCall.argprom() unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @_PyThreadState_GetCurrent() #15
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %call.i, i64 44
@@ -8276,15 +8276,15 @@ entry:
   %dec.i.i = add i32 %0, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp.i.i, label %_Py_EnterRecursiveCallTstate.exit, label %land.rhs.i
+  br i1 %cmp.i.i, label %_Py_EnterRecursiveCallTstate.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %call1.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.77) #15
   %tobool2.i = icmp ne i32 %call1.i, 0
   %1 = zext i1 %tobool2.i to i32
-  br label %_Py_EnterRecursiveCallTstate.exit
+  br label %_Py_EnterRecursiveCallTstate.argprom.exit
 
-_Py_EnterRecursiveCallTstate.exit:                ; preds = %entry, %land.rhs.i
+_Py_EnterRecursiveCallTstate.argprom.exit:        ; preds = %entry, %land.rhs.i
   %land.ext.i = phi i32 [ 0, %entry ], [ %1, %land.rhs.i ]
   ret i32 %land.ext.i
 }
@@ -8296,7 +8296,7 @@ declare i32 @_Py_CheckRecursiveCall(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_ctypes_alloc_format_string_for_type(i8 noundef signext %code) unnamed_addr #0 {
+define internal fastcc ptr @_ctypes_alloc_format_string_for_type.argelim(i8 noundef signext %code) unnamed_addr #0 {
 entry:
   switch i8 %code, label %sw.epilog [
     i8 76, label %sw.bb3
@@ -8378,7 +8378,7 @@ return:                                           ; preds = %entry, %_Py_NewRef.
 declare ptr @PyDescr_NewClassMethod(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @CreateSwappedType(ptr nocapture noundef readonly %args, ptr noundef %kwds, ptr noundef %proto, ptr nocapture noundef nonnull readonly %fmt) unnamed_addr #0 {
+define internal fastcc ptr @CreateSwappedType.argprom(ptr nocapture noundef readonly %args, ptr noundef %kwds, ptr noundef %proto, ptr nocapture noundef nonnull readonly %fmt) unnamed_addr #0 {
 entry:
   %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %ob_item, align 8
@@ -8692,24 +8692,24 @@ if.end.i.i:                                       ; preds = %if.then20
 if.end22:                                         ; preds = %if.end14
   %value.val36 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %value.val36, @PyCArray_Type
-  br i1 %cmp.i.not.i, label %if.then27, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then27, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end22
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end22
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val36, ptr noundef nonnull @PyCArray_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.then27
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %value.val35 = load ptr, ptr %0, align 8
   %cmp.i.not.i38 = icmp eq ptr %value.val35, @PyCPointer_Type
-  br i1 %cmp.i.not.i38, label %if.then27, label %PyObject_TypeCheck.exit43
+  br i1 %cmp.i.not.i38, label %if.then27, label %PyObject_TypeCheck.argprom.exit43
 
-PyObject_TypeCheck.exit43:                        ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit43:                ; preds = %lor.lhs.false
   %call2.i40 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val35, ptr noundef nonnull @PyCPointer_Type) #15
   %tobool3.i41.not = icmp eq i32 %call2.i40, 0
   br i1 %tobool3.i41.not, label %if.end42, label %if.then27
 
-if.then27:                                        ; preds = %lor.lhs.false, %if.end22, %PyObject_TypeCheck.exit43, %PyObject_TypeCheck.exit
+if.then27:                                        ; preds = %lor.lhs.false, %if.end22, %PyObject_TypeCheck.argprom.exit43, %PyObject_TypeCheck.argprom.exit
   %call28 = tail call ptr @PyObject_stgdict(ptr noundef %value) #15
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end42, label %land.lhs.true
@@ -8744,7 +8744,7 @@ if.end.i.i46:                                     ; preds = %if.then39
   store i32 %add.i.i44, ptr %value, align 8
   br label %return
 
-if.end42:                                         ; preds = %if.then27, %land.lhs.true, %cond.end, %land.lhs.true34, %PyObject_TypeCheck.exit43
+if.end42:                                         ; preds = %if.then27, %land.lhs.true, %cond.end, %land.lhs.true34, %PyObject_TypeCheck.argprom.exit43
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
   %value.val34 = load ptr, ptr %0, align 8
   %cmp.i48.not = icmp eq ptr %value.val34, %11
@@ -8889,24 +8889,24 @@ if.end.i.i:                                       ; preds = %if.then20
 if.end22:                                         ; preds = %if.end14
   %value.val36 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %value.val36, @PyCArray_Type
-  br i1 %cmp.i.not.i, label %if.then27, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then27, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end22
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end22
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val36, ptr noundef nonnull @PyCArray_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.then27
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %value.val35 = load ptr, ptr %0, align 8
   %cmp.i.not.i38 = icmp eq ptr %value.val35, @PyCPointer_Type
-  br i1 %cmp.i.not.i38, label %if.then27, label %PyObject_TypeCheck.exit43
+  br i1 %cmp.i.not.i38, label %if.then27, label %PyObject_TypeCheck.argprom.exit43
 
-PyObject_TypeCheck.exit43:                        ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit43:                ; preds = %lor.lhs.false
   %call2.i40 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val35, ptr noundef nonnull @PyCPointer_Type) #15
   %tobool3.i41.not = icmp eq i32 %call2.i40, 0
   br i1 %tobool3.i41.not, label %if.end42, label %if.then27
 
-if.then27:                                        ; preds = %lor.lhs.false, %if.end22, %PyObject_TypeCheck.exit43, %PyObject_TypeCheck.exit
+if.then27:                                        ; preds = %lor.lhs.false, %if.end22, %PyObject_TypeCheck.argprom.exit43, %PyObject_TypeCheck.argprom.exit
   %call28 = tail call ptr @PyObject_stgdict(ptr noundef %value) #15
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end42, label %land.lhs.true
@@ -8941,7 +8941,7 @@ if.end.i.i46:                                     ; preds = %if.then39
   store i32 %add.i.i44, ptr %value, align 8
   br label %return
 
-if.end42:                                         ; preds = %if.then27, %land.lhs.true, %cond.end, %land.lhs.true34, %PyObject_TypeCheck.exit43
+if.end42:                                         ; preds = %if.then27, %land.lhs.true, %cond.end, %land.lhs.true34, %PyObject_TypeCheck.argprom.exit43
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
   %value.val34 = load ptr, ptr %0, align 8
   %cmp.i48.not = icmp eq ptr %value.val34, %11
@@ -9168,24 +9168,24 @@ if.end.i.i:                                       ; preds = %if.then64
 if.end66:                                         ; preds = %if.end58
   %value.val80 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %value.val80, @PyCArray_Type
-  br i1 %cmp.i.not.i, label %if.then71, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then71, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end66
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end66
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val80, ptr noundef nonnull @PyCArray_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %lor.lhs.false, label %if.then71
 
-lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.exit
+lor.lhs.false:                                    ; preds = %PyObject_TypeCheck.argprom.exit
   %value.val79 = load ptr, ptr %0, align 8
   %cmp.i.not.i88 = icmp eq ptr %value.val79, @PyCPointer_Type
-  br i1 %cmp.i.not.i88, label %if.then71, label %PyObject_TypeCheck.exit93
+  br i1 %cmp.i.not.i88, label %if.then71, label %PyObject_TypeCheck.argprom.exit93
 
-PyObject_TypeCheck.exit93:                        ; preds = %lor.lhs.false
+PyObject_TypeCheck.argprom.exit93:                ; preds = %lor.lhs.false
   %call2.i90 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val79, ptr noundef nonnull @PyCPointer_Type) #15
   %tobool3.i91.not = icmp eq i32 %call2.i90, 0
   br i1 %tobool3.i91.not, label %if.end73, label %if.then71
 
-if.then71:                                        ; preds = %lor.lhs.false, %if.end66, %PyObject_TypeCheck.exit93, %PyObject_TypeCheck.exit
+if.then71:                                        ; preds = %lor.lhs.false, %if.end66, %PyObject_TypeCheck.argprom.exit93, %PyObject_TypeCheck.argprom.exit
   %15 = load i32, ptr %value, align 8
   %add.i.i94 = add i32 %15, 1
   %cmp.i.i95 = icmp eq i32 %add.i.i94, 0
@@ -9195,7 +9195,7 @@ if.end.i.i96:                                     ; preds = %if.then71
   store i32 %add.i.i94, ptr %value, align 8
   br label %return
 
-if.end73:                                         ; preds = %PyObject_TypeCheck.exit93
+if.end73:                                         ; preds = %PyObject_TypeCheck.argprom.exit93
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @global_state, i64 8), align 8
   %value.val76 = load ptr, ptr %0, align 8
   %cmp.i98.not = icmp eq ptr %value.val76, %16
@@ -9219,14 +9219,14 @@ if.end.i.i102:                                    ; preds = %if.then80
 
 if.end83:                                         ; preds = %if.then76, %if.end73
   %cmp.i.not.i104 = icmp eq ptr %value.val76, @PyCFuncPtr_Type
-  br i1 %cmp.i.not.i104, label %if.then86, label %PyObject_TypeCheck.exit109
+  br i1 %cmp.i.not.i104, label %if.then86, label %PyObject_TypeCheck.argprom.exit109
 
-PyObject_TypeCheck.exit109:                       ; preds = %if.end83
+PyObject_TypeCheck.argprom.exit109:               ; preds = %if.end83
   %call2.i106 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val76, ptr noundef nonnull @PyCFuncPtr_Type) #15
   %tobool3.i107.not = icmp eq i32 %call2.i106, 0
   br i1 %tobool3.i107.not, label %if.end97, label %if.then86
 
-if.then86:                                        ; preds = %if.end83, %PyObject_TypeCheck.exit109
+if.then86:                                        ; preds = %if.end83, %PyObject_TypeCheck.argprom.exit109
   %call88 = tail call ptr @PyCArgObject_new() #15
   %cmp89 = icmp eq ptr %call88, null
   br i1 %cmp89, label %return, label %if.end92
@@ -9255,7 +9255,7 @@ Py_INCREF.exit:                                   ; preds = %if.end92, %if.end.i
   store ptr %value, ptr %obj96, align 16
   br label %return
 
-if.end97:                                         ; preds = %PyObject_TypeCheck.exit109
+if.end97:                                         ; preds = %PyObject_TypeCheck.argprom.exit109
   %call98 = tail call ptr @PyObject_stgdict(ptr noundef %value) #15
   %tobool99.not = icmp eq ptr %call98, null
   br i1 %tobool99.not, label %if.end125, label %land.lhs.true
@@ -9263,14 +9263,14 @@ if.end97:                                         ; preds = %PyObject_TypeCheck.
 land.lhs.true:                                    ; preds = %if.end97
   %value.val77 = load ptr, ptr %0, align 8
   %cmp.i.not.i110 = icmp eq ptr %value.val77, @PyCData_Type
-  br i1 %cmp.i.not.i110, label %land.lhs.true102, label %PyObject_TypeCheck.exit115
+  br i1 %cmp.i.not.i110, label %land.lhs.true102, label %PyObject_TypeCheck.argprom.exit115
 
-PyObject_TypeCheck.exit115:                       ; preds = %land.lhs.true
+PyObject_TypeCheck.argprom.exit115:               ; preds = %land.lhs.true
   %call2.i112 = tail call i32 @PyType_IsSubtype(ptr noundef %value.val77, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i113.not = icmp eq i32 %call2.i112, 0
   br i1 %tobool3.i113.not, label %if.end125, label %land.lhs.true102
 
-land.lhs.true102:                                 ; preds = %land.lhs.true, %PyObject_TypeCheck.exit115
+land.lhs.true102:                                 ; preds = %land.lhs.true, %PyObject_TypeCheck.argprom.exit115
   %proto = getelementptr inbounds i8, ptr %call98, i64 96
   %22 = load ptr, ptr %proto, align 8
   %tobool103.not = icmp eq ptr %22, null
@@ -9322,7 +9322,7 @@ _Py_NewRef.exit122:                               ; preds = %if.end118, %if.end.
   store ptr %29, ptr %value124, align 16
   br label %return
 
-if.end125:                                        ; preds = %if.then109, %land.lhs.true104, %land.lhs.true102, %PyObject_TypeCheck.exit115, %if.end97
+if.end125:                                        ; preds = %if.then109, %land.lhs.true104, %land.lhs.true102, %PyObject_TypeCheck.argprom.exit115, %if.end97
   %call126 = call i32 @PyObject_GetOptionalAttr(ptr noundef %value, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 35584), ptr noundef nonnull %as_parameter) #15
   %cmp127 = icmp slt i32 %call126, 0
   br i1 %cmp127, label %return, label %if.end130
@@ -9573,19 +9573,19 @@ tailrecurse.i:                                    ; preds = %if.then.i, %entry
   %1 = getelementptr i8, ptr %type.tr.i, i64 8
   %type.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %type.val.i, @PyCArrayType_Type
-  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.then.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %tailrecurse.i
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %tailrecurse.i
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %type.val.i, ptr noundef nonnull @PyCArrayType_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %PyCData_item_type.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i, %tailrecurse.i
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i, %tailrecurse.i
   %call1.i = tail call ptr @PyType_stgdict(ptr noundef nonnull %type.tr.i) #15
   %proto.i = getelementptr inbounds i8, ptr %call1.i, i64 96
   br label %tailrecurse.i
 
-PyCData_item_type.exit:                           ; preds = %PyObject_TypeCheck.exit.i
+PyCData_item_type.exit:                           ; preds = %PyObject_TypeCheck.argprom.exit.i
   %call3 = tail call ptr @PyType_stgdict(ptr noundef nonnull %type.tr.i) #15
   %cmp = icmp eq ptr %view, null
   br i1 %cmp, label %return, label %if.end
@@ -10420,24 +10420,24 @@ sw.bb30:                                          ; preds = %if.end27
   %17 = getelementptr i8, ptr %16, i64 8
   %arg.val9.i = load ptr, ptr %17, align 8
   %cmp.i.not.i.i = icmp eq ptr %arg.val9.i, @PyCPointerType_Type
-  br i1 %cmp.i.not.i.i, label %for.inc, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %for.inc, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %sw.bb30
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %sw.bb30
   %call2.i.i = call i32 @PyType_IsSubtype(ptr noundef %arg.val9.i, ptr noundef nonnull @PyCPointerType_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end.i, label %for.inc
 
-if.end.i:                                         ; preds = %PyObject_TypeCheck.exit.i
+if.end.i:                                         ; preds = %PyObject_TypeCheck.argprom.exit.i
   %arg.val8.i = load ptr, ptr %17, align 8
   %cmp.i.not.i11.i = icmp eq ptr %arg.val8.i, @PyCArrayType_Type
-  br i1 %cmp.i.not.i11.i, label %for.inc, label %PyObject_TypeCheck.exit16.i
+  br i1 %cmp.i.not.i11.i, label %for.inc, label %PyObject_TypeCheck.argprom.exit16.i
 
-PyObject_TypeCheck.exit16.i:                      ; preds = %if.end.i
+PyObject_TypeCheck.argprom.exit16.i:              ; preds = %if.end.i
   %call2.i13.i = call i32 @PyType_IsSubtype(ptr noundef %arg.val8.i, ptr noundef nonnull @PyCArrayType_Type) #15
   %tobool3.i14.not.i = icmp eq i32 %call2.i13.i, 0
   br i1 %tobool3.i14.not.i, label %if.end4.i, label %for.inc
 
-if.end4.i:                                        ; preds = %PyObject_TypeCheck.exit16.i
+if.end4.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit16.i
   %call5.i = call ptr @PyType_stgdict(ptr noundef nonnull %16) #15
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %_check_outarg_type.exit, label %land.lhs.true.i
@@ -10481,7 +10481,7 @@ sw.default:                                       ; preds = %if.end27
   %call35 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %26, ptr noundef nonnull @.str.148, i32 noundef %15) #15
   br label %return
 
-for.inc:                                          ; preds = %if.end.i, %sw.bb30, %land.lhs.true10.i, %PyObject_TypeCheck.exit16.i, %PyObject_TypeCheck.exit.i, %if.end27, %if.end27, %if.end27, %if.end27
+for.inc:                                          ; preds = %if.end.i, %sw.bb30, %land.lhs.true10.i, %PyObject_TypeCheck.argprom.exit16.i, %PyObject_TypeCheck.argprom.exit.i, %if.end27, %if.end27, %if.end27, %if.end27
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %paramflags.val14
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !16
@@ -10553,20 +10553,20 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %8 = getelementptr i8, ptr %4, i64 8
   %obj.val.i.i = load ptr, ptr %8, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %obj.val.i.i, @PyCSimpleType_Type
-  br i1 %cmp.i.not.i.i.i, label %_ctypes_simple_instance.exit.i, label %PyObject_TypeCheck.exit.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ctypes_simple_instance.exit.i, label %PyObject_TypeCheck.argprom.exit.i.i
 
-PyObject_TypeCheck.exit.i.i:                      ; preds = %land.lhs.true5.i
+PyObject_TypeCheck.argprom.exit.i.i:              ; preds = %land.lhs.true5.i
   %call2.i.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i.i, ptr noundef nonnull @PyCSimpleType_Type) #15
   %tobool3.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.i.not.i.i, label %if.then8.i, label %_ctypes_simple_instance.exit.i
 
-_ctypes_simple_instance.exit.i:                   ; preds = %PyObject_TypeCheck.exit.i.i, %land.lhs.true5.i
+_ctypes_simple_instance.exit.i:                   ; preds = %PyObject_TypeCheck.argprom.exit.i.i, %land.lhs.true5.i
   %tp_base.i.i = getelementptr inbounds i8, ptr %4, i64 256
   %9 = load ptr, ptr %tp_base.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %9, @Simple_Type
   br i1 %cmp.i.not.i, label %if.then8.i, label %if.end11.i
 
-if.then8.i:                                       ; preds = %_ctypes_simple_instance.exit.i, %PyObject_TypeCheck.exit.i.i
+if.then8.i:                                       ; preds = %_ctypes_simple_instance.exit.i, %PyObject_TypeCheck.argprom.exit.i.i
   %10 = load ptr, ptr %getfunc3.i, align 8
   %call10.i = tail call ptr %10(ptr noundef %add.ptr, i64 noundef %div) #15
   br label %return
@@ -10622,20 +10622,20 @@ if.end4:                                          ; preds = %lor.lhs.false
   %7 = getelementptr i8, ptr %myself, i64 8
   %dst.val.i = load ptr, ptr %7, align 8
   %cmp.i.not.i.i = icmp eq ptr %dst.val.i, @PyCData_Type
-  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %if.end4
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end4
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %dst.val.i, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %8 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.18) #15
   br label %return
 
-if.end.i:                                         ; preds = %PyObject_TypeCheck.exit.i, %if.end4
-  %call1.i = tail call fastcc ptr @_PyCData_set(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %div, ptr noundef %add.ptr)
+if.end.i:                                         ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end4
+  %call1.i = tail call fastcc ptr @_PyCData_set.argprom(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %div, ptr noundef %add.ptr)
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %return, label %if.end3.i
 
@@ -11181,14 +11181,14 @@ entry:
   %1 = getelementptr i8, ptr %self.val, i64 8
   %obj.val.i = load ptr, ptr %1, align 8
   %cmp.i.not.i.i = icmp eq ptr %obj.val.i, @PyCSimpleType_Type
-  br i1 %cmp.i.not.i.i, label %_ctypes_simple_instance.exit, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %_ctypes_simple_instance.exit, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %entry
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %entry
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i, ptr noundef nonnull @PyCSimpleType_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end, label %_ctypes_simple_instance.exit
 
-_ctypes_simple_instance.exit:                     ; preds = %entry, %PyObject_TypeCheck.exit.i
+_ctypes_simple_instance.exit:                     ; preds = %entry, %PyObject_TypeCheck.argprom.exit.i
   %tp_base.i = getelementptr inbounds i8, ptr %self.val, i64 256
   %2 = load ptr, ptr %tp_base.i, align 8
   %cmp.i.not = icmp eq ptr %2, @Simple_Type
@@ -11204,7 +11204,7 @@ if.end.i.i:                                       ; preds = %if.then
   store i32 %add.i.i, ptr %self, align 8
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %_ctypes_simple_instance.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit.i, %_ctypes_simple_instance.exit
   %call.i = tail call ptr @PyObject_stgdict(ptr noundef nonnull %self) #15
   %getfunc.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %4 = load ptr, ptr %getfunc.i, align 8
@@ -11314,20 +11314,20 @@ land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %9 = getelementptr i8, ptr %3, i64 8
   %obj.val.i.i = load ptr, ptr %9, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %obj.val.i.i, @PyCSimpleType_Type
-  br i1 %cmp.i.not.i.i.i, label %_ctypes_simple_instance.exit.i, label %PyObject_TypeCheck.exit.i.i
+  br i1 %cmp.i.not.i.i.i, label %_ctypes_simple_instance.exit.i, label %PyObject_TypeCheck.argprom.exit.i.i
 
-PyObject_TypeCheck.exit.i.i:                      ; preds = %land.lhs.true5.i
+PyObject_TypeCheck.argprom.exit.i.i:              ; preds = %land.lhs.true5.i
   %call2.i.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val.i.i, ptr noundef nonnull @PyCSimpleType_Type) #15
   %tobool3.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool3.i.not.i.i, label %if.then8.i, label %_ctypes_simple_instance.exit.i
 
-_ctypes_simple_instance.exit.i:                   ; preds = %PyObject_TypeCheck.exit.i.i, %land.lhs.true5.i
+_ctypes_simple_instance.exit.i:                   ; preds = %PyObject_TypeCheck.argprom.exit.i.i, %land.lhs.true5.i
   %tp_base.i.i = getelementptr inbounds i8, ptr %3, i64 256
   %10 = load ptr, ptr %tp_base.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %10, @Simple_Type
   br i1 %cmp.i.not.i, label %if.then8.i, label %if.end11.i
 
-if.then8.i:                                       ; preds = %_ctypes_simple_instance.exit.i, %PyObject_TypeCheck.exit.i.i
+if.then8.i:                                       ; preds = %_ctypes_simple_instance.exit.i, %PyObject_TypeCheck.argprom.exit.i.i
   %11 = load ptr, ptr %getfunc3.i, align 8
   %call10.i = tail call ptr %11(ptr noundef %add.ptr, i64 noundef %4) #15
   br label %return
@@ -11380,20 +11380,20 @@ if.end3:                                          ; preds = %if.end
   %9 = getelementptr i8, ptr %myself, i64 8
   %dst.val.i = load ptr, ptr %9, align 8
   %cmp.i.not.i.i = icmp eq ptr %dst.val.i, @PyCData_Type
-  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %if.end3
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end3
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %dst.val.i, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %10 = load ptr, ptr @PyExc_TypeError, align 8
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.18) #15
   br label %return
 
-if.end.i:                                         ; preds = %PyObject_TypeCheck.exit.i, %if.end3
-  %call1.i = tail call fastcc ptr @_PyCData_set(ptr noundef %4, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %5, ptr noundef %add.ptr)
+if.end.i:                                         ; preds = %PyObject_TypeCheck.argprom.exit.i, %if.end3
+  %call1.i = tail call fastcc ptr @_PyCData_set.argprom(ptr noundef %4, ptr noundef %6, ptr noundef nonnull %value, i64 noundef %5, ptr noundef %add.ptr)
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %return, label %if.end3.i
 
@@ -11745,14 +11745,14 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %value, i64 8
   %value.val19 = load ptr, ptr %1, align 8
   %cmp.i.not.i = icmp eq ptr %value.val19, @PyCData_Type
-  br i1 %cmp.i.not.i, label %if.end14, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end14, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %value.val19, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then2, label %if.end14
 
-if.then2:                                         ; preds = %PyObject_TypeCheck.exit
+if.then2:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %proto = getelementptr inbounds i8, ptr %call, i64 96
   %2 = load ptr, ptr %proto, align 8
   %call3 = tail call i32 @PyObject_IsInstance(ptr noundef nonnull %value, ptr noundef %2) #15
@@ -11772,7 +11772,7 @@ if.then8:                                         ; preds = %if.then2
   %call12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.172, ptr noundef %5, ptr noundef %6) #15
   br label %return
 
-if.end14:                                         ; preds = %if.end, %if.then2, %PyObject_TypeCheck.exit
+if.end14:                                         ; preds = %if.end, %if.then2, %PyObject_TypeCheck.argprom.exit
   %b_ptr = getelementptr inbounds i8, ptr %value, i64 16
   %7 = load ptr, ptr %b_ptr, align 16
   %b_ptr15 = getelementptr inbounds i8, ptr %self, i64 16
@@ -11921,7 +11921,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %call6 = tail call fastcc i64 @_init_pos_args(ptr noundef %self, ptr noundef %self.val, ptr noundef nonnull %args, ptr noundef %kwds)
+  %call6 = tail call fastcc i64 @_init_pos_args.argelim(ptr noundef %self, ptr noundef %self.val, ptr noundef nonnull %args, ptr noundef %kwds)
   %cmp = icmp eq i64 %call6, -1
   br i1 %cmp, label %return, label %if.end8
 
@@ -11962,7 +11962,7 @@ return:                                           ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_init_pos_args(ptr noundef %self, ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwds) unnamed_addr #0 {
+define internal fastcc i64 @_init_pos_args.argelim(ptr noundef %self, ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwds) unnamed_addr #0 {
 entry:
   %tp_base = getelementptr inbounds i8, ptr %type, i64 256
   %0 = load ptr, ptr %tp_base, align 8
@@ -11972,7 +11972,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %tp_base, align 8
-  %call2 = tail call fastcc i64 @_init_pos_args(ptr noundef %self, ptr noundef %1, ptr noundef %args, ptr noundef %kwds)
+  %call2 = tail call fastcc i64 @_init_pos_args.argelim(ptr noundef %self, ptr noundef %1, ptr noundef %args, ptr noundef %kwds)
   %cmp = icmp eq i64 %call2, -1
   br i1 %cmp, label %return, label %if.end4
 
@@ -12612,24 +12612,24 @@ entry:
   %0 = getelementptr i8, ptr %ctype, i64 8
   %arg.val10.i = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %arg.val10.i, @PyCPointerType_Type
-  br i1 %cmp.i.not.i.i, label %if.end, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.end, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %entry
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %entry
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %arg.val10.i, ptr noundef nonnull @PyCPointerType_Type) #15
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end.i24, label %if.end
 
-if.end.i24:                                       ; preds = %PyObject_TypeCheck.exit.i
+if.end.i24:                                       ; preds = %PyObject_TypeCheck.argprom.exit.i
   %arg.val9.i = load ptr, ptr %0, align 8
   %cmp.i.not.i12.i = icmp eq ptr %arg.val9.i, @PyCFuncPtrType_Type
-  br i1 %cmp.i.not.i12.i, label %if.end, label %PyObject_TypeCheck.exit17.i
+  br i1 %cmp.i.not.i12.i, label %if.end, label %PyObject_TypeCheck.argprom.exit17.i
 
-PyObject_TypeCheck.exit17.i:                      ; preds = %if.end.i24
+PyObject_TypeCheck.argprom.exit17.i:              ; preds = %if.end.i24
   %call2.i14.i = tail call i32 @PyType_IsSubtype(ptr noundef %arg.val9.i, ptr noundef nonnull @PyCFuncPtrType_Type) #15
   %tobool3.i15.not.i = icmp eq i32 %call2.i14.i, 0
   br i1 %tobool3.i15.not.i, label %if.end4.i, label %if.end
 
-if.end4.i:                                        ; preds = %PyObject_TypeCheck.exit17.i
+if.end4.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit17.i
   %call5.i = tail call ptr @PyType_stgdict(ptr noundef nonnull %ctype) #15
   %cmp.not.i = icmp eq ptr %call5.i, null
   br i1 %cmp.not.i, label %cast_check_pointertype.exit, label %land.lhs.true.i
@@ -12670,7 +12670,7 @@ cast_check_pointertype.exit:                      ; preds = %if.end4.i, %land.lh
   %call24.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.208, ptr noundef %cond.i) #15
   br label %return
 
-if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %PyObject_TypeCheck.exit17.i, %land.lhs.true12.i, %entry, %if.end.i24
+if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit.i, %PyObject_TypeCheck.argprom.exit17.i, %land.lhs.true12.i, %entry, %if.end.i24
   %call.i.i = tail call ptr @_PyThreadState_GetCurrent() #15
   %callable.val.i.i.i = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
@@ -12705,14 +12705,14 @@ if.end4:                                          ; preds = %_PyObject_CallNoArg
   %11 = getelementptr i8, ptr %src, i64 8
   %src.val = load ptr, ptr %11, align 8
   %cmp.i.not.i = icmp eq ptr %src.val, @PyCData_Type
-  br i1 %cmp.i.not.i, label %while.cond.i.preheader, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %while.cond.i.preheader, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.end4
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.end4
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %src.val, ptr noundef nonnull @PyCData_Type) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end39, label %while.cond.i.preheader
 
-while.cond.i.preheader:                           ; preds = %if.end4, %PyObject_TypeCheck.exit
+while.cond.i.preheader:                           ; preds = %if.end4, %PyObject_TypeCheck.argprom.exit
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
@@ -12837,7 +12837,7 @@ Py_DECREF.exit48:                                 ; preds = %if.end32, %if.then1
   %cmp35 = icmp eq i32 %call34, -1
   br i1 %cmp35, label %failed, label %if.end39
 
-if.end39:                                         ; preds = %_Py_XNewRef.exit, %land.lhs.true, %Py_DECREF.exit48, %PyObject_TypeCheck.exit
+if.end39:                                         ; preds = %_Py_XNewRef.exit, %land.lhs.true, %Py_DECREF.exit48, %PyObject_TypeCheck.argprom.exit
   %b_ptr = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   %25 = load ptr, ptr %b_ptr, align 16
   store ptr %ptr, ptr %25, align 1

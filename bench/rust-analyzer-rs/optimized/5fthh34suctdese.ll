@@ -637,16 +637,16 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %.val, ptr %4, align 8, !noalias !92
   %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8a34ade40c118f9b2a9b2a634a5af407.48, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a34ade40c118f9b2a9b2a634a5af407.49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !92
-  br label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.exit"
+  br label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.argprom.exit"
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !92
   store ptr %.val, ptr %3, align 8, !noalias !92
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.8a34ade40c118f9b2a9b2a634a5af407.50, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a34ade40c118f9b2a9b2a634a5af407.51)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !92
-  br label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.exit"
+  br label %"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.argprom.exit"
 
-"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.exit": ; preds = %9, %11
+"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.argprom.exit": ; preds = %9, %11
   %.0.in.i.i = phi i1 [ %10, %9 ], [ %12, %11 ]
   ret i1 %.0.in.i.i
 }
@@ -1093,7 +1093,7 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h5d8
   %9 = icmp sgt i64 %8, -1
   tail call void @llvm.assume(i1 %9)
   %10 = inttoptr i64 %4 to ptr
-  br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.exit.i"
+  br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.argprom.exit.i"
 
 11:                                               ; preds = %.noexc
   %12 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -1101,34 +1101,34 @@ define hidden { ptr, i64 } @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17h5d8
   %14 = icmp sgt i64 %13, -1
   tail call void @llvm.assume(i1 %14)
   %15 = tail call noundef ptr @__rust_alloc(i64 noundef %5, i64 noundef %4) #19
-  br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.exit.i"
+  br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.argprom.exit.i"
 
-"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.exit.i": ; preds = %11, %7
+"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.argprom.exit.i": ; preds = %11, %7
   %.sroa.05.0.i.i.i.i = phi ptr [ %10, %7 ], [ %15, %11 ]
   %16 = icmp eq ptr %.sroa.05.0.i.i.i.i, null
   br i1 %16, label %17, label %18
 
-17:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.exit.i"
+17:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.argprom.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %4, i64 noundef %5) #20
           to label %.noexc25 unwind label %26
 
 .noexc25:                                         ; preds = %17
   unreachable
 
-18:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.exit.i"
+18:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17h69a6d16ecfcbcaf8E.argprom.exit.i"
   store i64 1, ptr %.sroa.05.0.i.i.i.i, align 8
   %19 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i, i64 8
   store i64 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i.i.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %0, i64 %1, i1 false)
   %21 = icmp eq i64 %1, 0
-  br i1 %21, label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.exit", label %22
+  br i1 %21, label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.argprom.exit", label %22
 
 22:                                               ; preds = %18
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef %1, i64 noundef 1) #19
-  br label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.exit"
+  br label %"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.argprom.exit"
 
-"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.exit": ; preds = %22, %18
+"_ZN4core3ptr122drop_in_place$LT$alloc..boxed..Box$LT$core..mem..manually_drop..ManuallyDrop$LT$str$GT$$C$$RF$alloc..alloc..Global$GT$$GT$17h8388d1b3c5c7b9e9E.argprom.exit": ; preds = %22, %18
   %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0.i.i.i.i, 0
   %24 = insertvalue { ptr, i64 } %23, i64 %1, 1
   ret { ptr, i64 } %24
@@ -2033,8 +2033,8 @@ attributes #22 = { cold noreturn nounwind }
 !87 = distinct !{!87, !"_ZN59_$LT$tt..TokenTree$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h55d1ddc647670c4fE"}
 !88 = !{!89, !90}
 !89 = distinct !{!89, !87, !"_ZN59_$LT$tt..TokenTree$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h55d1ddc647670c4fE: argument 1"}
-!90 = distinct !{!90, !91, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E: argument 0"}
-!91 = distinct !{!91, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E"}
+!90 = distinct !{!90, !91, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.argprom: argument 0"}
+!91 = distinct !{!91, !"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bc408396fa7eb0E.argprom"}
 !92 = !{!86, !89, !90}
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZN54_$LT$tt..Leaf$LT$S$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5915468702c40580E: argument 0"}

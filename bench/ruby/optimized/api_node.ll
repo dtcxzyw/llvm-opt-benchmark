@@ -343,13 +343,13 @@ define hidden i64 @pm_token_new(ptr nocapture noundef readonly %0, ptr nocapture
 23:                                               ; preds = %4
   %24 = shl nuw nsw i64 %21, 1
   %25 = or disjoint i64 %24, 1
-  br label %pm_location_new.exit
+  br label %pm_location_new.argprom.exit
 
 26:                                               ; preds = %4
   %27 = tail call i64 @rb_ull2inum(i64 noundef %21) #6
-  br label %pm_location_new.exit
+  br label %pm_location_new.argprom.exit
 
-pm_location_new.exit:                             ; preds = %23, %26
+pm_location_new.argprom.exit:                     ; preds = %23, %26
   %.0.i.i = phi i64 [ %25, %23 ], [ %27, %26 ]
   store i64 %3, ptr %5, align 16
   %28 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1344,8 +1344,8 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   %866 = call i64 @rb_ary_push(i64 noundef %179, i64 noundef 4) #6
   br label %.backedge
 
-.backedge:                                        ; preds = %2084, %2063, %1815, %1776, %1700, %1690, %1680, %1670, %1660, %1650, %1474, %1082, %1008, %971, %961, %867, %2147, %2136, %._crit_edge4053, %2110, %2094, %2073, %2057, %2046, %2040, %._crit_edge4065, %2004, %1998, %1987, %1981, %1975, %1969, %1963, %1957, %1951, %._crit_edge4084, %1876, %1870, %1864, %1858, %._crit_edge4095, %1786, %1756, %1745, %1739, %1733, %1727, %1721, %1710, %1644, %1638, %1632, %1626, %1610, %1589, %1568, %1547, %1536, %1530, %1524, %1508, %._crit_edge4140, %1468, %1462, %1456, %1450, %1444, %1428, %1417, %._crit_edge4150, %1382, %1376, %1370, %1364, %1358, %1342, %1336, %1325, %1314, %1303, %1292, %1281, %1270, %1264, %1258, %1252, %1246, %1240, %1234, %1228, %1212, %._crit_edge4156, %._crit_edge4162, %1153, %1147, %1136, %1125, %1109, %1098, %1092, %1062, %1056, %1035, %1029, %1018, %950, %939, %928, %917, %pm_location_new.exit3817, %pm_location_new.exit3809, %pm_location_new.exit3801, %pm_location_new.exit3795, %pm_location_new.exit3791, %pm_location_new.exit3785, %pm_location_new.exit3777, %pm_location_new.exit3773, %pm_location_new.exit3771, %pm_location_new.exit3763, %pm_location_new.exit3755, %pm_location_new.exit3747, %pm_location_new.exit3745, %pm_location_new.exit3741, %pm_location_new.exit3739, %pm_location_new.exit3737, %pm_location_new.exit3735, %pm_location_new.exit3727, %pm_location_new.exit3725, %pm_location_new.exit3721, %pm_location_new.exit3719, %pm_location_new.exit3713, %pm_location_new.exit3707, %pm_location_new.exit3703, %pm_location_new.exit3701, %pm_location_new.exit3697, %pm_location_new.exit3689, %pm_location_new.exit3687, %pm_location_new.exit3685, %pm_location_new.exit3681, %pm_location_new.exit3679, %pm_location_new.exit3671, %pm_location_new.exit3663, %pm_location_new.exit3659, %pm_location_new.exit3651, %pm_location_new.exit3645, %pm_location_new.exit3643, %pm_location_new.exit3639, %pm_location_new.exit3633, %pm_location_new.exit3629, %pm_location_new.exit3627, %pm_location_new.exit3625, %pm_location_new.exit3619, %pm_location_new.exit3617, %pm_location_new.exit3613, %pm_location_new.exit3605, %pm_location_new.exit3599, %pm_location_new.exit3593, %pm_location_new.exit3591, %pm_location_new.exit3589, %pm_location_new.exit3585, %pm_location_new.exit3581, %pm_location_new.exit3573, %pm_location_new.exit3567, %pm_location_new.exit3565, %pm_location_new.exit3563, %pm_location_new.exit3557, %pm_location_new.exit3551, %pm_location_new.exit3545, %pm_location_new.exit3537, %pm_location_new.exit3531, %pm_location_new.exit3529, %pm_location_new.exit3527, %pm_location_new.exit3521, %pm_location_new.exit3515, %pm_location_new.exit3509, %pm_location_new.exit3503, %pm_location_new.exit3497, %pm_location_new.exit3494, %pm_location_new.exit3488, %pm_location_new.exit3486, %pm_location_new.exit3484, %pm_location_new.exit3478, %pm_location_new.exit3472, %pm_location_new.exit3466, %pm_location_new.exit3460, %pm_location_new.exit3450, %pm_location_new.exit3440, %pm_location_new.exit3430, %pm_location_new.exit3424, %pm_location_new.exit3422, %pm_location_new.exit3420, %pm_location_new.exit3418, %pm_location_new.exit3410, %pm_location_new.exit3404, %pm_location_new.exit3398, %pm_location_new.exit3392, %pm_location_new.exit3390, %pm_location_new.exit3388, %pm_location_new.exit3382, %pm_location_new.exit3376, %pm_location_new.exit3370, %pm_location_new.exit3368, %pm_location_new.exit3366, %pm_location_new.exit3364, %pm_location_new.exit3354, %pm_location_new.exit3352, %pm_location_new.exit3348, %pm_location_new.exit3342, %pm_location_new.exit3340, %pm_location_new.exit3334, %pm_location_new.exit3330, %pm_location_new.exit3324, %pm_location_new.exit3318, %pm_location_new.exit3310, %pm_location_new.exit3294, %pm_location_new.exit3288, %pm_location_new.exit3286, %pm_location_new.exit3284, %pm_location_new.exit3280, %pm_location_new.exit3276, %pm_location_new.exit3272, %pm_location_new.exit3268, %pm_location_new.exit3264, %pm_location_new.exit3260, %pm_location_new.exit3254, %pm_location_new.exit3248, %pm_location_new.exit3242, %pm_location_new.exit3236, %pm_location_new.exit3234, %pm_location_new.exit3232, %pm_location_new.exit3226, %pm_location_new.exit3220, %pm_location_new.exit3214, %pm_location_new.exit3206, %pm_location_new.exit3200, %pm_location_new.exit3194, %pm_location_new.exit3190, %pm_location_new.exit3184, %pm_location_new.exit3176, %pm_location_new.exit3168, %pm_location_new.exit3158, %pm_location_new.exit3150, %pm_location_new.exit3146, %pm_location_new.exit3140, %pm_location_new.exit3134, %pm_location_new.exit3128, %pm_location_new.exit3126, %pm_location_new.exit3122, %pm_location_new.exit3116, %pm_location_new.exit3114, %pm_location_new.exit3110, %pm_location_new.exit3106, %pm_location_new.exit3100, %pm_location_new.exit3094, %pm_location_new.exit3092, %pm_location_new.exit3088, %pm_location_new.exit3084, %pm_location_new.exit3080, %.preheader, %.preheader4014, %._crit_edge4173, %1073, %.preheader4018, %.preheader4020, %.preheader4022, %.preheader4024, %.preheader4026, %.preheader4028, %.preheader4030, %1767, %._crit_edge4100, %.preheader4040, %.preheader4042, %864
-  %.04013.be = phi ptr [ %865, %864 ], [ %2154, %pm_location_new.exit3817 ], [ %2154, %pm_location_new.exit3809 ], [ %2154, %pm_location_new.exit3801 ], [ %2154, %pm_location_new.exit3795 ], [ %2154, %pm_location_new.exit3791 ], [ %2154, %pm_location_new.exit3785 ], [ %2154, %pm_location_new.exit3777 ], [ %2154, %pm_location_new.exit3773 ], [ %2154, %pm_location_new.exit3771 ], [ %2154, %pm_location_new.exit3763 ], [ %2154, %pm_location_new.exit3755 ], [ %2154, %pm_location_new.exit3747 ], [ %2154, %pm_location_new.exit3745 ], [ %2154, %pm_location_new.exit3741 ], [ %2154, %pm_location_new.exit3739 ], [ %2154, %pm_location_new.exit3737 ], [ %2154, %pm_location_new.exit3735 ], [ %2154, %pm_location_new.exit3727 ], [ %2154, %pm_location_new.exit3725 ], [ %2154, %pm_location_new.exit3721 ], [ %2154, %pm_location_new.exit3719 ], [ %2154, %pm_location_new.exit3713 ], [ %2154, %pm_location_new.exit3707 ], [ %2154, %pm_location_new.exit3703 ], [ %2154, %pm_location_new.exit3701 ], [ %2154, %pm_location_new.exit3697 ], [ %2154, %pm_location_new.exit3689 ], [ %2154, %pm_location_new.exit3687 ], [ %2154, %pm_location_new.exit3685 ], [ %2154, %pm_location_new.exit3681 ], [ %2154, %pm_location_new.exit3679 ], [ %2154, %pm_location_new.exit3671 ], [ %2154, %pm_location_new.exit3663 ], [ %2154, %pm_location_new.exit3659 ], [ %2154, %pm_location_new.exit3651 ], [ %2154, %pm_location_new.exit3645 ], [ %2154, %pm_location_new.exit3643 ], [ %2154, %pm_location_new.exit3639 ], [ %2154, %pm_location_new.exit3633 ], [ %2154, %pm_location_new.exit3629 ], [ %2154, %pm_location_new.exit3627 ], [ %2154, %pm_location_new.exit3625 ], [ %2154, %pm_location_new.exit3619 ], [ %2154, %pm_location_new.exit3617 ], [ %2154, %pm_location_new.exit3613 ], [ %2154, %pm_location_new.exit3605 ], [ %2154, %pm_location_new.exit3599 ], [ %2154, %pm_location_new.exit3593 ], [ %2154, %pm_location_new.exit3591 ], [ %2154, %pm_location_new.exit3589 ], [ %2154, %pm_location_new.exit3585 ], [ %2154, %pm_location_new.exit3581 ], [ %2154, %pm_location_new.exit3573 ], [ %2154, %pm_location_new.exit3567 ], [ %2154, %pm_location_new.exit3565 ], [ %2154, %pm_location_new.exit3563 ], [ %2154, %pm_location_new.exit3557 ], [ %2154, %pm_location_new.exit3551 ], [ %2154, %pm_location_new.exit3545 ], [ %2154, %pm_location_new.exit3537 ], [ %2154, %pm_location_new.exit3531 ], [ %2154, %pm_location_new.exit3529 ], [ %2154, %pm_location_new.exit3527 ], [ %2154, %pm_location_new.exit3521 ], [ %2154, %pm_location_new.exit3515 ], [ %2154, %pm_location_new.exit3509 ], [ %2154, %pm_location_new.exit3503 ], [ %2154, %pm_location_new.exit3497 ], [ %2154, %pm_location_new.exit3494 ], [ %2154, %pm_location_new.exit3488 ], [ %2154, %pm_location_new.exit3486 ], [ %2154, %pm_location_new.exit3484 ], [ %2154, %pm_location_new.exit3478 ], [ %2154, %pm_location_new.exit3472 ], [ %2154, %pm_location_new.exit3466 ], [ %2154, %pm_location_new.exit3460 ], [ %2154, %pm_location_new.exit3450 ], [ %2154, %pm_location_new.exit3440 ], [ %2154, %pm_location_new.exit3430 ], [ %2154, %pm_location_new.exit3424 ], [ %2154, %pm_location_new.exit3422 ], [ %2154, %pm_location_new.exit3420 ], [ %2154, %pm_location_new.exit3418 ], [ %2154, %pm_location_new.exit3410 ], [ %2154, %pm_location_new.exit3404 ], [ %2154, %pm_location_new.exit3398 ], [ %2154, %pm_location_new.exit3392 ], [ %2154, %pm_location_new.exit3390 ], [ %2154, %pm_location_new.exit3388 ], [ %2154, %pm_location_new.exit3382 ], [ %2154, %pm_location_new.exit3376 ], [ %2154, %pm_location_new.exit3370 ], [ %2154, %pm_location_new.exit3368 ], [ %2154, %pm_location_new.exit3366 ], [ %2154, %pm_location_new.exit3364 ], [ %2154, %pm_location_new.exit3354 ], [ %2154, %pm_location_new.exit3352 ], [ %2154, %pm_location_new.exit3348 ], [ %2154, %pm_location_new.exit3342 ], [ %2154, %pm_location_new.exit3340 ], [ %2154, %pm_location_new.exit3334 ], [ %2154, %pm_location_new.exit3330 ], [ %2154, %pm_location_new.exit3324 ], [ %2154, %pm_location_new.exit3318 ], [ %2154, %pm_location_new.exit3310 ], [ %2154, %pm_location_new.exit3294 ], [ %2154, %pm_location_new.exit3288 ], [ %2154, %pm_location_new.exit3286 ], [ %2154, %pm_location_new.exit3284 ], [ %2154, %pm_location_new.exit3280 ], [ %2154, %pm_location_new.exit3276 ], [ %2154, %pm_location_new.exit3272 ], [ %2154, %pm_location_new.exit3268 ], [ %2154, %pm_location_new.exit3264 ], [ %2154, %pm_location_new.exit3260 ], [ %2154, %pm_location_new.exit3254 ], [ %2154, %pm_location_new.exit3248 ], [ %2154, %pm_location_new.exit3242 ], [ %2154, %pm_location_new.exit3236 ], [ %2154, %pm_location_new.exit3234 ], [ %2154, %pm_location_new.exit3232 ], [ %2154, %pm_location_new.exit3226 ], [ %2154, %pm_location_new.exit3220 ], [ %2154, %pm_location_new.exit3214 ], [ %2154, %pm_location_new.exit3206 ], [ %2154, %pm_location_new.exit3200 ], [ %2154, %pm_location_new.exit3194 ], [ %2154, %pm_location_new.exit3190 ], [ %2154, %pm_location_new.exit3184 ], [ %2154, %pm_location_new.exit3176 ], [ %2154, %pm_location_new.exit3168 ], [ %2154, %pm_location_new.exit3158 ], [ %2154, %pm_location_new.exit3150 ], [ %2154, %pm_location_new.exit3146 ], [ %2154, %pm_location_new.exit3140 ], [ %2154, %pm_location_new.exit3134 ], [ %2154, %pm_location_new.exit3128 ], [ %2154, %pm_location_new.exit3126 ], [ %2154, %pm_location_new.exit3122 ], [ %2154, %pm_location_new.exit3116 ], [ %2154, %pm_location_new.exit3114 ], [ %2154, %pm_location_new.exit3110 ], [ %2154, %pm_location_new.exit3106 ], [ %2154, %pm_location_new.exit3100 ], [ %2154, %pm_location_new.exit3094 ], [ %2154, %pm_location_new.exit3092 ], [ %2154, %pm_location_new.exit3088 ], [ %2154, %pm_location_new.exit3084 ], [ %2154, %pm_location_new.exit3080 ], [ %.040134323, %867 ], [ %2150, %2147 ], [ %2144, %2136 ], [ %2133, %._crit_edge4053 ], [ %2118, %2110 ], [ %2107, %2094 ], [ %2081, %2073 ], [ %2060, %2057 ], [ %2054, %2046 ], [ %2043, %2040 ], [ %2037, %._crit_edge4065 ], [ %2012, %2004 ], [ %2001, %1998 ], [ %1995, %1987 ], [ %1984, %1981 ], [ %1978, %1975 ], [ %1972, %1969 ], [ %1966, %1963 ], [ %1960, %1957 ], [ %1954, %1951 ], [ %1948, %._crit_edge4084 ], [ %1884, %1876 ], [ %1873, %1870 ], [ %1867, %1864 ], [ %1861, %1858 ], [ %1855, %._crit_edge4095 ], [ %1794, %1786 ], [ %1764, %1756 ], [ %1753, %1745 ], [ %1742, %1739 ], [ %1736, %1733 ], [ %1730, %1727 ], [ %1724, %1721 ], [ %1718, %1710 ], [ %1647, %1644 ], [ %1641, %1638 ], [ %1635, %1632 ], [ %1629, %1626 ], [ %1623, %1610 ], [ %1607, %1589 ], [ %1586, %1568 ], [ %1565, %1547 ], [ %1544, %1536 ], [ %1533, %1530 ], [ %1527, %1524 ], [ %1521, %1508 ], [ %1505, %._crit_edge4140 ], [ %1471, %1468 ], [ %1465, %1462 ], [ %1459, %1456 ], [ %1453, %1450 ], [ %1447, %1444 ], [ %1441, %1428 ], [ %1425, %1417 ], [ %1414, %._crit_edge4150 ], [ %1385, %1382 ], [ %1379, %1376 ], [ %1373, %1370 ], [ %1367, %1364 ], [ %1361, %1358 ], [ %1355, %1342 ], [ %1339, %1336 ], [ %1333, %1325 ], [ %1322, %1314 ], [ %1311, %1303 ], [ %1300, %1292 ], [ %1289, %1281 ], [ %1278, %1270 ], [ %1267, %1264 ], [ %1261, %1258 ], [ %1255, %1252 ], [ %1249, %1246 ], [ %1243, %1240 ], [ %1237, %1234 ], [ %1231, %1228 ], [ %1225, %1212 ], [ %1209, %._crit_edge4156 ], [ %1185, %._crit_edge4162 ], [ %1161, %1153 ], [ %1150, %1147 ], [ %1144, %1136 ], [ %1133, %1125 ], [ %1122, %1109 ], [ %1106, %1098 ], [ %1095, %1092 ], [ %1070, %1062 ], [ %1059, %1056 ], [ %1053, %1035 ], [ %1032, %1029 ], [ %1026, %1018 ], [ %958, %950 ], [ %947, %939 ], [ %936, %928 ], [ %925, %917 ], [ %.040134323, %.preheader ], [ %.040134323, %.preheader4014 ], [ %1002, %._crit_edge4173 ], [ %1076, %1073 ], [ %.040134323, %.preheader4018 ], [ %.040134323, %.preheader4020 ], [ %.040134323, %.preheader4022 ], [ %.040134323, %.preheader4024 ], [ %.040134323, %.preheader4026 ], [ %.040134323, %.preheader4028 ], [ %.040134323, %.preheader4030 ], [ %1770, %1767 ], [ %1809, %._crit_edge4100 ], [ %.040134323, %.preheader4040 ], [ %.040134323, %.preheader4042 ], [ %965, %961 ], [ %975, %971 ], [ %1012, %1008 ], [ %1086, %1082 ], [ %1478, %1474 ], [ %1654, %1650 ], [ %1664, %1660 ], [ %1674, %1670 ], [ %1684, %1680 ], [ %1694, %1690 ], [ %1704, %1700 ], [ %1780, %1776 ], [ %1819, %1815 ], [ %2067, %2063 ], [ %2088, %2084 ]
+.backedge:                                        ; preds = %2084, %2063, %1815, %1776, %1700, %1690, %1680, %1670, %1660, %1650, %1474, %1082, %1008, %971, %961, %867, %2147, %2136, %._crit_edge4053, %2110, %2094, %2073, %2057, %2046, %2040, %._crit_edge4065, %2004, %1998, %1987, %1981, %1975, %1969, %1963, %1957, %1951, %._crit_edge4084, %1876, %1870, %1864, %1858, %._crit_edge4095, %1786, %1756, %1745, %1739, %1733, %1727, %1721, %1710, %1644, %1638, %1632, %1626, %1610, %1589, %1568, %1547, %1536, %1530, %1524, %1508, %._crit_edge4140, %1468, %1462, %1456, %1450, %1444, %1428, %1417, %._crit_edge4150, %1382, %1376, %1370, %1364, %1358, %1342, %1336, %1325, %1314, %1303, %1292, %1281, %1270, %1264, %1258, %1252, %1246, %1240, %1234, %1228, %1212, %._crit_edge4156, %._crit_edge4162, %1153, %1147, %1136, %1125, %1109, %1098, %1092, %1062, %1056, %1035, %1029, %1018, %950, %939, %928, %917, %pm_location_new.argprom.exit3817, %pm_location_new.argprom.exit3809, %pm_location_new.argprom.exit3801, %pm_location_new.argprom.exit3795, %pm_location_new.argprom.exit3791, %pm_location_new.argprom.exit3785, %pm_location_new.argprom.exit3777, %pm_location_new.argprom.exit3773, %pm_location_new.argprom.exit3771, %pm_location_new.argprom.exit3763, %pm_location_new.argprom.exit3755, %pm_location_new.argprom.exit3747, %pm_location_new.argprom.exit3745, %pm_location_new.argprom.exit3741, %pm_location_new.argprom.exit3739, %pm_location_new.argprom.exit3737, %pm_location_new.argprom.exit3735, %pm_location_new.argprom.exit3727, %pm_location_new.argprom.exit3725, %pm_location_new.argprom.exit3721, %pm_location_new.argprom.exit3719, %pm_location_new.argprom.exit3713, %pm_location_new.argprom.exit3707, %pm_location_new.argprom.exit3703, %pm_location_new.argprom.exit3701, %pm_location_new.argprom.exit3697, %pm_location_new.argprom.exit3689, %pm_location_new.argprom.exit3687, %pm_location_new.argprom.exit3685, %pm_location_new.argprom.exit3681, %pm_location_new.argprom.exit3679, %pm_location_new.argprom.exit3671, %pm_location_new.argprom.exit3663, %pm_location_new.argprom.exit3659, %pm_location_new.argprom.exit3651, %pm_location_new.argprom.exit3645, %pm_location_new.argprom.exit3643, %pm_location_new.argprom.exit3639, %pm_location_new.argprom.exit3633, %pm_location_new.argprom.exit3629, %pm_location_new.argprom.exit3627, %pm_location_new.argprom.exit3625, %pm_location_new.argprom.exit3619, %pm_location_new.argprom.exit3617, %pm_location_new.argprom.exit3613, %pm_location_new.argprom.exit3605, %pm_location_new.argprom.exit3599, %pm_location_new.argprom.exit3593, %pm_location_new.argprom.exit3591, %pm_location_new.argprom.exit3589, %pm_location_new.argprom.exit3585, %pm_location_new.argprom.exit3581, %pm_location_new.argprom.exit3573, %pm_location_new.argprom.exit3567, %pm_location_new.argprom.exit3565, %pm_location_new.argprom.exit3563, %pm_location_new.argprom.exit3557, %pm_location_new.argprom.exit3551, %pm_location_new.argprom.exit3545, %pm_location_new.argprom.exit3537, %pm_location_new.argprom.exit3531, %pm_location_new.argprom.exit3529, %pm_location_new.argprom.exit3527, %pm_location_new.argprom.exit3521, %pm_location_new.argprom.exit3515, %pm_location_new.argprom.exit3509, %pm_location_new.argprom.exit3503, %pm_location_new.argprom.exit3497, %pm_location_new.argprom.exit3494, %pm_location_new.argprom.exit3488, %pm_location_new.argprom.exit3486, %pm_location_new.argprom.exit3484, %pm_location_new.argprom.exit3478, %pm_location_new.argprom.exit3472, %pm_location_new.argprom.exit3466, %pm_location_new.argprom.exit3460, %pm_location_new.argprom.exit3450, %pm_location_new.argprom.exit3440, %pm_location_new.argprom.exit3430, %pm_location_new.argprom.exit3424, %pm_location_new.argprom.exit3422, %pm_location_new.argprom.exit3420, %pm_location_new.argprom.exit3418, %pm_location_new.argprom.exit3410, %pm_location_new.argprom.exit3404, %pm_location_new.argprom.exit3398, %pm_location_new.argprom.exit3392, %pm_location_new.argprom.exit3390, %pm_location_new.argprom.exit3388, %pm_location_new.argprom.exit3382, %pm_location_new.argprom.exit3376, %pm_location_new.argprom.exit3370, %pm_location_new.argprom.exit3368, %pm_location_new.argprom.exit3366, %pm_location_new.argprom.exit3364, %pm_location_new.argprom.exit3354, %pm_location_new.argprom.exit3352, %pm_location_new.argprom.exit3348, %pm_location_new.argprom.exit3342, %pm_location_new.argprom.exit3340, %pm_location_new.argprom.exit3334, %pm_location_new.argprom.exit3330, %pm_location_new.argprom.exit3324, %pm_location_new.argprom.exit3318, %pm_location_new.argprom.exit3310, %pm_location_new.argprom.exit3294, %pm_location_new.argprom.exit3288, %pm_location_new.argprom.exit3286, %pm_location_new.argprom.exit3284, %pm_location_new.argprom.exit3280, %pm_location_new.argprom.exit3276, %pm_location_new.argprom.exit3272, %pm_location_new.argprom.exit3268, %pm_location_new.argprom.exit3264, %pm_location_new.argprom.exit3260, %pm_location_new.argprom.exit3254, %pm_location_new.argprom.exit3248, %pm_location_new.argprom.exit3242, %pm_location_new.argprom.exit3236, %pm_location_new.argprom.exit3234, %pm_location_new.argprom.exit3232, %pm_location_new.argprom.exit3226, %pm_location_new.argprom.exit3220, %pm_location_new.argprom.exit3214, %pm_location_new.argprom.exit3206, %pm_location_new.argprom.exit3200, %pm_location_new.argprom.exit3194, %pm_location_new.argprom.exit3190, %pm_location_new.argprom.exit3184, %pm_location_new.argprom.exit3176, %pm_location_new.argprom.exit3168, %pm_location_new.argprom.exit3158, %pm_location_new.argprom.exit3150, %pm_location_new.argprom.exit3146, %pm_location_new.argprom.exit3140, %pm_location_new.argprom.exit3134, %pm_location_new.argprom.exit3128, %pm_location_new.argprom.exit3126, %pm_location_new.argprom.exit3122, %pm_location_new.argprom.exit3116, %pm_location_new.argprom.exit3114, %pm_location_new.argprom.exit3110, %pm_location_new.argprom.exit3106, %pm_location_new.argprom.exit3100, %pm_location_new.argprom.exit3094, %pm_location_new.argprom.exit3092, %pm_location_new.argprom.exit3088, %pm_location_new.argprom.exit3084, %pm_location_new.argprom.exit3080, %.preheader, %.preheader4014, %._crit_edge4173, %1073, %.preheader4018, %.preheader4020, %.preheader4022, %.preheader4024, %.preheader4026, %.preheader4028, %.preheader4030, %1767, %._crit_edge4100, %.preheader4040, %.preheader4042, %864
+  %.04013.be = phi ptr [ %865, %864 ], [ %2154, %pm_location_new.argprom.exit3817 ], [ %2154, %pm_location_new.argprom.exit3809 ], [ %2154, %pm_location_new.argprom.exit3801 ], [ %2154, %pm_location_new.argprom.exit3795 ], [ %2154, %pm_location_new.argprom.exit3791 ], [ %2154, %pm_location_new.argprom.exit3785 ], [ %2154, %pm_location_new.argprom.exit3777 ], [ %2154, %pm_location_new.argprom.exit3773 ], [ %2154, %pm_location_new.argprom.exit3771 ], [ %2154, %pm_location_new.argprom.exit3763 ], [ %2154, %pm_location_new.argprom.exit3755 ], [ %2154, %pm_location_new.argprom.exit3747 ], [ %2154, %pm_location_new.argprom.exit3745 ], [ %2154, %pm_location_new.argprom.exit3741 ], [ %2154, %pm_location_new.argprom.exit3739 ], [ %2154, %pm_location_new.argprom.exit3737 ], [ %2154, %pm_location_new.argprom.exit3735 ], [ %2154, %pm_location_new.argprom.exit3727 ], [ %2154, %pm_location_new.argprom.exit3725 ], [ %2154, %pm_location_new.argprom.exit3721 ], [ %2154, %pm_location_new.argprom.exit3719 ], [ %2154, %pm_location_new.argprom.exit3713 ], [ %2154, %pm_location_new.argprom.exit3707 ], [ %2154, %pm_location_new.argprom.exit3703 ], [ %2154, %pm_location_new.argprom.exit3701 ], [ %2154, %pm_location_new.argprom.exit3697 ], [ %2154, %pm_location_new.argprom.exit3689 ], [ %2154, %pm_location_new.argprom.exit3687 ], [ %2154, %pm_location_new.argprom.exit3685 ], [ %2154, %pm_location_new.argprom.exit3681 ], [ %2154, %pm_location_new.argprom.exit3679 ], [ %2154, %pm_location_new.argprom.exit3671 ], [ %2154, %pm_location_new.argprom.exit3663 ], [ %2154, %pm_location_new.argprom.exit3659 ], [ %2154, %pm_location_new.argprom.exit3651 ], [ %2154, %pm_location_new.argprom.exit3645 ], [ %2154, %pm_location_new.argprom.exit3643 ], [ %2154, %pm_location_new.argprom.exit3639 ], [ %2154, %pm_location_new.argprom.exit3633 ], [ %2154, %pm_location_new.argprom.exit3629 ], [ %2154, %pm_location_new.argprom.exit3627 ], [ %2154, %pm_location_new.argprom.exit3625 ], [ %2154, %pm_location_new.argprom.exit3619 ], [ %2154, %pm_location_new.argprom.exit3617 ], [ %2154, %pm_location_new.argprom.exit3613 ], [ %2154, %pm_location_new.argprom.exit3605 ], [ %2154, %pm_location_new.argprom.exit3599 ], [ %2154, %pm_location_new.argprom.exit3593 ], [ %2154, %pm_location_new.argprom.exit3591 ], [ %2154, %pm_location_new.argprom.exit3589 ], [ %2154, %pm_location_new.argprom.exit3585 ], [ %2154, %pm_location_new.argprom.exit3581 ], [ %2154, %pm_location_new.argprom.exit3573 ], [ %2154, %pm_location_new.argprom.exit3567 ], [ %2154, %pm_location_new.argprom.exit3565 ], [ %2154, %pm_location_new.argprom.exit3563 ], [ %2154, %pm_location_new.argprom.exit3557 ], [ %2154, %pm_location_new.argprom.exit3551 ], [ %2154, %pm_location_new.argprom.exit3545 ], [ %2154, %pm_location_new.argprom.exit3537 ], [ %2154, %pm_location_new.argprom.exit3531 ], [ %2154, %pm_location_new.argprom.exit3529 ], [ %2154, %pm_location_new.argprom.exit3527 ], [ %2154, %pm_location_new.argprom.exit3521 ], [ %2154, %pm_location_new.argprom.exit3515 ], [ %2154, %pm_location_new.argprom.exit3509 ], [ %2154, %pm_location_new.argprom.exit3503 ], [ %2154, %pm_location_new.argprom.exit3497 ], [ %2154, %pm_location_new.argprom.exit3494 ], [ %2154, %pm_location_new.argprom.exit3488 ], [ %2154, %pm_location_new.argprom.exit3486 ], [ %2154, %pm_location_new.argprom.exit3484 ], [ %2154, %pm_location_new.argprom.exit3478 ], [ %2154, %pm_location_new.argprom.exit3472 ], [ %2154, %pm_location_new.argprom.exit3466 ], [ %2154, %pm_location_new.argprom.exit3460 ], [ %2154, %pm_location_new.argprom.exit3450 ], [ %2154, %pm_location_new.argprom.exit3440 ], [ %2154, %pm_location_new.argprom.exit3430 ], [ %2154, %pm_location_new.argprom.exit3424 ], [ %2154, %pm_location_new.argprom.exit3422 ], [ %2154, %pm_location_new.argprom.exit3420 ], [ %2154, %pm_location_new.argprom.exit3418 ], [ %2154, %pm_location_new.argprom.exit3410 ], [ %2154, %pm_location_new.argprom.exit3404 ], [ %2154, %pm_location_new.argprom.exit3398 ], [ %2154, %pm_location_new.argprom.exit3392 ], [ %2154, %pm_location_new.argprom.exit3390 ], [ %2154, %pm_location_new.argprom.exit3388 ], [ %2154, %pm_location_new.argprom.exit3382 ], [ %2154, %pm_location_new.argprom.exit3376 ], [ %2154, %pm_location_new.argprom.exit3370 ], [ %2154, %pm_location_new.argprom.exit3368 ], [ %2154, %pm_location_new.argprom.exit3366 ], [ %2154, %pm_location_new.argprom.exit3364 ], [ %2154, %pm_location_new.argprom.exit3354 ], [ %2154, %pm_location_new.argprom.exit3352 ], [ %2154, %pm_location_new.argprom.exit3348 ], [ %2154, %pm_location_new.argprom.exit3342 ], [ %2154, %pm_location_new.argprom.exit3340 ], [ %2154, %pm_location_new.argprom.exit3334 ], [ %2154, %pm_location_new.argprom.exit3330 ], [ %2154, %pm_location_new.argprom.exit3324 ], [ %2154, %pm_location_new.argprom.exit3318 ], [ %2154, %pm_location_new.argprom.exit3310 ], [ %2154, %pm_location_new.argprom.exit3294 ], [ %2154, %pm_location_new.argprom.exit3288 ], [ %2154, %pm_location_new.argprom.exit3286 ], [ %2154, %pm_location_new.argprom.exit3284 ], [ %2154, %pm_location_new.argprom.exit3280 ], [ %2154, %pm_location_new.argprom.exit3276 ], [ %2154, %pm_location_new.argprom.exit3272 ], [ %2154, %pm_location_new.argprom.exit3268 ], [ %2154, %pm_location_new.argprom.exit3264 ], [ %2154, %pm_location_new.argprom.exit3260 ], [ %2154, %pm_location_new.argprom.exit3254 ], [ %2154, %pm_location_new.argprom.exit3248 ], [ %2154, %pm_location_new.argprom.exit3242 ], [ %2154, %pm_location_new.argprom.exit3236 ], [ %2154, %pm_location_new.argprom.exit3234 ], [ %2154, %pm_location_new.argprom.exit3232 ], [ %2154, %pm_location_new.argprom.exit3226 ], [ %2154, %pm_location_new.argprom.exit3220 ], [ %2154, %pm_location_new.argprom.exit3214 ], [ %2154, %pm_location_new.argprom.exit3206 ], [ %2154, %pm_location_new.argprom.exit3200 ], [ %2154, %pm_location_new.argprom.exit3194 ], [ %2154, %pm_location_new.argprom.exit3190 ], [ %2154, %pm_location_new.argprom.exit3184 ], [ %2154, %pm_location_new.argprom.exit3176 ], [ %2154, %pm_location_new.argprom.exit3168 ], [ %2154, %pm_location_new.argprom.exit3158 ], [ %2154, %pm_location_new.argprom.exit3150 ], [ %2154, %pm_location_new.argprom.exit3146 ], [ %2154, %pm_location_new.argprom.exit3140 ], [ %2154, %pm_location_new.argprom.exit3134 ], [ %2154, %pm_location_new.argprom.exit3128 ], [ %2154, %pm_location_new.argprom.exit3126 ], [ %2154, %pm_location_new.argprom.exit3122 ], [ %2154, %pm_location_new.argprom.exit3116 ], [ %2154, %pm_location_new.argprom.exit3114 ], [ %2154, %pm_location_new.argprom.exit3110 ], [ %2154, %pm_location_new.argprom.exit3106 ], [ %2154, %pm_location_new.argprom.exit3100 ], [ %2154, %pm_location_new.argprom.exit3094 ], [ %2154, %pm_location_new.argprom.exit3092 ], [ %2154, %pm_location_new.argprom.exit3088 ], [ %2154, %pm_location_new.argprom.exit3084 ], [ %2154, %pm_location_new.argprom.exit3080 ], [ %.040134323, %867 ], [ %2150, %2147 ], [ %2144, %2136 ], [ %2133, %._crit_edge4053 ], [ %2118, %2110 ], [ %2107, %2094 ], [ %2081, %2073 ], [ %2060, %2057 ], [ %2054, %2046 ], [ %2043, %2040 ], [ %2037, %._crit_edge4065 ], [ %2012, %2004 ], [ %2001, %1998 ], [ %1995, %1987 ], [ %1984, %1981 ], [ %1978, %1975 ], [ %1972, %1969 ], [ %1966, %1963 ], [ %1960, %1957 ], [ %1954, %1951 ], [ %1948, %._crit_edge4084 ], [ %1884, %1876 ], [ %1873, %1870 ], [ %1867, %1864 ], [ %1861, %1858 ], [ %1855, %._crit_edge4095 ], [ %1794, %1786 ], [ %1764, %1756 ], [ %1753, %1745 ], [ %1742, %1739 ], [ %1736, %1733 ], [ %1730, %1727 ], [ %1724, %1721 ], [ %1718, %1710 ], [ %1647, %1644 ], [ %1641, %1638 ], [ %1635, %1632 ], [ %1629, %1626 ], [ %1623, %1610 ], [ %1607, %1589 ], [ %1586, %1568 ], [ %1565, %1547 ], [ %1544, %1536 ], [ %1533, %1530 ], [ %1527, %1524 ], [ %1521, %1508 ], [ %1505, %._crit_edge4140 ], [ %1471, %1468 ], [ %1465, %1462 ], [ %1459, %1456 ], [ %1453, %1450 ], [ %1447, %1444 ], [ %1441, %1428 ], [ %1425, %1417 ], [ %1414, %._crit_edge4150 ], [ %1385, %1382 ], [ %1379, %1376 ], [ %1373, %1370 ], [ %1367, %1364 ], [ %1361, %1358 ], [ %1355, %1342 ], [ %1339, %1336 ], [ %1333, %1325 ], [ %1322, %1314 ], [ %1311, %1303 ], [ %1300, %1292 ], [ %1289, %1281 ], [ %1278, %1270 ], [ %1267, %1264 ], [ %1261, %1258 ], [ %1255, %1252 ], [ %1249, %1246 ], [ %1243, %1240 ], [ %1237, %1234 ], [ %1231, %1228 ], [ %1225, %1212 ], [ %1209, %._crit_edge4156 ], [ %1185, %._crit_edge4162 ], [ %1161, %1153 ], [ %1150, %1147 ], [ %1144, %1136 ], [ %1133, %1125 ], [ %1122, %1109 ], [ %1106, %1098 ], [ %1095, %1092 ], [ %1070, %1062 ], [ %1059, %1056 ], [ %1053, %1035 ], [ %1032, %1029 ], [ %1026, %1018 ], [ %958, %950 ], [ %947, %939 ], [ %936, %928 ], [ %925, %917 ], [ %.040134323, %.preheader ], [ %.040134323, %.preheader4014 ], [ %1002, %._crit_edge4173 ], [ %1076, %1073 ], [ %.040134323, %.preheader4018 ], [ %.040134323, %.preheader4020 ], [ %.040134323, %.preheader4022 ], [ %.040134323, %.preheader4024 ], [ %.040134323, %.preheader4026 ], [ %.040134323, %.preheader4028 ], [ %.040134323, %.preheader4030 ], [ %1770, %1767 ], [ %1809, %._crit_edge4100 ], [ %.040134323, %.preheader4040 ], [ %.040134323, %.preheader4042 ], [ %965, %961 ], [ %975, %971 ], [ %1012, %1008 ], [ %1086, %1082 ], [ %1478, %1474 ], [ %1654, %1650 ], [ %1664, %1660 ], [ %1674, %1670 ], [ %1684, %1680 ], [ %1694, %1690 ], [ %1704, %1700 ], [ %1780, %1776 ], [ %1819, %1815 ], [ %2067, %2063 ], [ %2088, %2084 ]
   %.not = icmp eq ptr %.04013.be, null
   br i1 %.not, label %10824, label %856, !llvm.loop !10
 
@@ -4024,15 +4024,15 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
 2172:                                             ; preds = %2156
   %2173 = shl nuw nsw i64 %2170, 1
   %2174 = or disjoint i64 %2173, 1
-  br label %pm_location_new.exit
+  br label %pm_location_new.argprom.exit
 
 2175:                                             ; preds = %2156
   %2176 = call i64 @rb_ull2inum(i64 noundef %2170) #6
   %.val3077.pre = load ptr, ptr %180, align 8
   %.pre = ptrtoint ptr %.val3077.pre to i64
-  br label %pm_location_new.exit
+  br label %pm_location_new.argprom.exit
 
-pm_location_new.exit:                             ; preds = %2172, %2175
+pm_location_new.argprom.exit:                     ; preds = %2172, %2175
   %.pre-phi = phi i64 [ %2164, %2172 ], [ %.pre, %2175 ]
   %.0.i.i = phi i64 [ %2174, %2172 ], [ %2176, %2175 ]
   store i64 %.0.i.i, ptr %854, align 8
@@ -4050,16 +4050,16 @@ pm_location_new.exit:                             ; preds = %2172, %2175
   %2188 = icmp ult i64 %2183, 4611686018427387904
   br i1 %2188, label %2189, label %2192
 
-2189:                                             ; preds = %pm_location_new.exit
+2189:                                             ; preds = %pm_location_new.argprom.exit
   %2190 = shl nuw nsw i64 %2187, 1
   %2191 = or disjoint i64 %2190, 1
-  br label %pm_location_new.exit3080
+  br label %pm_location_new.argprom.exit3080
 
-2192:                                             ; preds = %pm_location_new.exit
+2192:                                             ; preds = %pm_location_new.argprom.exit
   %2193 = call i64 @rb_ull2inum(i64 noundef %2187) #6
-  br label %pm_location_new.exit3080
+  br label %pm_location_new.argprom.exit3080
 
-pm_location_new.exit3080:                         ; preds = %2189, %2192
+pm_location_new.argprom.exit3080:                 ; preds = %2189, %2192
   %.0.i.i3079 = phi i64 [ %2191, %2189 ], [ %2193, %2192 ]
   store i64 %.0.i.i3079, ptr %855, align 16
   %2194 = load i64, ptr @rb_cPrismAliasGlobalVariableNode, align 8
@@ -4092,15 +4092,15 @@ pm_location_new.exit3080:                         ; preds = %2189, %2192
 2213:                                             ; preds = %2197
   %2214 = shl nuw nsw i64 %2211, 1
   %2215 = or disjoint i64 %2214, 1
-  br label %pm_location_new.exit3082
+  br label %pm_location_new.argprom.exit3082
 
 2216:                                             ; preds = %2197
   %2217 = call i64 @rb_ull2inum(i64 noundef %2211) #6
   %.val3075.pre = load ptr, ptr %180, align 8
   %.pre4598 = ptrtoint ptr %.val3075.pre to i64
-  br label %pm_location_new.exit3082
+  br label %pm_location_new.argprom.exit3082
 
-pm_location_new.exit3082:                         ; preds = %2213, %2216
+pm_location_new.argprom.exit3082:                 ; preds = %2213, %2216
   %.pre-phi4599 = phi i64 [ %2205, %2213 ], [ %.pre4598, %2216 ]
   %.0.i.i3081 = phi i64 [ %2215, %2213 ], [ %2217, %2216 ]
   store i64 %.0.i.i3081, ptr %850, align 8
@@ -4118,16 +4118,16 @@ pm_location_new.exit3082:                         ; preds = %2213, %2216
   %2229 = icmp ult i64 %2224, 4611686018427387904
   br i1 %2229, label %2230, label %2233
 
-2230:                                             ; preds = %pm_location_new.exit3082
+2230:                                             ; preds = %pm_location_new.argprom.exit3082
   %2231 = shl nuw nsw i64 %2228, 1
   %2232 = or disjoint i64 %2231, 1
-  br label %pm_location_new.exit3084
+  br label %pm_location_new.argprom.exit3084
 
-2233:                                             ; preds = %pm_location_new.exit3082
+2233:                                             ; preds = %pm_location_new.argprom.exit3082
   %2234 = call i64 @rb_ull2inum(i64 noundef %2228) #6
-  br label %pm_location_new.exit3084
+  br label %pm_location_new.argprom.exit3084
 
-pm_location_new.exit3084:                         ; preds = %2230, %2233
+pm_location_new.argprom.exit3084:                 ; preds = %2230, %2233
   %.0.i.i3083 = phi i64 [ %2232, %2230 ], [ %2234, %2233 ]
   store i64 %.0.i.i3083, ptr %851, align 16
   %2235 = load i64, ptr @rb_cPrismAliasMethodNode, align 8
@@ -4160,15 +4160,15 @@ pm_location_new.exit3084:                         ; preds = %2230, %2233
 2254:                                             ; preds = %2238
   %2255 = shl nuw nsw i64 %2252, 1
   %2256 = or disjoint i64 %2255, 1
-  br label %pm_location_new.exit3086
+  br label %pm_location_new.argprom.exit3086
 
 2257:                                             ; preds = %2238
   %2258 = call i64 @rb_ull2inum(i64 noundef %2252) #6
   %.val3073.pre = load ptr, ptr %180, align 8
   %.pre4600 = ptrtoint ptr %.val3073.pre to i64
-  br label %pm_location_new.exit3086
+  br label %pm_location_new.argprom.exit3086
 
-pm_location_new.exit3086:                         ; preds = %2254, %2257
+pm_location_new.argprom.exit3086:                 ; preds = %2254, %2257
   %.pre-phi4601 = phi i64 [ %2246, %2254 ], [ %.pre4600, %2257 ]
   %.0.i.i3085 = phi i64 [ %2256, %2254 ], [ %2258, %2257 ]
   store i64 %.0.i.i3085, ptr %846, align 8
@@ -4186,16 +4186,16 @@ pm_location_new.exit3086:                         ; preds = %2254, %2257
   %2270 = icmp ult i64 %2265, 4611686018427387904
   br i1 %2270, label %2271, label %2274
 
-2271:                                             ; preds = %pm_location_new.exit3086
+2271:                                             ; preds = %pm_location_new.argprom.exit3086
   %2272 = shl nuw nsw i64 %2269, 1
   %2273 = or disjoint i64 %2272, 1
-  br label %pm_location_new.exit3088
+  br label %pm_location_new.argprom.exit3088
 
-2274:                                             ; preds = %pm_location_new.exit3086
+2274:                                             ; preds = %pm_location_new.argprom.exit3086
   %2275 = call i64 @rb_ull2inum(i64 noundef %2269) #6
-  br label %pm_location_new.exit3088
+  br label %pm_location_new.argprom.exit3088
 
-pm_location_new.exit3088:                         ; preds = %2271, %2274
+pm_location_new.argprom.exit3088:                 ; preds = %2271, %2274
   %.0.i.i3087 = phi i64 [ %2273, %2271 ], [ %2275, %2274 ]
   store i64 %.0.i.i3087, ptr %847, align 16
   %2276 = load i64, ptr @rb_cPrismAlternationPatternNode, align 8
@@ -4228,15 +4228,15 @@ pm_location_new.exit3088:                         ; preds = %2271, %2274
 2295:                                             ; preds = %2279
   %2296 = shl nuw nsw i64 %2293, 1
   %2297 = or disjoint i64 %2296, 1
-  br label %pm_location_new.exit3090
+  br label %pm_location_new.argprom.exit3090
 
 2298:                                             ; preds = %2279
   %2299 = call i64 @rb_ull2inum(i64 noundef %2293) #6
   %.val3071.pre = load ptr, ptr %180, align 8
   %.pre4602 = ptrtoint ptr %.val3071.pre to i64
-  br label %pm_location_new.exit3090
+  br label %pm_location_new.argprom.exit3090
 
-pm_location_new.exit3090:                         ; preds = %2295, %2298
+pm_location_new.argprom.exit3090:                 ; preds = %2295, %2298
   %.pre-phi4603 = phi i64 [ %2287, %2295 ], [ %.pre4602, %2298 ]
   %.0.i.i3089 = phi i64 [ %2297, %2295 ], [ %2299, %2298 ]
   store i64 %.0.i.i3089, ptr %842, align 8
@@ -4254,16 +4254,16 @@ pm_location_new.exit3090:                         ; preds = %2295, %2298
   %2311 = icmp ult i64 %2306, 4611686018427387904
   br i1 %2311, label %2312, label %2315
 
-2312:                                             ; preds = %pm_location_new.exit3090
+2312:                                             ; preds = %pm_location_new.argprom.exit3090
   %2313 = shl nuw nsw i64 %2310, 1
   %2314 = or disjoint i64 %2313, 1
-  br label %pm_location_new.exit3092
+  br label %pm_location_new.argprom.exit3092
 
-2315:                                             ; preds = %pm_location_new.exit3090
+2315:                                             ; preds = %pm_location_new.argprom.exit3090
   %2316 = call i64 @rb_ull2inum(i64 noundef %2310) #6
-  br label %pm_location_new.exit3092
+  br label %pm_location_new.argprom.exit3092
 
-pm_location_new.exit3092:                         ; preds = %2312, %2315
+pm_location_new.argprom.exit3092:                 ; preds = %2312, %2315
   %.0.i.i3091 = phi i64 [ %2314, %2312 ], [ %2316, %2315 ]
   store i64 %.0.i.i3091, ptr %843, align 16
   %2317 = load i64, ptr @rb_cPrismAndNode, align 8
@@ -4318,13 +4318,13 @@ pm_location_new.exit3092:                         ; preds = %2312, %2315
 2350:                                             ; preds = %._crit_edge4322
   %2351 = shl nuw nsw i64 %2348, 1
   %2352 = or disjoint i64 %2351, 1
-  br label %pm_location_new.exit3094
+  br label %pm_location_new.argprom.exit3094
 
 2353:                                             ; preds = %._crit_edge4322
   %2354 = call i64 @rb_ull2inum(i64 noundef %2348) #6
-  br label %pm_location_new.exit3094
+  br label %pm_location_new.argprom.exit3094
 
-pm_location_new.exit3094:                         ; preds = %2350, %2353
+pm_location_new.argprom.exit3094:                 ; preds = %2350, %2353
   %.0.i.i3093 = phi i64 [ %2352, %2350 ], [ %2354, %2353 ]
   store i64 %.0.i.i3093, ptr %839, align 8
   %2355 = load i64, ptr @rb_cPrismArgumentsNode, align 8
@@ -4364,7 +4364,7 @@ pm_location_new.exit3094:                         ; preds = %2350, %2353
   %2376 = load ptr, ptr %2375, align 8
   %2377 = icmp eq ptr %2376, null
   %.val3067.pre4567.pre4589 = load ptr, ptr %180, align 8
-  br i1 %2377, label %pm_location_new.exit3096, label %2378
+  br i1 %2377, label %pm_location_new.argprom.exit3096, label %2378
 
 2378:                                             ; preds = %._crit_edge4318
   %2379 = getelementptr inbounds i8, ptr %861, i64 56
@@ -4383,23 +4383,23 @@ pm_location_new.exit3094:                         ; preds = %2350, %2353
 2390:                                             ; preds = %2378
   %2391 = shl nuw nsw i64 %2388, 1
   %2392 = or disjoint i64 %2391, 1
-  br label %pm_location_new.exit3096
+  br label %pm_location_new.argprom.exit3096
 
 2393:                                             ; preds = %2378
   %2394 = call i64 @rb_ull2inum(i64 noundef %2388) #6
   %.val3067.pre4567.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3096
+  br label %pm_location_new.argprom.exit3096
 
-pm_location_new.exit3096:                         ; preds = %2393, %2390, %._crit_edge4318
+pm_location_new.argprom.exit3096:                 ; preds = %2393, %2390, %._crit_edge4318
   %.val3067.pre4567 = phi ptr [ %.val3067.pre4567.pre4589, %._crit_edge4318 ], [ %.val3067.pre4567.pre4589, %2390 ], [ %.val3067.pre4567.pre, %2393 ]
   %2395 = phi i64 [ 4, %._crit_edge4318 ], [ %2392, %2390 ], [ %2394, %2393 ]
   store i64 %2395, ptr %834, align 8
   %2396 = getelementptr inbounds i8, ptr %861, i64 64
   %2397 = load ptr, ptr %2396, align 8
   %2398 = icmp eq ptr %2397, null
-  br i1 %2398, label %pm_location_new.exit3098, label %2399
+  br i1 %2398, label %pm_location_new.argprom.exit3098, label %2399
 
-2399:                                             ; preds = %pm_location_new.exit3096
+2399:                                             ; preds = %pm_location_new.argprom.exit3096
   %2400 = getelementptr inbounds i8, ptr %861, i64 72
   %2401 = load ptr, ptr %2400, align 8
   %2402 = ptrtoint ptr %2397 to i64
@@ -4416,16 +4416,16 @@ pm_location_new.exit3096:                         ; preds = %2393, %2390, %._cri
 2411:                                             ; preds = %2399
   %2412 = shl nuw nsw i64 %2409, 1
   %2413 = or disjoint i64 %2412, 1
-  br label %pm_location_new.exit3098
+  br label %pm_location_new.argprom.exit3098
 
 2414:                                             ; preds = %2399
   %2415 = call i64 @rb_ull2inum(i64 noundef %2409) #6
   %.val3067.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3098
+  br label %pm_location_new.argprom.exit3098
 
-pm_location_new.exit3098:                         ; preds = %2414, %2411, %pm_location_new.exit3096
-  %.val3067 = phi ptr [ %.val3067.pre4567, %pm_location_new.exit3096 ], [ %.val3067.pre4567, %2411 ], [ %.val3067.pre, %2414 ]
-  %2416 = phi i64 [ 4, %pm_location_new.exit3096 ], [ %2413, %2411 ], [ %2415, %2414 ]
+pm_location_new.argprom.exit3098:                 ; preds = %2414, %2411, %pm_location_new.argprom.exit3096
+  %.val3067 = phi ptr [ %.val3067.pre4567, %pm_location_new.argprom.exit3096 ], [ %.val3067.pre4567, %2411 ], [ %.val3067.pre, %2414 ]
+  %2416 = phi i64 [ 4, %pm_location_new.argprom.exit3096 ], [ %2413, %2411 ], [ %2415, %2414 ]
   store i64 %2416, ptr %835, align 16
   %2417 = getelementptr inbounds i8, ptr %861, i64 8
   %2418 = load ptr, ptr %2417, align 8
@@ -4442,16 +4442,16 @@ pm_location_new.exit3098:                         ; preds = %2414, %2411, %pm_lo
   %2429 = icmp ult i64 %2424, 4611686018427387904
   br i1 %2429, label %2430, label %2433
 
-2430:                                             ; preds = %pm_location_new.exit3098
+2430:                                             ; preds = %pm_location_new.argprom.exit3098
   %2431 = shl nuw nsw i64 %2428, 1
   %2432 = or disjoint i64 %2431, 1
-  br label %pm_location_new.exit3100
+  br label %pm_location_new.argprom.exit3100
 
-2433:                                             ; preds = %pm_location_new.exit3098
+2433:                                             ; preds = %pm_location_new.argprom.exit3098
   %2434 = call i64 @rb_ull2inum(i64 noundef %2428) #6
-  br label %pm_location_new.exit3100
+  br label %pm_location_new.argprom.exit3100
 
-pm_location_new.exit3100:                         ; preds = %2430, %2433
+pm_location_new.argprom.exit3100:                 ; preds = %2430, %2433
   %.0.i.i3099 = phi i64 [ %2432, %2430 ], [ %2434, %2433 ]
   store i64 %.0.i.i3099, ptr %836, align 8
   %2435 = load i64, ptr @rb_cPrismArrayNode, align 8
@@ -4507,7 +4507,7 @@ pm_location_new.exit3100:                         ; preds = %2430, %2433
   %2462 = load ptr, ptr %2461, align 8
   %2463 = icmp eq ptr %2462, null
   %.val3064.pre4565.pre4587 = load ptr, ptr %180, align 8
-  br i1 %2463, label %pm_location_new.exit3102, label %2464
+  br i1 %2463, label %pm_location_new.argprom.exit3102, label %2464
 
 2464:                                             ; preds = %._crit_edge4314
   %2465 = getelementptr inbounds i8, ptr %861, i64 96
@@ -4526,23 +4526,23 @@ pm_location_new.exit3100:                         ; preds = %2430, %2433
 2476:                                             ; preds = %2464
   %2477 = shl nuw nsw i64 %2474, 1
   %2478 = or disjoint i64 %2477, 1
-  br label %pm_location_new.exit3102
+  br label %pm_location_new.argprom.exit3102
 
 2479:                                             ; preds = %2464
   %2480 = call i64 @rb_ull2inum(i64 noundef %2474) #6
   %.val3064.pre4565.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3102
+  br label %pm_location_new.argprom.exit3102
 
-pm_location_new.exit3102:                         ; preds = %2479, %2476, %._crit_edge4314
+pm_location_new.argprom.exit3102:                 ; preds = %2479, %2476, %._crit_edge4314
   %.val3064.pre4565 = phi ptr [ %.val3064.pre4565.pre4587, %._crit_edge4314 ], [ %.val3064.pre4565.pre4587, %2476 ], [ %.val3064.pre4565.pre, %2479 ]
   %2481 = phi i64 [ 4, %._crit_edge4314 ], [ %2478, %2476 ], [ %2480, %2479 ]
   store i64 %2481, ptr %829, align 8
   %2482 = getelementptr inbounds i8, ptr %861, i64 104
   %2483 = load ptr, ptr %2482, align 8
   %2484 = icmp eq ptr %2483, null
-  br i1 %2484, label %pm_location_new.exit3104, label %2485
+  br i1 %2484, label %pm_location_new.argprom.exit3104, label %2485
 
-2485:                                             ; preds = %pm_location_new.exit3102
+2485:                                             ; preds = %pm_location_new.argprom.exit3102
   %2486 = getelementptr inbounds i8, ptr %861, i64 112
   %2487 = load ptr, ptr %2486, align 8
   %2488 = ptrtoint ptr %2483 to i64
@@ -4559,16 +4559,16 @@ pm_location_new.exit3102:                         ; preds = %2479, %2476, %._cri
 2497:                                             ; preds = %2485
   %2498 = shl nuw nsw i64 %2495, 1
   %2499 = or disjoint i64 %2498, 1
-  br label %pm_location_new.exit3104
+  br label %pm_location_new.argprom.exit3104
 
 2500:                                             ; preds = %2485
   %2501 = call i64 @rb_ull2inum(i64 noundef %2495) #6
   %.val3064.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3104
+  br label %pm_location_new.argprom.exit3104
 
-pm_location_new.exit3104:                         ; preds = %2500, %2497, %pm_location_new.exit3102
-  %.val3064 = phi ptr [ %.val3064.pre4565, %pm_location_new.exit3102 ], [ %.val3064.pre4565, %2497 ], [ %.val3064.pre, %2500 ]
-  %2502 = phi i64 [ 4, %pm_location_new.exit3102 ], [ %2499, %2497 ], [ %2501, %2500 ]
+pm_location_new.argprom.exit3104:                 ; preds = %2500, %2497, %pm_location_new.argprom.exit3102
+  %.val3064 = phi ptr [ %.val3064.pre4565, %pm_location_new.argprom.exit3102 ], [ %.val3064.pre4565, %2497 ], [ %.val3064.pre, %2500 ]
+  %2502 = phi i64 [ 4, %pm_location_new.argprom.exit3102 ], [ %2499, %2497 ], [ %2501, %2500 ]
   store i64 %2502, ptr %830, align 16
   %2503 = getelementptr inbounds i8, ptr %861, i64 8
   %2504 = load ptr, ptr %2503, align 8
@@ -4585,16 +4585,16 @@ pm_location_new.exit3104:                         ; preds = %2500, %2497, %pm_lo
   %2515 = icmp ult i64 %2510, 4611686018427387904
   br i1 %2515, label %2516, label %2519
 
-2516:                                             ; preds = %pm_location_new.exit3104
+2516:                                             ; preds = %pm_location_new.argprom.exit3104
   %2517 = shl nuw nsw i64 %2514, 1
   %2518 = or disjoint i64 %2517, 1
-  br label %pm_location_new.exit3106
+  br label %pm_location_new.argprom.exit3106
 
-2519:                                             ; preds = %pm_location_new.exit3104
+2519:                                             ; preds = %pm_location_new.argprom.exit3104
   %2520 = call i64 @rb_ull2inum(i64 noundef %2514) #6
-  br label %pm_location_new.exit3106
+  br label %pm_location_new.argprom.exit3106
 
-pm_location_new.exit3106:                         ; preds = %2516, %2519
+pm_location_new.argprom.exit3106:                 ; preds = %2516, %2519
   %.0.i.i3105 = phi i64 [ %2518, %2516 ], [ %2520, %2519 ]
   store i64 %.0.i.i3105, ptr %831, align 8
   %2521 = load i64, ptr @rb_cPrismArrayPatternNode, align 8
@@ -4612,7 +4612,7 @@ pm_location_new.exit3106:                         ; preds = %2516, %2519
   %2528 = load ptr, ptr %2527, align 8
   %2529 = icmp eq ptr %2528, null
   %.val3062.pre4563 = load ptr, ptr %180, align 8
-  br i1 %2529, label %pm_location_new.exit3108, label %2530
+  br i1 %2529, label %pm_location_new.argprom.exit3108, label %2530
 
 2530:                                             ; preds = %2524
   %2531 = getelementptr inbounds i8, ptr %861, i64 48
@@ -4631,14 +4631,14 @@ pm_location_new.exit3106:                         ; preds = %2516, %2519
 2542:                                             ; preds = %2530
   %2543 = shl nuw nsw i64 %2540, 1
   %2544 = or disjoint i64 %2543, 1
-  br label %pm_location_new.exit3108
+  br label %pm_location_new.argprom.exit3108
 
 2545:                                             ; preds = %2530
   %2546 = call i64 @rb_ull2inum(i64 noundef %2540) #6
   %.val3062.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3108
+  br label %pm_location_new.argprom.exit3108
 
-pm_location_new.exit3108:                         ; preds = %2545, %2542, %2524
+pm_location_new.argprom.exit3108:                 ; preds = %2545, %2542, %2524
   %.val3062 = phi ptr [ %.val3062.pre4563, %2524 ], [ %.val3062.pre4563, %2542 ], [ %.val3062.pre, %2545 ]
   %2547 = phi i64 [ 4, %2524 ], [ %2544, %2542 ], [ %2546, %2545 ]
   store i64 %2547, ptr %823, align 8
@@ -4657,16 +4657,16 @@ pm_location_new.exit3108:                         ; preds = %2545, %2542, %2524
   %2560 = icmp ult i64 %2555, 4611686018427387904
   br i1 %2560, label %2561, label %2564
 
-2561:                                             ; preds = %pm_location_new.exit3108
+2561:                                             ; preds = %pm_location_new.argprom.exit3108
   %2562 = shl nuw nsw i64 %2559, 1
   %2563 = or disjoint i64 %2562, 1
-  br label %pm_location_new.exit3110
+  br label %pm_location_new.argprom.exit3110
 
-2564:                                             ; preds = %pm_location_new.exit3108
+2564:                                             ; preds = %pm_location_new.argprom.exit3108
   %2565 = call i64 @rb_ull2inum(i64 noundef %2559) #6
-  br label %pm_location_new.exit3110
+  br label %pm_location_new.argprom.exit3110
 
-pm_location_new.exit3110:                         ; preds = %2561, %2564
+pm_location_new.argprom.exit3110:                 ; preds = %2561, %2564
   %.0.i.i3109 = phi i64 [ %2563, %2561 ], [ %2565, %2564 ]
   store i64 %.0.i.i3109, ptr %824, align 16
   %2566 = load i64, ptr @rb_cPrismAssocNode, align 8
@@ -4697,15 +4697,15 @@ pm_location_new.exit3110:                         ; preds = %2561, %2564
 2584:                                             ; preds = %2569
   %2585 = shl nuw nsw i64 %2582, 1
   %2586 = or disjoint i64 %2585, 1
-  br label %pm_location_new.exit3112
+  br label %pm_location_new.argprom.exit3112
 
 2587:                                             ; preds = %2569
   %2588 = call i64 @rb_ull2inum(i64 noundef %2582) #6
   %.val3060.pre = load ptr, ptr %180, align 8
   %.pre4604 = ptrtoint ptr %.val3060.pre to i64
-  br label %pm_location_new.exit3112
+  br label %pm_location_new.argprom.exit3112
 
-pm_location_new.exit3112:                         ; preds = %2584, %2587
+pm_location_new.argprom.exit3112:                 ; preds = %2584, %2587
   %.pre-phi4605 = phi i64 [ %2576, %2584 ], [ %.pre4604, %2587 ]
   %.0.i.i3111 = phi i64 [ %2586, %2584 ], [ %2588, %2587 ]
   store i64 %.0.i.i3111, ptr %819, align 16
@@ -4723,16 +4723,16 @@ pm_location_new.exit3112:                         ; preds = %2584, %2587
   %2600 = icmp ult i64 %2595, 4611686018427387904
   br i1 %2600, label %2601, label %2604
 
-2601:                                             ; preds = %pm_location_new.exit3112
+2601:                                             ; preds = %pm_location_new.argprom.exit3112
   %2602 = shl nuw nsw i64 %2599, 1
   %2603 = or disjoint i64 %2602, 1
-  br label %pm_location_new.exit3114
+  br label %pm_location_new.argprom.exit3114
 
-2604:                                             ; preds = %pm_location_new.exit3112
+2604:                                             ; preds = %pm_location_new.argprom.exit3112
   %2605 = call i64 @rb_ull2inum(i64 noundef %2599) #6
-  br label %pm_location_new.exit3114
+  br label %pm_location_new.argprom.exit3114
 
-pm_location_new.exit3114:                         ; preds = %2601, %2604
+pm_location_new.argprom.exit3114:                 ; preds = %2601, %2604
   %.0.i.i3113 = phi i64 [ %2603, %2601 ], [ %2605, %2604 ]
   store i64 %.0.i.i3113, ptr %820, align 8
   %2606 = load i64, ptr @rb_cPrismAssocSplatNode, align 8
@@ -4769,13 +4769,13 @@ pm_location_new.exit3114:                         ; preds = %2601, %2604
 2630:                                             ; preds = %2609
   %2631 = shl nuw nsw i64 %2628, 1
   %2632 = or disjoint i64 %2631, 1
-  br label %pm_location_new.exit3116
+  br label %pm_location_new.argprom.exit3116
 
 2633:                                             ; preds = %2609
   %2634 = call i64 @rb_ull2inum(i64 noundef %2628) #6
-  br label %pm_location_new.exit3116
+  br label %pm_location_new.argprom.exit3116
 
-pm_location_new.exit3116:                         ; preds = %2630, %2633
+pm_location_new.argprom.exit3116:                 ; preds = %2630, %2633
   %.0.i.i3115 = phi i64 [ %2632, %2630 ], [ %2634, %2633 ]
   store i64 %.0.i.i3115, ptr %817, align 16
   %2635 = load i64, ptr @rb_cPrismBackReferenceReadNode, align 8
@@ -4788,7 +4788,7 @@ pm_location_new.exit3116:                         ; preds = %2630, %2633
   %2639 = getelementptr inbounds i8, ptr %861, i64 24
   %2640 = load ptr, ptr %2639, align 8
   %2641 = icmp eq ptr %2640, null
-  br i1 %2641, label %pm_location_new.exit3118, label %2642
+  br i1 %2641, label %pm_location_new.argprom.exit3118, label %2642
 
 2642:                                             ; preds = %2638
   %2643 = getelementptr inbounds i8, ptr %861, i64 32
@@ -4808,13 +4808,13 @@ pm_location_new.exit3116:                         ; preds = %2630, %2633
 2654:                                             ; preds = %2642
   %2655 = shl nuw nsw i64 %2652, 1
   %2656 = or disjoint i64 %2655, 1
-  br label %pm_location_new.exit3118
+  br label %pm_location_new.argprom.exit3118
 
 2657:                                             ; preds = %2642
   %2658 = call i64 @rb_ull2inum(i64 noundef %2652) #6
-  br label %pm_location_new.exit3118
+  br label %pm_location_new.argprom.exit3118
 
-pm_location_new.exit3118:                         ; preds = %2657, %2654, %2638
+pm_location_new.argprom.exit3118:                 ; preds = %2657, %2654, %2638
   %2659 = phi i64 [ 4, %2638 ], [ %2656, %2654 ], [ %2658, %2657 ]
   store i64 %2659, ptr %809, align 8
   %2660 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -4829,9 +4829,9 @@ pm_location_new.exit3118:                         ; preds = %2657, %2654, %2638
   %2665 = load ptr, ptr %2664, align 8
   %2666 = icmp eq ptr %2665, null
   %.val3056.pre4560 = load ptr, ptr %180, align 8
-  br i1 %2666, label %pm_location_new.exit3120, label %2667
+  br i1 %2666, label %pm_location_new.argprom.exit3120, label %2667
 
-2667:                                             ; preds = %pm_location_new.exit3118
+2667:                                             ; preds = %pm_location_new.argprom.exit3118
   %2668 = getelementptr inbounds i8, ptr %861, i64 80
   %2669 = load ptr, ptr %2668, align 8
   %2670 = ptrtoint ptr %2665 to i64
@@ -4848,16 +4848,16 @@ pm_location_new.exit3118:                         ; preds = %2657, %2654, %2638
 2679:                                             ; preds = %2667
   %2680 = shl nuw nsw i64 %2677, 1
   %2681 = or disjoint i64 %2680, 1
-  br label %pm_location_new.exit3120
+  br label %pm_location_new.argprom.exit3120
 
 2682:                                             ; preds = %2667
   %2683 = call i64 @rb_ull2inum(i64 noundef %2677) #6
   %.val3056.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3120
+  br label %pm_location_new.argprom.exit3120
 
-pm_location_new.exit3120:                         ; preds = %2682, %2679, %pm_location_new.exit3118
-  %.val3056 = phi ptr [ %.val3056.pre4560, %pm_location_new.exit3118 ], [ %.val3056.pre4560, %2679 ], [ %.val3056.pre, %2682 ]
-  %2684 = phi i64 [ 4, %pm_location_new.exit3118 ], [ %2681, %2679 ], [ %2683, %2682 ]
+pm_location_new.argprom.exit3120:                 ; preds = %2682, %2679, %pm_location_new.argprom.exit3118
+  %.val3056 = phi ptr [ %.val3056.pre4560, %pm_location_new.argprom.exit3118 ], [ %.val3056.pre4560, %2679 ], [ %.val3056.pre, %2682 ]
+  %2684 = phi i64 [ 4, %pm_location_new.argprom.exit3118 ], [ %2681, %2679 ], [ %2683, %2682 ]
   store i64 %2684, ptr %814, align 16
   %2685 = getelementptr inbounds i8, ptr %861, i64 8
   %2686 = load ptr, ptr %2685, align 8
@@ -4874,16 +4874,16 @@ pm_location_new.exit3120:                         ; preds = %2682, %2679, %pm_lo
   %2697 = icmp ult i64 %2692, 4611686018427387904
   br i1 %2697, label %2698, label %2701
 
-2698:                                             ; preds = %pm_location_new.exit3120
+2698:                                             ; preds = %pm_location_new.argprom.exit3120
   %2699 = shl nuw nsw i64 %2696, 1
   %2700 = or disjoint i64 %2699, 1
-  br label %pm_location_new.exit3122
+  br label %pm_location_new.argprom.exit3122
 
-2701:                                             ; preds = %pm_location_new.exit3120
+2701:                                             ; preds = %pm_location_new.argprom.exit3120
   %2702 = call i64 @rb_ull2inum(i64 noundef %2696) #6
-  br label %pm_location_new.exit3122
+  br label %pm_location_new.argprom.exit3122
 
-pm_location_new.exit3122:                         ; preds = %2698, %2701
+pm_location_new.argprom.exit3122:                 ; preds = %2698, %2701
   %.0.i.i3121 = phi i64 [ %2700, %2698 ], [ %2702, %2701 ]
   store i64 %.0.i.i3121, ptr %815, align 8
   %2703 = load i64, ptr @rb_cPrismBeginNode, align 8
@@ -4914,15 +4914,15 @@ pm_location_new.exit3122:                         ; preds = %2698, %2701
 2721:                                             ; preds = %2706
   %2722 = shl nuw nsw i64 %2719, 1
   %2723 = or disjoint i64 %2722, 1
-  br label %pm_location_new.exit3124
+  br label %pm_location_new.argprom.exit3124
 
 2724:                                             ; preds = %2706
   %2725 = call i64 @rb_ull2inum(i64 noundef %2719) #6
   %.val3054.pre = load ptr, ptr %180, align 8
   %.pre4606 = ptrtoint ptr %.val3054.pre to i64
-  br label %pm_location_new.exit3124
+  br label %pm_location_new.argprom.exit3124
 
-pm_location_new.exit3124:                         ; preds = %2721, %2724
+pm_location_new.argprom.exit3124:                 ; preds = %2721, %2724
   %.pre-phi4607 = phi i64 [ %2713, %2721 ], [ %.pre4606, %2724 ]
   %.0.i.i3123 = phi i64 [ %2723, %2721 ], [ %2725, %2724 ]
   store i64 %.0.i.i3123, ptr %807, align 16
@@ -4940,16 +4940,16 @@ pm_location_new.exit3124:                         ; preds = %2721, %2724
   %2737 = icmp ult i64 %2732, 4611686018427387904
   br i1 %2737, label %2738, label %2741
 
-2738:                                             ; preds = %pm_location_new.exit3124
+2738:                                             ; preds = %pm_location_new.argprom.exit3124
   %2739 = shl nuw nsw i64 %2736, 1
   %2740 = or disjoint i64 %2739, 1
-  br label %pm_location_new.exit3126
+  br label %pm_location_new.argprom.exit3126
 
-2741:                                             ; preds = %pm_location_new.exit3124
+2741:                                             ; preds = %pm_location_new.argprom.exit3124
   %2742 = call i64 @rb_ull2inum(i64 noundef %2736) #6
-  br label %pm_location_new.exit3126
+  br label %pm_location_new.argprom.exit3126
 
-pm_location_new.exit3126:                         ; preds = %2738, %2741
+pm_location_new.argprom.exit3126:                 ; preds = %2738, %2741
   %.0.i.i3125 = phi i64 [ %2740, %2738 ], [ %2742, %2741 ]
   store i64 %.0.i.i3125, ptr %808, align 8
   %2743 = load i64, ptr @rb_cPrismBlockArgumentNode, align 8
@@ -4993,13 +4993,13 @@ pm_location_new.exit3126:                         ; preds = %2738, %2741
 2773:                                             ; preds = %2746
   %2774 = shl nuw nsw i64 %2771, 1
   %2775 = or disjoint i64 %2774, 1
-  br label %pm_location_new.exit3128
+  br label %pm_location_new.argprom.exit3128
 
 2776:                                             ; preds = %2746
   %2777 = call i64 @rb_ull2inum(i64 noundef %2771) #6
-  br label %pm_location_new.exit3128
+  br label %pm_location_new.argprom.exit3128
 
-pm_location_new.exit3128:                         ; preds = %2773, %2776
+pm_location_new.argprom.exit3128:                 ; preds = %2773, %2776
   %.0.i.i3127 = phi i64 [ %2775, %2773 ], [ %2777, %2776 ]
   store i64 %.0.i.i3127, ptr %805, align 8
   %2778 = load i64, ptr @rb_cPrismBlockLocalVariableNode, align 8
@@ -5062,15 +5062,15 @@ pm_location_new.exit3128:                         ; preds = %2773, %2776
 2816:                                             ; preds = %._crit_edge4306
   %2817 = shl nuw nsw i64 %2814, 1
   %2818 = or disjoint i64 %2817, 1
-  br label %pm_location_new.exit3130
+  br label %pm_location_new.argprom.exit3130
 
 2819:                                             ; preds = %._crit_edge4306
   %2820 = call i64 @rb_ull2inum(i64 noundef %2814) #6
   %.val3051.pre = load ptr, ptr %180, align 8
   %.pre4608 = ptrtoint ptr %.val3051.pre to i64
-  br label %pm_location_new.exit3130
+  br label %pm_location_new.argprom.exit3130
 
-pm_location_new.exit3130:                         ; preds = %2816, %2819
+pm_location_new.argprom.exit3130:                 ; preds = %2816, %2819
   %.pre-phi4609 = phi i64 [ %2808, %2816 ], [ %.pre4608, %2819 ]
   %.0.i.i3129 = phi i64 [ %2818, %2816 ], [ %2820, %2819 ]
   store i64 %.0.i.i3129, ptr %800, align 16
@@ -5088,18 +5088,18 @@ pm_location_new.exit3130:                         ; preds = %2816, %2819
   %2832 = icmp ult i64 %2827, 4611686018427387904
   br i1 %2832, label %2833, label %2836
 
-2833:                                             ; preds = %pm_location_new.exit3130
+2833:                                             ; preds = %pm_location_new.argprom.exit3130
   %2834 = shl nuw nsw i64 %2831, 1
   %2835 = or disjoint i64 %2834, 1
-  br label %pm_location_new.exit3132
+  br label %pm_location_new.argprom.exit3132
 
-2836:                                             ; preds = %pm_location_new.exit3130
+2836:                                             ; preds = %pm_location_new.argprom.exit3130
   %2837 = call i64 @rb_ull2inum(i64 noundef %2831) #6
   %.val3050.pre = load ptr, ptr %180, align 8
   %.pre4610 = ptrtoint ptr %.val3050.pre to i64
-  br label %pm_location_new.exit3132
+  br label %pm_location_new.argprom.exit3132
 
-pm_location_new.exit3132:                         ; preds = %2833, %2836
+pm_location_new.argprom.exit3132:                 ; preds = %2833, %2836
   %.pre-phi4611 = phi i64 [ %.pre-phi4609, %2833 ], [ %.pre4610, %2836 ]
   %.0.i.i3131 = phi i64 [ %2835, %2833 ], [ %2837, %2836 ]
   store i64 %.0.i.i3131, ptr %801, align 8
@@ -5117,16 +5117,16 @@ pm_location_new.exit3132:                         ; preds = %2833, %2836
   %2849 = icmp ult i64 %2844, 4611686018427387904
   br i1 %2849, label %2850, label %2853
 
-2850:                                             ; preds = %pm_location_new.exit3132
+2850:                                             ; preds = %pm_location_new.argprom.exit3132
   %2851 = shl nuw nsw i64 %2848, 1
   %2852 = or disjoint i64 %2851, 1
-  br label %pm_location_new.exit3134
+  br label %pm_location_new.argprom.exit3134
 
-2853:                                             ; preds = %pm_location_new.exit3132
+2853:                                             ; preds = %pm_location_new.argprom.exit3132
   %2854 = call i64 @rb_ull2inum(i64 noundef %2848) #6
-  br label %pm_location_new.exit3134
+  br label %pm_location_new.argprom.exit3134
 
-pm_location_new.exit3134:                         ; preds = %2850, %2853
+pm_location_new.argprom.exit3134:                 ; preds = %2850, %2853
   %.0.i.i3133 = phi i64 [ %2852, %2850 ], [ %2854, %2853 ]
   store i64 %.0.i.i3133, ptr %802, align 16
   %2855 = load i64, ptr @rb_cPrismBlockNode, align 8
@@ -5163,7 +5163,7 @@ pm_location_new.exit3134:                         ; preds = %2850, %2853
   %2877 = load ptr, ptr %2876, align 8
   %2878 = icmp eq ptr %2877, null
   %.val3048.pre4554 = load ptr, ptr %180, align 8
-  br i1 %2878, label %pm_location_new.exit3136, label %2879
+  br i1 %2878, label %pm_location_new.argprom.exit3136, label %2879
 
 2879:                                             ; preds = %2874
   %2880 = getelementptr inbounds i8, ptr %861, i64 40
@@ -5182,14 +5182,14 @@ pm_location_new.exit3134:                         ; preds = %2850, %2853
 2891:                                             ; preds = %2879
   %2892 = shl nuw nsw i64 %2889, 1
   %2893 = or disjoint i64 %2892, 1
-  br label %pm_location_new.exit3136
+  br label %pm_location_new.argprom.exit3136
 
 2894:                                             ; preds = %2879
   %2895 = call i64 @rb_ull2inum(i64 noundef %2889) #6
   %.val3048.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3136
+  br label %pm_location_new.argprom.exit3136
 
-pm_location_new.exit3136:                         ; preds = %2894, %2891, %2874
+pm_location_new.argprom.exit3136:                 ; preds = %2894, %2891, %2874
   %.val3048 = phi ptr [ %.val3048.pre4554, %2874 ], [ %.val3048.pre4554, %2891 ], [ %.val3048.pre, %2894 ]
   %2896 = phi i64 [ 4, %2874 ], [ %2893, %2891 ], [ %2895, %2894 ]
   store i64 %2896, ptr %794, align 8
@@ -5208,18 +5208,18 @@ pm_location_new.exit3136:                         ; preds = %2894, %2891, %2874
   %2909 = icmp ult i64 %2904, 4611686018427387904
   br i1 %2909, label %2910, label %2913
 
-2910:                                             ; preds = %pm_location_new.exit3136
+2910:                                             ; preds = %pm_location_new.argprom.exit3136
   %2911 = shl nuw nsw i64 %2908, 1
   %2912 = or disjoint i64 %2911, 1
-  br label %pm_location_new.exit3138
+  br label %pm_location_new.argprom.exit3138
 
-2913:                                             ; preds = %pm_location_new.exit3136
+2913:                                             ; preds = %pm_location_new.argprom.exit3136
   %2914 = call i64 @rb_ull2inum(i64 noundef %2908) #6
   %.val3047.pre = load ptr, ptr %180, align 8
   %.pre4612 = ptrtoint ptr %.val3047.pre to i64
-  br label %pm_location_new.exit3138
+  br label %pm_location_new.argprom.exit3138
 
-pm_location_new.exit3138:                         ; preds = %2910, %2913
+pm_location_new.argprom.exit3138:                 ; preds = %2910, %2913
   %.pre-phi4613 = phi i64 [ %2902, %2910 ], [ %.pre4612, %2913 ]
   %.0.i.i3137 = phi i64 [ %2912, %2910 ], [ %2914, %2913 ]
   store i64 %.0.i.i3137, ptr %795, align 16
@@ -5237,16 +5237,16 @@ pm_location_new.exit3138:                         ; preds = %2910, %2913
   %2926 = icmp ult i64 %2921, 4611686018427387904
   br i1 %2926, label %2927, label %2930
 
-2927:                                             ; preds = %pm_location_new.exit3138
+2927:                                             ; preds = %pm_location_new.argprom.exit3138
   %2928 = shl nuw nsw i64 %2925, 1
   %2929 = or disjoint i64 %2928, 1
-  br label %pm_location_new.exit3140
+  br label %pm_location_new.argprom.exit3140
 
-2930:                                             ; preds = %pm_location_new.exit3138
+2930:                                             ; preds = %pm_location_new.argprom.exit3138
   %2931 = call i64 @rb_ull2inum(i64 noundef %2925) #6
-  br label %pm_location_new.exit3140
+  br label %pm_location_new.argprom.exit3140
 
-pm_location_new.exit3140:                         ; preds = %2927, %2930
+pm_location_new.argprom.exit3140:                 ; preds = %2927, %2930
   %.0.i.i3139 = phi i64 [ %2929, %2927 ], [ %2931, %2930 ]
   store i64 %.0.i.i3139, ptr %796, align 8
   %2932 = load i64, ptr @rb_cPrismBlockParameterNode, align 8
@@ -5281,7 +5281,7 @@ pm_location_new.exit3140:                         ; preds = %2927, %2930
   %2948 = load ptr, ptr %2947, align 8
   %2949 = icmp eq ptr %2948, null
   %.val3044.pre4552.pre4585 = load ptr, ptr %180, align 8
-  br i1 %2949, label %pm_location_new.exit3142, label %2950
+  br i1 %2949, label %pm_location_new.argprom.exit3142, label %2950
 
 2950:                                             ; preds = %._crit_edge4302
   %2951 = getelementptr inbounds i8, ptr %861, i64 64
@@ -5300,23 +5300,23 @@ pm_location_new.exit3140:                         ; preds = %2927, %2930
 2962:                                             ; preds = %2950
   %2963 = shl nuw nsw i64 %2960, 1
   %2964 = or disjoint i64 %2963, 1
-  br label %pm_location_new.exit3142
+  br label %pm_location_new.argprom.exit3142
 
 2965:                                             ; preds = %2950
   %2966 = call i64 @rb_ull2inum(i64 noundef %2960) #6
   %.val3044.pre4552.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3142
+  br label %pm_location_new.argprom.exit3142
 
-pm_location_new.exit3142:                         ; preds = %2965, %2962, %._crit_edge4302
+pm_location_new.argprom.exit3142:                 ; preds = %2965, %2962, %._crit_edge4302
   %.val3044.pre4552 = phi ptr [ %.val3044.pre4552.pre4585, %._crit_edge4302 ], [ %.val3044.pre4552.pre4585, %2962 ], [ %.val3044.pre4552.pre, %2965 ]
   %2967 = phi i64 [ 4, %._crit_edge4302 ], [ %2964, %2962 ], [ %2966, %2965 ]
   store i64 %2967, ptr %789, align 8
   %2968 = getelementptr inbounds i8, ptr %861, i64 72
   %2969 = load ptr, ptr %2968, align 8
   %2970 = icmp eq ptr %2969, null
-  br i1 %2970, label %pm_location_new.exit3144, label %2971
+  br i1 %2970, label %pm_location_new.argprom.exit3144, label %2971
 
-2971:                                             ; preds = %pm_location_new.exit3142
+2971:                                             ; preds = %pm_location_new.argprom.exit3142
   %2972 = getelementptr inbounds i8, ptr %861, i64 80
   %2973 = load ptr, ptr %2972, align 8
   %2974 = ptrtoint ptr %2969 to i64
@@ -5333,16 +5333,16 @@ pm_location_new.exit3142:                         ; preds = %2965, %2962, %._cri
 2983:                                             ; preds = %2971
   %2984 = shl nuw nsw i64 %2981, 1
   %2985 = or disjoint i64 %2984, 1
-  br label %pm_location_new.exit3144
+  br label %pm_location_new.argprom.exit3144
 
 2986:                                             ; preds = %2971
   %2987 = call i64 @rb_ull2inum(i64 noundef %2981) #6
   %.val3044.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3144
+  br label %pm_location_new.argprom.exit3144
 
-pm_location_new.exit3144:                         ; preds = %2986, %2983, %pm_location_new.exit3142
-  %.val3044 = phi ptr [ %.val3044.pre4552, %pm_location_new.exit3142 ], [ %.val3044.pre4552, %2983 ], [ %.val3044.pre, %2986 ]
-  %2988 = phi i64 [ 4, %pm_location_new.exit3142 ], [ %2985, %2983 ], [ %2987, %2986 ]
+pm_location_new.argprom.exit3144:                 ; preds = %2986, %2983, %pm_location_new.argprom.exit3142
+  %.val3044 = phi ptr [ %.val3044.pre4552, %pm_location_new.argprom.exit3142 ], [ %.val3044.pre4552, %2983 ], [ %.val3044.pre, %2986 ]
+  %2988 = phi i64 [ 4, %pm_location_new.argprom.exit3142 ], [ %2985, %2983 ], [ %2987, %2986 ]
   store i64 %2988, ptr %790, align 16
   %2989 = getelementptr inbounds i8, ptr %861, i64 8
   %2990 = load ptr, ptr %2989, align 8
@@ -5359,16 +5359,16 @@ pm_location_new.exit3144:                         ; preds = %2986, %2983, %pm_lo
   %3001 = icmp ult i64 %2996, 4611686018427387904
   br i1 %3001, label %3002, label %3005
 
-3002:                                             ; preds = %pm_location_new.exit3144
+3002:                                             ; preds = %pm_location_new.argprom.exit3144
   %3003 = shl nuw nsw i64 %3000, 1
   %3004 = or disjoint i64 %3003, 1
-  br label %pm_location_new.exit3146
+  br label %pm_location_new.argprom.exit3146
 
-3005:                                             ; preds = %pm_location_new.exit3144
+3005:                                             ; preds = %pm_location_new.argprom.exit3144
   %3006 = call i64 @rb_ull2inum(i64 noundef %3000) #6
-  br label %pm_location_new.exit3146
+  br label %pm_location_new.argprom.exit3146
 
-pm_location_new.exit3146:                         ; preds = %3002, %3005
+pm_location_new.argprom.exit3146:                 ; preds = %3002, %3005
   %.0.i.i3145 = phi i64 [ %3004, %3002 ], [ %3006, %3005 ]
   store i64 %.0.i.i3145, ptr %791, align 8
   %3007 = load i64, ptr @rb_cPrismBlockParametersNode, align 8
@@ -5399,15 +5399,15 @@ pm_location_new.exit3146:                         ; preds = %3002, %3005
 3025:                                             ; preds = %3010
   %3026 = shl nuw nsw i64 %3023, 1
   %3027 = or disjoint i64 %3026, 1
-  br label %pm_location_new.exit3148
+  br label %pm_location_new.argprom.exit3148
 
 3028:                                             ; preds = %3010
   %3029 = call i64 @rb_ull2inum(i64 noundef %3023) #6
   %.val3042.pre = load ptr, ptr %180, align 8
   %.pre4614 = ptrtoint ptr %.val3042.pre to i64
-  br label %pm_location_new.exit3148
+  br label %pm_location_new.argprom.exit3148
 
-pm_location_new.exit3148:                         ; preds = %3025, %3028
+pm_location_new.argprom.exit3148:                 ; preds = %3025, %3028
   %.pre-phi4615 = phi i64 [ %3017, %3025 ], [ %.pre4614, %3028 ]
   %.0.i.i3147 = phi i64 [ %3027, %3025 ], [ %3029, %3028 ]
   store i64 %.0.i.i3147, ptr %785, align 16
@@ -5425,16 +5425,16 @@ pm_location_new.exit3148:                         ; preds = %3025, %3028
   %3041 = icmp ult i64 %3036, 4611686018427387904
   br i1 %3041, label %3042, label %3045
 
-3042:                                             ; preds = %pm_location_new.exit3148
+3042:                                             ; preds = %pm_location_new.argprom.exit3148
   %3043 = shl nuw nsw i64 %3040, 1
   %3044 = or disjoint i64 %3043, 1
-  br label %pm_location_new.exit3150
+  br label %pm_location_new.argprom.exit3150
 
-3045:                                             ; preds = %pm_location_new.exit3148
+3045:                                             ; preds = %pm_location_new.argprom.exit3148
   %3046 = call i64 @rb_ull2inum(i64 noundef %3040) #6
-  br label %pm_location_new.exit3150
+  br label %pm_location_new.argprom.exit3150
 
-pm_location_new.exit3150:                         ; preds = %3042, %3045
+pm_location_new.argprom.exit3150:                 ; preds = %3042, %3045
   %.0.i.i3149 = phi i64 [ %3044, %3042 ], [ %3046, %3045 ]
   store i64 %.0.i.i3149, ptr %786, align 8
   %3047 = load i64, ptr @rb_cPrismBreakNode, align 8
@@ -5456,7 +5456,7 @@ pm_location_new.exit3150:                         ; preds = %3042, %3045
   %3058 = getelementptr inbounds i8, ptr %861, i64 32
   %3059 = load ptr, ptr %3058, align 8
   %3060 = icmp eq ptr %3059, null
-  br i1 %3060, label %pm_location_new.exit3152, label %3061
+  br i1 %3060, label %pm_location_new.argprom.exit3152, label %3061
 
 3061:                                             ; preds = %3050
   %3062 = getelementptr inbounds i8, ptr %861, i64 40
@@ -5476,21 +5476,21 @@ pm_location_new.exit3150:                         ; preds = %3042, %3045
 3073:                                             ; preds = %3061
   %3074 = shl nuw nsw i64 %3071, 1
   %3075 = or disjoint i64 %3074, 1
-  br label %pm_location_new.exit3152
+  br label %pm_location_new.argprom.exit3152
 
 3076:                                             ; preds = %3061
   %3077 = call i64 @rb_ull2inum(i64 noundef %3071) #6
-  br label %pm_location_new.exit3152
+  br label %pm_location_new.argprom.exit3152
 
-pm_location_new.exit3152:                         ; preds = %3076, %3073, %3050
+pm_location_new.argprom.exit3152:                 ; preds = %3076, %3073, %3050
   %3078 = phi i64 [ 4, %3050 ], [ %3075, %3073 ], [ %3077, %3076 ]
   store i64 %3078, ptr %777, align 8
   %3079 = getelementptr inbounds i8, ptr %861, i64 48
   %3080 = load ptr, ptr %3079, align 8
   %3081 = icmp eq ptr %3080, null
-  br i1 %3081, label %pm_location_new.exit3154, label %3082
+  br i1 %3081, label %pm_location_new.argprom.exit3154, label %3082
 
-3082:                                             ; preds = %pm_location_new.exit3152
+3082:                                             ; preds = %pm_location_new.argprom.exit3152
   %3083 = getelementptr inbounds i8, ptr %861, i64 56
   %3084 = load ptr, ptr %3083, align 8
   %.val3040 = load ptr, ptr %180, align 8
@@ -5508,14 +5508,14 @@ pm_location_new.exit3152:                         ; preds = %3076, %3073, %3050
 3094:                                             ; preds = %3082
   %3095 = shl nuw nsw i64 %3092, 1
   %3096 = or disjoint i64 %3095, 1
-  br label %pm_location_new.exit3154
+  br label %pm_location_new.argprom.exit3154
 
 3097:                                             ; preds = %3082
   %3098 = call i64 @rb_ull2inum(i64 noundef %3092) #6
-  br label %pm_location_new.exit3154
+  br label %pm_location_new.argprom.exit3154
 
-pm_location_new.exit3154:                         ; preds = %3097, %3094, %pm_location_new.exit3152
-  %3099 = phi i64 [ 4, %pm_location_new.exit3152 ], [ %3096, %3094 ], [ %3098, %3097 ]
+pm_location_new.argprom.exit3154:                 ; preds = %3097, %3094, %pm_location_new.argprom.exit3152
+  %3099 = phi i64 [ 4, %pm_location_new.argprom.exit3152 ], [ %3096, %3094 ], [ %3098, %3097 ]
   store i64 %3099, ptr %778, align 16
   %3100 = getelementptr inbounds i8, ptr %861, i64 64
   %3101 = load i32, ptr %3100, align 8
@@ -5549,16 +5549,16 @@ pm_location_new.exit3154:                         ; preds = %3097, %3094, %pm_lo
   %3126 = icmp ult i64 %3121, 4611686018427387904
   br i1 %3126, label %3127, label %3130
 
-3127:                                             ; preds = %pm_location_new.exit3154
+3127:                                             ; preds = %pm_location_new.argprom.exit3154
   %3128 = shl nuw nsw i64 %3125, 1
   %3129 = or disjoint i64 %3128, 1
-  br label %pm_location_new.exit3156
+  br label %pm_location_new.argprom.exit3156
 
-3130:                                             ; preds = %pm_location_new.exit3154
+3130:                                             ; preds = %pm_location_new.argprom.exit3154
   %3131 = call i64 @rb_ull2inum(i64 noundef %3125) #6
-  br label %pm_location_new.exit3156
+  br label %pm_location_new.argprom.exit3156
 
-pm_location_new.exit3156:                         ; preds = %3127, %3130
+pm_location_new.argprom.exit3156:                 ; preds = %3127, %3130
   %.0.i.i3155 = phi i64 [ %3129, %3127 ], [ %3131, %3130 ]
   store i64 %.0.i.i3155, ptr %781, align 8
   %3132 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -5579,16 +5579,16 @@ pm_location_new.exit3156:                         ; preds = %3127, %3130
   %3145 = icmp ult i64 %3140, 4611686018427387904
   br i1 %3145, label %3146, label %3149
 
-3146:                                             ; preds = %pm_location_new.exit3156
+3146:                                             ; preds = %pm_location_new.argprom.exit3156
   %3147 = shl nuw nsw i64 %3144, 1
   %3148 = or disjoint i64 %3147, 1
-  br label %pm_location_new.exit3158
+  br label %pm_location_new.argprom.exit3158
 
-3149:                                             ; preds = %pm_location_new.exit3156
+3149:                                             ; preds = %pm_location_new.argprom.exit3156
   %3150 = call i64 @rb_ull2inum(i64 noundef %3144) #6
-  br label %pm_location_new.exit3158
+  br label %pm_location_new.argprom.exit3158
 
-pm_location_new.exit3158:                         ; preds = %3146, %3149
+pm_location_new.argprom.exit3158:                 ; preds = %3146, %3149
   %.0.i.i3157 = phi i64 [ %3148, %3146 ], [ %3150, %3149 ]
   store i64 %.0.i.i3157, ptr %783, align 8
   %3151 = load i64, ptr @rb_cPrismCallAndWriteNode, align 8
@@ -5610,7 +5610,7 @@ pm_location_new.exit3158:                         ; preds = %3146, %3149
   %3162 = getelementptr inbounds i8, ptr %861, i64 32
   %3163 = load ptr, ptr %3162, align 8
   %3164 = icmp eq ptr %3163, null
-  br i1 %3164, label %pm_location_new.exit3160, label %3165
+  br i1 %3164, label %pm_location_new.argprom.exit3160, label %3165
 
 3165:                                             ; preds = %3154
   %3166 = getelementptr inbounds i8, ptr %861, i64 40
@@ -5630,13 +5630,13 @@ pm_location_new.exit3158:                         ; preds = %3146, %3149
 3177:                                             ; preds = %3165
   %3178 = shl nuw nsw i64 %3175, 1
   %3179 = or disjoint i64 %3178, 1
-  br label %pm_location_new.exit3160
+  br label %pm_location_new.argprom.exit3160
 
 3180:                                             ; preds = %3165
   %3181 = call i64 @rb_ull2inum(i64 noundef %3175) #6
-  br label %pm_location_new.exit3160
+  br label %pm_location_new.argprom.exit3160
 
-pm_location_new.exit3160:                         ; preds = %3180, %3177, %3154
+pm_location_new.argprom.exit3160:                 ; preds = %3180, %3177, %3154
   %3182 = phi i64 [ 4, %3154 ], [ %3179, %3177 ], [ %3181, %3180 ]
   store i64 %3182, ptr %767, align 8
   %3183 = getelementptr inbounds i8, ptr %861, i64 48
@@ -5650,9 +5650,9 @@ pm_location_new.exit3160:                         ; preds = %3180, %3177, %3154
   %3190 = getelementptr inbounds i8, ptr %861, i64 56
   %3191 = load ptr, ptr %3190, align 8
   %3192 = icmp eq ptr %3191, null
-  br i1 %3192, label %pm_location_new.exit3162, label %3193
+  br i1 %3192, label %pm_location_new.argprom.exit3162, label %3193
 
-3193:                                             ; preds = %pm_location_new.exit3160
+3193:                                             ; preds = %pm_location_new.argprom.exit3160
   %3194 = getelementptr inbounds i8, ptr %861, i64 64
   %3195 = load ptr, ptr %3194, align 8
   %.val3036 = load ptr, ptr %180, align 8
@@ -5670,21 +5670,21 @@ pm_location_new.exit3160:                         ; preds = %3180, %3177, %3154
 3205:                                             ; preds = %3193
   %3206 = shl nuw nsw i64 %3203, 1
   %3207 = or disjoint i64 %3206, 1
-  br label %pm_location_new.exit3162
+  br label %pm_location_new.argprom.exit3162
 
 3208:                                             ; preds = %3193
   %3209 = call i64 @rb_ull2inum(i64 noundef %3203) #6
-  br label %pm_location_new.exit3162
+  br label %pm_location_new.argprom.exit3162
 
-pm_location_new.exit3162:                         ; preds = %3208, %3205, %pm_location_new.exit3160
-  %3210 = phi i64 [ 4, %pm_location_new.exit3160 ], [ %3207, %3205 ], [ %3209, %3208 ]
+pm_location_new.argprom.exit3162:                 ; preds = %3208, %3205, %pm_location_new.argprom.exit3160
+  %3210 = phi i64 [ 4, %pm_location_new.argprom.exit3160 ], [ %3207, %3205 ], [ %3209, %3208 ]
   store i64 %3210, ptr %769, align 8
   %3211 = getelementptr inbounds i8, ptr %861, i64 72
   %3212 = load ptr, ptr %3211, align 8
   %3213 = icmp eq ptr %3212, null
-  br i1 %3213, label %pm_location_new.exit3164, label %3214
+  br i1 %3213, label %pm_location_new.argprom.exit3164, label %3214
 
-3214:                                             ; preds = %pm_location_new.exit3162
+3214:                                             ; preds = %pm_location_new.argprom.exit3162
   %3215 = getelementptr inbounds i8, ptr %861, i64 80
   %3216 = load ptr, ptr %3215, align 8
   %.val3035 = load ptr, ptr %180, align 8
@@ -5702,23 +5702,23 @@ pm_location_new.exit3162:                         ; preds = %3208, %3205, %pm_lo
 3226:                                             ; preds = %3214
   %3227 = shl nuw nsw i64 %3224, 1
   %3228 = or disjoint i64 %3227, 1
-  br label %pm_location_new.exit3164
+  br label %pm_location_new.argprom.exit3164
 
 3229:                                             ; preds = %3214
   %3230 = call i64 @rb_ull2inum(i64 noundef %3224) #6
-  br label %pm_location_new.exit3164
+  br label %pm_location_new.argprom.exit3164
 
-pm_location_new.exit3164:                         ; preds = %3229, %3226, %pm_location_new.exit3162
-  %3231 = phi i64 [ 4, %pm_location_new.exit3162 ], [ %3228, %3226 ], [ %3230, %3229 ]
+pm_location_new.argprom.exit3164:                 ; preds = %3229, %3226, %pm_location_new.argprom.exit3162
+  %3231 = phi i64 [ 4, %pm_location_new.argprom.exit3162 ], [ %3228, %3226 ], [ %3230, %3229 ]
   store i64 %3231, ptr %770, align 16
   %3232 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %3232, ptr %771, align 8
   %3233 = getelementptr inbounds i8, ptr %861, i64 96
   %3234 = load ptr, ptr %3233, align 8
   %3235 = icmp eq ptr %3234, null
-  br i1 %3235, label %pm_location_new.exit3166, label %3236
+  br i1 %3235, label %pm_location_new.argprom.exit3166, label %3236
 
-3236:                                             ; preds = %pm_location_new.exit3164
+3236:                                             ; preds = %pm_location_new.argprom.exit3164
   %3237 = getelementptr inbounds i8, ptr %861, i64 104
   %3238 = load ptr, ptr %3237, align 8
   %.val3034 = load ptr, ptr %180, align 8
@@ -5736,14 +5736,14 @@ pm_location_new.exit3164:                         ; preds = %3229, %3226, %pm_lo
 3248:                                             ; preds = %3236
   %3249 = shl nuw nsw i64 %3246, 1
   %3250 = or disjoint i64 %3249, 1
-  br label %pm_location_new.exit3166
+  br label %pm_location_new.argprom.exit3166
 
 3251:                                             ; preds = %3236
   %3252 = call i64 @rb_ull2inum(i64 noundef %3246) #6
-  br label %pm_location_new.exit3166
+  br label %pm_location_new.argprom.exit3166
 
-pm_location_new.exit3166:                         ; preds = %3251, %3248, %pm_location_new.exit3164
-  %3253 = phi i64 [ 4, %pm_location_new.exit3164 ], [ %3250, %3248 ], [ %3252, %3251 ]
+pm_location_new.argprom.exit3166:                 ; preds = %3251, %3248, %pm_location_new.argprom.exit3164
+  %3253 = phi i64 [ 4, %pm_location_new.argprom.exit3164 ], [ %3250, %3248 ], [ %3252, %3251 ]
   store i64 %3253, ptr %772, align 16
   %3254 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %3254, ptr %773, align 8
@@ -5763,16 +5763,16 @@ pm_location_new.exit3166:                         ; preds = %3251, %3248, %pm_lo
   %3267 = icmp ult i64 %3262, 4611686018427387904
   br i1 %3267, label %3268, label %3271
 
-3268:                                             ; preds = %pm_location_new.exit3166
+3268:                                             ; preds = %pm_location_new.argprom.exit3166
   %3269 = shl nuw nsw i64 %3266, 1
   %3270 = or disjoint i64 %3269, 1
-  br label %pm_location_new.exit3168
+  br label %pm_location_new.argprom.exit3168
 
-3271:                                             ; preds = %pm_location_new.exit3166
+3271:                                             ; preds = %pm_location_new.argprom.exit3166
   %3272 = call i64 @rb_ull2inum(i64 noundef %3266) #6
-  br label %pm_location_new.exit3168
+  br label %pm_location_new.argprom.exit3168
 
-pm_location_new.exit3168:                         ; preds = %3268, %3271
+pm_location_new.argprom.exit3168:                 ; preds = %3268, %3271
   %.0.i.i3167 = phi i64 [ %3270, %3268 ], [ %3272, %3271 ]
   store i64 %.0.i.i3167, ptr %774, align 16
   %3273 = load i64, ptr @rb_cPrismCallNode, align 8
@@ -5794,7 +5794,7 @@ pm_location_new.exit3168:                         ; preds = %3268, %3271
   %3284 = getelementptr inbounds i8, ptr %861, i64 32
   %3285 = load ptr, ptr %3284, align 8
   %3286 = icmp eq ptr %3285, null
-  br i1 %3286, label %pm_location_new.exit3170, label %3287
+  br i1 %3286, label %pm_location_new.argprom.exit3170, label %3287
 
 3287:                                             ; preds = %3276
   %3288 = getelementptr inbounds i8, ptr %861, i64 40
@@ -5814,21 +5814,21 @@ pm_location_new.exit3168:                         ; preds = %3268, %3271
 3299:                                             ; preds = %3287
   %3300 = shl nuw nsw i64 %3297, 1
   %3301 = or disjoint i64 %3300, 1
-  br label %pm_location_new.exit3170
+  br label %pm_location_new.argprom.exit3170
 
 3302:                                             ; preds = %3287
   %3303 = call i64 @rb_ull2inum(i64 noundef %3297) #6
-  br label %pm_location_new.exit3170
+  br label %pm_location_new.argprom.exit3170
 
-pm_location_new.exit3170:                         ; preds = %3302, %3299, %3276
+pm_location_new.argprom.exit3170:                 ; preds = %3302, %3299, %3276
   %3304 = phi i64 [ 4, %3276 ], [ %3301, %3299 ], [ %3303, %3302 ]
   store i64 %3304, ptr %757, align 8
   %3305 = getelementptr inbounds i8, ptr %861, i64 48
   %3306 = load ptr, ptr %3305, align 8
   %3307 = icmp eq ptr %3306, null
-  br i1 %3307, label %pm_location_new.exit3172, label %3308
+  br i1 %3307, label %pm_location_new.argprom.exit3172, label %3308
 
-3308:                                             ; preds = %pm_location_new.exit3170
+3308:                                             ; preds = %pm_location_new.argprom.exit3170
   %3309 = getelementptr inbounds i8, ptr %861, i64 56
   %3310 = load ptr, ptr %3309, align 8
   %.val3031 = load ptr, ptr %180, align 8
@@ -5846,14 +5846,14 @@ pm_location_new.exit3170:                         ; preds = %3302, %3299, %3276
 3320:                                             ; preds = %3308
   %3321 = shl nuw nsw i64 %3318, 1
   %3322 = or disjoint i64 %3321, 1
-  br label %pm_location_new.exit3172
+  br label %pm_location_new.argprom.exit3172
 
 3323:                                             ; preds = %3308
   %3324 = call i64 @rb_ull2inum(i64 noundef %3318) #6
-  br label %pm_location_new.exit3172
+  br label %pm_location_new.argprom.exit3172
 
-pm_location_new.exit3172:                         ; preds = %3323, %3320, %pm_location_new.exit3170
-  %3325 = phi i64 [ 4, %pm_location_new.exit3170 ], [ %3322, %3320 ], [ %3324, %3323 ]
+pm_location_new.argprom.exit3172:                 ; preds = %3323, %3320, %pm_location_new.argprom.exit3170
+  %3325 = phi i64 [ 4, %pm_location_new.argprom.exit3170 ], [ %3322, %3320 ], [ %3324, %3323 ]
   store i64 %3325, ptr %758, align 16
   %3326 = getelementptr inbounds i8, ptr %861, i64 64
   %3327 = load i32, ptr %3326, align 8
@@ -5895,16 +5895,16 @@ pm_location_new.exit3172:                         ; preds = %3323, %3320, %pm_lo
   %3359 = icmp ult i64 %3354, 4611686018427387904
   br i1 %3359, label %3360, label %3363
 
-3360:                                             ; preds = %pm_location_new.exit3172
+3360:                                             ; preds = %pm_location_new.argprom.exit3172
   %3361 = shl nuw nsw i64 %3358, 1
   %3362 = or disjoint i64 %3361, 1
-  br label %pm_location_new.exit3174
+  br label %pm_location_new.argprom.exit3174
 
-3363:                                             ; preds = %pm_location_new.exit3172
+3363:                                             ; preds = %pm_location_new.argprom.exit3172
   %3364 = call i64 @rb_ull2inum(i64 noundef %3358) #6
-  br label %pm_location_new.exit3174
+  br label %pm_location_new.argprom.exit3174
 
-pm_location_new.exit3174:                         ; preds = %3360, %3363
+pm_location_new.argprom.exit3174:                 ; preds = %3360, %3363
   %.0.i.i3173 = phi i64 [ %3362, %3360 ], [ %3364, %3363 ]
   store i64 %.0.i.i3173, ptr %762, align 16
   %3365 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -5925,16 +5925,16 @@ pm_location_new.exit3174:                         ; preds = %3360, %3363
   %3378 = icmp ult i64 %3373, 4611686018427387904
   br i1 %3378, label %3379, label %3382
 
-3379:                                             ; preds = %pm_location_new.exit3174
+3379:                                             ; preds = %pm_location_new.argprom.exit3174
   %3380 = shl nuw nsw i64 %3377, 1
   %3381 = or disjoint i64 %3380, 1
-  br label %pm_location_new.exit3176
+  br label %pm_location_new.argprom.exit3176
 
-3382:                                             ; preds = %pm_location_new.exit3174
+3382:                                             ; preds = %pm_location_new.argprom.exit3174
   %3383 = call i64 @rb_ull2inum(i64 noundef %3377) #6
-  br label %pm_location_new.exit3176
+  br label %pm_location_new.argprom.exit3176
 
-pm_location_new.exit3176:                         ; preds = %3379, %3382
+pm_location_new.argprom.exit3176:                 ; preds = %3379, %3382
   %.0.i.i3175 = phi i64 [ %3381, %3379 ], [ %3383, %3382 ]
   store i64 %.0.i.i3175, ptr %764, align 16
   %3384 = load i64, ptr @rb_cPrismCallOperatorWriteNode, align 8
@@ -5956,7 +5956,7 @@ pm_location_new.exit3176:                         ; preds = %3379, %3382
   %3395 = getelementptr inbounds i8, ptr %861, i64 32
   %3396 = load ptr, ptr %3395, align 8
   %3397 = icmp eq ptr %3396, null
-  br i1 %3397, label %pm_location_new.exit3178, label %3398
+  br i1 %3397, label %pm_location_new.argprom.exit3178, label %3398
 
 3398:                                             ; preds = %3387
   %3399 = getelementptr inbounds i8, ptr %861, i64 40
@@ -5976,21 +5976,21 @@ pm_location_new.exit3176:                         ; preds = %3379, %3382
 3410:                                             ; preds = %3398
   %3411 = shl nuw nsw i64 %3408, 1
   %3412 = or disjoint i64 %3411, 1
-  br label %pm_location_new.exit3178
+  br label %pm_location_new.argprom.exit3178
 
 3413:                                             ; preds = %3398
   %3414 = call i64 @rb_ull2inum(i64 noundef %3408) #6
-  br label %pm_location_new.exit3178
+  br label %pm_location_new.argprom.exit3178
 
-pm_location_new.exit3178:                         ; preds = %3413, %3410, %3387
+pm_location_new.argprom.exit3178:                 ; preds = %3413, %3410, %3387
   %3415 = phi i64 [ 4, %3387 ], [ %3412, %3410 ], [ %3414, %3413 ]
   store i64 %3415, ptr %748, align 8
   %3416 = getelementptr inbounds i8, ptr %861, i64 48
   %3417 = load ptr, ptr %3416, align 8
   %3418 = icmp eq ptr %3417, null
-  br i1 %3418, label %pm_location_new.exit3180, label %3419
+  br i1 %3418, label %pm_location_new.argprom.exit3180, label %3419
 
-3419:                                             ; preds = %pm_location_new.exit3178
+3419:                                             ; preds = %pm_location_new.argprom.exit3178
   %3420 = getelementptr inbounds i8, ptr %861, i64 56
   %3421 = load ptr, ptr %3420, align 8
   %.val3027 = load ptr, ptr %180, align 8
@@ -6008,14 +6008,14 @@ pm_location_new.exit3178:                         ; preds = %3413, %3410, %3387
 3431:                                             ; preds = %3419
   %3432 = shl nuw nsw i64 %3429, 1
   %3433 = or disjoint i64 %3432, 1
-  br label %pm_location_new.exit3180
+  br label %pm_location_new.argprom.exit3180
 
 3434:                                             ; preds = %3419
   %3435 = call i64 @rb_ull2inum(i64 noundef %3429) #6
-  br label %pm_location_new.exit3180
+  br label %pm_location_new.argprom.exit3180
 
-pm_location_new.exit3180:                         ; preds = %3434, %3431, %pm_location_new.exit3178
-  %3436 = phi i64 [ 4, %pm_location_new.exit3178 ], [ %3433, %3431 ], [ %3435, %3434 ]
+pm_location_new.argprom.exit3180:                 ; preds = %3434, %3431, %pm_location_new.argprom.exit3178
+  %3436 = phi i64 [ 4, %pm_location_new.argprom.exit3178 ], [ %3433, %3431 ], [ %3435, %3434 ]
   store i64 %3436, ptr %749, align 16
   %3437 = getelementptr inbounds i8, ptr %861, i64 64
   %3438 = load i32, ptr %3437, align 8
@@ -6049,16 +6049,16 @@ pm_location_new.exit3180:                         ; preds = %3434, %3431, %pm_lo
   %3463 = icmp ult i64 %3458, 4611686018427387904
   br i1 %3463, label %3464, label %3467
 
-3464:                                             ; preds = %pm_location_new.exit3180
+3464:                                             ; preds = %pm_location_new.argprom.exit3180
   %3465 = shl nuw nsw i64 %3462, 1
   %3466 = or disjoint i64 %3465, 1
-  br label %pm_location_new.exit3182
+  br label %pm_location_new.argprom.exit3182
 
-3467:                                             ; preds = %pm_location_new.exit3180
+3467:                                             ; preds = %pm_location_new.argprom.exit3180
   %3468 = call i64 @rb_ull2inum(i64 noundef %3462) #6
-  br label %pm_location_new.exit3182
+  br label %pm_location_new.argprom.exit3182
 
-pm_location_new.exit3182:                         ; preds = %3464, %3467
+pm_location_new.argprom.exit3182:                 ; preds = %3464, %3467
   %.0.i.i3181 = phi i64 [ %3466, %3464 ], [ %3468, %3467 ]
   store i64 %.0.i.i3181, ptr %752, align 8
   %3469 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -6079,16 +6079,16 @@ pm_location_new.exit3182:                         ; preds = %3464, %3467
   %3482 = icmp ult i64 %3477, 4611686018427387904
   br i1 %3482, label %3483, label %3486
 
-3483:                                             ; preds = %pm_location_new.exit3182
+3483:                                             ; preds = %pm_location_new.argprom.exit3182
   %3484 = shl nuw nsw i64 %3481, 1
   %3485 = or disjoint i64 %3484, 1
-  br label %pm_location_new.exit3184
+  br label %pm_location_new.argprom.exit3184
 
-3486:                                             ; preds = %pm_location_new.exit3182
+3486:                                             ; preds = %pm_location_new.argprom.exit3182
   %3487 = call i64 @rb_ull2inum(i64 noundef %3481) #6
-  br label %pm_location_new.exit3184
+  br label %pm_location_new.argprom.exit3184
 
-pm_location_new.exit3184:                         ; preds = %3483, %3486
+pm_location_new.argprom.exit3184:                 ; preds = %3483, %3486
   %.0.i.i3183 = phi i64 [ %3485, %3483 ], [ %3487, %3486 ]
   store i64 %.0.i.i3183, ptr %754, align 8
   %3488 = load i64, ptr @rb_cPrismCallOrWriteNode, align 8
@@ -6126,13 +6126,13 @@ pm_location_new.exit3184:                         ; preds = %3483, %3486
 3512:                                             ; preds = %3491
   %3513 = shl nuw nsw i64 %3510, 1
   %3514 = or disjoint i64 %3513, 1
-  br label %pm_location_new.exit3186
+  br label %pm_location_new.argprom.exit3186
 
 3515:                                             ; preds = %3491
   %3516 = call i64 @rb_ull2inum(i64 noundef %3510) #6
-  br label %pm_location_new.exit3186
+  br label %pm_location_new.argprom.exit3186
 
-pm_location_new.exit3186:                         ; preds = %3512, %3515
+pm_location_new.argprom.exit3186:                 ; preds = %3512, %3515
   %.0.i.i3185 = phi i64 [ %3514, %3512 ], [ %3516, %3515 ]
   store i64 %.0.i.i3185, ptr %742, align 8
   %3517 = getelementptr inbounds i8, ptr %861, i64 48
@@ -6159,18 +6159,18 @@ pm_location_new.exit3186:                         ; preds = %3512, %3515
   %3536 = icmp ult i64 %3531, 4611686018427387904
   br i1 %3536, label %3537, label %3540
 
-3537:                                             ; preds = %pm_location_new.exit3186
+3537:                                             ; preds = %pm_location_new.argprom.exit3186
   %3538 = shl nuw nsw i64 %3535, 1
   %3539 = or disjoint i64 %3538, 1
-  br label %pm_location_new.exit3188
+  br label %pm_location_new.argprom.exit3188
 
-3540:                                             ; preds = %pm_location_new.exit3186
+3540:                                             ; preds = %pm_location_new.argprom.exit3186
   %3541 = call i64 @rb_ull2inum(i64 noundef %3535) #6
   %.val3022.pre = load ptr, ptr %180, align 8
   %.pre4616 = ptrtoint ptr %.val3022.pre to i64
-  br label %pm_location_new.exit3188
+  br label %pm_location_new.argprom.exit3188
 
-pm_location_new.exit3188:                         ; preds = %3537, %3540
+pm_location_new.argprom.exit3188:                 ; preds = %3537, %3540
   %.pre-phi4617 = phi i64 [ %3529, %3537 ], [ %.pre4616, %3540 ]
   %.0.i.i3187 = phi i64 [ %3539, %3537 ], [ %3541, %3540 ]
   store i64 %.0.i.i3187, ptr %744, align 8
@@ -6188,16 +6188,16 @@ pm_location_new.exit3188:                         ; preds = %3537, %3540
   %3553 = icmp ult i64 %3548, 4611686018427387904
   br i1 %3553, label %3554, label %3557
 
-3554:                                             ; preds = %pm_location_new.exit3188
+3554:                                             ; preds = %pm_location_new.argprom.exit3188
   %3555 = shl nuw nsw i64 %3552, 1
   %3556 = or disjoint i64 %3555, 1
-  br label %pm_location_new.exit3190
+  br label %pm_location_new.argprom.exit3190
 
-3557:                                             ; preds = %pm_location_new.exit3188
+3557:                                             ; preds = %pm_location_new.argprom.exit3188
   %3558 = call i64 @rb_ull2inum(i64 noundef %3552) #6
-  br label %pm_location_new.exit3190
+  br label %pm_location_new.argprom.exit3190
 
-pm_location_new.exit3190:                         ; preds = %3554, %3557
+pm_location_new.argprom.exit3190:                 ; preds = %3554, %3557
   %.0.i.i3189 = phi i64 [ %3556, %3554 ], [ %3558, %3557 ]
   store i64 %.0.i.i3189, ptr %745, align 16
   %3559 = load i64, ptr @rb_cPrismCallTargetNode, align 8
@@ -6230,15 +6230,15 @@ pm_location_new.exit3190:                         ; preds = %3554, %3557
 3578:                                             ; preds = %3562
   %3579 = shl nuw nsw i64 %3576, 1
   %3580 = or disjoint i64 %3579, 1
-  br label %pm_location_new.exit3192
+  br label %pm_location_new.argprom.exit3192
 
 3581:                                             ; preds = %3562
   %3582 = call i64 @rb_ull2inum(i64 noundef %3576) #6
   %.val3020.pre = load ptr, ptr %180, align 8
   %.pre4618 = ptrtoint ptr %.val3020.pre to i64
-  br label %pm_location_new.exit3192
+  br label %pm_location_new.argprom.exit3192
 
-pm_location_new.exit3192:                         ; preds = %3578, %3581
+pm_location_new.argprom.exit3192:                 ; preds = %3578, %3581
   %.pre-phi4619 = phi i64 [ %3570, %3578 ], [ %.pre4618, %3581 ]
   %.0.i.i3191 = phi i64 [ %3580, %3578 ], [ %3582, %3581 ]
   store i64 %.0.i.i3191, ptr %738, align 8
@@ -6256,16 +6256,16 @@ pm_location_new.exit3192:                         ; preds = %3578, %3581
   %3594 = icmp ult i64 %3589, 4611686018427387904
   br i1 %3594, label %3595, label %3598
 
-3595:                                             ; preds = %pm_location_new.exit3192
+3595:                                             ; preds = %pm_location_new.argprom.exit3192
   %3596 = shl nuw nsw i64 %3593, 1
   %3597 = or disjoint i64 %3596, 1
-  br label %pm_location_new.exit3194
+  br label %pm_location_new.argprom.exit3194
 
-3598:                                             ; preds = %pm_location_new.exit3192
+3598:                                             ; preds = %pm_location_new.argprom.exit3192
   %3599 = call i64 @rb_ull2inum(i64 noundef %3593) #6
-  br label %pm_location_new.exit3194
+  br label %pm_location_new.argprom.exit3194
 
-pm_location_new.exit3194:                         ; preds = %3595, %3598
+pm_location_new.argprom.exit3194:                 ; preds = %3595, %3598
   %.0.i.i3193 = phi i64 [ %3597, %3595 ], [ %3599, %3598 ]
   store i64 %.0.i.i3193, ptr %739, align 16
   %3600 = load i64, ptr @rb_cPrismCapturePatternNode, align 8
@@ -6317,15 +6317,15 @@ pm_location_new.exit3194:                         ; preds = %3595, %3598
 3629:                                             ; preds = %._crit_edge4298
   %3630 = shl nuw nsw i64 %3627, 1
   %3631 = or disjoint i64 %3630, 1
-  br label %pm_location_new.exit3196
+  br label %pm_location_new.argprom.exit3196
 
 3632:                                             ; preds = %._crit_edge4298
   %3633 = call i64 @rb_ull2inum(i64 noundef %3627) #6
   %.val3018.pre = load ptr, ptr %180, align 8
   %.pre4620 = ptrtoint ptr %.val3018.pre to i64
-  br label %pm_location_new.exit3196
+  br label %pm_location_new.argprom.exit3196
 
-pm_location_new.exit3196:                         ; preds = %3629, %3632
+pm_location_new.argprom.exit3196:                 ; preds = %3629, %3632
   %.pre-phi4621 = phi i64 [ %3621, %3629 ], [ %.pre4620, %3632 ]
   %.0.i.i3195 = phi i64 [ %3631, %3629 ], [ %3633, %3632 ]
   store i64 %.0.i.i3195, ptr %733, align 16
@@ -6343,18 +6343,18 @@ pm_location_new.exit3196:                         ; preds = %3629, %3632
   %3645 = icmp ult i64 %3640, 4611686018427387904
   br i1 %3645, label %3646, label %3649
 
-3646:                                             ; preds = %pm_location_new.exit3196
+3646:                                             ; preds = %pm_location_new.argprom.exit3196
   %3647 = shl nuw nsw i64 %3644, 1
   %3648 = or disjoint i64 %3647, 1
-  br label %pm_location_new.exit3198
+  br label %pm_location_new.argprom.exit3198
 
-3649:                                             ; preds = %pm_location_new.exit3196
+3649:                                             ; preds = %pm_location_new.argprom.exit3196
   %3650 = call i64 @rb_ull2inum(i64 noundef %3644) #6
   %.val3017.pre = load ptr, ptr %180, align 8
   %.pre4622 = ptrtoint ptr %.val3017.pre to i64
-  br label %pm_location_new.exit3198
+  br label %pm_location_new.argprom.exit3198
 
-pm_location_new.exit3198:                         ; preds = %3646, %3649
+pm_location_new.argprom.exit3198:                 ; preds = %3646, %3649
   %.pre-phi4623 = phi i64 [ %.pre-phi4621, %3646 ], [ %.pre4622, %3649 ]
   %.0.i.i3197 = phi i64 [ %3648, %3646 ], [ %3650, %3649 ]
   store i64 %.0.i.i3197, ptr %734, align 8
@@ -6372,16 +6372,16 @@ pm_location_new.exit3198:                         ; preds = %3646, %3649
   %3662 = icmp ult i64 %3657, 4611686018427387904
   br i1 %3662, label %3663, label %3666
 
-3663:                                             ; preds = %pm_location_new.exit3198
+3663:                                             ; preds = %pm_location_new.argprom.exit3198
   %3664 = shl nuw nsw i64 %3661, 1
   %3665 = or disjoint i64 %3664, 1
-  br label %pm_location_new.exit3200
+  br label %pm_location_new.argprom.exit3200
 
-3666:                                             ; preds = %pm_location_new.exit3198
+3666:                                             ; preds = %pm_location_new.argprom.exit3198
   %3667 = call i64 @rb_ull2inum(i64 noundef %3661) #6
-  br label %pm_location_new.exit3200
+  br label %pm_location_new.argprom.exit3200
 
-pm_location_new.exit3200:                         ; preds = %3663, %3666
+pm_location_new.argprom.exit3200:                 ; preds = %3663, %3666
   %.0.i.i3199 = phi i64 [ %3665, %3663 ], [ %3667, %3666 ]
   store i64 %.0.i.i3199, ptr %735, align 16
   %3668 = load i64, ptr @rb_cPrismCaseMatchNode, align 8
@@ -6433,15 +6433,15 @@ pm_location_new.exit3200:                         ; preds = %3663, %3666
 3697:                                             ; preds = %._crit_edge4294
   %3698 = shl nuw nsw i64 %3695, 1
   %3699 = or disjoint i64 %3698, 1
-  br label %pm_location_new.exit3202
+  br label %pm_location_new.argprom.exit3202
 
 3700:                                             ; preds = %._crit_edge4294
   %3701 = call i64 @rb_ull2inum(i64 noundef %3695) #6
   %.val3015.pre = load ptr, ptr %180, align 8
   %.pre4624 = ptrtoint ptr %.val3015.pre to i64
-  br label %pm_location_new.exit3202
+  br label %pm_location_new.argprom.exit3202
 
-pm_location_new.exit3202:                         ; preds = %3697, %3700
+pm_location_new.argprom.exit3202:                 ; preds = %3697, %3700
   %.pre-phi4625 = phi i64 [ %3689, %3697 ], [ %.pre4624, %3700 ]
   %.0.i.i3201 = phi i64 [ %3699, %3697 ], [ %3701, %3700 ]
   store i64 %.0.i.i3201, ptr %727, align 16
@@ -6459,18 +6459,18 @@ pm_location_new.exit3202:                         ; preds = %3697, %3700
   %3713 = icmp ult i64 %3708, 4611686018427387904
   br i1 %3713, label %3714, label %3717
 
-3714:                                             ; preds = %pm_location_new.exit3202
+3714:                                             ; preds = %pm_location_new.argprom.exit3202
   %3715 = shl nuw nsw i64 %3712, 1
   %3716 = or disjoint i64 %3715, 1
-  br label %pm_location_new.exit3204
+  br label %pm_location_new.argprom.exit3204
 
-3717:                                             ; preds = %pm_location_new.exit3202
+3717:                                             ; preds = %pm_location_new.argprom.exit3202
   %3718 = call i64 @rb_ull2inum(i64 noundef %3712) #6
   %.val3014.pre = load ptr, ptr %180, align 8
   %.pre4626 = ptrtoint ptr %.val3014.pre to i64
-  br label %pm_location_new.exit3204
+  br label %pm_location_new.argprom.exit3204
 
-pm_location_new.exit3204:                         ; preds = %3714, %3717
+pm_location_new.argprom.exit3204:                 ; preds = %3714, %3717
   %.pre-phi4627 = phi i64 [ %.pre-phi4625, %3714 ], [ %.pre4626, %3717 ]
   %.0.i.i3203 = phi i64 [ %3716, %3714 ], [ %3718, %3717 ]
   store i64 %.0.i.i3203, ptr %728, align 8
@@ -6488,16 +6488,16 @@ pm_location_new.exit3204:                         ; preds = %3714, %3717
   %3730 = icmp ult i64 %3725, 4611686018427387904
   br i1 %3730, label %3731, label %3734
 
-3731:                                             ; preds = %pm_location_new.exit3204
+3731:                                             ; preds = %pm_location_new.argprom.exit3204
   %3732 = shl nuw nsw i64 %3729, 1
   %3733 = or disjoint i64 %3732, 1
-  br label %pm_location_new.exit3206
+  br label %pm_location_new.argprom.exit3206
 
-3734:                                             ; preds = %pm_location_new.exit3204
+3734:                                             ; preds = %pm_location_new.argprom.exit3204
   %3735 = call i64 @rb_ull2inum(i64 noundef %3729) #6
-  br label %pm_location_new.exit3206
+  br label %pm_location_new.argprom.exit3206
 
-pm_location_new.exit3206:                         ; preds = %3731, %3734
+pm_location_new.argprom.exit3206:                 ; preds = %3731, %3734
   %.0.i.i3205 = phi i64 [ %3733, %3731 ], [ %3735, %3734 ]
   store i64 %.0.i.i3205, ptr %729, align 16
   %3736 = load i64, ptr @rb_cPrismCaseNode, align 8
@@ -6556,13 +6556,13 @@ pm_location_new.exit3206:                         ; preds = %3731, %3734
 3772:                                             ; preds = %._crit_edge4290
   %3773 = shl nuw nsw i64 %3770, 1
   %3774 = or disjoint i64 %3773, 1
-  br label %pm_location_new.exit3208
+  br label %pm_location_new.argprom.exit3208
 
 3775:                                             ; preds = %._crit_edge4290
   %3776 = call i64 @rb_ull2inum(i64 noundef %3770) #6
-  br label %pm_location_new.exit3208
+  br label %pm_location_new.argprom.exit3208
 
-pm_location_new.exit3208:                         ; preds = %3772, %3775
+pm_location_new.argprom.exit3208:                 ; preds = %3772, %3775
   %.0.i.i3207 = phi i64 [ %3774, %3772 ], [ %3776, %3775 ]
   store i64 %.0.i.i3207, ptr %716, align 16
   %3777 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -6570,9 +6570,9 @@ pm_location_new.exit3208:                         ; preds = %3772, %3775
   %3778 = getelementptr inbounds i8, ptr %861, i64 72
   %3779 = load ptr, ptr %3778, align 8
   %3780 = icmp eq ptr %3779, null
-  br i1 %3780, label %pm_location_new.exit3210, label %3781
+  br i1 %3780, label %pm_location_new.argprom.exit3210, label %3781
 
-3781:                                             ; preds = %pm_location_new.exit3208
+3781:                                             ; preds = %pm_location_new.argprom.exit3208
   %3782 = getelementptr inbounds i8, ptr %861, i64 80
   %3783 = load ptr, ptr %3782, align 8
   %.val3012 = load ptr, ptr %180, align 8
@@ -6590,14 +6590,14 @@ pm_location_new.exit3208:                         ; preds = %3772, %3775
 3793:                                             ; preds = %3781
   %3794 = shl nuw nsw i64 %3791, 1
   %3795 = or disjoint i64 %3794, 1
-  br label %pm_location_new.exit3210
+  br label %pm_location_new.argprom.exit3210
 
 3796:                                             ; preds = %3781
   %3797 = call i64 @rb_ull2inum(i64 noundef %3791) #6
-  br label %pm_location_new.exit3210
+  br label %pm_location_new.argprom.exit3210
 
-pm_location_new.exit3210:                         ; preds = %3796, %3793, %pm_location_new.exit3208
-  %3798 = phi i64 [ 4, %pm_location_new.exit3208 ], [ %3795, %3793 ], [ %3797, %3796 ]
+pm_location_new.argprom.exit3210:                 ; preds = %3796, %3793, %pm_location_new.argprom.exit3208
+  %3798 = phi i64 [ 4, %pm_location_new.argprom.exit3208 ], [ %3795, %3793 ], [ %3797, %3796 ]
   store i64 %3798, ptr %718, align 16
   %3799 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %3799, ptr %719, align 8
@@ -6619,16 +6619,16 @@ pm_location_new.exit3210:                         ; preds = %3796, %3793, %pm_lo
   %3813 = icmp ult i64 %3808, 4611686018427387904
   br i1 %3813, label %3814, label %3817
 
-3814:                                             ; preds = %pm_location_new.exit3210
+3814:                                             ; preds = %pm_location_new.argprom.exit3210
   %3815 = shl nuw nsw i64 %3812, 1
   %3816 = or disjoint i64 %3815, 1
-  br label %pm_location_new.exit3212
+  br label %pm_location_new.argprom.exit3212
 
-3817:                                             ; preds = %pm_location_new.exit3210
+3817:                                             ; preds = %pm_location_new.argprom.exit3210
   %3818 = call i64 @rb_ull2inum(i64 noundef %3812) #6
-  br label %pm_location_new.exit3212
+  br label %pm_location_new.argprom.exit3212
 
-pm_location_new.exit3212:                         ; preds = %3814, %3817
+pm_location_new.argprom.exit3212:                 ; preds = %3814, %3817
   %.0.i.i3211 = phi i64 [ %3816, %3814 ], [ %3818, %3817 ]
   store i64 %.0.i.i3211, ptr %721, align 8
   %3819 = getelementptr inbounds i8, ptr %861, i64 120
@@ -6655,16 +6655,16 @@ pm_location_new.exit3212:                         ; preds = %3814, %3817
   %3838 = icmp ult i64 %3833, 4611686018427387904
   br i1 %3838, label %3839, label %3842
 
-3839:                                             ; preds = %pm_location_new.exit3212
+3839:                                             ; preds = %pm_location_new.argprom.exit3212
   %3840 = shl nuw nsw i64 %3837, 1
   %3841 = or disjoint i64 %3840, 1
-  br label %pm_location_new.exit3214
+  br label %pm_location_new.argprom.exit3214
 
-3842:                                             ; preds = %pm_location_new.exit3212
+3842:                                             ; preds = %pm_location_new.argprom.exit3212
   %3843 = call i64 @rb_ull2inum(i64 noundef %3837) #6
-  br label %pm_location_new.exit3214
+  br label %pm_location_new.argprom.exit3214
 
-pm_location_new.exit3214:                         ; preds = %3839, %3842
+pm_location_new.argprom.exit3214:                 ; preds = %3839, %3842
   %.0.i.i3213 = phi i64 [ %3841, %3839 ], [ %3843, %3842 ]
   store i64 %.0.i.i3213, ptr %723, align 8
   %3844 = load i64, ptr @rb_cPrismClassNode, align 8
@@ -6701,15 +6701,15 @@ pm_location_new.exit3214:                         ; preds = %3839, %3842
 3868:                                             ; preds = %3847
   %3869 = shl nuw nsw i64 %3866, 1
   %3870 = or disjoint i64 %3869, 1
-  br label %pm_location_new.exit3216
+  br label %pm_location_new.argprom.exit3216
 
 3871:                                             ; preds = %3847
   %3872 = call i64 @rb_ull2inum(i64 noundef %3866) #6
   %.val3008.pre = load ptr, ptr %180, align 8
   %.pre4628 = ptrtoint ptr %.val3008.pre to i64
-  br label %pm_location_new.exit3216
+  br label %pm_location_new.argprom.exit3216
 
-pm_location_new.exit3216:                         ; preds = %3868, %3871
+pm_location_new.argprom.exit3216:                 ; preds = %3868, %3871
   %.pre-phi4629 = phi i64 [ %3860, %3868 ], [ %.pre4628, %3871 ]
   %.0.i.i3215 = phi i64 [ %3870, %3868 ], [ %3872, %3871 ]
   store i64 %.0.i.i3215, ptr %711, align 16
@@ -6727,16 +6727,16 @@ pm_location_new.exit3216:                         ; preds = %3868, %3871
   %3884 = icmp ult i64 %3879, 4611686018427387904
   br i1 %3884, label %3885, label %3888
 
-3885:                                             ; preds = %pm_location_new.exit3216
+3885:                                             ; preds = %pm_location_new.argprom.exit3216
   %3886 = shl nuw nsw i64 %3883, 1
   %3887 = or disjoint i64 %3886, 1
-  br label %pm_location_new.exit3218
+  br label %pm_location_new.argprom.exit3218
 
-3888:                                             ; preds = %pm_location_new.exit3216
+3888:                                             ; preds = %pm_location_new.argprom.exit3216
   %3889 = call i64 @rb_ull2inum(i64 noundef %3883) #6
-  br label %pm_location_new.exit3218
+  br label %pm_location_new.argprom.exit3218
 
-pm_location_new.exit3218:                         ; preds = %3885, %3888
+pm_location_new.argprom.exit3218:                 ; preds = %3885, %3888
   %.0.i.i3217 = phi i64 [ %3887, %3885 ], [ %3889, %3888 ]
   store i64 %.0.i.i3217, ptr %712, align 8
   %3890 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -6757,16 +6757,16 @@ pm_location_new.exit3218:                         ; preds = %3885, %3888
   %3903 = icmp ult i64 %3898, 4611686018427387904
   br i1 %3903, label %3904, label %3907
 
-3904:                                             ; preds = %pm_location_new.exit3218
+3904:                                             ; preds = %pm_location_new.argprom.exit3218
   %3905 = shl nuw nsw i64 %3902, 1
   %3906 = or disjoint i64 %3905, 1
-  br label %pm_location_new.exit3220
+  br label %pm_location_new.argprom.exit3220
 
-3907:                                             ; preds = %pm_location_new.exit3218
+3907:                                             ; preds = %pm_location_new.argprom.exit3218
   %3908 = call i64 @rb_ull2inum(i64 noundef %3902) #6
-  br label %pm_location_new.exit3220
+  br label %pm_location_new.argprom.exit3220
 
-pm_location_new.exit3220:                         ; preds = %3904, %3907
+pm_location_new.argprom.exit3220:                 ; preds = %3904, %3907
   %.0.i.i3219 = phi i64 [ %3906, %3904 ], [ %3908, %3907 ]
   store i64 %.0.i.i3219, ptr %714, align 8
   %3909 = load i64, ptr @rb_cPrismClassVariableAndWriteNode, align 8
@@ -6803,15 +6803,15 @@ pm_location_new.exit3220:                         ; preds = %3904, %3907
 3933:                                             ; preds = %3912
   %3934 = shl nuw nsw i64 %3931, 1
   %3935 = or disjoint i64 %3934, 1
-  br label %pm_location_new.exit3222
+  br label %pm_location_new.argprom.exit3222
 
 3936:                                             ; preds = %3912
   %3937 = call i64 @rb_ull2inum(i64 noundef %3931) #6
   %.val3005.pre = load ptr, ptr %180, align 8
   %.pre4630 = ptrtoint ptr %.val3005.pre to i64
-  br label %pm_location_new.exit3222
+  br label %pm_location_new.argprom.exit3222
 
-pm_location_new.exit3222:                         ; preds = %3933, %3936
+pm_location_new.argprom.exit3222:                 ; preds = %3933, %3936
   %.pre-phi4631 = phi i64 [ %3925, %3933 ], [ %.pre4630, %3936 ]
   %.0.i.i3221 = phi i64 [ %3935, %3933 ], [ %3937, %3936 ]
   store i64 %.0.i.i3221, ptr %705, align 16
@@ -6829,16 +6829,16 @@ pm_location_new.exit3222:                         ; preds = %3933, %3936
   %3949 = icmp ult i64 %3944, 4611686018427387904
   br i1 %3949, label %3950, label %3953
 
-3950:                                             ; preds = %pm_location_new.exit3222
+3950:                                             ; preds = %pm_location_new.argprom.exit3222
   %3951 = shl nuw nsw i64 %3948, 1
   %3952 = or disjoint i64 %3951, 1
-  br label %pm_location_new.exit3224
+  br label %pm_location_new.argprom.exit3224
 
-3953:                                             ; preds = %pm_location_new.exit3222
+3953:                                             ; preds = %pm_location_new.argprom.exit3222
   %3954 = call i64 @rb_ull2inum(i64 noundef %3948) #6
-  br label %pm_location_new.exit3224
+  br label %pm_location_new.argprom.exit3224
 
-pm_location_new.exit3224:                         ; preds = %3950, %3953
+pm_location_new.argprom.exit3224:                 ; preds = %3950, %3953
   %.0.i.i3223 = phi i64 [ %3952, %3950 ], [ %3954, %3953 ]
   store i64 %.0.i.i3223, ptr %706, align 8
   %3955 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -6867,16 +6867,16 @@ pm_location_new.exit3224:                         ; preds = %3950, %3953
   %3975 = icmp ult i64 %3970, 4611686018427387904
   br i1 %3975, label %3976, label %3979
 
-3976:                                             ; preds = %pm_location_new.exit3224
+3976:                                             ; preds = %pm_location_new.argprom.exit3224
   %3977 = shl nuw nsw i64 %3974, 1
   %3978 = or disjoint i64 %3977, 1
-  br label %pm_location_new.exit3226
+  br label %pm_location_new.argprom.exit3226
 
-3979:                                             ; preds = %pm_location_new.exit3224
+3979:                                             ; preds = %pm_location_new.argprom.exit3224
   %3980 = call i64 @rb_ull2inum(i64 noundef %3974) #6
-  br label %pm_location_new.exit3226
+  br label %pm_location_new.argprom.exit3226
 
-pm_location_new.exit3226:                         ; preds = %3976, %3979
+pm_location_new.argprom.exit3226:                 ; preds = %3976, %3979
   %.0.i.i3225 = phi i64 [ %3978, %3976 ], [ %3980, %3979 ]
   store i64 %.0.i.i3225, ptr %709, align 16
   %3981 = load i64, ptr @rb_cPrismClassVariableOperatorWriteNode, align 8
@@ -6913,15 +6913,15 @@ pm_location_new.exit3226:                         ; preds = %3976, %3979
 4005:                                             ; preds = %3984
   %4006 = shl nuw nsw i64 %4003, 1
   %4007 = or disjoint i64 %4006, 1
-  br label %pm_location_new.exit3228
+  br label %pm_location_new.argprom.exit3228
 
 4008:                                             ; preds = %3984
   %4009 = call i64 @rb_ull2inum(i64 noundef %4003) #6
   %.val3002.pre = load ptr, ptr %180, align 8
   %.pre4632 = ptrtoint ptr %.val3002.pre to i64
-  br label %pm_location_new.exit3228
+  br label %pm_location_new.argprom.exit3228
 
-pm_location_new.exit3228:                         ; preds = %4005, %4008
+pm_location_new.argprom.exit3228:                 ; preds = %4005, %4008
   %.pre-phi4633 = phi i64 [ %3997, %4005 ], [ %.pre4632, %4008 ]
   %.0.i.i3227 = phi i64 [ %4007, %4005 ], [ %4009, %4008 ]
   store i64 %.0.i.i3227, ptr %700, align 16
@@ -6939,16 +6939,16 @@ pm_location_new.exit3228:                         ; preds = %4005, %4008
   %4021 = icmp ult i64 %4016, 4611686018427387904
   br i1 %4021, label %4022, label %4025
 
-4022:                                             ; preds = %pm_location_new.exit3228
+4022:                                             ; preds = %pm_location_new.argprom.exit3228
   %4023 = shl nuw nsw i64 %4020, 1
   %4024 = or disjoint i64 %4023, 1
-  br label %pm_location_new.exit3230
+  br label %pm_location_new.argprom.exit3230
 
-4025:                                             ; preds = %pm_location_new.exit3228
+4025:                                             ; preds = %pm_location_new.argprom.exit3228
   %4026 = call i64 @rb_ull2inum(i64 noundef %4020) #6
-  br label %pm_location_new.exit3230
+  br label %pm_location_new.argprom.exit3230
 
-pm_location_new.exit3230:                         ; preds = %4022, %4025
+pm_location_new.argprom.exit3230:                 ; preds = %4022, %4025
   %.0.i.i3229 = phi i64 [ %4024, %4022 ], [ %4026, %4025 ]
   store i64 %.0.i.i3229, ptr %701, align 8
   %4027 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -6969,16 +6969,16 @@ pm_location_new.exit3230:                         ; preds = %4022, %4025
   %4040 = icmp ult i64 %4035, 4611686018427387904
   br i1 %4040, label %4041, label %4044
 
-4041:                                             ; preds = %pm_location_new.exit3230
+4041:                                             ; preds = %pm_location_new.argprom.exit3230
   %4042 = shl nuw nsw i64 %4039, 1
   %4043 = or disjoint i64 %4042, 1
-  br label %pm_location_new.exit3232
+  br label %pm_location_new.argprom.exit3232
 
-4044:                                             ; preds = %pm_location_new.exit3230
+4044:                                             ; preds = %pm_location_new.argprom.exit3230
   %4045 = call i64 @rb_ull2inum(i64 noundef %4039) #6
-  br label %pm_location_new.exit3232
+  br label %pm_location_new.argprom.exit3232
 
-pm_location_new.exit3232:                         ; preds = %4041, %4044
+pm_location_new.argprom.exit3232:                 ; preds = %4041, %4044
   %.0.i.i3231 = phi i64 [ %4043, %4041 ], [ %4045, %4044 ]
   store i64 %.0.i.i3231, ptr %703, align 8
   %4046 = load i64, ptr @rb_cPrismClassVariableOrWriteNode, align 8
@@ -7015,13 +7015,13 @@ pm_location_new.exit3232:                         ; preds = %4041, %4044
 4070:                                             ; preds = %4049
   %4071 = shl nuw nsw i64 %4068, 1
   %4072 = or disjoint i64 %4071, 1
-  br label %pm_location_new.exit3234
+  br label %pm_location_new.argprom.exit3234
 
 4073:                                             ; preds = %4049
   %4074 = call i64 @rb_ull2inum(i64 noundef %4068) #6
-  br label %pm_location_new.exit3234
+  br label %pm_location_new.argprom.exit3234
 
-pm_location_new.exit3234:                         ; preds = %4070, %4073
+pm_location_new.argprom.exit3234:                 ; preds = %4070, %4073
   %.0.i.i3233 = phi i64 [ %4072, %4070 ], [ %4074, %4073 ]
   store i64 %.0.i.i3233, ptr %698, align 16
   %4075 = load i64, ptr @rb_cPrismClassVariableReadNode, align 8
@@ -7058,13 +7058,13 @@ pm_location_new.exit3234:                         ; preds = %4070, %4073
 4099:                                             ; preds = %4078
   %4100 = shl nuw nsw i64 %4097, 1
   %4101 = or disjoint i64 %4100, 1
-  br label %pm_location_new.exit3236
+  br label %pm_location_new.argprom.exit3236
 
 4102:                                             ; preds = %4078
   %4103 = call i64 @rb_ull2inum(i64 noundef %4097) #6
-  br label %pm_location_new.exit3236
+  br label %pm_location_new.argprom.exit3236
 
-pm_location_new.exit3236:                         ; preds = %4099, %4102
+pm_location_new.argprom.exit3236:                 ; preds = %4099, %4102
   %.0.i.i3235 = phi i64 [ %4101, %4099 ], [ %4103, %4102 ]
   store i64 %.0.i.i3235, ptr %696, align 16
   %4104 = load i64, ptr @rb_cPrismClassVariableTargetNode, align 8
@@ -7101,13 +7101,13 @@ pm_location_new.exit3236:                         ; preds = %4099, %4102
 4128:                                             ; preds = %4107
   %4129 = shl nuw nsw i64 %4126, 1
   %4130 = or disjoint i64 %4129, 1
-  br label %pm_location_new.exit3238
+  br label %pm_location_new.argprom.exit3238
 
 4131:                                             ; preds = %4107
   %4132 = call i64 @rb_ull2inum(i64 noundef %4126) #6
-  br label %pm_location_new.exit3238
+  br label %pm_location_new.argprom.exit3238
 
-pm_location_new.exit3238:                         ; preds = %4128, %4131
+pm_location_new.argprom.exit3238:                 ; preds = %4128, %4131
   %.0.i.i3237 = phi i64 [ %4130, %4128 ], [ %4132, %4131 ]
   store i64 %.0.i.i3237, ptr %691, align 16
   %4133 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7116,9 +7116,9 @@ pm_location_new.exit3238:                         ; preds = %4128, %4131
   %4135 = load ptr, ptr %4134, align 8
   %4136 = icmp eq ptr %4135, null
   %.val2996.pre4540 = load ptr, ptr %180, align 8
-  br i1 %4136, label %pm_location_new.exit3240, label %4137
+  br i1 %4136, label %pm_location_new.argprom.exit3240, label %4137
 
-4137:                                             ; preds = %pm_location_new.exit3238
+4137:                                             ; preds = %pm_location_new.argprom.exit3238
   %4138 = getelementptr inbounds i8, ptr %861, i64 64
   %4139 = load ptr, ptr %4138, align 8
   %4140 = ptrtoint ptr %4135 to i64
@@ -7135,16 +7135,16 @@ pm_location_new.exit3238:                         ; preds = %4128, %4131
 4149:                                             ; preds = %4137
   %4150 = shl nuw nsw i64 %4147, 1
   %4151 = or disjoint i64 %4150, 1
-  br label %pm_location_new.exit3240
+  br label %pm_location_new.argprom.exit3240
 
 4152:                                             ; preds = %4137
   %4153 = call i64 @rb_ull2inum(i64 noundef %4147) #6
   %.val2996.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3240
+  br label %pm_location_new.argprom.exit3240
 
-pm_location_new.exit3240:                         ; preds = %4152, %4149, %pm_location_new.exit3238
-  %.val2996 = phi ptr [ %.val2996.pre4540, %pm_location_new.exit3238 ], [ %.val2996.pre4540, %4149 ], [ %.val2996.pre, %4152 ]
-  %4154 = phi i64 [ 4, %pm_location_new.exit3238 ], [ %4151, %4149 ], [ %4153, %4152 ]
+pm_location_new.argprom.exit3240:                 ; preds = %4152, %4149, %pm_location_new.argprom.exit3238
+  %.val2996 = phi ptr [ %.val2996.pre4540, %pm_location_new.argprom.exit3238 ], [ %.val2996.pre4540, %4149 ], [ %.val2996.pre, %4152 ]
+  %4154 = phi i64 [ 4, %pm_location_new.argprom.exit3238 ], [ %4151, %4149 ], [ %4153, %4152 ]
   store i64 %4154, ptr %693, align 16
   %4155 = getelementptr inbounds i8, ptr %861, i64 8
   %4156 = load ptr, ptr %4155, align 8
@@ -7161,16 +7161,16 @@ pm_location_new.exit3240:                         ; preds = %4152, %4149, %pm_lo
   %4167 = icmp ult i64 %4162, 4611686018427387904
   br i1 %4167, label %4168, label %4171
 
-4168:                                             ; preds = %pm_location_new.exit3240
+4168:                                             ; preds = %pm_location_new.argprom.exit3240
   %4169 = shl nuw nsw i64 %4166, 1
   %4170 = or disjoint i64 %4169, 1
-  br label %pm_location_new.exit3242
+  br label %pm_location_new.argprom.exit3242
 
-4171:                                             ; preds = %pm_location_new.exit3240
+4171:                                             ; preds = %pm_location_new.argprom.exit3240
   %4172 = call i64 @rb_ull2inum(i64 noundef %4166) #6
-  br label %pm_location_new.exit3242
+  br label %pm_location_new.argprom.exit3242
 
-pm_location_new.exit3242:                         ; preds = %4168, %4171
+pm_location_new.argprom.exit3242:                 ; preds = %4168, %4171
   %.0.i.i3241 = phi i64 [ %4170, %4168 ], [ %4172, %4171 ]
   store i64 %.0.i.i3241, ptr %694, align 8
   %4173 = load i64, ptr @rb_cPrismClassVariableWriteNode, align 8
@@ -7207,15 +7207,15 @@ pm_location_new.exit3242:                         ; preds = %4168, %4171
 4197:                                             ; preds = %4176
   %4198 = shl nuw nsw i64 %4195, 1
   %4199 = or disjoint i64 %4198, 1
-  br label %pm_location_new.exit3244
+  br label %pm_location_new.argprom.exit3244
 
 4200:                                             ; preds = %4176
   %4201 = call i64 @rb_ull2inum(i64 noundef %4195) #6
   %.val2994.pre = load ptr, ptr %180, align 8
   %.pre4634 = ptrtoint ptr %.val2994.pre to i64
-  br label %pm_location_new.exit3244
+  br label %pm_location_new.argprom.exit3244
 
-pm_location_new.exit3244:                         ; preds = %4197, %4200
+pm_location_new.argprom.exit3244:                 ; preds = %4197, %4200
   %.pre-phi4635 = phi i64 [ %4189, %4197 ], [ %.pre4634, %4200 ]
   %.0.i.i3243 = phi i64 [ %4199, %4197 ], [ %4201, %4200 ]
   store i64 %.0.i.i3243, ptr %686, align 16
@@ -7233,16 +7233,16 @@ pm_location_new.exit3244:                         ; preds = %4197, %4200
   %4213 = icmp ult i64 %4208, 4611686018427387904
   br i1 %4213, label %4214, label %4217
 
-4214:                                             ; preds = %pm_location_new.exit3244
+4214:                                             ; preds = %pm_location_new.argprom.exit3244
   %4215 = shl nuw nsw i64 %4212, 1
   %4216 = or disjoint i64 %4215, 1
-  br label %pm_location_new.exit3246
+  br label %pm_location_new.argprom.exit3246
 
-4217:                                             ; preds = %pm_location_new.exit3244
+4217:                                             ; preds = %pm_location_new.argprom.exit3244
   %4218 = call i64 @rb_ull2inum(i64 noundef %4212) #6
-  br label %pm_location_new.exit3246
+  br label %pm_location_new.argprom.exit3246
 
-pm_location_new.exit3246:                         ; preds = %4214, %4217
+pm_location_new.argprom.exit3246:                 ; preds = %4214, %4217
   %.0.i.i3245 = phi i64 [ %4216, %4214 ], [ %4218, %4217 ]
   store i64 %.0.i.i3245, ptr %687, align 8
   %4219 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7263,16 +7263,16 @@ pm_location_new.exit3246:                         ; preds = %4214, %4217
   %4232 = icmp ult i64 %4227, 4611686018427387904
   br i1 %4232, label %4233, label %4236
 
-4233:                                             ; preds = %pm_location_new.exit3246
+4233:                                             ; preds = %pm_location_new.argprom.exit3246
   %4234 = shl nuw nsw i64 %4231, 1
   %4235 = or disjoint i64 %4234, 1
-  br label %pm_location_new.exit3248
+  br label %pm_location_new.argprom.exit3248
 
-4236:                                             ; preds = %pm_location_new.exit3246
+4236:                                             ; preds = %pm_location_new.argprom.exit3246
   %4237 = call i64 @rb_ull2inum(i64 noundef %4231) #6
-  br label %pm_location_new.exit3248
+  br label %pm_location_new.argprom.exit3248
 
-pm_location_new.exit3248:                         ; preds = %4233, %4236
+pm_location_new.argprom.exit3248:                 ; preds = %4233, %4236
   %.0.i.i3247 = phi i64 [ %4235, %4233 ], [ %4237, %4236 ]
   store i64 %.0.i.i3247, ptr %689, align 8
   %4238 = load i64, ptr @rb_cPrismConstantAndWriteNode, align 8
@@ -7309,15 +7309,15 @@ pm_location_new.exit3248:                         ; preds = %4233, %4236
 4262:                                             ; preds = %4241
   %4263 = shl nuw nsw i64 %4260, 1
   %4264 = or disjoint i64 %4263, 1
-  br label %pm_location_new.exit3250
+  br label %pm_location_new.argprom.exit3250
 
 4265:                                             ; preds = %4241
   %4266 = call i64 @rb_ull2inum(i64 noundef %4260) #6
   %.val2991.pre = load ptr, ptr %180, align 8
   %.pre4636 = ptrtoint ptr %.val2991.pre to i64
-  br label %pm_location_new.exit3250
+  br label %pm_location_new.argprom.exit3250
 
-pm_location_new.exit3250:                         ; preds = %4262, %4265
+pm_location_new.argprom.exit3250:                 ; preds = %4262, %4265
   %.pre-phi4637 = phi i64 [ %4254, %4262 ], [ %.pre4636, %4265 ]
   %.0.i.i3249 = phi i64 [ %4264, %4262 ], [ %4266, %4265 ]
   store i64 %.0.i.i3249, ptr %680, align 16
@@ -7335,16 +7335,16 @@ pm_location_new.exit3250:                         ; preds = %4262, %4265
   %4278 = icmp ult i64 %4273, 4611686018427387904
   br i1 %4278, label %4279, label %4282
 
-4279:                                             ; preds = %pm_location_new.exit3250
+4279:                                             ; preds = %pm_location_new.argprom.exit3250
   %4280 = shl nuw nsw i64 %4277, 1
   %4281 = or disjoint i64 %4280, 1
-  br label %pm_location_new.exit3252
+  br label %pm_location_new.argprom.exit3252
 
-4282:                                             ; preds = %pm_location_new.exit3250
+4282:                                             ; preds = %pm_location_new.argprom.exit3250
   %4283 = call i64 @rb_ull2inum(i64 noundef %4277) #6
-  br label %pm_location_new.exit3252
+  br label %pm_location_new.argprom.exit3252
 
-pm_location_new.exit3252:                         ; preds = %4279, %4282
+pm_location_new.argprom.exit3252:                 ; preds = %4279, %4282
   %.0.i.i3251 = phi i64 [ %4281, %4279 ], [ %4283, %4282 ]
   store i64 %.0.i.i3251, ptr %681, align 8
   %4284 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7373,16 +7373,16 @@ pm_location_new.exit3252:                         ; preds = %4279, %4282
   %4304 = icmp ult i64 %4299, 4611686018427387904
   br i1 %4304, label %4305, label %4308
 
-4305:                                             ; preds = %pm_location_new.exit3252
+4305:                                             ; preds = %pm_location_new.argprom.exit3252
   %4306 = shl nuw nsw i64 %4303, 1
   %4307 = or disjoint i64 %4306, 1
-  br label %pm_location_new.exit3254
+  br label %pm_location_new.argprom.exit3254
 
-4308:                                             ; preds = %pm_location_new.exit3252
+4308:                                             ; preds = %pm_location_new.argprom.exit3252
   %4309 = call i64 @rb_ull2inum(i64 noundef %4303) #6
-  br label %pm_location_new.exit3254
+  br label %pm_location_new.argprom.exit3254
 
-pm_location_new.exit3254:                         ; preds = %4305, %4308
+pm_location_new.argprom.exit3254:                 ; preds = %4305, %4308
   %.0.i.i3253 = phi i64 [ %4307, %4305 ], [ %4309, %4308 ]
   store i64 %.0.i.i3253, ptr %684, align 16
   %4310 = load i64, ptr @rb_cPrismConstantOperatorWriteNode, align 8
@@ -7419,15 +7419,15 @@ pm_location_new.exit3254:                         ; preds = %4305, %4308
 4334:                                             ; preds = %4313
   %4335 = shl nuw nsw i64 %4332, 1
   %4336 = or disjoint i64 %4335, 1
-  br label %pm_location_new.exit3256
+  br label %pm_location_new.argprom.exit3256
 
 4337:                                             ; preds = %4313
   %4338 = call i64 @rb_ull2inum(i64 noundef %4332) #6
   %.val2988.pre = load ptr, ptr %180, align 8
   %.pre4638 = ptrtoint ptr %.val2988.pre to i64
-  br label %pm_location_new.exit3256
+  br label %pm_location_new.argprom.exit3256
 
-pm_location_new.exit3256:                         ; preds = %4334, %4337
+pm_location_new.argprom.exit3256:                 ; preds = %4334, %4337
   %.pre-phi4639 = phi i64 [ %4326, %4334 ], [ %.pre4638, %4337 ]
   %.0.i.i3255 = phi i64 [ %4336, %4334 ], [ %4338, %4337 ]
   store i64 %.0.i.i3255, ptr %675, align 16
@@ -7445,16 +7445,16 @@ pm_location_new.exit3256:                         ; preds = %4334, %4337
   %4350 = icmp ult i64 %4345, 4611686018427387904
   br i1 %4350, label %4351, label %4354
 
-4351:                                             ; preds = %pm_location_new.exit3256
+4351:                                             ; preds = %pm_location_new.argprom.exit3256
   %4352 = shl nuw nsw i64 %4349, 1
   %4353 = or disjoint i64 %4352, 1
-  br label %pm_location_new.exit3258
+  br label %pm_location_new.argprom.exit3258
 
-4354:                                             ; preds = %pm_location_new.exit3256
+4354:                                             ; preds = %pm_location_new.argprom.exit3256
   %4355 = call i64 @rb_ull2inum(i64 noundef %4349) #6
-  br label %pm_location_new.exit3258
+  br label %pm_location_new.argprom.exit3258
 
-pm_location_new.exit3258:                         ; preds = %4351, %4354
+pm_location_new.argprom.exit3258:                 ; preds = %4351, %4354
   %.0.i.i3257 = phi i64 [ %4353, %4351 ], [ %4355, %4354 ]
   store i64 %.0.i.i3257, ptr %676, align 8
   %4356 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7475,16 +7475,16 @@ pm_location_new.exit3258:                         ; preds = %4351, %4354
   %4369 = icmp ult i64 %4364, 4611686018427387904
   br i1 %4369, label %4370, label %4373
 
-4370:                                             ; preds = %pm_location_new.exit3258
+4370:                                             ; preds = %pm_location_new.argprom.exit3258
   %4371 = shl nuw nsw i64 %4368, 1
   %4372 = or disjoint i64 %4371, 1
-  br label %pm_location_new.exit3260
+  br label %pm_location_new.argprom.exit3260
 
-4373:                                             ; preds = %pm_location_new.exit3258
+4373:                                             ; preds = %pm_location_new.argprom.exit3258
   %4374 = call i64 @rb_ull2inum(i64 noundef %4368) #6
-  br label %pm_location_new.exit3260
+  br label %pm_location_new.argprom.exit3260
 
-pm_location_new.exit3260:                         ; preds = %4370, %4373
+pm_location_new.argprom.exit3260:                 ; preds = %4370, %4373
   %.0.i.i3259 = phi i64 [ %4372, %4370 ], [ %4374, %4373 ]
   store i64 %.0.i.i3259, ptr %678, align 8
   %4375 = load i64, ptr @rb_cPrismConstantOrWriteNode, align 8
@@ -7515,13 +7515,13 @@ pm_location_new.exit3260:                         ; preds = %4370, %4373
 4393:                                             ; preds = %4378
   %4394 = shl nuw nsw i64 %4391, 1
   %4395 = or disjoint i64 %4394, 1
-  br label %pm_location_new.exit3262
+  br label %pm_location_new.argprom.exit3262
 
 4396:                                             ; preds = %4378
   %4397 = call i64 @rb_ull2inum(i64 noundef %4391) #6
-  br label %pm_location_new.exit3262
+  br label %pm_location_new.argprom.exit3262
 
-pm_location_new.exit3262:                         ; preds = %4393, %4396
+pm_location_new.argprom.exit3262:                 ; preds = %4393, %4396
   %.0.i.i3261 = phi i64 [ %4395, %4393 ], [ %4397, %4396 ]
   store i64 %.0.i.i3261, ptr %671, align 16
   %4398 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7542,16 +7542,16 @@ pm_location_new.exit3262:                         ; preds = %4393, %4396
   %4411 = icmp ult i64 %4406, 4611686018427387904
   br i1 %4411, label %4412, label %4415
 
-4412:                                             ; preds = %pm_location_new.exit3262
+4412:                                             ; preds = %pm_location_new.argprom.exit3262
   %4413 = shl nuw nsw i64 %4410, 1
   %4414 = or disjoint i64 %4413, 1
-  br label %pm_location_new.exit3264
+  br label %pm_location_new.argprom.exit3264
 
-4415:                                             ; preds = %pm_location_new.exit3262
+4415:                                             ; preds = %pm_location_new.argprom.exit3262
   %4416 = call i64 @rb_ull2inum(i64 noundef %4410) #6
-  br label %pm_location_new.exit3264
+  br label %pm_location_new.argprom.exit3264
 
-pm_location_new.exit3264:                         ; preds = %4412, %4415
+pm_location_new.argprom.exit3264:                 ; preds = %4412, %4415
   %.0.i.i3263 = phi i64 [ %4414, %4412 ], [ %4416, %4415 ]
   store i64 %.0.i.i3263, ptr %673, align 16
   %4417 = load i64, ptr @rb_cPrismConstantPathAndWriteNode, align 8
@@ -7584,15 +7584,15 @@ pm_location_new.exit3264:                         ; preds = %4412, %4415
 4436:                                             ; preds = %4420
   %4437 = shl nuw nsw i64 %4434, 1
   %4438 = or disjoint i64 %4437, 1
-  br label %pm_location_new.exit3266
+  br label %pm_location_new.argprom.exit3266
 
 4439:                                             ; preds = %4420
   %4440 = call i64 @rb_ull2inum(i64 noundef %4434) #6
   %.val2983.pre = load ptr, ptr %180, align 8
   %.pre4640 = ptrtoint ptr %.val2983.pre to i64
-  br label %pm_location_new.exit3266
+  br label %pm_location_new.argprom.exit3266
 
-pm_location_new.exit3266:                         ; preds = %4436, %4439
+pm_location_new.argprom.exit3266:                 ; preds = %4436, %4439
   %.pre-phi4641 = phi i64 [ %4428, %4436 ], [ %.pre4640, %4439 ]
   %.0.i.i3265 = phi i64 [ %4438, %4436 ], [ %4440, %4439 ]
   store i64 %.0.i.i3265, ptr %668, align 8
@@ -7610,16 +7610,16 @@ pm_location_new.exit3266:                         ; preds = %4436, %4439
   %4452 = icmp ult i64 %4447, 4611686018427387904
   br i1 %4452, label %4453, label %4456
 
-4453:                                             ; preds = %pm_location_new.exit3266
+4453:                                             ; preds = %pm_location_new.argprom.exit3266
   %4454 = shl nuw nsw i64 %4451, 1
   %4455 = or disjoint i64 %4454, 1
-  br label %pm_location_new.exit3268
+  br label %pm_location_new.argprom.exit3268
 
-4456:                                             ; preds = %pm_location_new.exit3266
+4456:                                             ; preds = %pm_location_new.argprom.exit3266
   %4457 = call i64 @rb_ull2inum(i64 noundef %4451) #6
-  br label %pm_location_new.exit3268
+  br label %pm_location_new.argprom.exit3268
 
-pm_location_new.exit3268:                         ; preds = %4453, %4456
+pm_location_new.argprom.exit3268:                 ; preds = %4453, %4456
   %.0.i.i3267 = phi i64 [ %4455, %4453 ], [ %4457, %4456 ]
   store i64 %.0.i.i3267, ptr %669, align 16
   %4458 = load i64, ptr @rb_cPrismConstantPathNode, align 8
@@ -7650,13 +7650,13 @@ pm_location_new.exit3268:                         ; preds = %4453, %4456
 4476:                                             ; preds = %4461
   %4477 = shl nuw nsw i64 %4474, 1
   %4478 = or disjoint i64 %4477, 1
-  br label %pm_location_new.exit3270
+  br label %pm_location_new.argprom.exit3270
 
 4479:                                             ; preds = %4461
   %4480 = call i64 @rb_ull2inum(i64 noundef %4474) #6
-  br label %pm_location_new.exit3270
+  br label %pm_location_new.argprom.exit3270
 
-pm_location_new.exit3270:                         ; preds = %4476, %4479
+pm_location_new.argprom.exit3270:                 ; preds = %4476, %4479
   %.0.i.i3269 = phi i64 [ %4478, %4476 ], [ %4480, %4479 ]
   store i64 %.0.i.i3269, ptr %662, align 16
   %4481 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7685,16 +7685,16 @@ pm_location_new.exit3270:                         ; preds = %4476, %4479
   %4501 = icmp ult i64 %4496, 4611686018427387904
   br i1 %4501, label %4502, label %4505
 
-4502:                                             ; preds = %pm_location_new.exit3270
+4502:                                             ; preds = %pm_location_new.argprom.exit3270
   %4503 = shl nuw nsw i64 %4500, 1
   %4504 = or disjoint i64 %4503, 1
-  br label %pm_location_new.exit3272
+  br label %pm_location_new.argprom.exit3272
 
-4505:                                             ; preds = %pm_location_new.exit3270
+4505:                                             ; preds = %pm_location_new.argprom.exit3270
   %4506 = call i64 @rb_ull2inum(i64 noundef %4500) #6
-  br label %pm_location_new.exit3272
+  br label %pm_location_new.argprom.exit3272
 
-pm_location_new.exit3272:                         ; preds = %4502, %4505
+pm_location_new.argprom.exit3272:                 ; preds = %4502, %4505
   %.0.i.i3271 = phi i64 [ %4504, %4502 ], [ %4506, %4505 ]
   store i64 %.0.i.i3271, ptr %665, align 8
   %4507 = load i64, ptr @rb_cPrismConstantPathOperatorWriteNode, align 8
@@ -7725,13 +7725,13 @@ pm_location_new.exit3272:                         ; preds = %4502, %4505
 4525:                                             ; preds = %4510
   %4526 = shl nuw nsw i64 %4523, 1
   %4527 = or disjoint i64 %4526, 1
-  br label %pm_location_new.exit3274
+  br label %pm_location_new.argprom.exit3274
 
 4528:                                             ; preds = %4510
   %4529 = call i64 @rb_ull2inum(i64 noundef %4523) #6
-  br label %pm_location_new.exit3274
+  br label %pm_location_new.argprom.exit3274
 
-pm_location_new.exit3274:                         ; preds = %4525, %4528
+pm_location_new.argprom.exit3274:                 ; preds = %4525, %4528
   %.0.i.i3273 = phi i64 [ %4527, %4525 ], [ %4529, %4528 ]
   store i64 %.0.i.i3273, ptr %658, align 16
   %4530 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7752,16 +7752,16 @@ pm_location_new.exit3274:                         ; preds = %4525, %4528
   %4543 = icmp ult i64 %4538, 4611686018427387904
   br i1 %4543, label %4544, label %4547
 
-4544:                                             ; preds = %pm_location_new.exit3274
+4544:                                             ; preds = %pm_location_new.argprom.exit3274
   %4545 = shl nuw nsw i64 %4542, 1
   %4546 = or disjoint i64 %4545, 1
-  br label %pm_location_new.exit3276
+  br label %pm_location_new.argprom.exit3276
 
-4547:                                             ; preds = %pm_location_new.exit3274
+4547:                                             ; preds = %pm_location_new.argprom.exit3274
   %4548 = call i64 @rb_ull2inum(i64 noundef %4542) #6
-  br label %pm_location_new.exit3276
+  br label %pm_location_new.argprom.exit3276
 
-pm_location_new.exit3276:                         ; preds = %4544, %4547
+pm_location_new.argprom.exit3276:                 ; preds = %4544, %4547
   %.0.i.i3275 = phi i64 [ %4546, %4544 ], [ %4548, %4547 ]
   store i64 %.0.i.i3275, ptr %660, align 16
   %4549 = load i64, ptr @rb_cPrismConstantPathOrWriteNode, align 8
@@ -7794,15 +7794,15 @@ pm_location_new.exit3276:                         ; preds = %4544, %4547
 4568:                                             ; preds = %4552
   %4569 = shl nuw nsw i64 %4566, 1
   %4570 = or disjoint i64 %4569, 1
-  br label %pm_location_new.exit3278
+  br label %pm_location_new.argprom.exit3278
 
 4571:                                             ; preds = %4552
   %4572 = call i64 @rb_ull2inum(i64 noundef %4566) #6
   %.val2977.pre = load ptr, ptr %180, align 8
   %.pre4642 = ptrtoint ptr %.val2977.pre to i64
-  br label %pm_location_new.exit3278
+  br label %pm_location_new.argprom.exit3278
 
-pm_location_new.exit3278:                         ; preds = %4568, %4571
+pm_location_new.argprom.exit3278:                 ; preds = %4568, %4571
   %.pre-phi4643 = phi i64 [ %4560, %4568 ], [ %.pre4642, %4571 ]
   %.0.i.i3277 = phi i64 [ %4570, %4568 ], [ %4572, %4571 ]
   store i64 %.0.i.i3277, ptr %655, align 8
@@ -7820,16 +7820,16 @@ pm_location_new.exit3278:                         ; preds = %4568, %4571
   %4584 = icmp ult i64 %4579, 4611686018427387904
   br i1 %4584, label %4585, label %4588
 
-4585:                                             ; preds = %pm_location_new.exit3278
+4585:                                             ; preds = %pm_location_new.argprom.exit3278
   %4586 = shl nuw nsw i64 %4583, 1
   %4587 = or disjoint i64 %4586, 1
-  br label %pm_location_new.exit3280
+  br label %pm_location_new.argprom.exit3280
 
-4588:                                             ; preds = %pm_location_new.exit3278
+4588:                                             ; preds = %pm_location_new.argprom.exit3278
   %4589 = call i64 @rb_ull2inum(i64 noundef %4583) #6
-  br label %pm_location_new.exit3280
+  br label %pm_location_new.argprom.exit3280
 
-pm_location_new.exit3280:                         ; preds = %4585, %4588
+pm_location_new.argprom.exit3280:                 ; preds = %4585, %4588
   %.0.i.i3279 = phi i64 [ %4587, %4585 ], [ %4589, %4588 ]
   store i64 %.0.i.i3279, ptr %656, align 16
   %4590 = load i64, ptr @rb_cPrismConstantPathTargetNode, align 8
@@ -7860,13 +7860,13 @@ pm_location_new.exit3280:                         ; preds = %4585, %4588
 4608:                                             ; preds = %4593
   %4609 = shl nuw nsw i64 %4606, 1
   %4610 = or disjoint i64 %4609, 1
-  br label %pm_location_new.exit3282
+  br label %pm_location_new.argprom.exit3282
 
 4611:                                             ; preds = %4593
   %4612 = call i64 @rb_ull2inum(i64 noundef %4606) #6
-  br label %pm_location_new.exit3282
+  br label %pm_location_new.argprom.exit3282
 
-pm_location_new.exit3282:                         ; preds = %4608, %4611
+pm_location_new.argprom.exit3282:                 ; preds = %4608, %4611
   %.0.i.i3281 = phi i64 [ %4610, %4608 ], [ %4612, %4611 ]
   store i64 %.0.i.i3281, ptr %650, align 16
   %4613 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -7887,16 +7887,16 @@ pm_location_new.exit3282:                         ; preds = %4608, %4611
   %4626 = icmp ult i64 %4621, 4611686018427387904
   br i1 %4626, label %4627, label %4630
 
-4627:                                             ; preds = %pm_location_new.exit3282
+4627:                                             ; preds = %pm_location_new.argprom.exit3282
   %4628 = shl nuw nsw i64 %4625, 1
   %4629 = or disjoint i64 %4628, 1
-  br label %pm_location_new.exit3284
+  br label %pm_location_new.argprom.exit3284
 
-4630:                                             ; preds = %pm_location_new.exit3282
+4630:                                             ; preds = %pm_location_new.argprom.exit3282
   %4631 = call i64 @rb_ull2inum(i64 noundef %4625) #6
-  br label %pm_location_new.exit3284
+  br label %pm_location_new.argprom.exit3284
 
-pm_location_new.exit3284:                         ; preds = %4627, %4630
+pm_location_new.argprom.exit3284:                 ; preds = %4627, %4630
   %.0.i.i3283 = phi i64 [ %4629, %4627 ], [ %4631, %4630 ]
   store i64 %.0.i.i3283, ptr %652, align 16
   %4632 = load i64, ptr @rb_cPrismConstantPathWriteNode, align 8
@@ -7933,13 +7933,13 @@ pm_location_new.exit3284:                         ; preds = %4627, %4630
 4656:                                             ; preds = %4635
   %4657 = shl nuw nsw i64 %4654, 1
   %4658 = or disjoint i64 %4657, 1
-  br label %pm_location_new.exit3286
+  br label %pm_location_new.argprom.exit3286
 
 4659:                                             ; preds = %4635
   %4660 = call i64 @rb_ull2inum(i64 noundef %4654) #6
-  br label %pm_location_new.exit3286
+  br label %pm_location_new.argprom.exit3286
 
-pm_location_new.exit3286:                         ; preds = %4656, %4659
+pm_location_new.argprom.exit3286:                 ; preds = %4656, %4659
   %.0.i.i3285 = phi i64 [ %4658, %4656 ], [ %4660, %4659 ]
   store i64 %.0.i.i3285, ptr %648, align 16
   %4661 = load i64, ptr @rb_cPrismConstantReadNode, align 8
@@ -7976,13 +7976,13 @@ pm_location_new.exit3286:                         ; preds = %4656, %4659
 4685:                                             ; preds = %4664
   %4686 = shl nuw nsw i64 %4683, 1
   %4687 = or disjoint i64 %4686, 1
-  br label %pm_location_new.exit3288
+  br label %pm_location_new.argprom.exit3288
 
 4688:                                             ; preds = %4664
   %4689 = call i64 @rb_ull2inum(i64 noundef %4683) #6
-  br label %pm_location_new.exit3288
+  br label %pm_location_new.argprom.exit3288
 
-pm_location_new.exit3288:                         ; preds = %4685, %4688
+pm_location_new.argprom.exit3288:                 ; preds = %4685, %4688
   %.0.i.i3287 = phi i64 [ %4687, %4685 ], [ %4689, %4688 ]
   store i64 %.0.i.i3287, ptr %646, align 16
   %4690 = load i64, ptr @rb_cPrismConstantTargetNode, align 8
@@ -8019,13 +8019,13 @@ pm_location_new.exit3288:                         ; preds = %4685, %4688
 4714:                                             ; preds = %4693
   %4715 = shl nuw nsw i64 %4712, 1
   %4716 = or disjoint i64 %4715, 1
-  br label %pm_location_new.exit3290
+  br label %pm_location_new.argprom.exit3290
 
 4717:                                             ; preds = %4693
   %4718 = call i64 @rb_ull2inum(i64 noundef %4712) #6
-  br label %pm_location_new.exit3290
+  br label %pm_location_new.argprom.exit3290
 
-pm_location_new.exit3290:                         ; preds = %4714, %4717
+pm_location_new.argprom.exit3290:                 ; preds = %4714, %4717
   %.0.i.i3289 = phi i64 [ %4716, %4714 ], [ %4718, %4717 ]
   store i64 %.0.i.i3289, ptr %641, align 16
   %4719 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8046,18 +8046,18 @@ pm_location_new.exit3290:                         ; preds = %4714, %4717
   %4732 = icmp ult i64 %4727, 4611686018427387904
   br i1 %4732, label %4733, label %4736
 
-4733:                                             ; preds = %pm_location_new.exit3290
+4733:                                             ; preds = %pm_location_new.argprom.exit3290
   %4734 = shl nuw nsw i64 %4731, 1
   %4735 = or disjoint i64 %4734, 1
-  br label %pm_location_new.exit3292
+  br label %pm_location_new.argprom.exit3292
 
-4736:                                             ; preds = %pm_location_new.exit3290
+4736:                                             ; preds = %pm_location_new.argprom.exit3290
   %4737 = call i64 @rb_ull2inum(i64 noundef %4731) #6
   %.val2970.pre = load ptr, ptr %180, align 8
   %.pre4644 = ptrtoint ptr %.val2970.pre to i64
-  br label %pm_location_new.exit3292
+  br label %pm_location_new.argprom.exit3292
 
-pm_location_new.exit3292:                         ; preds = %4733, %4736
+pm_location_new.argprom.exit3292:                 ; preds = %4733, %4736
   %.pre-phi4645 = phi i64 [ %4725, %4733 ], [ %.pre4644, %4736 ]
   %.0.i.i3291 = phi i64 [ %4735, %4733 ], [ %4737, %4736 ]
   store i64 %.0.i.i3291, ptr %643, align 16
@@ -8075,16 +8075,16 @@ pm_location_new.exit3292:                         ; preds = %4733, %4736
   %4749 = icmp ult i64 %4744, 4611686018427387904
   br i1 %4749, label %4750, label %4753
 
-4750:                                             ; preds = %pm_location_new.exit3292
+4750:                                             ; preds = %pm_location_new.argprom.exit3292
   %4751 = shl nuw nsw i64 %4748, 1
   %4752 = or disjoint i64 %4751, 1
-  br label %pm_location_new.exit3294
+  br label %pm_location_new.argprom.exit3294
 
-4753:                                             ; preds = %pm_location_new.exit3292
+4753:                                             ; preds = %pm_location_new.argprom.exit3292
   %4754 = call i64 @rb_ull2inum(i64 noundef %4748) #6
-  br label %pm_location_new.exit3294
+  br label %pm_location_new.argprom.exit3294
 
-pm_location_new.exit3294:                         ; preds = %4750, %4753
+pm_location_new.argprom.exit3294:                 ; preds = %4750, %4753
   %.0.i.i3293 = phi i64 [ %4752, %4750 ], [ %4754, %4753 ]
   store i64 %.0.i.i3293, ptr %644, align 8
   %4755 = load i64, ptr @rb_cPrismConstantWriteNode, align 8
@@ -8121,13 +8121,13 @@ pm_location_new.exit3294:                         ; preds = %4750, %4753
 4779:                                             ; preds = %4758
   %4780 = shl nuw nsw i64 %4777, 1
   %4781 = or disjoint i64 %4780, 1
-  br label %pm_location_new.exit3296
+  br label %pm_location_new.argprom.exit3296
 
 4782:                                             ; preds = %4758
   %4783 = call i64 @rb_ull2inum(i64 noundef %4777) #6
-  br label %pm_location_new.exit3296
+  br label %pm_location_new.argprom.exit3296
 
-pm_location_new.exit3296:                         ; preds = %4779, %4782
+pm_location_new.argprom.exit3296:                 ; preds = %4779, %4782
   %.0.i.i3295 = phi i64 [ %4781, %4779 ], [ %4783, %4782 ]
   store i64 %.0.i.i3295, ptr %628, align 16
   %4784 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8144,7 +8144,7 @@ pm_location_new.exit3296:                         ; preds = %4779, %4782
   %.not4380 = icmp eq i64 %4790, 0
   br i1 %.not4380, label %._crit_edge4286, label %.lr.ph4285
 
-.lr.ph4285:                                       ; preds = %pm_location_new.exit3296
+.lr.ph4285:                                       ; preds = %pm_location_new.argprom.exit3296
   %4791 = getelementptr inbounds i8, ptr %861, i64 88
   br label %4792
 
@@ -8165,7 +8165,7 @@ pm_location_new.exit3296:                         ; preds = %4779, %4782
   %4805 = icmp ult i64 %4803, %4804
   br i1 %4805, label %4792, label %._crit_edge4286, !llvm.loop !49
 
-._crit_edge4286:                                  ; preds = %4792, %pm_location_new.exit3296
+._crit_edge4286:                                  ; preds = %4792, %pm_location_new.argprom.exit3296
   %4806 = getelementptr inbounds i8, ptr %861, i64 96
   %4807 = load ptr, ptr %4806, align 8
   %4808 = getelementptr inbounds i8, ptr %861, i64 104
@@ -8185,23 +8185,23 @@ pm_location_new.exit3296:                         ; preds = %4779, %4782
 4819:                                             ; preds = %._crit_edge4286
   %4820 = shl nuw nsw i64 %4817, 1
   %4821 = or disjoint i64 %4820, 1
-  br label %pm_location_new.exit3298
+  br label %pm_location_new.argprom.exit3298
 
 4822:                                             ; preds = %._crit_edge4286
   %4823 = call i64 @rb_ull2inum(i64 noundef %4817) #6
   %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3298
+  br label %pm_location_new.argprom.exit3298
 
-pm_location_new.exit3298:                         ; preds = %4819, %4822
+pm_location_new.argprom.exit3298:                 ; preds = %4819, %4822
   %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595 = phi ptr [ %.val2968, %4819 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595.pre, %4822 ]
   %.0.i.i3297 = phi i64 [ %4821, %4819 ], [ %4823, %4822 ]
   store i64 %.0.i.i3297, ptr %633, align 8
   %4824 = getelementptr inbounds i8, ptr %861, i64 112
   %4825 = load ptr, ptr %4824, align 8
   %4826 = icmp eq ptr %4825, null
-  br i1 %4826, label %pm_location_new.exit3300, label %4827
+  br i1 %4826, label %pm_location_new.argprom.exit3300, label %4827
 
-4827:                                             ; preds = %pm_location_new.exit3298
+4827:                                             ; preds = %pm_location_new.argprom.exit3298
   %4828 = getelementptr inbounds i8, ptr %861, i64 120
   %4829 = load ptr, ptr %4828, align 8
   %4830 = ptrtoint ptr %4825 to i64
@@ -8218,23 +8218,23 @@ pm_location_new.exit3298:                         ; preds = %4819, %4822
 4839:                                             ; preds = %4827
   %4840 = shl nuw nsw i64 %4837, 1
   %4841 = or disjoint i64 %4840, 1
-  br label %pm_location_new.exit3300
+  br label %pm_location_new.argprom.exit3300
 
 4842:                                             ; preds = %4827
   %4843 = call i64 @rb_ull2inum(i64 noundef %4837) #6
   %.val2962.pre4532.pre4583.pre4591.pre4593.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3300
+  br label %pm_location_new.argprom.exit3300
 
-pm_location_new.exit3300:                         ; preds = %4842, %4839, %pm_location_new.exit3298
-  %.val2962.pre4532.pre4583.pre4591.pre4593 = phi ptr [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595, %pm_location_new.exit3298 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595, %4839 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre, %4842 ]
-  %4844 = phi i64 [ 4, %pm_location_new.exit3298 ], [ %4841, %4839 ], [ %4843, %4842 ]
+pm_location_new.argprom.exit3300:                 ; preds = %4842, %4839, %pm_location_new.argprom.exit3298
+  %.val2962.pre4532.pre4583.pre4591.pre4593 = phi ptr [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595, %pm_location_new.argprom.exit3298 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre4595, %4839 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593.pre, %4842 ]
+  %4844 = phi i64 [ 4, %pm_location_new.argprom.exit3298 ], [ %4841, %4839 ], [ %4843, %4842 ]
   store i64 %4844, ptr %634, align 16
   %4845 = getelementptr inbounds i8, ptr %861, i64 128
   %4846 = load ptr, ptr %4845, align 8
   %4847 = icmp eq ptr %4846, null
-  br i1 %4847, label %pm_location_new.exit3302, label %4848
+  br i1 %4847, label %pm_location_new.argprom.exit3302, label %4848
 
-4848:                                             ; preds = %pm_location_new.exit3300
+4848:                                             ; preds = %pm_location_new.argprom.exit3300
   %4849 = getelementptr inbounds i8, ptr %861, i64 136
   %4850 = load ptr, ptr %4849, align 8
   %4851 = ptrtoint ptr %4846 to i64
@@ -8251,23 +8251,23 @@ pm_location_new.exit3300:                         ; preds = %4842, %4839, %pm_lo
 4860:                                             ; preds = %4848
   %4861 = shl nuw nsw i64 %4858, 1
   %4862 = or disjoint i64 %4861, 1
-  br label %pm_location_new.exit3302
+  br label %pm_location_new.argprom.exit3302
 
 4863:                                             ; preds = %4848
   %4864 = call i64 @rb_ull2inum(i64 noundef %4858) #6
   %.val2962.pre4532.pre4583.pre4591.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3302
+  br label %pm_location_new.argprom.exit3302
 
-pm_location_new.exit3302:                         ; preds = %4863, %4860, %pm_location_new.exit3300
-  %.val2962.pre4532.pre4583.pre4591 = phi ptr [ %.val2962.pre4532.pre4583.pre4591.pre4593, %pm_location_new.exit3300 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593, %4860 ], [ %.val2962.pre4532.pre4583.pre4591.pre, %4863 ]
-  %4865 = phi i64 [ 4, %pm_location_new.exit3300 ], [ %4862, %4860 ], [ %4864, %4863 ]
+pm_location_new.argprom.exit3302:                 ; preds = %4863, %4860, %pm_location_new.argprom.exit3300
+  %.val2962.pre4532.pre4583.pre4591 = phi ptr [ %.val2962.pre4532.pre4583.pre4591.pre4593, %pm_location_new.argprom.exit3300 ], [ %.val2962.pre4532.pre4583.pre4591.pre4593, %4860 ], [ %.val2962.pre4532.pre4583.pre4591.pre, %4863 ]
+  %4865 = phi i64 [ 4, %pm_location_new.argprom.exit3300 ], [ %4862, %4860 ], [ %4864, %4863 ]
   store i64 %4865, ptr %635, align 8
   %4866 = getelementptr inbounds i8, ptr %861, i64 144
   %4867 = load ptr, ptr %4866, align 8
   %4868 = icmp eq ptr %4867, null
-  br i1 %4868, label %pm_location_new.exit3304, label %4869
+  br i1 %4868, label %pm_location_new.argprom.exit3304, label %4869
 
-4869:                                             ; preds = %pm_location_new.exit3302
+4869:                                             ; preds = %pm_location_new.argprom.exit3302
   %4870 = getelementptr inbounds i8, ptr %861, i64 152
   %4871 = load ptr, ptr %4870, align 8
   %4872 = ptrtoint ptr %4867 to i64
@@ -8284,23 +8284,23 @@ pm_location_new.exit3302:                         ; preds = %4863, %4860, %pm_lo
 4881:                                             ; preds = %4869
   %4882 = shl nuw nsw i64 %4879, 1
   %4883 = or disjoint i64 %4882, 1
-  br label %pm_location_new.exit3304
+  br label %pm_location_new.argprom.exit3304
 
 4884:                                             ; preds = %4869
   %4885 = call i64 @rb_ull2inum(i64 noundef %4879) #6
   %.val2962.pre4532.pre4583.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3304
+  br label %pm_location_new.argprom.exit3304
 
-pm_location_new.exit3304:                         ; preds = %4884, %4881, %pm_location_new.exit3302
-  %.val2962.pre4532.pre4583 = phi ptr [ %.val2962.pre4532.pre4583.pre4591, %pm_location_new.exit3302 ], [ %.val2962.pre4532.pre4583.pre4591, %4881 ], [ %.val2962.pre4532.pre4583.pre, %4884 ]
-  %4886 = phi i64 [ 4, %pm_location_new.exit3302 ], [ %4883, %4881 ], [ %4885, %4884 ]
+pm_location_new.argprom.exit3304:                 ; preds = %4884, %4881, %pm_location_new.argprom.exit3302
+  %.val2962.pre4532.pre4583 = phi ptr [ %.val2962.pre4532.pre4583.pre4591, %pm_location_new.argprom.exit3302 ], [ %.val2962.pre4532.pre4583.pre4591, %4881 ], [ %.val2962.pre4532.pre4583.pre, %4884 ]
+  %4886 = phi i64 [ 4, %pm_location_new.argprom.exit3302 ], [ %4883, %4881 ], [ %4885, %4884 ]
   store i64 %4886, ptr %636, align 16
   %4887 = getelementptr inbounds i8, ptr %861, i64 160
   %4888 = load ptr, ptr %4887, align 8
   %4889 = icmp eq ptr %4888, null
-  br i1 %4889, label %pm_location_new.exit3306, label %4890
+  br i1 %4889, label %pm_location_new.argprom.exit3306, label %4890
 
-4890:                                             ; preds = %pm_location_new.exit3304
+4890:                                             ; preds = %pm_location_new.argprom.exit3304
   %4891 = getelementptr inbounds i8, ptr %861, i64 168
   %4892 = load ptr, ptr %4891, align 8
   %4893 = ptrtoint ptr %4888 to i64
@@ -8317,23 +8317,23 @@ pm_location_new.exit3304:                         ; preds = %4884, %4881, %pm_lo
 4902:                                             ; preds = %4890
   %4903 = shl nuw nsw i64 %4900, 1
   %4904 = or disjoint i64 %4903, 1
-  br label %pm_location_new.exit3306
+  br label %pm_location_new.argprom.exit3306
 
 4905:                                             ; preds = %4890
   %4906 = call i64 @rb_ull2inum(i64 noundef %4900) #6
   %.val2962.pre4532.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3306
+  br label %pm_location_new.argprom.exit3306
 
-pm_location_new.exit3306:                         ; preds = %4905, %4902, %pm_location_new.exit3304
-  %.val2962.pre4532 = phi ptr [ %.val2962.pre4532.pre4583, %pm_location_new.exit3304 ], [ %.val2962.pre4532.pre4583, %4902 ], [ %.val2962.pre4532.pre, %4905 ]
-  %4907 = phi i64 [ 4, %pm_location_new.exit3304 ], [ %4904, %4902 ], [ %4906, %4905 ]
+pm_location_new.argprom.exit3306:                 ; preds = %4905, %4902, %pm_location_new.argprom.exit3304
+  %.val2962.pre4532 = phi ptr [ %.val2962.pre4532.pre4583, %pm_location_new.argprom.exit3304 ], [ %.val2962.pre4532.pre4583, %4902 ], [ %.val2962.pre4532.pre, %4905 ]
+  %4907 = phi i64 [ 4, %pm_location_new.argprom.exit3304 ], [ %4904, %4902 ], [ %4906, %4905 ]
   store i64 %4907, ptr %637, align 8
   %4908 = getelementptr inbounds i8, ptr %861, i64 176
   %4909 = load ptr, ptr %4908, align 8
   %4910 = icmp eq ptr %4909, null
-  br i1 %4910, label %pm_location_new.exit3308, label %4911
+  br i1 %4910, label %pm_location_new.argprom.exit3308, label %4911
 
-4911:                                             ; preds = %pm_location_new.exit3306
+4911:                                             ; preds = %pm_location_new.argprom.exit3306
   %4912 = getelementptr inbounds i8, ptr %861, i64 184
   %4913 = load ptr, ptr %4912, align 8
   %4914 = ptrtoint ptr %4909 to i64
@@ -8350,16 +8350,16 @@ pm_location_new.exit3306:                         ; preds = %4905, %4902, %pm_lo
 4923:                                             ; preds = %4911
   %4924 = shl nuw nsw i64 %4921, 1
   %4925 = or disjoint i64 %4924, 1
-  br label %pm_location_new.exit3308
+  br label %pm_location_new.argprom.exit3308
 
 4926:                                             ; preds = %4911
   %4927 = call i64 @rb_ull2inum(i64 noundef %4921) #6
   %.val2962.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3308
+  br label %pm_location_new.argprom.exit3308
 
-pm_location_new.exit3308:                         ; preds = %4926, %4923, %pm_location_new.exit3306
-  %.val2962 = phi ptr [ %.val2962.pre4532, %pm_location_new.exit3306 ], [ %.val2962.pre4532, %4923 ], [ %.val2962.pre, %4926 ]
-  %4928 = phi i64 [ 4, %pm_location_new.exit3306 ], [ %4925, %4923 ], [ %4927, %4926 ]
+pm_location_new.argprom.exit3308:                 ; preds = %4926, %4923, %pm_location_new.argprom.exit3306
+  %.val2962 = phi ptr [ %.val2962.pre4532, %pm_location_new.argprom.exit3306 ], [ %.val2962.pre4532, %4923 ], [ %.val2962.pre, %4926 ]
+  %4928 = phi i64 [ 4, %pm_location_new.argprom.exit3306 ], [ %4925, %4923 ], [ %4927, %4926 ]
   store i64 %4928, ptr %638, align 16
   %4929 = getelementptr inbounds i8, ptr %861, i64 8
   %4930 = load ptr, ptr %4929, align 8
@@ -8376,16 +8376,16 @@ pm_location_new.exit3308:                         ; preds = %4926, %4923, %pm_lo
   %4941 = icmp ult i64 %4936, 4611686018427387904
   br i1 %4941, label %4942, label %4945
 
-4942:                                             ; preds = %pm_location_new.exit3308
+4942:                                             ; preds = %pm_location_new.argprom.exit3308
   %4943 = shl nuw nsw i64 %4940, 1
   %4944 = or disjoint i64 %4943, 1
-  br label %pm_location_new.exit3310
+  br label %pm_location_new.argprom.exit3310
 
-4945:                                             ; preds = %pm_location_new.exit3308
+4945:                                             ; preds = %pm_location_new.argprom.exit3308
   %4946 = call i64 @rb_ull2inum(i64 noundef %4940) #6
-  br label %pm_location_new.exit3310
+  br label %pm_location_new.argprom.exit3310
 
-pm_location_new.exit3310:                         ; preds = %4942, %4945
+pm_location_new.argprom.exit3310:                 ; preds = %4942, %4945
   %.0.i.i3309 = phi i64 [ %4944, %4942 ], [ %4946, %4945 ]
   store i64 %.0.i.i3309, ptr %639, align 8
   %4947 = load i64, ptr @rb_cPrismDefNode, align 8
@@ -8398,7 +8398,7 @@ pm_location_new.exit3310:                         ; preds = %4942, %4945
   %4951 = getelementptr inbounds i8, ptr %861, i64 24
   %4952 = load ptr, ptr %4951, align 8
   %4953 = icmp eq ptr %4952, null
-  br i1 %4953, label %pm_location_new.exit3312, label %4954
+  br i1 %4953, label %pm_location_new.argprom.exit3312, label %4954
 
 4954:                                             ; preds = %4950
   %4955 = getelementptr inbounds i8, ptr %861, i64 32
@@ -8418,13 +8418,13 @@ pm_location_new.exit3310:                         ; preds = %4942, %4945
 4966:                                             ; preds = %4954
   %4967 = shl nuw nsw i64 %4964, 1
   %4968 = or disjoint i64 %4967, 1
-  br label %pm_location_new.exit3312
+  br label %pm_location_new.argprom.exit3312
 
 4969:                                             ; preds = %4954
   %4970 = call i64 @rb_ull2inum(i64 noundef %4964) #6
-  br label %pm_location_new.exit3312
+  br label %pm_location_new.argprom.exit3312
 
-pm_location_new.exit3312:                         ; preds = %4969, %4966, %4950
+pm_location_new.argprom.exit3312:                 ; preds = %4969, %4966, %4950
   %4971 = phi i64 [ 4, %4950 ], [ %4968, %4966 ], [ %4970, %4969 ]
   store i64 %4971, ptr %622, align 8
   %4972 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8433,9 +8433,9 @@ pm_location_new.exit3312:                         ; preds = %4969, %4966, %4950
   %4974 = load ptr, ptr %4973, align 8
   %4975 = icmp eq ptr %4974, null
   %.val2959.pre4529 = load ptr, ptr %180, align 8
-  br i1 %4975, label %pm_location_new.exit3314, label %4976
+  br i1 %4975, label %pm_location_new.argprom.exit3314, label %4976
 
-4976:                                             ; preds = %pm_location_new.exit3312
+4976:                                             ; preds = %pm_location_new.argprom.exit3312
   %4977 = getelementptr inbounds i8, ptr %861, i64 56
   %4978 = load ptr, ptr %4977, align 8
   %4979 = ptrtoint ptr %4974 to i64
@@ -8452,16 +8452,16 @@ pm_location_new.exit3312:                         ; preds = %4969, %4966, %4950
 4988:                                             ; preds = %4976
   %4989 = shl nuw nsw i64 %4986, 1
   %4990 = or disjoint i64 %4989, 1
-  br label %pm_location_new.exit3314
+  br label %pm_location_new.argprom.exit3314
 
 4991:                                             ; preds = %4976
   %4992 = call i64 @rb_ull2inum(i64 noundef %4986) #6
   %.val2959.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3314
+  br label %pm_location_new.argprom.exit3314
 
-pm_location_new.exit3314:                         ; preds = %4991, %4988, %pm_location_new.exit3312
-  %.val2959 = phi ptr [ %.val2959.pre4529, %pm_location_new.exit3312 ], [ %.val2959.pre4529, %4988 ], [ %.val2959.pre, %4991 ]
-  %4993 = phi i64 [ 4, %pm_location_new.exit3312 ], [ %4990, %4988 ], [ %4992, %4991 ]
+pm_location_new.argprom.exit3314:                 ; preds = %4991, %4988, %pm_location_new.argprom.exit3312
+  %.val2959 = phi ptr [ %.val2959.pre4529, %pm_location_new.argprom.exit3312 ], [ %.val2959.pre4529, %4988 ], [ %.val2959.pre, %4991 ]
+  %4993 = phi i64 [ 4, %pm_location_new.argprom.exit3312 ], [ %4990, %4988 ], [ %4992, %4991 ]
   store i64 %4993, ptr %624, align 8
   %4994 = getelementptr inbounds i8, ptr %861, i64 64
   %4995 = load ptr, ptr %4994, align 8
@@ -8478,18 +8478,18 @@ pm_location_new.exit3314:                         ; preds = %4991, %4988, %pm_lo
   %5006 = icmp ult i64 %5001, 4611686018427387904
   br i1 %5006, label %5007, label %5010
 
-5007:                                             ; preds = %pm_location_new.exit3314
+5007:                                             ; preds = %pm_location_new.argprom.exit3314
   %5008 = shl nuw nsw i64 %5005, 1
   %5009 = or disjoint i64 %5008, 1
-  br label %pm_location_new.exit3316
+  br label %pm_location_new.argprom.exit3316
 
-5010:                                             ; preds = %pm_location_new.exit3314
+5010:                                             ; preds = %pm_location_new.argprom.exit3314
   %5011 = call i64 @rb_ull2inum(i64 noundef %5005) #6
   %.val2958.pre = load ptr, ptr %180, align 8
   %.pre4646 = ptrtoint ptr %.val2958.pre to i64
-  br label %pm_location_new.exit3316
+  br label %pm_location_new.argprom.exit3316
 
-pm_location_new.exit3316:                         ; preds = %5007, %5010
+pm_location_new.argprom.exit3316:                 ; preds = %5007, %5010
   %.pre-phi4647 = phi i64 [ %4999, %5007 ], [ %.pre4646, %5010 ]
   %.0.i.i3315 = phi i64 [ %5009, %5007 ], [ %5011, %5010 ]
   store i64 %.0.i.i3315, ptr %625, align 16
@@ -8507,16 +8507,16 @@ pm_location_new.exit3316:                         ; preds = %5007, %5010
   %5023 = icmp ult i64 %5018, 4611686018427387904
   br i1 %5023, label %5024, label %5027
 
-5024:                                             ; preds = %pm_location_new.exit3316
+5024:                                             ; preds = %pm_location_new.argprom.exit3316
   %5025 = shl nuw nsw i64 %5022, 1
   %5026 = or disjoint i64 %5025, 1
-  br label %pm_location_new.exit3318
+  br label %pm_location_new.argprom.exit3318
 
-5027:                                             ; preds = %pm_location_new.exit3316
+5027:                                             ; preds = %pm_location_new.argprom.exit3316
   %5028 = call i64 @rb_ull2inum(i64 noundef %5022) #6
-  br label %pm_location_new.exit3318
+  br label %pm_location_new.argprom.exit3318
 
-pm_location_new.exit3318:                         ; preds = %5024, %5027
+pm_location_new.argprom.exit3318:                 ; preds = %5024, %5027
   %.0.i.i3317 = phi i64 [ %5026, %5024 ], [ %5028, %5027 ]
   store i64 %.0.i.i3317, ptr %626, align 8
   %5029 = load i64, ptr @rb_cPrismDefinedNode, align 8
@@ -8545,13 +8545,13 @@ pm_location_new.exit3318:                         ; preds = %5024, %5027
 5046:                                             ; preds = %5032
   %5047 = shl nuw nsw i64 %5044, 1
   %5048 = or disjoint i64 %5047, 1
-  br label %pm_location_new.exit3320
+  br label %pm_location_new.argprom.exit3320
 
 5049:                                             ; preds = %5032
   %5050 = call i64 @rb_ull2inum(i64 noundef %5044) #6
-  br label %pm_location_new.exit3320
+  br label %pm_location_new.argprom.exit3320
 
-pm_location_new.exit3320:                         ; preds = %5046, %5049
+pm_location_new.argprom.exit3320:                 ; preds = %5046, %5049
   %.0.i.i3319 = phi i64 [ %5048, %5046 ], [ %5050, %5049 ]
   store i64 %.0.i.i3319, ptr %618, align 8
   %5051 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8560,9 +8560,9 @@ pm_location_new.exit3320:                         ; preds = %5046, %5049
   %5053 = load ptr, ptr %5052, align 8
   %5054 = icmp eq ptr %5053, null
   %.val2955.pre4527 = load ptr, ptr %180, align 8
-  br i1 %5054, label %pm_location_new.exit3322, label %5055
+  br i1 %5054, label %pm_location_new.argprom.exit3322, label %5055
 
-5055:                                             ; preds = %pm_location_new.exit3320
+5055:                                             ; preds = %pm_location_new.argprom.exit3320
   %5056 = getelementptr inbounds i8, ptr %861, i64 56
   %5057 = load ptr, ptr %5056, align 8
   %5058 = ptrtoint ptr %5053 to i64
@@ -8579,16 +8579,16 @@ pm_location_new.exit3320:                         ; preds = %5046, %5049
 5067:                                             ; preds = %5055
   %5068 = shl nuw nsw i64 %5065, 1
   %5069 = or disjoint i64 %5068, 1
-  br label %pm_location_new.exit3322
+  br label %pm_location_new.argprom.exit3322
 
 5070:                                             ; preds = %5055
   %5071 = call i64 @rb_ull2inum(i64 noundef %5065) #6
   %.val2955.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3322
+  br label %pm_location_new.argprom.exit3322
 
-pm_location_new.exit3322:                         ; preds = %5070, %5067, %pm_location_new.exit3320
-  %.val2955 = phi ptr [ %.val2955.pre4527, %pm_location_new.exit3320 ], [ %.val2955.pre4527, %5067 ], [ %.val2955.pre, %5070 ]
-  %5072 = phi i64 [ 4, %pm_location_new.exit3320 ], [ %5069, %5067 ], [ %5071, %5070 ]
+pm_location_new.argprom.exit3322:                 ; preds = %5070, %5067, %pm_location_new.argprom.exit3320
+  %.val2955 = phi ptr [ %.val2955.pre4527, %pm_location_new.argprom.exit3320 ], [ %.val2955.pre4527, %5067 ], [ %.val2955.pre, %5070 ]
+  %5072 = phi i64 [ 4, %pm_location_new.argprom.exit3320 ], [ %5069, %5067 ], [ %5071, %5070 ]
   store i64 %5072, ptr %620, align 8
   %5073 = getelementptr inbounds i8, ptr %861, i64 8
   %5074 = load ptr, ptr %5073, align 8
@@ -8605,16 +8605,16 @@ pm_location_new.exit3322:                         ; preds = %5070, %5067, %pm_lo
   %5085 = icmp ult i64 %5080, 4611686018427387904
   br i1 %5085, label %5086, label %5089
 
-5086:                                             ; preds = %pm_location_new.exit3322
+5086:                                             ; preds = %pm_location_new.argprom.exit3322
   %5087 = shl nuw nsw i64 %5084, 1
   %5088 = or disjoint i64 %5087, 1
-  br label %pm_location_new.exit3324
+  br label %pm_location_new.argprom.exit3324
 
-5089:                                             ; preds = %pm_location_new.exit3322
+5089:                                             ; preds = %pm_location_new.argprom.exit3322
   %5090 = call i64 @rb_ull2inum(i64 noundef %5084) #6
-  br label %pm_location_new.exit3324
+  br label %pm_location_new.argprom.exit3324
 
-pm_location_new.exit3324:                         ; preds = %5086, %5089
+pm_location_new.argprom.exit3324:                 ; preds = %5086, %5089
   %.0.i.i3323 = phi i64 [ %5088, %5086 ], [ %5090, %5089 ]
   store i64 %.0.i.i3323, ptr %621, align 16
   %5091 = load i64, ptr @rb_cPrismElseNode, align 8
@@ -8643,13 +8643,13 @@ pm_location_new.exit3324:                         ; preds = %5086, %5089
 5108:                                             ; preds = %5094
   %5109 = shl nuw nsw i64 %5106, 1
   %5110 = or disjoint i64 %5109, 1
-  br label %pm_location_new.exit3326
+  br label %pm_location_new.argprom.exit3326
 
 5111:                                             ; preds = %5094
   %5112 = call i64 @rb_ull2inum(i64 noundef %5106) #6
-  br label %pm_location_new.exit3326
+  br label %pm_location_new.argprom.exit3326
 
-pm_location_new.exit3326:                         ; preds = %5108, %5111
+pm_location_new.argprom.exit3326:                 ; preds = %5108, %5111
   %.0.i.i3325 = phi i64 [ %5110, %5108 ], [ %5112, %5111 ]
   store i64 %.0.i.i3325, ptr %614, align 8
   %5113 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8670,18 +8670,18 @@ pm_location_new.exit3326:                         ; preds = %5108, %5111
   %5126 = icmp ult i64 %5121, 4611686018427387904
   br i1 %5126, label %5127, label %5130
 
-5127:                                             ; preds = %pm_location_new.exit3326
+5127:                                             ; preds = %pm_location_new.argprom.exit3326
   %5128 = shl nuw nsw i64 %5125, 1
   %5129 = or disjoint i64 %5128, 1
-  br label %pm_location_new.exit3328
+  br label %pm_location_new.argprom.exit3328
 
-5130:                                             ; preds = %pm_location_new.exit3326
+5130:                                             ; preds = %pm_location_new.argprom.exit3326
   %5131 = call i64 @rb_ull2inum(i64 noundef %5125) #6
   %.val2952.pre = load ptr, ptr %180, align 8
   %.pre4648 = ptrtoint ptr %.val2952.pre to i64
-  br label %pm_location_new.exit3328
+  br label %pm_location_new.argprom.exit3328
 
-pm_location_new.exit3328:                         ; preds = %5127, %5130
+pm_location_new.argprom.exit3328:                 ; preds = %5127, %5130
   %.pre-phi4649 = phi i64 [ %5119, %5127 ], [ %.pre4648, %5130 ]
   %.0.i.i3327 = phi i64 [ %5129, %5127 ], [ %5131, %5130 ]
   store i64 %.0.i.i3327, ptr %616, align 8
@@ -8699,16 +8699,16 @@ pm_location_new.exit3328:                         ; preds = %5127, %5130
   %5143 = icmp ult i64 %5138, 4611686018427387904
   br i1 %5143, label %5144, label %5147
 
-5144:                                             ; preds = %pm_location_new.exit3328
+5144:                                             ; preds = %pm_location_new.argprom.exit3328
   %5145 = shl nuw nsw i64 %5142, 1
   %5146 = or disjoint i64 %5145, 1
-  br label %pm_location_new.exit3330
+  br label %pm_location_new.argprom.exit3330
 
-5147:                                             ; preds = %pm_location_new.exit3328
+5147:                                             ; preds = %pm_location_new.argprom.exit3328
   %5148 = call i64 @rb_ull2inum(i64 noundef %5142) #6
-  br label %pm_location_new.exit3330
+  br label %pm_location_new.argprom.exit3330
 
-pm_location_new.exit3330:                         ; preds = %5144, %5147
+pm_location_new.argprom.exit3330:                 ; preds = %5144, %5147
   %.0.i.i3329 = phi i64 [ %5146, %5144 ], [ %5148, %5147 ]
   store i64 %.0.i.i3329, ptr %617, align 16
   %5149 = load i64, ptr @rb_cPrismEmbeddedStatementsNode, align 8
@@ -8737,13 +8737,13 @@ pm_location_new.exit3330:                         ; preds = %5144, %5147
 5166:                                             ; preds = %5152
   %5167 = shl nuw nsw i64 %5164, 1
   %5168 = or disjoint i64 %5167, 1
-  br label %pm_location_new.exit3332
+  br label %pm_location_new.argprom.exit3332
 
 5169:                                             ; preds = %5152
   %5170 = call i64 @rb_ull2inum(i64 noundef %5164) #6
-  br label %pm_location_new.exit3332
+  br label %pm_location_new.argprom.exit3332
 
-pm_location_new.exit3332:                         ; preds = %5166, %5169
+pm_location_new.argprom.exit3332:                 ; preds = %5166, %5169
   %.0.i.i3331 = phi i64 [ %5168, %5166 ], [ %5170, %5169 ]
   store i64 %.0.i.i3331, ptr %611, align 8
   %5171 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8764,16 +8764,16 @@ pm_location_new.exit3332:                         ; preds = %5166, %5169
   %5184 = icmp ult i64 %5179, 4611686018427387904
   br i1 %5184, label %5185, label %5188
 
-5185:                                             ; preds = %pm_location_new.exit3332
+5185:                                             ; preds = %pm_location_new.argprom.exit3332
   %5186 = shl nuw nsw i64 %5183, 1
   %5187 = or disjoint i64 %5186, 1
-  br label %pm_location_new.exit3334
+  br label %pm_location_new.argprom.exit3334
 
-5188:                                             ; preds = %pm_location_new.exit3332
+5188:                                             ; preds = %pm_location_new.argprom.exit3332
   %5189 = call i64 @rb_ull2inum(i64 noundef %5183) #6
-  br label %pm_location_new.exit3334
+  br label %pm_location_new.argprom.exit3334
 
-pm_location_new.exit3334:                         ; preds = %5185, %5188
+pm_location_new.argprom.exit3334:                 ; preds = %5185, %5188
   %.0.i.i3333 = phi i64 [ %5187, %5185 ], [ %5189, %5188 ]
   store i64 %.0.i.i3333, ptr %613, align 8
   %5190 = load i64, ptr @rb_cPrismEmbeddedVariableNode, align 8
@@ -8802,13 +8802,13 @@ pm_location_new.exit3334:                         ; preds = %5185, %5188
 5207:                                             ; preds = %5193
   %5208 = shl nuw nsw i64 %5205, 1
   %5209 = or disjoint i64 %5208, 1
-  br label %pm_location_new.exit3336
+  br label %pm_location_new.argprom.exit3336
 
 5210:                                             ; preds = %5193
   %5211 = call i64 @rb_ull2inum(i64 noundef %5205) #6
-  br label %pm_location_new.exit3336
+  br label %pm_location_new.argprom.exit3336
 
-pm_location_new.exit3336:                         ; preds = %5207, %5210
+pm_location_new.argprom.exit3336:                 ; preds = %5207, %5210
   %.0.i.i3335 = phi i64 [ %5209, %5207 ], [ %5211, %5210 ]
   store i64 %.0.i.i3335, ptr %607, align 8
   %5212 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -8829,18 +8829,18 @@ pm_location_new.exit3336:                         ; preds = %5207, %5210
   %5225 = icmp ult i64 %5220, 4611686018427387904
   br i1 %5225, label %5226, label %5229
 
-5226:                                             ; preds = %pm_location_new.exit3336
+5226:                                             ; preds = %pm_location_new.argprom.exit3336
   %5227 = shl nuw nsw i64 %5224, 1
   %5228 = or disjoint i64 %5227, 1
-  br label %pm_location_new.exit3338
+  br label %pm_location_new.argprom.exit3338
 
-5229:                                             ; preds = %pm_location_new.exit3336
+5229:                                             ; preds = %pm_location_new.argprom.exit3336
   %5230 = call i64 @rb_ull2inum(i64 noundef %5224) #6
   %.val2947.pre = load ptr, ptr %180, align 8
   %.pre4650 = ptrtoint ptr %.val2947.pre to i64
-  br label %pm_location_new.exit3338
+  br label %pm_location_new.argprom.exit3338
 
-pm_location_new.exit3338:                         ; preds = %5226, %5229
+pm_location_new.argprom.exit3338:                 ; preds = %5226, %5229
   %.pre-phi4651 = phi i64 [ %5218, %5226 ], [ %.pre4650, %5229 ]
   %.0.i.i3337 = phi i64 [ %5228, %5226 ], [ %5230, %5229 ]
   store i64 %.0.i.i3337, ptr %609, align 8
@@ -8858,16 +8858,16 @@ pm_location_new.exit3338:                         ; preds = %5226, %5229
   %5242 = icmp ult i64 %5237, 4611686018427387904
   br i1 %5242, label %5243, label %5246
 
-5243:                                             ; preds = %pm_location_new.exit3338
+5243:                                             ; preds = %pm_location_new.argprom.exit3338
   %5244 = shl nuw nsw i64 %5241, 1
   %5245 = or disjoint i64 %5244, 1
-  br label %pm_location_new.exit3340
+  br label %pm_location_new.argprom.exit3340
 
-5246:                                             ; preds = %pm_location_new.exit3338
+5246:                                             ; preds = %pm_location_new.argprom.exit3338
   %5247 = call i64 @rb_ull2inum(i64 noundef %5241) #6
-  br label %pm_location_new.exit3340
+  br label %pm_location_new.argprom.exit3340
 
-pm_location_new.exit3340:                         ; preds = %5243, %5246
+pm_location_new.argprom.exit3340:                 ; preds = %5243, %5246
   %.0.i.i3339 = phi i64 [ %5245, %5243 ], [ %5247, %5246 ]
   store i64 %.0.i.i3339, ptr %610, align 16
   %5248 = load i64, ptr @rb_cPrismEnsureNode, align 8
@@ -8896,13 +8896,13 @@ pm_location_new.exit3340:                         ; preds = %5243, %5246
 5265:                                             ; preds = %5251
   %5266 = shl nuw nsw i64 %5263, 1
   %5267 = or disjoint i64 %5266, 1
-  br label %pm_location_new.exit3342
+  br label %pm_location_new.argprom.exit3342
 
 5268:                                             ; preds = %5251
   %5269 = call i64 @rb_ull2inum(i64 noundef %5263) #6
-  br label %pm_location_new.exit3342
+  br label %pm_location_new.argprom.exit3342
 
-pm_location_new.exit3342:                         ; preds = %5265, %5268
+pm_location_new.argprom.exit3342:                 ; preds = %5265, %5268
   %.0.i.i3341 = phi i64 [ %5267, %5265 ], [ %5269, %5268 ]
   store i64 %.0.i.i3341, ptr %606, align 8
   %5270 = load i64, ptr @rb_cPrismFalseNode, align 8
@@ -8941,7 +8941,7 @@ pm_location_new.exit3342:                         ; preds = %5265, %5268
   %5288 = load ptr, ptr %5287, align 8
   %5289 = icmp eq ptr %5288, null
   %.val2943.pre4523.pre4581 = load ptr, ptr %180, align 8
-  br i1 %5289, label %pm_location_new.exit3344, label %5290
+  br i1 %5289, label %pm_location_new.argprom.exit3344, label %5290
 
 5290:                                             ; preds = %._crit_edge4283
   %5291 = getelementptr inbounds i8, ptr %861, i64 80
@@ -8960,23 +8960,23 @@ pm_location_new.exit3342:                         ; preds = %5265, %5268
 5302:                                             ; preds = %5290
   %5303 = shl nuw nsw i64 %5300, 1
   %5304 = or disjoint i64 %5303, 1
-  br label %pm_location_new.exit3344
+  br label %pm_location_new.argprom.exit3344
 
 5305:                                             ; preds = %5290
   %5306 = call i64 @rb_ull2inum(i64 noundef %5300) #6
   %.val2943.pre4523.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3344
+  br label %pm_location_new.argprom.exit3344
 
-pm_location_new.exit3344:                         ; preds = %5305, %5302, %._crit_edge4283
+pm_location_new.argprom.exit3344:                 ; preds = %5305, %5302, %._crit_edge4283
   %.val2943.pre4523 = phi ptr [ %.val2943.pre4523.pre4581, %._crit_edge4283 ], [ %.val2943.pre4523.pre4581, %5302 ], [ %.val2943.pre4523.pre, %5305 ]
   %5307 = phi i64 [ 4, %._crit_edge4283 ], [ %5304, %5302 ], [ %5306, %5305 ]
   store i64 %5307, ptr %603, align 8
   %5308 = getelementptr inbounds i8, ptr %861, i64 88
   %5309 = load ptr, ptr %5308, align 8
   %5310 = icmp eq ptr %5309, null
-  br i1 %5310, label %pm_location_new.exit3346, label %5311
+  br i1 %5310, label %pm_location_new.argprom.exit3346, label %5311
 
-5311:                                             ; preds = %pm_location_new.exit3344
+5311:                                             ; preds = %pm_location_new.argprom.exit3344
   %5312 = getelementptr inbounds i8, ptr %861, i64 96
   %5313 = load ptr, ptr %5312, align 8
   %5314 = ptrtoint ptr %5309 to i64
@@ -8993,16 +8993,16 @@ pm_location_new.exit3344:                         ; preds = %5305, %5302, %._cri
 5323:                                             ; preds = %5311
   %5324 = shl nuw nsw i64 %5321, 1
   %5325 = or disjoint i64 %5324, 1
-  br label %pm_location_new.exit3346
+  br label %pm_location_new.argprom.exit3346
 
 5326:                                             ; preds = %5311
   %5327 = call i64 @rb_ull2inum(i64 noundef %5321) #6
   %.val2943.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3346
+  br label %pm_location_new.argprom.exit3346
 
-pm_location_new.exit3346:                         ; preds = %5326, %5323, %pm_location_new.exit3344
-  %.val2943 = phi ptr [ %.val2943.pre4523, %pm_location_new.exit3344 ], [ %.val2943.pre4523, %5323 ], [ %.val2943.pre, %5326 ]
-  %5328 = phi i64 [ 4, %pm_location_new.exit3344 ], [ %5325, %5323 ], [ %5327, %5326 ]
+pm_location_new.argprom.exit3346:                 ; preds = %5326, %5323, %pm_location_new.argprom.exit3344
+  %.val2943 = phi ptr [ %.val2943.pre4523, %pm_location_new.argprom.exit3344 ], [ %.val2943.pre4523, %5323 ], [ %.val2943.pre, %5326 ]
+  %5328 = phi i64 [ 4, %pm_location_new.argprom.exit3344 ], [ %5325, %5323 ], [ %5327, %5326 ]
   store i64 %5328, ptr %604, align 16
   %5329 = getelementptr inbounds i8, ptr %861, i64 8
   %5330 = load ptr, ptr %5329, align 8
@@ -9019,16 +9019,16 @@ pm_location_new.exit3346:                         ; preds = %5326, %5323, %pm_lo
   %5341 = icmp ult i64 %5336, 4611686018427387904
   br i1 %5341, label %5342, label %5345
 
-5342:                                             ; preds = %pm_location_new.exit3346
+5342:                                             ; preds = %pm_location_new.argprom.exit3346
   %5343 = shl nuw nsw i64 %5340, 1
   %5344 = or disjoint i64 %5343, 1
-  br label %pm_location_new.exit3348
+  br label %pm_location_new.argprom.exit3348
 
-5345:                                             ; preds = %pm_location_new.exit3346
+5345:                                             ; preds = %pm_location_new.argprom.exit3346
   %5346 = call i64 @rb_ull2inum(i64 noundef %5340) #6
-  br label %pm_location_new.exit3348
+  br label %pm_location_new.argprom.exit3348
 
-pm_location_new.exit3348:                         ; preds = %5342, %5345
+pm_location_new.argprom.exit3348:                 ; preds = %5342, %5345
   %.0.i.i3347 = phi i64 [ %5344, %5342 ], [ %5346, %5345 ]
   store i64 %.0.i.i3347, ptr %605, align 8
   %5347 = load i64, ptr @rb_cPrismFindPatternNode, align 8
@@ -9068,15 +9068,15 @@ pm_location_new.exit3348:                         ; preds = %5342, %5345
 5372:                                             ; preds = %5350
   %5373 = shl nuw nsw i64 %5370, 1
   %5374 = or disjoint i64 %5373, 1
-  br label %pm_location_new.exit3350
+  br label %pm_location_new.argprom.exit3350
 
 5375:                                             ; preds = %5350
   %5376 = call i64 @rb_ull2inum(i64 noundef %5370) #6
   %.val2941.pre = load ptr, ptr %180, align 8
   %.pre4652 = ptrtoint ptr %.val2941.pre to i64
-  br label %pm_location_new.exit3350
+  br label %pm_location_new.argprom.exit3350
 
-pm_location_new.exit3350:                         ; preds = %5372, %5375
+pm_location_new.argprom.exit3350:                 ; preds = %5372, %5375
   %.pre-phi4653 = phi i64 [ %5364, %5372 ], [ %.pre4652, %5375 ]
   %.0.i.i3349 = phi i64 [ %5374, %5372 ], [ %5376, %5375 ]
   store i64 %.0.i.i3349, ptr %597, align 16
@@ -9094,16 +9094,16 @@ pm_location_new.exit3350:                         ; preds = %5372, %5375
   %5388 = icmp ult i64 %5383, 4611686018427387904
   br i1 %5388, label %5389, label %5392
 
-5389:                                             ; preds = %pm_location_new.exit3350
+5389:                                             ; preds = %pm_location_new.argprom.exit3350
   %5390 = shl nuw nsw i64 %5387, 1
   %5391 = or disjoint i64 %5390, 1
-  br label %pm_location_new.exit3352
+  br label %pm_location_new.argprom.exit3352
 
-5392:                                             ; preds = %pm_location_new.exit3350
+5392:                                             ; preds = %pm_location_new.argprom.exit3350
   %5393 = call i64 @rb_ull2inum(i64 noundef %5387) #6
-  br label %pm_location_new.exit3352
+  br label %pm_location_new.argprom.exit3352
 
-pm_location_new.exit3352:                         ; preds = %5389, %5392
+pm_location_new.argprom.exit3352:                 ; preds = %5389, %5392
   %.0.i.i3351 = phi i64 [ %5391, %5389 ], [ %5393, %5392 ]
   store i64 %.0.i.i3351, ptr %598, align 8
   %5394 = load i64, ptr @rb_cPrismFlipFlopNode, align 8
@@ -9136,13 +9136,13 @@ pm_location_new.exit3352:                         ; preds = %5389, %5392
 5414:                                             ; preds = %5397
   %5415 = shl nuw nsw i64 %5412, 1
   %5416 = or disjoint i64 %5415, 1
-  br label %pm_location_new.exit3354
+  br label %pm_location_new.argprom.exit3354
 
 5417:                                             ; preds = %5397
   %5418 = call i64 @rb_ull2inum(i64 noundef %5412) #6
-  br label %pm_location_new.exit3354
+  br label %pm_location_new.argprom.exit3354
 
-pm_location_new.exit3354:                         ; preds = %5414, %5417
+pm_location_new.argprom.exit3354:                 ; preds = %5414, %5417
   %.0.i.i3353 = phi i64 [ %5416, %5414 ], [ %5418, %5417 ]
   store i64 %.0.i.i3353, ptr %593, align 16
   %5419 = load i64, ptr @rb_cPrismFloatNode, align 8
@@ -9177,15 +9177,15 @@ pm_location_new.exit3354:                         ; preds = %5414, %5417
 5439:                                             ; preds = %5422
   %5440 = shl nuw nsw i64 %5437, 1
   %5441 = or disjoint i64 %5440, 1
-  br label %pm_location_new.exit3356
+  br label %pm_location_new.argprom.exit3356
 
 5442:                                             ; preds = %5422
   %5443 = call i64 @rb_ull2inum(i64 noundef %5437) #6
   %.val2938.pre = load ptr, ptr %180, align 8
   %.pre4654 = ptrtoint ptr %.val2938.pre to i64
-  br label %pm_location_new.exit3356
+  br label %pm_location_new.argprom.exit3356
 
-pm_location_new.exit3356:                         ; preds = %5439, %5442
+pm_location_new.argprom.exit3356:                 ; preds = %5439, %5442
   %.pre-phi4655 = phi i64 [ %5431, %5439 ], [ %.pre4654, %5442 ]
   %.val2938 = phi ptr [ %.val2939, %5439 ], [ %.val2938.pre, %5442 ]
   %.0.i.i3355 = phi i64 [ %5441, %5439 ], [ %5443, %5442 ]
@@ -9204,26 +9204,26 @@ pm_location_new.exit3356:                         ; preds = %5439, %5442
   %5455 = icmp ult i64 %5450, 4611686018427387904
   br i1 %5455, label %5456, label %5459
 
-5456:                                             ; preds = %pm_location_new.exit3356
+5456:                                             ; preds = %pm_location_new.argprom.exit3356
   %5457 = shl nuw nsw i64 %5454, 1
   %5458 = or disjoint i64 %5457, 1
-  br label %pm_location_new.exit3358
+  br label %pm_location_new.argprom.exit3358
 
-5459:                                             ; preds = %pm_location_new.exit3356
+5459:                                             ; preds = %pm_location_new.argprom.exit3356
   %5460 = call i64 @rb_ull2inum(i64 noundef %5454) #6
   %.val2936.pre4519.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3358
+  br label %pm_location_new.argprom.exit3358
 
-pm_location_new.exit3358:                         ; preds = %5456, %5459
+pm_location_new.argprom.exit3358:                 ; preds = %5456, %5459
   %.val2936.pre4519 = phi ptr [ %.val2938, %5456 ], [ %.val2936.pre4519.pre, %5459 ]
   %.0.i.i3357 = phi i64 [ %5458, %5456 ], [ %5460, %5459 ]
   store i64 %.0.i.i3357, ptr %588, align 8
   %5461 = getelementptr inbounds i8, ptr %861, i64 80
   %5462 = load ptr, ptr %5461, align 8
   %5463 = icmp eq ptr %5462, null
-  br i1 %5463, label %pm_location_new.exit3360, label %5464
+  br i1 %5463, label %pm_location_new.argprom.exit3360, label %5464
 
-5464:                                             ; preds = %pm_location_new.exit3358
+5464:                                             ; preds = %pm_location_new.argprom.exit3358
   %5465 = getelementptr inbounds i8, ptr %861, i64 88
   %5466 = load ptr, ptr %5465, align 8
   %5467 = ptrtoint ptr %5462 to i64
@@ -9240,16 +9240,16 @@ pm_location_new.exit3358:                         ; preds = %5456, %5459
 5476:                                             ; preds = %5464
   %5477 = shl nuw nsw i64 %5474, 1
   %5478 = or disjoint i64 %5477, 1
-  br label %pm_location_new.exit3360
+  br label %pm_location_new.argprom.exit3360
 
 5479:                                             ; preds = %5464
   %5480 = call i64 @rb_ull2inum(i64 noundef %5474) #6
   %.val2936.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3360
+  br label %pm_location_new.argprom.exit3360
 
-pm_location_new.exit3360:                         ; preds = %5479, %5476, %pm_location_new.exit3358
-  %.val2936 = phi ptr [ %.val2936.pre4519, %pm_location_new.exit3358 ], [ %.val2936.pre4519, %5476 ], [ %.val2936.pre, %5479 ]
-  %5481 = phi i64 [ 4, %pm_location_new.exit3358 ], [ %5478, %5476 ], [ %5480, %5479 ]
+pm_location_new.argprom.exit3360:                 ; preds = %5479, %5476, %pm_location_new.argprom.exit3358
+  %.val2936 = phi ptr [ %.val2936.pre4519, %pm_location_new.argprom.exit3358 ], [ %.val2936.pre4519, %5476 ], [ %.val2936.pre, %5479 ]
+  %5481 = phi i64 [ 4, %pm_location_new.argprom.exit3358 ], [ %5478, %5476 ], [ %5480, %5479 ]
   store i64 %5481, ptr %589, align 16
   %5482 = getelementptr inbounds i8, ptr %861, i64 96
   %5483 = load ptr, ptr %5482, align 8
@@ -9266,18 +9266,18 @@ pm_location_new.exit3360:                         ; preds = %5479, %5476, %pm_lo
   %5494 = icmp ult i64 %5489, 4611686018427387904
   br i1 %5494, label %5495, label %5498
 
-5495:                                             ; preds = %pm_location_new.exit3360
+5495:                                             ; preds = %pm_location_new.argprom.exit3360
   %5496 = shl nuw nsw i64 %5493, 1
   %5497 = or disjoint i64 %5496, 1
-  br label %pm_location_new.exit3362
+  br label %pm_location_new.argprom.exit3362
 
-5498:                                             ; preds = %pm_location_new.exit3360
+5498:                                             ; preds = %pm_location_new.argprom.exit3360
   %5499 = call i64 @rb_ull2inum(i64 noundef %5493) #6
   %.val2935.pre = load ptr, ptr %180, align 8
   %.pre4656 = ptrtoint ptr %.val2935.pre to i64
-  br label %pm_location_new.exit3362
+  br label %pm_location_new.argprom.exit3362
 
-pm_location_new.exit3362:                         ; preds = %5495, %5498
+pm_location_new.argprom.exit3362:                 ; preds = %5495, %5498
   %.pre-phi4657 = phi i64 [ %5487, %5495 ], [ %.pre4656, %5498 ]
   %.0.i.i3361 = phi i64 [ %5497, %5495 ], [ %5499, %5498 ]
   store i64 %.0.i.i3361, ptr %590, align 8
@@ -9295,16 +9295,16 @@ pm_location_new.exit3362:                         ; preds = %5495, %5498
   %5511 = icmp ult i64 %5506, 4611686018427387904
   br i1 %5511, label %5512, label %5515
 
-5512:                                             ; preds = %pm_location_new.exit3362
+5512:                                             ; preds = %pm_location_new.argprom.exit3362
   %5513 = shl nuw nsw i64 %5510, 1
   %5514 = or disjoint i64 %5513, 1
-  br label %pm_location_new.exit3364
+  br label %pm_location_new.argprom.exit3364
 
-5515:                                             ; preds = %pm_location_new.exit3362
+5515:                                             ; preds = %pm_location_new.argprom.exit3362
   %5516 = call i64 @rb_ull2inum(i64 noundef %5510) #6
-  br label %pm_location_new.exit3364
+  br label %pm_location_new.argprom.exit3364
 
-pm_location_new.exit3364:                         ; preds = %5512, %5515
+pm_location_new.argprom.exit3364:                 ; preds = %5512, %5515
   %.0.i.i3363 = phi i64 [ %5514, %5512 ], [ %5516, %5515 ]
   store i64 %.0.i.i3363, ptr %591, align 16
   %5517 = load i64, ptr @rb_cPrismForNode, align 8
@@ -9333,13 +9333,13 @@ pm_location_new.exit3364:                         ; preds = %5512, %5515
 5534:                                             ; preds = %5520
   %5535 = shl nuw nsw i64 %5532, 1
   %5536 = or disjoint i64 %5535, 1
-  br label %pm_location_new.exit3366
+  br label %pm_location_new.argprom.exit3366
 
 5537:                                             ; preds = %5520
   %5538 = call i64 @rb_ull2inum(i64 noundef %5532) #6
-  br label %pm_location_new.exit3366
+  br label %pm_location_new.argprom.exit3366
 
-pm_location_new.exit3366:                         ; preds = %5534, %5537
+pm_location_new.argprom.exit3366:                 ; preds = %5534, %5537
   %.0.i.i3365 = phi i64 [ %5536, %5534 ], [ %5538, %5537 ]
   store i64 %.0.i.i3365, ptr %583, align 8
   %5539 = load i64, ptr @rb_cPrismForwardingArgumentsNode, align 8
@@ -9368,13 +9368,13 @@ pm_location_new.exit3366:                         ; preds = %5534, %5537
 5556:                                             ; preds = %5542
   %5557 = shl nuw nsw i64 %5554, 1
   %5558 = or disjoint i64 %5557, 1
-  br label %pm_location_new.exit3368
+  br label %pm_location_new.argprom.exit3368
 
 5559:                                             ; preds = %5542
   %5560 = call i64 @rb_ull2inum(i64 noundef %5554) #6
-  br label %pm_location_new.exit3368
+  br label %pm_location_new.argprom.exit3368
 
-pm_location_new.exit3368:                         ; preds = %5556, %5559
+pm_location_new.argprom.exit3368:                 ; preds = %5556, %5559
   %.0.i.i3367 = phi i64 [ %5558, %5556 ], [ %5560, %5559 ]
   store i64 %.0.i.i3367, ptr %582, align 8
   %5561 = load i64, ptr @rb_cPrismForwardingParameterNode, align 8
@@ -9405,13 +9405,13 @@ pm_location_new.exit3368:                         ; preds = %5556, %5559
 5579:                                             ; preds = %5564
   %5580 = shl nuw nsw i64 %5577, 1
   %5581 = or disjoint i64 %5580, 1
-  br label %pm_location_new.exit3370
+  br label %pm_location_new.argprom.exit3370
 
 5582:                                             ; preds = %5564
   %5583 = call i64 @rb_ull2inum(i64 noundef %5577) #6
-  br label %pm_location_new.exit3370
+  br label %pm_location_new.argprom.exit3370
 
-pm_location_new.exit3370:                         ; preds = %5579, %5582
+pm_location_new.argprom.exit3370:                 ; preds = %5579, %5582
   %.0.i.i3369 = phi i64 [ %5581, %5579 ], [ %5583, %5582 ]
   store i64 %.0.i.i3369, ptr %581, align 16
   %5584 = load i64, ptr @rb_cPrismForwardingSuperNode, align 8
@@ -9448,15 +9448,15 @@ pm_location_new.exit3370:                         ; preds = %5579, %5582
 5608:                                             ; preds = %5587
   %5609 = shl nuw nsw i64 %5606, 1
   %5610 = or disjoint i64 %5609, 1
-  br label %pm_location_new.exit3372
+  br label %pm_location_new.argprom.exit3372
 
 5611:                                             ; preds = %5587
   %5612 = call i64 @rb_ull2inum(i64 noundef %5606) #6
   %.val2930.pre = load ptr, ptr %180, align 8
   %.pre4658 = ptrtoint ptr %.val2930.pre to i64
-  br label %pm_location_new.exit3372
+  br label %pm_location_new.argprom.exit3372
 
-pm_location_new.exit3372:                         ; preds = %5608, %5611
+pm_location_new.argprom.exit3372:                 ; preds = %5608, %5611
   %.pre-phi4659 = phi i64 [ %5600, %5608 ], [ %.pre4658, %5611 ]
   %.0.i.i3371 = phi i64 [ %5610, %5608 ], [ %5612, %5611 ]
   store i64 %.0.i.i3371, ptr %576, align 16
@@ -9474,16 +9474,16 @@ pm_location_new.exit3372:                         ; preds = %5608, %5611
   %5624 = icmp ult i64 %5619, 4611686018427387904
   br i1 %5624, label %5625, label %5628
 
-5625:                                             ; preds = %pm_location_new.exit3372
+5625:                                             ; preds = %pm_location_new.argprom.exit3372
   %5626 = shl nuw nsw i64 %5623, 1
   %5627 = or disjoint i64 %5626, 1
-  br label %pm_location_new.exit3374
+  br label %pm_location_new.argprom.exit3374
 
-5628:                                             ; preds = %pm_location_new.exit3372
+5628:                                             ; preds = %pm_location_new.argprom.exit3372
   %5629 = call i64 @rb_ull2inum(i64 noundef %5623) #6
-  br label %pm_location_new.exit3374
+  br label %pm_location_new.argprom.exit3374
 
-pm_location_new.exit3374:                         ; preds = %5625, %5628
+pm_location_new.argprom.exit3374:                 ; preds = %5625, %5628
   %.0.i.i3373 = phi i64 [ %5627, %5625 ], [ %5629, %5628 ]
   store i64 %.0.i.i3373, ptr %577, align 8
   %5630 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -9504,16 +9504,16 @@ pm_location_new.exit3374:                         ; preds = %5625, %5628
   %5643 = icmp ult i64 %5638, 4611686018427387904
   br i1 %5643, label %5644, label %5647
 
-5644:                                             ; preds = %pm_location_new.exit3374
+5644:                                             ; preds = %pm_location_new.argprom.exit3374
   %5645 = shl nuw nsw i64 %5642, 1
   %5646 = or disjoint i64 %5645, 1
-  br label %pm_location_new.exit3376
+  br label %pm_location_new.argprom.exit3376
 
-5647:                                             ; preds = %pm_location_new.exit3374
+5647:                                             ; preds = %pm_location_new.argprom.exit3374
   %5648 = call i64 @rb_ull2inum(i64 noundef %5642) #6
-  br label %pm_location_new.exit3376
+  br label %pm_location_new.argprom.exit3376
 
-pm_location_new.exit3376:                         ; preds = %5644, %5647
+pm_location_new.argprom.exit3376:                 ; preds = %5644, %5647
   %.0.i.i3375 = phi i64 [ %5646, %5644 ], [ %5648, %5647 ]
   store i64 %.0.i.i3375, ptr %579, align 8
   %5649 = load i64, ptr @rb_cPrismGlobalVariableAndWriteNode, align 8
@@ -9550,15 +9550,15 @@ pm_location_new.exit3376:                         ; preds = %5644, %5647
 5673:                                             ; preds = %5652
   %5674 = shl nuw nsw i64 %5671, 1
   %5675 = or disjoint i64 %5674, 1
-  br label %pm_location_new.exit3378
+  br label %pm_location_new.argprom.exit3378
 
 5676:                                             ; preds = %5652
   %5677 = call i64 @rb_ull2inum(i64 noundef %5671) #6
   %.val2927.pre = load ptr, ptr %180, align 8
   %.pre4660 = ptrtoint ptr %.val2927.pre to i64
-  br label %pm_location_new.exit3378
+  br label %pm_location_new.argprom.exit3378
 
-pm_location_new.exit3378:                         ; preds = %5673, %5676
+pm_location_new.argprom.exit3378:                 ; preds = %5673, %5676
   %.pre-phi4661 = phi i64 [ %5665, %5673 ], [ %.pre4660, %5676 ]
   %.0.i.i3377 = phi i64 [ %5675, %5673 ], [ %5677, %5676 ]
   store i64 %.0.i.i3377, ptr %570, align 16
@@ -9576,16 +9576,16 @@ pm_location_new.exit3378:                         ; preds = %5673, %5676
   %5689 = icmp ult i64 %5684, 4611686018427387904
   br i1 %5689, label %5690, label %5693
 
-5690:                                             ; preds = %pm_location_new.exit3378
+5690:                                             ; preds = %pm_location_new.argprom.exit3378
   %5691 = shl nuw nsw i64 %5688, 1
   %5692 = or disjoint i64 %5691, 1
-  br label %pm_location_new.exit3380
+  br label %pm_location_new.argprom.exit3380
 
-5693:                                             ; preds = %pm_location_new.exit3378
+5693:                                             ; preds = %pm_location_new.argprom.exit3378
   %5694 = call i64 @rb_ull2inum(i64 noundef %5688) #6
-  br label %pm_location_new.exit3380
+  br label %pm_location_new.argprom.exit3380
 
-pm_location_new.exit3380:                         ; preds = %5690, %5693
+pm_location_new.argprom.exit3380:                 ; preds = %5690, %5693
   %.0.i.i3379 = phi i64 [ %5692, %5690 ], [ %5694, %5693 ]
   store i64 %.0.i.i3379, ptr %571, align 8
   %5695 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -9614,16 +9614,16 @@ pm_location_new.exit3380:                         ; preds = %5690, %5693
   %5715 = icmp ult i64 %5710, 4611686018427387904
   br i1 %5715, label %5716, label %5719
 
-5716:                                             ; preds = %pm_location_new.exit3380
+5716:                                             ; preds = %pm_location_new.argprom.exit3380
   %5717 = shl nuw nsw i64 %5714, 1
   %5718 = or disjoint i64 %5717, 1
-  br label %pm_location_new.exit3382
+  br label %pm_location_new.argprom.exit3382
 
-5719:                                             ; preds = %pm_location_new.exit3380
+5719:                                             ; preds = %pm_location_new.argprom.exit3380
   %5720 = call i64 @rb_ull2inum(i64 noundef %5714) #6
-  br label %pm_location_new.exit3382
+  br label %pm_location_new.argprom.exit3382
 
-pm_location_new.exit3382:                         ; preds = %5716, %5719
+pm_location_new.argprom.exit3382:                 ; preds = %5716, %5719
   %.0.i.i3381 = phi i64 [ %5718, %5716 ], [ %5720, %5719 ]
   store i64 %.0.i.i3381, ptr %574, align 16
   %5721 = load i64, ptr @rb_cPrismGlobalVariableOperatorWriteNode, align 8
@@ -9660,15 +9660,15 @@ pm_location_new.exit3382:                         ; preds = %5716, %5719
 5745:                                             ; preds = %5724
   %5746 = shl nuw nsw i64 %5743, 1
   %5747 = or disjoint i64 %5746, 1
-  br label %pm_location_new.exit3384
+  br label %pm_location_new.argprom.exit3384
 
 5748:                                             ; preds = %5724
   %5749 = call i64 @rb_ull2inum(i64 noundef %5743) #6
   %.val2924.pre = load ptr, ptr %180, align 8
   %.pre4662 = ptrtoint ptr %.val2924.pre to i64
-  br label %pm_location_new.exit3384
+  br label %pm_location_new.argprom.exit3384
 
-pm_location_new.exit3384:                         ; preds = %5745, %5748
+pm_location_new.argprom.exit3384:                 ; preds = %5745, %5748
   %.pre-phi4663 = phi i64 [ %5737, %5745 ], [ %.pre4662, %5748 ]
   %.0.i.i3383 = phi i64 [ %5747, %5745 ], [ %5749, %5748 ]
   store i64 %.0.i.i3383, ptr %565, align 16
@@ -9686,16 +9686,16 @@ pm_location_new.exit3384:                         ; preds = %5745, %5748
   %5761 = icmp ult i64 %5756, 4611686018427387904
   br i1 %5761, label %5762, label %5765
 
-5762:                                             ; preds = %pm_location_new.exit3384
+5762:                                             ; preds = %pm_location_new.argprom.exit3384
   %5763 = shl nuw nsw i64 %5760, 1
   %5764 = or disjoint i64 %5763, 1
-  br label %pm_location_new.exit3386
+  br label %pm_location_new.argprom.exit3386
 
-5765:                                             ; preds = %pm_location_new.exit3384
+5765:                                             ; preds = %pm_location_new.argprom.exit3384
   %5766 = call i64 @rb_ull2inum(i64 noundef %5760) #6
-  br label %pm_location_new.exit3386
+  br label %pm_location_new.argprom.exit3386
 
-pm_location_new.exit3386:                         ; preds = %5762, %5765
+pm_location_new.argprom.exit3386:                 ; preds = %5762, %5765
   %.0.i.i3385 = phi i64 [ %5764, %5762 ], [ %5766, %5765 ]
   store i64 %.0.i.i3385, ptr %566, align 8
   %5767 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -9716,16 +9716,16 @@ pm_location_new.exit3386:                         ; preds = %5762, %5765
   %5780 = icmp ult i64 %5775, 4611686018427387904
   br i1 %5780, label %5781, label %5784
 
-5781:                                             ; preds = %pm_location_new.exit3386
+5781:                                             ; preds = %pm_location_new.argprom.exit3386
   %5782 = shl nuw nsw i64 %5779, 1
   %5783 = or disjoint i64 %5782, 1
-  br label %pm_location_new.exit3388
+  br label %pm_location_new.argprom.exit3388
 
-5784:                                             ; preds = %pm_location_new.exit3386
+5784:                                             ; preds = %pm_location_new.argprom.exit3386
   %5785 = call i64 @rb_ull2inum(i64 noundef %5779) #6
-  br label %pm_location_new.exit3388
+  br label %pm_location_new.argprom.exit3388
 
-pm_location_new.exit3388:                         ; preds = %5781, %5784
+pm_location_new.argprom.exit3388:                 ; preds = %5781, %5784
   %.0.i.i3387 = phi i64 [ %5783, %5781 ], [ %5785, %5784 ]
   store i64 %.0.i.i3387, ptr %568, align 8
   %5786 = load i64, ptr @rb_cPrismGlobalVariableOrWriteNode, align 8
@@ -9762,13 +9762,13 @@ pm_location_new.exit3388:                         ; preds = %5781, %5784
 5810:                                             ; preds = %5789
   %5811 = shl nuw nsw i64 %5808, 1
   %5812 = or disjoint i64 %5811, 1
-  br label %pm_location_new.exit3390
+  br label %pm_location_new.argprom.exit3390
 
 5813:                                             ; preds = %5789
   %5814 = call i64 @rb_ull2inum(i64 noundef %5808) #6
-  br label %pm_location_new.exit3390
+  br label %pm_location_new.argprom.exit3390
 
-pm_location_new.exit3390:                         ; preds = %5810, %5813
+pm_location_new.argprom.exit3390:                 ; preds = %5810, %5813
   %.0.i.i3389 = phi i64 [ %5812, %5810 ], [ %5814, %5813 ]
   store i64 %.0.i.i3389, ptr %563, align 16
   %5815 = load i64, ptr @rb_cPrismGlobalVariableReadNode, align 8
@@ -9805,13 +9805,13 @@ pm_location_new.exit3390:                         ; preds = %5810, %5813
 5839:                                             ; preds = %5818
   %5840 = shl nuw nsw i64 %5837, 1
   %5841 = or disjoint i64 %5840, 1
-  br label %pm_location_new.exit3392
+  br label %pm_location_new.argprom.exit3392
 
 5842:                                             ; preds = %5818
   %5843 = call i64 @rb_ull2inum(i64 noundef %5837) #6
-  br label %pm_location_new.exit3392
+  br label %pm_location_new.argprom.exit3392
 
-pm_location_new.exit3392:                         ; preds = %5839, %5842
+pm_location_new.argprom.exit3392:                 ; preds = %5839, %5842
   %.0.i.i3391 = phi i64 [ %5841, %5839 ], [ %5843, %5842 ]
   store i64 %.0.i.i3391, ptr %561, align 16
   %5844 = load i64, ptr @rb_cPrismGlobalVariableTargetNode, align 8
@@ -9848,13 +9848,13 @@ pm_location_new.exit3392:                         ; preds = %5839, %5842
 5868:                                             ; preds = %5847
   %5869 = shl nuw nsw i64 %5866, 1
   %5870 = or disjoint i64 %5869, 1
-  br label %pm_location_new.exit3394
+  br label %pm_location_new.argprom.exit3394
 
 5871:                                             ; preds = %5847
   %5872 = call i64 @rb_ull2inum(i64 noundef %5866) #6
-  br label %pm_location_new.exit3394
+  br label %pm_location_new.argprom.exit3394
 
-pm_location_new.exit3394:                         ; preds = %5868, %5871
+pm_location_new.argprom.exit3394:                 ; preds = %5868, %5871
   %.0.i.i3393 = phi i64 [ %5870, %5868 ], [ %5872, %5871 ]
   store i64 %.0.i.i3393, ptr %556, align 16
   %5873 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -9875,18 +9875,18 @@ pm_location_new.exit3394:                         ; preds = %5868, %5871
   %5886 = icmp ult i64 %5881, 4611686018427387904
   br i1 %5886, label %5887, label %5890
 
-5887:                                             ; preds = %pm_location_new.exit3394
+5887:                                             ; preds = %pm_location_new.argprom.exit3394
   %5888 = shl nuw nsw i64 %5885, 1
   %5889 = or disjoint i64 %5888, 1
-  br label %pm_location_new.exit3396
+  br label %pm_location_new.argprom.exit3396
 
-5890:                                             ; preds = %pm_location_new.exit3394
+5890:                                             ; preds = %pm_location_new.argprom.exit3394
   %5891 = call i64 @rb_ull2inum(i64 noundef %5885) #6
   %.val2918.pre = load ptr, ptr %180, align 8
   %.pre4664 = ptrtoint ptr %.val2918.pre to i64
-  br label %pm_location_new.exit3396
+  br label %pm_location_new.argprom.exit3396
 
-pm_location_new.exit3396:                         ; preds = %5887, %5890
+pm_location_new.argprom.exit3396:                 ; preds = %5887, %5890
   %.pre-phi4665 = phi i64 [ %5879, %5887 ], [ %.pre4664, %5890 ]
   %.0.i.i3395 = phi i64 [ %5889, %5887 ], [ %5891, %5890 ]
   store i64 %.0.i.i3395, ptr %558, align 16
@@ -9904,16 +9904,16 @@ pm_location_new.exit3396:                         ; preds = %5887, %5890
   %5903 = icmp ult i64 %5898, 4611686018427387904
   br i1 %5903, label %5904, label %5907
 
-5904:                                             ; preds = %pm_location_new.exit3396
+5904:                                             ; preds = %pm_location_new.argprom.exit3396
   %5905 = shl nuw nsw i64 %5902, 1
   %5906 = or disjoint i64 %5905, 1
-  br label %pm_location_new.exit3398
+  br label %pm_location_new.argprom.exit3398
 
-5907:                                             ; preds = %pm_location_new.exit3396
+5907:                                             ; preds = %pm_location_new.argprom.exit3396
   %5908 = call i64 @rb_ull2inum(i64 noundef %5902) #6
-  br label %pm_location_new.exit3398
+  br label %pm_location_new.argprom.exit3398
 
-pm_location_new.exit3398:                         ; preds = %5904, %5907
+pm_location_new.argprom.exit3398:                 ; preds = %5904, %5907
   %.0.i.i3397 = phi i64 [ %5906, %5904 ], [ %5908, %5907 ]
   store i64 %.0.i.i3397, ptr %559, align 8
   %5909 = load i64, ptr @rb_cPrismGlobalVariableWriteNode, align 8
@@ -9942,13 +9942,13 @@ pm_location_new.exit3398:                         ; preds = %5904, %5907
 5926:                                             ; preds = %5912
   %5927 = shl nuw nsw i64 %5924, 1
   %5928 = or disjoint i64 %5927, 1
-  br label %pm_location_new.exit3400
+  br label %pm_location_new.argprom.exit3400
 
 5929:                                             ; preds = %5912
   %5930 = call i64 @rb_ull2inum(i64 noundef %5924) #6
-  br label %pm_location_new.exit3400
+  br label %pm_location_new.argprom.exit3400
 
-pm_location_new.exit3400:                         ; preds = %5926, %5929
+pm_location_new.argprom.exit3400:                 ; preds = %5926, %5929
   %.0.i.i3399 = phi i64 [ %5928, %5926 ], [ %5930, %5929 ]
   store i64 %.0.i.i3399, ptr %551, align 8
   %5931 = getelementptr inbounds i8, ptr %861, i64 40
@@ -9959,8 +9959,8 @@ pm_location_new.exit3400:                         ; preds = %5926, %5929
   %.not4378 = icmp eq i64 %5934, 0
   br i1 %.not4378, label %._crit_edge4279, label %.lr.ph4278
 
-.lr.ph4278:                                       ; preds = %pm_location_new.exit3400, %.lr.ph4278
-  %.026294277 = phi i64 [ %5938, %.lr.ph4278 ], [ 0, %pm_location_new.exit3400 ]
+.lr.ph4278:                                       ; preds = %pm_location_new.argprom.exit3400, %.lr.ph4278
+  %.026294277 = phi i64 [ %5938, %.lr.ph4278 ], [ 0, %pm_location_new.argprom.exit3400 ]
   %5935 = load i64, ptr %552, align 16
   %5936 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %5937 = call i64 @rb_ary_push(i64 noundef %5935, i64 noundef %5936) #6
@@ -9969,7 +9969,7 @@ pm_location_new.exit3400:                         ; preds = %5926, %5929
   %5940 = icmp ult i64 %5938, %5939
   br i1 %5940, label %.lr.ph4278, label %._crit_edge4279, !llvm.loop !51
 
-._crit_edge4279:                                  ; preds = %.lr.ph4278, %pm_location_new.exit3400
+._crit_edge4279:                                  ; preds = %.lr.ph4278, %pm_location_new.argprom.exit3400
   %5941 = getelementptr inbounds i8, ptr %861, i64 64
   %5942 = load ptr, ptr %5941, align 8
   %5943 = getelementptr inbounds i8, ptr %861, i64 72
@@ -9989,15 +9989,15 @@ pm_location_new.exit3400:                         ; preds = %5926, %5929
 5954:                                             ; preds = %._crit_edge4279
   %5955 = shl nuw nsw i64 %5952, 1
   %5956 = or disjoint i64 %5955, 1
-  br label %pm_location_new.exit3402
+  br label %pm_location_new.argprom.exit3402
 
 5957:                                             ; preds = %._crit_edge4279
   %5958 = call i64 @rb_ull2inum(i64 noundef %5952) #6
   %.val2915.pre = load ptr, ptr %180, align 8
   %.pre4666 = ptrtoint ptr %.val2915.pre to i64
-  br label %pm_location_new.exit3402
+  br label %pm_location_new.argprom.exit3402
 
-pm_location_new.exit3402:                         ; preds = %5954, %5957
+pm_location_new.argprom.exit3402:                 ; preds = %5954, %5957
   %.pre-phi4667 = phi i64 [ %5946, %5954 ], [ %.pre4666, %5957 ]
   %.0.i.i3401 = phi i64 [ %5956, %5954 ], [ %5958, %5957 ]
   store i64 %.0.i.i3401, ptr %553, align 8
@@ -10015,16 +10015,16 @@ pm_location_new.exit3402:                         ; preds = %5954, %5957
   %5970 = icmp ult i64 %5965, 4611686018427387904
   br i1 %5970, label %5971, label %5974
 
-5971:                                             ; preds = %pm_location_new.exit3402
+5971:                                             ; preds = %pm_location_new.argprom.exit3402
   %5972 = shl nuw nsw i64 %5969, 1
   %5973 = or disjoint i64 %5972, 1
-  br label %pm_location_new.exit3404
+  br label %pm_location_new.argprom.exit3404
 
-5974:                                             ; preds = %pm_location_new.exit3402
+5974:                                             ; preds = %pm_location_new.argprom.exit3402
   %5975 = call i64 @rb_ull2inum(i64 noundef %5969) #6
-  br label %pm_location_new.exit3404
+  br label %pm_location_new.argprom.exit3404
 
-pm_location_new.exit3404:                         ; preds = %5971, %5974
+pm_location_new.argprom.exit3404:                 ; preds = %5971, %5974
   %.0.i.i3403 = phi i64 [ %5973, %5971 ], [ %5975, %5974 ]
   store i64 %.0.i.i3403, ptr %554, align 16
   %5976 = load i64, ptr @rb_cPrismHashNode, align 8
@@ -10061,7 +10061,7 @@ pm_location_new.exit3404:                         ; preds = %5971, %5974
   %5993 = load ptr, ptr %5992, align 8
   %5994 = icmp eq ptr %5993, null
   %.val2912.pre4511.pre4578 = load ptr, ptr %180, align 8
-  br i1 %5994, label %pm_location_new.exit3406, label %5995
+  br i1 %5994, label %pm_location_new.argprom.exit3406, label %5995
 
 5995:                                             ; preds = %._crit_edge4276
   %5996 = getelementptr inbounds i8, ptr %861, i64 72
@@ -10080,23 +10080,23 @@ pm_location_new.exit3404:                         ; preds = %5971, %5974
 6007:                                             ; preds = %5995
   %6008 = shl nuw nsw i64 %6005, 1
   %6009 = or disjoint i64 %6008, 1
-  br label %pm_location_new.exit3406
+  br label %pm_location_new.argprom.exit3406
 
 6010:                                             ; preds = %5995
   %6011 = call i64 @rb_ull2inum(i64 noundef %6005) #6
   %.val2912.pre4511.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3406
+  br label %pm_location_new.argprom.exit3406
 
-pm_location_new.exit3406:                         ; preds = %6010, %6007, %._crit_edge4276
+pm_location_new.argprom.exit3406:                 ; preds = %6010, %6007, %._crit_edge4276
   %.val2912.pre4511 = phi ptr [ %.val2912.pre4511.pre4578, %._crit_edge4276 ], [ %.val2912.pre4511.pre4578, %6007 ], [ %.val2912.pre4511.pre, %6010 ]
   %6012 = phi i64 [ 4, %._crit_edge4276 ], [ %6009, %6007 ], [ %6011, %6010 ]
   store i64 %6012, ptr %548, align 16
   %6013 = getelementptr inbounds i8, ptr %861, i64 80
   %6014 = load ptr, ptr %6013, align 8
   %6015 = icmp eq ptr %6014, null
-  br i1 %6015, label %pm_location_new.exit3408, label %6016
+  br i1 %6015, label %pm_location_new.argprom.exit3408, label %6016
 
-6016:                                             ; preds = %pm_location_new.exit3406
+6016:                                             ; preds = %pm_location_new.argprom.exit3406
   %6017 = getelementptr inbounds i8, ptr %861, i64 88
   %6018 = load ptr, ptr %6017, align 8
   %6019 = ptrtoint ptr %6014 to i64
@@ -10113,16 +10113,16 @@ pm_location_new.exit3406:                         ; preds = %6010, %6007, %._cri
 6028:                                             ; preds = %6016
   %6029 = shl nuw nsw i64 %6026, 1
   %6030 = or disjoint i64 %6029, 1
-  br label %pm_location_new.exit3408
+  br label %pm_location_new.argprom.exit3408
 
 6031:                                             ; preds = %6016
   %6032 = call i64 @rb_ull2inum(i64 noundef %6026) #6
   %.val2912.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3408
+  br label %pm_location_new.argprom.exit3408
 
-pm_location_new.exit3408:                         ; preds = %6031, %6028, %pm_location_new.exit3406
-  %.val2912 = phi ptr [ %.val2912.pre4511, %pm_location_new.exit3406 ], [ %.val2912.pre4511, %6028 ], [ %.val2912.pre, %6031 ]
-  %6033 = phi i64 [ 4, %pm_location_new.exit3406 ], [ %6030, %6028 ], [ %6032, %6031 ]
+pm_location_new.argprom.exit3408:                 ; preds = %6031, %6028, %pm_location_new.argprom.exit3406
+  %.val2912 = phi ptr [ %.val2912.pre4511, %pm_location_new.argprom.exit3406 ], [ %.val2912.pre4511, %6028 ], [ %.val2912.pre, %6031 ]
+  %6033 = phi i64 [ 4, %pm_location_new.argprom.exit3406 ], [ %6030, %6028 ], [ %6032, %6031 ]
   store i64 %6033, ptr %549, align 8
   %6034 = getelementptr inbounds i8, ptr %861, i64 8
   %6035 = load ptr, ptr %6034, align 8
@@ -10139,16 +10139,16 @@ pm_location_new.exit3408:                         ; preds = %6031, %6028, %pm_lo
   %6046 = icmp ult i64 %6041, 4611686018427387904
   br i1 %6046, label %6047, label %6050
 
-6047:                                             ; preds = %pm_location_new.exit3408
+6047:                                             ; preds = %pm_location_new.argprom.exit3408
   %6048 = shl nuw nsw i64 %6045, 1
   %6049 = or disjoint i64 %6048, 1
-  br label %pm_location_new.exit3410
+  br label %pm_location_new.argprom.exit3410
 
-6050:                                             ; preds = %pm_location_new.exit3408
+6050:                                             ; preds = %pm_location_new.argprom.exit3408
   %6051 = call i64 @rb_ull2inum(i64 noundef %6045) #6
-  br label %pm_location_new.exit3410
+  br label %pm_location_new.argprom.exit3410
 
-pm_location_new.exit3410:                         ; preds = %6047, %6050
+pm_location_new.argprom.exit3410:                 ; preds = %6047, %6050
   %.0.i.i3409 = phi i64 [ %6049, %6047 ], [ %6051, %6050 ]
   store i64 %.0.i.i3409, ptr %550, align 16
   %6052 = load i64, ptr @rb_cPrismHashPatternNode, align 8
@@ -10161,7 +10161,7 @@ pm_location_new.exit3410:                         ; preds = %6047, %6050
   %6056 = getelementptr inbounds i8, ptr %861, i64 24
   %6057 = load ptr, ptr %6056, align 8
   %6058 = icmp eq ptr %6057, null
-  br i1 %6058, label %pm_location_new.exit3412, label %6059
+  br i1 %6058, label %pm_location_new.argprom.exit3412, label %6059
 
 6059:                                             ; preds = %6055
   %6060 = getelementptr inbounds i8, ptr %861, i64 32
@@ -10181,13 +10181,13 @@ pm_location_new.exit3410:                         ; preds = %6047, %6050
 6071:                                             ; preds = %6059
   %6072 = shl nuw nsw i64 %6069, 1
   %6073 = or disjoint i64 %6072, 1
-  br label %pm_location_new.exit3412
+  br label %pm_location_new.argprom.exit3412
 
 6074:                                             ; preds = %6059
   %6075 = call i64 @rb_ull2inum(i64 noundef %6069) #6
-  br label %pm_location_new.exit3412
+  br label %pm_location_new.argprom.exit3412
 
-pm_location_new.exit3412:                         ; preds = %6074, %6071, %6055
+pm_location_new.argprom.exit3412:                 ; preds = %6074, %6071, %6055
   %6076 = phi i64 [ 4, %6055 ], [ %6073, %6071 ], [ %6075, %6074 ]
   store i64 %6076, ptr %538, align 8
   %6077 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10195,9 +10195,9 @@ pm_location_new.exit3412:                         ; preds = %6074, %6071, %6055
   %6078 = getelementptr inbounds i8, ptr %861, i64 48
   %6079 = load ptr, ptr %6078, align 8
   %6080 = icmp eq ptr %6079, null
-  br i1 %6080, label %pm_location_new.exit3414, label %6081
+  br i1 %6080, label %pm_location_new.argprom.exit3414, label %6081
 
-6081:                                             ; preds = %pm_location_new.exit3412
+6081:                                             ; preds = %pm_location_new.argprom.exit3412
   %6082 = getelementptr inbounds i8, ptr %861, i64 56
   %6083 = load ptr, ptr %6082, align 8
   %.val2910 = load ptr, ptr %180, align 8
@@ -10215,14 +10215,14 @@ pm_location_new.exit3412:                         ; preds = %6074, %6071, %6055
 6093:                                             ; preds = %6081
   %6094 = shl nuw nsw i64 %6091, 1
   %6095 = or disjoint i64 %6094, 1
-  br label %pm_location_new.exit3414
+  br label %pm_location_new.argprom.exit3414
 
 6096:                                             ; preds = %6081
   %6097 = call i64 @rb_ull2inum(i64 noundef %6091) #6
-  br label %pm_location_new.exit3414
+  br label %pm_location_new.argprom.exit3414
 
-pm_location_new.exit3414:                         ; preds = %6096, %6093, %pm_location_new.exit3412
-  %6098 = phi i64 [ 4, %pm_location_new.exit3412 ], [ %6095, %6093 ], [ %6097, %6096 ]
+pm_location_new.argprom.exit3414:                 ; preds = %6096, %6093, %pm_location_new.argprom.exit3412
+  %6098 = phi i64 [ 4, %pm_location_new.argprom.exit3412 ], [ %6095, %6093 ], [ %6097, %6096 ]
   store i64 %6098, ptr %540, align 8
   %6099 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %6099, ptr %541, align 16
@@ -10232,9 +10232,9 @@ pm_location_new.exit3414:                         ; preds = %6096, %6093, %pm_lo
   %6102 = load ptr, ptr %6101, align 8
   %6103 = icmp eq ptr %6102, null
   %.val2908.pre4509 = load ptr, ptr %180, align 8
-  br i1 %6103, label %pm_location_new.exit3416, label %6104
+  br i1 %6103, label %pm_location_new.argprom.exit3416, label %6104
 
-6104:                                             ; preds = %pm_location_new.exit3414
+6104:                                             ; preds = %pm_location_new.argprom.exit3414
   %6105 = getelementptr inbounds i8, ptr %861, i64 88
   %6106 = load ptr, ptr %6105, align 8
   %6107 = ptrtoint ptr %6102 to i64
@@ -10251,16 +10251,16 @@ pm_location_new.exit3414:                         ; preds = %6096, %6093, %pm_lo
 6116:                                             ; preds = %6104
   %6117 = shl nuw nsw i64 %6114, 1
   %6118 = or disjoint i64 %6117, 1
-  br label %pm_location_new.exit3416
+  br label %pm_location_new.argprom.exit3416
 
 6119:                                             ; preds = %6104
   %6120 = call i64 @rb_ull2inum(i64 noundef %6114) #6
   %.val2908.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3416
+  br label %pm_location_new.argprom.exit3416
 
-pm_location_new.exit3416:                         ; preds = %6119, %6116, %pm_location_new.exit3414
-  %.val2908 = phi ptr [ %.val2908.pre4509, %pm_location_new.exit3414 ], [ %.val2908.pre4509, %6116 ], [ %.val2908.pre, %6119 ]
-  %6121 = phi i64 [ 4, %pm_location_new.exit3414 ], [ %6118, %6116 ], [ %6120, %6119 ]
+pm_location_new.argprom.exit3416:                 ; preds = %6119, %6116, %pm_location_new.argprom.exit3414
+  %.val2908 = phi ptr [ %.val2908.pre4509, %pm_location_new.argprom.exit3414 ], [ %.val2908.pre4509, %6116 ], [ %.val2908.pre, %6119 ]
+  %6121 = phi i64 [ 4, %pm_location_new.argprom.exit3414 ], [ %6118, %6116 ], [ %6120, %6119 ]
   store i64 %6121, ptr %543, align 16
   %6122 = getelementptr inbounds i8, ptr %861, i64 8
   %6123 = load ptr, ptr %6122, align 8
@@ -10277,16 +10277,16 @@ pm_location_new.exit3416:                         ; preds = %6119, %6116, %pm_lo
   %6134 = icmp ult i64 %6129, 4611686018427387904
   br i1 %6134, label %6135, label %6138
 
-6135:                                             ; preds = %pm_location_new.exit3416
+6135:                                             ; preds = %pm_location_new.argprom.exit3416
   %6136 = shl nuw nsw i64 %6133, 1
   %6137 = or disjoint i64 %6136, 1
-  br label %pm_location_new.exit3418
+  br label %pm_location_new.argprom.exit3418
 
-6138:                                             ; preds = %pm_location_new.exit3416
+6138:                                             ; preds = %pm_location_new.argprom.exit3416
   %6139 = call i64 @rb_ull2inum(i64 noundef %6133) #6
-  br label %pm_location_new.exit3418
+  br label %pm_location_new.argprom.exit3418
 
-pm_location_new.exit3418:                         ; preds = %6135, %6138
+pm_location_new.argprom.exit3418:                 ; preds = %6135, %6138
   %.0.i.i3417 = phi i64 [ %6137, %6135 ], [ %6139, %6138 ]
   store i64 %.0.i.i3417, ptr %544, align 8
   %6140 = load i64, ptr @rb_cPrismIfNode, align 8
@@ -10317,13 +10317,13 @@ pm_location_new.exit3418:                         ; preds = %6135, %6138
 6158:                                             ; preds = %6143
   %6159 = shl nuw nsw i64 %6156, 1
   %6160 = or disjoint i64 %6159, 1
-  br label %pm_location_new.exit3420
+  br label %pm_location_new.argprom.exit3420
 
 6161:                                             ; preds = %6143
   %6162 = call i64 @rb_ull2inum(i64 noundef %6156) #6
-  br label %pm_location_new.exit3420
+  br label %pm_location_new.argprom.exit3420
 
-pm_location_new.exit3420:                         ; preds = %6158, %6161
+pm_location_new.argprom.exit3420:                 ; preds = %6158, %6161
   %.0.i.i3419 = phi i64 [ %6160, %6158 ], [ %6162, %6161 ]
   store i64 %.0.i.i3419, ptr %537, align 16
   %6163 = load i64, ptr @rb_cPrismImaginaryNode, align 8
@@ -10354,13 +10354,13 @@ pm_location_new.exit3420:                         ; preds = %6158, %6161
 6181:                                             ; preds = %6166
   %6182 = shl nuw nsw i64 %6179, 1
   %6183 = or disjoint i64 %6182, 1
-  br label %pm_location_new.exit3422
+  br label %pm_location_new.argprom.exit3422
 
 6184:                                             ; preds = %6166
   %6185 = call i64 @rb_ull2inum(i64 noundef %6179) #6
-  br label %pm_location_new.exit3422
+  br label %pm_location_new.argprom.exit3422
 
-pm_location_new.exit3422:                         ; preds = %6181, %6184
+pm_location_new.argprom.exit3422:                 ; preds = %6181, %6184
   %.0.i.i3421 = phi i64 [ %6183, %6181 ], [ %6185, %6184 ]
   store i64 %.0.i.i3421, ptr %535, align 16
   %6186 = load i64, ptr @rb_cPrismImplicitNode, align 8
@@ -10389,13 +10389,13 @@ pm_location_new.exit3422:                         ; preds = %6181, %6184
 6203:                                             ; preds = %6189
   %6204 = shl nuw nsw i64 %6201, 1
   %6205 = or disjoint i64 %6204, 1
-  br label %pm_location_new.exit3424
+  br label %pm_location_new.argprom.exit3424
 
 6206:                                             ; preds = %6189
   %6207 = call i64 @rb_ull2inum(i64 noundef %6201) #6
-  br label %pm_location_new.exit3424
+  br label %pm_location_new.argprom.exit3424
 
-pm_location_new.exit3424:                         ; preds = %6203, %6206
+pm_location_new.argprom.exit3424:                 ; preds = %6203, %6206
   %.0.i.i3423 = phi i64 [ %6205, %6203 ], [ %6207, %6206 ]
   store i64 %.0.i.i3423, ptr %533, align 8
   %6208 = load i64, ptr @rb_cPrismImplicitRestNode, align 8
@@ -10428,23 +10428,23 @@ pm_location_new.exit3424:                         ; preds = %6203, %6206
 6227:                                             ; preds = %6211
   %6228 = shl nuw nsw i64 %6225, 1
   %6229 = or disjoint i64 %6228, 1
-  br label %pm_location_new.exit3426
+  br label %pm_location_new.argprom.exit3426
 
 6230:                                             ; preds = %6211
   %6231 = call i64 @rb_ull2inum(i64 noundef %6225) #6
   %.val2902.pre4507.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3426
+  br label %pm_location_new.argprom.exit3426
 
-pm_location_new.exit3426:                         ; preds = %6227, %6230
+pm_location_new.argprom.exit3426:                 ; preds = %6227, %6230
   %.val2902.pre4507 = phi ptr [ %.val2904, %6227 ], [ %.val2902.pre4507.pre, %6230 ]
   %.0.i.i3425 = phi i64 [ %6229, %6227 ], [ %6231, %6230 ]
   store i64 %.0.i.i3425, ptr %530, align 8
   %6232 = getelementptr inbounds i8, ptr %861, i64 56
   %6233 = load ptr, ptr %6232, align 8
   %6234 = icmp eq ptr %6233, null
-  br i1 %6234, label %pm_location_new.exit3428, label %6235
+  br i1 %6234, label %pm_location_new.argprom.exit3428, label %6235
 
-6235:                                             ; preds = %pm_location_new.exit3426
+6235:                                             ; preds = %pm_location_new.argprom.exit3426
   %6236 = getelementptr inbounds i8, ptr %861, i64 64
   %6237 = load ptr, ptr %6236, align 8
   %6238 = ptrtoint ptr %6233 to i64
@@ -10461,16 +10461,16 @@ pm_location_new.exit3426:                         ; preds = %6227, %6230
 6247:                                             ; preds = %6235
   %6248 = shl nuw nsw i64 %6245, 1
   %6249 = or disjoint i64 %6248, 1
-  br label %pm_location_new.exit3428
+  br label %pm_location_new.argprom.exit3428
 
 6250:                                             ; preds = %6235
   %6251 = call i64 @rb_ull2inum(i64 noundef %6245) #6
   %.val2902.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3428
+  br label %pm_location_new.argprom.exit3428
 
-pm_location_new.exit3428:                         ; preds = %6250, %6247, %pm_location_new.exit3426
-  %.val2902 = phi ptr [ %.val2902.pre4507, %pm_location_new.exit3426 ], [ %.val2902.pre4507, %6247 ], [ %.val2902.pre, %6250 ]
-  %6252 = phi i64 [ 4, %pm_location_new.exit3426 ], [ %6249, %6247 ], [ %6251, %6250 ]
+pm_location_new.argprom.exit3428:                 ; preds = %6250, %6247, %pm_location_new.argprom.exit3426
+  %.val2902 = phi ptr [ %.val2902.pre4507, %pm_location_new.argprom.exit3426 ], [ %.val2902.pre4507, %6247 ], [ %.val2902.pre, %6250 ]
+  %6252 = phi i64 [ 4, %pm_location_new.argprom.exit3426 ], [ %6249, %6247 ], [ %6251, %6250 ]
   store i64 %6252, ptr %531, align 16
   %6253 = getelementptr inbounds i8, ptr %861, i64 8
   %6254 = load ptr, ptr %6253, align 8
@@ -10487,16 +10487,16 @@ pm_location_new.exit3428:                         ; preds = %6250, %6247, %pm_lo
   %6265 = icmp ult i64 %6260, 4611686018427387904
   br i1 %6265, label %6266, label %6269
 
-6266:                                             ; preds = %pm_location_new.exit3428
+6266:                                             ; preds = %pm_location_new.argprom.exit3428
   %6267 = shl nuw nsw i64 %6264, 1
   %6268 = or disjoint i64 %6267, 1
-  br label %pm_location_new.exit3430
+  br label %pm_location_new.argprom.exit3430
 
-6269:                                             ; preds = %pm_location_new.exit3428
+6269:                                             ; preds = %pm_location_new.argprom.exit3428
   %6270 = call i64 @rb_ull2inum(i64 noundef %6264) #6
-  br label %pm_location_new.exit3430
+  br label %pm_location_new.argprom.exit3430
 
-pm_location_new.exit3430:                         ; preds = %6266, %6269
+pm_location_new.argprom.exit3430:                 ; preds = %6266, %6269
   %.0.i.i3429 = phi i64 [ %6268, %6266 ], [ %6270, %6269 ]
   store i64 %.0.i.i3429, ptr %532, align 8
   %6271 = load i64, ptr @rb_cPrismInNode, align 8
@@ -10519,7 +10519,7 @@ pm_location_new.exit3430:                         ; preds = %6266, %6269
   %6283 = load ptr, ptr %6282, align 8
   %6284 = icmp eq ptr %6283, null
   %.val2900.pre4505 = load ptr, ptr %180, align 8
-  br i1 %6284, label %pm_location_new.exit3432, label %6285
+  br i1 %6284, label %pm_location_new.argprom.exit3432, label %6285
 
 6285:                                             ; preds = %6274
   %6286 = getelementptr inbounds i8, ptr %861, i64 40
@@ -10538,14 +10538,14 @@ pm_location_new.exit3430:                         ; preds = %6266, %6269
 6297:                                             ; preds = %6285
   %6298 = shl nuw nsw i64 %6295, 1
   %6299 = or disjoint i64 %6298, 1
-  br label %pm_location_new.exit3432
+  br label %pm_location_new.argprom.exit3432
 
 6300:                                             ; preds = %6285
   %6301 = call i64 @rb_ull2inum(i64 noundef %6295) #6
   %.val2900.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3432
+  br label %pm_location_new.argprom.exit3432
 
-pm_location_new.exit3432:                         ; preds = %6300, %6297, %6274
+pm_location_new.argprom.exit3432:                 ; preds = %6300, %6297, %6274
   %.val2900 = phi ptr [ %.val2900.pre4505, %6274 ], [ %.val2900.pre4505, %6297 ], [ %.val2900.pre, %6300 ]
   %6302 = phi i64 [ 4, %6274 ], [ %6299, %6297 ], [ %6301, %6300 ]
   store i64 %6302, ptr %520, align 8
@@ -10564,16 +10564,16 @@ pm_location_new.exit3432:                         ; preds = %6300, %6297, %6274
   %6315 = icmp ult i64 %6310, 4611686018427387904
   br i1 %6315, label %6316, label %6319
 
-6316:                                             ; preds = %pm_location_new.exit3432
+6316:                                             ; preds = %pm_location_new.argprom.exit3432
   %6317 = shl nuw nsw i64 %6314, 1
   %6318 = or disjoint i64 %6317, 1
-  br label %pm_location_new.exit3434
+  br label %pm_location_new.argprom.exit3434
 
-6319:                                             ; preds = %pm_location_new.exit3432
+6319:                                             ; preds = %pm_location_new.argprom.exit3432
   %6320 = call i64 @rb_ull2inum(i64 noundef %6314) #6
-  br label %pm_location_new.exit3434
+  br label %pm_location_new.argprom.exit3434
 
-pm_location_new.exit3434:                         ; preds = %6316, %6319
+pm_location_new.argprom.exit3434:                 ; preds = %6316, %6319
   %.0.i.i3433 = phi i64 [ %6318, %6316 ], [ %6320, %6319 ]
   store i64 %.0.i.i3433, ptr %521, align 16
   %6321 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10594,16 +10594,16 @@ pm_location_new.exit3434:                         ; preds = %6316, %6319
   %6334 = icmp ult i64 %6329, 4611686018427387904
   br i1 %6334, label %6335, label %6338
 
-6335:                                             ; preds = %pm_location_new.exit3434
+6335:                                             ; preds = %pm_location_new.argprom.exit3434
   %6336 = shl nuw nsw i64 %6333, 1
   %6337 = or disjoint i64 %6336, 1
-  br label %pm_location_new.exit3436
+  br label %pm_location_new.argprom.exit3436
 
-6338:                                             ; preds = %pm_location_new.exit3434
+6338:                                             ; preds = %pm_location_new.argprom.exit3434
   %6339 = call i64 @rb_ull2inum(i64 noundef %6333) #6
-  br label %pm_location_new.exit3436
+  br label %pm_location_new.argprom.exit3436
 
-pm_location_new.exit3436:                         ; preds = %6335, %6338
+pm_location_new.argprom.exit3436:                 ; preds = %6335, %6338
   %.0.i.i3435 = phi i64 [ %6337, %6335 ], [ %6339, %6338 ]
   store i64 %.0.i.i3435, ptr %523, align 16
   %6340 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10624,16 +10624,16 @@ pm_location_new.exit3436:                         ; preds = %6335, %6338
   %6353 = icmp ult i64 %6348, 4611686018427387904
   br i1 %6353, label %6354, label %6357
 
-6354:                                             ; preds = %pm_location_new.exit3436
+6354:                                             ; preds = %pm_location_new.argprom.exit3436
   %6355 = shl nuw nsw i64 %6352, 1
   %6356 = or disjoint i64 %6355, 1
-  br label %pm_location_new.exit3438
+  br label %pm_location_new.argprom.exit3438
 
-6357:                                             ; preds = %pm_location_new.exit3436
+6357:                                             ; preds = %pm_location_new.argprom.exit3436
   %6358 = call i64 @rb_ull2inum(i64 noundef %6352) #6
-  br label %pm_location_new.exit3438
+  br label %pm_location_new.argprom.exit3438
 
-pm_location_new.exit3438:                         ; preds = %6354, %6357
+pm_location_new.argprom.exit3438:                 ; preds = %6354, %6357
   %.0.i.i3437 = phi i64 [ %6356, %6354 ], [ %6358, %6357 ]
   store i64 %.0.i.i3437, ptr %525, align 16
   %6359 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10654,16 +10654,16 @@ pm_location_new.exit3438:                         ; preds = %6354, %6357
   %6372 = icmp ult i64 %6367, 4611686018427387904
   br i1 %6372, label %6373, label %6376
 
-6373:                                             ; preds = %pm_location_new.exit3438
+6373:                                             ; preds = %pm_location_new.argprom.exit3438
   %6374 = shl nuw nsw i64 %6371, 1
   %6375 = or disjoint i64 %6374, 1
-  br label %pm_location_new.exit3440
+  br label %pm_location_new.argprom.exit3440
 
-6376:                                             ; preds = %pm_location_new.exit3438
+6376:                                             ; preds = %pm_location_new.argprom.exit3438
   %6377 = call i64 @rb_ull2inum(i64 noundef %6371) #6
-  br label %pm_location_new.exit3440
+  br label %pm_location_new.argprom.exit3440
 
-pm_location_new.exit3440:                         ; preds = %6373, %6376
+pm_location_new.argprom.exit3440:                 ; preds = %6373, %6376
   %.0.i.i3439 = phi i64 [ %6375, %6373 ], [ %6377, %6376 ]
   store i64 %.0.i.i3439, ptr %527, align 16
   %6378 = load i64, ptr @rb_cPrismIndexAndWriteNode, align 8
@@ -10686,7 +10686,7 @@ pm_location_new.exit3440:                         ; preds = %6373, %6376
   %6390 = load ptr, ptr %6389, align 8
   %6391 = icmp eq ptr %6390, null
   %.val2895.pre4503 = load ptr, ptr %180, align 8
-  br i1 %6391, label %pm_location_new.exit3442, label %6392
+  br i1 %6391, label %pm_location_new.argprom.exit3442, label %6392
 
 6392:                                             ; preds = %6381
   %6393 = getelementptr inbounds i8, ptr %861, i64 40
@@ -10705,14 +10705,14 @@ pm_location_new.exit3440:                         ; preds = %6373, %6376
 6404:                                             ; preds = %6392
   %6405 = shl nuw nsw i64 %6402, 1
   %6406 = or disjoint i64 %6405, 1
-  br label %pm_location_new.exit3442
+  br label %pm_location_new.argprom.exit3442
 
 6407:                                             ; preds = %6392
   %6408 = call i64 @rb_ull2inum(i64 noundef %6402) #6
   %.val2895.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3442
+  br label %pm_location_new.argprom.exit3442
 
-pm_location_new.exit3442:                         ; preds = %6407, %6404, %6381
+pm_location_new.argprom.exit3442:                 ; preds = %6407, %6404, %6381
   %.val2895 = phi ptr [ %.val2895.pre4503, %6381 ], [ %.val2895.pre4503, %6404 ], [ %.val2895.pre, %6407 ]
   %6409 = phi i64 [ 4, %6381 ], [ %6406, %6404 ], [ %6408, %6407 ]
   store i64 %6409, ptr %509, align 8
@@ -10731,16 +10731,16 @@ pm_location_new.exit3442:                         ; preds = %6407, %6404, %6381
   %6422 = icmp ult i64 %6417, 4611686018427387904
   br i1 %6422, label %6423, label %6426
 
-6423:                                             ; preds = %pm_location_new.exit3442
+6423:                                             ; preds = %pm_location_new.argprom.exit3442
   %6424 = shl nuw nsw i64 %6421, 1
   %6425 = or disjoint i64 %6424, 1
-  br label %pm_location_new.exit3444
+  br label %pm_location_new.argprom.exit3444
 
-6426:                                             ; preds = %pm_location_new.exit3442
+6426:                                             ; preds = %pm_location_new.argprom.exit3442
   %6427 = call i64 @rb_ull2inum(i64 noundef %6421) #6
-  br label %pm_location_new.exit3444
+  br label %pm_location_new.argprom.exit3444
 
-pm_location_new.exit3444:                         ; preds = %6423, %6426
+pm_location_new.argprom.exit3444:                 ; preds = %6423, %6426
   %.0.i.i3443 = phi i64 [ %6425, %6423 ], [ %6427, %6426 ]
   store i64 %.0.i.i3443, ptr %510, align 16
   %6428 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10761,16 +10761,16 @@ pm_location_new.exit3444:                         ; preds = %6423, %6426
   %6441 = icmp ult i64 %6436, 4611686018427387904
   br i1 %6441, label %6442, label %6445
 
-6442:                                             ; preds = %pm_location_new.exit3444
+6442:                                             ; preds = %pm_location_new.argprom.exit3444
   %6443 = shl nuw nsw i64 %6440, 1
   %6444 = or disjoint i64 %6443, 1
-  br label %pm_location_new.exit3446
+  br label %pm_location_new.argprom.exit3446
 
-6445:                                             ; preds = %pm_location_new.exit3444
+6445:                                             ; preds = %pm_location_new.argprom.exit3444
   %6446 = call i64 @rb_ull2inum(i64 noundef %6440) #6
-  br label %pm_location_new.exit3446
+  br label %pm_location_new.argprom.exit3446
 
-pm_location_new.exit3446:                         ; preds = %6442, %6445
+pm_location_new.argprom.exit3446:                 ; preds = %6442, %6445
   %.0.i.i3445 = phi i64 [ %6444, %6442 ], [ %6446, %6445 ]
   store i64 %.0.i.i3445, ptr %512, align 16
   %6447 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10799,16 +10799,16 @@ pm_location_new.exit3446:                         ; preds = %6442, %6445
   %6467 = icmp ult i64 %6462, 4611686018427387904
   br i1 %6467, label %6468, label %6471
 
-6468:                                             ; preds = %pm_location_new.exit3446
+6468:                                             ; preds = %pm_location_new.argprom.exit3446
   %6469 = shl nuw nsw i64 %6466, 1
   %6470 = or disjoint i64 %6469, 1
-  br label %pm_location_new.exit3448
+  br label %pm_location_new.argprom.exit3448
 
-6471:                                             ; preds = %pm_location_new.exit3446
+6471:                                             ; preds = %pm_location_new.argprom.exit3446
   %6472 = call i64 @rb_ull2inum(i64 noundef %6466) #6
-  br label %pm_location_new.exit3448
+  br label %pm_location_new.argprom.exit3448
 
-pm_location_new.exit3448:                         ; preds = %6468, %6471
+pm_location_new.argprom.exit3448:                 ; preds = %6468, %6471
   %.0.i.i3447 = phi i64 [ %6470, %6468 ], [ %6472, %6471 ]
   store i64 %.0.i.i3447, ptr %515, align 8
   %6473 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10829,16 +10829,16 @@ pm_location_new.exit3448:                         ; preds = %6468, %6471
   %6486 = icmp ult i64 %6481, 4611686018427387904
   br i1 %6486, label %6487, label %6490
 
-6487:                                             ; preds = %pm_location_new.exit3448
+6487:                                             ; preds = %pm_location_new.argprom.exit3448
   %6488 = shl nuw nsw i64 %6485, 1
   %6489 = or disjoint i64 %6488, 1
-  br label %pm_location_new.exit3450
+  br label %pm_location_new.argprom.exit3450
 
-6490:                                             ; preds = %pm_location_new.exit3448
+6490:                                             ; preds = %pm_location_new.argprom.exit3448
   %6491 = call i64 @rb_ull2inum(i64 noundef %6485) #6
-  br label %pm_location_new.exit3450
+  br label %pm_location_new.argprom.exit3450
 
-pm_location_new.exit3450:                         ; preds = %6487, %6490
+pm_location_new.argprom.exit3450:                 ; preds = %6487, %6490
   %.0.i.i3449 = phi i64 [ %6489, %6487 ], [ %6491, %6490 ]
   store i64 %.0.i.i3449, ptr %517, align 8
   %6492 = load i64, ptr @rb_cPrismIndexOperatorWriteNode, align 8
@@ -10861,7 +10861,7 @@ pm_location_new.exit3450:                         ; preds = %6487, %6490
   %6504 = load ptr, ptr %6503, align 8
   %6505 = icmp eq ptr %6504, null
   %.val2890.pre4501 = load ptr, ptr %180, align 8
-  br i1 %6505, label %pm_location_new.exit3452, label %6506
+  br i1 %6505, label %pm_location_new.argprom.exit3452, label %6506
 
 6506:                                             ; preds = %6495
   %6507 = getelementptr inbounds i8, ptr %861, i64 40
@@ -10880,14 +10880,14 @@ pm_location_new.exit3450:                         ; preds = %6487, %6490
 6518:                                             ; preds = %6506
   %6519 = shl nuw nsw i64 %6516, 1
   %6520 = or disjoint i64 %6519, 1
-  br label %pm_location_new.exit3452
+  br label %pm_location_new.argprom.exit3452
 
 6521:                                             ; preds = %6506
   %6522 = call i64 @rb_ull2inum(i64 noundef %6516) #6
   %.val2890.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3452
+  br label %pm_location_new.argprom.exit3452
 
-pm_location_new.exit3452:                         ; preds = %6521, %6518, %6495
+pm_location_new.argprom.exit3452:                 ; preds = %6521, %6518, %6495
   %.val2890 = phi ptr [ %.val2890.pre4501, %6495 ], [ %.val2890.pre4501, %6518 ], [ %.val2890.pre, %6521 ]
   %6523 = phi i64 [ 4, %6495 ], [ %6520, %6518 ], [ %6522, %6521 ]
   store i64 %6523, ptr %499, align 8
@@ -10906,16 +10906,16 @@ pm_location_new.exit3452:                         ; preds = %6521, %6518, %6495
   %6536 = icmp ult i64 %6531, 4611686018427387904
   br i1 %6536, label %6537, label %6540
 
-6537:                                             ; preds = %pm_location_new.exit3452
+6537:                                             ; preds = %pm_location_new.argprom.exit3452
   %6538 = shl nuw nsw i64 %6535, 1
   %6539 = or disjoint i64 %6538, 1
-  br label %pm_location_new.exit3454
+  br label %pm_location_new.argprom.exit3454
 
-6540:                                             ; preds = %pm_location_new.exit3452
+6540:                                             ; preds = %pm_location_new.argprom.exit3452
   %6541 = call i64 @rb_ull2inum(i64 noundef %6535) #6
-  br label %pm_location_new.exit3454
+  br label %pm_location_new.argprom.exit3454
 
-pm_location_new.exit3454:                         ; preds = %6537, %6540
+pm_location_new.argprom.exit3454:                 ; preds = %6537, %6540
   %.0.i.i3453 = phi i64 [ %6539, %6537 ], [ %6541, %6540 ]
   store i64 %.0.i.i3453, ptr %500, align 16
   %6542 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10936,16 +10936,16 @@ pm_location_new.exit3454:                         ; preds = %6537, %6540
   %6555 = icmp ult i64 %6550, 4611686018427387904
   br i1 %6555, label %6556, label %6559
 
-6556:                                             ; preds = %pm_location_new.exit3454
+6556:                                             ; preds = %pm_location_new.argprom.exit3454
   %6557 = shl nuw nsw i64 %6554, 1
   %6558 = or disjoint i64 %6557, 1
-  br label %pm_location_new.exit3456
+  br label %pm_location_new.argprom.exit3456
 
-6559:                                             ; preds = %pm_location_new.exit3454
+6559:                                             ; preds = %pm_location_new.argprom.exit3454
   %6560 = call i64 @rb_ull2inum(i64 noundef %6554) #6
-  br label %pm_location_new.exit3456
+  br label %pm_location_new.argprom.exit3456
 
-pm_location_new.exit3456:                         ; preds = %6556, %6559
+pm_location_new.argprom.exit3456:                 ; preds = %6556, %6559
   %.0.i.i3455 = phi i64 [ %6558, %6556 ], [ %6560, %6559 ]
   store i64 %.0.i.i3455, ptr %502, align 16
   %6561 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10966,16 +10966,16 @@ pm_location_new.exit3456:                         ; preds = %6556, %6559
   %6574 = icmp ult i64 %6569, 4611686018427387904
   br i1 %6574, label %6575, label %6578
 
-6575:                                             ; preds = %pm_location_new.exit3456
+6575:                                             ; preds = %pm_location_new.argprom.exit3456
   %6576 = shl nuw nsw i64 %6573, 1
   %6577 = or disjoint i64 %6576, 1
-  br label %pm_location_new.exit3458
+  br label %pm_location_new.argprom.exit3458
 
-6578:                                             ; preds = %pm_location_new.exit3456
+6578:                                             ; preds = %pm_location_new.argprom.exit3456
   %6579 = call i64 @rb_ull2inum(i64 noundef %6573) #6
-  br label %pm_location_new.exit3458
+  br label %pm_location_new.argprom.exit3458
 
-pm_location_new.exit3458:                         ; preds = %6575, %6578
+pm_location_new.argprom.exit3458:                 ; preds = %6575, %6578
   %.0.i.i3457 = phi i64 [ %6577, %6575 ], [ %6579, %6578 ]
   store i64 %.0.i.i3457, ptr %504, align 16
   %6580 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -10996,16 +10996,16 @@ pm_location_new.exit3458:                         ; preds = %6575, %6578
   %6593 = icmp ult i64 %6588, 4611686018427387904
   br i1 %6593, label %6594, label %6597
 
-6594:                                             ; preds = %pm_location_new.exit3458
+6594:                                             ; preds = %pm_location_new.argprom.exit3458
   %6595 = shl nuw nsw i64 %6592, 1
   %6596 = or disjoint i64 %6595, 1
-  br label %pm_location_new.exit3460
+  br label %pm_location_new.argprom.exit3460
 
-6597:                                             ; preds = %pm_location_new.exit3458
+6597:                                             ; preds = %pm_location_new.argprom.exit3458
   %6598 = call i64 @rb_ull2inum(i64 noundef %6592) #6
-  br label %pm_location_new.exit3460
+  br label %pm_location_new.argprom.exit3460
 
-pm_location_new.exit3460:                         ; preds = %6594, %6597
+pm_location_new.argprom.exit3460:                 ; preds = %6594, %6597
   %.0.i.i3459 = phi i64 [ %6596, %6594 ], [ %6598, %6597 ]
   store i64 %.0.i.i3459, ptr %506, align 16
   %6599 = load i64, ptr @rb_cPrismIndexOrWriteNode, align 8
@@ -11043,13 +11043,13 @@ pm_location_new.exit3460:                         ; preds = %6594, %6597
 6623:                                             ; preds = %6602
   %6624 = shl nuw nsw i64 %6621, 1
   %6625 = or disjoint i64 %6624, 1
-  br label %pm_location_new.exit3462
+  br label %pm_location_new.argprom.exit3462
 
 6626:                                             ; preds = %6602
   %6627 = call i64 @rb_ull2inum(i64 noundef %6621) #6
-  br label %pm_location_new.exit3462
+  br label %pm_location_new.argprom.exit3462
 
-pm_location_new.exit3462:                         ; preds = %6623, %6626
+pm_location_new.argprom.exit3462:                 ; preds = %6623, %6626
   %.0.i.i3461 = phi i64 [ %6625, %6623 ], [ %6627, %6626 ]
   store i64 %.0.i.i3461, ptr %492, align 8
   %6628 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11070,16 +11070,16 @@ pm_location_new.exit3462:                         ; preds = %6623, %6626
   %6641 = icmp ult i64 %6636, 4611686018427387904
   br i1 %6641, label %6642, label %6645
 
-6642:                                             ; preds = %pm_location_new.exit3462
+6642:                                             ; preds = %pm_location_new.argprom.exit3462
   %6643 = shl nuw nsw i64 %6640, 1
   %6644 = or disjoint i64 %6643, 1
-  br label %pm_location_new.exit3464
+  br label %pm_location_new.argprom.exit3464
 
-6645:                                             ; preds = %pm_location_new.exit3462
+6645:                                             ; preds = %pm_location_new.argprom.exit3462
   %6646 = call i64 @rb_ull2inum(i64 noundef %6640) #6
-  br label %pm_location_new.exit3464
+  br label %pm_location_new.argprom.exit3464
 
-pm_location_new.exit3464:                         ; preds = %6642, %6645
+pm_location_new.argprom.exit3464:                 ; preds = %6642, %6645
   %.0.i.i3463 = phi i64 [ %6644, %6642 ], [ %6646, %6645 ]
   store i64 %.0.i.i3463, ptr %494, align 8
   %6647 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11100,16 +11100,16 @@ pm_location_new.exit3464:                         ; preds = %6642, %6645
   %6660 = icmp ult i64 %6655, 4611686018427387904
   br i1 %6660, label %6661, label %6664
 
-6661:                                             ; preds = %pm_location_new.exit3464
+6661:                                             ; preds = %pm_location_new.argprom.exit3464
   %6662 = shl nuw nsw i64 %6659, 1
   %6663 = or disjoint i64 %6662, 1
-  br label %pm_location_new.exit3466
+  br label %pm_location_new.argprom.exit3466
 
-6664:                                             ; preds = %pm_location_new.exit3464
+6664:                                             ; preds = %pm_location_new.argprom.exit3464
   %6665 = call i64 @rb_ull2inum(i64 noundef %6659) #6
-  br label %pm_location_new.exit3466
+  br label %pm_location_new.argprom.exit3466
 
-pm_location_new.exit3466:                         ; preds = %6661, %6664
+pm_location_new.argprom.exit3466:                 ; preds = %6661, %6664
   %.0.i.i3465 = phi i64 [ %6663, %6661 ], [ %6665, %6664 ]
   store i64 %.0.i.i3465, ptr %496, align 8
   %6666 = load i64, ptr @rb_cPrismIndexTargetNode, align 8
@@ -11146,15 +11146,15 @@ pm_location_new.exit3466:                         ; preds = %6661, %6664
 6690:                                             ; preds = %6669
   %6691 = shl nuw nsw i64 %6688, 1
   %6692 = or disjoint i64 %6691, 1
-  br label %pm_location_new.exit3468
+  br label %pm_location_new.argprom.exit3468
 
 6693:                                             ; preds = %6669
   %6694 = call i64 @rb_ull2inum(i64 noundef %6688) #6
   %.val2882.pre = load ptr, ptr %180, align 8
   %.pre4668 = ptrtoint ptr %.val2882.pre to i64
-  br label %pm_location_new.exit3468
+  br label %pm_location_new.argprom.exit3468
 
-pm_location_new.exit3468:                         ; preds = %6690, %6693
+pm_location_new.argprom.exit3468:                 ; preds = %6690, %6693
   %.pre-phi4669 = phi i64 [ %6682, %6690 ], [ %.pre4668, %6693 ]
   %.0.i.i3467 = phi i64 [ %6692, %6690 ], [ %6694, %6693 ]
   store i64 %.0.i.i3467, ptr %486, align 16
@@ -11172,16 +11172,16 @@ pm_location_new.exit3468:                         ; preds = %6690, %6693
   %6706 = icmp ult i64 %6701, 4611686018427387904
   br i1 %6706, label %6707, label %6710
 
-6707:                                             ; preds = %pm_location_new.exit3468
+6707:                                             ; preds = %pm_location_new.argprom.exit3468
   %6708 = shl nuw nsw i64 %6705, 1
   %6709 = or disjoint i64 %6708, 1
-  br label %pm_location_new.exit3470
+  br label %pm_location_new.argprom.exit3470
 
-6710:                                             ; preds = %pm_location_new.exit3468
+6710:                                             ; preds = %pm_location_new.argprom.exit3468
   %6711 = call i64 @rb_ull2inum(i64 noundef %6705) #6
-  br label %pm_location_new.exit3470
+  br label %pm_location_new.argprom.exit3470
 
-pm_location_new.exit3470:                         ; preds = %6707, %6710
+pm_location_new.argprom.exit3470:                 ; preds = %6707, %6710
   %.0.i.i3469 = phi i64 [ %6709, %6707 ], [ %6711, %6710 ]
   store i64 %.0.i.i3469, ptr %487, align 8
   %6712 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11202,16 +11202,16 @@ pm_location_new.exit3470:                         ; preds = %6707, %6710
   %6725 = icmp ult i64 %6720, 4611686018427387904
   br i1 %6725, label %6726, label %6729
 
-6726:                                             ; preds = %pm_location_new.exit3470
+6726:                                             ; preds = %pm_location_new.argprom.exit3470
   %6727 = shl nuw nsw i64 %6724, 1
   %6728 = or disjoint i64 %6727, 1
-  br label %pm_location_new.exit3472
+  br label %pm_location_new.argprom.exit3472
 
-6729:                                             ; preds = %pm_location_new.exit3470
+6729:                                             ; preds = %pm_location_new.argprom.exit3470
   %6730 = call i64 @rb_ull2inum(i64 noundef %6724) #6
-  br label %pm_location_new.exit3472
+  br label %pm_location_new.argprom.exit3472
 
-pm_location_new.exit3472:                         ; preds = %6726, %6729
+pm_location_new.argprom.exit3472:                 ; preds = %6726, %6729
   %.0.i.i3471 = phi i64 [ %6728, %6726 ], [ %6730, %6729 ]
   store i64 %.0.i.i3471, ptr %489, align 8
   %6731 = load i64, ptr @rb_cPrismInstanceVariableAndWriteNode, align 8
@@ -11248,15 +11248,15 @@ pm_location_new.exit3472:                         ; preds = %6726, %6729
 6755:                                             ; preds = %6734
   %6756 = shl nuw nsw i64 %6753, 1
   %6757 = or disjoint i64 %6756, 1
-  br label %pm_location_new.exit3474
+  br label %pm_location_new.argprom.exit3474
 
 6758:                                             ; preds = %6734
   %6759 = call i64 @rb_ull2inum(i64 noundef %6753) #6
   %.val2879.pre = load ptr, ptr %180, align 8
   %.pre4670 = ptrtoint ptr %.val2879.pre to i64
-  br label %pm_location_new.exit3474
+  br label %pm_location_new.argprom.exit3474
 
-pm_location_new.exit3474:                         ; preds = %6755, %6758
+pm_location_new.argprom.exit3474:                 ; preds = %6755, %6758
   %.pre-phi4671 = phi i64 [ %6747, %6755 ], [ %.pre4670, %6758 ]
   %.0.i.i3473 = phi i64 [ %6757, %6755 ], [ %6759, %6758 ]
   store i64 %.0.i.i3473, ptr %480, align 16
@@ -11274,16 +11274,16 @@ pm_location_new.exit3474:                         ; preds = %6755, %6758
   %6771 = icmp ult i64 %6766, 4611686018427387904
   br i1 %6771, label %6772, label %6775
 
-6772:                                             ; preds = %pm_location_new.exit3474
+6772:                                             ; preds = %pm_location_new.argprom.exit3474
   %6773 = shl nuw nsw i64 %6770, 1
   %6774 = or disjoint i64 %6773, 1
-  br label %pm_location_new.exit3476
+  br label %pm_location_new.argprom.exit3476
 
-6775:                                             ; preds = %pm_location_new.exit3474
+6775:                                             ; preds = %pm_location_new.argprom.exit3474
   %6776 = call i64 @rb_ull2inum(i64 noundef %6770) #6
-  br label %pm_location_new.exit3476
+  br label %pm_location_new.argprom.exit3476
 
-pm_location_new.exit3476:                         ; preds = %6772, %6775
+pm_location_new.argprom.exit3476:                 ; preds = %6772, %6775
   %.0.i.i3475 = phi i64 [ %6774, %6772 ], [ %6776, %6775 ]
   store i64 %.0.i.i3475, ptr %481, align 8
   %6777 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11312,16 +11312,16 @@ pm_location_new.exit3476:                         ; preds = %6772, %6775
   %6797 = icmp ult i64 %6792, 4611686018427387904
   br i1 %6797, label %6798, label %6801
 
-6798:                                             ; preds = %pm_location_new.exit3476
+6798:                                             ; preds = %pm_location_new.argprom.exit3476
   %6799 = shl nuw nsw i64 %6796, 1
   %6800 = or disjoint i64 %6799, 1
-  br label %pm_location_new.exit3478
+  br label %pm_location_new.argprom.exit3478
 
-6801:                                             ; preds = %pm_location_new.exit3476
+6801:                                             ; preds = %pm_location_new.argprom.exit3476
   %6802 = call i64 @rb_ull2inum(i64 noundef %6796) #6
-  br label %pm_location_new.exit3478
+  br label %pm_location_new.argprom.exit3478
 
-pm_location_new.exit3478:                         ; preds = %6798, %6801
+pm_location_new.argprom.exit3478:                 ; preds = %6798, %6801
   %.0.i.i3477 = phi i64 [ %6800, %6798 ], [ %6802, %6801 ]
   store i64 %.0.i.i3477, ptr %484, align 16
   %6803 = load i64, ptr @rb_cPrismInstanceVariableOperatorWriteNode, align 8
@@ -11358,15 +11358,15 @@ pm_location_new.exit3478:                         ; preds = %6798, %6801
 6827:                                             ; preds = %6806
   %6828 = shl nuw nsw i64 %6825, 1
   %6829 = or disjoint i64 %6828, 1
-  br label %pm_location_new.exit3480
+  br label %pm_location_new.argprom.exit3480
 
 6830:                                             ; preds = %6806
   %6831 = call i64 @rb_ull2inum(i64 noundef %6825) #6
   %.val2876.pre = load ptr, ptr %180, align 8
   %.pre4672 = ptrtoint ptr %.val2876.pre to i64
-  br label %pm_location_new.exit3480
+  br label %pm_location_new.argprom.exit3480
 
-pm_location_new.exit3480:                         ; preds = %6827, %6830
+pm_location_new.argprom.exit3480:                 ; preds = %6827, %6830
   %.pre-phi4673 = phi i64 [ %6819, %6827 ], [ %.pre4672, %6830 ]
   %.0.i.i3479 = phi i64 [ %6829, %6827 ], [ %6831, %6830 ]
   store i64 %.0.i.i3479, ptr %475, align 16
@@ -11384,16 +11384,16 @@ pm_location_new.exit3480:                         ; preds = %6827, %6830
   %6843 = icmp ult i64 %6838, 4611686018427387904
   br i1 %6843, label %6844, label %6847
 
-6844:                                             ; preds = %pm_location_new.exit3480
+6844:                                             ; preds = %pm_location_new.argprom.exit3480
   %6845 = shl nuw nsw i64 %6842, 1
   %6846 = or disjoint i64 %6845, 1
-  br label %pm_location_new.exit3482
+  br label %pm_location_new.argprom.exit3482
 
-6847:                                             ; preds = %pm_location_new.exit3480
+6847:                                             ; preds = %pm_location_new.argprom.exit3480
   %6848 = call i64 @rb_ull2inum(i64 noundef %6842) #6
-  br label %pm_location_new.exit3482
+  br label %pm_location_new.argprom.exit3482
 
-pm_location_new.exit3482:                         ; preds = %6844, %6847
+pm_location_new.argprom.exit3482:                 ; preds = %6844, %6847
   %.0.i.i3481 = phi i64 [ %6846, %6844 ], [ %6848, %6847 ]
   store i64 %.0.i.i3481, ptr %476, align 8
   %6849 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11414,16 +11414,16 @@ pm_location_new.exit3482:                         ; preds = %6844, %6847
   %6862 = icmp ult i64 %6857, 4611686018427387904
   br i1 %6862, label %6863, label %6866
 
-6863:                                             ; preds = %pm_location_new.exit3482
+6863:                                             ; preds = %pm_location_new.argprom.exit3482
   %6864 = shl nuw nsw i64 %6861, 1
   %6865 = or disjoint i64 %6864, 1
-  br label %pm_location_new.exit3484
+  br label %pm_location_new.argprom.exit3484
 
-6866:                                             ; preds = %pm_location_new.exit3482
+6866:                                             ; preds = %pm_location_new.argprom.exit3482
   %6867 = call i64 @rb_ull2inum(i64 noundef %6861) #6
-  br label %pm_location_new.exit3484
+  br label %pm_location_new.argprom.exit3484
 
-pm_location_new.exit3484:                         ; preds = %6863, %6866
+pm_location_new.argprom.exit3484:                 ; preds = %6863, %6866
   %.0.i.i3483 = phi i64 [ %6865, %6863 ], [ %6867, %6866 ]
   store i64 %.0.i.i3483, ptr %478, align 8
   %6868 = load i64, ptr @rb_cPrismInstanceVariableOrWriteNode, align 8
@@ -11460,13 +11460,13 @@ pm_location_new.exit3484:                         ; preds = %6863, %6866
 6892:                                             ; preds = %6871
   %6893 = shl nuw nsw i64 %6890, 1
   %6894 = or disjoint i64 %6893, 1
-  br label %pm_location_new.exit3486
+  br label %pm_location_new.argprom.exit3486
 
 6895:                                             ; preds = %6871
   %6896 = call i64 @rb_ull2inum(i64 noundef %6890) #6
-  br label %pm_location_new.exit3486
+  br label %pm_location_new.argprom.exit3486
 
-pm_location_new.exit3486:                         ; preds = %6892, %6895
+pm_location_new.argprom.exit3486:                 ; preds = %6892, %6895
   %.0.i.i3485 = phi i64 [ %6894, %6892 ], [ %6896, %6895 ]
   store i64 %.0.i.i3485, ptr %473, align 16
   %6897 = load i64, ptr @rb_cPrismInstanceVariableReadNode, align 8
@@ -11503,13 +11503,13 @@ pm_location_new.exit3486:                         ; preds = %6892, %6895
 6921:                                             ; preds = %6900
   %6922 = shl nuw nsw i64 %6919, 1
   %6923 = or disjoint i64 %6922, 1
-  br label %pm_location_new.exit3488
+  br label %pm_location_new.argprom.exit3488
 
 6924:                                             ; preds = %6900
   %6925 = call i64 @rb_ull2inum(i64 noundef %6919) #6
-  br label %pm_location_new.exit3488
+  br label %pm_location_new.argprom.exit3488
 
-pm_location_new.exit3488:                         ; preds = %6921, %6924
+pm_location_new.argprom.exit3488:                 ; preds = %6921, %6924
   %.0.i.i3487 = phi i64 [ %6923, %6921 ], [ %6925, %6924 ]
   store i64 %.0.i.i3487, ptr %471, align 16
   %6926 = load i64, ptr @rb_cPrismInstanceVariableTargetNode, align 8
@@ -11546,13 +11546,13 @@ pm_location_new.exit3488:                         ; preds = %6921, %6924
 6950:                                             ; preds = %6929
   %6951 = shl nuw nsw i64 %6948, 1
   %6952 = or disjoint i64 %6951, 1
-  br label %pm_location_new.exit3490
+  br label %pm_location_new.argprom.exit3490
 
 6953:                                             ; preds = %6929
   %6954 = call i64 @rb_ull2inum(i64 noundef %6948) #6
-  br label %pm_location_new.exit3490
+  br label %pm_location_new.argprom.exit3490
 
-pm_location_new.exit3490:                         ; preds = %6950, %6953
+pm_location_new.argprom.exit3490:                 ; preds = %6950, %6953
   %.0.i.i3489 = phi i64 [ %6952, %6950 ], [ %6954, %6953 ]
   store i64 %.0.i.i3489, ptr %466, align 16
   %6955 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -11573,18 +11573,18 @@ pm_location_new.exit3490:                         ; preds = %6950, %6953
   %6968 = icmp ult i64 %6963, 4611686018427387904
   br i1 %6968, label %6969, label %6972
 
-6969:                                             ; preds = %pm_location_new.exit3490
+6969:                                             ; preds = %pm_location_new.argprom.exit3490
   %6970 = shl nuw nsw i64 %6967, 1
   %6971 = or disjoint i64 %6970, 1
-  br label %pm_location_new.exit3492
+  br label %pm_location_new.argprom.exit3492
 
-6972:                                             ; preds = %pm_location_new.exit3490
+6972:                                             ; preds = %pm_location_new.argprom.exit3490
   %6973 = call i64 @rb_ull2inum(i64 noundef %6967) #6
   %.val2870.pre = load ptr, ptr %180, align 8
   %.pre4674 = ptrtoint ptr %.val2870.pre to i64
-  br label %pm_location_new.exit3492
+  br label %pm_location_new.argprom.exit3492
 
-pm_location_new.exit3492:                         ; preds = %6969, %6972
+pm_location_new.argprom.exit3492:                 ; preds = %6969, %6972
   %.pre-phi4675 = phi i64 [ %6961, %6969 ], [ %.pre4674, %6972 ]
   %.0.i.i3491 = phi i64 [ %6971, %6969 ], [ %6973, %6972 ]
   store i64 %.0.i.i3491, ptr %468, align 16
@@ -11602,16 +11602,16 @@ pm_location_new.exit3492:                         ; preds = %6969, %6972
   %6985 = icmp ult i64 %6980, 4611686018427387904
   br i1 %6985, label %6986, label %6989
 
-6986:                                             ; preds = %pm_location_new.exit3492
+6986:                                             ; preds = %pm_location_new.argprom.exit3492
   %6987 = shl nuw nsw i64 %6984, 1
   %6988 = or disjoint i64 %6987, 1
-  br label %pm_location_new.exit3494
+  br label %pm_location_new.argprom.exit3494
 
-6989:                                             ; preds = %pm_location_new.exit3492
+6989:                                             ; preds = %pm_location_new.argprom.exit3492
   %6990 = call i64 @rb_ull2inum(i64 noundef %6984) #6
-  br label %pm_location_new.exit3494
+  br label %pm_location_new.argprom.exit3494
 
-pm_location_new.exit3494:                         ; preds = %6986, %6989
+pm_location_new.argprom.exit3494:                 ; preds = %6986, %6989
   %.0.i.i3493 = phi i64 [ %6988, %6986 ], [ %6990, %6989 ]
   store i64 %.0.i.i3493, ptr %469, align 8
   %6991 = load i64, ptr @rb_cPrismInstanceVariableWriteNode, align 8
@@ -11738,13 +11738,13 @@ pm_integer_new.exit:                              ; preds = %._crit_edge.i, %rbi
 7043:                                             ; preds = %pm_integer_new.exit
   %7044 = shl nuw nsw i64 %7041, 1
   %7045 = or disjoint i64 %7044, 1
-  br label %pm_location_new.exit3497
+  br label %pm_location_new.argprom.exit3497
 
 7046:                                             ; preds = %pm_integer_new.exit
   %7047 = call i64 @rb_ull2inum(i64 noundef %7041) #6
-  br label %pm_location_new.exit3497
+  br label %pm_location_new.argprom.exit3497
 
-pm_location_new.exit3497:                         ; preds = %7043, %7046
+pm_location_new.argprom.exit3497:                 ; preds = %7043, %7046
   %.0.i.i3496 = phi i64 [ %7045, %7043 ], [ %7047, %7046 ]
   store i64 %.0.i.i3496, ptr %464, align 8
   %7048 = load i64, ptr @rb_cPrismIntegerNode, align 8
@@ -11780,13 +11780,13 @@ pm_location_new.exit3497:                         ; preds = %7043, %7046
 7071:                                             ; preds = %7051
   %7072 = shl nuw nsw i64 %7069, 1
   %7073 = or disjoint i64 %7072, 1
-  br label %pm_location_new.exit3499
+  br label %pm_location_new.argprom.exit3499
 
 7074:                                             ; preds = %7051
   %7075 = call i64 @rb_ull2inum(i64 noundef %7069) #6
-  br label %pm_location_new.exit3499
+  br label %pm_location_new.argprom.exit3499
 
-pm_location_new.exit3499:                         ; preds = %7071, %7074
+pm_location_new.argprom.exit3499:                 ; preds = %7071, %7074
   %.0.i.i3498 = phi i64 [ %7073, %7071 ], [ %7075, %7074 ]
   store i64 %.0.i.i3498, ptr %458, align 16
   %7076 = getelementptr inbounds i8, ptr %861, i64 40
@@ -11797,8 +11797,8 @@ pm_location_new.exit3499:                         ; preds = %7071, %7074
   %.not4376 = icmp eq i64 %7079, 0
   br i1 %.not4376, label %._crit_edge4272, label %.lr.ph4271
 
-.lr.ph4271:                                       ; preds = %pm_location_new.exit3499, %.lr.ph4271
-  %.026314270 = phi i64 [ %7083, %.lr.ph4271 ], [ 0, %pm_location_new.exit3499 ]
+.lr.ph4271:                                       ; preds = %pm_location_new.argprom.exit3499, %.lr.ph4271
+  %.026314270 = phi i64 [ %7083, %.lr.ph4271 ], [ 0, %pm_location_new.argprom.exit3499 ]
   %7080 = load i64, ptr %459, align 8
   %7081 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7082 = call i64 @rb_ary_push(i64 noundef %7080, i64 noundef %7081) #6
@@ -11807,7 +11807,7 @@ pm_location_new.exit3499:                         ; preds = %7071, %7074
   %7085 = icmp ult i64 %7083, %7084
   br i1 %7085, label %.lr.ph4271, label %._crit_edge4272, !llvm.loop !55
 
-._crit_edge4272:                                  ; preds = %.lr.ph4271, %pm_location_new.exit3499
+._crit_edge4272:                                  ; preds = %.lr.ph4271, %pm_location_new.argprom.exit3499
   %7086 = getelementptr inbounds i8, ptr %861, i64 64
   %7087 = load ptr, ptr %7086, align 8
   %7088 = getelementptr inbounds i8, ptr %861, i64 72
@@ -11827,15 +11827,15 @@ pm_location_new.exit3499:                         ; preds = %7071, %7074
 7099:                                             ; preds = %._crit_edge4272
   %7100 = shl nuw nsw i64 %7097, 1
   %7101 = or disjoint i64 %7100, 1
-  br label %pm_location_new.exit3501
+  br label %pm_location_new.argprom.exit3501
 
 7102:                                             ; preds = %._crit_edge4272
   %7103 = call i64 @rb_ull2inum(i64 noundef %7097) #6
   %.val2866.pre = load ptr, ptr %180, align 8
   %.pre4676 = ptrtoint ptr %.val2866.pre to i64
-  br label %pm_location_new.exit3501
+  br label %pm_location_new.argprom.exit3501
 
-pm_location_new.exit3501:                         ; preds = %7099, %7102
+pm_location_new.argprom.exit3501:                 ; preds = %7099, %7102
   %.pre-phi4677 = phi i64 [ %7091, %7099 ], [ %.pre4676, %7102 ]
   %.0.i.i3500 = phi i64 [ %7101, %7099 ], [ %7103, %7102 ]
   store i64 %.0.i.i3500, ptr %460, align 16
@@ -11853,16 +11853,16 @@ pm_location_new.exit3501:                         ; preds = %7099, %7102
   %7115 = icmp ult i64 %7110, 4611686018427387904
   br i1 %7115, label %7116, label %7119
 
-7116:                                             ; preds = %pm_location_new.exit3501
+7116:                                             ; preds = %pm_location_new.argprom.exit3501
   %7117 = shl nuw nsw i64 %7114, 1
   %7118 = or disjoint i64 %7117, 1
-  br label %pm_location_new.exit3503
+  br label %pm_location_new.argprom.exit3503
 
-7119:                                             ; preds = %pm_location_new.exit3501
+7119:                                             ; preds = %pm_location_new.argprom.exit3501
   %7120 = call i64 @rb_ull2inum(i64 noundef %7114) #6
-  br label %pm_location_new.exit3503
+  br label %pm_location_new.argprom.exit3503
 
-pm_location_new.exit3503:                         ; preds = %7116, %7119
+pm_location_new.argprom.exit3503:                 ; preds = %7116, %7119
   %.0.i.i3502 = phi i64 [ %7118, %7116 ], [ %7120, %7119 ]
   store i64 %.0.i.i3502, ptr %461, align 8
   %7121 = load i64, ptr @rb_cPrismInterpolatedMatchLastLineNode, align 8
@@ -11898,13 +11898,13 @@ pm_location_new.exit3503:                         ; preds = %7116, %7119
 7144:                                             ; preds = %7124
   %7145 = shl nuw nsw i64 %7142, 1
   %7146 = or disjoint i64 %7145, 1
-  br label %pm_location_new.exit3505
+  br label %pm_location_new.argprom.exit3505
 
 7147:                                             ; preds = %7124
   %7148 = call i64 @rb_ull2inum(i64 noundef %7142) #6
-  br label %pm_location_new.exit3505
+  br label %pm_location_new.argprom.exit3505
 
-pm_location_new.exit3505:                         ; preds = %7144, %7147
+pm_location_new.argprom.exit3505:                 ; preds = %7144, %7147
   %.0.i.i3504 = phi i64 [ %7146, %7144 ], [ %7148, %7147 ]
   store i64 %.0.i.i3504, ptr %453, align 16
   %7149 = getelementptr inbounds i8, ptr %861, i64 40
@@ -11915,8 +11915,8 @@ pm_location_new.exit3505:                         ; preds = %7144, %7147
   %.not4375 = icmp eq i64 %7152, 0
   br i1 %.not4375, label %._crit_edge4269, label %.lr.ph4268
 
-.lr.ph4268:                                       ; preds = %pm_location_new.exit3505, %.lr.ph4268
-  %.026324267 = phi i64 [ %7156, %.lr.ph4268 ], [ 0, %pm_location_new.exit3505 ]
+.lr.ph4268:                                       ; preds = %pm_location_new.argprom.exit3505, %.lr.ph4268
+  %.026324267 = phi i64 [ %7156, %.lr.ph4268 ], [ 0, %pm_location_new.argprom.exit3505 ]
   %7153 = load i64, ptr %454, align 8
   %7154 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7155 = call i64 @rb_ary_push(i64 noundef %7153, i64 noundef %7154) #6
@@ -11925,7 +11925,7 @@ pm_location_new.exit3505:                         ; preds = %7144, %7147
   %7158 = icmp ult i64 %7156, %7157
   br i1 %7158, label %.lr.ph4268, label %._crit_edge4269, !llvm.loop !56
 
-._crit_edge4269:                                  ; preds = %.lr.ph4268, %pm_location_new.exit3505
+._crit_edge4269:                                  ; preds = %.lr.ph4268, %pm_location_new.argprom.exit3505
   %7159 = getelementptr inbounds i8, ptr %861, i64 64
   %7160 = load ptr, ptr %7159, align 8
   %7161 = getelementptr inbounds i8, ptr %861, i64 72
@@ -11945,15 +11945,15 @@ pm_location_new.exit3505:                         ; preds = %7144, %7147
 7172:                                             ; preds = %._crit_edge4269
   %7173 = shl nuw nsw i64 %7170, 1
   %7174 = or disjoint i64 %7173, 1
-  br label %pm_location_new.exit3507
+  br label %pm_location_new.argprom.exit3507
 
 7175:                                             ; preds = %._crit_edge4269
   %7176 = call i64 @rb_ull2inum(i64 noundef %7170) #6
   %.val2863.pre = load ptr, ptr %180, align 8
   %.pre4678 = ptrtoint ptr %.val2863.pre to i64
-  br label %pm_location_new.exit3507
+  br label %pm_location_new.argprom.exit3507
 
-pm_location_new.exit3507:                         ; preds = %7172, %7175
+pm_location_new.argprom.exit3507:                 ; preds = %7172, %7175
   %.pre-phi4679 = phi i64 [ %7164, %7172 ], [ %.pre4678, %7175 ]
   %.0.i.i3506 = phi i64 [ %7174, %7172 ], [ %7176, %7175 ]
   store i64 %.0.i.i3506, ptr %455, align 16
@@ -11971,16 +11971,16 @@ pm_location_new.exit3507:                         ; preds = %7172, %7175
   %7188 = icmp ult i64 %7183, 4611686018427387904
   br i1 %7188, label %7189, label %7192
 
-7189:                                             ; preds = %pm_location_new.exit3507
+7189:                                             ; preds = %pm_location_new.argprom.exit3507
   %7190 = shl nuw nsw i64 %7187, 1
   %7191 = or disjoint i64 %7190, 1
-  br label %pm_location_new.exit3509
+  br label %pm_location_new.argprom.exit3509
 
-7192:                                             ; preds = %pm_location_new.exit3507
+7192:                                             ; preds = %pm_location_new.argprom.exit3507
   %7193 = call i64 @rb_ull2inum(i64 noundef %7187) #6
-  br label %pm_location_new.exit3509
+  br label %pm_location_new.argprom.exit3509
 
-pm_location_new.exit3509:                         ; preds = %7189, %7192
+pm_location_new.argprom.exit3509:                 ; preds = %7189, %7192
   %.0.i.i3508 = phi i64 [ %7191, %7189 ], [ %7193, %7192 ]
   store i64 %.0.i.i3508, ptr %456, align 8
   %7194 = load i64, ptr @rb_cPrismInterpolatedRegularExpressionNode, align 8
@@ -11993,7 +11993,7 @@ pm_location_new.exit3509:                         ; preds = %7189, %7192
   %7198 = getelementptr inbounds i8, ptr %861, i64 24
   %7199 = load ptr, ptr %7198, align 8
   %7200 = icmp eq ptr %7199, null
-  br i1 %7200, label %pm_location_new.exit3511, label %7201
+  br i1 %7200, label %pm_location_new.argprom.exit3511, label %7201
 
 7201:                                             ; preds = %7197
   %7202 = getelementptr inbounds i8, ptr %861, i64 32
@@ -12013,13 +12013,13 @@ pm_location_new.exit3509:                         ; preds = %7189, %7192
 7213:                                             ; preds = %7201
   %7214 = shl nuw nsw i64 %7211, 1
   %7215 = or disjoint i64 %7214, 1
-  br label %pm_location_new.exit3511
+  br label %pm_location_new.argprom.exit3511
 
 7216:                                             ; preds = %7201
   %7217 = call i64 @rb_ull2inum(i64 noundef %7211) #6
-  br label %pm_location_new.exit3511
+  br label %pm_location_new.argprom.exit3511
 
-pm_location_new.exit3511:                         ; preds = %7216, %7213, %7197
+pm_location_new.argprom.exit3511:                 ; preds = %7216, %7213, %7197
   %7218 = phi i64 [ 4, %7197 ], [ %7215, %7213 ], [ %7217, %7216 ]
   store i64 %7218, ptr %448, align 8
   %7219 = getelementptr inbounds i8, ptr %861, i64 40
@@ -12030,8 +12030,8 @@ pm_location_new.exit3511:                         ; preds = %7216, %7213, %7197
   %.not4374 = icmp eq i64 %7222, 0
   br i1 %.not4374, label %._crit_edge4266, label %.lr.ph4265
 
-.lr.ph4265:                                       ; preds = %pm_location_new.exit3511, %.lr.ph4265
-  %.026334264 = phi i64 [ %7226, %.lr.ph4265 ], [ 0, %pm_location_new.exit3511 ]
+.lr.ph4265:                                       ; preds = %pm_location_new.argprom.exit3511, %.lr.ph4265
+  %.026334264 = phi i64 [ %7226, %.lr.ph4265 ], [ 0, %pm_location_new.argprom.exit3511 ]
   %7223 = load i64, ptr %449, align 16
   %7224 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7225 = call i64 @rb_ary_push(i64 noundef %7223, i64 noundef %7224) #6
@@ -12040,12 +12040,12 @@ pm_location_new.exit3511:                         ; preds = %7216, %7213, %7197
   %7228 = icmp ult i64 %7226, %7227
   br i1 %7228, label %.lr.ph4265, label %._crit_edge4266, !llvm.loop !57
 
-._crit_edge4266:                                  ; preds = %.lr.ph4265, %pm_location_new.exit3511
+._crit_edge4266:                                  ; preds = %.lr.ph4265, %pm_location_new.argprom.exit3511
   %7229 = getelementptr inbounds i8, ptr %861, i64 64
   %7230 = load ptr, ptr %7229, align 8
   %7231 = icmp eq ptr %7230, null
   %.val2860.pre4493 = load ptr, ptr %180, align 8
-  br i1 %7231, label %pm_location_new.exit3513, label %7232
+  br i1 %7231, label %pm_location_new.argprom.exit3513, label %7232
 
 7232:                                             ; preds = %._crit_edge4266
   %7233 = getelementptr inbounds i8, ptr %861, i64 72
@@ -12064,14 +12064,14 @@ pm_location_new.exit3511:                         ; preds = %7216, %7213, %7197
 7244:                                             ; preds = %7232
   %7245 = shl nuw nsw i64 %7242, 1
   %7246 = or disjoint i64 %7245, 1
-  br label %pm_location_new.exit3513
+  br label %pm_location_new.argprom.exit3513
 
 7247:                                             ; preds = %7232
   %7248 = call i64 @rb_ull2inum(i64 noundef %7242) #6
   %.val2860.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3513
+  br label %pm_location_new.argprom.exit3513
 
-pm_location_new.exit3513:                         ; preds = %7247, %7244, %._crit_edge4266
+pm_location_new.argprom.exit3513:                 ; preds = %7247, %7244, %._crit_edge4266
   %.val2860 = phi ptr [ %.val2860.pre4493, %._crit_edge4266 ], [ %.val2860.pre4493, %7244 ], [ %.val2860.pre, %7247 ]
   %7249 = phi i64 [ 4, %._crit_edge4266 ], [ %7246, %7244 ], [ %7248, %7247 ]
   store i64 %7249, ptr %450, align 8
@@ -12090,16 +12090,16 @@ pm_location_new.exit3513:                         ; preds = %7247, %7244, %._cri
   %7262 = icmp ult i64 %7257, 4611686018427387904
   br i1 %7262, label %7263, label %7266
 
-7263:                                             ; preds = %pm_location_new.exit3513
+7263:                                             ; preds = %pm_location_new.argprom.exit3513
   %7264 = shl nuw nsw i64 %7261, 1
   %7265 = or disjoint i64 %7264, 1
-  br label %pm_location_new.exit3515
+  br label %pm_location_new.argprom.exit3515
 
-7266:                                             ; preds = %pm_location_new.exit3513
+7266:                                             ; preds = %pm_location_new.argprom.exit3513
   %7267 = call i64 @rb_ull2inum(i64 noundef %7261) #6
-  br label %pm_location_new.exit3515
+  br label %pm_location_new.argprom.exit3515
 
-pm_location_new.exit3515:                         ; preds = %7263, %7266
+pm_location_new.argprom.exit3515:                 ; preds = %7263, %7266
   %.0.i.i3514 = phi i64 [ %7265, %7263 ], [ %7267, %7266 ]
   store i64 %.0.i.i3514, ptr %451, align 16
   %7268 = load i64, ptr @rb_cPrismInterpolatedStringNode, align 8
@@ -12112,7 +12112,7 @@ pm_location_new.exit3515:                         ; preds = %7263, %7266
   %7272 = getelementptr inbounds i8, ptr %861, i64 24
   %7273 = load ptr, ptr %7272, align 8
   %7274 = icmp eq ptr %7273, null
-  br i1 %7274, label %pm_location_new.exit3517, label %7275
+  br i1 %7274, label %pm_location_new.argprom.exit3517, label %7275
 
 7275:                                             ; preds = %7271
   %7276 = getelementptr inbounds i8, ptr %861, i64 32
@@ -12132,13 +12132,13 @@ pm_location_new.exit3515:                         ; preds = %7263, %7266
 7287:                                             ; preds = %7275
   %7288 = shl nuw nsw i64 %7285, 1
   %7289 = or disjoint i64 %7288, 1
-  br label %pm_location_new.exit3517
+  br label %pm_location_new.argprom.exit3517
 
 7290:                                             ; preds = %7275
   %7291 = call i64 @rb_ull2inum(i64 noundef %7285) #6
-  br label %pm_location_new.exit3517
+  br label %pm_location_new.argprom.exit3517
 
-pm_location_new.exit3517:                         ; preds = %7290, %7287, %7271
+pm_location_new.argprom.exit3517:                 ; preds = %7290, %7287, %7271
   %7292 = phi i64 [ 4, %7271 ], [ %7289, %7287 ], [ %7291, %7290 ]
   store i64 %7292, ptr %444, align 8
   %7293 = getelementptr inbounds i8, ptr %861, i64 40
@@ -12149,8 +12149,8 @@ pm_location_new.exit3517:                         ; preds = %7290, %7287, %7271
   %.not4373 = icmp eq i64 %7296, 0
   br i1 %.not4373, label %._crit_edge4263, label %.lr.ph4262
 
-.lr.ph4262:                                       ; preds = %pm_location_new.exit3517, %.lr.ph4262
-  %.026344261 = phi i64 [ %7300, %.lr.ph4262 ], [ 0, %pm_location_new.exit3517 ]
+.lr.ph4262:                                       ; preds = %pm_location_new.argprom.exit3517, %.lr.ph4262
+  %.026344261 = phi i64 [ %7300, %.lr.ph4262 ], [ 0, %pm_location_new.argprom.exit3517 ]
   %7297 = load i64, ptr %445, align 16
   %7298 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7299 = call i64 @rb_ary_push(i64 noundef %7297, i64 noundef %7298) #6
@@ -12159,12 +12159,12 @@ pm_location_new.exit3517:                         ; preds = %7290, %7287, %7271
   %7302 = icmp ult i64 %7300, %7301
   br i1 %7302, label %.lr.ph4262, label %._crit_edge4263, !llvm.loop !58
 
-._crit_edge4263:                                  ; preds = %.lr.ph4262, %pm_location_new.exit3517
+._crit_edge4263:                                  ; preds = %.lr.ph4262, %pm_location_new.argprom.exit3517
   %7303 = getelementptr inbounds i8, ptr %861, i64 64
   %7304 = load ptr, ptr %7303, align 8
   %7305 = icmp eq ptr %7304, null
   %.val2857.pre4491 = load ptr, ptr %180, align 8
-  br i1 %7305, label %pm_location_new.exit3519, label %7306
+  br i1 %7305, label %pm_location_new.argprom.exit3519, label %7306
 
 7306:                                             ; preds = %._crit_edge4263
   %7307 = getelementptr inbounds i8, ptr %861, i64 72
@@ -12183,14 +12183,14 @@ pm_location_new.exit3517:                         ; preds = %7290, %7287, %7271
 7318:                                             ; preds = %7306
   %7319 = shl nuw nsw i64 %7316, 1
   %7320 = or disjoint i64 %7319, 1
-  br label %pm_location_new.exit3519
+  br label %pm_location_new.argprom.exit3519
 
 7321:                                             ; preds = %7306
   %7322 = call i64 @rb_ull2inum(i64 noundef %7316) #6
   %.val2857.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3519
+  br label %pm_location_new.argprom.exit3519
 
-pm_location_new.exit3519:                         ; preds = %7321, %7318, %._crit_edge4263
+pm_location_new.argprom.exit3519:                 ; preds = %7321, %7318, %._crit_edge4263
   %.val2857 = phi ptr [ %.val2857.pre4491, %._crit_edge4263 ], [ %.val2857.pre4491, %7318 ], [ %.val2857.pre, %7321 ]
   %7323 = phi i64 [ 4, %._crit_edge4263 ], [ %7320, %7318 ], [ %7322, %7321 ]
   store i64 %7323, ptr %446, align 8
@@ -12209,16 +12209,16 @@ pm_location_new.exit3519:                         ; preds = %7321, %7318, %._cri
   %7336 = icmp ult i64 %7331, 4611686018427387904
   br i1 %7336, label %7337, label %7340
 
-7337:                                             ; preds = %pm_location_new.exit3519
+7337:                                             ; preds = %pm_location_new.argprom.exit3519
   %7338 = shl nuw nsw i64 %7335, 1
   %7339 = or disjoint i64 %7338, 1
-  br label %pm_location_new.exit3521
+  br label %pm_location_new.argprom.exit3521
 
-7340:                                             ; preds = %pm_location_new.exit3519
+7340:                                             ; preds = %pm_location_new.argprom.exit3519
   %7341 = call i64 @rb_ull2inum(i64 noundef %7335) #6
-  br label %pm_location_new.exit3521
+  br label %pm_location_new.argprom.exit3521
 
-pm_location_new.exit3521:                         ; preds = %7337, %7340
+pm_location_new.argprom.exit3521:                 ; preds = %7337, %7340
   %.0.i.i3520 = phi i64 [ %7339, %7337 ], [ %7341, %7340 ]
   store i64 %.0.i.i3520, ptr %447, align 16
   %7342 = load i64, ptr @rb_cPrismInterpolatedSymbolNode, align 8
@@ -12247,13 +12247,13 @@ pm_location_new.exit3521:                         ; preds = %7337, %7340
 7359:                                             ; preds = %7345
   %7360 = shl nuw nsw i64 %7357, 1
   %7361 = or disjoint i64 %7360, 1
-  br label %pm_location_new.exit3523
+  br label %pm_location_new.argprom.exit3523
 
 7362:                                             ; preds = %7345
   %7363 = call i64 @rb_ull2inum(i64 noundef %7357) #6
-  br label %pm_location_new.exit3523
+  br label %pm_location_new.argprom.exit3523
 
-pm_location_new.exit3523:                         ; preds = %7359, %7362
+pm_location_new.argprom.exit3523:                 ; preds = %7359, %7362
   %.0.i.i3522 = phi i64 [ %7361, %7359 ], [ %7363, %7362 ]
   store i64 %.0.i.i3522, ptr %440, align 8
   %7364 = getelementptr inbounds i8, ptr %861, i64 40
@@ -12264,8 +12264,8 @@ pm_location_new.exit3523:                         ; preds = %7359, %7362
   %.not4372 = icmp eq i64 %7367, 0
   br i1 %.not4372, label %._crit_edge4260, label %.lr.ph4259
 
-.lr.ph4259:                                       ; preds = %pm_location_new.exit3523, %.lr.ph4259
-  %.026354258 = phi i64 [ %7371, %.lr.ph4259 ], [ 0, %pm_location_new.exit3523 ]
+.lr.ph4259:                                       ; preds = %pm_location_new.argprom.exit3523, %.lr.ph4259
+  %.026354258 = phi i64 [ %7371, %.lr.ph4259 ], [ 0, %pm_location_new.argprom.exit3523 ]
   %7368 = load i64, ptr %441, align 16
   %7369 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7370 = call i64 @rb_ary_push(i64 noundef %7368, i64 noundef %7369) #6
@@ -12274,7 +12274,7 @@ pm_location_new.exit3523:                         ; preds = %7359, %7362
   %7373 = icmp ult i64 %7371, %7372
   br i1 %7373, label %.lr.ph4259, label %._crit_edge4260, !llvm.loop !59
 
-._crit_edge4260:                                  ; preds = %.lr.ph4259, %pm_location_new.exit3523
+._crit_edge4260:                                  ; preds = %.lr.ph4259, %pm_location_new.argprom.exit3523
   %7374 = getelementptr inbounds i8, ptr %861, i64 64
   %7375 = load ptr, ptr %7374, align 8
   %7376 = getelementptr inbounds i8, ptr %861, i64 72
@@ -12294,15 +12294,15 @@ pm_location_new.exit3523:                         ; preds = %7359, %7362
 7387:                                             ; preds = %._crit_edge4260
   %7388 = shl nuw nsw i64 %7385, 1
   %7389 = or disjoint i64 %7388, 1
-  br label %pm_location_new.exit3525
+  br label %pm_location_new.argprom.exit3525
 
 7390:                                             ; preds = %._crit_edge4260
   %7391 = call i64 @rb_ull2inum(i64 noundef %7385) #6
   %.val2854.pre = load ptr, ptr %180, align 8
   %.pre4680 = ptrtoint ptr %.val2854.pre to i64
-  br label %pm_location_new.exit3525
+  br label %pm_location_new.argprom.exit3525
 
-pm_location_new.exit3525:                         ; preds = %7387, %7390
+pm_location_new.argprom.exit3525:                 ; preds = %7387, %7390
   %.pre-phi4681 = phi i64 [ %7379, %7387 ], [ %.pre4680, %7390 ]
   %.0.i.i3524 = phi i64 [ %7389, %7387 ], [ %7391, %7390 ]
   store i64 %.0.i.i3524, ptr %442, align 8
@@ -12320,16 +12320,16 @@ pm_location_new.exit3525:                         ; preds = %7387, %7390
   %7403 = icmp ult i64 %7398, 4611686018427387904
   br i1 %7403, label %7404, label %7407
 
-7404:                                             ; preds = %pm_location_new.exit3525
+7404:                                             ; preds = %pm_location_new.argprom.exit3525
   %7405 = shl nuw nsw i64 %7402, 1
   %7406 = or disjoint i64 %7405, 1
-  br label %pm_location_new.exit3527
+  br label %pm_location_new.argprom.exit3527
 
-7407:                                             ; preds = %pm_location_new.exit3525
+7407:                                             ; preds = %pm_location_new.argprom.exit3525
   %7408 = call i64 @rb_ull2inum(i64 noundef %7402) #6
-  br label %pm_location_new.exit3527
+  br label %pm_location_new.argprom.exit3527
 
-pm_location_new.exit3527:                         ; preds = %7404, %7407
+pm_location_new.argprom.exit3527:                 ; preds = %7404, %7407
   %.0.i.i3526 = phi i64 [ %7406, %7404 ], [ %7408, %7407 ]
   store i64 %.0.i.i3526, ptr %443, align 16
   %7409 = load i64, ptr @rb_cPrismInterpolatedXStringNode, align 8
@@ -12358,13 +12358,13 @@ pm_location_new.exit3527:                         ; preds = %7404, %7407
 7426:                                             ; preds = %7412
   %7427 = shl nuw nsw i64 %7424, 1
   %7428 = or disjoint i64 %7427, 1
-  br label %pm_location_new.exit3529
+  br label %pm_location_new.argprom.exit3529
 
 7429:                                             ; preds = %7412
   %7430 = call i64 @rb_ull2inum(i64 noundef %7424) #6
-  br label %pm_location_new.exit3529
+  br label %pm_location_new.argprom.exit3529
 
-pm_location_new.exit3529:                         ; preds = %7426, %7429
+pm_location_new.argprom.exit3529:                 ; preds = %7426, %7429
   %.0.i.i3528 = phi i64 [ %7428, %7426 ], [ %7430, %7429 ]
   store i64 %.0.i.i3528, ptr %439, align 8
   %7431 = load i64, ptr @rb_cPrismItParametersNode, align 8
@@ -12419,13 +12419,13 @@ pm_location_new.exit3529:                         ; preds = %7426, %7429
 7464:                                             ; preds = %._crit_edge4257
   %7465 = shl nuw nsw i64 %7462, 1
   %7466 = or disjoint i64 %7465, 1
-  br label %pm_location_new.exit3531
+  br label %pm_location_new.argprom.exit3531
 
 7467:                                             ; preds = %._crit_edge4257
   %7468 = call i64 @rb_ull2inum(i64 noundef %7462) #6
-  br label %pm_location_new.exit3531
+  br label %pm_location_new.argprom.exit3531
 
-pm_location_new.exit3531:                         ; preds = %7464, %7467
+pm_location_new.argprom.exit3531:                 ; preds = %7464, %7467
   %.0.i.i3530 = phi i64 [ %7466, %7464 ], [ %7468, %7467 ]
   store i64 %.0.i.i3530, ptr %438, align 8
   %7469 = load i64, ptr @rb_cPrismKeywordHashNode, align 8
@@ -12462,7 +12462,7 @@ pm_location_new.exit3531:                         ; preds = %7464, %7467
   %7491 = load ptr, ptr %7490, align 8
   %7492 = icmp eq ptr %7491, null
   %.val2850.pre4487 = load ptr, ptr %180, align 8
-  br i1 %7492, label %pm_location_new.exit3533, label %7493
+  br i1 %7492, label %pm_location_new.argprom.exit3533, label %7493
 
 7493:                                             ; preds = %7488
   %7494 = getelementptr inbounds i8, ptr %861, i64 40
@@ -12481,14 +12481,14 @@ pm_location_new.exit3531:                         ; preds = %7464, %7467
 7505:                                             ; preds = %7493
   %7506 = shl nuw nsw i64 %7503, 1
   %7507 = or disjoint i64 %7506, 1
-  br label %pm_location_new.exit3533
+  br label %pm_location_new.argprom.exit3533
 
 7508:                                             ; preds = %7493
   %7509 = call i64 @rb_ull2inum(i64 noundef %7503) #6
   %.val2850.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3533
+  br label %pm_location_new.argprom.exit3533
 
-pm_location_new.exit3533:                         ; preds = %7508, %7505, %7488
+pm_location_new.argprom.exit3533:                 ; preds = %7508, %7505, %7488
   %.val2850 = phi ptr [ %.val2850.pre4487, %7488 ], [ %.val2850.pre4487, %7505 ], [ %.val2850.pre, %7508 ]
   %7510 = phi i64 [ 4, %7488 ], [ %7507, %7505 ], [ %7509, %7508 ]
   store i64 %7510, ptr %433, align 8
@@ -12507,18 +12507,18 @@ pm_location_new.exit3533:                         ; preds = %7508, %7505, %7488
   %7523 = icmp ult i64 %7518, 4611686018427387904
   br i1 %7523, label %7524, label %7527
 
-7524:                                             ; preds = %pm_location_new.exit3533
+7524:                                             ; preds = %pm_location_new.argprom.exit3533
   %7525 = shl nuw nsw i64 %7522, 1
   %7526 = or disjoint i64 %7525, 1
-  br label %pm_location_new.exit3535
+  br label %pm_location_new.argprom.exit3535
 
-7527:                                             ; preds = %pm_location_new.exit3533
+7527:                                             ; preds = %pm_location_new.argprom.exit3533
   %7528 = call i64 @rb_ull2inum(i64 noundef %7522) #6
   %.val2849.pre = load ptr, ptr %180, align 8
   %.pre4682 = ptrtoint ptr %.val2849.pre to i64
-  br label %pm_location_new.exit3535
+  br label %pm_location_new.argprom.exit3535
 
-pm_location_new.exit3535:                         ; preds = %7524, %7527
+pm_location_new.argprom.exit3535:                 ; preds = %7524, %7527
   %.pre-phi4683 = phi i64 [ %7516, %7524 ], [ %.pre4682, %7527 ]
   %.0.i.i3534 = phi i64 [ %7526, %7524 ], [ %7528, %7527 ]
   store i64 %.0.i.i3534, ptr %434, align 16
@@ -12536,16 +12536,16 @@ pm_location_new.exit3535:                         ; preds = %7524, %7527
   %7540 = icmp ult i64 %7535, 4611686018427387904
   br i1 %7540, label %7541, label %7544
 
-7541:                                             ; preds = %pm_location_new.exit3535
+7541:                                             ; preds = %pm_location_new.argprom.exit3535
   %7542 = shl nuw nsw i64 %7539, 1
   %7543 = or disjoint i64 %7542, 1
-  br label %pm_location_new.exit3537
+  br label %pm_location_new.argprom.exit3537
 
-7544:                                             ; preds = %pm_location_new.exit3535
+7544:                                             ; preds = %pm_location_new.argprom.exit3535
   %7545 = call i64 @rb_ull2inum(i64 noundef %7539) #6
-  br label %pm_location_new.exit3537
+  br label %pm_location_new.argprom.exit3537
 
-pm_location_new.exit3537:                         ; preds = %7541, %7544
+pm_location_new.argprom.exit3537:                 ; preds = %7541, %7544
   %.0.i.i3536 = phi i64 [ %7543, %7541 ], [ %7545, %7544 ]
   store i64 %.0.i.i3536, ptr %435, align 8
   %7546 = load i64, ptr @rb_cPrismKeywordRestParameterNode, align 8
@@ -12604,15 +12604,15 @@ pm_location_new.exit3537:                         ; preds = %7541, %7544
 7582:                                             ; preds = %._crit_edge4253
   %7583 = shl nuw nsw i64 %7580, 1
   %7584 = or disjoint i64 %7583, 1
-  br label %pm_location_new.exit3539
+  br label %pm_location_new.argprom.exit3539
 
 7585:                                             ; preds = %._crit_edge4253
   %7586 = call i64 @rb_ull2inum(i64 noundef %7580) #6
   %.val2847.pre = load ptr, ptr %180, align 8
   %.pre4684 = ptrtoint ptr %.val2847.pre to i64
-  br label %pm_location_new.exit3539
+  br label %pm_location_new.argprom.exit3539
 
-pm_location_new.exit3539:                         ; preds = %7582, %7585
+pm_location_new.argprom.exit3539:                 ; preds = %7582, %7585
   %.pre-phi4685 = phi i64 [ %7574, %7582 ], [ %.pre4684, %7585 ]
   %.0.i.i3538 = phi i64 [ %7584, %7582 ], [ %7586, %7585 ]
   store i64 %.0.i.i3538, ptr %425, align 16
@@ -12630,18 +12630,18 @@ pm_location_new.exit3539:                         ; preds = %7582, %7585
   %7598 = icmp ult i64 %7593, 4611686018427387904
   br i1 %7598, label %7599, label %7602
 
-7599:                                             ; preds = %pm_location_new.exit3539
+7599:                                             ; preds = %pm_location_new.argprom.exit3539
   %7600 = shl nuw nsw i64 %7597, 1
   %7601 = or disjoint i64 %7600, 1
-  br label %pm_location_new.exit3541
+  br label %pm_location_new.argprom.exit3541
 
-7602:                                             ; preds = %pm_location_new.exit3539
+7602:                                             ; preds = %pm_location_new.argprom.exit3539
   %7603 = call i64 @rb_ull2inum(i64 noundef %7597) #6
   %.val2846.pre = load ptr, ptr %180, align 8
   %.pre4686 = ptrtoint ptr %.val2846.pre to i64
-  br label %pm_location_new.exit3541
+  br label %pm_location_new.argprom.exit3541
 
-pm_location_new.exit3541:                         ; preds = %7599, %7602
+pm_location_new.argprom.exit3541:                 ; preds = %7599, %7602
   %.pre-phi4687 = phi i64 [ %.pre-phi4685, %7599 ], [ %.pre4686, %7602 ]
   %.0.i.i3540 = phi i64 [ %7601, %7599 ], [ %7603, %7602 ]
   store i64 %.0.i.i3540, ptr %426, align 8
@@ -12659,16 +12659,16 @@ pm_location_new.exit3541:                         ; preds = %7599, %7602
   %7615 = icmp ult i64 %7610, 4611686018427387904
   br i1 %7615, label %7616, label %7619
 
-7616:                                             ; preds = %pm_location_new.exit3541
+7616:                                             ; preds = %pm_location_new.argprom.exit3541
   %7617 = shl nuw nsw i64 %7614, 1
   %7618 = or disjoint i64 %7617, 1
-  br label %pm_location_new.exit3543
+  br label %pm_location_new.argprom.exit3543
 
-7619:                                             ; preds = %pm_location_new.exit3541
+7619:                                             ; preds = %pm_location_new.argprom.exit3541
   %7620 = call i64 @rb_ull2inum(i64 noundef %7614) #6
-  br label %pm_location_new.exit3543
+  br label %pm_location_new.argprom.exit3543
 
-pm_location_new.exit3543:                         ; preds = %7616, %7619
+pm_location_new.argprom.exit3543:                 ; preds = %7616, %7619
   %.0.i.i3542 = phi i64 [ %7618, %7616 ], [ %7620, %7619 ]
   store i64 %.0.i.i3542, ptr %427, align 16
   %7621 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -12691,16 +12691,16 @@ pm_location_new.exit3543:                         ; preds = %7616, %7619
   %7635 = icmp ult i64 %7630, 4611686018427387904
   br i1 %7635, label %7636, label %7639
 
-7636:                                             ; preds = %pm_location_new.exit3543
+7636:                                             ; preds = %pm_location_new.argprom.exit3543
   %7637 = shl nuw nsw i64 %7634, 1
   %7638 = or disjoint i64 %7637, 1
-  br label %pm_location_new.exit3545
+  br label %pm_location_new.argprom.exit3545
 
-7639:                                             ; preds = %pm_location_new.exit3543
+7639:                                             ; preds = %pm_location_new.argprom.exit3543
   %7640 = call i64 @rb_ull2inum(i64 noundef %7634) #6
-  br label %pm_location_new.exit3545
+  br label %pm_location_new.argprom.exit3545
 
-pm_location_new.exit3545:                         ; preds = %7636, %7639
+pm_location_new.argprom.exit3545:                 ; preds = %7636, %7639
   %.0.i.i3544 = phi i64 [ %7638, %7636 ], [ %7640, %7639 ]
   store i64 %.0.i.i3544, ptr %430, align 8
   %7641 = load i64, ptr @rb_cPrismLambdaNode, align 8
@@ -12729,15 +12729,15 @@ pm_location_new.exit3545:                         ; preds = %7636, %7639
 7658:                                             ; preds = %7644
   %7659 = shl nuw nsw i64 %7656, 1
   %7660 = or disjoint i64 %7659, 1
-  br label %pm_location_new.exit3547
+  br label %pm_location_new.argprom.exit3547
 
 7661:                                             ; preds = %7644
   %7662 = call i64 @rb_ull2inum(i64 noundef %7656) #6
   %.val2843.pre = load ptr, ptr %180, align 8
   %.pre4688 = ptrtoint ptr %.val2843.pre to i64
-  br label %pm_location_new.exit3547
+  br label %pm_location_new.argprom.exit3547
 
-pm_location_new.exit3547:                         ; preds = %7658, %7661
+pm_location_new.argprom.exit3547:                 ; preds = %7658, %7661
   %.pre-phi4689 = phi i64 [ %7650, %7658 ], [ %.pre4688, %7661 ]
   %.0.i.i3546 = phi i64 [ %7660, %7658 ], [ %7662, %7661 ]
   store i64 %.0.i.i3546, ptr %418, align 8
@@ -12755,16 +12755,16 @@ pm_location_new.exit3547:                         ; preds = %7658, %7661
   %7674 = icmp ult i64 %7669, 4611686018427387904
   br i1 %7674, label %7675, label %7678
 
-7675:                                             ; preds = %pm_location_new.exit3547
+7675:                                             ; preds = %pm_location_new.argprom.exit3547
   %7676 = shl nuw nsw i64 %7673, 1
   %7677 = or disjoint i64 %7676, 1
-  br label %pm_location_new.exit3549
+  br label %pm_location_new.argprom.exit3549
 
-7678:                                             ; preds = %pm_location_new.exit3547
+7678:                                             ; preds = %pm_location_new.argprom.exit3547
   %7679 = call i64 @rb_ull2inum(i64 noundef %7673) #6
-  br label %pm_location_new.exit3549
+  br label %pm_location_new.argprom.exit3549
 
-pm_location_new.exit3549:                         ; preds = %7675, %7678
+pm_location_new.argprom.exit3549:                 ; preds = %7675, %7678
   %.0.i.i3548 = phi i64 [ %7677, %7675 ], [ %7679, %7678 ]
   store i64 %.0.i.i3548, ptr %419, align 16
   %7680 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -12799,16 +12799,16 @@ pm_location_new.exit3549:                         ; preds = %7675, %7678
   %7705 = icmp ult i64 %7700, 4611686018427387904
   br i1 %7705, label %7706, label %7709
 
-7706:                                             ; preds = %pm_location_new.exit3549
+7706:                                             ; preds = %pm_location_new.argprom.exit3549
   %7707 = shl nuw nsw i64 %7704, 1
   %7708 = or disjoint i64 %7707, 1
-  br label %pm_location_new.exit3551
+  br label %pm_location_new.argprom.exit3551
 
-7709:                                             ; preds = %pm_location_new.exit3549
+7709:                                             ; preds = %pm_location_new.argprom.exit3549
   %7710 = call i64 @rb_ull2inum(i64 noundef %7704) #6
-  br label %pm_location_new.exit3551
+  br label %pm_location_new.argprom.exit3551
 
-pm_location_new.exit3551:                         ; preds = %7706, %7709
+pm_location_new.argprom.exit3551:                 ; preds = %7706, %7709
   %.0.i.i3550 = phi i64 [ %7708, %7706 ], [ %7710, %7709 ]
   store i64 %.0.i.i3550, ptr %423, align 16
   %7711 = load i64, ptr @rb_cPrismLocalVariableAndWriteNode, align 8
@@ -12837,15 +12837,15 @@ pm_location_new.exit3551:                         ; preds = %7706, %7709
 7728:                                             ; preds = %7714
   %7729 = shl nuw nsw i64 %7726, 1
   %7730 = or disjoint i64 %7729, 1
-  br label %pm_location_new.exit3553
+  br label %pm_location_new.argprom.exit3553
 
 7731:                                             ; preds = %7714
   %7732 = call i64 @rb_ull2inum(i64 noundef %7726) #6
   %.val2840.pre = load ptr, ptr %180, align 8
   %.pre4690 = ptrtoint ptr %.val2840.pre to i64
-  br label %pm_location_new.exit3553
+  br label %pm_location_new.argprom.exit3553
 
-pm_location_new.exit3553:                         ; preds = %7728, %7731
+pm_location_new.argprom.exit3553:                 ; preds = %7728, %7731
   %.pre-phi4691 = phi i64 [ %7720, %7728 ], [ %.pre4690, %7731 ]
   %.0.i.i3552 = phi i64 [ %7730, %7728 ], [ %7732, %7731 ]
   store i64 %.0.i.i3552, ptr %411, align 8
@@ -12863,16 +12863,16 @@ pm_location_new.exit3553:                         ; preds = %7728, %7731
   %7744 = icmp ult i64 %7739, 4611686018427387904
   br i1 %7744, label %7745, label %7748
 
-7745:                                             ; preds = %pm_location_new.exit3553
+7745:                                             ; preds = %pm_location_new.argprom.exit3553
   %7746 = shl nuw nsw i64 %7743, 1
   %7747 = or disjoint i64 %7746, 1
-  br label %pm_location_new.exit3555
+  br label %pm_location_new.argprom.exit3555
 
-7748:                                             ; preds = %pm_location_new.exit3553
+7748:                                             ; preds = %pm_location_new.argprom.exit3553
   %7749 = call i64 @rb_ull2inum(i64 noundef %7743) #6
-  br label %pm_location_new.exit3555
+  br label %pm_location_new.argprom.exit3555
 
-pm_location_new.exit3555:                         ; preds = %7745, %7748
+pm_location_new.argprom.exit3555:                 ; preds = %7745, %7748
   %.0.i.i3554 = phi i64 [ %7747, %7745 ], [ %7749, %7748 ]
   store i64 %.0.i.i3554, ptr %412, align 16
   %7750 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -12915,16 +12915,16 @@ pm_location_new.exit3555:                         ; preds = %7745, %7748
   %7782 = icmp ult i64 %7777, 4611686018427387904
   br i1 %7782, label %7783, label %7786
 
-7783:                                             ; preds = %pm_location_new.exit3555
+7783:                                             ; preds = %pm_location_new.argprom.exit3555
   %7784 = shl nuw nsw i64 %7781, 1
   %7785 = or disjoint i64 %7784, 1
-  br label %pm_location_new.exit3557
+  br label %pm_location_new.argprom.exit3557
 
-7786:                                             ; preds = %pm_location_new.exit3555
+7786:                                             ; preds = %pm_location_new.argprom.exit3555
   %7787 = call i64 @rb_ull2inum(i64 noundef %7781) #6
-  br label %pm_location_new.exit3557
+  br label %pm_location_new.argprom.exit3557
 
-pm_location_new.exit3557:                         ; preds = %7783, %7786
+pm_location_new.argprom.exit3557:                 ; preds = %7783, %7786
   %.0.i.i3556 = phi i64 [ %7785, %7783 ], [ %7787, %7786 ]
   store i64 %.0.i.i3556, ptr %417, align 8
   %7788 = load i64, ptr @rb_cPrismLocalVariableOperatorWriteNode, align 8
@@ -12953,15 +12953,15 @@ pm_location_new.exit3557:                         ; preds = %7783, %7786
 7805:                                             ; preds = %7791
   %7806 = shl nuw nsw i64 %7803, 1
   %7807 = or disjoint i64 %7806, 1
-  br label %pm_location_new.exit3559
+  br label %pm_location_new.argprom.exit3559
 
 7808:                                             ; preds = %7791
   %7809 = call i64 @rb_ull2inum(i64 noundef %7803) #6
   %.val2837.pre = load ptr, ptr %180, align 8
   %.pre4692 = ptrtoint ptr %.val2837.pre to i64
-  br label %pm_location_new.exit3559
+  br label %pm_location_new.argprom.exit3559
 
-pm_location_new.exit3559:                         ; preds = %7805, %7808
+pm_location_new.argprom.exit3559:                 ; preds = %7805, %7808
   %.pre-phi4693 = phi i64 [ %7797, %7805 ], [ %.pre4692, %7808 ]
   %.0.i.i3558 = phi i64 [ %7807, %7805 ], [ %7809, %7808 ]
   store i64 %.0.i.i3558, ptr %405, align 8
@@ -12979,16 +12979,16 @@ pm_location_new.exit3559:                         ; preds = %7805, %7808
   %7821 = icmp ult i64 %7816, 4611686018427387904
   br i1 %7821, label %7822, label %7825
 
-7822:                                             ; preds = %pm_location_new.exit3559
+7822:                                             ; preds = %pm_location_new.argprom.exit3559
   %7823 = shl nuw nsw i64 %7820, 1
   %7824 = or disjoint i64 %7823, 1
-  br label %pm_location_new.exit3561
+  br label %pm_location_new.argprom.exit3561
 
-7825:                                             ; preds = %pm_location_new.exit3559
+7825:                                             ; preds = %pm_location_new.argprom.exit3559
   %7826 = call i64 @rb_ull2inum(i64 noundef %7820) #6
-  br label %pm_location_new.exit3561
+  br label %pm_location_new.argprom.exit3561
 
-pm_location_new.exit3561:                         ; preds = %7822, %7825
+pm_location_new.argprom.exit3561:                 ; preds = %7822, %7825
   %.0.i.i3560 = phi i64 [ %7824, %7822 ], [ %7826, %7825 ]
   store i64 %.0.i.i3560, ptr %406, align 16
   %7827 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -13023,16 +13023,16 @@ pm_location_new.exit3561:                         ; preds = %7822, %7825
   %7852 = icmp ult i64 %7847, 4611686018427387904
   br i1 %7852, label %7853, label %7856
 
-7853:                                             ; preds = %pm_location_new.exit3561
+7853:                                             ; preds = %pm_location_new.argprom.exit3561
   %7854 = shl nuw nsw i64 %7851, 1
   %7855 = or disjoint i64 %7854, 1
-  br label %pm_location_new.exit3563
+  br label %pm_location_new.argprom.exit3563
 
-7856:                                             ; preds = %pm_location_new.exit3561
+7856:                                             ; preds = %pm_location_new.argprom.exit3561
   %7857 = call i64 @rb_ull2inum(i64 noundef %7851) #6
-  br label %pm_location_new.exit3563
+  br label %pm_location_new.argprom.exit3563
 
-pm_location_new.exit3563:                         ; preds = %7853, %7856
+pm_location_new.argprom.exit3563:                 ; preds = %7853, %7856
   %.0.i.i3562 = phi i64 [ %7855, %7853 ], [ %7857, %7856 ]
   store i64 %.0.i.i3562, ptr %410, align 16
   %7858 = load i64, ptr @rb_cPrismLocalVariableOrWriteNode, align 8
@@ -13075,13 +13075,13 @@ pm_location_new.exit3563:                         ; preds = %7853, %7856
 7887:                                             ; preds = %7861
   %7888 = shl nuw nsw i64 %7885, 1
   %7889 = or disjoint i64 %7888, 1
-  br label %pm_location_new.exit3565
+  br label %pm_location_new.argprom.exit3565
 
 7890:                                             ; preds = %7861
   %7891 = call i64 @rb_ull2inum(i64 noundef %7885) #6
-  br label %pm_location_new.exit3565
+  br label %pm_location_new.argprom.exit3565
 
-pm_location_new.exit3565:                         ; preds = %7887, %7890
+pm_location_new.argprom.exit3565:                 ; preds = %7887, %7890
   %.0.i.i3564 = phi i64 [ %7889, %7887 ], [ %7891, %7890 ]
   store i64 %.0.i.i3564, ptr %404, align 8
   %7892 = load i64, ptr @rb_cPrismLocalVariableReadNode, align 8
@@ -13124,13 +13124,13 @@ pm_location_new.exit3565:                         ; preds = %7887, %7890
 7921:                                             ; preds = %7895
   %7922 = shl nuw nsw i64 %7919, 1
   %7923 = or disjoint i64 %7922, 1
-  br label %pm_location_new.exit3567
+  br label %pm_location_new.argprom.exit3567
 
 7924:                                             ; preds = %7895
   %7925 = call i64 @rb_ull2inum(i64 noundef %7919) #6
-  br label %pm_location_new.exit3567
+  br label %pm_location_new.argprom.exit3567
 
-pm_location_new.exit3567:                         ; preds = %7921, %7924
+pm_location_new.argprom.exit3567:                 ; preds = %7921, %7924
   %.0.i.i3566 = phi i64 [ %7923, %7921 ], [ %7925, %7924 ]
   store i64 %.0.i.i3566, ptr %401, align 8
   %7926 = load i64, ptr @rb_cPrismLocalVariableTargetNode, align 8
@@ -13173,13 +13173,13 @@ pm_location_new.exit3567:                         ; preds = %7921, %7924
 7955:                                             ; preds = %7929
   %7956 = shl nuw nsw i64 %7953, 1
   %7957 = or disjoint i64 %7956, 1
-  br label %pm_location_new.exit3569
+  br label %pm_location_new.argprom.exit3569
 
 7958:                                             ; preds = %7929
   %7959 = call i64 @rb_ull2inum(i64 noundef %7953) #6
-  br label %pm_location_new.exit3569
+  br label %pm_location_new.argprom.exit3569
 
-pm_location_new.exit3569:                         ; preds = %7955, %7958
+pm_location_new.argprom.exit3569:                 ; preds = %7955, %7958
   %.0.i.i3568 = phi i64 [ %7957, %7955 ], [ %7959, %7958 ]
   store i64 %.0.i.i3568, ptr %395, align 8
   %7960 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -13200,18 +13200,18 @@ pm_location_new.exit3569:                         ; preds = %7955, %7958
   %7973 = icmp ult i64 %7968, 4611686018427387904
   br i1 %7973, label %7974, label %7977
 
-7974:                                             ; preds = %pm_location_new.exit3569
+7974:                                             ; preds = %pm_location_new.argprom.exit3569
   %7975 = shl nuw nsw i64 %7972, 1
   %7976 = or disjoint i64 %7975, 1
-  br label %pm_location_new.exit3571
+  br label %pm_location_new.argprom.exit3571
 
-7977:                                             ; preds = %pm_location_new.exit3569
+7977:                                             ; preds = %pm_location_new.argprom.exit3569
   %7978 = call i64 @rb_ull2inum(i64 noundef %7972) #6
   %.val2831.pre = load ptr, ptr %180, align 8
   %.pre4694 = ptrtoint ptr %.val2831.pre to i64
-  br label %pm_location_new.exit3571
+  br label %pm_location_new.argprom.exit3571
 
-pm_location_new.exit3571:                         ; preds = %7974, %7977
+pm_location_new.argprom.exit3571:                 ; preds = %7974, %7977
   %.pre-phi4695 = phi i64 [ %7966, %7974 ], [ %.pre4694, %7977 ]
   %.0.i.i3570 = phi i64 [ %7976, %7974 ], [ %7978, %7977 ]
   store i64 %.0.i.i3570, ptr %397, align 8
@@ -13229,16 +13229,16 @@ pm_location_new.exit3571:                         ; preds = %7974, %7977
   %7990 = icmp ult i64 %7985, 4611686018427387904
   br i1 %7990, label %7991, label %7994
 
-7991:                                             ; preds = %pm_location_new.exit3571
+7991:                                             ; preds = %pm_location_new.argprom.exit3571
   %7992 = shl nuw nsw i64 %7989, 1
   %7993 = or disjoint i64 %7992, 1
-  br label %pm_location_new.exit3573
+  br label %pm_location_new.argprom.exit3573
 
-7994:                                             ; preds = %pm_location_new.exit3571
+7994:                                             ; preds = %pm_location_new.argprom.exit3571
   %7995 = call i64 @rb_ull2inum(i64 noundef %7989) #6
-  br label %pm_location_new.exit3573
+  br label %pm_location_new.argprom.exit3573
 
-pm_location_new.exit3573:                         ; preds = %7991, %7994
+pm_location_new.argprom.exit3573:                 ; preds = %7991, %7994
   %.0.i.i3572 = phi i64 [ %7993, %7991 ], [ %7995, %7994 ]
   store i64 %.0.i.i3572, ptr %398, align 16
   %7996 = load i64, ptr @rb_cPrismLocalVariableWriteNode, align 8
@@ -13274,15 +13274,15 @@ pm_location_new.exit3573:                         ; preds = %7991, %7994
 8019:                                             ; preds = %7999
   %8020 = shl nuw nsw i64 %8017, 1
   %8021 = or disjoint i64 %8020, 1
-  br label %pm_location_new.exit3575
+  br label %pm_location_new.argprom.exit3575
 
 8022:                                             ; preds = %7999
   %8023 = call i64 @rb_ull2inum(i64 noundef %8017) #6
   %.val2829.pre = load ptr, ptr %180, align 8
   %.pre4696 = ptrtoint ptr %.val2829.pre to i64
-  br label %pm_location_new.exit3575
+  br label %pm_location_new.argprom.exit3575
 
-pm_location_new.exit3575:                         ; preds = %8019, %8022
+pm_location_new.argprom.exit3575:                 ; preds = %8019, %8022
   %.pre-phi4697 = phi i64 [ %8011, %8019 ], [ %.pre4696, %8022 ]
   %.0.i.i3574 = phi i64 [ %8021, %8019 ], [ %8023, %8022 ]
   store i64 %.0.i.i3574, ptr %388, align 16
@@ -13300,18 +13300,18 @@ pm_location_new.exit3575:                         ; preds = %8019, %8022
   %8035 = icmp ult i64 %8030, 4611686018427387904
   br i1 %8035, label %8036, label %8039
 
-8036:                                             ; preds = %pm_location_new.exit3575
+8036:                                             ; preds = %pm_location_new.argprom.exit3575
   %8037 = shl nuw nsw i64 %8034, 1
   %8038 = or disjoint i64 %8037, 1
-  br label %pm_location_new.exit3577
+  br label %pm_location_new.argprom.exit3577
 
-8039:                                             ; preds = %pm_location_new.exit3575
+8039:                                             ; preds = %pm_location_new.argprom.exit3575
   %8040 = call i64 @rb_ull2inum(i64 noundef %8034) #6
   %.val2828.pre = load ptr, ptr %180, align 8
   %.pre4698 = ptrtoint ptr %.val2828.pre to i64
-  br label %pm_location_new.exit3577
+  br label %pm_location_new.argprom.exit3577
 
-pm_location_new.exit3577:                         ; preds = %8036, %8039
+pm_location_new.argprom.exit3577:                 ; preds = %8036, %8039
   %.pre-phi4699 = phi i64 [ %.pre-phi4697, %8036 ], [ %.pre4698, %8039 ]
   %.0.i.i3576 = phi i64 [ %8038, %8036 ], [ %8040, %8039 ]
   store i64 %.0.i.i3576, ptr %389, align 8
@@ -13329,16 +13329,16 @@ pm_location_new.exit3577:                         ; preds = %8036, %8039
   %8052 = icmp ult i64 %8047, 4611686018427387904
   br i1 %8052, label %8053, label %8056
 
-8053:                                             ; preds = %pm_location_new.exit3577
+8053:                                             ; preds = %pm_location_new.argprom.exit3577
   %8054 = shl nuw nsw i64 %8051, 1
   %8055 = or disjoint i64 %8054, 1
-  br label %pm_location_new.exit3579
+  br label %pm_location_new.argprom.exit3579
 
-8056:                                             ; preds = %pm_location_new.exit3577
+8056:                                             ; preds = %pm_location_new.argprom.exit3577
   %8057 = call i64 @rb_ull2inum(i64 noundef %8051) #6
-  br label %pm_location_new.exit3579
+  br label %pm_location_new.argprom.exit3579
 
-pm_location_new.exit3579:                         ; preds = %8053, %8056
+pm_location_new.argprom.exit3579:                 ; preds = %8053, %8056
   %.0.i.i3578 = phi i64 [ %8055, %8053 ], [ %8057, %8056 ]
   store i64 %.0.i.i3578, ptr %390, align 16
   %8058 = getelementptr inbounds i8, ptr %861, i64 72
@@ -13362,16 +13362,16 @@ pm_location_new.exit3579:                         ; preds = %8053, %8056
   %8074 = icmp ult i64 %8069, 4611686018427387904
   br i1 %8074, label %8075, label %8078
 
-8075:                                             ; preds = %pm_location_new.exit3579
+8075:                                             ; preds = %pm_location_new.argprom.exit3579
   %8076 = shl nuw nsw i64 %8073, 1
   %8077 = or disjoint i64 %8076, 1
-  br label %pm_location_new.exit3581
+  br label %pm_location_new.argprom.exit3581
 
-8078:                                             ; preds = %pm_location_new.exit3579
+8078:                                             ; preds = %pm_location_new.argprom.exit3579
   %8079 = call i64 @rb_ull2inum(i64 noundef %8073) #6
-  br label %pm_location_new.exit3581
+  br label %pm_location_new.argprom.exit3581
 
-pm_location_new.exit3581:                         ; preds = %8075, %8078
+pm_location_new.argprom.exit3581:                 ; preds = %8075, %8078
   %.0.i.i3580 = phi i64 [ %8077, %8075 ], [ %8079, %8078 ]
   store i64 %.0.i.i3580, ptr %392, align 16
   %8080 = load i64, ptr @rb_cPrismMatchLastLineNode, align 8
@@ -13404,15 +13404,15 @@ pm_location_new.exit3581:                         ; preds = %8075, %8078
 8099:                                             ; preds = %8083
   %8100 = shl nuw nsw i64 %8097, 1
   %8101 = or disjoint i64 %8100, 1
-  br label %pm_location_new.exit3583
+  br label %pm_location_new.argprom.exit3583
 
 8102:                                             ; preds = %8083
   %8103 = call i64 @rb_ull2inum(i64 noundef %8097) #6
   %.val2825.pre = load ptr, ptr %180, align 8
   %.pre4700 = ptrtoint ptr %.val2825.pre to i64
-  br label %pm_location_new.exit3583
+  br label %pm_location_new.argprom.exit3583
 
-pm_location_new.exit3583:                         ; preds = %8099, %8102
+pm_location_new.argprom.exit3583:                 ; preds = %8099, %8102
   %.pre-phi4701 = phi i64 [ %8091, %8099 ], [ %.pre4700, %8102 ]
   %.0.i.i3582 = phi i64 [ %8101, %8099 ], [ %8103, %8102 ]
   store i64 %.0.i.i3582, ptr %385, align 8
@@ -13430,16 +13430,16 @@ pm_location_new.exit3583:                         ; preds = %8099, %8102
   %8115 = icmp ult i64 %8110, 4611686018427387904
   br i1 %8115, label %8116, label %8119
 
-8116:                                             ; preds = %pm_location_new.exit3583
+8116:                                             ; preds = %pm_location_new.argprom.exit3583
   %8117 = shl nuw nsw i64 %8114, 1
   %8118 = or disjoint i64 %8117, 1
-  br label %pm_location_new.exit3585
+  br label %pm_location_new.argprom.exit3585
 
-8119:                                             ; preds = %pm_location_new.exit3583
+8119:                                             ; preds = %pm_location_new.argprom.exit3583
   %8120 = call i64 @rb_ull2inum(i64 noundef %8114) #6
-  br label %pm_location_new.exit3585
+  br label %pm_location_new.argprom.exit3585
 
-pm_location_new.exit3585:                         ; preds = %8116, %8119
+pm_location_new.argprom.exit3585:                 ; preds = %8116, %8119
   %.0.i.i3584 = phi i64 [ %8118, %8116 ], [ %8120, %8119 ]
   store i64 %.0.i.i3584, ptr %386, align 16
   %8121 = load i64, ptr @rb_cPrismMatchPredicateNode, align 8
@@ -13472,15 +13472,15 @@ pm_location_new.exit3585:                         ; preds = %8116, %8119
 8140:                                             ; preds = %8124
   %8141 = shl nuw nsw i64 %8138, 1
   %8142 = or disjoint i64 %8141, 1
-  br label %pm_location_new.exit3587
+  br label %pm_location_new.argprom.exit3587
 
 8143:                                             ; preds = %8124
   %8144 = call i64 @rb_ull2inum(i64 noundef %8138) #6
   %.val2823.pre = load ptr, ptr %180, align 8
   %.pre4702 = ptrtoint ptr %.val2823.pre to i64
-  br label %pm_location_new.exit3587
+  br label %pm_location_new.argprom.exit3587
 
-pm_location_new.exit3587:                         ; preds = %8140, %8143
+pm_location_new.argprom.exit3587:                 ; preds = %8140, %8143
   %.pre-phi4703 = phi i64 [ %8132, %8140 ], [ %.pre4702, %8143 ]
   %.0.i.i3586 = phi i64 [ %8142, %8140 ], [ %8144, %8143 ]
   store i64 %.0.i.i3586, ptr %381, align 8
@@ -13498,16 +13498,16 @@ pm_location_new.exit3587:                         ; preds = %8140, %8143
   %8156 = icmp ult i64 %8151, 4611686018427387904
   br i1 %8156, label %8157, label %8160
 
-8157:                                             ; preds = %pm_location_new.exit3587
+8157:                                             ; preds = %pm_location_new.argprom.exit3587
   %8158 = shl nuw nsw i64 %8155, 1
   %8159 = or disjoint i64 %8158, 1
-  br label %pm_location_new.exit3589
+  br label %pm_location_new.argprom.exit3589
 
-8160:                                             ; preds = %pm_location_new.exit3587
+8160:                                             ; preds = %pm_location_new.argprom.exit3587
   %8161 = call i64 @rb_ull2inum(i64 noundef %8155) #6
-  br label %pm_location_new.exit3589
+  br label %pm_location_new.argprom.exit3589
 
-pm_location_new.exit3589:                         ; preds = %8157, %8160
+pm_location_new.argprom.exit3589:                 ; preds = %8157, %8160
   %.0.i.i3588 = phi i64 [ %8159, %8157 ], [ %8161, %8160 ]
   store i64 %.0.i.i3588, ptr %382, align 16
   %8162 = load i64, ptr @rb_cPrismMatchRequiredNode, align 8
@@ -13557,13 +13557,13 @@ pm_location_new.exit3589:                         ; preds = %8157, %8160
 8190:                                             ; preds = %._crit_edge4249
   %8191 = shl nuw nsw i64 %8188, 1
   %8192 = or disjoint i64 %8191, 1
-  br label %pm_location_new.exit3591
+  br label %pm_location_new.argprom.exit3591
 
 8193:                                             ; preds = %._crit_edge4249
   %8194 = call i64 @rb_ull2inum(i64 noundef %8188) #6
-  br label %pm_location_new.exit3591
+  br label %pm_location_new.argprom.exit3591
 
-pm_location_new.exit3591:                         ; preds = %8190, %8193
+pm_location_new.argprom.exit3591:                 ; preds = %8190, %8193
   %.0.i.i3590 = phi i64 [ %8192, %8190 ], [ %8194, %8193 ]
   store i64 %.0.i.i3590, ptr %378, align 8
   %8195 = load i64, ptr @rb_cPrismMatchWriteNode, align 8
@@ -13592,13 +13592,13 @@ pm_location_new.exit3591:                         ; preds = %8190, %8193
 8212:                                             ; preds = %8198
   %8213 = shl nuw nsw i64 %8210, 1
   %8214 = or disjoint i64 %8213, 1
-  br label %pm_location_new.exit3593
+  br label %pm_location_new.argprom.exit3593
 
 8215:                                             ; preds = %8198
   %8216 = call i64 @rb_ull2inum(i64 noundef %8210) #6
-  br label %pm_location_new.exit3593
+  br label %pm_location_new.argprom.exit3593
 
-pm_location_new.exit3593:                         ; preds = %8212, %8215
+pm_location_new.argprom.exit3593:                 ; preds = %8212, %8215
   %.0.i.i3592 = phi i64 [ %8214, %8212 ], [ %8216, %8215 ]
   store i64 %.0.i.i3592, ptr %375, align 8
   %8217 = load i64, ptr @rb_cPrismMissingNode, align 8
@@ -13657,13 +13657,13 @@ pm_location_new.exit3593:                         ; preds = %8212, %8215
 8253:                                             ; preds = %._crit_edge4245
   %8254 = shl nuw nsw i64 %8251, 1
   %8255 = or disjoint i64 %8254, 1
-  br label %pm_location_new.exit3595
+  br label %pm_location_new.argprom.exit3595
 
 8256:                                             ; preds = %._crit_edge4245
   %8257 = call i64 @rb_ull2inum(i64 noundef %8251) #6
-  br label %pm_location_new.exit3595
+  br label %pm_location_new.argprom.exit3595
 
-pm_location_new.exit3595:                         ; preds = %8253, %8256
+pm_location_new.argprom.exit3595:                 ; preds = %8253, %8256
   %.0.i.i3594 = phi i64 [ %8255, %8253 ], [ %8257, %8256 ]
   store i64 %.0.i.i3594, ptr %369, align 16
   %8258 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -13686,16 +13686,16 @@ pm_location_new.exit3595:                         ; preds = %8253, %8256
   %8272 = icmp ult i64 %8267, 4611686018427387904
   br i1 %8272, label %8273, label %8276
 
-8273:                                             ; preds = %pm_location_new.exit3595
+8273:                                             ; preds = %pm_location_new.argprom.exit3595
   %8274 = shl nuw nsw i64 %8271, 1
   %8275 = or disjoint i64 %8274, 1
-  br label %pm_location_new.exit3597
+  br label %pm_location_new.argprom.exit3597
 
-8276:                                             ; preds = %pm_location_new.exit3595
+8276:                                             ; preds = %pm_location_new.argprom.exit3595
   %8277 = call i64 @rb_ull2inum(i64 noundef %8271) #6
-  br label %pm_location_new.exit3597
+  br label %pm_location_new.argprom.exit3597
 
-pm_location_new.exit3597:                         ; preds = %8273, %8276
+pm_location_new.argprom.exit3597:                 ; preds = %8273, %8276
   %.0.i.i3596 = phi i64 [ %8275, %8273 ], [ %8277, %8276 ]
   store i64 %.0.i.i3596, ptr %372, align 8
   %8278 = getelementptr inbounds i8, ptr %861, i64 96
@@ -13722,16 +13722,16 @@ pm_location_new.exit3597:                         ; preds = %8273, %8276
   %8297 = icmp ult i64 %8292, 4611686018427387904
   br i1 %8297, label %8298, label %8301
 
-8298:                                             ; preds = %pm_location_new.exit3597
+8298:                                             ; preds = %pm_location_new.argprom.exit3597
   %8299 = shl nuw nsw i64 %8296, 1
   %8300 = or disjoint i64 %8299, 1
-  br label %pm_location_new.exit3599
+  br label %pm_location_new.argprom.exit3599
 
-8301:                                             ; preds = %pm_location_new.exit3597
+8301:                                             ; preds = %pm_location_new.argprom.exit3597
   %8302 = call i64 @rb_ull2inum(i64 noundef %8296) #6
-  br label %pm_location_new.exit3599
+  br label %pm_location_new.argprom.exit3599
 
-pm_location_new.exit3599:                         ; preds = %8298, %8301
+pm_location_new.argprom.exit3599:                 ; preds = %8298, %8301
   %.0.i.i3598 = phi i64 [ %8300, %8298 ], [ %8302, %8301 ]
   store i64 %.0.i.i3598, ptr %374, align 8
   %8303 = load i64, ptr @rb_cPrismModuleNode, align 8
@@ -13785,7 +13785,7 @@ pm_location_new.exit3599:                         ; preds = %8298, %8301
   %8329 = load ptr, ptr %8328, align 8
   %8330 = icmp eq ptr %8329, null
   %.val2815.pre4475.pre4575 = load ptr, ptr %180, align 8
-  br i1 %8330, label %pm_location_new.exit3601, label %8331
+  br i1 %8330, label %pm_location_new.argprom.exit3601, label %8331
 
 8331:                                             ; preds = %._crit_edge4241
   %8332 = getelementptr inbounds i8, ptr %861, i64 88
@@ -13804,23 +13804,23 @@ pm_location_new.exit3599:                         ; preds = %8298, %8301
 8343:                                             ; preds = %8331
   %8344 = shl nuw nsw i64 %8341, 1
   %8345 = or disjoint i64 %8344, 1
-  br label %pm_location_new.exit3601
+  br label %pm_location_new.argprom.exit3601
 
 8346:                                             ; preds = %8331
   %8347 = call i64 @rb_ull2inum(i64 noundef %8341) #6
   %.val2815.pre4475.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3601
+  br label %pm_location_new.argprom.exit3601
 
-pm_location_new.exit3601:                         ; preds = %8346, %8343, %._crit_edge4241
+pm_location_new.argprom.exit3601:                 ; preds = %8346, %8343, %._crit_edge4241
   %.val2815.pre4475 = phi ptr [ %.val2815.pre4475.pre4575, %._crit_edge4241 ], [ %.val2815.pre4475.pre4575, %8343 ], [ %.val2815.pre4475.pre, %8346 ]
   %8348 = phi i64 [ 4, %._crit_edge4241 ], [ %8345, %8343 ], [ %8347, %8346 ]
   store i64 %8348, ptr %365, align 16
   %8349 = getelementptr inbounds i8, ptr %861, i64 96
   %8350 = load ptr, ptr %8349, align 8
   %8351 = icmp eq ptr %8350, null
-  br i1 %8351, label %pm_location_new.exit3603, label %8352
+  br i1 %8351, label %pm_location_new.argprom.exit3603, label %8352
 
-8352:                                             ; preds = %pm_location_new.exit3601
+8352:                                             ; preds = %pm_location_new.argprom.exit3601
   %8353 = getelementptr inbounds i8, ptr %861, i64 104
   %8354 = load ptr, ptr %8353, align 8
   %8355 = ptrtoint ptr %8350 to i64
@@ -13837,16 +13837,16 @@ pm_location_new.exit3601:                         ; preds = %8346, %8343, %._cri
 8364:                                             ; preds = %8352
   %8365 = shl nuw nsw i64 %8362, 1
   %8366 = or disjoint i64 %8365, 1
-  br label %pm_location_new.exit3603
+  br label %pm_location_new.argprom.exit3603
 
 8367:                                             ; preds = %8352
   %8368 = call i64 @rb_ull2inum(i64 noundef %8362) #6
   %.val2815.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3603
+  br label %pm_location_new.argprom.exit3603
 
-pm_location_new.exit3603:                         ; preds = %8367, %8364, %pm_location_new.exit3601
-  %.val2815 = phi ptr [ %.val2815.pre4475, %pm_location_new.exit3601 ], [ %.val2815.pre4475, %8364 ], [ %.val2815.pre, %8367 ]
-  %8369 = phi i64 [ 4, %pm_location_new.exit3601 ], [ %8366, %8364 ], [ %8368, %8367 ]
+pm_location_new.argprom.exit3603:                 ; preds = %8367, %8364, %pm_location_new.argprom.exit3601
+  %.val2815 = phi ptr [ %.val2815.pre4475, %pm_location_new.argprom.exit3601 ], [ %.val2815.pre4475, %8364 ], [ %.val2815.pre, %8367 ]
+  %8369 = phi i64 [ 4, %pm_location_new.argprom.exit3601 ], [ %8366, %8364 ], [ %8368, %8367 ]
   store i64 %8369, ptr %366, align 8
   %8370 = getelementptr inbounds i8, ptr %861, i64 8
   %8371 = load ptr, ptr %8370, align 8
@@ -13863,16 +13863,16 @@ pm_location_new.exit3603:                         ; preds = %8367, %8364, %pm_lo
   %8382 = icmp ult i64 %8377, 4611686018427387904
   br i1 %8382, label %8383, label %8386
 
-8383:                                             ; preds = %pm_location_new.exit3603
+8383:                                             ; preds = %pm_location_new.argprom.exit3603
   %8384 = shl nuw nsw i64 %8381, 1
   %8385 = or disjoint i64 %8384, 1
-  br label %pm_location_new.exit3605
+  br label %pm_location_new.argprom.exit3605
 
-8386:                                             ; preds = %pm_location_new.exit3603
+8386:                                             ; preds = %pm_location_new.argprom.exit3603
   %8387 = call i64 @rb_ull2inum(i64 noundef %8381) #6
-  br label %pm_location_new.exit3605
+  br label %pm_location_new.argprom.exit3605
 
-pm_location_new.exit3605:                         ; preds = %8383, %8386
+pm_location_new.argprom.exit3605:                 ; preds = %8383, %8386
   %.0.i.i3604 = phi i64 [ %8385, %8383 ], [ %8387, %8386 ]
   store i64 %.0.i.i3604, ptr %367, align 16
   %8388 = load i64, ptr @rb_cPrismMultiTargetNode, align 8
@@ -13926,7 +13926,7 @@ pm_location_new.exit3605:                         ; preds = %8383, %8386
   %8414 = load ptr, ptr %8413, align 8
   %8415 = icmp eq ptr %8414, null
   %.val2812.pre4473.pre4573 = load ptr, ptr %180, align 8
-  br i1 %8415, label %pm_location_new.exit3607, label %8416
+  br i1 %8415, label %pm_location_new.argprom.exit3607, label %8416
 
 8416:                                             ; preds = %._crit_edge4233
   %8417 = getelementptr inbounds i8, ptr %861, i64 88
@@ -13945,23 +13945,23 @@ pm_location_new.exit3605:                         ; preds = %8383, %8386
 8428:                                             ; preds = %8416
   %8429 = shl nuw nsw i64 %8426, 1
   %8430 = or disjoint i64 %8429, 1
-  br label %pm_location_new.exit3607
+  br label %pm_location_new.argprom.exit3607
 
 8431:                                             ; preds = %8416
   %8432 = call i64 @rb_ull2inum(i64 noundef %8426) #6
   %.val2812.pre4473.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3607
+  br label %pm_location_new.argprom.exit3607
 
-pm_location_new.exit3607:                         ; preds = %8431, %8428, %._crit_edge4233
+pm_location_new.argprom.exit3607:                 ; preds = %8431, %8428, %._crit_edge4233
   %.val2812.pre4473 = phi ptr [ %.val2812.pre4473.pre4573, %._crit_edge4233 ], [ %.val2812.pre4473.pre4573, %8428 ], [ %.val2812.pre4473.pre, %8431 ]
   %8433 = phi i64 [ 4, %._crit_edge4233 ], [ %8430, %8428 ], [ %8432, %8431 ]
   store i64 %8433, ptr %357, align 16
   %8434 = getelementptr inbounds i8, ptr %861, i64 96
   %8435 = load ptr, ptr %8434, align 8
   %8436 = icmp eq ptr %8435, null
-  br i1 %8436, label %pm_location_new.exit3609, label %8437
+  br i1 %8436, label %pm_location_new.argprom.exit3609, label %8437
 
-8437:                                             ; preds = %pm_location_new.exit3607
+8437:                                             ; preds = %pm_location_new.argprom.exit3607
   %8438 = getelementptr inbounds i8, ptr %861, i64 104
   %8439 = load ptr, ptr %8438, align 8
   %8440 = ptrtoint ptr %8435 to i64
@@ -13978,16 +13978,16 @@ pm_location_new.exit3607:                         ; preds = %8431, %8428, %._cri
 8449:                                             ; preds = %8437
   %8450 = shl nuw nsw i64 %8447, 1
   %8451 = or disjoint i64 %8450, 1
-  br label %pm_location_new.exit3609
+  br label %pm_location_new.argprom.exit3609
 
 8452:                                             ; preds = %8437
   %8453 = call i64 @rb_ull2inum(i64 noundef %8447) #6
   %.val2812.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3609
+  br label %pm_location_new.argprom.exit3609
 
-pm_location_new.exit3609:                         ; preds = %8452, %8449, %pm_location_new.exit3607
-  %.val2812 = phi ptr [ %.val2812.pre4473, %pm_location_new.exit3607 ], [ %.val2812.pre4473, %8449 ], [ %.val2812.pre, %8452 ]
-  %8454 = phi i64 [ 4, %pm_location_new.exit3607 ], [ %8451, %8449 ], [ %8453, %8452 ]
+pm_location_new.argprom.exit3609:                 ; preds = %8452, %8449, %pm_location_new.argprom.exit3607
+  %.val2812 = phi ptr [ %.val2812.pre4473, %pm_location_new.argprom.exit3607 ], [ %.val2812.pre4473, %8449 ], [ %.val2812.pre, %8452 ]
+  %8454 = phi i64 [ 4, %pm_location_new.argprom.exit3607 ], [ %8451, %8449 ], [ %8453, %8452 ]
   store i64 %8454, ptr %358, align 8
   %8455 = getelementptr inbounds i8, ptr %861, i64 112
   %8456 = load ptr, ptr %8455, align 8
@@ -14004,16 +14004,16 @@ pm_location_new.exit3609:                         ; preds = %8452, %8449, %pm_lo
   %8467 = icmp ult i64 %8462, 4611686018427387904
   br i1 %8467, label %8468, label %8471
 
-8468:                                             ; preds = %pm_location_new.exit3609
+8468:                                             ; preds = %pm_location_new.argprom.exit3609
   %8469 = shl nuw nsw i64 %8466, 1
   %8470 = or disjoint i64 %8469, 1
-  br label %pm_location_new.exit3611
+  br label %pm_location_new.argprom.exit3611
 
-8471:                                             ; preds = %pm_location_new.exit3609
+8471:                                             ; preds = %pm_location_new.argprom.exit3609
   %8472 = call i64 @rb_ull2inum(i64 noundef %8466) #6
-  br label %pm_location_new.exit3611
+  br label %pm_location_new.argprom.exit3611
 
-pm_location_new.exit3611:                         ; preds = %8468, %8471
+pm_location_new.argprom.exit3611:                 ; preds = %8468, %8471
   %.0.i.i3610 = phi i64 [ %8470, %8468 ], [ %8472, %8471 ]
   store i64 %.0.i.i3610, ptr %359, align 16
   %8473 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -14034,16 +14034,16 @@ pm_location_new.exit3611:                         ; preds = %8468, %8471
   %8486 = icmp ult i64 %8481, 4611686018427387904
   br i1 %8486, label %8487, label %8490
 
-8487:                                             ; preds = %pm_location_new.exit3611
+8487:                                             ; preds = %pm_location_new.argprom.exit3611
   %8488 = shl nuw nsw i64 %8485, 1
   %8489 = or disjoint i64 %8488, 1
-  br label %pm_location_new.exit3613
+  br label %pm_location_new.argprom.exit3613
 
-8490:                                             ; preds = %pm_location_new.exit3611
+8490:                                             ; preds = %pm_location_new.argprom.exit3611
   %8491 = call i64 @rb_ull2inum(i64 noundef %8485) #6
-  br label %pm_location_new.exit3613
+  br label %pm_location_new.argprom.exit3613
 
-pm_location_new.exit3613:                         ; preds = %8487, %8490
+pm_location_new.argprom.exit3613:                 ; preds = %8487, %8490
   %.0.i.i3612 = phi i64 [ %8489, %8487 ], [ %8491, %8490 ]
   store i64 %.0.i.i3612, ptr %361, align 16
   %8492 = load i64, ptr @rb_cPrismMultiWriteNode, align 8
@@ -14074,15 +14074,15 @@ pm_location_new.exit3613:                         ; preds = %8487, %8490
 8510:                                             ; preds = %8495
   %8511 = shl nuw nsw i64 %8508, 1
   %8512 = or disjoint i64 %8511, 1
-  br label %pm_location_new.exit3615
+  br label %pm_location_new.argprom.exit3615
 
 8513:                                             ; preds = %8495
   %8514 = call i64 @rb_ull2inum(i64 noundef %8508) #6
   %.val2809.pre = load ptr, ptr %180, align 8
   %.pre4704 = ptrtoint ptr %.val2809.pre to i64
-  br label %pm_location_new.exit3615
+  br label %pm_location_new.argprom.exit3615
 
-pm_location_new.exit3615:                         ; preds = %8510, %8513
+pm_location_new.argprom.exit3615:                 ; preds = %8510, %8513
   %.pre-phi4705 = phi i64 [ %8502, %8510 ], [ %.pre4704, %8513 ]
   %.0.i.i3614 = phi i64 [ %8512, %8510 ], [ %8514, %8513 ]
   store i64 %.0.i.i3614, ptr %352, align 16
@@ -14100,16 +14100,16 @@ pm_location_new.exit3615:                         ; preds = %8510, %8513
   %8526 = icmp ult i64 %8521, 4611686018427387904
   br i1 %8526, label %8527, label %8530
 
-8527:                                             ; preds = %pm_location_new.exit3615
+8527:                                             ; preds = %pm_location_new.argprom.exit3615
   %8528 = shl nuw nsw i64 %8525, 1
   %8529 = or disjoint i64 %8528, 1
-  br label %pm_location_new.exit3617
+  br label %pm_location_new.argprom.exit3617
 
-8530:                                             ; preds = %pm_location_new.exit3615
+8530:                                             ; preds = %pm_location_new.argprom.exit3615
   %8531 = call i64 @rb_ull2inum(i64 noundef %8525) #6
-  br label %pm_location_new.exit3617
+  br label %pm_location_new.argprom.exit3617
 
-pm_location_new.exit3617:                         ; preds = %8527, %8530
+pm_location_new.argprom.exit3617:                 ; preds = %8527, %8530
   %.0.i.i3616 = phi i64 [ %8529, %8527 ], [ %8531, %8530 ]
   store i64 %.0.i.i3616, ptr %353, align 8
   %8532 = load i64, ptr @rb_cPrismNextNode, align 8
@@ -14138,13 +14138,13 @@ pm_location_new.exit3617:                         ; preds = %8527, %8530
 8549:                                             ; preds = %8535
   %8550 = shl nuw nsw i64 %8547, 1
   %8551 = or disjoint i64 %8550, 1
-  br label %pm_location_new.exit3619
+  br label %pm_location_new.argprom.exit3619
 
 8552:                                             ; preds = %8535
   %8553 = call i64 @rb_ull2inum(i64 noundef %8547) #6
-  br label %pm_location_new.exit3619
+  br label %pm_location_new.argprom.exit3619
 
-pm_location_new.exit3619:                         ; preds = %8549, %8552
+pm_location_new.argprom.exit3619:                 ; preds = %8549, %8552
   %.0.i.i3618 = phi i64 [ %8551, %8549 ], [ %8553, %8552 ]
   store i64 %.0.i.i3618, ptr %350, align 8
   %8554 = load i64, ptr @rb_cPrismNilNode, align 8
@@ -14173,15 +14173,15 @@ pm_location_new.exit3619:                         ; preds = %8549, %8552
 8571:                                             ; preds = %8557
   %8572 = shl nuw nsw i64 %8569, 1
   %8573 = or disjoint i64 %8572, 1
-  br label %pm_location_new.exit3621
+  br label %pm_location_new.argprom.exit3621
 
 8574:                                             ; preds = %8557
   %8575 = call i64 @rb_ull2inum(i64 noundef %8569) #6
   %.val2806.pre = load ptr, ptr %180, align 8
   %.pre4706 = ptrtoint ptr %.val2806.pre to i64
-  br label %pm_location_new.exit3621
+  br label %pm_location_new.argprom.exit3621
 
-pm_location_new.exit3621:                         ; preds = %8571, %8574
+pm_location_new.argprom.exit3621:                 ; preds = %8571, %8574
   %.pre-phi4707 = phi i64 [ %8563, %8571 ], [ %.pre4706, %8574 ]
   %.0.i.i3620 = phi i64 [ %8573, %8571 ], [ %8575, %8574 ]
   store i64 %.0.i.i3620, ptr %347, align 8
@@ -14199,18 +14199,18 @@ pm_location_new.exit3621:                         ; preds = %8571, %8574
   %8587 = icmp ult i64 %8582, 4611686018427387904
   br i1 %8587, label %8588, label %8591
 
-8588:                                             ; preds = %pm_location_new.exit3621
+8588:                                             ; preds = %pm_location_new.argprom.exit3621
   %8589 = shl nuw nsw i64 %8586, 1
   %8590 = or disjoint i64 %8589, 1
-  br label %pm_location_new.exit3623
+  br label %pm_location_new.argprom.exit3623
 
-8591:                                             ; preds = %pm_location_new.exit3621
+8591:                                             ; preds = %pm_location_new.argprom.exit3621
   %8592 = call i64 @rb_ull2inum(i64 noundef %8586) #6
   %.val2805.pre = load ptr, ptr %180, align 8
   %.pre4708 = ptrtoint ptr %.val2805.pre to i64
-  br label %pm_location_new.exit3623
+  br label %pm_location_new.argprom.exit3623
 
-pm_location_new.exit3623:                         ; preds = %8588, %8591
+pm_location_new.argprom.exit3623:                 ; preds = %8588, %8591
   %.pre-phi4709 = phi i64 [ %.pre-phi4707, %8588 ], [ %.pre4708, %8591 ]
   %.0.i.i3622 = phi i64 [ %8590, %8588 ], [ %8592, %8591 ]
   store i64 %.0.i.i3622, ptr %348, align 16
@@ -14228,16 +14228,16 @@ pm_location_new.exit3623:                         ; preds = %8588, %8591
   %8604 = icmp ult i64 %8599, 4611686018427387904
   br i1 %8604, label %8605, label %8608
 
-8605:                                             ; preds = %pm_location_new.exit3623
+8605:                                             ; preds = %pm_location_new.argprom.exit3623
   %8606 = shl nuw nsw i64 %8603, 1
   %8607 = or disjoint i64 %8606, 1
-  br label %pm_location_new.exit3625
+  br label %pm_location_new.argprom.exit3625
 
-8608:                                             ; preds = %pm_location_new.exit3623
+8608:                                             ; preds = %pm_location_new.argprom.exit3623
   %8609 = call i64 @rb_ull2inum(i64 noundef %8603) #6
-  br label %pm_location_new.exit3625
+  br label %pm_location_new.argprom.exit3625
 
-pm_location_new.exit3625:                         ; preds = %8605, %8608
+pm_location_new.argprom.exit3625:                 ; preds = %8605, %8608
   %.0.i.i3624 = phi i64 [ %8607, %8605 ], [ %8609, %8608 ]
   store i64 %.0.i.i3624, ptr %349, align 8
   %8610 = load i64, ptr @rb_cPrismNoKeywordsParameterNode, align 8
@@ -14272,13 +14272,13 @@ pm_location_new.exit3625:                         ; preds = %8605, %8608
 8632:                                             ; preds = %8613
   %8633 = shl nuw nsw i64 %8630, 1
   %8634 = or disjoint i64 %8633, 1
-  br label %pm_location_new.exit3627
+  br label %pm_location_new.argprom.exit3627
 
 8635:                                             ; preds = %8613
   %8636 = call i64 @rb_ull2inum(i64 noundef %8630) #6
-  br label %pm_location_new.exit3627
+  br label %pm_location_new.argprom.exit3627
 
-pm_location_new.exit3627:                         ; preds = %8632, %8635
+pm_location_new.argprom.exit3627:                 ; preds = %8632, %8635
   %.0.i.i3626 = phi i64 [ %8634, %8632 ], [ %8636, %8635 ]
   store i64 %.0.i.i3626, ptr %346, align 16
   %8637 = load i64, ptr @rb_cPrismNumberedParametersNode, align 8
@@ -14313,13 +14313,13 @@ pm_location_new.exit3627:                         ; preds = %8632, %8635
 8659:                                             ; preds = %8640
   %8660 = shl nuw nsw i64 %8657, 1
   %8661 = or disjoint i64 %8660, 1
-  br label %pm_location_new.exit3629
+  br label %pm_location_new.argprom.exit3629
 
 8662:                                             ; preds = %8640
   %8663 = call i64 @rb_ull2inum(i64 noundef %8657) #6
-  br label %pm_location_new.exit3629
+  br label %pm_location_new.argprom.exit3629
 
-pm_location_new.exit3629:                         ; preds = %8659, %8662
+pm_location_new.argprom.exit3629:                 ; preds = %8659, %8662
   %.0.i.i3628 = phi i64 [ %8661, %8659 ], [ %8663, %8662 ]
   store i64 %.0.i.i3628, ptr %344, align 16
   %8664 = load i64, ptr @rb_cPrismNumberedReferenceReadNode, align 8
@@ -14363,13 +14363,13 @@ pm_location_new.exit3629:                         ; preds = %8659, %8662
 8694:                                             ; preds = %8667
   %8695 = shl nuw nsw i64 %8692, 1
   %8696 = or disjoint i64 %8695, 1
-  br label %pm_location_new.exit3631
+  br label %pm_location_new.argprom.exit3631
 
 8697:                                             ; preds = %8667
   %8698 = call i64 @rb_ull2inum(i64 noundef %8692) #6
-  br label %pm_location_new.exit3631
+  br label %pm_location_new.argprom.exit3631
 
-pm_location_new.exit3631:                         ; preds = %8694, %8697
+pm_location_new.argprom.exit3631:                 ; preds = %8694, %8697
   %.0.i.i3630 = phi i64 [ %8696, %8694 ], [ %8698, %8697 ]
   store i64 %.0.i.i3630, ptr %340, align 8
   %8699 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -14390,16 +14390,16 @@ pm_location_new.exit3631:                         ; preds = %8694, %8697
   %8712 = icmp ult i64 %8707, 4611686018427387904
   br i1 %8712, label %8713, label %8716
 
-8713:                                             ; preds = %pm_location_new.exit3631
+8713:                                             ; preds = %pm_location_new.argprom.exit3631
   %8714 = shl nuw nsw i64 %8711, 1
   %8715 = or disjoint i64 %8714, 1
-  br label %pm_location_new.exit3633
+  br label %pm_location_new.argprom.exit3633
 
-8716:                                             ; preds = %pm_location_new.exit3631
+8716:                                             ; preds = %pm_location_new.argprom.exit3631
   %8717 = call i64 @rb_ull2inum(i64 noundef %8711) #6
-  br label %pm_location_new.exit3633
+  br label %pm_location_new.argprom.exit3633
 
-pm_location_new.exit3633:                         ; preds = %8713, %8716
+pm_location_new.argprom.exit3633:                 ; preds = %8713, %8716
   %.0.i.i3632 = phi i64 [ %8715, %8713 ], [ %8717, %8716 ]
   store i64 %.0.i.i3632, ptr %342, align 8
   %8718 = load i64, ptr @rb_cPrismOptionalKeywordParameterNode, align 8
@@ -14443,15 +14443,15 @@ pm_location_new.exit3633:                         ; preds = %8713, %8716
 8748:                                             ; preds = %8721
   %8749 = shl nuw nsw i64 %8746, 1
   %8750 = or disjoint i64 %8749, 1
-  br label %pm_location_new.exit3635
+  br label %pm_location_new.argprom.exit3635
 
 8751:                                             ; preds = %8721
   %8752 = call i64 @rb_ull2inum(i64 noundef %8746) #6
   %.val2799.pre = load ptr, ptr %180, align 8
   %.pre4710 = ptrtoint ptr %.val2799.pre to i64
-  br label %pm_location_new.exit3635
+  br label %pm_location_new.argprom.exit3635
 
-pm_location_new.exit3635:                         ; preds = %8748, %8751
+pm_location_new.argprom.exit3635:                 ; preds = %8748, %8751
   %.pre-phi4711 = phi i64 [ %8740, %8748 ], [ %.pre4710, %8751 ]
   %.0.i.i3634 = phi i64 [ %8750, %8748 ], [ %8752, %8751 ]
   store i64 %.0.i.i3634, ptr %334, align 8
@@ -14469,16 +14469,16 @@ pm_location_new.exit3635:                         ; preds = %8748, %8751
   %8764 = icmp ult i64 %8759, 4611686018427387904
   br i1 %8764, label %8765, label %8768
 
-8765:                                             ; preds = %pm_location_new.exit3635
+8765:                                             ; preds = %pm_location_new.argprom.exit3635
   %8766 = shl nuw nsw i64 %8763, 1
   %8767 = or disjoint i64 %8766, 1
-  br label %pm_location_new.exit3637
+  br label %pm_location_new.argprom.exit3637
 
-8768:                                             ; preds = %pm_location_new.exit3635
+8768:                                             ; preds = %pm_location_new.argprom.exit3635
   %8769 = call i64 @rb_ull2inum(i64 noundef %8763) #6
-  br label %pm_location_new.exit3637
+  br label %pm_location_new.argprom.exit3637
 
-pm_location_new.exit3637:                         ; preds = %8765, %8768
+pm_location_new.argprom.exit3637:                 ; preds = %8765, %8768
   %.0.i.i3636 = phi i64 [ %8767, %8765 ], [ %8769, %8768 ]
   store i64 %.0.i.i3636, ptr %335, align 16
   %8770 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -14499,16 +14499,16 @@ pm_location_new.exit3637:                         ; preds = %8765, %8768
   %8783 = icmp ult i64 %8778, 4611686018427387904
   br i1 %8783, label %8784, label %8787
 
-8784:                                             ; preds = %pm_location_new.exit3637
+8784:                                             ; preds = %pm_location_new.argprom.exit3637
   %8785 = shl nuw nsw i64 %8782, 1
   %8786 = or disjoint i64 %8785, 1
-  br label %pm_location_new.exit3639
+  br label %pm_location_new.argprom.exit3639
 
-8787:                                             ; preds = %pm_location_new.exit3637
+8787:                                             ; preds = %pm_location_new.argprom.exit3637
   %8788 = call i64 @rb_ull2inum(i64 noundef %8782) #6
-  br label %pm_location_new.exit3639
+  br label %pm_location_new.argprom.exit3639
 
-pm_location_new.exit3639:                         ; preds = %8784, %8787
+pm_location_new.argprom.exit3639:                 ; preds = %8784, %8787
   %.0.i.i3638 = phi i64 [ %8786, %8784 ], [ %8788, %8787 ]
   store i64 %.0.i.i3638, ptr %337, align 16
   %8789 = load i64, ptr @rb_cPrismOptionalParameterNode, align 8
@@ -14541,15 +14541,15 @@ pm_location_new.exit3639:                         ; preds = %8784, %8787
 8808:                                             ; preds = %8792
   %8809 = shl nuw nsw i64 %8806, 1
   %8810 = or disjoint i64 %8809, 1
-  br label %pm_location_new.exit3641
+  br label %pm_location_new.argprom.exit3641
 
 8811:                                             ; preds = %8792
   %8812 = call i64 @rb_ull2inum(i64 noundef %8806) #6
   %.val2796.pre = load ptr, ptr %180, align 8
   %.pre4712 = ptrtoint ptr %.val2796.pre to i64
-  br label %pm_location_new.exit3641
+  br label %pm_location_new.argprom.exit3641
 
-pm_location_new.exit3641:                         ; preds = %8808, %8811
+pm_location_new.argprom.exit3641:                 ; preds = %8808, %8811
   %.pre-phi4713 = phi i64 [ %8800, %8808 ], [ %.pre4712, %8811 ]
   %.0.i.i3640 = phi i64 [ %8810, %8808 ], [ %8812, %8811 ]
   store i64 %.0.i.i3640, ptr %330, align 8
@@ -14567,16 +14567,16 @@ pm_location_new.exit3641:                         ; preds = %8808, %8811
   %8824 = icmp ult i64 %8819, 4611686018427387904
   br i1 %8824, label %8825, label %8828
 
-8825:                                             ; preds = %pm_location_new.exit3641
+8825:                                             ; preds = %pm_location_new.argprom.exit3641
   %8826 = shl nuw nsw i64 %8823, 1
   %8827 = or disjoint i64 %8826, 1
-  br label %pm_location_new.exit3643
+  br label %pm_location_new.argprom.exit3643
 
-8828:                                             ; preds = %pm_location_new.exit3641
+8828:                                             ; preds = %pm_location_new.argprom.exit3641
   %8829 = call i64 @rb_ull2inum(i64 noundef %8823) #6
-  br label %pm_location_new.exit3643
+  br label %pm_location_new.argprom.exit3643
 
-pm_location_new.exit3643:                         ; preds = %8825, %8828
+pm_location_new.argprom.exit3643:                 ; preds = %8825, %8828
   %.0.i.i3642 = phi i64 [ %8827, %8825 ], [ %8829, %8828 ]
   store i64 %.0.i.i3642, ptr %331, align 16
   %8830 = load i64, ptr @rb_cPrismOrNode, align 8
@@ -14687,13 +14687,13 @@ pm_location_new.exit3643:                         ; preds = %8825, %8828
 8890:                                             ; preds = %._crit_edge4225
   %8891 = shl nuw nsw i64 %8888, 1
   %8892 = or disjoint i64 %8891, 1
-  br label %pm_location_new.exit3645
+  br label %pm_location_new.argprom.exit3645
 
 8893:                                             ; preds = %._crit_edge4225
   %8894 = call i64 @rb_ull2inum(i64 noundef %8888) #6
-  br label %pm_location_new.exit3645
+  br label %pm_location_new.argprom.exit3645
 
-pm_location_new.exit3645:                         ; preds = %8890, %8893
+pm_location_new.argprom.exit3645:                 ; preds = %8890, %8893
   %.0.i.i3644 = phi i64 [ %8892, %8890 ], [ %8894, %8893 ]
   store i64 %.0.i.i3644, ptr %327, align 16
   %8895 = load i64, ptr @rb_cPrismParametersNode, align 8
@@ -14724,15 +14724,15 @@ pm_location_new.exit3645:                         ; preds = %8890, %8893
 8913:                                             ; preds = %8898
   %8914 = shl nuw nsw i64 %8911, 1
   %8915 = or disjoint i64 %8914, 1
-  br label %pm_location_new.exit3647
+  br label %pm_location_new.argprom.exit3647
 
 8916:                                             ; preds = %8898
   %8917 = call i64 @rb_ull2inum(i64 noundef %8911) #6
   %.val2793.pre = load ptr, ptr %180, align 8
   %.pre4714 = ptrtoint ptr %.val2793.pre to i64
-  br label %pm_location_new.exit3647
+  br label %pm_location_new.argprom.exit3647
 
-pm_location_new.exit3647:                         ; preds = %8913, %8916
+pm_location_new.argprom.exit3647:                 ; preds = %8913, %8916
   %.pre-phi4715 = phi i64 [ %8905, %8913 ], [ %.pre4714, %8916 ]
   %.0.i.i3646 = phi i64 [ %8915, %8913 ], [ %8917, %8916 ]
   store i64 %.0.i.i3646, ptr %317, align 16
@@ -14750,18 +14750,18 @@ pm_location_new.exit3647:                         ; preds = %8913, %8916
   %8929 = icmp ult i64 %8924, 4611686018427387904
   br i1 %8929, label %8930, label %8933
 
-8930:                                             ; preds = %pm_location_new.exit3647
+8930:                                             ; preds = %pm_location_new.argprom.exit3647
   %8931 = shl nuw nsw i64 %8928, 1
   %8932 = or disjoint i64 %8931, 1
-  br label %pm_location_new.exit3649
+  br label %pm_location_new.argprom.exit3649
 
-8933:                                             ; preds = %pm_location_new.exit3647
+8933:                                             ; preds = %pm_location_new.argprom.exit3647
   %8934 = call i64 @rb_ull2inum(i64 noundef %8928) #6
   %.val2792.pre = load ptr, ptr %180, align 8
   %.pre4716 = ptrtoint ptr %.val2792.pre to i64
-  br label %pm_location_new.exit3649
+  br label %pm_location_new.argprom.exit3649
 
-pm_location_new.exit3649:                         ; preds = %8930, %8933
+pm_location_new.argprom.exit3649:                 ; preds = %8930, %8933
   %.pre-phi4717 = phi i64 [ %.pre-phi4715, %8930 ], [ %.pre4716, %8933 ]
   %.0.i.i3648 = phi i64 [ %8932, %8930 ], [ %8934, %8933 ]
   store i64 %.0.i.i3648, ptr %318, align 8
@@ -14779,16 +14779,16 @@ pm_location_new.exit3649:                         ; preds = %8930, %8933
   %8946 = icmp ult i64 %8941, 4611686018427387904
   br i1 %8946, label %8947, label %8950
 
-8947:                                             ; preds = %pm_location_new.exit3649
+8947:                                             ; preds = %pm_location_new.argprom.exit3649
   %8948 = shl nuw nsw i64 %8945, 1
   %8949 = or disjoint i64 %8948, 1
-  br label %pm_location_new.exit3651
+  br label %pm_location_new.argprom.exit3651
 
-8950:                                             ; preds = %pm_location_new.exit3649
+8950:                                             ; preds = %pm_location_new.argprom.exit3649
   %8951 = call i64 @rb_ull2inum(i64 noundef %8945) #6
-  br label %pm_location_new.exit3651
+  br label %pm_location_new.argprom.exit3651
 
-pm_location_new.exit3651:                         ; preds = %8947, %8950
+pm_location_new.argprom.exit3651:                 ; preds = %8947, %8950
   %.0.i.i3650 = phi i64 [ %8949, %8947 ], [ %8951, %8950 ]
   store i64 %.0.i.i3650, ptr %319, align 16
   %8952 = load i64, ptr @rb_cPrismParenthesesNode, align 8
@@ -14819,15 +14819,15 @@ pm_location_new.exit3651:                         ; preds = %8947, %8950
 8970:                                             ; preds = %8955
   %8971 = shl nuw nsw i64 %8968, 1
   %8972 = or disjoint i64 %8971, 1
-  br label %pm_location_new.exit3653
+  br label %pm_location_new.argprom.exit3653
 
 8973:                                             ; preds = %8955
   %8974 = call i64 @rb_ull2inum(i64 noundef %8968) #6
   %.val2790.pre = load ptr, ptr %180, align 8
   %.pre4718 = ptrtoint ptr %.val2790.pre to i64
-  br label %pm_location_new.exit3653
+  br label %pm_location_new.argprom.exit3653
 
-pm_location_new.exit3653:                         ; preds = %8970, %8973
+pm_location_new.argprom.exit3653:                 ; preds = %8970, %8973
   %.pre-phi4719 = phi i64 [ %8962, %8970 ], [ %.pre4718, %8973 ]
   %.0.i.i3652 = phi i64 [ %8972, %8970 ], [ %8974, %8973 ]
   store i64 %.0.i.i3652, ptr %312, align 16
@@ -14845,18 +14845,18 @@ pm_location_new.exit3653:                         ; preds = %8970, %8973
   %8986 = icmp ult i64 %8981, 4611686018427387904
   br i1 %8986, label %8987, label %8990
 
-8987:                                             ; preds = %pm_location_new.exit3653
+8987:                                             ; preds = %pm_location_new.argprom.exit3653
   %8988 = shl nuw nsw i64 %8985, 1
   %8989 = or disjoint i64 %8988, 1
-  br label %pm_location_new.exit3655
+  br label %pm_location_new.argprom.exit3655
 
-8990:                                             ; preds = %pm_location_new.exit3653
+8990:                                             ; preds = %pm_location_new.argprom.exit3653
   %8991 = call i64 @rb_ull2inum(i64 noundef %8985) #6
   %.val2789.pre = load ptr, ptr %180, align 8
   %.pre4720 = ptrtoint ptr %.val2789.pre to i64
-  br label %pm_location_new.exit3655
+  br label %pm_location_new.argprom.exit3655
 
-pm_location_new.exit3655:                         ; preds = %8987, %8990
+pm_location_new.argprom.exit3655:                 ; preds = %8987, %8990
   %.pre-phi4721 = phi i64 [ %.pre-phi4719, %8987 ], [ %.pre4720, %8990 ]
   %.0.i.i3654 = phi i64 [ %8989, %8987 ], [ %8991, %8990 ]
   store i64 %.0.i.i3654, ptr %313, align 8
@@ -14874,18 +14874,18 @@ pm_location_new.exit3655:                         ; preds = %8987, %8990
   %9003 = icmp ult i64 %8998, 4611686018427387904
   br i1 %9003, label %9004, label %9007
 
-9004:                                             ; preds = %pm_location_new.exit3655
+9004:                                             ; preds = %pm_location_new.argprom.exit3655
   %9005 = shl nuw nsw i64 %9002, 1
   %9006 = or disjoint i64 %9005, 1
-  br label %pm_location_new.exit3657
+  br label %pm_location_new.argprom.exit3657
 
-9007:                                             ; preds = %pm_location_new.exit3655
+9007:                                             ; preds = %pm_location_new.argprom.exit3655
   %9008 = call i64 @rb_ull2inum(i64 noundef %9002) #6
   %.val2788.pre = load ptr, ptr %180, align 8
   %.pre4722 = ptrtoint ptr %.val2788.pre to i64
-  br label %pm_location_new.exit3657
+  br label %pm_location_new.argprom.exit3657
 
-pm_location_new.exit3657:                         ; preds = %9004, %9007
+pm_location_new.argprom.exit3657:                 ; preds = %9004, %9007
   %.pre-phi4723 = phi i64 [ %.pre-phi4721, %9004 ], [ %.pre4722, %9007 ]
   %.0.i.i3656 = phi i64 [ %9006, %9004 ], [ %9008, %9007 ]
   store i64 %.0.i.i3656, ptr %314, align 16
@@ -14903,16 +14903,16 @@ pm_location_new.exit3657:                         ; preds = %9004, %9007
   %9020 = icmp ult i64 %9015, 4611686018427387904
   br i1 %9020, label %9021, label %9024
 
-9021:                                             ; preds = %pm_location_new.exit3657
+9021:                                             ; preds = %pm_location_new.argprom.exit3657
   %9022 = shl nuw nsw i64 %9019, 1
   %9023 = or disjoint i64 %9022, 1
-  br label %pm_location_new.exit3659
+  br label %pm_location_new.argprom.exit3659
 
-9024:                                             ; preds = %pm_location_new.exit3657
+9024:                                             ; preds = %pm_location_new.argprom.exit3657
   %9025 = call i64 @rb_ull2inum(i64 noundef %9019) #6
-  br label %pm_location_new.exit3659
+  br label %pm_location_new.argprom.exit3659
 
-pm_location_new.exit3659:                         ; preds = %9021, %9024
+pm_location_new.argprom.exit3659:                 ; preds = %9021, %9024
   %.0.i.i3658 = phi i64 [ %9023, %9021 ], [ %9025, %9024 ]
   store i64 %.0.i.i3658, ptr %315, align 8
   %9026 = load i64, ptr @rb_cPrismPinnedExpressionNode, align 8
@@ -14943,15 +14943,15 @@ pm_location_new.exit3659:                         ; preds = %9021, %9024
 9044:                                             ; preds = %9029
   %9045 = shl nuw nsw i64 %9042, 1
   %9046 = or disjoint i64 %9045, 1
-  br label %pm_location_new.exit3661
+  br label %pm_location_new.argprom.exit3661
 
 9047:                                             ; preds = %9029
   %9048 = call i64 @rb_ull2inum(i64 noundef %9042) #6
   %.val2786.pre = load ptr, ptr %180, align 8
   %.pre4724 = ptrtoint ptr %.val2786.pre to i64
-  br label %pm_location_new.exit3661
+  br label %pm_location_new.argprom.exit3661
 
-pm_location_new.exit3661:                         ; preds = %9044, %9047
+pm_location_new.argprom.exit3661:                 ; preds = %9044, %9047
   %.pre-phi4725 = phi i64 [ %9036, %9044 ], [ %.pre4724, %9047 ]
   %.0.i.i3660 = phi i64 [ %9046, %9044 ], [ %9048, %9047 ]
   store i64 %.0.i.i3660, ptr %309, align 16
@@ -14969,16 +14969,16 @@ pm_location_new.exit3661:                         ; preds = %9044, %9047
   %9060 = icmp ult i64 %9055, 4611686018427387904
   br i1 %9060, label %9061, label %9064
 
-9061:                                             ; preds = %pm_location_new.exit3661
+9061:                                             ; preds = %pm_location_new.argprom.exit3661
   %9062 = shl nuw nsw i64 %9059, 1
   %9063 = or disjoint i64 %9062, 1
-  br label %pm_location_new.exit3663
+  br label %pm_location_new.argprom.exit3663
 
-9064:                                             ; preds = %pm_location_new.exit3661
+9064:                                             ; preds = %pm_location_new.argprom.exit3661
   %9065 = call i64 @rb_ull2inum(i64 noundef %9059) #6
-  br label %pm_location_new.exit3663
+  br label %pm_location_new.argprom.exit3663
 
-pm_location_new.exit3663:                         ; preds = %9061, %9064
+pm_location_new.argprom.exit3663:                 ; preds = %9061, %9064
   %.0.i.i3662 = phi i64 [ %9063, %9061 ], [ %9065, %9064 ]
   store i64 %.0.i.i3662, ptr %310, align 8
   %9066 = load i64, ptr @rb_cPrismPinnedVariableNode, align 8
@@ -15009,15 +15009,15 @@ pm_location_new.exit3663:                         ; preds = %9061, %9064
 9084:                                             ; preds = %9069
   %9085 = shl nuw nsw i64 %9082, 1
   %9086 = or disjoint i64 %9085, 1
-  br label %pm_location_new.exit3665
+  br label %pm_location_new.argprom.exit3665
 
 9087:                                             ; preds = %9069
   %9088 = call i64 @rb_ull2inum(i64 noundef %9082) #6
   %.val2784.pre = load ptr, ptr %180, align 8
   %.pre4726 = ptrtoint ptr %.val2784.pre to i64
-  br label %pm_location_new.exit3665
+  br label %pm_location_new.argprom.exit3665
 
-pm_location_new.exit3665:                         ; preds = %9084, %9087
+pm_location_new.argprom.exit3665:                 ; preds = %9084, %9087
   %.pre-phi4727 = phi i64 [ %9076, %9084 ], [ %.pre4726, %9087 ]
   %.0.i.i3664 = phi i64 [ %9086, %9084 ], [ %9088, %9087 ]
   store i64 %.0.i.i3664, ptr %304, align 16
@@ -15035,18 +15035,18 @@ pm_location_new.exit3665:                         ; preds = %9084, %9087
   %9100 = icmp ult i64 %9095, 4611686018427387904
   br i1 %9100, label %9101, label %9104
 
-9101:                                             ; preds = %pm_location_new.exit3665
+9101:                                             ; preds = %pm_location_new.argprom.exit3665
   %9102 = shl nuw nsw i64 %9099, 1
   %9103 = or disjoint i64 %9102, 1
-  br label %pm_location_new.exit3667
+  br label %pm_location_new.argprom.exit3667
 
-9104:                                             ; preds = %pm_location_new.exit3665
+9104:                                             ; preds = %pm_location_new.argprom.exit3665
   %9105 = call i64 @rb_ull2inum(i64 noundef %9099) #6
   %.val2783.pre = load ptr, ptr %180, align 8
   %.pre4728 = ptrtoint ptr %.val2783.pre to i64
-  br label %pm_location_new.exit3667
+  br label %pm_location_new.argprom.exit3667
 
-pm_location_new.exit3667:                         ; preds = %9101, %9104
+pm_location_new.argprom.exit3667:                 ; preds = %9101, %9104
   %.pre-phi4729 = phi i64 [ %.pre-phi4727, %9101 ], [ %.pre4728, %9104 ]
   %.0.i.i3666 = phi i64 [ %9103, %9101 ], [ %9105, %9104 ]
   store i64 %.0.i.i3666, ptr %305, align 8
@@ -15064,18 +15064,18 @@ pm_location_new.exit3667:                         ; preds = %9101, %9104
   %9117 = icmp ult i64 %9112, 4611686018427387904
   br i1 %9117, label %9118, label %9121
 
-9118:                                             ; preds = %pm_location_new.exit3667
+9118:                                             ; preds = %pm_location_new.argprom.exit3667
   %9119 = shl nuw nsw i64 %9116, 1
   %9120 = or disjoint i64 %9119, 1
-  br label %pm_location_new.exit3669
+  br label %pm_location_new.argprom.exit3669
 
-9121:                                             ; preds = %pm_location_new.exit3667
+9121:                                             ; preds = %pm_location_new.argprom.exit3667
   %9122 = call i64 @rb_ull2inum(i64 noundef %9116) #6
   %.val2782.pre = load ptr, ptr %180, align 8
   %.pre4730 = ptrtoint ptr %.val2782.pre to i64
-  br label %pm_location_new.exit3669
+  br label %pm_location_new.argprom.exit3669
 
-pm_location_new.exit3669:                         ; preds = %9118, %9121
+pm_location_new.argprom.exit3669:                 ; preds = %9118, %9121
   %.pre-phi4731 = phi i64 [ %.pre-phi4729, %9118 ], [ %.pre4730, %9121 ]
   %.0.i.i3668 = phi i64 [ %9120, %9118 ], [ %9122, %9121 ]
   store i64 %.0.i.i3668, ptr %306, align 16
@@ -15093,16 +15093,16 @@ pm_location_new.exit3669:                         ; preds = %9118, %9121
   %9134 = icmp ult i64 %9129, 4611686018427387904
   br i1 %9134, label %9135, label %9138
 
-9135:                                             ; preds = %pm_location_new.exit3669
+9135:                                             ; preds = %pm_location_new.argprom.exit3669
   %9136 = shl nuw nsw i64 %9133, 1
   %9137 = or disjoint i64 %9136, 1
-  br label %pm_location_new.exit3671
+  br label %pm_location_new.argprom.exit3671
 
-9138:                                             ; preds = %pm_location_new.exit3669
+9138:                                             ; preds = %pm_location_new.argprom.exit3669
   %9139 = call i64 @rb_ull2inum(i64 noundef %9133) #6
-  br label %pm_location_new.exit3671
+  br label %pm_location_new.argprom.exit3671
 
-pm_location_new.exit3671:                         ; preds = %9135, %9138
+pm_location_new.argprom.exit3671:                 ; preds = %9135, %9138
   %.0.i.i3670 = phi i64 [ %9137, %9135 ], [ %9139, %9138 ]
   store i64 %.0.i.i3670, ptr %307, align 8
   %9140 = load i64, ptr @rb_cPrismPostExecutionNode, align 8
@@ -15133,15 +15133,15 @@ pm_location_new.exit3671:                         ; preds = %9135, %9138
 9158:                                             ; preds = %9143
   %9159 = shl nuw nsw i64 %9156, 1
   %9160 = or disjoint i64 %9159, 1
-  br label %pm_location_new.exit3673
+  br label %pm_location_new.argprom.exit3673
 
 9161:                                             ; preds = %9143
   %9162 = call i64 @rb_ull2inum(i64 noundef %9156) #6
   %.val2780.pre = load ptr, ptr %180, align 8
   %.pre4732 = ptrtoint ptr %.val2780.pre to i64
-  br label %pm_location_new.exit3673
+  br label %pm_location_new.argprom.exit3673
 
-pm_location_new.exit3673:                         ; preds = %9158, %9161
+pm_location_new.argprom.exit3673:                 ; preds = %9158, %9161
   %.pre-phi4733 = phi i64 [ %9150, %9158 ], [ %.pre4732, %9161 ]
   %.0.i.i3672 = phi i64 [ %9160, %9158 ], [ %9162, %9161 ]
   store i64 %.0.i.i3672, ptr %299, align 16
@@ -15159,18 +15159,18 @@ pm_location_new.exit3673:                         ; preds = %9158, %9161
   %9174 = icmp ult i64 %9169, 4611686018427387904
   br i1 %9174, label %9175, label %9178
 
-9175:                                             ; preds = %pm_location_new.exit3673
+9175:                                             ; preds = %pm_location_new.argprom.exit3673
   %9176 = shl nuw nsw i64 %9173, 1
   %9177 = or disjoint i64 %9176, 1
-  br label %pm_location_new.exit3675
+  br label %pm_location_new.argprom.exit3675
 
-9178:                                             ; preds = %pm_location_new.exit3673
+9178:                                             ; preds = %pm_location_new.argprom.exit3673
   %9179 = call i64 @rb_ull2inum(i64 noundef %9173) #6
   %.val2779.pre = load ptr, ptr %180, align 8
   %.pre4734 = ptrtoint ptr %.val2779.pre to i64
-  br label %pm_location_new.exit3675
+  br label %pm_location_new.argprom.exit3675
 
-pm_location_new.exit3675:                         ; preds = %9175, %9178
+pm_location_new.argprom.exit3675:                 ; preds = %9175, %9178
   %.pre-phi4735 = phi i64 [ %.pre-phi4733, %9175 ], [ %.pre4734, %9178 ]
   %.0.i.i3674 = phi i64 [ %9177, %9175 ], [ %9179, %9178 ]
   store i64 %.0.i.i3674, ptr %300, align 8
@@ -15188,18 +15188,18 @@ pm_location_new.exit3675:                         ; preds = %9175, %9178
   %9191 = icmp ult i64 %9186, 4611686018427387904
   br i1 %9191, label %9192, label %9195
 
-9192:                                             ; preds = %pm_location_new.exit3675
+9192:                                             ; preds = %pm_location_new.argprom.exit3675
   %9193 = shl nuw nsw i64 %9190, 1
   %9194 = or disjoint i64 %9193, 1
-  br label %pm_location_new.exit3677
+  br label %pm_location_new.argprom.exit3677
 
-9195:                                             ; preds = %pm_location_new.exit3675
+9195:                                             ; preds = %pm_location_new.argprom.exit3675
   %9196 = call i64 @rb_ull2inum(i64 noundef %9190) #6
   %.val2778.pre = load ptr, ptr %180, align 8
   %.pre4736 = ptrtoint ptr %.val2778.pre to i64
-  br label %pm_location_new.exit3677
+  br label %pm_location_new.argprom.exit3677
 
-pm_location_new.exit3677:                         ; preds = %9192, %9195
+pm_location_new.argprom.exit3677:                 ; preds = %9192, %9195
   %.pre-phi4737 = phi i64 [ %.pre-phi4735, %9192 ], [ %.pre4736, %9195 ]
   %.0.i.i3676 = phi i64 [ %9194, %9192 ], [ %9196, %9195 ]
   store i64 %.0.i.i3676, ptr %301, align 16
@@ -15217,16 +15217,16 @@ pm_location_new.exit3677:                         ; preds = %9192, %9195
   %9208 = icmp ult i64 %9203, 4611686018427387904
   br i1 %9208, label %9209, label %9212
 
-9209:                                             ; preds = %pm_location_new.exit3677
+9209:                                             ; preds = %pm_location_new.argprom.exit3677
   %9210 = shl nuw nsw i64 %9207, 1
   %9211 = or disjoint i64 %9210, 1
-  br label %pm_location_new.exit3679
+  br label %pm_location_new.argprom.exit3679
 
-9212:                                             ; preds = %pm_location_new.exit3677
+9212:                                             ; preds = %pm_location_new.argprom.exit3677
   %9213 = call i64 @rb_ull2inum(i64 noundef %9207) #6
-  br label %pm_location_new.exit3679
+  br label %pm_location_new.argprom.exit3679
 
-pm_location_new.exit3679:                         ; preds = %9209, %9212
+pm_location_new.argprom.exit3679:                 ; preds = %9209, %9212
   %.0.i.i3678 = phi i64 [ %9211, %9209 ], [ %9213, %9212 ]
   store i64 %.0.i.i3678, ptr %302, align 8
   %9214 = load i64, ptr @rb_cPrismPreExecutionNode, align 8
@@ -15287,13 +15287,13 @@ pm_location_new.exit3679:                         ; preds = %9209, %9212
 9251:                                             ; preds = %._crit_edge4209
   %9252 = shl nuw nsw i64 %9249, 1
   %9253 = or disjoint i64 %9252, 1
-  br label %pm_location_new.exit3681
+  br label %pm_location_new.argprom.exit3681
 
 9254:                                             ; preds = %._crit_edge4209
   %9255 = call i64 @rb_ull2inum(i64 noundef %9249) #6
-  br label %pm_location_new.exit3681
+  br label %pm_location_new.argprom.exit3681
 
-pm_location_new.exit3681:                         ; preds = %9251, %9254
+pm_location_new.argprom.exit3681:                 ; preds = %9251, %9254
   %.0.i.i3680 = phi i64 [ %9253, %9251 ], [ %9255, %9254 ]
   store i64 %.0.i.i3680, ptr %297, align 8
   %9256 = load i64, ptr @rb_cPrismProgramNode, align 8
@@ -15333,15 +15333,15 @@ pm_location_new.exit3681:                         ; preds = %9251, %9254
 9281:                                             ; preds = %9259
   %9282 = shl nuw nsw i64 %9279, 1
   %9283 = or disjoint i64 %9282, 1
-  br label %pm_location_new.exit3683
+  br label %pm_location_new.argprom.exit3683
 
 9284:                                             ; preds = %9259
   %9285 = call i64 @rb_ull2inum(i64 noundef %9279) #6
   %.val2775.pre = load ptr, ptr %180, align 8
   %.pre4738 = ptrtoint ptr %.val2775.pre to i64
-  br label %pm_location_new.exit3683
+  br label %pm_location_new.argprom.exit3683
 
-pm_location_new.exit3683:                         ; preds = %9281, %9284
+pm_location_new.argprom.exit3683:                 ; preds = %9281, %9284
   %.pre-phi4739 = phi i64 [ %9273, %9281 ], [ %.pre4738, %9284 ]
   %.0.i.i3682 = phi i64 [ %9283, %9281 ], [ %9285, %9284 ]
   store i64 %.0.i.i3682, ptr %293, align 16
@@ -15359,16 +15359,16 @@ pm_location_new.exit3683:                         ; preds = %9281, %9284
   %9297 = icmp ult i64 %9292, 4611686018427387904
   br i1 %9297, label %9298, label %9301
 
-9298:                                             ; preds = %pm_location_new.exit3683
+9298:                                             ; preds = %pm_location_new.argprom.exit3683
   %9299 = shl nuw nsw i64 %9296, 1
   %9300 = or disjoint i64 %9299, 1
-  br label %pm_location_new.exit3685
+  br label %pm_location_new.argprom.exit3685
 
-9301:                                             ; preds = %pm_location_new.exit3683
+9301:                                             ; preds = %pm_location_new.argprom.exit3683
   %9302 = call i64 @rb_ull2inum(i64 noundef %9296) #6
-  br label %pm_location_new.exit3685
+  br label %pm_location_new.argprom.exit3685
 
-pm_location_new.exit3685:                         ; preds = %9298, %9301
+pm_location_new.argprom.exit3685:                 ; preds = %9298, %9301
   %.0.i.i3684 = phi i64 [ %9300, %9298 ], [ %9302, %9301 ]
   store i64 %.0.i.i3684, ptr %294, align 8
   %9303 = load i64, ptr @rb_cPrismRangeNode, align 8
@@ -15399,13 +15399,13 @@ pm_location_new.exit3685:                         ; preds = %9298, %9301
 9321:                                             ; preds = %9306
   %9322 = shl nuw nsw i64 %9319, 1
   %9323 = or disjoint i64 %9322, 1
-  br label %pm_location_new.exit3687
+  br label %pm_location_new.argprom.exit3687
 
 9324:                                             ; preds = %9306
   %9325 = call i64 @rb_ull2inum(i64 noundef %9319) #6
-  br label %pm_location_new.exit3687
+  br label %pm_location_new.argprom.exit3687
 
-pm_location_new.exit3687:                         ; preds = %9321, %9324
+pm_location_new.argprom.exit3687:                 ; preds = %9321, %9324
   %.0.i.i3686 = phi i64 [ %9323, %9321 ], [ %9325, %9324 ]
   store i64 %.0.i.i3686, ptr %289, align 16
   %9326 = load i64, ptr @rb_cPrismRationalNode, align 8
@@ -15434,13 +15434,13 @@ pm_location_new.exit3687:                         ; preds = %9321, %9324
 9343:                                             ; preds = %9329
   %9344 = shl nuw nsw i64 %9341, 1
   %9345 = or disjoint i64 %9344, 1
-  br label %pm_location_new.exit3689
+  br label %pm_location_new.argprom.exit3689
 
 9346:                                             ; preds = %9329
   %9347 = call i64 @rb_ull2inum(i64 noundef %9341) #6
-  br label %pm_location_new.exit3689
+  br label %pm_location_new.argprom.exit3689
 
-pm_location_new.exit3689:                         ; preds = %9343, %9346
+pm_location_new.argprom.exit3689:                 ; preds = %9343, %9346
   %.0.i.i3688 = phi i64 [ %9345, %9343 ], [ %9347, %9346 ]
   store i64 %.0.i.i3688, ptr %287, align 8
   %9348 = load i64, ptr @rb_cPrismRedoNode, align 8
@@ -15476,15 +15476,15 @@ pm_location_new.exit3689:                         ; preds = %9343, %9346
 9371:                                             ; preds = %9351
   %9372 = shl nuw nsw i64 %9369, 1
   %9373 = or disjoint i64 %9372, 1
-  br label %pm_location_new.exit3691
+  br label %pm_location_new.argprom.exit3691
 
 9374:                                             ; preds = %9351
   %9375 = call i64 @rb_ull2inum(i64 noundef %9369) #6
   %.val2771.pre = load ptr, ptr %180, align 8
   %.pre4740 = ptrtoint ptr %.val2771.pre to i64
-  br label %pm_location_new.exit3691
+  br label %pm_location_new.argprom.exit3691
 
-pm_location_new.exit3691:                         ; preds = %9371, %9374
+pm_location_new.argprom.exit3691:                 ; preds = %9371, %9374
   %.pre-phi4741 = phi i64 [ %9363, %9371 ], [ %.pre4740, %9374 ]
   %.0.i.i3690 = phi i64 [ %9373, %9371 ], [ %9375, %9374 ]
   store i64 %.0.i.i3690, ptr %282, align 16
@@ -15502,18 +15502,18 @@ pm_location_new.exit3691:                         ; preds = %9371, %9374
   %9387 = icmp ult i64 %9382, 4611686018427387904
   br i1 %9387, label %9388, label %9391
 
-9388:                                             ; preds = %pm_location_new.exit3691
+9388:                                             ; preds = %pm_location_new.argprom.exit3691
   %9389 = shl nuw nsw i64 %9386, 1
   %9390 = or disjoint i64 %9389, 1
-  br label %pm_location_new.exit3693
+  br label %pm_location_new.argprom.exit3693
 
-9391:                                             ; preds = %pm_location_new.exit3691
+9391:                                             ; preds = %pm_location_new.argprom.exit3691
   %9392 = call i64 @rb_ull2inum(i64 noundef %9386) #6
   %.val2770.pre = load ptr, ptr %180, align 8
   %.pre4742 = ptrtoint ptr %.val2770.pre to i64
-  br label %pm_location_new.exit3693
+  br label %pm_location_new.argprom.exit3693
 
-pm_location_new.exit3693:                         ; preds = %9388, %9391
+pm_location_new.argprom.exit3693:                 ; preds = %9388, %9391
   %.pre-phi4743 = phi i64 [ %.pre-phi4741, %9388 ], [ %.pre4742, %9391 ]
   %.0.i.i3692 = phi i64 [ %9390, %9388 ], [ %9392, %9391 ]
   store i64 %.0.i.i3692, ptr %283, align 8
@@ -15531,16 +15531,16 @@ pm_location_new.exit3693:                         ; preds = %9388, %9391
   %9404 = icmp ult i64 %9399, 4611686018427387904
   br i1 %9404, label %9405, label %9408
 
-9405:                                             ; preds = %pm_location_new.exit3693
+9405:                                             ; preds = %pm_location_new.argprom.exit3693
   %9406 = shl nuw nsw i64 %9403, 1
   %9407 = or disjoint i64 %9406, 1
-  br label %pm_location_new.exit3695
+  br label %pm_location_new.argprom.exit3695
 
-9408:                                             ; preds = %pm_location_new.exit3693
+9408:                                             ; preds = %pm_location_new.argprom.exit3693
   %9409 = call i64 @rb_ull2inum(i64 noundef %9403) #6
-  br label %pm_location_new.exit3695
+  br label %pm_location_new.argprom.exit3695
 
-pm_location_new.exit3695:                         ; preds = %9405, %9408
+pm_location_new.argprom.exit3695:                 ; preds = %9405, %9408
   %.0.i.i3694 = phi i64 [ %9407, %9405 ], [ %9409, %9408 ]
   store i64 %.0.i.i3694, ptr %284, align 16
   %9410 = getelementptr inbounds i8, ptr %861, i64 72
@@ -15564,16 +15564,16 @@ pm_location_new.exit3695:                         ; preds = %9405, %9408
   %9426 = icmp ult i64 %9421, 4611686018427387904
   br i1 %9426, label %9427, label %9430
 
-9427:                                             ; preds = %pm_location_new.exit3695
+9427:                                             ; preds = %pm_location_new.argprom.exit3695
   %9428 = shl nuw nsw i64 %9425, 1
   %9429 = or disjoint i64 %9428, 1
-  br label %pm_location_new.exit3697
+  br label %pm_location_new.argprom.exit3697
 
-9430:                                             ; preds = %pm_location_new.exit3695
+9430:                                             ; preds = %pm_location_new.argprom.exit3695
   %9431 = call i64 @rb_ull2inum(i64 noundef %9425) #6
-  br label %pm_location_new.exit3697
+  br label %pm_location_new.argprom.exit3697
 
-pm_location_new.exit3697:                         ; preds = %9427, %9430
+pm_location_new.argprom.exit3697:                 ; preds = %9427, %9430
   %.0.i.i3696 = phi i64 [ %9429, %9427 ], [ %9431, %9430 ]
   store i64 %.0.i.i3696, ptr %286, align 16
   %9432 = load i64, ptr @rb_cPrismRegularExpressionNode, align 8
@@ -15617,15 +15617,15 @@ pm_location_new.exit3697:                         ; preds = %9427, %9430
 9462:                                             ; preds = %9435
   %9463 = shl nuw nsw i64 %9460, 1
   %9464 = or disjoint i64 %9463, 1
-  br label %pm_location_new.exit3699
+  br label %pm_location_new.argprom.exit3699
 
 9465:                                             ; preds = %9435
   %9466 = call i64 @rb_ull2inum(i64 noundef %9460) #6
   %.val2767.pre = load ptr, ptr %180, align 8
   %.pre4744 = ptrtoint ptr %.val2767.pre to i64
-  br label %pm_location_new.exit3699
+  br label %pm_location_new.argprom.exit3699
 
-pm_location_new.exit3699:                         ; preds = %9462, %9465
+pm_location_new.argprom.exit3699:                 ; preds = %9462, %9465
   %.pre-phi4745 = phi i64 [ %9454, %9462 ], [ %.pre4744, %9465 ]
   %.0.i.i3698 = phi i64 [ %9464, %9462 ], [ %9466, %9465 ]
   store i64 %.0.i.i3698, ptr %279, align 8
@@ -15643,16 +15643,16 @@ pm_location_new.exit3699:                         ; preds = %9462, %9465
   %9478 = icmp ult i64 %9473, 4611686018427387904
   br i1 %9478, label %9479, label %9482
 
-9479:                                             ; preds = %pm_location_new.exit3699
+9479:                                             ; preds = %pm_location_new.argprom.exit3699
   %9480 = shl nuw nsw i64 %9477, 1
   %9481 = or disjoint i64 %9480, 1
-  br label %pm_location_new.exit3701
+  br label %pm_location_new.argprom.exit3701
 
-9482:                                             ; preds = %pm_location_new.exit3699
+9482:                                             ; preds = %pm_location_new.argprom.exit3699
   %9483 = call i64 @rb_ull2inum(i64 noundef %9477) #6
-  br label %pm_location_new.exit3701
+  br label %pm_location_new.argprom.exit3701
 
-pm_location_new.exit3701:                         ; preds = %9479, %9482
+pm_location_new.argprom.exit3701:                 ; preds = %9479, %9482
   %.0.i.i3700 = phi i64 [ %9481, %9479 ], [ %9483, %9482 ]
   store i64 %.0.i.i3700, ptr %280, align 16
   %9484 = load i64, ptr @rb_cPrismRequiredKeywordParameterNode, align 8
@@ -15696,13 +15696,13 @@ pm_location_new.exit3701:                         ; preds = %9479, %9482
 9514:                                             ; preds = %9487
   %9515 = shl nuw nsw i64 %9512, 1
   %9516 = or disjoint i64 %9515, 1
-  br label %pm_location_new.exit3703
+  br label %pm_location_new.argprom.exit3703
 
 9517:                                             ; preds = %9487
   %9518 = call i64 @rb_ull2inum(i64 noundef %9512) #6
-  br label %pm_location_new.exit3703
+  br label %pm_location_new.argprom.exit3703
 
-pm_location_new.exit3703:                         ; preds = %9514, %9517
+pm_location_new.argprom.exit3703:                 ; preds = %9514, %9517
   %.0.i.i3702 = phi i64 [ %9516, %9514 ], [ %9518, %9517 ]
   store i64 %.0.i.i3702, ptr %276, align 8
   %9519 = load i64, ptr @rb_cPrismRequiredParameterNode, align 8
@@ -15733,13 +15733,13 @@ pm_location_new.exit3703:                         ; preds = %9514, %9517
 9537:                                             ; preds = %9522
   %9538 = shl nuw nsw i64 %9535, 1
   %9539 = or disjoint i64 %9538, 1
-  br label %pm_location_new.exit3705
+  br label %pm_location_new.argprom.exit3705
 
 9540:                                             ; preds = %9522
   %9541 = call i64 @rb_ull2inum(i64 noundef %9535) #6
-  br label %pm_location_new.exit3705
+  br label %pm_location_new.argprom.exit3705
 
-pm_location_new.exit3705:                         ; preds = %9537, %9540
+pm_location_new.argprom.exit3705:                 ; preds = %9537, %9540
   %.0.i.i3704 = phi i64 [ %9539, %9537 ], [ %9541, %9540 ]
   store i64 %.0.i.i3704, ptr %271, align 16
   %9542 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -15760,16 +15760,16 @@ pm_location_new.exit3705:                         ; preds = %9537, %9540
   %9555 = icmp ult i64 %9550, 4611686018427387904
   br i1 %9555, label %9556, label %9559
 
-9556:                                             ; preds = %pm_location_new.exit3705
+9556:                                             ; preds = %pm_location_new.argprom.exit3705
   %9557 = shl nuw nsw i64 %9554, 1
   %9558 = or disjoint i64 %9557, 1
-  br label %pm_location_new.exit3707
+  br label %pm_location_new.argprom.exit3707
 
-9559:                                             ; preds = %pm_location_new.exit3705
+9559:                                             ; preds = %pm_location_new.argprom.exit3705
   %9560 = call i64 @rb_ull2inum(i64 noundef %9554) #6
-  br label %pm_location_new.exit3707
+  br label %pm_location_new.argprom.exit3707
 
-pm_location_new.exit3707:                         ; preds = %9556, %9559
+pm_location_new.argprom.exit3707:                 ; preds = %9556, %9559
   %.0.i.i3706 = phi i64 [ %9558, %9556 ], [ %9560, %9559 ]
   store i64 %.0.i.i3706, ptr %273, align 16
   %9561 = load i64, ptr @rb_cPrismRescueModifierNode, align 8
@@ -15798,13 +15798,13 @@ pm_location_new.exit3707:                         ; preds = %9556, %9559
 9578:                                             ; preds = %9564
   %9579 = shl nuw nsw i64 %9576, 1
   %9580 = or disjoint i64 %9579, 1
-  br label %pm_location_new.exit3709
+  br label %pm_location_new.argprom.exit3709
 
 9581:                                             ; preds = %9564
   %9582 = call i64 @rb_ull2inum(i64 noundef %9576) #6
-  br label %pm_location_new.exit3709
+  br label %pm_location_new.argprom.exit3709
 
-pm_location_new.exit3709:                         ; preds = %9578, %9581
+pm_location_new.argprom.exit3709:                 ; preds = %9578, %9581
   %.0.i.i3708 = phi i64 [ %9580, %9578 ], [ %9582, %9581 ]
   store i64 %.0.i.i3708, ptr %263, align 8
   %9583 = getelementptr inbounds i8, ptr %861, i64 40
@@ -15815,8 +15815,8 @@ pm_location_new.exit3709:                         ; preds = %9578, %9581
   %.not4358 = icmp eq i64 %9586, 0
   br i1 %.not4358, label %._crit_edge4205, label %.lr.ph4204
 
-.lr.ph4204:                                       ; preds = %pm_location_new.exit3709, %.lr.ph4204
-  %.025924203 = phi i64 [ %9590, %.lr.ph4204 ], [ 0, %pm_location_new.exit3709 ]
+.lr.ph4204:                                       ; preds = %pm_location_new.argprom.exit3709, %.lr.ph4204
+  %.025924203 = phi i64 [ %9590, %.lr.ph4204 ], [ 0, %pm_location_new.argprom.exit3709 ]
   %9587 = load i64, ptr %264, align 16
   %9588 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %9589 = call i64 @rb_ary_push(i64 noundef %9587, i64 noundef %9588) #6
@@ -15825,11 +15825,11 @@ pm_location_new.exit3709:                         ; preds = %9578, %9581
   %9592 = icmp ult i64 %9590, %9591
   br i1 %9592, label %.lr.ph4204, label %._crit_edge4205, !llvm.loop !73
 
-._crit_edge4205:                                  ; preds = %.lr.ph4204, %pm_location_new.exit3709
+._crit_edge4205:                                  ; preds = %.lr.ph4204, %pm_location_new.argprom.exit3709
   %9593 = getelementptr inbounds i8, ptr %861, i64 64
   %9594 = load ptr, ptr %9593, align 8
   %9595 = icmp eq ptr %9594, null
-  br i1 %9595, label %pm_location_new.exit3711, label %9596
+  br i1 %9595, label %pm_location_new.argprom.exit3711, label %9596
 
 9596:                                             ; preds = %._crit_edge4205
   %9597 = getelementptr inbounds i8, ptr %861, i64 72
@@ -15849,13 +15849,13 @@ pm_location_new.exit3709:                         ; preds = %9578, %9581
 9608:                                             ; preds = %9596
   %9609 = shl nuw nsw i64 %9606, 1
   %9610 = or disjoint i64 %9609, 1
-  br label %pm_location_new.exit3711
+  br label %pm_location_new.argprom.exit3711
 
 9611:                                             ; preds = %9596
   %9612 = call i64 @rb_ull2inum(i64 noundef %9606) #6
-  br label %pm_location_new.exit3711
+  br label %pm_location_new.argprom.exit3711
 
-pm_location_new.exit3711:                         ; preds = %9611, %9608, %._crit_edge4205
+pm_location_new.argprom.exit3711:                 ; preds = %9611, %9608, %._crit_edge4205
   %9613 = phi i64 [ 4, %._crit_edge4205 ], [ %9610, %9608 ], [ %9612, %9611 ]
   store i64 %9613, ptr %265, align 8
   %9614 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -15880,16 +15880,16 @@ pm_location_new.exit3711:                         ; preds = %9611, %9608, %._cri
   %9629 = icmp ult i64 %9624, 4611686018427387904
   br i1 %9629, label %9630, label %9633
 
-9630:                                             ; preds = %pm_location_new.exit3711
+9630:                                             ; preds = %pm_location_new.argprom.exit3711
   %9631 = shl nuw nsw i64 %9628, 1
   %9632 = or disjoint i64 %9631, 1
-  br label %pm_location_new.exit3713
+  br label %pm_location_new.argprom.exit3713
 
-9633:                                             ; preds = %pm_location_new.exit3711
+9633:                                             ; preds = %pm_location_new.argprom.exit3711
   %9634 = call i64 @rb_ull2inum(i64 noundef %9628) #6
-  br label %pm_location_new.exit3713
+  br label %pm_location_new.argprom.exit3713
 
-pm_location_new.exit3713:                         ; preds = %9630, %9633
+pm_location_new.argprom.exit3713:                 ; preds = %9630, %9633
   %.0.i.i3712 = phi i64 [ %9632, %9630 ], [ %9634, %9633 ]
   store i64 %.0.i.i3712, ptr %269, align 8
   %9635 = load i64, ptr @rb_cPrismRescueNode, align 8
@@ -15926,7 +15926,7 @@ pm_location_new.exit3713:                         ; preds = %9630, %9633
   %9657 = load ptr, ptr %9656, align 8
   %9658 = icmp eq ptr %9657, null
   %.val2759.pre4449 = load ptr, ptr %180, align 8
-  br i1 %9658, label %pm_location_new.exit3715, label %9659
+  br i1 %9658, label %pm_location_new.argprom.exit3715, label %9659
 
 9659:                                             ; preds = %9654
   %9660 = getelementptr inbounds i8, ptr %861, i64 40
@@ -15945,14 +15945,14 @@ pm_location_new.exit3713:                         ; preds = %9630, %9633
 9671:                                             ; preds = %9659
   %9672 = shl nuw nsw i64 %9669, 1
   %9673 = or disjoint i64 %9672, 1
-  br label %pm_location_new.exit3715
+  br label %pm_location_new.argprom.exit3715
 
 9674:                                             ; preds = %9659
   %9675 = call i64 @rb_ull2inum(i64 noundef %9669) #6
   %.val2759.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3715
+  br label %pm_location_new.argprom.exit3715
 
-pm_location_new.exit3715:                         ; preds = %9674, %9671, %9654
+pm_location_new.argprom.exit3715:                 ; preds = %9674, %9671, %9654
   %.val2759 = phi ptr [ %.val2759.pre4449, %9654 ], [ %.val2759.pre4449, %9671 ], [ %.val2759.pre, %9674 ]
   %9676 = phi i64 [ 4, %9654 ], [ %9673, %9671 ], [ %9675, %9674 ]
   store i64 %9676, ptr %260, align 8
@@ -15971,18 +15971,18 @@ pm_location_new.exit3715:                         ; preds = %9674, %9671, %9654
   %9689 = icmp ult i64 %9684, 4611686018427387904
   br i1 %9689, label %9690, label %9693
 
-9690:                                             ; preds = %pm_location_new.exit3715
+9690:                                             ; preds = %pm_location_new.argprom.exit3715
   %9691 = shl nuw nsw i64 %9688, 1
   %9692 = or disjoint i64 %9691, 1
-  br label %pm_location_new.exit3717
+  br label %pm_location_new.argprom.exit3717
 
-9693:                                             ; preds = %pm_location_new.exit3715
+9693:                                             ; preds = %pm_location_new.argprom.exit3715
   %9694 = call i64 @rb_ull2inum(i64 noundef %9688) #6
   %.val2758.pre = load ptr, ptr %180, align 8
   %.pre4746 = ptrtoint ptr %.val2758.pre to i64
-  br label %pm_location_new.exit3717
+  br label %pm_location_new.argprom.exit3717
 
-pm_location_new.exit3717:                         ; preds = %9690, %9693
+pm_location_new.argprom.exit3717:                 ; preds = %9690, %9693
   %.pre-phi4747 = phi i64 [ %9682, %9690 ], [ %.pre4746, %9693 ]
   %.0.i.i3716 = phi i64 [ %9692, %9690 ], [ %9694, %9693 ]
   store i64 %.0.i.i3716, ptr %261, align 16
@@ -16000,16 +16000,16 @@ pm_location_new.exit3717:                         ; preds = %9690, %9693
   %9706 = icmp ult i64 %9701, 4611686018427387904
   br i1 %9706, label %9707, label %9710
 
-9707:                                             ; preds = %pm_location_new.exit3717
+9707:                                             ; preds = %pm_location_new.argprom.exit3717
   %9708 = shl nuw nsw i64 %9705, 1
   %9709 = or disjoint i64 %9708, 1
-  br label %pm_location_new.exit3719
+  br label %pm_location_new.argprom.exit3719
 
-9710:                                             ; preds = %pm_location_new.exit3717
+9710:                                             ; preds = %pm_location_new.argprom.exit3717
   %9711 = call i64 @rb_ull2inum(i64 noundef %9705) #6
-  br label %pm_location_new.exit3719
+  br label %pm_location_new.argprom.exit3719
 
-pm_location_new.exit3719:                         ; preds = %9707, %9710
+pm_location_new.argprom.exit3719:                 ; preds = %9707, %9710
   %.0.i.i3718 = phi i64 [ %9709, %9707 ], [ %9711, %9710 ]
   store i64 %.0.i.i3718, ptr %262, align 8
   %9712 = load i64, ptr @rb_cPrismRestParameterNode, align 8
@@ -16038,13 +16038,13 @@ pm_location_new.exit3719:                         ; preds = %9707, %9710
 9729:                                             ; preds = %9715
   %9730 = shl nuw nsw i64 %9727, 1
   %9731 = or disjoint i64 %9730, 1
-  br label %pm_location_new.exit3721
+  br label %pm_location_new.argprom.exit3721
 
 9732:                                             ; preds = %9715
   %9733 = call i64 @rb_ull2inum(i64 noundef %9727) #6
-  br label %pm_location_new.exit3721
+  br label %pm_location_new.argprom.exit3721
 
-pm_location_new.exit3721:                         ; preds = %9729, %9732
+pm_location_new.argprom.exit3721:                 ; preds = %9729, %9732
   %.0.i.i3720 = phi i64 [ %9731, %9729 ], [ %9733, %9732 ]
   store i64 %.0.i.i3720, ptr %257, align 8
   %9734 = load i64, ptr @rb_cPrismRetryNode, align 8
@@ -16073,13 +16073,13 @@ pm_location_new.exit3721:                         ; preds = %9729, %9732
 9751:                                             ; preds = %9737
   %9752 = shl nuw nsw i64 %9749, 1
   %9753 = or disjoint i64 %9752, 1
-  br label %pm_location_new.exit3723
+  br label %pm_location_new.argprom.exit3723
 
 9754:                                             ; preds = %9737
   %9755 = call i64 @rb_ull2inum(i64 noundef %9749) #6
-  br label %pm_location_new.exit3723
+  br label %pm_location_new.argprom.exit3723
 
-pm_location_new.exit3723:                         ; preds = %9751, %9754
+pm_location_new.argprom.exit3723:                 ; preds = %9751, %9754
   %.0.i.i3722 = phi i64 [ %9753, %9751 ], [ %9755, %9754 ]
   store i64 %.0.i.i3722, ptr %254, align 8
   %9756 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -16100,16 +16100,16 @@ pm_location_new.exit3723:                         ; preds = %9751, %9754
   %9769 = icmp ult i64 %9764, 4611686018427387904
   br i1 %9769, label %9770, label %9773
 
-9770:                                             ; preds = %pm_location_new.exit3723
+9770:                                             ; preds = %pm_location_new.argprom.exit3723
   %9771 = shl nuw nsw i64 %9768, 1
   %9772 = or disjoint i64 %9771, 1
-  br label %pm_location_new.exit3725
+  br label %pm_location_new.argprom.exit3725
 
-9773:                                             ; preds = %pm_location_new.exit3723
+9773:                                             ; preds = %pm_location_new.argprom.exit3723
   %9774 = call i64 @rb_ull2inum(i64 noundef %9768) #6
-  br label %pm_location_new.exit3725
+  br label %pm_location_new.argprom.exit3725
 
-pm_location_new.exit3725:                         ; preds = %9770, %9773
+pm_location_new.argprom.exit3725:                 ; preds = %9770, %9773
   %.0.i.i3724 = phi i64 [ %9772, %9770 ], [ %9774, %9773 ]
   store i64 %.0.i.i3724, ptr %256, align 8
   %9775 = load i64, ptr @rb_cPrismReturnNode, align 8
@@ -16138,13 +16138,13 @@ pm_location_new.exit3725:                         ; preds = %9770, %9773
 9792:                                             ; preds = %9778
   %9793 = shl nuw nsw i64 %9790, 1
   %9794 = or disjoint i64 %9793, 1
-  br label %pm_location_new.exit3727
+  br label %pm_location_new.argprom.exit3727
 
 9795:                                             ; preds = %9778
   %9796 = call i64 @rb_ull2inum(i64 noundef %9790) #6
-  br label %pm_location_new.exit3727
+  br label %pm_location_new.argprom.exit3727
 
-pm_location_new.exit3727:                         ; preds = %9792, %9795
+pm_location_new.argprom.exit3727:                 ; preds = %9792, %9795
   %.0.i.i3726 = phi i64 [ %9794, %9792 ], [ %9796, %9795 ]
   store i64 %.0.i.i3726, ptr %253, align 8
   %9797 = load i64, ptr @rb_cPrismSelfNode, align 8
@@ -16203,15 +16203,15 @@ pm_location_new.exit3727:                         ; preds = %9792, %9795
 9833:                                             ; preds = %._crit_edge4202
   %9834 = shl nuw nsw i64 %9831, 1
   %9835 = or disjoint i64 %9834, 1
-  br label %pm_location_new.exit3729
+  br label %pm_location_new.argprom.exit3729
 
 9836:                                             ; preds = %._crit_edge4202
   %9837 = call i64 @rb_ull2inum(i64 noundef %9831) #6
   %.val2752.pre = load ptr, ptr %180, align 8
   %.pre4748 = ptrtoint ptr %.val2752.pre to i64
-  br label %pm_location_new.exit3729
+  br label %pm_location_new.argprom.exit3729
 
-pm_location_new.exit3729:                         ; preds = %9833, %9836
+pm_location_new.argprom.exit3729:                 ; preds = %9833, %9836
   %.pre-phi4749 = phi i64 [ %9825, %9833 ], [ %.pre4748, %9836 ]
   %.0.i.i3728 = phi i64 [ %9835, %9833 ], [ %9837, %9836 ]
   store i64 %.0.i.i3728, ptr %247, align 16
@@ -16229,16 +16229,16 @@ pm_location_new.exit3729:                         ; preds = %9833, %9836
   %9849 = icmp ult i64 %9844, 4611686018427387904
   br i1 %9849, label %9850, label %9853
 
-9850:                                             ; preds = %pm_location_new.exit3729
+9850:                                             ; preds = %pm_location_new.argprom.exit3729
   %9851 = shl nuw nsw i64 %9848, 1
   %9852 = or disjoint i64 %9851, 1
-  br label %pm_location_new.exit3731
+  br label %pm_location_new.argprom.exit3731
 
-9853:                                             ; preds = %pm_location_new.exit3729
+9853:                                             ; preds = %pm_location_new.argprom.exit3729
   %9854 = call i64 @rb_ull2inum(i64 noundef %9848) #6
-  br label %pm_location_new.exit3731
+  br label %pm_location_new.argprom.exit3731
 
-pm_location_new.exit3731:                         ; preds = %9850, %9853
+pm_location_new.argprom.exit3731:                 ; preds = %9850, %9853
   %.0.i.i3730 = phi i64 [ %9852, %9850 ], [ %9854, %9853 ]
   store i64 %.0.i.i3730, ptr %248, align 8
   %9855 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -16261,18 +16261,18 @@ pm_location_new.exit3731:                         ; preds = %9850, %9853
   %9869 = icmp ult i64 %9864, 4611686018427387904
   br i1 %9869, label %9870, label %9873
 
-9870:                                             ; preds = %pm_location_new.exit3731
+9870:                                             ; preds = %pm_location_new.argprom.exit3731
   %9871 = shl nuw nsw i64 %9868, 1
   %9872 = or disjoint i64 %9871, 1
-  br label %pm_location_new.exit3733
+  br label %pm_location_new.argprom.exit3733
 
-9873:                                             ; preds = %pm_location_new.exit3731
+9873:                                             ; preds = %pm_location_new.argprom.exit3731
   %9874 = call i64 @rb_ull2inum(i64 noundef %9868) #6
   %.val2750.pre = load ptr, ptr %180, align 8
   %.pre4750 = ptrtoint ptr %.val2750.pre to i64
-  br label %pm_location_new.exit3733
+  br label %pm_location_new.argprom.exit3733
 
-pm_location_new.exit3733:                         ; preds = %9870, %9873
+pm_location_new.argprom.exit3733:                 ; preds = %9870, %9873
   %.pre-phi4751 = phi i64 [ %9862, %9870 ], [ %.pre4750, %9873 ]
   %.0.i.i3732 = phi i64 [ %9872, %9870 ], [ %9874, %9873 ]
   store i64 %.0.i.i3732, ptr %251, align 16
@@ -16290,16 +16290,16 @@ pm_location_new.exit3733:                         ; preds = %9870, %9873
   %9886 = icmp ult i64 %9881, 4611686018427387904
   br i1 %9886, label %9887, label %9890
 
-9887:                                             ; preds = %pm_location_new.exit3733
+9887:                                             ; preds = %pm_location_new.argprom.exit3733
   %9888 = shl nuw nsw i64 %9885, 1
   %9889 = or disjoint i64 %9888, 1
-  br label %pm_location_new.exit3735
+  br label %pm_location_new.argprom.exit3735
 
-9890:                                             ; preds = %pm_location_new.exit3733
+9890:                                             ; preds = %pm_location_new.argprom.exit3733
   %9891 = call i64 @rb_ull2inum(i64 noundef %9885) #6
-  br label %pm_location_new.exit3735
+  br label %pm_location_new.argprom.exit3735
 
-pm_location_new.exit3735:                         ; preds = %9887, %9890
+pm_location_new.argprom.exit3735:                 ; preds = %9887, %9890
   %.0.i.i3734 = phi i64 [ %9889, %9887 ], [ %9891, %9890 ]
   store i64 %.0.i.i3734, ptr %252, align 8
   %9892 = load i64, ptr @rb_cPrismSingletonClassNode, align 8
@@ -16328,13 +16328,13 @@ pm_location_new.exit3735:                         ; preds = %9887, %9890
 9909:                                             ; preds = %9895
   %9910 = shl nuw nsw i64 %9907, 1
   %9911 = or disjoint i64 %9910, 1
-  br label %pm_location_new.exit3737
+  br label %pm_location_new.argprom.exit3737
 
 9912:                                             ; preds = %9895
   %9913 = call i64 @rb_ull2inum(i64 noundef %9907) #6
-  br label %pm_location_new.exit3737
+  br label %pm_location_new.argprom.exit3737
 
-pm_location_new.exit3737:                         ; preds = %9909, %9912
+pm_location_new.argprom.exit3737:                 ; preds = %9909, %9912
   %.0.i.i3736 = phi i64 [ %9911, %9909 ], [ %9913, %9912 ]
   store i64 %.0.i.i3736, ptr %245, align 8
   %9914 = load i64, ptr @rb_cPrismSourceEncodingNode, align 8
@@ -16368,13 +16368,13 @@ pm_location_new.exit3737:                         ; preds = %9909, %9912
 9935:                                             ; preds = %9917
   %9936 = shl nuw nsw i64 %9933, 1
   %9937 = or disjoint i64 %9936, 1
-  br label %pm_location_new.exit3739
+  br label %pm_location_new.argprom.exit3739
 
 9938:                                             ; preds = %9917
   %9939 = call i64 @rb_ull2inum(i64 noundef %9933) #6
-  br label %pm_location_new.exit3739
+  br label %pm_location_new.argprom.exit3739
 
-pm_location_new.exit3739:                         ; preds = %9935, %9938
+pm_location_new.argprom.exit3739:                 ; preds = %9935, %9938
   %.0.i.i3738 = phi i64 [ %9937, %9935 ], [ %9939, %9938 ]
   store i64 %.0.i.i3738, ptr %244, align 16
   %9940 = load i64, ptr @rb_cPrismSourceFileNode, align 8
@@ -16403,13 +16403,13 @@ pm_location_new.exit3739:                         ; preds = %9935, %9938
 9957:                                             ; preds = %9943
   %9958 = shl nuw nsw i64 %9955, 1
   %9959 = or disjoint i64 %9958, 1
-  br label %pm_location_new.exit3741
+  br label %pm_location_new.argprom.exit3741
 
 9960:                                             ; preds = %9943
   %9961 = call i64 @rb_ull2inum(i64 noundef %9955) #6
-  br label %pm_location_new.exit3741
+  br label %pm_location_new.argprom.exit3741
 
-pm_location_new.exit3741:                         ; preds = %9957, %9960
+pm_location_new.argprom.exit3741:                 ; preds = %9957, %9960
   %.0.i.i3740 = phi i64 [ %9959, %9957 ], [ %9961, %9960 ]
   store i64 %.0.i.i3740, ptr %242, align 8
   %9962 = load i64, ptr @rb_cPrismSourceLineNode, align 8
@@ -16438,13 +16438,13 @@ pm_location_new.exit3741:                         ; preds = %9957, %9960
 9979:                                             ; preds = %9965
   %9980 = shl nuw nsw i64 %9977, 1
   %9981 = or disjoint i64 %9980, 1
-  br label %pm_location_new.exit3743
+  br label %pm_location_new.argprom.exit3743
 
 9982:                                             ; preds = %9965
   %9983 = call i64 @rb_ull2inum(i64 noundef %9977) #6
-  br label %pm_location_new.exit3743
+  br label %pm_location_new.argprom.exit3743
 
-pm_location_new.exit3743:                         ; preds = %9979, %9982
+pm_location_new.argprom.exit3743:                 ; preds = %9979, %9982
   %.0.i.i3742 = phi i64 [ %9981, %9979 ], [ %9983, %9982 ]
   store i64 %.0.i.i3742, ptr %239, align 8
   %9984 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -16465,16 +16465,16 @@ pm_location_new.exit3743:                         ; preds = %9979, %9982
   %9997 = icmp ult i64 %9992, 4611686018427387904
   br i1 %9997, label %9998, label %10001
 
-9998:                                             ; preds = %pm_location_new.exit3743
+9998:                                             ; preds = %pm_location_new.argprom.exit3743
   %9999 = shl nuw nsw i64 %9996, 1
   %10000 = or disjoint i64 %9999, 1
-  br label %pm_location_new.exit3745
+  br label %pm_location_new.argprom.exit3745
 
-10001:                                            ; preds = %pm_location_new.exit3743
+10001:                                            ; preds = %pm_location_new.argprom.exit3743
   %10002 = call i64 @rb_ull2inum(i64 noundef %9996) #6
-  br label %pm_location_new.exit3745
+  br label %pm_location_new.argprom.exit3745
 
-pm_location_new.exit3745:                         ; preds = %9998, %10001
+pm_location_new.argprom.exit3745:                 ; preds = %9998, %10001
   %.0.i.i3744 = phi i64 [ %10000, %9998 ], [ %10002, %10001 ]
   store i64 %.0.i.i3744, ptr %241, align 8
   %10003 = load i64, ptr @rb_cPrismSplatNode, align 8
@@ -16522,13 +16522,13 @@ pm_location_new.exit3745:                         ; preds = %9998, %10001
 10030:                                            ; preds = %._crit_edge4198
   %10031 = shl nuw nsw i64 %10028, 1
   %10032 = or disjoint i64 %10031, 1
-  br label %pm_location_new.exit3747
+  br label %pm_location_new.argprom.exit3747
 
 10033:                                            ; preds = %._crit_edge4198
   %10034 = call i64 @rb_ull2inum(i64 noundef %10028) #6
-  br label %pm_location_new.exit3747
+  br label %pm_location_new.argprom.exit3747
 
-pm_location_new.exit3747:                         ; preds = %10030, %10033
+pm_location_new.argprom.exit3747:                 ; preds = %10030, %10033
   %.0.i.i3746 = phi i64 [ %10032, %10030 ], [ %10034, %10033 ]
   store i64 %.0.i.i3746, ptr %238, align 16
   %10035 = load i64, ptr @rb_cPrismStatementsNode, align 8
@@ -16549,7 +16549,7 @@ pm_location_new.exit3747:                         ; preds = %10030, %10033
   %10046 = load ptr, ptr %10045, align 8
   %10047 = icmp eq ptr %10046, null
   %.val2742.pre4445 = load ptr, ptr %180, align 8
-  br i1 %10047, label %pm_location_new.exit3749, label %10048
+  br i1 %10047, label %pm_location_new.argprom.exit3749, label %10048
 
 10048:                                            ; preds = %10038
   %10049 = getelementptr inbounds i8, ptr %861, i64 32
@@ -16568,14 +16568,14 @@ pm_location_new.exit3747:                         ; preds = %10030, %10033
 10060:                                            ; preds = %10048
   %10061 = shl nuw nsw i64 %10058, 1
   %10062 = or disjoint i64 %10061, 1
-  br label %pm_location_new.exit3749
+  br label %pm_location_new.argprom.exit3749
 
 10063:                                            ; preds = %10048
   %10064 = call i64 @rb_ull2inum(i64 noundef %10058) #6
   %.val2742.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3749
+  br label %pm_location_new.argprom.exit3749
 
-pm_location_new.exit3749:                         ; preds = %10063, %10060, %10038
+pm_location_new.argprom.exit3749:                 ; preds = %10063, %10060, %10038
   %.val2742 = phi ptr [ %.val2742.pre4445, %10038 ], [ %.val2742.pre4445, %10060 ], [ %.val2742.pre, %10063 ]
   %10065 = phi i64 [ 4, %10038 ], [ %10062, %10060 ], [ %10064, %10063 ]
   store i64 %10065, ptr %232, align 16
@@ -16594,24 +16594,24 @@ pm_location_new.exit3749:                         ; preds = %10063, %10060, %100
   %10078 = icmp ult i64 %10073, 4611686018427387904
   br i1 %10078, label %10079, label %10082
 
-10079:                                            ; preds = %pm_location_new.exit3749
+10079:                                            ; preds = %pm_location_new.argprom.exit3749
   %10080 = shl nuw nsw i64 %10077, 1
   %10081 = or disjoint i64 %10080, 1
-  br label %pm_location_new.exit3751
+  br label %pm_location_new.argprom.exit3751
 
-10082:                                            ; preds = %pm_location_new.exit3749
+10082:                                            ; preds = %pm_location_new.argprom.exit3749
   %10083 = call i64 @rb_ull2inum(i64 noundef %10077) #6
-  br label %pm_location_new.exit3751
+  br label %pm_location_new.argprom.exit3751
 
-pm_location_new.exit3751:                         ; preds = %10079, %10082
+pm_location_new.argprom.exit3751:                 ; preds = %10079, %10082
   %.0.i.i3750 = phi i64 [ %10081, %10079 ], [ %10083, %10082 ]
   store i64 %.0.i.i3750, ptr %233, align 8
   %10084 = getelementptr inbounds i8, ptr %861, i64 56
   %10085 = load ptr, ptr %10084, align 8
   %10086 = icmp eq ptr %10085, null
-  br i1 %10086, label %pm_location_new.exit3753, label %10087
+  br i1 %10086, label %pm_location_new.argprom.exit3753, label %10087
 
-10087:                                            ; preds = %pm_location_new.exit3751
+10087:                                            ; preds = %pm_location_new.argprom.exit3751
   %10088 = getelementptr inbounds i8, ptr %861, i64 64
   %10089 = load ptr, ptr %10088, align 8
   %.val2741 = load ptr, ptr %180, align 8
@@ -16629,14 +16629,14 @@ pm_location_new.exit3751:                         ; preds = %10079, %10082
 10099:                                            ; preds = %10087
   %10100 = shl nuw nsw i64 %10097, 1
   %10101 = or disjoint i64 %10100, 1
-  br label %pm_location_new.exit3753
+  br label %pm_location_new.argprom.exit3753
 
 10102:                                            ; preds = %10087
   %10103 = call i64 @rb_ull2inum(i64 noundef %10097) #6
-  br label %pm_location_new.exit3753
+  br label %pm_location_new.argprom.exit3753
 
-pm_location_new.exit3753:                         ; preds = %10102, %10099, %pm_location_new.exit3751
-  %10104 = phi i64 [ 4, %pm_location_new.exit3751 ], [ %10101, %10099 ], [ %10103, %10102 ]
+pm_location_new.argprom.exit3753:                 ; preds = %10102, %10099, %pm_location_new.argprom.exit3751
+  %10104 = phi i64 [ 4, %pm_location_new.argprom.exit3751 ], [ %10101, %10099 ], [ %10103, %10102 ]
   store i64 %10104, ptr %234, align 16
   %10105 = getelementptr inbounds i8, ptr %861, i64 72
   %10106 = call ptr @pm_string_source(ptr noundef nonnull %10105) #6
@@ -16659,16 +16659,16 @@ pm_location_new.exit3753:                         ; preds = %10102, %10099, %pm_
   %10121 = icmp ult i64 %10116, 4611686018427387904
   br i1 %10121, label %10122, label %10125
 
-10122:                                            ; preds = %pm_location_new.exit3753
+10122:                                            ; preds = %pm_location_new.argprom.exit3753
   %10123 = shl nuw nsw i64 %10120, 1
   %10124 = or disjoint i64 %10123, 1
-  br label %pm_location_new.exit3755
+  br label %pm_location_new.argprom.exit3755
 
-10125:                                            ; preds = %pm_location_new.exit3753
+10125:                                            ; preds = %pm_location_new.argprom.exit3753
   %10126 = call i64 @rb_ull2inum(i64 noundef %10120) #6
-  br label %pm_location_new.exit3755
+  br label %pm_location_new.argprom.exit3755
 
-pm_location_new.exit3755:                         ; preds = %10122, %10125
+pm_location_new.argprom.exit3755:                 ; preds = %10122, %10125
   %.0.i.i3754 = phi i64 [ %10124, %10122 ], [ %10126, %10125 ]
   store i64 %.0.i.i3754, ptr %236, align 16
   %10127 = load i64, ptr @rb_cPrismStringNode, align 8
@@ -16697,21 +16697,21 @@ pm_location_new.exit3755:                         ; preds = %10122, %10125
 10144:                                            ; preds = %10130
   %10145 = shl nuw nsw i64 %10142, 1
   %10146 = or disjoint i64 %10145, 1
-  br label %pm_location_new.exit3757
+  br label %pm_location_new.argprom.exit3757
 
 10147:                                            ; preds = %10130
   %10148 = call i64 @rb_ull2inum(i64 noundef %10142) #6
-  br label %pm_location_new.exit3757
+  br label %pm_location_new.argprom.exit3757
 
-pm_location_new.exit3757:                         ; preds = %10144, %10147
+pm_location_new.argprom.exit3757:                 ; preds = %10144, %10147
   %.0.i.i3756 = phi i64 [ %10146, %10144 ], [ %10148, %10147 ]
   store i64 %.0.i.i3756, ptr %225, align 8
   %10149 = getelementptr inbounds i8, ptr %861, i64 40
   %10150 = load ptr, ptr %10149, align 8
   %10151 = icmp eq ptr %10150, null
-  br i1 %10151, label %pm_location_new.exit3759, label %10152
+  br i1 %10151, label %pm_location_new.argprom.exit3759, label %10152
 
-10152:                                            ; preds = %pm_location_new.exit3757
+10152:                                            ; preds = %pm_location_new.argprom.exit3757
   %10153 = getelementptr inbounds i8, ptr %861, i64 48
   %10154 = load ptr, ptr %10153, align 8
   %.val2738 = load ptr, ptr %180, align 8
@@ -16729,23 +16729,23 @@ pm_location_new.exit3757:                         ; preds = %10144, %10147
 10164:                                            ; preds = %10152
   %10165 = shl nuw nsw i64 %10162, 1
   %10166 = or disjoint i64 %10165, 1
-  br label %pm_location_new.exit3759
+  br label %pm_location_new.argprom.exit3759
 
 10167:                                            ; preds = %10152
   %10168 = call i64 @rb_ull2inum(i64 noundef %10162) #6
-  br label %pm_location_new.exit3759
+  br label %pm_location_new.argprom.exit3759
 
-pm_location_new.exit3759:                         ; preds = %10167, %10164, %pm_location_new.exit3757
-  %10169 = phi i64 [ 4, %pm_location_new.exit3757 ], [ %10166, %10164 ], [ %10168, %10167 ]
+pm_location_new.argprom.exit3759:                 ; preds = %10167, %10164, %pm_location_new.argprom.exit3757
+  %10169 = phi i64 [ 4, %pm_location_new.argprom.exit3757 ], [ %10166, %10164 ], [ %10168, %10167 ]
   store i64 %10169, ptr %226, align 16
   %10170 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10170, ptr %227, align 8
   %10171 = getelementptr inbounds i8, ptr %861, i64 64
   %10172 = load ptr, ptr %10171, align 8
   %10173 = icmp eq ptr %10172, null
-  br i1 %10173, label %pm_location_new.exit3761, label %10174
+  br i1 %10173, label %pm_location_new.argprom.exit3761, label %10174
 
-10174:                                            ; preds = %pm_location_new.exit3759
+10174:                                            ; preds = %pm_location_new.argprom.exit3759
   %10175 = getelementptr inbounds i8, ptr %861, i64 72
   %10176 = load ptr, ptr %10175, align 8
   %.val2737 = load ptr, ptr %180, align 8
@@ -16763,14 +16763,14 @@ pm_location_new.exit3759:                         ; preds = %10167, %10164, %pm_
 10186:                                            ; preds = %10174
   %10187 = shl nuw nsw i64 %10184, 1
   %10188 = or disjoint i64 %10187, 1
-  br label %pm_location_new.exit3761
+  br label %pm_location_new.argprom.exit3761
 
 10189:                                            ; preds = %10174
   %10190 = call i64 @rb_ull2inum(i64 noundef %10184) #6
-  br label %pm_location_new.exit3761
+  br label %pm_location_new.argprom.exit3761
 
-pm_location_new.exit3761:                         ; preds = %10189, %10186, %pm_location_new.exit3759
-  %10191 = phi i64 [ 4, %pm_location_new.exit3759 ], [ %10188, %10186 ], [ %10190, %10189 ]
+pm_location_new.argprom.exit3761:                 ; preds = %10189, %10186, %pm_location_new.argprom.exit3759
+  %10191 = phi i64 [ 4, %pm_location_new.argprom.exit3759 ], [ %10188, %10186 ], [ %10190, %10189 ]
   store i64 %10191, ptr %228, align 16
   %10192 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10192, ptr %229, align 8
@@ -16790,16 +16790,16 @@ pm_location_new.exit3761:                         ; preds = %10189, %10186, %pm_
   %10205 = icmp ult i64 %10200, 4611686018427387904
   br i1 %10205, label %10206, label %10209
 
-10206:                                            ; preds = %pm_location_new.exit3761
+10206:                                            ; preds = %pm_location_new.argprom.exit3761
   %10207 = shl nuw nsw i64 %10204, 1
   %10208 = or disjoint i64 %10207, 1
-  br label %pm_location_new.exit3763
+  br label %pm_location_new.argprom.exit3763
 
-10209:                                            ; preds = %pm_location_new.exit3761
+10209:                                            ; preds = %pm_location_new.argprom.exit3761
   %10210 = call i64 @rb_ull2inum(i64 noundef %10204) #6
-  br label %pm_location_new.exit3763
+  br label %pm_location_new.argprom.exit3763
 
-pm_location_new.exit3763:                         ; preds = %10206, %10209
+pm_location_new.argprom.exit3763:                 ; preds = %10206, %10209
   %.0.i.i3762 = phi i64 [ %10208, %10206 ], [ %10210, %10209 ]
   store i64 %.0.i.i3762, ptr %230, align 16
   %10211 = load i64, ptr @rb_cPrismSuperNode, align 8
@@ -16819,7 +16819,7 @@ pm_location_new.exit3763:                         ; preds = %10206, %10209
   %10221 = getelementptr inbounds i8, ptr %861, i64 24
   %10222 = load ptr, ptr %10221, align 8
   %10223 = icmp eq ptr %10222, null
-  br i1 %10223, label %pm_location_new.exit3765, label %10224
+  br i1 %10223, label %pm_location_new.argprom.exit3765, label %10224
 
 10224:                                            ; preds = %10214
   %10225 = getelementptr inbounds i8, ptr %861, i64 32
@@ -16839,21 +16839,21 @@ pm_location_new.exit3763:                         ; preds = %10206, %10209
 10236:                                            ; preds = %10224
   %10237 = shl nuw nsw i64 %10234, 1
   %10238 = or disjoint i64 %10237, 1
-  br label %pm_location_new.exit3765
+  br label %pm_location_new.argprom.exit3765
 
 10239:                                            ; preds = %10224
   %10240 = call i64 @rb_ull2inum(i64 noundef %10234) #6
-  br label %pm_location_new.exit3765
+  br label %pm_location_new.argprom.exit3765
 
-pm_location_new.exit3765:                         ; preds = %10239, %10236, %10214
+pm_location_new.argprom.exit3765:                 ; preds = %10239, %10236, %10214
   %10241 = phi i64 [ 4, %10214 ], [ %10238, %10236 ], [ %10240, %10239 ]
   store i64 %10241, ptr %220, align 16
   %10242 = getelementptr inbounds i8, ptr %861, i64 40
   %10243 = load ptr, ptr %10242, align 8
   %10244 = icmp eq ptr %10243, null
-  br i1 %10244, label %pm_location_new.exit3767, label %10245
+  br i1 %10244, label %pm_location_new.argprom.exit3767, label %10245
 
-10245:                                            ; preds = %pm_location_new.exit3765
+10245:                                            ; preds = %pm_location_new.argprom.exit3765
   %10246 = getelementptr inbounds i8, ptr %861, i64 48
   %10247 = load ptr, ptr %10246, align 8
   %.val2734 = load ptr, ptr %180, align 8
@@ -16871,21 +16871,21 @@ pm_location_new.exit3765:                         ; preds = %10239, %10236, %102
 10257:                                            ; preds = %10245
   %10258 = shl nuw nsw i64 %10255, 1
   %10259 = or disjoint i64 %10258, 1
-  br label %pm_location_new.exit3767
+  br label %pm_location_new.argprom.exit3767
 
 10260:                                            ; preds = %10245
   %10261 = call i64 @rb_ull2inum(i64 noundef %10255) #6
-  br label %pm_location_new.exit3767
+  br label %pm_location_new.argprom.exit3767
 
-pm_location_new.exit3767:                         ; preds = %10260, %10257, %pm_location_new.exit3765
-  %10262 = phi i64 [ 4, %pm_location_new.exit3765 ], [ %10259, %10257 ], [ %10261, %10260 ]
+pm_location_new.argprom.exit3767:                 ; preds = %10260, %10257, %pm_location_new.argprom.exit3765
+  %10262 = phi i64 [ 4, %pm_location_new.argprom.exit3765 ], [ %10259, %10257 ], [ %10261, %10260 ]
   store i64 %10262, ptr %221, align 8
   %10263 = getelementptr inbounds i8, ptr %861, i64 56
   %10264 = load ptr, ptr %10263, align 8
   %10265 = icmp eq ptr %10264, null
-  br i1 %10265, label %pm_location_new.exit3769, label %10266
+  br i1 %10265, label %pm_location_new.argprom.exit3769, label %10266
 
-10266:                                            ; preds = %pm_location_new.exit3767
+10266:                                            ; preds = %pm_location_new.argprom.exit3767
   %10267 = getelementptr inbounds i8, ptr %861, i64 64
   %10268 = load ptr, ptr %10267, align 8
   %.val2733 = load ptr, ptr %180, align 8
@@ -16903,14 +16903,14 @@ pm_location_new.exit3767:                         ; preds = %10260, %10257, %pm_
 10278:                                            ; preds = %10266
   %10279 = shl nuw nsw i64 %10276, 1
   %10280 = or disjoint i64 %10279, 1
-  br label %pm_location_new.exit3769
+  br label %pm_location_new.argprom.exit3769
 
 10281:                                            ; preds = %10266
   %10282 = call i64 @rb_ull2inum(i64 noundef %10276) #6
-  br label %pm_location_new.exit3769
+  br label %pm_location_new.argprom.exit3769
 
-pm_location_new.exit3769:                         ; preds = %10281, %10278, %pm_location_new.exit3767
-  %10283 = phi i64 [ 4, %pm_location_new.exit3767 ], [ %10280, %10278 ], [ %10282, %10281 ]
+pm_location_new.argprom.exit3769:                 ; preds = %10281, %10278, %pm_location_new.argprom.exit3767
+  %10283 = phi i64 [ 4, %pm_location_new.argprom.exit3767 ], [ %10280, %10278 ], [ %10282, %10281 ]
   store i64 %10283, ptr %222, align 16
   %10284 = getelementptr inbounds i8, ptr %861, i64 72
   %10285 = call ptr @pm_string_source(ptr noundef nonnull %10284) #6
@@ -16933,16 +16933,16 @@ pm_location_new.exit3769:                         ; preds = %10281, %10278, %pm_
   %10300 = icmp ult i64 %10295, 4611686018427387904
   br i1 %10300, label %10301, label %10304
 
-10301:                                            ; preds = %pm_location_new.exit3769
+10301:                                            ; preds = %pm_location_new.argprom.exit3769
   %10302 = shl nuw nsw i64 %10299, 1
   %10303 = or disjoint i64 %10302, 1
-  br label %pm_location_new.exit3771
+  br label %pm_location_new.argprom.exit3771
 
-10304:                                            ; preds = %pm_location_new.exit3769
+10304:                                            ; preds = %pm_location_new.argprom.exit3769
   %10305 = call i64 @rb_ull2inum(i64 noundef %10299) #6
-  br label %pm_location_new.exit3771
+  br label %pm_location_new.argprom.exit3771
 
-pm_location_new.exit3771:                         ; preds = %10301, %10304
+pm_location_new.argprom.exit3771:                 ; preds = %10301, %10304
   %.0.i.i3770 = phi i64 [ %10303, %10301 ], [ %10305, %10304 ]
   store i64 %.0.i.i3770, ptr %224, align 16
   %10306 = load i64, ptr @rb_cPrismSymbolNode, align 8
@@ -16971,13 +16971,13 @@ pm_location_new.exit3771:                         ; preds = %10301, %10304
 10323:                                            ; preds = %10309
   %10324 = shl nuw nsw i64 %10321, 1
   %10325 = or disjoint i64 %10324, 1
-  br label %pm_location_new.exit3773
+  br label %pm_location_new.argprom.exit3773
 
 10326:                                            ; preds = %10309
   %10327 = call i64 @rb_ull2inum(i64 noundef %10321) #6
-  br label %pm_location_new.exit3773
+  br label %pm_location_new.argprom.exit3773
 
-pm_location_new.exit3773:                         ; preds = %10323, %10326
+pm_location_new.argprom.exit3773:                 ; preds = %10323, %10326
   %.0.i.i3772 = phi i64 [ %10325, %10323 ], [ %10327, %10326 ]
   store i64 %.0.i.i3772, ptr %218, align 8
   %10328 = load i64, ptr @rb_cPrismTrueNode, align 8
@@ -17025,15 +17025,15 @@ pm_location_new.exit3773:                         ; preds = %10323, %10326
 10355:                                            ; preds = %._crit_edge4194
   %10356 = shl nuw nsw i64 %10353, 1
   %10357 = or disjoint i64 %10356, 1
-  br label %pm_location_new.exit3775
+  br label %pm_location_new.argprom.exit3775
 
 10358:                                            ; preds = %._crit_edge4194
   %10359 = call i64 @rb_ull2inum(i64 noundef %10353) #6
   %.val2729.pre = load ptr, ptr %180, align 8
   %.pre4752 = ptrtoint ptr %.val2729.pre to i64
-  br label %pm_location_new.exit3775
+  br label %pm_location_new.argprom.exit3775
 
-pm_location_new.exit3775:                         ; preds = %10355, %10358
+pm_location_new.argprom.exit3775:                 ; preds = %10355, %10358
   %.pre-phi4753 = phi i64 [ %10347, %10355 ], [ %.pre4752, %10358 ]
   %.0.i.i3774 = phi i64 [ %10357, %10355 ], [ %10359, %10358 ]
   store i64 %.0.i.i3774, ptr %216, align 16
@@ -17051,16 +17051,16 @@ pm_location_new.exit3775:                         ; preds = %10355, %10358
   %10371 = icmp ult i64 %10366, 4611686018427387904
   br i1 %10371, label %10372, label %10375
 
-10372:                                            ; preds = %pm_location_new.exit3775
+10372:                                            ; preds = %pm_location_new.argprom.exit3775
   %10373 = shl nuw nsw i64 %10370, 1
   %10374 = or disjoint i64 %10373, 1
-  br label %pm_location_new.exit3777
+  br label %pm_location_new.argprom.exit3777
 
-10375:                                            ; preds = %pm_location_new.exit3775
+10375:                                            ; preds = %pm_location_new.argprom.exit3775
   %10376 = call i64 @rb_ull2inum(i64 noundef %10370) #6
-  br label %pm_location_new.exit3777
+  br label %pm_location_new.argprom.exit3777
 
-pm_location_new.exit3777:                         ; preds = %10372, %10375
+pm_location_new.argprom.exit3777:                 ; preds = %10372, %10375
   %.0.i.i3776 = phi i64 [ %10374, %10372 ], [ %10376, %10375 ]
   store i64 %.0.i.i3776, ptr %217, align 8
   %10377 = load i64, ptr @rb_cPrismUndefNode, align 8
@@ -17089,13 +17089,13 @@ pm_location_new.exit3777:                         ; preds = %10372, %10375
 10394:                                            ; preds = %10380
   %10395 = shl nuw nsw i64 %10392, 1
   %10396 = or disjoint i64 %10395, 1
-  br label %pm_location_new.exit3779
+  br label %pm_location_new.argprom.exit3779
 
 10397:                                            ; preds = %10380
   %10398 = call i64 @rb_ull2inum(i64 noundef %10392) #6
-  br label %pm_location_new.exit3779
+  br label %pm_location_new.argprom.exit3779
 
-pm_location_new.exit3779:                         ; preds = %10394, %10397
+pm_location_new.argprom.exit3779:                 ; preds = %10394, %10397
   %.0.i.i3778 = phi i64 [ %10396, %10394 ], [ %10398, %10397 ]
   store i64 %.0.i.i3778, ptr %208, align 8
   %10399 = call i64 @rb_ary_pop(i64 noundef %179) #6
@@ -17103,9 +17103,9 @@ pm_location_new.exit3779:                         ; preds = %10394, %10397
   %10400 = getelementptr inbounds i8, ptr %861, i64 48
   %10401 = load ptr, ptr %10400, align 8
   %10402 = icmp eq ptr %10401, null
-  br i1 %10402, label %pm_location_new.exit3781, label %10403
+  br i1 %10402, label %pm_location_new.argprom.exit3781, label %10403
 
-10403:                                            ; preds = %pm_location_new.exit3779
+10403:                                            ; preds = %pm_location_new.argprom.exit3779
   %10404 = getelementptr inbounds i8, ptr %861, i64 56
   %10405 = load ptr, ptr %10404, align 8
   %.val2727 = load ptr, ptr %180, align 8
@@ -17123,14 +17123,14 @@ pm_location_new.exit3779:                         ; preds = %10394, %10397
 10415:                                            ; preds = %10403
   %10416 = shl nuw nsw i64 %10413, 1
   %10417 = or disjoint i64 %10416, 1
-  br label %pm_location_new.exit3781
+  br label %pm_location_new.argprom.exit3781
 
 10418:                                            ; preds = %10403
   %10419 = call i64 @rb_ull2inum(i64 noundef %10413) #6
-  br label %pm_location_new.exit3781
+  br label %pm_location_new.argprom.exit3781
 
-pm_location_new.exit3781:                         ; preds = %10418, %10415, %pm_location_new.exit3779
-  %10420 = phi i64 [ 4, %pm_location_new.exit3779 ], [ %10417, %10415 ], [ %10419, %10418 ]
+pm_location_new.argprom.exit3781:                 ; preds = %10418, %10415, %pm_location_new.argprom.exit3779
+  %10420 = phi i64 [ 4, %pm_location_new.argprom.exit3779 ], [ %10417, %10415 ], [ %10419, %10418 ]
   store i64 %10420, ptr %210, align 8
   %10421 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10421, ptr %211, align 16
@@ -17140,9 +17140,9 @@ pm_location_new.exit3781:                         ; preds = %10418, %10415, %pm_
   %10424 = load ptr, ptr %10423, align 8
   %10425 = icmp eq ptr %10424, null
   %.val2725.pre4442 = load ptr, ptr %180, align 8
-  br i1 %10425, label %pm_location_new.exit3783, label %10426
+  br i1 %10425, label %pm_location_new.argprom.exit3783, label %10426
 
-10426:                                            ; preds = %pm_location_new.exit3781
+10426:                                            ; preds = %pm_location_new.argprom.exit3781
   %10427 = getelementptr inbounds i8, ptr %861, i64 88
   %10428 = load ptr, ptr %10427, align 8
   %10429 = ptrtoint ptr %10424 to i64
@@ -17159,16 +17159,16 @@ pm_location_new.exit3781:                         ; preds = %10418, %10415, %pm_
 10438:                                            ; preds = %10426
   %10439 = shl nuw nsw i64 %10436, 1
   %10440 = or disjoint i64 %10439, 1
-  br label %pm_location_new.exit3783
+  br label %pm_location_new.argprom.exit3783
 
 10441:                                            ; preds = %10426
   %10442 = call i64 @rb_ull2inum(i64 noundef %10436) #6
   %.val2725.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3783
+  br label %pm_location_new.argprom.exit3783
 
-pm_location_new.exit3783:                         ; preds = %10441, %10438, %pm_location_new.exit3781
-  %.val2725 = phi ptr [ %.val2725.pre4442, %pm_location_new.exit3781 ], [ %.val2725.pre4442, %10438 ], [ %.val2725.pre, %10441 ]
-  %10443 = phi i64 [ 4, %pm_location_new.exit3781 ], [ %10440, %10438 ], [ %10442, %10441 ]
+pm_location_new.argprom.exit3783:                 ; preds = %10441, %10438, %pm_location_new.argprom.exit3781
+  %.val2725 = phi ptr [ %.val2725.pre4442, %pm_location_new.argprom.exit3781 ], [ %.val2725.pre4442, %10438 ], [ %.val2725.pre, %10441 ]
+  %10443 = phi i64 [ 4, %pm_location_new.argprom.exit3781 ], [ %10440, %10438 ], [ %10442, %10441 ]
   store i64 %10443, ptr %213, align 16
   %10444 = getelementptr inbounds i8, ptr %861, i64 8
   %10445 = load ptr, ptr %10444, align 8
@@ -17185,16 +17185,16 @@ pm_location_new.exit3783:                         ; preds = %10441, %10438, %pm_
   %10456 = icmp ult i64 %10451, 4611686018427387904
   br i1 %10456, label %10457, label %10460
 
-10457:                                            ; preds = %pm_location_new.exit3783
+10457:                                            ; preds = %pm_location_new.argprom.exit3783
   %10458 = shl nuw nsw i64 %10455, 1
   %10459 = or disjoint i64 %10458, 1
-  br label %pm_location_new.exit3785
+  br label %pm_location_new.argprom.exit3785
 
-10460:                                            ; preds = %pm_location_new.exit3783
+10460:                                            ; preds = %pm_location_new.argprom.exit3783
   %10461 = call i64 @rb_ull2inum(i64 noundef %10455) #6
-  br label %pm_location_new.exit3785
+  br label %pm_location_new.argprom.exit3785
 
-pm_location_new.exit3785:                         ; preds = %10457, %10460
+pm_location_new.argprom.exit3785:                 ; preds = %10457, %10460
   %.0.i.i3784 = phi i64 [ %10459, %10457 ], [ %10461, %10460 ]
   store i64 %.0.i.i3784, ptr %214, align 8
   %10462 = load i64, ptr @rb_cPrismUnlessNode, align 8
@@ -17230,21 +17230,21 @@ pm_location_new.exit3785:                         ; preds = %10457, %10460
 10485:                                            ; preds = %10465
   %10486 = shl nuw nsw i64 %10483, 1
   %10487 = or disjoint i64 %10486, 1
-  br label %pm_location_new.exit3787
+  br label %pm_location_new.argprom.exit3787
 
 10488:                                            ; preds = %10465
   %10489 = call i64 @rb_ull2inum(i64 noundef %10483) #6
-  br label %pm_location_new.exit3787
+  br label %pm_location_new.argprom.exit3787
 
-pm_location_new.exit3787:                         ; preds = %10485, %10488
+pm_location_new.argprom.exit3787:                 ; preds = %10485, %10488
   %.0.i.i3786 = phi i64 [ %10487, %10485 ], [ %10489, %10488 ]
   store i64 %.0.i.i3786, ptr %203, align 16
   %10490 = getelementptr inbounds i8, ptr %861, i64 40
   %10491 = load ptr, ptr %10490, align 8
   %10492 = icmp eq ptr %10491, null
-  br i1 %10492, label %pm_location_new.exit3789, label %10493
+  br i1 %10492, label %pm_location_new.argprom.exit3789, label %10493
 
-10493:                                            ; preds = %pm_location_new.exit3787
+10493:                                            ; preds = %pm_location_new.argprom.exit3787
   %10494 = getelementptr inbounds i8, ptr %861, i64 48
   %10495 = load ptr, ptr %10494, align 8
   %.val2723 = load ptr, ptr %180, align 8
@@ -17262,14 +17262,14 @@ pm_location_new.exit3787:                         ; preds = %10485, %10488
 10505:                                            ; preds = %10493
   %10506 = shl nuw nsw i64 %10503, 1
   %10507 = or disjoint i64 %10506, 1
-  br label %pm_location_new.exit3789
+  br label %pm_location_new.argprom.exit3789
 
 10508:                                            ; preds = %10493
   %10509 = call i64 @rb_ull2inum(i64 noundef %10503) #6
-  br label %pm_location_new.exit3789
+  br label %pm_location_new.argprom.exit3789
 
-pm_location_new.exit3789:                         ; preds = %10508, %10505, %pm_location_new.exit3787
-  %10510 = phi i64 [ 4, %pm_location_new.exit3787 ], [ %10507, %10505 ], [ %10509, %10508 ]
+pm_location_new.argprom.exit3789:                 ; preds = %10508, %10505, %pm_location_new.argprom.exit3787
+  %10510 = phi i64 [ 4, %pm_location_new.argprom.exit3787 ], [ %10507, %10505 ], [ %10509, %10508 ]
   store i64 %10510, ptr %204, align 8
   %10511 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10511, ptr %205, align 16
@@ -17291,16 +17291,16 @@ pm_location_new.exit3789:                         ; preds = %10508, %10505, %pm_
   %10525 = icmp ult i64 %10520, 4611686018427387904
   br i1 %10525, label %10526, label %10529
 
-10526:                                            ; preds = %pm_location_new.exit3789
+10526:                                            ; preds = %pm_location_new.argprom.exit3789
   %10527 = shl nuw nsw i64 %10524, 1
   %10528 = or disjoint i64 %10527, 1
-  br label %pm_location_new.exit3791
+  br label %pm_location_new.argprom.exit3791
 
-10529:                                            ; preds = %pm_location_new.exit3789
+10529:                                            ; preds = %pm_location_new.argprom.exit3789
   %10530 = call i64 @rb_ull2inum(i64 noundef %10524) #6
-  br label %pm_location_new.exit3791
+  br label %pm_location_new.argprom.exit3791
 
-pm_location_new.exit3791:                         ; preds = %10526, %10529
+pm_location_new.argprom.exit3791:                 ; preds = %10526, %10529
   %.0.i.i3790 = phi i64 [ %10528, %10526 ], [ %10530, %10529 ]
   store i64 %.0.i.i3790, ptr %207, align 16
   %10531 = load i64, ptr @rb_cPrismUntilNode, align 8
@@ -17329,13 +17329,13 @@ pm_location_new.exit3791:                         ; preds = %10526, %10529
 10548:                                            ; preds = %10534
   %10549 = shl nuw nsw i64 %10546, 1
   %10550 = or disjoint i64 %10549, 1
-  br label %pm_location_new.exit3793
+  br label %pm_location_new.argprom.exit3793
 
 10551:                                            ; preds = %10534
   %10552 = call i64 @rb_ull2inum(i64 noundef %10546) #6
-  br label %pm_location_new.exit3793
+  br label %pm_location_new.argprom.exit3793
 
-pm_location_new.exit3793:                         ; preds = %10548, %10551
+pm_location_new.argprom.exit3793:                 ; preds = %10548, %10551
   %.0.i.i3792 = phi i64 [ %10550, %10548 ], [ %10552, %10551 ]
   store i64 %.0.i.i3792, ptr %198, align 8
   %10553 = getelementptr inbounds i8, ptr %861, i64 40
@@ -17346,8 +17346,8 @@ pm_location_new.exit3793:                         ; preds = %10548, %10551
   %.not4354 = icmp eq i64 %10556, 0
   br i1 %.not4354, label %._crit_edge4190, label %.lr.ph4189
 
-.lr.ph4189:                                       ; preds = %pm_location_new.exit3793, %.lr.ph4189
-  %.025754188 = phi i64 [ %10560, %.lr.ph4189 ], [ 0, %pm_location_new.exit3793 ]
+.lr.ph4189:                                       ; preds = %pm_location_new.argprom.exit3793, %.lr.ph4189
+  %.025754188 = phi i64 [ %10560, %.lr.ph4189 ], [ 0, %pm_location_new.argprom.exit3793 ]
   %10557 = load i64, ptr %199, align 16
   %10558 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %10559 = call i64 @rb_ary_push(i64 noundef %10557, i64 noundef %10558) #6
@@ -17356,7 +17356,7 @@ pm_location_new.exit3793:                         ; preds = %10548, %10551
   %10562 = icmp ult i64 %10560, %10561
   br i1 %10562, label %.lr.ph4189, label %._crit_edge4190, !llvm.loop !77
 
-._crit_edge4190:                                  ; preds = %.lr.ph4189, %pm_location_new.exit3793
+._crit_edge4190:                                  ; preds = %.lr.ph4189, %pm_location_new.argprom.exit3793
   %10563 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10563, ptr %200, align 8
   %10564 = getelementptr inbounds i8, ptr %861, i64 8
@@ -17378,13 +17378,13 @@ pm_location_new.exit3793:                         ; preds = %10548, %10551
 10577:                                            ; preds = %._crit_edge4190
   %10578 = shl nuw nsw i64 %10575, 1
   %10579 = or disjoint i64 %10578, 1
-  br label %pm_location_new.exit3795
+  br label %pm_location_new.argprom.exit3795
 
 10580:                                            ; preds = %._crit_edge4190
   %10581 = call i64 @rb_ull2inum(i64 noundef %10575) #6
-  br label %pm_location_new.exit3795
+  br label %pm_location_new.argprom.exit3795
 
-pm_location_new.exit3795:                         ; preds = %10577, %10580
+pm_location_new.argprom.exit3795:                 ; preds = %10577, %10580
   %.0.i.i3794 = phi i64 [ %10579, %10577 ], [ %10581, %10580 ]
   store i64 %.0.i.i3794, ptr %201, align 16
   %10582 = load i64, ptr @rb_cPrismWhenNode, align 8
@@ -17420,21 +17420,21 @@ pm_location_new.exit3795:                         ; preds = %10577, %10580
 10605:                                            ; preds = %10585
   %10606 = shl nuw nsw i64 %10603, 1
   %10607 = or disjoint i64 %10606, 1
-  br label %pm_location_new.exit3797
+  br label %pm_location_new.argprom.exit3797
 
 10608:                                            ; preds = %10585
   %10609 = call i64 @rb_ull2inum(i64 noundef %10603) #6
-  br label %pm_location_new.exit3797
+  br label %pm_location_new.argprom.exit3797
 
-pm_location_new.exit3797:                         ; preds = %10605, %10608
+pm_location_new.argprom.exit3797:                 ; preds = %10605, %10608
   %.0.i.i3796 = phi i64 [ %10607, %10605 ], [ %10609, %10608 ]
   store i64 %.0.i.i3796, ptr %193, align 16
   %10610 = getelementptr inbounds i8, ptr %861, i64 40
   %10611 = load ptr, ptr %10610, align 8
   %10612 = icmp eq ptr %10611, null
-  br i1 %10612, label %pm_location_new.exit3799, label %10613
+  br i1 %10612, label %pm_location_new.argprom.exit3799, label %10613
 
-10613:                                            ; preds = %pm_location_new.exit3797
+10613:                                            ; preds = %pm_location_new.argprom.exit3797
   %10614 = getelementptr inbounds i8, ptr %861, i64 48
   %10615 = load ptr, ptr %10614, align 8
   %.val2718 = load ptr, ptr %180, align 8
@@ -17452,14 +17452,14 @@ pm_location_new.exit3797:                         ; preds = %10605, %10608
 10625:                                            ; preds = %10613
   %10626 = shl nuw nsw i64 %10623, 1
   %10627 = or disjoint i64 %10626, 1
-  br label %pm_location_new.exit3799
+  br label %pm_location_new.argprom.exit3799
 
 10628:                                            ; preds = %10613
   %10629 = call i64 @rb_ull2inum(i64 noundef %10623) #6
-  br label %pm_location_new.exit3799
+  br label %pm_location_new.argprom.exit3799
 
-pm_location_new.exit3799:                         ; preds = %10628, %10625, %pm_location_new.exit3797
-  %10630 = phi i64 [ 4, %pm_location_new.exit3797 ], [ %10627, %10625 ], [ %10629, %10628 ]
+pm_location_new.argprom.exit3799:                 ; preds = %10628, %10625, %pm_location_new.argprom.exit3797
+  %10630 = phi i64 [ 4, %pm_location_new.argprom.exit3797 ], [ %10627, %10625 ], [ %10629, %10628 ]
   store i64 %10630, ptr %194, align 8
   %10631 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10631, ptr %195, align 16
@@ -17481,16 +17481,16 @@ pm_location_new.exit3799:                         ; preds = %10628, %10625, %pm_
   %10645 = icmp ult i64 %10640, 4611686018427387904
   br i1 %10645, label %10646, label %10649
 
-10646:                                            ; preds = %pm_location_new.exit3799
+10646:                                            ; preds = %pm_location_new.argprom.exit3799
   %10647 = shl nuw nsw i64 %10644, 1
   %10648 = or disjoint i64 %10647, 1
-  br label %pm_location_new.exit3801
+  br label %pm_location_new.argprom.exit3801
 
-10649:                                            ; preds = %pm_location_new.exit3799
+10649:                                            ; preds = %pm_location_new.argprom.exit3799
   %10650 = call i64 @rb_ull2inum(i64 noundef %10644) #6
-  br label %pm_location_new.exit3801
+  br label %pm_location_new.argprom.exit3801
 
-pm_location_new.exit3801:                         ; preds = %10646, %10649
+pm_location_new.argprom.exit3801:                 ; preds = %10646, %10649
   %.0.i.i3800 = phi i64 [ %10648, %10646 ], [ %10650, %10649 ]
   store i64 %.0.i.i3800, ptr %197, align 16
   %10651 = load i64, ptr @rb_cPrismWhileNode, align 8
@@ -17526,15 +17526,15 @@ pm_location_new.exit3801:                         ; preds = %10646, %10649
 10674:                                            ; preds = %10654
   %10675 = shl nuw nsw i64 %10672, 1
   %10676 = or disjoint i64 %10675, 1
-  br label %pm_location_new.exit3803
+  br label %pm_location_new.argprom.exit3803
 
 10677:                                            ; preds = %10654
   %10678 = call i64 @rb_ull2inum(i64 noundef %10672) #6
   %.val2715.pre = load ptr, ptr %180, align 8
   %.pre4754 = ptrtoint ptr %.val2715.pre to i64
-  br label %pm_location_new.exit3803
+  br label %pm_location_new.argprom.exit3803
 
-pm_location_new.exit3803:                         ; preds = %10674, %10677
+pm_location_new.argprom.exit3803:                 ; preds = %10674, %10677
   %.pre-phi4755 = phi i64 [ %10666, %10674 ], [ %.pre4754, %10677 ]
   %.0.i.i3802 = phi i64 [ %10676, %10674 ], [ %10678, %10677 ]
   store i64 %.0.i.i3802, ptr %187, align 16
@@ -17552,18 +17552,18 @@ pm_location_new.exit3803:                         ; preds = %10674, %10677
   %10690 = icmp ult i64 %10685, 4611686018427387904
   br i1 %10690, label %10691, label %10694
 
-10691:                                            ; preds = %pm_location_new.exit3803
+10691:                                            ; preds = %pm_location_new.argprom.exit3803
   %10692 = shl nuw nsw i64 %10689, 1
   %10693 = or disjoint i64 %10692, 1
-  br label %pm_location_new.exit3805
+  br label %pm_location_new.argprom.exit3805
 
-10694:                                            ; preds = %pm_location_new.exit3803
+10694:                                            ; preds = %pm_location_new.argprom.exit3803
   %10695 = call i64 @rb_ull2inum(i64 noundef %10689) #6
   %.val2714.pre = load ptr, ptr %180, align 8
   %.pre4756 = ptrtoint ptr %.val2714.pre to i64
-  br label %pm_location_new.exit3805
+  br label %pm_location_new.argprom.exit3805
 
-pm_location_new.exit3805:                         ; preds = %10691, %10694
+pm_location_new.argprom.exit3805:                 ; preds = %10691, %10694
   %.pre-phi4757 = phi i64 [ %.pre-phi4755, %10691 ], [ %.pre4756, %10694 ]
   %.0.i.i3804 = phi i64 [ %10693, %10691 ], [ %10695, %10694 ]
   store i64 %.0.i.i3804, ptr %188, align 8
@@ -17581,16 +17581,16 @@ pm_location_new.exit3805:                         ; preds = %10691, %10694
   %10707 = icmp ult i64 %10702, 4611686018427387904
   br i1 %10707, label %10708, label %10711
 
-10708:                                            ; preds = %pm_location_new.exit3805
+10708:                                            ; preds = %pm_location_new.argprom.exit3805
   %10709 = shl nuw nsw i64 %10706, 1
   %10710 = or disjoint i64 %10709, 1
-  br label %pm_location_new.exit3807
+  br label %pm_location_new.argprom.exit3807
 
-10711:                                            ; preds = %pm_location_new.exit3805
+10711:                                            ; preds = %pm_location_new.argprom.exit3805
   %10712 = call i64 @rb_ull2inum(i64 noundef %10706) #6
-  br label %pm_location_new.exit3807
+  br label %pm_location_new.argprom.exit3807
 
-pm_location_new.exit3807:                         ; preds = %10708, %10711
+pm_location_new.argprom.exit3807:                 ; preds = %10708, %10711
   %.0.i.i3806 = phi i64 [ %10710, %10708 ], [ %10712, %10711 ]
   store i64 %.0.i.i3806, ptr %189, align 16
   %10713 = getelementptr inbounds i8, ptr %861, i64 72
@@ -17614,16 +17614,16 @@ pm_location_new.exit3807:                         ; preds = %10708, %10711
   %10729 = icmp ult i64 %10724, 4611686018427387904
   br i1 %10729, label %10730, label %10733
 
-10730:                                            ; preds = %pm_location_new.exit3807
+10730:                                            ; preds = %pm_location_new.argprom.exit3807
   %10731 = shl nuw nsw i64 %10728, 1
   %10732 = or disjoint i64 %10731, 1
-  br label %pm_location_new.exit3809
+  br label %pm_location_new.argprom.exit3809
 
-10733:                                            ; preds = %pm_location_new.exit3807
+10733:                                            ; preds = %pm_location_new.argprom.exit3807
   %10734 = call i64 @rb_ull2inum(i64 noundef %10728) #6
-  br label %pm_location_new.exit3809
+  br label %pm_location_new.argprom.exit3809
 
-pm_location_new.exit3809:                         ; preds = %10730, %10733
+pm_location_new.argprom.exit3809:                 ; preds = %10730, %10733
   %.0.i.i3808 = phi i64 [ %10732, %10730 ], [ %10734, %10733 ]
   store i64 %.0.i.i3808, ptr %191, align 16
   %10735 = load i64, ptr @rb_cPrismXStringNode, align 8
@@ -17652,21 +17652,21 @@ pm_location_new.exit3809:                         ; preds = %10730, %10733
 10752:                                            ; preds = %10738
   %10753 = shl nuw nsw i64 %10750, 1
   %10754 = or disjoint i64 %10753, 1
-  br label %pm_location_new.exit3811
+  br label %pm_location_new.argprom.exit3811
 
 10755:                                            ; preds = %10738
   %10756 = call i64 @rb_ull2inum(i64 noundef %10750) #6
-  br label %pm_location_new.exit3811
+  br label %pm_location_new.argprom.exit3811
 
-pm_location_new.exit3811:                         ; preds = %10752, %10755
+pm_location_new.argprom.exit3811:                 ; preds = %10752, %10755
   %.0.i.i3810 = phi i64 [ %10754, %10752 ], [ %10756, %10755 ]
   store i64 %.0.i.i3810, ptr %181, align 8
   %10757 = getelementptr inbounds i8, ptr %861, i64 40
   %10758 = load ptr, ptr %10757, align 8
   %10759 = icmp eq ptr %10758, null
-  br i1 %10759, label %pm_location_new.exit3813, label %10760
+  br i1 %10759, label %pm_location_new.argprom.exit3813, label %10760
 
-10760:                                            ; preds = %pm_location_new.exit3811
+10760:                                            ; preds = %pm_location_new.argprom.exit3811
   %10761 = getelementptr inbounds i8, ptr %861, i64 48
   %10762 = load ptr, ptr %10761, align 8
   %.val2711 = load ptr, ptr %180, align 8
@@ -17684,14 +17684,14 @@ pm_location_new.exit3811:                         ; preds = %10752, %10755
 10772:                                            ; preds = %10760
   %10773 = shl nuw nsw i64 %10770, 1
   %10774 = or disjoint i64 %10773, 1
-  br label %pm_location_new.exit3813
+  br label %pm_location_new.argprom.exit3813
 
 10775:                                            ; preds = %10760
   %10776 = call i64 @rb_ull2inum(i64 noundef %10770) #6
-  br label %pm_location_new.exit3813
+  br label %pm_location_new.argprom.exit3813
 
-pm_location_new.exit3813:                         ; preds = %10775, %10772, %pm_location_new.exit3811
-  %10777 = phi i64 [ 4, %pm_location_new.exit3811 ], [ %10774, %10772 ], [ %10776, %10775 ]
+pm_location_new.argprom.exit3813:                 ; preds = %10775, %10772, %pm_location_new.argprom.exit3811
+  %10777 = phi i64 [ 4, %pm_location_new.argprom.exit3811 ], [ %10774, %10772 ], [ %10776, %10775 ]
   store i64 %10777, ptr %182, align 16
   %10778 = call i64 @rb_ary_pop(i64 noundef %179) #6
   store i64 %10778, ptr %183, align 8
@@ -17699,9 +17699,9 @@ pm_location_new.exit3813:                         ; preds = %10775, %10772, %pm_
   %10780 = load ptr, ptr %10779, align 8
   %10781 = icmp eq ptr %10780, null
   %.val.pre4438 = load ptr, ptr %180, align 8
-  br i1 %10781, label %pm_location_new.exit3815, label %10782
+  br i1 %10781, label %pm_location_new.argprom.exit3815, label %10782
 
-10782:                                            ; preds = %pm_location_new.exit3813
+10782:                                            ; preds = %pm_location_new.argprom.exit3813
   %10783 = getelementptr inbounds i8, ptr %861, i64 72
   %10784 = load ptr, ptr %10783, align 8
   %10785 = ptrtoint ptr %10780 to i64
@@ -17718,16 +17718,16 @@ pm_location_new.exit3813:                         ; preds = %10775, %10772, %pm_
 10794:                                            ; preds = %10782
   %10795 = shl nuw nsw i64 %10792, 1
   %10796 = or disjoint i64 %10795, 1
-  br label %pm_location_new.exit3815
+  br label %pm_location_new.argprom.exit3815
 
 10797:                                            ; preds = %10782
   %10798 = call i64 @rb_ull2inum(i64 noundef %10792) #6
   %.val.pre = load ptr, ptr %180, align 8
-  br label %pm_location_new.exit3815
+  br label %pm_location_new.argprom.exit3815
 
-pm_location_new.exit3815:                         ; preds = %10797, %10794, %pm_location_new.exit3813
-  %.val = phi ptr [ %.val.pre4438, %pm_location_new.exit3813 ], [ %.val.pre4438, %10794 ], [ %.val.pre, %10797 ]
-  %10799 = phi i64 [ 4, %pm_location_new.exit3813 ], [ %10796, %10794 ], [ %10798, %10797 ]
+pm_location_new.argprom.exit3815:                 ; preds = %10797, %10794, %pm_location_new.argprom.exit3813
+  %.val = phi ptr [ %.val.pre4438, %pm_location_new.argprom.exit3813 ], [ %.val.pre4438, %10794 ], [ %.val.pre, %10797 ]
+  %10799 = phi i64 [ 4, %pm_location_new.argprom.exit3813 ], [ %10796, %10794 ], [ %10798, %10797 ]
   store i64 %10799, ptr %184, align 16
   %10800 = getelementptr inbounds i8, ptr %861, i64 8
   %10801 = load ptr, ptr %10800, align 8
@@ -17744,16 +17744,16 @@ pm_location_new.exit3815:                         ; preds = %10797, %10794, %pm_
   %10812 = icmp ult i64 %10807, 4611686018427387904
   br i1 %10812, label %10813, label %10816
 
-10813:                                            ; preds = %pm_location_new.exit3815
+10813:                                            ; preds = %pm_location_new.argprom.exit3815
   %10814 = shl nuw nsw i64 %10811, 1
   %10815 = or disjoint i64 %10814, 1
-  br label %pm_location_new.exit3817
+  br label %pm_location_new.argprom.exit3817
 
-10816:                                            ; preds = %pm_location_new.exit3815
+10816:                                            ; preds = %pm_location_new.argprom.exit3815
   %10817 = call i64 @rb_ull2inum(i64 noundef %10811) #6
-  br label %pm_location_new.exit3817
+  br label %pm_location_new.argprom.exit3817
 
-pm_location_new.exit3817:                         ; preds = %10813, %10816
+pm_location_new.argprom.exit3817:                 ; preds = %10813, %10816
   %.0.i.i3816 = phi i64 [ %10815, %10813 ], [ %10817, %10816 ]
   store i64 %.0.i.i3816, ptr %185, align 8
   %10818 = load i64, ptr @rb_cPrismYieldNode, align 8

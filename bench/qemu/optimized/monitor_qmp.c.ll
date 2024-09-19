@@ -361,17 +361,17 @@ land.lhs.true.i:                                  ; preds = %if.then21
   %obj.val.i = load i32, ptr %29, align 8
   %32 = add i32 %obj.val.i, -1
   %or.cond.i.i26 = icmp ult i32 %32, 6
-  br i1 %or.cond.i.i26, label %qobject_type.exit.i, label %if.else.i.i27
+  br i1 %or.cond.i.i26, label %qobject_type.argprom.exit.i, label %if.else.i.i27
 
 if.else.i.i27:                                    ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   br i1 %cmp.i, label %cond.end, label %cond.false37
 
-cond.end:                                         ; preds = %qobject_type.exit.i
+cond.end:                                         ; preds = %qobject_type.argprom.exit.i
   %call33 = tail call ptr @qdict_get(ptr noundef nonnull %29, ptr noundef nonnull @.str.2) #6
   %tobool34.not = icmp eq ptr %call33, null
   br i1 %tobool34.not, label %cond.false37, label %cond.true35
@@ -380,7 +380,7 @@ cond.true35:                                      ; preds = %cond.end
   %call36 = tail call ptr @qobject_to_json(ptr noundef nonnull %call33) #6
   br label %cond.end39
 
-cond.false37:                                     ; preds = %qobject_type.exit.i, %cond.end
+cond.false37:                                     ; preds = %qobject_type.argprom.exit.i, %cond.end
   %call38 = tail call ptr @g_string_new(ptr noundef null) #6
   br label %cond.end39
 
@@ -801,13 +801,13 @@ land.lhs.true.i:                                  ; preds = %entry
   %obj.val.i = load i32, ptr %req, align 8
   %0 = add i32 %obj.val.i, -1
   %or.cond.i.i = icmp ult i32 %0, 6
-  br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
+  br i1 %or.cond.i.i, label %qobject_type.argprom.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #7
   unreachable
 
-qobject_type.exit.i:                              ; preds = %land.lhs.true.i
+qobject_type.argprom.exit.i:                      ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 4
   %.not78 = icmp eq ptr %err, null
   %req. = select i1 %cmp.i, ptr %req, ptr null
@@ -817,11 +817,11 @@ qobject_check_type.exit:                          ; preds = %entry
   %.not79 = icmp eq ptr %err, null
   br i1 %.not79, label %if.else, label %for.body.us
 
-if.else:                                          ; preds = %qobject_type.exit.i, %qobject_check_type.exit
+if.else:                                          ; preds = %qobject_type.argprom.exit.i, %qobject_check_type.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_qmp_command) #7
   unreachable
 
-land.lhs.true:                                    ; preds = %qobject_type.exit.i
+land.lhs.true:                                    ; preds = %qobject_type.argprom.exit.i
   %1 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool5 = icmp ne i32 %1, 0
   %2 = load i16, ptr @_TRACE_HANDLE_QMP_COMMAND_DSTATE, align 2

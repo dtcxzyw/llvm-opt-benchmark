@@ -1728,8 +1728,8 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.decode_unsolicited_msg.capability_info = private unnamed_addr constant [4 x ptr] [ptr @hf_ua3g_unsolicited_msg_capability_info_vpn, ptr @hf_ua3g_unsolicited_msg_capability_info_ipsec, ptr @hf_ua3g_unsolicited_msg_capability_info_dtls, ptr null], align 16
 @decode_special_key.special_keys = internal constant [9 x ptr] [ptr @hf_ua3g_special_key_shift, ptr @hf_ua3g_special_key_ctrl, ptr @hf_ua3g_special_key_alt, ptr @hf_ua3g_special_key_cmd, ptr @hf_ua3g_special_key_shift_prime, ptr @hf_ua3g_special_key_ctrl_prime, ptr @hf_ua3g_special_key_alt_prime, ptr @hf_ua3g_special_key_cmd_prime, ptr null], align 16
 @.str.1215 = private unnamed_addr constant [23 x i8] c"Subdevice %d State: %d\00", align 1
-@switch.table.decode_ip_device_routing = private unnamed_addr constant [3 x ptr] [ptr @hf_ua3g_ip_device_routing_appl_parameter_id, ptr @hf_ua3g_ip_device_routing_appl_parameter_enable, ptr @hf_ua3g_ip_device_routing_appl_parameter_url], align 8
-@switch.table.decode_ip_device_routing.24 = private unnamed_addr constant [3 x i32] [i32 50331648, i32 0, i32 50331648], align 4
+@switch.table.decode_ip_device_routing.argelim = private unnamed_addr constant [3 x ptr] [ptr @hf_ua3g_ip_device_routing_appl_parameter_id, ptr @hf_ua3g_ip_device_routing_appl_parameter_enable, ptr @hf_ua3g_ip_device_routing_appl_parameter_url], align 8
+@switch.table.decode_ip_device_routing.argelim.24 = private unnamed_addr constant [3 x i32] [i32 50331648, i32 0, i32 50331648], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ua3g() local_unnamed_addr #0 {
@@ -1817,10 +1817,10 @@ define internal i32 @dissect_ua3g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %29 = tail call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef %28, ptr noundef null, ptr noundef nonnull @.str.1146) #9
   %30 = load i32, ptr %3, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %decode_with_one_parameter.exit
+  br i1 %31, label %32, label %decode_with_one_parameter.argprom.exit
 
 32:                                               ; preds = %7
-  switch i8 %spec.select, label %decode_key_number.exit [
+  switch i8 %spec.select, label %decode_key_number.argprom.exit [
     i8 1, label %33
     i8 6, label %38
     i8 43, label %43
@@ -1867,211 +1867,211 @@ define internal i32 @dissect_ua3g(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 33:                                               ; preds = %32
   %34 = icmp eq i32 %26, 0
-  br i1 %34, label %decode_with_one_parameter.exitthread-pre-split, label %35
+  br i1 %34, label %decode_with_one_parameter.argprom.exitthread-pre-split, label %35
 
 35:                                               ; preds = %33
   %36 = load i32, ptr @hf_ua3g_opcode_production_test, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 38:                                               ; preds = %32
   %39 = icmp eq i32 %26, 0
-  br i1 %39, label %decode_with_one_parameter.exitthread-pre-split, label %40
+  br i1 %39, label %decode_with_one_parameter.argprom.exitthread-pre-split, label %40
 
 40:                                               ; preds = %38
   %41 = load i32, ptr @hf_ua3g_opcode_subservice_reset, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %41, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 43:                                               ; preds = %32
   %44 = icmp eq i32 %26, 0
-  br i1 %44, label %decode_with_one_parameter.exitthread-pre-split, label %45
+  br i1 %44, label %decode_with_one_parameter.argprom.exitthread-pre-split, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @hf_ua3g_opcode_are_you_there, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %46, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 48:                                               ; preds = %32
   %49 = icmp eq i32 %26, 0
-  br i1 %49, label %decode_with_one_parameter.exitthread-pre-split, label %50
+  br i1 %49, label %decode_with_one_parameter.argprom.exitthread-pre-split, label %50
 
 50:                                               ; preds = %48
   %51 = load i32, ptr @hf_ua3g_opcode_set_speaker_vol, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %51, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 53:                                               ; preds = %32
   %54 = icmp eq i32 %26, 0
-  br i1 %54, label %decode_with_one_parameter.exitthread-pre-split, label %55
+  br i1 %54, label %decode_with_one_parameter.argprom.exitthread-pre-split, label %55
 
 55:                                               ; preds = %53
   %56 = load i32, ptr @hf_ua3g_opcode_trace_on, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %56, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 58:                                               ; preds = %32
-  tail call fastcc void @decode_subdevice_escape(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_subdevice_escape.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 59:                                               ; preds = %32
   %60 = icmp eq i32 %26, 0
-  br i1 %60, label %decode_key_number.exit, label %61
+  br i1 %60, label %decode_key_number.argprom.exit, label %61
 
 61:                                               ; preds = %59
   %62 = load i32, ptr @hf_ua3g_software_reset, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %62, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 64:                                               ; preds = %32
   %65 = icmp eq i32 %26, 0
-  br i1 %65, label %decode_key_number.exit, label %66
+  br i1 %65, label %decode_key_number.argprom.exit, label %66
 
 66:                                               ; preds = %64
   %67 = load i32, ptr @hf_ua3g_ip_phone_warmstart, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %67, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 69:                                               ; preds = %32, %32
-  tail call fastcc void @decode_super_msg(ptr noundef %29, ptr noundef %0, i32 noundef %26, i8 noundef zeroext %spec.select)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_super_msg.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26, i8 noundef zeroext %spec.select)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 70:                                               ; preds = %32
-  tail call fastcc void @decode_segment_msg(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_segment_msg.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 71:                                               ; preds = %32
-  tail call fastcc void @decode_ip_device_routing(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_ip_device_routing.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 72:                                               ; preds = %32
   %73 = load i32, ptr @hf_ua3g_debug_in_line, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %73, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef 0) #9
-  br label %decode_with_one_parameter.exitthread-pre-split
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 75:                                               ; preds = %32
-  tail call fastcc void @decode_led_command(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_led_command.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 76:                                               ; preds = %32, %32
-  tail call fastcc void @decode_lcd_line_cmd(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_lcd_line_cmd.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 77:                                               ; preds = %32
-  tail call fastcc void @decode_main_voice_mode(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_main_voice_mode.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 78:                                               ; preds = %32
-  tail call fastcc void @decode_subdevice_metastate(ptr noundef %29, ptr noundef %0)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_subdevice_metastate.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 79:                                               ; preds = %32
-  tail call fastcc void @decode_dwl_dtmf_clck_format(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_dwl_dtmf_clck_format.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 80:                                               ; preds = %32
-  tail call fastcc void @decode_set_clck(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_set_clck.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 81:                                               ; preds = %32
-  tail call fastcc void @decode_voice_channel(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_voice_channel.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 82:                                               ; preds = %32
-  tail call fastcc void @decode_external_ringing(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_external_ringing.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 83:                                               ; preds = %32
-  tail call fastcc void @decode_lcd_cursor(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_lcd_cursor.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 84:                                               ; preds = %32
-  tail call fastcc void @decode_dwl_special_char(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_dwl_special_char.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 85:                                               ; preds = %32
-  tail call fastcc void @decode_set_clck_timer_pos(ptr noundef %29, ptr noundef %0)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_set_clck_timer_pos.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 86:                                               ; preds = %32
-  tail call fastcc void @decode_set_lcd_contrast(ptr noundef %29, ptr noundef %0)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_set_lcd_contrast.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 87:                                               ; preds = %32
-  tail call fastcc void @decode_beep(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_beep.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 88:                                               ; preds = %32
-  tail call fastcc void @decode_sidetone(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_sidetone.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 89:                                               ; preds = %32
-  tail call fastcc void @decode_ringing_cadence(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_ringing_cadence.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 90:                                               ; preds = %32
-  tail call fastcc void @decode_mute(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_mute.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 91:                                               ; preds = %32
-  tail call fastcc void @decode_feedback(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_feedback.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 92:                                               ; preds = %32, %32
-  tail call fastcc void @decode_r_w_peripheral(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_r_w_peripheral.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 93:                                               ; preds = %32
-  tail call fastcc void @decode_icon_cmd(ptr noundef %29, ptr noundef %0)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_icon_cmd.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 94:                                               ; preds = %32
-  tail call fastcc void @decode_audio_config(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_audio_config.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 95:                                               ; preds = %32
-  tail call fastcc void @decode_audio_padded_path(ptr noundef %29, ptr noundef %0)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_audio_padded_path.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 96:                                               ; preds = %32
   %97 = load i32, ptr @hf_ua3g_command_key_release, align 4
-  tail call fastcc void @decode_on_off_level(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %97)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_on_off_level.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %97)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 98:                                               ; preds = %32
   %99 = load i32, ptr @hf_ua3g_command_amplified_handset, align 4
-  tail call fastcc void @decode_on_off_level(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %99)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_on_off_level.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %99)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 100:                                              ; preds = %32
   %101 = load i32, ptr @hf_ua3g_command_loudspeaker, align 4
-  tail call fastcc void @decode_on_off_level(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %101)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_on_off_level.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %101)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 102:                                              ; preds = %32
   %103 = load i32, ptr @hf_ua3g_command_announce, align 4
-  tail call fastcc void @decode_on_off_level(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %103)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_on_off_level.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26, i32 noundef %103)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 104:                                              ; preds = %32
-  tail call fastcc void @decode_ring(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_ring.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
 105:                                              ; preds = %32
-  tail call fastcc void @decode_ua_dwl_protocol(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_with_one_parameter.exitthread-pre-split
+  tail call fastcc void @decode_ua_dwl_protocol.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_with_one_parameter.argprom.exitthread-pre-split
 
-decode_with_one_parameter.exitthread-pre-split:   ; preds = %105, %104, %102, %100, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %72, %71, %70, %69, %58, %33, %35, %38, %40, %43, %45, %48, %50, %53, %55, %61, %66
+decode_with_one_parameter.argprom.exitthread-pre-split: ; preds = %105, %104, %102, %100, %98, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %72, %71, %70, %69, %58, %33, %35, %38, %40, %43, %45, %48, %50, %53, %55, %61, %66
   %.pr = load i32, ptr %3, align 4
-  br label %decode_with_one_parameter.exit
+  br label %decode_with_one_parameter.argprom.exit
 
-decode_with_one_parameter.exit:                   ; preds = %decode_with_one_parameter.exitthread-pre-split, %7
-  %106 = phi i32 [ %.pr, %decode_with_one_parameter.exitthread-pre-split ], [ %30, %7 ]
+decode_with_one_parameter.argprom.exit:           ; preds = %decode_with_one_parameter.argprom.exitthread-pre-split, %7
+  %106 = phi i32 [ %.pr, %decode_with_one_parameter.argprom.exitthread-pre-split ], [ %30, %7 ]
   %107 = icmp eq i32 %106, 1
-  br i1 %107, label %108, label %decode_key_number.exit
+  br i1 %107, label %108, label %decode_key_number.argprom.exit
 
-108:                                              ; preds = %decode_with_one_parameter.exit
-  switch i8 %spec.select, label %decode_key_number.exit [
+108:                                              ; preds = %decode_with_one_parameter.argprom.exit
+  switch i8 %spec.select, label %decode_key_number.argprom.exit [
     i8 3, label %109
     i8 4, label %112
     i8 11, label %113
@@ -2090,40 +2090,40 @@ decode_with_one_parameter.exit:                   ; preds = %decode_with_one_par
     i8 43, label %287
     i8 36, label %286
     i8 35, label %281
-    i8 41, label %decode_special_key.exit
+    i8 41, label %decode_special_key.argprom.exit
   ]
 
 109:                                              ; preds = %108
   %110 = load i32, ptr @hf_ua3g_digit_dialed_digit_value, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %110, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 112:                                              ; preds = %108
-  tail call fastcc void @decode_subdevice_msg(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_subdevice_msg.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_key_number.argprom.exit
 
 113:                                              ; preds = %108, %108
-  tail call fastcc void @decode_super_msg(ptr noundef %29, ptr noundef %0, i32 noundef %26, i8 noundef zeroext %spec.select)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_super_msg.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26, i8 noundef zeroext %spec.select)
+  br label %decode_key_number.argprom.exit
 
 114:                                              ; preds = %108
-  tail call fastcc void @decode_segment_msg(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_segment_msg.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_key_number.argprom.exit
 
 115:                                              ; preds = %108
-  tail call fastcc void @decode_cs_ip_device_routing(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_cs_ip_device_routing.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_key_number.argprom.exit
 
 116:                                              ; preds = %108
   %117 = load i32, ptr @hf_ua3g_debug_in_line, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %117, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef 0) #9
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 119:                                              ; preds = %108, %108, %108, %108
   %120 = icmp ne ptr %29, null
   %121 = icmp ne i32 %26, 0
   %or.cond.i = and i1 %121, %120
-  br i1 %or.cond.i, label %122, label %decode_key_number.exit
+  br i1 %or.cond.i, label %122, label %decode_key_number.argprom.exit
 
 122:                                              ; preds = %119
   %123 = load i32, ptr @hf_ua3g_key_number, align 4
@@ -2136,7 +2136,7 @@ decode_with_one_parameter.exit:                   ; preds = %decode_with_one_par
   %130 = and i8 %129, 15
   %131 = zext nneg i8 %130 to i32
   %132 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %29, i32 noundef %123, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %125, ptr noundef nonnull @.str.1214, i32 noundef %128, i32 noundef %131) #9
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 133:                                              ; preds = %108, %108
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -2371,43 +2371,43 @@ decode_with_one_parameter.exit:                   ; preds = %decode_with_one_par
 
 decode_unsolicited_msg.exit:                      ; preds = %.lr.ph.i, %135, %159, %180, %208, %209, %215, %219, %223, %229, %233, %237, %.thread232.i, %251, %255, %259, %262, %275
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 278:                                              ; preds = %108
   %279 = load i32, ptr @hf_ua3g_i_m_here_id_code, align 4
   %280 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %279, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 281:                                              ; preds = %108
   %282 = load i32, ptr @hf_ua3g_special_key_param_dtmf, align 4
   %283 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %282, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %284 = load i32, ptr @hf_ua3g_special_key_hookswitch_status, align 4
   %285 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %284, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
-  br label %decode_special_key.exit
+  br label %decode_special_key.argprom.exit
 
-decode_special_key.exit:                          ; preds = %108, %281
+decode_special_key.argprom.exit:                  ; preds = %108, %281
   %.0.i = phi i32 [ 4, %281 ], [ 3, %108 ]
   tail call void @proto_tree_add_bitmask_list(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, ptr noundef nonnull @decode_special_key.special_keys, i32 noundef 0) #9
-  br label %decode_key_number.exit
+  br label %decode_key_number.argprom.exit
 
 286:                                              ; preds = %108
-  tail call fastcc void @decode_subdevice_state(ptr noundef %29, ptr noundef %0)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_subdevice_state.argprom.argelim(ptr noundef %29, ptr noundef %0)
+  br label %decode_key_number.argprom.exit
 
 287:                                              ; preds = %108
-  tail call fastcc void @decode_r_w_peripheral(ptr noundef %29, ptr noundef %0, i32 noundef %26)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_r_w_peripheral.argprom.argelim(ptr noundef %29, ptr noundef %0, i32 noundef %26)
+  br label %decode_key_number.argprom.exit
 
 288:                                              ; preds = %108
-  tail call fastcc void @decode_ua_dwl_protocol(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
-  br label %decode_key_number.exit
+  tail call fastcc void @decode_ua_dwl_protocol.argelim(ptr noundef %29, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %26)
+  br label %decode_key_number.argprom.exit
 
-decode_key_number.exit:                           ; preds = %108, %32, %59, %64, %122, %119, %109, %112, %113, %114, %115, %116, %decode_unsolicited_msg.exit, %278, %decode_special_key.exit, %286, %287, %288, %decode_with_one_parameter.exit
+decode_key_number.argprom.exit:                   ; preds = %108, %32, %59, %64, %122, %119, %109, %112, %113, %114, %115, %116, %decode_unsolicited_msg.exit, %278, %decode_special_key.argprom.exit, %286, %287, %288, %decode_with_one_parameter.argprom.exit
   %289 = call i32 @tvb_captured_length(ptr noundef %0) #9
   br label %290
 
-290:                                              ; preds = %4, %decode_key_number.exit
-  %.0 = phi i32 [ %289, %decode_key_number.exit ], [ 0, %4 ]
+290:                                              ; preds = %4, %decode_key_number.argprom.exit
+  %.0 = phi i32 [ %289, %decode_key_number.argprom.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -2444,7 +2444,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_subdevice_escape(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_subdevice_escape.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_ua3g_subdevice_address, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %6 = load i32, ptr @hf_ua3g_subdevice_opcode, align 4
@@ -2463,7 +2463,7 @@ define internal fastcc void @decode_subdevice_escape(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_super_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @decode_super_msg.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %2, 0
   %or.cond = and i1 %5, %6
@@ -2532,7 +2532,7 @@ define internal fastcc void @decode_super_msg(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_segment_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_segment_msg.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %4
 
@@ -2568,7 +2568,7 @@ define internal fastcc void @decode_segment_msg(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_ip_device_routing.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = alloca %struct._address, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
@@ -3531,10 +3531,10 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %481
   %485 = zext nneg i8 %464 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.decode_ip_device_routing, i64 0, i64 %485
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.decode_ip_device_routing.argelim, i64 0, i64 %485
   %switch.load = load ptr, ptr %switch.gep, align 8
   %486 = zext nneg i8 %464 to i64
-  %switch.gep16 = getelementptr inbounds [3 x i32], ptr @switch.table.decode_ip_device_routing.24, i64 0, i64 %486
+  %switch.gep16 = getelementptr inbounds [3 x i32], ptr @switch.table.decode_ip_device_routing.argelim.24, i64 0, i64 %486
   %switch.load17 = load i32, ptr %switch.gep16, align 4
   br label %487
 
@@ -3558,7 +3558,7 @@ switch.lookup:                                    ; preds = %481
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_led_command.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3584,7 +3584,7 @@ define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_lcd_line_cmd.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = and i8 %5, 3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
@@ -3641,7 +3641,7 @@ define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_main_voice_mode.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3732,7 +3732,7 @@ define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_subdevice_metastate(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_subdevice_metastate.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_ua3g_subdevice_metastate_subchannel_address, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %5 = load i32, ptr @hf_ua3g_subdevice_metastate_new_metastate, align 4
@@ -3741,7 +3741,7 @@ define internal fastcc void @decode_subdevice_metastate(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_dwl_dtmf_clck_format(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_dwl_dtmf_clck_format.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_ua3g_dwl_dtmf_clck_format_minimum_on_time, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %6 = load i32, ptr @hf_ua3g_dwl_dtmf_clck_format_inter_digit_pause_time, align 4
@@ -3761,7 +3761,7 @@ define internal fastcc void @decode_dwl_dtmf_clck_format(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_set_clck(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_set_clck.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3811,7 +3811,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_voice_channel(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_voice_channel.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   switch i32 %2, label %13 [
     i32 1, label %.sink.split.sink.split
     i32 2, label %.sink.split
@@ -3850,7 +3850,7 @@ define internal fastcc void @decode_voice_channel(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_external_ringing.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3863,7 +3863,7 @@ define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_lcd_cursor(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_lcd_cursor.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %5 = and i8 %4, 2
   %.not = icmp eq i8 %5, 0
@@ -3879,7 +3879,7 @@ define internal fastcc void @decode_lcd_cursor(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_dwl_special_char(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_dwl_special_char.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %.not6 = icmp eq i32 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -3910,7 +3910,7 @@ define internal fastcc void @decode_dwl_special_char(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_set_clck_timer_pos(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_set_clck_timer_pos.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -3930,7 +3930,7 @@ define internal fastcc void @decode_set_clck_timer_pos(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_set_lcd_contrast(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_set_lcd_contrast.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_ua3g_set_lcd_contrast_driver_number, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %5 = load i32, ptr @hf_ua3g_set_lcd_contrast_contrast_value, align 4
@@ -3939,7 +3939,7 @@ define internal fastcc void @decode_set_lcd_contrast(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_beep.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %74, label %5
 
@@ -4077,7 +4077,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_sidetone(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_sidetone.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4102,7 +4102,7 @@ define internal fastcc void @decode_sidetone(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ringing_cadence(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_ringing_cadence.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -4136,7 +4136,7 @@ define internal fastcc void @decode_ringing_cadence(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_mute.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4149,7 +4149,7 @@ define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_feedback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_feedback.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %5, 0
   %6 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4190,7 +4190,7 @@ define internal fastcc void @decode_feedback(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_r_w_peripheral(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_r_w_peripheral.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_ua3g_r_w_peripheral_address, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 3, i32 noundef 2, i32 noundef 0) #9
   %6 = icmp ugt i32 %2, 2
@@ -4206,7 +4206,7 @@ define internal fastcc void @decode_r_w_peripheral(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_icon_cmd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_icon_cmd.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -4239,7 +4239,7 @@ define internal fastcc void @decode_icon_cmd(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_audio_config.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4396,7 +4396,7 @@ define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_audio_padded_path(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_audio_padded_path.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_ua3g_audio_padded_path_emission_padded_level, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef 0) #9
   %5 = load i32, ptr @hf_ua3g_audio_padded_path_reception_padded_level, align 4
@@ -4405,7 +4405,7 @@ define internal fastcc void @decode_audio_padded_path(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_on_off_level.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %6, 0
   %7 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4428,7 +4428,7 @@ define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_ring.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4464,7 +4464,7 @@ define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ua_dwl_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_ua_dwl_protocol.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4616,7 +4616,7 @@ define internal fastcc void @decode_ua_dwl_protocol(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_subdevice_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
+define internal fastcc void @decode_subdevice_msg.argprom.argelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 65535) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %4
 
@@ -4641,7 +4641,7 @@ define internal fastcc void @decode_subdevice_msg(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_cs_ip_device_routing.argelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5069,7 +5069,7 @@ define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_subdevice_state(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @decode_subdevice_state.argprom.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %3

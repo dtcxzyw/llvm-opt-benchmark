@@ -293,7 +293,7 @@ if.then1:                                         ; preds = %invoke.cont
   %call2 = tail call ptr @__errno_location() #25
   %2 = load i32, ptr %call2, align 4
   %call3 = call ptr @strerror(i32 noundef %2) #26
-  call fastcc void @_ZL5errorIJPKcPcEEvS1_DpT_(ptr noundef %1, ptr noundef %call3)
+  call fastcc void @_ZL5errorIJPKcPcEEvS1_DpT_.argprom(ptr noundef %1, ptr noundef %call3)
   unreachable
 
 lpad:                                             ; preds = %if.end
@@ -905,13 +905,13 @@ if.then.i249:                                     ; preds = %.noexc256
 invoke.cont2.i250:                                ; preds = %.noexc256
   %call.i.i.i.i251 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %tok.i242, ptr noundef nonnull @.str.10) #26
   %cmp.i.i.i.not.i252 = icmp eq i32 %call.i.i.i.i251, 0
-  br i1 %cmp.i.i.i.not.i252, label %"_ZZ4mainENK3$_1clEPKc.exit257", label %if.then4.i253
+  br i1 %cmp.i.i.i.not.i252, label %"_ZZ4mainENK3$_1clEPKc.argprom.exit257", label %if.then4.i253
 
 if.then4.i253:                                    ; preds = %invoke.cont2.i250
   call fastcc void @_ZL5errorIJPKcEEvS1_DpT_(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.10)
   unreachable
 
-"_ZZ4mainENK3$_1clEPKc.exit257":                  ; preds = %invoke.cont2.i250
+"_ZZ4mainENK3$_1clEPKc.argprom.exit257":          ; preds = %invoke.cont2.i250
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tok.i242) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tok.i242)
   br label %if.end115
@@ -934,7 +934,7 @@ if.then111:                                       ; preds = %invoke.cont109
   call fastcc void @_ZL5errorIJEEvPKcDpT_(ptr noundef nonnull @.str.11)
   unreachable
 
-if.end115:                                        ; preds = %"_ZZ4mainENK3$_1clEPKc.exit257", %invoke.cont109
+if.end115:                                        ; preds = %"_ZZ4mainENK3$_1clEPKc.argprom.exit257", %invoke.cont109
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i267)
   store i8 0, ptr %__args.addr.i267, align 1, !noalias !31
   %46 = load ptr, ptr %_M_manager3.i.i, align 8, !noalias !31
@@ -2796,7 +2796,7 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr nounde
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: cold mustprogress nofree norecurse noreturn nounwind uwtable
-define internal fastcc void @_ZL5errorIJPKcPcEEvS1_DpT_(ptr noundef %args, ptr noundef %args1) unnamed_addr #3 {
+define internal fastcc void @_ZL5errorIJPKcPcEEvS1_DpT_.argprom(ptr noundef %args, ptr noundef %args1) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load ptr, ptr @filename, align 8
@@ -3701,7 +3701,7 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   %set.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %set.i.i.i.i, align 8, !alias.scope !94
-  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit"
+  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit"
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call fastcc void @_ZL5errorIJEEvPKcDpT_(ptr noundef nonnull @.str.82), !noalias !94
@@ -3726,7 +3726,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #26
   %set.i19.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %set.i19.i.i.i, align 8, !alias.scope !94
-  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit"
+  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit"
 
 if.else8.i.i.i:                                   ; preds = %if.then5.i.i.i
   tail call fastcc void @_ZL5errorIJEEvPKcDpT_(ptr noundef nonnull @.str.82), !noalias !94
@@ -4154,14 +4154,14 @@ lpad88.i.i.i:                                     ; preds = %invoke.cont87.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %invoke.cont89.i.i.i, %invoke.cont65.i.i.i, %_ZNKSt8functionIF14OptionalStringbEEclEb.exit.i.i.i, %if.then35.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i) #26
-  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit"
+  br label %"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit"
 
 ehcleanup.i.i.i:                                  ; preds = %lpad88.i.i.i, %lpad64.i.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i, %lpad.loopexit.split-lp.loopexit.i.i.i, %lpad.loopexit.i.i.i
   %.pn.i.i.i = phi { ptr, i32 } [ %102, %lpad88.i.i.i ], [ %79, %lpad64.i.i.i ], [ %lpad.loopexit89.i.i.i, %lpad.loopexit.i.i.i ], [ %lpad.loopexit91.i.i.i, %lpad.loopexit.split-lp.loopexit.i.i.i ], [ %lpad.loopexit.split-lp92.i.i.i, %lpad.loopexit.split-lp.loopexit.split-lp.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i.i.i) #26
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.exit": ; preds = %if.then2.i.i.i, %if.then7.i.i.i, %cleanup.i.i.i
+"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom.exit": ; preds = %if.then2.i.i.i, %if.then7.i.i.i, %cleanup.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i.i.i), !noalias !93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !93
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp86.i.i.i), !noalias !93
@@ -5485,11 +5485,11 @@ attributes #33 = { cold noreturn nounwind }
 !82 = distinct !{!82, !12}
 !83 = distinct !{!83, !12}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_: %agg.result"}
-!86 = distinct !{!86, !"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_"}
+!85 = distinct !{!85, !86, !"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom: %agg.result"}
+!86 = distinct !{!86, !"_ZSt10__invoke_rI14OptionalStringRZ4mainE3$_0JbEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES4_E4typeEOS5_DpOS6_.argprom"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZSt13__invoke_implI14OptionalStringRZ4mainE3$_0JbEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!89 = distinct !{!89, !"_ZSt13__invoke_implI14OptionalStringRZ4mainE3$_0JbEET_St14__invoke_otherOT0_DpOT1_"}
+!88 = distinct !{!88, !89, !"_ZSt13__invoke_implI14OptionalStringRZ4mainE3$_0JbEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!89 = distinct !{!89, !"_ZSt13__invoke_implI14OptionalStringRZ4mainE3$_0JbEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZZ4mainENK3$_0clEb: %agg.result"}
 !92 = distinct !{!92, !"_ZZ4mainENK3$_0clEb"}

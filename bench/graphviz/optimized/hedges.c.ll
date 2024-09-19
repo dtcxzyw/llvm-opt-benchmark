@@ -52,7 +52,7 @@ define void @ELinitialize() local_unnamed_addr #0 {
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef %6, i64 noundef 8) #14
-  tail call fastcc void @graphviz_exit() #15
+  tail call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 10:                                               ; preds = %5
@@ -66,7 +66,7 @@ define void @ELinitialize() local_unnamed_addr #0 {
   %15 = load ptr, ptr @stderr, align 8
   %16 = shl nuw nsw i64 %6, 3
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %16) #14
-  tail call fastcc void @graphviz_exit() #15
+  tail call fastcc void @graphviz_exit.argelim() #15
   unreachable
 
 gv_calloc.exit:                                   ; preds = %10
@@ -701,7 +701,7 @@ define ptr @rightreg(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #8 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }

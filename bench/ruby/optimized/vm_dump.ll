@@ -1041,9 +1041,9 @@ define hidden noundef zeroext i1 @rb_vm_bugreport(ptr noundef readonly %0, ptr n
   %52 = load i32, ptr %51, align 8
   %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %52) #13
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %.loopexit241, label %rb_ec_ractor_ptr.exit
+  br i1 %54, label %.loopexit241, label %rb_ec_ractor_ptr.argprom.exit
 
-rb_ec_ractor_ptr.exit:                            ; preds = %50
+rb_ec_ractor_ptr.argprom.exit:                    ; preds = %50
   %55 = getelementptr i8, ptr %38, i64 48
   %.val = load ptr, ptr %55, align 8, !nonnull !19, !noundef !19
   %56 = getelementptr inbounds i8, ptr %.val, i64 24
@@ -1054,7 +1054,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %50
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %.loopexit241, label %62
 
-62:                                               ; preds = %rb_ec_ractor_ptr.exit
+62:                                               ; preds = %rb_ec_ractor_ptr.argprom.exit
   %63 = call i32 @fputs(ptr noundef nonnull @.str.1, ptr noundef %1)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %.loopexit241, label %65
@@ -1794,7 +1794,7 @@ RSTRING_PTR.exit238:                              ; preds = %409, %416
   %436 = icmp slt i32 %435, 0
   br i1 %436, label %.loopexit241, label %437
 
-.loopexit241:                                     ; preds = %RSTRING_PTR.exit238, %.critedge220, %RSTRING_PTR.exit234, %.critedge217, %RSTRING_PTR.exit230, %433, %426, %.loopexit, %331, %325, %RSTRING_PTR.exit, %304, %300, %rb_dump_machine_register.exit, %62, %rb_ec_ractor_ptr.exit, %50, %47, %41, %32
+.loopexit241:                                     ; preds = %RSTRING_PTR.exit238, %.critedge220, %RSTRING_PTR.exit234, %.critedge217, %RSTRING_PTR.exit230, %433, %426, %.loopexit, %331, %325, %RSTRING_PTR.exit, %304, %300, %rb_dump_machine_register.exit, %62, %rb_ec_ractor_ptr.argprom.exit, %50, %47, %41, %32
   br label %437
 
 437:                                              ; preds = %424, %433, %32, %.loopexit241

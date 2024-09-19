@@ -632,7 +632,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = call fastcc ptr @_()
+  %call3 = call fastcc ptr @_.argprom()
   %1 = load i32, ptr %timeout_ms, align 4
   call void (ptr, ...) @die_errno(ptr noundef %call3, i32 noundef %1) #13
   unreachable
@@ -697,7 +697,7 @@ if.end11:                                         ; preds = %if.end5
 declare i32 @git_config_get_int(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_() unnamed_addr #0 {
+define internal fastcc ptr @_.argprom() unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not = icmp eq i32 %0, 0

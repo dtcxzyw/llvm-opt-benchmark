@@ -4208,7 +4208,7 @@ print_string_type.exit.thread:                    ; preds = %460, %462
   br label %print_native_type.exit.thread
 
 print_string_type.exit:                           ; preds = %448
-  %466 = call fastcc zeroext i1 @print_reference_type(ptr noundef %0, i64 noundef %1)
+  %466 = call fastcc zeroext i1 @print_reference_type.argelim(ptr noundef %0, i64 noundef %1)
   br i1 %466, label %print_native_type.exit.thread, label %467
 
 467:                                              ; preds = %print_string_type.exit
@@ -4252,7 +4252,7 @@ declare i32 @H5Otoken_to_str(i64 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @H5free_memory(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_reference_type.argelim(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #3 {
   %3 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %3, 7
   br i1 %.not, label %4, label %25

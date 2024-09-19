@@ -1110,7 +1110,7 @@ if.then.i:                                        ; preds = %if.then6
   %4 = and i8 %self.val, 2
   %tobool4.not.i = icmp eq i8 %4, 0
   %.str.8..str.7.i = select i1 %tobool4.not.i, ptr @.str.8, ptr @.str.7
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
 if.end.i15:                                       ; preds = %if.then6
   %5 = and i8 %self.val, 8
@@ -1121,18 +1121,18 @@ if.end.i15:                                       ; preds = %if.then6
 
 if.then11.i:                                      ; preds = %if.end.i15
   %.str.10..str.9.i = select i1 %tobool26.not.i, ptr @.str.10, ptr @.str.9
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
 if.else20.i:                                      ; preds = %if.end.i15
-  br i1 %tobool26.not.i, label %mode_string.exit, label %if.then27.i
+  br i1 %tobool26.not.i, label %mode_string.argprom.exit, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else20.i
   %7 = and i8 %self.val, 4
   %tobool32.not.i = icmp eq i8 %7, 0
   %.str.12..str.11.i = select i1 %tobool32.not.i, ptr @.str.12, ptr @.str.11
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
-mode_string.exit:                                 ; preds = %if.then.i, %if.then11.i, %if.else20.i, %if.then27.i
+mode_string.argprom.exit:                         ; preds = %if.then.i, %if.then11.i, %if.else20.i, %if.then27.i
   %retval.0.i = phi ptr [ %.str.8..str.7.i, %if.then.i ], [ %.str.10..str.9.i, %if.then11.i ], [ %.str.12..str.11.i, %if.then27.i ], [ @.str.13, %if.else20.i ]
   %8 = and i8 %self.val, 64
   %tobool.not = icmp eq i8 %8, 0
@@ -1157,7 +1157,7 @@ if.then.i18:                                      ; preds = %if.then12
   %11 = and i8 %self.val13, 2
   %tobool4.not.i19 = icmp eq i8 %11, 0
   %.str.8..str.7.i20 = select i1 %tobool4.not.i19, ptr @.str.8, ptr @.str.7
-  br label %mode_string.exit31
+  br label %mode_string.argprom.exit31
 
 if.end.i22:                                       ; preds = %if.then12
   %12 = and i8 %self.val13, 8
@@ -1168,18 +1168,18 @@ if.end.i22:                                       ; preds = %if.then12
 
 if.then11.i25:                                    ; preds = %if.end.i22
   %.str.10..str.9.i26 = select i1 %tobool26.not.i24, ptr @.str.10, ptr @.str.9
-  br label %mode_string.exit31
+  br label %mode_string.argprom.exit31
 
 if.else20.i27:                                    ; preds = %if.end.i22
-  br i1 %tobool26.not.i24, label %mode_string.exit31, label %if.then27.i28
+  br i1 %tobool26.not.i24, label %mode_string.argprom.exit31, label %if.then27.i28
 
 if.then27.i28:                                    ; preds = %if.else20.i27
   %14 = and i8 %self.val13, 4
   %tobool32.not.i29 = icmp eq i8 %14, 0
   %.str.12..str.11.i30 = select i1 %tobool32.not.i29, ptr @.str.12, ptr @.str.11
-  br label %mode_string.exit31
+  br label %mode_string.argprom.exit31
 
-mode_string.exit31:                               ; preds = %if.then.i18, %if.then11.i25, %if.else20.i27, %if.then27.i28
+mode_string.argprom.exit31:                       ; preds = %if.then.i18, %if.then11.i25, %if.else20.i27, %if.then27.i28
   %retval.0.i21 = phi ptr [ %.str.8..str.7.i20, %if.then.i18 ], [ %.str.10..str.9.i26, %if.then11.i25 ], [ %.str.12..str.11.i30, %if.then27.i28 ], [ @.str.13, %if.else20.i27 ]
   %15 = and i8 %self.val13, 64
   %tobool19.not = icmp eq i8 %15, 0
@@ -1201,8 +1201,8 @@ if.then24:                                        ; preds = %if.else22
   %call26 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %18) #10
   br label %if.end28
 
-if.end28:                                         ; preds = %if.else22, %if.then24, %mode_string.exit31
-  %res.1 = phi ptr [ %call21, %mode_string.exit31 ], [ null, %if.then24 ], [ null, %if.else22 ]
+if.end28:                                         ; preds = %if.else22, %if.then24, %mode_string.argprom.exit31
+  %res.1 = phi ptr [ %call21, %mode_string.argprom.exit31 ], [ null, %if.then24 ], [ null, %if.else22 ]
   %19 = load ptr, ptr %nameobj, align 8
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 2147483648
@@ -1219,8 +1219,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %19) #10
   br label %return
 
-return:                                           ; preds = %mode_string.exit, %if.end28, %if.then1.i, %if.end.i, %if.end, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.end ], [ %call9, %mode_string.exit ], [ %res.1, %if.end28 ], [ %res.1, %if.then1.i ], [ %res.1, %if.end.i ]
+return:                                           ; preds = %mode_string.argprom.exit, %if.end28, %if.then1.i, %if.end.i, %if.end, %if.then
+  %retval.0 = phi ptr [ %call, %if.then ], [ null, %if.end ], [ %call9, %mode_string.argprom.exit ], [ %res.1, %if.end28 ], [ %res.1, %if.then1.i ], [ %res.1, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -2815,14 +2815,14 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.32) #10
-  br label %_io_FileIO_fileno_impl.exit
+  br label %_io_FileIO_fileno_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %conv.i = zext nneg i32 %self.val to i64
   %call2.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #10
-  br label %_io_FileIO_fileno_impl.exit
+  br label %_io_FileIO_fileno_impl.argprom.exit
 
-_io_FileIO_fileno_impl.exit:                      ; preds = %if.then.i, %if.end.i
+_io_FileIO_fileno_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call2.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -3234,7 +3234,7 @@ if.then.i:                                        ; preds = %entry
   %1 = and i8 %self.val, 2
   %tobool4.not.i = icmp eq i8 %1, 0
   %.str.8..str.7.i = select i1 %tobool4.not.i, ptr @.str.8, ptr @.str.7
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %2 = and i8 %self.val, 8
@@ -3245,18 +3245,18 @@ if.end.i:                                         ; preds = %entry
 
 if.then11.i:                                      ; preds = %if.end.i
   %.str.10..str.9.i = select i1 %tobool26.not.i, ptr @.str.10, ptr @.str.9
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
 if.else20.i:                                      ; preds = %if.end.i
-  br i1 %tobool26.not.i, label %mode_string.exit, label %if.then27.i
+  br i1 %tobool26.not.i, label %mode_string.argprom.exit, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else20.i
   %4 = and i8 %self.val, 4
   %tobool32.not.i = icmp eq i8 %4, 0
   %.str.12..str.11.i = select i1 %tobool32.not.i, ptr @.str.12, ptr @.str.11
-  br label %mode_string.exit
+  br label %mode_string.argprom.exit
 
-mode_string.exit:                                 ; preds = %if.then.i, %if.then11.i, %if.else20.i, %if.then27.i
+mode_string.argprom.exit:                         ; preds = %if.then.i, %if.then11.i, %if.else20.i, %if.then27.i
   %retval.0.i = phi ptr [ %.str.8..str.7.i, %if.then.i ], [ %.str.10..str.9.i, %if.then11.i ], [ %.str.12..str.11.i, %if.then27.i ], [ @.str.13, %if.else20.i ]
   %call1 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %retval.0.i) #10
   ret ptr %call1

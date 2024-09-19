@@ -2716,16 +2716,16 @@ land.lhs.true.i:                                  ; preds = %land.lhs.true
   %5 = load i8, ptr %arrayidx.i, align 1
   %conv2.i = zext i8 %5 to i32
   %cmp.not.i = icmp slt i32 %bus_num, %conv2.i
-  br i1 %cmp.not.i, label %return, label %pci_secondary_bus_in_range.exit
+  br i1 %cmp.not.i, label %return, label %pci_secondary_bus_in_range.argprom.exit
 
-pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
+pci_secondary_bus_in_range.argprom.exit:          ; preds = %land.lhs.true.i
   %arrayidx5.i = getelementptr i8, ptr %.val, i64 26
   %6 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %6 to i32
   %cmp7.i.not = icmp ugt i32 %bus_num, %conv6.i
   br i1 %cmp7.i.not, label %return, label %if.end6
 
-if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
+if.end6:                                          ; preds = %pci_secondary_bus_in_range.argprom.exit, %if.end2
   %child67 = getelementptr inbounds i8, ptr %bus, i64 2256
   %sec.04668 = load ptr, ptr %child67, align 8
   %tobool9.not4769 = icmp eq ptr %sec.04668, null
@@ -2778,16 +2778,16 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
   %12 = load i8, ptr %arrayidx.i.i, align 1
   %conv2.i.i = zext i8 %12 to i32
   %cmp.not.i.i = icmp slt i32 %bus_num, %conv2.i.i
-  br i1 %cmp.not.i.i, label %for.inc.i, label %pci_secondary_bus_in_range.exit.i
+  br i1 %cmp.not.i.i, label %for.inc.i, label %pci_secondary_bus_in_range.argprom.exit.i
 
-pci_secondary_bus_in_range.exit.i:                ; preds = %land.lhs.true.i.i
+pci_secondary_bus_in_range.argprom.exit.i:        ; preds = %land.lhs.true.i.i
   %arrayidx5.i.i = getelementptr i8, ptr %.val.i, i64 26
   %13 = load i8, ptr %arrayidx5.i.i, align 1
   %conv6.i.i = zext i8 %13 to i32
   %cmp7.i.not.i = icmp ugt i32 %bus_num, %conv6.i.i
   br i1 %cmp7.i.not.i, label %for.inc.i, label %for.inc25
 
-for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
+for.inc.i:                                        ; preds = %pci_secondary_bus_in_range.argprom.exit.i, %land.lhs.true.i.i, %if.then.i, %land.lhs.true.i27, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !17
@@ -2808,16 +2808,16 @@ land.lhs.true.i31:                                ; preds = %if.else
   %17 = load i8, ptr %arrayidx.i32, align 1
   %conv2.i33 = zext i8 %17 to i32
   %cmp.not.i34 = icmp slt i32 %bus_num, %conv2.i33
-  br i1 %cmp.not.i34, label %for.inc, label %pci_secondary_bus_in_range.exit39
+  br i1 %cmp.not.i34, label %for.inc, label %pci_secondary_bus_in_range.argprom.exit39
 
-pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
+pci_secondary_bus_in_range.argprom.exit39:        ; preds = %land.lhs.true.i31
   %arrayidx5.i36 = getelementptr i8, ptr %.val18, i64 26
   %18 = load i8, ptr %arrayidx5.i36, align 1
   %conv6.i37 = zext i8 %18 to i32
   %cmp7.i38.not = icmp ugt i32 %bus_num, %conv6.i37
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
-for.inc:                                          ; preds = %for.inc.i, %if.else, %land.lhs.true.i31, %pci_secondary_bus_in_range.exit39
+for.inc:                                          ; preds = %for.inc.i, %if.else, %land.lhs.true.i31, %pci_secondary_bus_in_range.argprom.exit39
   %sibling = getelementptr inbounds i8, ptr %sec.048, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool9.not = icmp eq ptr %sec.0, null
@@ -2827,14 +2827,14 @@ for.body10.backedge:                              ; preds = %for.inc, %for.inc25
   %sec.048.be = phi ptr [ %sec.0, %for.inc ], [ %sec.046, %for.inc25 ]
   br label %for.body10, !llvm.loop !18
 
-for.inc25:                                        ; preds = %pci_secondary_bus_in_range.exit.i, %pci_secondary_bus_in_range.exit39
+for.inc25:                                        ; preds = %pci_secondary_bus_in_range.argprom.exit.i, %pci_secondary_bus_in_range.argprom.exit39
   %child = getelementptr inbounds i8, ptr %sec.048, i64 2256
   %sec.046 = load ptr, ptr %child, align 8
   %tobool9.not47 = icmp eq ptr %sec.046, null
   br i1 %tobool9.not47, label %return, label %for.body10.backedge
 
-return:                                           ; preds = %for.inc25, %for.inc, %for.body10, %if.end6, %land.lhs.true, %land.lhs.true.i, %pci_secondary_bus_in_range.exit, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %bus, %if.end ], [ null, %pci_secondary_bus_in_range.exit ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true ], [ null, %if.end6 ], [ null, %for.inc25 ], [ null, %for.inc ], [ %sec.048, %for.body10 ]
+return:                                           ; preds = %for.inc25, %for.inc, %for.body10, %if.end6, %land.lhs.true, %land.lhs.true.i, %pci_secondary_bus_in_range.argprom.exit, %if.end, %entry
+  %retval.0 = phi ptr [ null, %entry ], [ %bus, %if.end ], [ null, %pci_secondary_bus_in_range.argprom.exit ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true ], [ null, %if.end6 ], [ null, %for.inc25 ], [ null, %for.inc ], [ %sec.048, %for.body10 ]
   ret ptr %retval.0
 }
 
@@ -3526,13 +3526,13 @@ entry:
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 16
   %tobool.not.i = icmp eq i8 %2, 0
-  br i1 %tobool.not.i, label %pci_find_capability_list.exit, label %for.cond.preheader.i
+  br i1 %tobool.not.i, label %pci_find_capability_list.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %arrayidx21.i = getelementptr i8, ptr %pdev.val, i64 52
   %3 = load i8, ptr %arrayidx21.i, align 1
   %tobool3.not2.i = icmp eq i8 %3, 0
-  br i1 %tobool3.not2.i, label %pci_find_capability_list.exit, label %for.body.i
+  br i1 %tobool3.not2.i, label %pci_find_capability_list.argprom.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %4 = phi i8 [ %6, %for.inc.i ], [ %3, %for.cond.preheader.i ]
@@ -3540,7 +3540,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %arrayidx7.i = getelementptr i8, ptr %pdev.val, i64 %idxprom6.i
   %5 = load i8, ptr %arrayidx7.i, align 1
   %cmp.i = icmp eq i8 %5, %cap_id
-  br i1 %cmp.i, label %pci_find_capability_list.exit, label %for.inc.i
+  br i1 %cmp.i, label %pci_find_capability_list.argprom.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %add14.i = add i8 %4, 1
@@ -3548,9 +3548,9 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx2.i = getelementptr i8, ptr %pdev.val, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx2.i, align 1
   %tobool3.not.i = icmp eq i8 %6, 0
-  br i1 %tobool3.not.i, label %pci_find_capability_list.exit, label %for.body.i, !llvm.loop !25
+  br i1 %tobool3.not.i, label %pci_find_capability_list.argprom.exit, label %for.body.i, !llvm.loop !25
 
-pci_find_capability_list.exit:                    ; preds = %for.body.i, %for.inc.i, %for.cond.preheader.i, %entry
+pci_find_capability_list.argprom.exit:            ; preds = %for.body.i, %for.inc.i, %for.cond.preheader.i, %entry
   %retval.0.i = phi i8 [ 0, %entry ], [ 0, %for.cond.preheader.i ], [ 0, %for.inc.i ], [ %4, %for.body.i ]
   ret i8 %retval.0.i
 }
@@ -4405,17 +4405,17 @@ entry:
   %add.i.i = add i64 %extend_by.val16, 1
   %cmp3.i.i = icmp eq i64 %extend_by.val, %add.i.i
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp3.i.i
-  br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
+  br i1 %or.cond.i.i, label %range_is_empty.argprom.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
-range_is_empty.exit:                              ; preds = %entry
+range_is_empty.argprom.exit:                      ; preds = %entry
   %cmp.i = icmp ugt i64 %extend_by.val, %extend_by.val16
   br i1 %cmp.i, label %return, label %if.end
 
-if.end:                                           ; preds = %range_is_empty.exit
+if.end:                                           ; preds = %range_is_empty.argprom.exit
   %range.val14 = load i64, ptr %range, align 8
   %1 = getelementptr i8, ptr %range, i64 8
   %range.val15 = load i64, ptr %1, align 8
@@ -4423,21 +4423,21 @@ if.end:                                           ; preds = %range_is_empty.exit
   %add.i.i18 = add i64 %range.val15, 1
   %cmp3.i.i19 = icmp eq i64 %range.val14, %add.i.i18
   %or.cond.i.i20 = or i1 %cmp.not.i.i17, %cmp3.i.i19
-  br i1 %or.cond.i.i20, label %range_is_empty.exit23, label %if.else.i.i21
+  br i1 %or.cond.i.i20, label %range_is_empty.argprom.exit23, label %if.else.i.i21
 
 if.else.i.i21:                                    ; preds = %if.end
   tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
-range_is_empty.exit23:                            ; preds = %if.end
+range_is_empty.argprom.exit23:                    ; preds = %if.end
   %cmp.i22 = icmp ugt i64 %range.val14, %range.val15
   br i1 %cmp.i22, label %if.then2, label %if.end3
 
-if.then2:                                         ; preds = %range_is_empty.exit23
+if.then2:                                         ; preds = %range_is_empty.argprom.exit23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %range, ptr noundef nonnull align 8 dereferenceable(16) %extend_by, i64 16, i1 false)
   br label %return
 
-if.end3:                                          ; preds = %range_is_empty.exit23
+if.end3:                                          ; preds = %range_is_empty.argprom.exit23
   %cmp = icmp ugt i64 %range.val14, %extend_by.val
   br i1 %cmp, label %if.then5, label %if.end8
 
@@ -4469,7 +4469,7 @@ if.else.i:                                        ; preds = %if.end14
   tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
-return:                                           ; preds = %if.end14, %range_is_empty.exit, %if.then2
+return:                                           ; preds = %if.end14, %range_is_empty.argprom.exit, %if.then2
   ret void
 }
 
@@ -4615,7 +4615,7 @@ if.end.i:                                         ; preds = %land.rhs.i
 
 if.then13.i:                                      ; preds = %if.end.i
   call void @pstrcpy(ptr noundef nonnull %name, i32 noundef 33, ptr noundef nonnull %8) #25
-  br label %pci_dev_fw_name.exit
+  br label %pci_dev_fw_name.argprom.exit
 
 if.else.i:                                        ; preds = %while.body.i, %if.end.i
   %.val.i = load i16, ptr %dev.val, align 1
@@ -4624,9 +4624,9 @@ if.else.i:                                        ; preds = %while.body.i, %if.e
   %add.ptr20.val.i = load i16, ptr %add.ptr20.i, align 1
   %conv22.i = zext i16 %add.ptr20.val.i to i32
   %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 33, ptr noundef nonnull @.str.175, i32 noundef %conv18.i, i32 noundef %conv22.i) #25
-  br label %pci_dev_fw_name.exit
+  br label %pci_dev_fw_name.argprom.exit
 
-pci_dev_fw_name.exit:                             ; preds = %if.then13.i, %if.else.i
+pci_dev_fw_name.argprom.exit:                     ; preds = %if.then13.i, %if.else.i
   %and = and i32 %0, 7
   %tobool = icmp ne i32 %and, 0
   %lnot.ext = zext i1 %tobool to i32

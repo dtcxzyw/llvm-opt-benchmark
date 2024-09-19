@@ -938,24 +938,24 @@ RB_FL_TEST.exit.thread:                           ; preds = %6, %11, %16
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq i64 %0, 0
   %28 = or i1 %27, %26
-  br i1 %28, label %rb_obj_write.exit.i, label %29
+  br i1 %28, label %rb_obj_write.argprom.exit.i, label %29
 
 29:                                               ; preds = %RB_FL_TEST.exit.thread
   tail call void @rb_gc_writebarrier(i64 noundef %.0, i64 noundef %0) #28
-  br label %rb_obj_write.exit.i
+  br label %rb_obj_write.argprom.exit.i
 
-rb_obj_write.exit.i:                              ; preds = %29, %RB_FL_TEST.exit.thread
+rb_obj_write.argprom.exit.i:                      ; preds = %29, %RB_FL_TEST.exit.thread
   %30 = getelementptr inbounds i8, ptr %.pre-phi, i64 24
   store i64 4, ptr %30, align 8
   %31 = tail call i32 @onig_region_resize(ptr noundef %23, i32 noundef 1) #28
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %match_set_string.exit, label %32
 
-32:                                               ; preds = %rb_obj_write.exit.i
+32:                                               ; preds = %rb_obj_write.argprom.exit.i
   tail call void @rb_memerror() #31
   unreachable
 
-match_set_string.exit:                            ; preds = %rb_obj_write.exit.i
+match_set_string.exit:                            ; preds = %rb_obj_write.argprom.exit.i
   %33 = getelementptr i8, ptr %.pre-phi, i64 40
   %34 = load ptr, ptr %33, align 8
   store i64 %1, ptr %34, align 8
@@ -1590,39 +1590,39 @@ define internal fastcc i64 @rb_reg_search_set_match(i64 noundef %0, i64 noundef 
   %46 = icmp ne i64 %45, 0
   %47 = icmp eq i64 %44, 0
   %48 = or i1 %47, %46
-  br i1 %48, label %rb_obj_write.exit, label %49
+  br i1 %48, label %rb_obj_write.argprom.exit, label %49
 
 49:                                               ; preds = %43
   call void @rb_gc_writebarrier(i64 noundef %39, i64 noundef %44) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
 50:                                               ; preds = %35
   %51 = call i64 @rb_obj_hide(i64 noundef %39) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %49, %43, %50
+rb_obj_write.argprom.exit:                        ; preds = %49, %43, %50
   %52 = getelementptr inbounds i8, ptr %40, i64 24
   store i64 %0, ptr %52, align 8
   %53 = and i64 %0, 7
   %54 = icmp ne i64 %53, 0
   %55 = icmp eq i64 %0, 0
   %56 = or i1 %55, %54
-  br i1 %56, label %rb_obj_write.exit31, label %57
+  br i1 %56, label %rb_obj_write.argprom.exit31, label %57
 
-57:                                               ; preds = %rb_obj_write.exit
+57:                                               ; preds = %rb_obj_write.argprom.exit
   call void @rb_gc_writebarrier(i64 noundef %39, i64 noundef %0) #28
-  br label %rb_obj_write.exit31
+  br label %rb_obj_write.argprom.exit31
 
-rb_obj_write.exit31:                              ; preds = %rb_obj_write.exit, %57
+rb_obj_write.argprom.exit31:                      ; preds = %rb_obj_write.argprom.exit, %57
   call void @rb_backref_set(i64 noundef %39) #28
   %.not30 = icmp eq ptr %5, null
   br i1 %.not30, label %59, label %58
 
-58:                                               ; preds = %rb_obj_write.exit31
+58:                                               ; preds = %rb_obj_write.argprom.exit31
   store i64 %39, ptr %5, align 8
   br label %59
 
-59:                                               ; preds = %58, %rb_obj_write.exit31
+59:                                               ; preds = %58, %rb_obj_write.argprom.exit31
   %60 = load i64, ptr %21, align 8
   br label %61
 
@@ -1751,7 +1751,7 @@ reg_onig_match.exit:                              ; preds = %.critedge.i, %45
 
 55:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %3)
-  br label %rb_obj_write.exit14
+  br label %rb_obj_write.argprom.exit14
 
 56:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %3)
@@ -1762,27 +1762,27 @@ reg_onig_match.exit:                              ; preds = %.critedge.i, %45
   %60 = icmp ne i64 %59, 0
   %61 = icmp eq i64 %58, 0
   %62 = or i1 %61, %60
-  br i1 %62, label %rb_obj_write.exit, label %63
+  br i1 %62, label %rb_obj_write.argprom.exit, label %63
 
 63:                                               ; preds = %56
   tail call void @rb_gc_writebarrier(i64 noundef %.013, i64 noundef %58) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %56, %63
+rb_obj_write.argprom.exit:                        ; preds = %56, %63
   %64 = getelementptr inbounds i8, ptr %.pre-phi, i64 24
   store i64 %0, ptr %64, align 8
   %65 = and i64 %0, 7
   %66 = icmp ne i64 %65, 0
   %67 = icmp eq i64 %0, 0
   %68 = or i1 %67, %66
-  br i1 %68, label %rb_obj_write.exit14, label %69
+  br i1 %68, label %rb_obj_write.argprom.exit14, label %69
 
-69:                                               ; preds = %rb_obj_write.exit
+69:                                               ; preds = %rb_obj_write.argprom.exit
   tail call void @rb_gc_writebarrier(i64 noundef %.013, i64 noundef %0) #28
-  br label %rb_obj_write.exit14
+  br label %rb_obj_write.argprom.exit14
 
-rb_obj_write.exit14:                              ; preds = %69, %rb_obj_write.exit, %55
-  %.013.sink = phi i64 [ 4, %55 ], [ %.013, %rb_obj_write.exit ], [ %.013, %69 ]
+rb_obj_write.argprom.exit14:                      ; preds = %69, %rb_obj_write.argprom.exit, %55
+  %.013.sink = phi i64 [ 4, %55 ], [ %.013, %rb_obj_write.argprom.exit ], [ %.013, %69 ]
   tail call void @rb_backref_set(i64 noundef %.013.sink) #28
   ret i1 %50
 }
@@ -2616,13 +2616,13 @@ define dso_local noundef i64 @rb_enc_reg_new(ptr noundef %0, i64 noundef %1, ptr
   %19 = icmp ne i64 %18, 0
   %20 = icmp eq i64 %17, 0
   %21 = or i1 %20, %19
-  br i1 %21, label %rb_obj_write.exit, label %22
+  br i1 %21, label %rb_obj_write.argprom.exit, label %22
 
 22:                                               ; preds = %14
   call void @rb_gc_writebarrier(i64 noundef %9, i64 noundef %17) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %14, %22
+rb_obj_write.argprom.exit:                        ; preds = %14, %22
   ret i64 %9
 }
 
@@ -4964,7 +4964,7 @@ rb_array_len.exit:                                ; preds = %6, %9
 
 18:                                               ; preds = %13, %17
   %.sink = phi i64 [ %1, %17 ], [ %15, %13 ]
-  %19 = tail call fastcc i64 @rb_reg_s_union(i64 noundef %.sink)
+  %19 = tail call fastcc i64 @rb_reg_s_union.argelim(i64 noundef %.sink)
   ret i64 %19
 }
 
@@ -5858,13 +5858,13 @@ define internal noundef i64 @match_init_copy(i64 noundef returned %0, i64 nounde
   %13 = icmp ne i64 %12, 0
   %14 = icmp eq i64 %11, 0
   %15 = or i1 %14, %13
-  br i1 %15, label %rb_obj_write.exit, label %16
+  br i1 %15, label %rb_obj_write.argprom.exit, label %16
 
 16:                                               ; preds = %5
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %11) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %5, %16
+rb_obj_write.argprom.exit:                        ; preds = %5, %16
   %17 = getelementptr inbounds i8, ptr %7, i64 24
   %18 = getelementptr inbounds i8, ptr %9, i64 24
   %19 = load i64, ptr %18, align 8
@@ -5873,13 +5873,13 @@ rb_obj_write.exit:                                ; preds = %5, %16
   %21 = icmp ne i64 %20, 0
   %22 = icmp eq i64 %19, 0
   %23 = or i1 %22, %21
-  br i1 %23, label %rb_obj_write.exit24, label %24
+  br i1 %23, label %rb_obj_write.argprom.exit24, label %24
 
-24:                                               ; preds = %rb_obj_write.exit
+24:                                               ; preds = %rb_obj_write.argprom.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %19) #28
-  br label %rb_obj_write.exit24
+  br label %rb_obj_write.argprom.exit24
 
-rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit, %24
+rb_obj_write.argprom.exit24:                      ; preds = %rb_obj_write.argprom.exit, %24
   %25 = getelementptr i8, ptr %7, i64 32
   %26 = getelementptr i8, ptr %9, i64 32
   tail call void @onig_region_copy(ptr noundef %25, ptr noundef %26) #28
@@ -5887,7 +5887,7 @@ rb_obj_write.exit24:                              ; preds = %rb_obj_write.exit, 
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %30
 
-28:                                               ; preds = %rb_obj_write.exit24
+28:                                               ; preds = %rb_obj_write.argprom.exit24
   tail call void @rb_gc() #28
   tail call void @onig_region_copy(ptr noundef nonnull %25, ptr noundef %26) #28
   %29 = load i32, ptr %25, align 8
@@ -5898,7 +5898,7 @@ rb_reg_region_copy.exit:                          ; preds = %28
   tail call void @rb_memerror() #31
   unreachable
 
-30:                                               ; preds = %rb_obj_write.exit24, %28
+30:                                               ; preds = %rb_obj_write.argprom.exit24, %28
   %31 = getelementptr i8, ptr %9, i64 64
   %32 = load i32, ptr %31, align 8
   %.not23 = icmp eq i32 %32, 0
@@ -5960,7 +5960,7 @@ define internal i64 @match_regexp(i64 noundef %0) #1 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
-  switch i64 %4, label %rb_obj_write.exit [
+  switch i64 %4, label %rb_obj_write.argprom.exit [
     i64 0, label %5
     i64 4, label %7
   ]
@@ -6006,13 +6006,13 @@ rb_reg_nth_match.exit:                            ; preds = %7, %match_check.exi
   %27 = icmp ne i64 %26, 0
   %28 = icmp eq i64 %25, 0
   %29 = or i1 %28, %27
-  br i1 %29, label %rb_obj_write.exit, label %30
+  br i1 %29, label %rb_obj_write.argprom.exit, label %30
 
 30:                                               ; preds = %rb_reg_nth_match.exit
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %25) #28
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %1, %30, %rb_reg_nth_match.exit
+rb_obj_write.argprom.exit:                        ; preds = %1, %30, %rb_reg_nth_match.exit
   %.0 = phi i64 [ %25, %rb_reg_nth_match.exit ], [ %25, %30 ], [ %4, %1 ]
   ret i64 %.0
 }
@@ -9419,7 +9419,7 @@ declare i64 @rb_check_array_type(i64 noundef) local_unnamed_addr #3
 declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_reg_s_union(i64 noundef %0) unnamed_addr #1 {
+define internal fastcc i64 @rb_reg_s_union.argelim(i64 noundef %0) unnamed_addr #1 {
   %2 = alloca [90 x i8], align 16
   %3 = alloca [1 x i64], align 8
   %4 = alloca i64, align 8
@@ -10524,14 +10524,14 @@ rb_reg_initialize_check.exit:                     ; preds = %rb_check_frozen_inl
   %33 = icmp ne i64 %32, 0
   %34 = icmp eq i64 %31, 0
   %35 = or i1 %34, %33
-  br i1 %35, label %rb_obj_write.exit, label %36
+  br i1 %35, label %rb_obj_write.argprom.exit, label %36
 
 36:                                               ; preds = %27
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %31) #28
   %.pre = load ptr, ptr %15, align 8
-  br label %rb_obj_write.exit
+  br label %rb_obj_write.argprom.exit
 
-rb_obj_write.exit:                                ; preds = %27, %36
+rb_obj_write.argprom.exit:                        ; preds = %27, %36
   %37 = phi ptr [ %28, %27 ], [ %.pre, %36 ]
   %38 = load ptr, ptr %20, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 440

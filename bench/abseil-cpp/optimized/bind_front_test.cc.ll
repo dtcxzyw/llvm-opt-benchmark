@@ -1521,7 +1521,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 1)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i, align 8, !noalias !5
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 1)
-          to label %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i
+          to label %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i
 
 lpad.i1.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -1544,7 +1544,7 @@ lpad.body.i.i.i.i.i.i:                            ; preds = %lpad.i.i.i.i.i.i, %
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #16
   br label %common.resume
 
-_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i
+_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i), !noalias !5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !5
@@ -1552,11 +1552,11 @@ _ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i:                                      ; preds = %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont unwind label %lpad
 
-if.end.i.i:                                       ; preds = %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i:                                       ; preds = %_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef nonnull align 1 dereferenceable(2) @.str.45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
 
@@ -1688,7 +1688,7 @@ invoke.cont.i.i.i.i.i.i34:                        ; preds = %if.end.i.i.i.i.i.i3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i32, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 6)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i21, align 8, !noalias !24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i64 noundef 6)
-          to label %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i33
+          to label %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i33
 
 lpad.i1.i.i.i.i.i33:                              ; preds = %invoke.cont.i.i.i.i.i.i34, %if.end.i.i.i.i.i.i31
   %17 = landingpad { ptr, i32 }
@@ -1707,7 +1707,7 @@ lpad.body.i.i.i.i.i.i25:                          ; preds = %lpad.i.i.i.i.i.i24,
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i22) #16
   br label %common.resume
 
-_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i34
+_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i21), !noalias !24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i22) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i22), !noalias !24
@@ -1715,11 +1715,11 @@ _ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt
   %cmp.i.i.i36 = icmp eq i32 %call.i.i.i35, 0
   br i1 %cmp.i.i.i36, label %if.then.i.i38, label %if.end.i.i37
 
-if.then.i.i38:                                    ; preds = %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i38:                                    ; preds = %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14)
           to label %invoke.cont17 unwind label %lpad16
 
-if.end.i.i37:                                     ; preds = %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i37:                                     ; preds = %_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, ptr noundef nonnull align 1 dereferenceable(7) @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -1856,7 +1856,7 @@ invoke.cont.i.i.i.i.i.i75:                        ; preds = %if.end.i.i.i.i.i.i7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i73, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 2)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i62, align 8, !noalias !43
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, i64 noundef 2)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i74
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i74
 
 lpad.i1.i.i.i.i.i74:                              ; preds = %invoke.cont.i.i.i.i.i.i75, %if.end.i.i.i.i.i.i72
   %32 = landingpad { ptr, i32 }
@@ -1875,7 +1875,7 @@ lpad.body.i.i.i.i.i.i66:                          ; preds = %lpad.i.i.i.i.i.i65,
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i63) #16
   br label %common.resume
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i75
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i62), !noalias !43
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i63) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i63), !noalias !43
@@ -1883,11 +1883,11 @@ _ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7
   %cmp.i.i.i77 = icmp eq i32 %call.i.i.i76, 0
   br i1 %cmp.i.i.i77, label %if.then.i.i79, label %if.end.i.i78
 
-if.then.i.i79:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i79:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar36)
           to label %invoke.cont39 unwind label %lpad38
 
-if.end.i.i78:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i78:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar36, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, ptr noundef nonnull align 1 dereferenceable(3) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -2024,7 +2024,7 @@ invoke.cont.i.i.i.i.i.i116:                       ; preds = %if.end.i.i.i.i.i.i1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i114, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 7)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i103, align 8, !noalias !62
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59, i64 noundef 7)
-          to label %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i115
+          to label %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i115
 
 lpad.i1.i.i.i.i.i115:                             ; preds = %invoke.cont.i.i.i.i.i.i116, %if.end.i.i.i.i.i.i113
   %47 = landingpad { ptr, i32 }
@@ -2043,7 +2043,7 @@ lpad.body.i.i.i.i.i.i107:                         ; preds = %lpad.i.i.i.i.i.i106
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i104) #16
   br label %common.resume
 
-_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i116
+_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i103), !noalias !62
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i104) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i104), !noalias !62
@@ -2051,11 +2051,11 @@ _ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt
   %cmp.i.i.i118 = icmp eq i32 %call.i.i.i117, 0
   br i1 %cmp.i.i.i118, label %if.then.i.i120, label %if.end.i.i119
 
-if.then.i.i120:                                   ; preds = %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i120:                                   ; preds = %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar58)
           to label %invoke.cont61 unwind label %lpad60
 
-if.end.i.i119:                                    ; preds = %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i119:                                    ; preds = %_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar58, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull align 1 dereferenceable(8) @.str.54, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59)
           to label %invoke.cont61 unwind label %lpad60
 
@@ -2649,7 +2649,7 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.45, i64 1)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i, align 8, !noalias !153
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 1)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i
 
 lpad.i1.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %2 = landingpad { ptr, i32 }
@@ -2672,7 +2672,7 @@ lpad.body.i.i.i.i.i.i:                            ; preds = %lpad.i.i.i.i.i.i, %
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #16
   br label %common.resume
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i), !noalias !153
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !153
@@ -2680,11 +2680,11 @@ _ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJ
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
 
-if.then.i.i:                                      ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i:                                      ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont unwind label %lpad
 
-if.end.i.i:                                       ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i:                                       ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.56, ptr noundef nonnull align 1 dereferenceable(2) @.str.45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -2816,7 +2816,7 @@ invoke.cont.i.i.i.i.i.i33:                        ; preds = %if.end.i.i.i.i.i.i3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i31, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.48, i64 6)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i20, align 8, !noalias !172
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, i64 noundef 6)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i32
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i32
 
 lpad.i1.i.i.i.i.i32:                              ; preds = %invoke.cont.i.i.i.i.i.i33, %if.end.i.i.i.i.i.i30
   %17 = landingpad { ptr, i32 }
@@ -2835,7 +2835,7 @@ lpad.body.i.i.i.i.i.i24:                          ; preds = %lpad.i.i.i.i.i.i23,
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i21) #16
   br label %common.resume
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i33
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i20), !noalias !172
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i21) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i21), !noalias !172
@@ -2843,11 +2843,11 @@ _ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJ
   %cmp.i.i.i35 = icmp eq i32 %call.i.i.i34, 0
   br i1 %cmp.i.i.i35, label %if.then.i.i37, label %if.end.i.i36
 
-if.then.i.i37:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i37:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14)
           to label %invoke.cont19 unwind label %lpad18
 
-if.end.i.i36:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i36:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar14, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.57, ptr noundef nonnull align 1 dereferenceable(7) @.str.48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -2984,7 +2984,7 @@ invoke.cont.i.i.i.i.i.i74:                        ; preds = %if.end.i.i.i.i.i.i7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i72, ptr noundef nonnull @.str.51, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.51, i64 2)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i61, align 8, !noalias !191
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i64 noundef 2)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i73
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i73
 
 lpad.i1.i.i.i.i.i73:                              ; preds = %invoke.cont.i.i.i.i.i.i74, %if.end.i.i.i.i.i.i71
   %32 = landingpad { ptr, i32 }
@@ -3003,7 +3003,7 @@ lpad.body.i.i.i.i.i.i65:                          ; preds = %lpad.i.i.i.i.i.i64,
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i62) #16
   br label %common.resume
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i74
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i61), !noalias !191
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i62) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i62), !noalias !191
@@ -3011,11 +3011,11 @@ _ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJ
   %cmp.i.i.i76 = icmp eq i32 %call.i.i.i75, 0
   br i1 %cmp.i.i.i76, label %if.then.i.i78, label %if.end.i.i77
 
-if.then.i.i78:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i78:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar38)
           to label %invoke.cont43 unwind label %lpad42
 
-if.end.i.i77:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i77:                                     ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar38, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.58, ptr noundef nonnull align 1 dereferenceable(3) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39)
           to label %invoke.cont43 unwind label %lpad42
 
@@ -3152,7 +3152,7 @@ invoke.cont.i.i.i.i.i.i115:                       ; preds = %if.end.i.i.i.i.i.i1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i.i.i.i.i.i113, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.54, i64 7)) #16
   store ptr null, ptr %__guard.i.i.i.i.i.i102, align 8, !noalias !210
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, i64 noundef 7)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit unwind label %lpad.i1.i.i.i.i.i114
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit unwind label %lpad.i1.i.i.i.i.i114
 
 lpad.i1.i.i.i.i.i114:                             ; preds = %invoke.cont.i.i.i.i.i.i115, %if.end.i.i.i.i.i.i112
   %47 = landingpad { ptr, i32 }
@@ -3171,7 +3171,7 @@ lpad.body.i.i.i.i.i.i106:                         ; preds = %lpad.i.i.i.i.i.i105
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i103) #16
   br label %common.resume
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit: ; preds = %invoke.cont.i.i.i.i.i.i115
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i.i.i.i102), !noalias !210
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i103) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i103), !noalias !210
@@ -3179,11 +3179,11 @@ _ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJ
   %cmp.i.i.i117 = icmp eq i32 %call.i.i.i116, 0
   br i1 %cmp.i.i.i117, label %if.then.i.i119, label %if.end.i.i118
 
-if.then.i.i119:                                   ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.then.i.i119:                                   ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar62)
           to label %invoke.cont67 unwind label %lpad66
 
-if.end.i.i118:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.exit
+if.end.i.i118:                                    ; preds = %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom.exit
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar62, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.59, ptr noundef nonnull align 1 dereferenceable(8) @.str.54, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63)
           to label %invoke.cont67 unwind label %lpad66
 
@@ -3345,7 +3345,7 @@ entry:
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_126BindTest_RefToFunctor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.exit:
+_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.argprom.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp12 = alloca %"class.testing::Message", align 8
   %ref.tmp13 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -3354,7 +3354,7 @@ _ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-if.else:                                          ; preds = %_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.exit
+if.else:                                          ; preds = %_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.argprom.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
           to label %invoke.cont unwind label %lpad
 
@@ -3427,7 +3427,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
   store ptr null, ptr %ref.tmp12, align 8
   br label %ehcleanup20
 
-if.end:                                           ; preds = %_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.exit, %_ZN7testing7MessageD2Ev.exit
+if.end:                                           ; preds = %_ZN7testing8internal8EqHelper7CompareIPN12_GLOBAL__N_118NonCopyableFunctorEPKS4_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSH_RKS9_RKSA_.argprom.exit, %_ZN7testing7MessageD2Ev.exit
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar, i64 8
   %9 = load ptr, ptr %message_.i, align 8
   %cmp.not.i.i8 = icmp eq ptr %9, null
@@ -10159,7 +10159,7 @@ invoke.cont.i:                                    ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.109, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.109, i64 1)) #16
   store ptr null, ptr %__guard.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, i64 noundef 1)
-          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_112ManglingCallEJidEEclIJRA2_KcEiEET0_DpOT_.exit unwind label %lpad.i
+          to label %_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_112ManglingCallEJidEEclIJRA2_KcEiEET0_DpOT_.argprom.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont.i, %if.end.i
   %2 = landingpad { ptr, i32 }
@@ -10178,7 +10178,7 @@ lpad.body.i.i.i.i.i:                              ; preds = %lpad.i.i.i.i.i, %lp
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #16
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
-_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_112ManglingCallEJidEEclIJRA2_KcEiEET0_DpOT_.exit: ; preds = %invoke.cont.i
+_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_112ManglingCallEJidEEclIJRA2_KcEiEET0_DpOT_.argprom.exit: ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #16
@@ -11542,76 +11542,76 @@ attributes #20 = { noreturn }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6, !8, !10, !12, !14}
-!6 = distinct !{!6, !7, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!7 = distinct !{!7, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_"}
-!8 = distinct !{!8, !9, !"_ZSt8__invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!9 = distinct !{!9, !"_ZSt8__invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!10 = distinct !{!10, !11, !"_ZSt6invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!11 = distinct !{!11, !"_ZSt6invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!12 = distinct !{!12, !13, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!13 = distinct !{!13, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!14 = distinct !{!14, !15, !"_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!15 = distinct !{!15, !"_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!6 = distinct !{!6, !7, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!8 = distinct !{!8, !9, !"_ZSt8__invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZSt8__invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!10 = distinct !{!10, !11, !"_ZSt6invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!11 = distinct !{!11, !"_ZSt6invokeB5cxx11IRN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!12 = distinct !{!12, !13, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!13 = distinct !{!13, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!14 = distinct !{!14, !15, !"_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!15 = distinct !{!15, !"_ZNR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !16 = !{!17, !6, !8, !10, !12, !14}
-!17 = distinct !{!17, !18, !"_ZNR12_GLOBAL__N_17FunctorclB5cxx11Ev: %agg.result"}
-!18 = distinct !{!18, !"_ZNR12_GLOBAL__N_17FunctorclB5cxx11Ev"}
+!17 = distinct !{!17, !18, !"_ZNR12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom: %agg.result"}
+!18 = distinct !{!18, !"_ZNR12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom"}
 !19 = !{!20, !22}
 !20 = distinct !{!20, !21, !"_ZN7testing8internal11CmpHelperEQIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !21 = distinct !{!21, !"_ZN7testing8internal11CmpHelperEQIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !22 = distinct !{!22, !23, !"_ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !23 = distinct !{!23, !"_ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !24 = !{!25, !27, !29, !31, !33}
-!25 = distinct !{!25, !26, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!26 = distinct !{!26, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_"}
-!27 = distinct !{!27, !28, !"_ZSt8__invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_: %agg.result"}
-!28 = distinct !{!28, !"_ZSt8__invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_"}
-!29 = distinct !{!29, !30, !"_ZSt6invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_: %agg.result"}
-!30 = distinct !{!30, !"_ZSt6invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_"}
-!31 = distinct !{!31, !32, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!32 = distinct !{!32, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!33 = distinct !{!33, !34, !"_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!34 = distinct !{!34, !"_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!25 = distinct !{!25, !26, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!26 = distinct !{!26, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!27 = distinct !{!27, !28, !"_ZSt8__invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom: %agg.result"}
+!28 = distinct !{!28, !"_ZSt8__invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom"}
+!29 = distinct !{!29, !30, !"_ZSt6invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom: %agg.result"}
+!30 = distinct !{!30, !"_ZSt6invokeB5cxx11IRKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom"}
+!31 = distinct !{!31, !32, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!32 = distinct !{!32, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!33 = distinct !{!33, !34, !"_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!34 = distinct !{!34, !"_ZNKR4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !35 = !{!36, !25, !27, !29, !31, !33}
-!36 = distinct !{!36, !37, !"_ZNKR12_GLOBAL__N_17FunctorclB5cxx11Ev: %agg.result"}
-!37 = distinct !{!37, !"_ZNKR12_GLOBAL__N_17FunctorclB5cxx11Ev"}
+!36 = distinct !{!36, !37, !"_ZNKR12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom: %agg.result"}
+!37 = distinct !{!37, !"_ZNKR12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom"}
 !38 = !{!39, !41}
 !39 = distinct !{!39, !40, !"_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !40 = distinct !{!40, !"_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !41 = distinct !{!41, !42, !"_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !42 = distinct !{!42, !"_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !43 = !{!44, !46, !48, !50, !52}
-!44 = distinct !{!44, !45, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!45 = distinct !{!45, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_"}
-!46 = distinct !{!46, !47, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_: %agg.result"}
-!47 = distinct !{!47, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_"}
-!48 = distinct !{!48, !49, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_: %agg.result"}
-!49 = distinct !{!49, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_"}
-!50 = distinct !{!50, !51, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!51 = distinct !{!51, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!52 = distinct !{!52, !53, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!53 = distinct !{!53, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!44 = distinct !{!44, !45, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!45 = distinct !{!45, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!46 = distinct !{!46, !47, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom: %agg.result"}
+!47 = distinct !{!47, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom"}
+!48 = distinct !{!48, !49, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom: %agg.result"}
+!49 = distinct !{!49, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom"}
+!50 = distinct !{!50, !51, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!51 = distinct !{!51, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!52 = distinct !{!52, !53, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!53 = distinct !{!53, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !54 = !{!55, !44, !46, !48, !50, !52}
-!55 = distinct !{!55, !56, !"_ZNO12_GLOBAL__N_17FunctorclB5cxx11Ev: %agg.result"}
-!56 = distinct !{!56, !"_ZNO12_GLOBAL__N_17FunctorclB5cxx11Ev"}
+!55 = distinct !{!55, !56, !"_ZNO12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom: %agg.result"}
+!56 = distinct !{!56, !"_ZNO12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom"}
 !57 = !{!58, !60}
 !58 = distinct !{!58, !59, !"_ZN7testing8internal11CmpHelperEQIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !59 = distinct !{!59, !"_ZN7testing8internal11CmpHelperEQIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !60 = distinct !{!60, !61, !"_ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !61 = distinct !{!61, !"_ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !62 = !{!63, !65, !67, !69, !71}
-!63 = distinct !{!63, !64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!64 = distinct !{!64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_"}
-!65 = distinct !{!65, !66, !"_ZSt8__invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!66 = distinct !{!66, !"_ZSt8__invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!67 = distinct !{!67, !68, !"_ZSt6invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!68 = distinct !{!68, !"_ZSt6invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!69 = distinct !{!69, !70, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!70 = distinct !{!70, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!71 = distinct !{!71, !72, !"_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!72 = distinct !{!72, !"_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!63 = distinct !{!63, !64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!64 = distinct !{!64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKN12_GLOBAL__N_17FunctorEJEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!65 = distinct !{!65, !66, !"_ZSt8__invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!66 = distinct !{!66, !"_ZSt8__invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!67 = distinct !{!67, !68, !"_ZSt6invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!68 = distinct !{!68, !"_ZSt6invokeB5cxx11IKN12_GLOBAL__N_17FunctorEJEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!69 = distinct !{!69, !70, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!70 = distinct !{!70, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKNS_18container_internal15CompressedTupleIJN12_GLOBAL__N_17FunctorEEEEJLm0EEJEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!71 = distinct !{!71, !72, !"_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!72 = distinct !{!72, !"_ZNKO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_17FunctorEJEEclIJENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !73 = !{!74, !63, !65, !67, !69, !71}
-!74 = distinct !{!74, !75, !"_ZNKO12_GLOBAL__N_17FunctorclB5cxx11Ev: %agg.result"}
-!75 = distinct !{!75, !"_ZNKO12_GLOBAL__N_17FunctorclB5cxx11Ev"}
+!74 = distinct !{!74, !75, !"_ZNKO12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom: %agg.result"}
+!75 = distinct !{!75, !"_ZNKO12_GLOBAL__N_17FunctorclB5cxx11Ev.argprom"}
 !76 = !{!77, !79}
 !77 = distinct !{!77, !78, !"_ZN7testing8internal11CmpHelperEQIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !78 = distinct !{!78, !"_ZN7testing8internal11CmpHelperEQIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
@@ -11690,84 +11690,84 @@ attributes #20 = { noreturn }
 !151 = distinct !{!151, !152, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_: %agg.result"}
 !152 = distinct !{!152, !"_ZN7testing13PrintToStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_"}
 !153 = !{!154, !156, !158, !160, !162}
-!154 = distinct !{!154, !155, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRiEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!155 = distinct !{!155, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRiEET_St14__invoke_otherOT0_DpOT1_"}
-!156 = distinct !{!156, !157, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!157 = distinct !{!157, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!158 = distinct !{!158, !159, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!159 = distinct !{!159, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!160 = distinct !{!160, !161, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!161 = distinct !{!161, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!162 = distinct !{!162, !163, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!163 = distinct !{!163, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!154 = distinct !{!154, !155, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRiEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!155 = distinct !{!155, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!156 = distinct !{!156, !157, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!157 = distinct !{!157, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!158 = distinct !{!158, !159, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!159 = distinct !{!159, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!160 = distinct !{!160, !161, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!161 = distinct !{!161, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!162 = distinct !{!162, !163, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!163 = distinct !{!163, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !164 = !{!165, !154, !156, !158, !160, !162}
-!165 = distinct !{!165, !166, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERi: %agg.result"}
-!166 = distinct !{!166, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERi"}
+!165 = distinct !{!165, !166, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERi.argprom: %agg.result"}
+!166 = distinct !{!166, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERi.argprom"}
 !167 = !{!168, !170}
 !168 = distinct !{!168, !169, !"_ZN7testing8internal11CmpHelperEQIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !169 = distinct !{!169, !"_ZN7testing8internal11CmpHelperEQIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !170 = distinct !{!170, !171, !"_ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !171 = distinct !{!171, !"_ZN7testing8internal8EqHelper7CompareIA2_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !172 = !{!173, !175, !177, !179, !181}
-!173 = distinct !{!173, !174, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRKiEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!174 = distinct !{!174, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRKiEET_St14__invoke_otherOT0_DpOT1_"}
-!175 = distinct !{!175, !176, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_: %agg.result"}
-!176 = distinct !{!176, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_"}
-!177 = distinct !{!177, !178, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_: %agg.result"}
-!178 = distinct !{!178, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_"}
-!179 = distinct !{!179, !180, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!180 = distinct !{!180, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!181 = distinct !{!181, !182, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!182 = distinct !{!182, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!173 = distinct !{!173, !174, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRKiEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!174 = distinct !{!174, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJRKiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!175 = distinct !{!175, !176, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom: %agg.result"}
+!176 = distinct !{!176, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom"}
+!177 = distinct !{!177, !178, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom: %agg.result"}
+!178 = distinct !{!178, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJRKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS5_DpOS6_.argprom"}
+!179 = distinct !{!179, !180, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!180 = distinct !{!180, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJRKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!181 = distinct !{!181, !182, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!182 = distinct !{!182, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJRKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !183 = !{!184, !173, !175, !177, !179, !181}
-!184 = distinct !{!184, !185, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERKi: %agg.result"}
-!185 = distinct !{!185, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERKi"}
+!184 = distinct !{!184, !185, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERKi.argprom: %agg.result"}
+!185 = distinct !{!185, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11ERKi.argprom"}
 !186 = !{!187, !189}
 !187 = distinct !{!187, !188, !"_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !188 = distinct !{!188, !"_ZN7testing8internal11CmpHelperEQIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !189 = distinct !{!189, !190, !"_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !190 = distinct !{!190, !"_ZN7testing8internal8EqHelper7CompareIA7_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !191 = !{!192, !194, !196, !198, !200}
-!192 = distinct !{!192, !193, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJiEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!193 = distinct !{!193, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJiEET_St14__invoke_otherOT0_DpOT1_"}
-!194 = distinct !{!194, !195, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_: %agg.result"}
-!195 = distinct !{!195, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_"}
-!196 = distinct !{!196, !197, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_: %agg.result"}
-!197 = distinct !{!197, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_"}
-!198 = distinct !{!198, !199, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!199 = distinct !{!199, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!200 = distinct !{!200, !201, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!201 = distinct !{!201, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!192 = distinct !{!192, !193, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJiEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!193 = distinct !{!193, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!194 = distinct !{!194, !195, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom: %agg.result"}
+!195 = distinct !{!195, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom"}
+!196 = distinct !{!196, !197, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom: %agg.result"}
+!197 = distinct !{!197, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJiEENSt13invoke_resultIT_JDpT0_EE4typeEOS3_DpOS4_.argprom"}
+!198 = distinct !{!198, !199, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!199 = distinct !{!199, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!200 = distinct !{!200, !201, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!201 = distinct !{!201, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !202 = !{!203, !192, !194, !196, !198, !200}
-!203 = distinct !{!203, !204, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOi: %agg.result"}
-!204 = distinct !{!204, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOi"}
+!203 = distinct !{!203, !204, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOi.argprom: %agg.result"}
+!204 = distinct !{!204, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOi.argprom"}
 !205 = !{!206, !208}
 !206 = distinct !{!206, !207, !"_ZN7testing8internal11CmpHelperEQIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !207 = distinct !{!207, !"_ZN7testing8internal11CmpHelperEQIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !208 = distinct !{!208, !209, !"_ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !209 = distinct !{!209, !"_ZN7testing8internal8EqHelper7CompareIA3_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !210 = !{!211, !213, !215, !217, !219}
-!211 = distinct !{!211, !212, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJKiEET_St14__invoke_otherOT0_DpOT1_: %agg.result"}
-!212 = distinct !{!212, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJKiEET_St14__invoke_otherOT0_DpOT1_"}
-!213 = distinct !{!213, !214, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!214 = distinct !{!214, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!215 = distinct !{!215, !216, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_: %agg.result"}
-!216 = distinct !{!216, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_"}
-!217 = distinct !{!217, !218, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_: %agg.result"}
-!218 = distinct !{!218, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_"}
-!219 = distinct !{!219, !220, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_: %agg.result"}
-!220 = distinct !{!220, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_"}
+!211 = distinct !{!211, !212, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJKiEET_St14__invoke_otherOT0_DpOT1_.argprom: %agg.result"}
+!212 = distinct !{!212, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_111ArgDescribeEJKiEET_St14__invoke_otherOT0_DpOT1_.argprom"}
+!213 = distinct !{!213, !214, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!214 = distinct !{!214, !"_ZSt8__invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt15__invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!215 = distinct !{!215, !216, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom: %agg.result"}
+!216 = distinct !{!216, !"_ZSt6invokeB5cxx11IN12_GLOBAL__N_111ArgDescribeEJKiEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.argprom"}
+!217 = distinct !{!217, !218, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom: %agg.result"}
+!218 = distinct !{!218, !"_ZN4absl19functional_internal5ApplyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_18container_internal15CompressedTupleIJN12_GLOBAL__N_111ArgDescribeEEEEJLm0EEJKiEEET_OT0_St16integer_sequenceImJXspT1_EEEDpOT2_.argprom"}
+!219 = distinct !{!219, !220, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom: %agg.result"}
+!220 = distinct !{!220, !"_ZNO4absl19functional_internal11FrontBinderIN12_GLOBAL__N_111ArgDescribeEJEEclIJKiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET0_DpOT_.argprom"}
 !221 = !{!222, !211, !213, !215, !217, !219}
-!222 = distinct !{!222, !223, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOKi: %agg.result"}
-!223 = distinct !{!223, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOKi"}
+!222 = distinct !{!222, !223, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOKi.argprom: %agg.result"}
+!223 = distinct !{!223, !"_ZNK12_GLOBAL__N_111ArgDescribeclB5cxx11EOKi.argprom"}
 !224 = !{!225, !227}
 !225 = distinct !{!225, !226, !"_ZN7testing8internal11CmpHelperEQIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !226 = distinct !{!226, !"_ZN7testing8internal11CmpHelperEQIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}
 !227 = distinct !{!227, !228, !"_ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_: %agg.result"}
 !228 = distinct !{!228, !"_ZN7testing8internal8EqHelper7CompareIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_"}
 !229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZN4absl10bind_frontIMN12_GLOBAL__N_16StructENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS2_EEENS_19functional_internal11FrontBinderINSt5decayIT_E4typeEJDpNSD_IT0_E4typeEEEEOSE_DpOSH_: %agg.result"}
-!231 = distinct !{!231, !"_ZN4absl10bind_frontIMN12_GLOBAL__N_16StructENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS2_EEENS_19functional_internal11FrontBinderINSt5decayIT_E4typeEJDpNSD_IT0_E4typeEEEEOSE_DpOSH_"}
+!230 = distinct !{!230, !231, !"_ZN4absl10bind_frontIMN12_GLOBAL__N_16StructENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS2_EEENS_19functional_internal11FrontBinderINSt5decayIT_E4typeEJDpNSD_IT0_E4typeEEEEOSE_DpOSH_.argprom: %agg.result"}
+!231 = distinct !{!231, !"_ZN4absl10bind_frontIMN12_GLOBAL__N_16StructENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRS2_EEENS_19functional_internal11FrontBinderINSt5decayIT_E4typeEJDpNSD_IT0_E4typeEEEEOSE_DpOSH_.argprom"}
 !232 = !{!233, !235}
 !233 = distinct !{!233, !234, !"_ZN7testing8internal11CmpHelperEQIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_: %agg.result"}
 !234 = distinct !{!234, !"_ZN7testing8internal11CmpHelperEQIA6_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15AssertionResultEPKcSB_RKT_RKT0_"}

@@ -313,7 +313,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
 89:                                               ; preds = %82, %print_sep.exit.thread, %79
   %90 = load ptr, ptr %30, align 8
   %.val = load i64, ptr %29, align 8
-  %91 = call fastcc i32 @moffset(ptr noundef nonnull %0, ptr noundef nonnull %35, i64 %.val, ptr noundef %90)
+  %91 = call fastcc i32 @moffset.argprom(ptr noundef nonnull %0, ptr noundef nonnull %35, i64 %.val, ptr noundef %90)
   switch i32 %91, label %92 [
     i32 -1, label %.critedge233.preheader
     i32 0, label %.critedge233.preheader
@@ -552,7 +552,7 @@ print_sep.exit239.thread:                         ; preds = %184, %print_sep.exi
   %201 = load ptr, ptr %30, align 8
   %202 = getelementptr inbounds %struct.level_info, ptr %201, i64 %160
   %.val236 = load i64, ptr %29, align 8
-  %203 = call fastcc i32 @moffset(ptr noundef nonnull %0, ptr noundef nonnull %100, i64 %.val236, ptr noundef %202)
+  %203 = call fastcc i32 @moffset.argprom(ptr noundef nonnull %0, ptr noundef nonnull %100, i64 %.val236, ptr noundef %202)
   switch i32 %203, label %206 [
     i32 -1, label %204
     i32 0, label %204
@@ -767,7 +767,7 @@ define internal fastcc i32 @mget(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %44 = trunc i64 %5 to i32
   %45 = add i32 %23, %44
   %46 = and i64 %4, 4294967295
-  tail call fastcc void @mcopy(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef %39, i32 noundef %43, ptr noundef %3, i32 noundef %45, i64 noundef %46, ptr noundef %1)
+  tail call fastcc void @mcopy.retelim(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef %39, i32 noundef %43, ptr noundef %3, i32 noundef %45, i64 noundef %46, ptr noundef %1)
   %47 = getelementptr inbounds i8, ptr %0, i64 68
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 1
@@ -785,7 +785,7 @@ define internal fastcc i32 @mget(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %58 = load i16, ptr %11, align 2
   %59 = zext i16 %58 to i32
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.6, i32 noundef %53, i32 noundef %55, i32 noundef %23, i64 noundef %5, i64 noundef %4, i32 noundef %57, i32 noundef %59) #23
-  tail call fastcc void @mdebug(i32 noundef %23, ptr noundef nonnull %24)
+  tail call fastcc void @mdebug.argelim(i32 noundef %23, ptr noundef nonnull %24)
   tail call void @file_mdump(ptr noundef nonnull %1) #21
   br label %61
 
@@ -1450,7 +1450,7 @@ cvt_flip.exit578.thread616:                       ; preds = %311, %cvt_flip.exit
 
 399:                                              ; preds = %381
   %.val = load i32, ptr %47, align 4
-  %400 = tail call fastcc i32 @cvt_id3(i32 %.val, i32 noundef %398)
+  %400 = tail call fastcc i32 @cvt_id3.argprom(i32 %.val, i32 noundef %398)
   br label %401
 
 401:                                              ; preds = %399, %381
@@ -1493,7 +1493,7 @@ cvt_flip.exit578.thread620:                       ; preds = %311, %cvt_flip.exit
 
 424:                                              ; preds = %411
   %.val576 = load i32, ptr %47, align 4
-  %425 = tail call fastcc i32 @cvt_id3(i32 %.val576, i32 noundef %423)
+  %425 = tail call fastcc i32 @cvt_id3.argprom(i32 %.val576, i32 noundef %423)
   br label %426
 
 426:                                              ; preds = %424, %411
@@ -1727,7 +1727,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
   %572 = phi i32 [ %.pre, %._crit_edge640 ], [ %559, %567 ], [ %559, %568 ]
   %573 = load i8, ptr %37, align 2
   %574 = zext i8 %573 to i32
-  tail call fastcc void @mcopy(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef %574, i32 noundef 0, ptr noundef %3, i32 noundef %572, i64 noundef %4, ptr noundef nonnull %1)
+  tail call fastcc void @mcopy.retelim(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef %574, i32 noundef 0, ptr noundef %3, i32 noundef %572, i64 noundef %4, ptr noundef nonnull %1)
   store i32 %572, ptr %22, align 8
   %575 = load i32, ptr %47, align 4
   %576 = and i32 %575, 1
@@ -1735,7 +1735,7 @@ cvt_flip.exit578.thread:                          ; preds = %311, %cvt_flip.exit
   br i1 %.not508, label %578, label %577
 
 577:                                              ; preds = %571
-  tail call fastcc void @mdebug(i32 noundef %572, ptr noundef nonnull %24)
+  tail call fastcc void @mdebug.argelim(i32 noundef %572, ptr noundef nonnull %24)
   tail call void @file_mdump(ptr noundef nonnull %1) #21
   br label %578
 
@@ -4081,7 +4081,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %14 = load i8, ptr %7, align 8
   %15 = zext i8 %14 to i64
   %16 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %15) #21
-  %17 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %17 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %17, label %32 [
     i32 -1, label %241
     i32 1, label %18
@@ -4136,7 +4136,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %46 = load i16, ptr %7, align 8
   %47 = zext i16 %46 to i64
   %48 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %47) #21
-  %49 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %49 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %49, label %64 [
     i32 -1, label %241
     i32 1, label %50
@@ -4191,7 +4191,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
   %78 = load i32, ptr %7, align 8
   %79 = zext i32 %78 to i64
   %80 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %79) #21
-  %81 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %81 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %81, label %90 [
     i32 -1, label %241
     i32 1, label %82
@@ -4218,7 +4218,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 94:                                               ; preds = %2, %2, %2, %2
   %95 = load i64, ptr %7, align 8
   %96 = tail call i64 @file_signextend(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %95) #21
-  %97 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %97 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %97, label %105 [
     i32 -1, label %241
     i32 1, label %98
@@ -4338,7 +4338,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 
 169:                                              ; preds = %2, %2, %2
   %170 = load float, ptr %7, align 8
-  %171 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %171 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %171, label %177 [
     i32 -1, label %241
     i32 1, label %172
@@ -4359,7 +4359,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 
 181:                                              ; preds = %2, %2, %2
   %182 = load double, ptr %7, align 8
-  %183 = call fastcc i32 @check_fmt(ptr noundef nonnull %.)
+  %183 = call fastcc i32 @check_fmt.argprom(ptr noundef nonnull %.)
   switch i32 %183, label %188 [
     i32 -1, label %241
     i32 1, label %184
@@ -4462,7 +4462,7 @@ define internal fastcc range(i32 -1, 1) i32 @mprint(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @moffset(ptr noundef %0, ptr noundef %1, i64 %.160.val, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @moffset.argprom(ptr noundef %0, ptr noundef %1, i64 %.160.val, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = load i8, ptr %4, align 2
   switch i8 %5, label %124 [
@@ -4733,7 +4733,7 @@ declare void @buffer_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i6
 declare void @file_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #3 {
+define internal fastcc void @mcopy.retelim(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #3 {
   %9 = icmp eq i32 %3, 0
   br i1 %9, label %10, label %111
 
@@ -5014,7 +5014,7 @@ define internal fastcc void @mcopy(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @mdebug(i32 noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @mdebug.argelim(i32 noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.17, i64 noundef 128, i32 noundef %0) #23
   %5 = load ptr, ptr @stderr, align 8
@@ -5138,7 +5138,7 @@ default.unreachable44:                            ; preds = %17
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 268435456) i32 @cvt_id3(i32 %.68.val, i32 noundef %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 268435456) i32 @cvt_id3.argprom(i32 %.68.val, i32 noundef %0) unnamed_addr #6 {
   %2 = and i32 %0, 127
   %3 = lshr i32 %0, 1
   %4 = and i32 %3, 16256
@@ -5917,7 +5917,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare i32 @file_separator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @check_fmt(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @check_fmt.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 37) #26
   %3 = icmp eq ptr %2, null
   br i1 %3, label %31, label %4

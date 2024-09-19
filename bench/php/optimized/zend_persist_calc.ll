@@ -3062,12 +3062,12 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
   %.not6983 = icmp eq i32 %.pr87, 0
   br i1 %.not6983, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %zend_hash_persist_calc.exit, %zend_persist_op_array_calc.exit
-  %.084 = phi ptr [ %283, %zend_persist_op_array_calc.exit ], [ %227, %zend_hash_persist_calc.exit ]
+.lr.ph:                                           ; preds = %zend_hash_persist_calc.exit, %zend_persist_op_array_calc.argprom.exit
+  %.084 = phi ptr [ %283, %zend_persist_op_array_calc.argprom.exit ], [ %227, %zend_hash_persist_calc.exit ]
   %232 = getelementptr inbounds i8, ptr %.084, i64 8
   %233 = load i8, ptr %232, align 8
   %234 = icmp eq i8 %233, 0
-  br i1 %234, label %zend_persist_op_array_calc.exit, label %235
+  br i1 %234, label %zend_persist_op_array_calc.argprom.exit, label %235
 
 235:                                              ; preds = %.lr.ph
   %236 = getelementptr inbounds i8, ptr %.084, i64 24
@@ -3134,7 +3134,7 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
   tail call void @llvm.assume(i1 %276)
   %277 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %.0.val) #4
   %.not.i73 = icmp eq ptr %277, null
-  br i1 %.not.i73, label %278, label %zend_persist_op_array_calc.exit
+  br i1 %.not.i73, label %278, label %zend_persist_op_array_calc.argprom.exit
 
 278:                                              ; preds = %274
   tail call void @zend_shared_alloc_register_xlat_entry(ptr noundef nonnull %.0.val, ptr noundef nonnull %.0.val) #4
@@ -3144,14 +3144,14 @@ zend_hash_persist_calc.exit:                      ; preds = %167, %178, %203, %.
   %282 = add i64 %281, 240
   store i64 %282, ptr %280, align 8
   tail call fastcc void @zend_persist_op_array_calc_ex(ptr noundef nonnull %.0.val)
-  br label %zend_persist_op_array_calc.exit
+  br label %zend_persist_op_array_calc.argprom.exit
 
-zend_persist_op_array_calc.exit:                  ; preds = %278, %274, %.lr.ph
+zend_persist_op_array_calc.argprom.exit:          ; preds = %278, %274, %.lr.ph
   %283 = getelementptr inbounds i8, ptr %.084, i64 32
   %.not69 = icmp eq ptr %283, %229
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %zend_persist_op_array_calc.exit, %zend_hash_persist_calc.exit.thread, %zend_hash_persist_calc.exit
+._crit_edge:                                      ; preds = %zend_persist_op_array_calc.argprom.exit, %zend_hash_persist_calc.exit.thread, %zend_hash_persist_calc.exit
   %284 = getelementptr inbounds i8, ptr %0, i64 8
   tail call fastcc void @zend_persist_op_array_calc_ex(ptr noundef nonnull %284)
   %285 = getelementptr inbounds i8, ptr %0, i64 388

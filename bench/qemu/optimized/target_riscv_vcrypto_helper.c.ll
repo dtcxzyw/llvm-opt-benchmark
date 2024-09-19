@@ -3038,7 +3038,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3125,7 +3125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3213,7 +3213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3300,7 +3300,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3388,7 +3388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3475,7 +3475,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3563,7 +3563,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3650,7 +3650,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel.argelim(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -6047,7 +6047,7 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_AK_accel.argelim(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6062,7 +6062,7 @@ declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_u
 declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_accel.argelim(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6077,7 +6077,7 @@ declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local
 declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel.argelim(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6092,7 +6092,7 @@ declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) loca
 declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel.argelim(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16

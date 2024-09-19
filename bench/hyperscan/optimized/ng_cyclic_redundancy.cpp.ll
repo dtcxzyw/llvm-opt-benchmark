@@ -2087,7 +2087,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i142.i.i:           ; preds = %if.then.i.i.i.i.i.i
 _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit143.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i142.i.i, %if.then.i.i.i.i.i.i.i.i.i139.i.i, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i.i
   %240 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i144.i.i = icmp eq ptr %240, null
-  br i1 %cmp.not.i.i.i.i144.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i, label %if.then.i.i.i.i145.i.i
+  br i1 %cmp.not.i.i.i.i144.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i, label %if.then.i.i.i.i145.i.i
 
 if.then.i.i.i.i145.i.i:                           ; preds = %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit143.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %240, i64 8
@@ -2123,7 +2123,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i147.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %242, %if.then.i.i.i.i.i.i147.i.i ], [ %245, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i148.i.i = load ptr, ptr %240, align 8
@@ -2148,14 +2148,14 @@ if.else.i.i.i.i.i.i.i.i157.i.i:                   ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i154.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i157.i.i, %if.then.i.i.i.i.i.i.i.i152.i.i
   %retval.i.0.i.i.i.i.i.i.i155.i.i = phi i32 [ %248, %if.then.i.i.i.i.i.i.i.i152.i.i ], [ %249, %if.else.i.i.i.i.i.i.i.i157.i.i ]
   %cmp.i.i.i.i.i.i.i156.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i155.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i156.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i156.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i154.i.i, %if.then.i.i.i.i.i158.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %240, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %250 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %250(ptr noundef nonnull align 8 dereferenceable(16) %240) #21
-  br label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i
+  br label %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i
 
 ehcleanup.i.i:                                    ; preds = %if.then.i.i.i101.i.i, %lpad67.body.i.i, %if.then.i.i.i.i45.i.i, %lpad.i.i44.i.i, %lpad12.i.loopexit.split-lp.i, %lpad12.i.loopexit.i
   %.pn.i.i = phi { ptr, i32 } [ %59, %if.then.i.i.i.i45.i.i ], [ %59, %lpad.i.i44.i.i ], [ %eh.lpad-body132.i.i, %lpad67.body.i.i ], [ %eh.lpad-body132.i.i, %if.then.i.i.i101.i.i ], [ %lpad.loopexit.i, %lpad12.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad12.i.loopexit.split-lp.i ]
@@ -2192,7 +2192,7 @@ ehcleanup109.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
   call void @_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %colours.i.i) #21
   br label %common.resume
 
-_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i154.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit143.i.i
+_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i154.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit143.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %colours.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %succ_v.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -2204,8 +2204,8 @@ _ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorE
   %255 = or i1 %did_stuff.0188.i, %did_stuff.0.lcssa.i.i
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %for.cond19.i.i.i, %for.cond.i.i.i, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i, %for.body.i
-  %did_stuff.1.i = phi i1 [ %did_stuff.0188.i, %for.body.i ], [ %255, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.exit.i ], [ %did_stuff.0188.i, %for.cond.i.i.i ], [ %did_stuff.0188.i, %for.cond19.i.i.i ]
+for.inc.i:                                        ; preds = %for.cond19.i.i.i, %for.cond.i.i.i, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i, %for.body.i
+  %did_stuff.1.i = phi i1 [ %did_stuff.0188.i, %for.body.i ], [ %255, %_ZN3ue2L26removeCyclicPathRedundancyINS_8NGHolderEEEbRT_NS2_17vertex_descriptorERS1_.argprom.exit.i ], [ %did_stuff.0188.i, %for.cond.i.i.i ], [ %did_stuff.0188.i, %for.cond19.i.i.i ]
   %__begin0.sroa.0.0.i = load ptr, ptr %__begin0.sroa.0.0189.i, align 8
   %cmp.i.i.i.i.not.i = icmp eq ptr %__begin0.sroa.0.0.i, %m_header.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i, label %_ZN3ue2L24cyclicPathRedundancyPassINS_8NGHolderEEEbRT_RS1_.exit, label %for.body.i

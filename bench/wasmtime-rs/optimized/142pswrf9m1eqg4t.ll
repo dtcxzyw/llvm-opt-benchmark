@@ -504,9 +504,9 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load i64, ptr %7, align 16, !range !5, !noundef !4
   %9 = icmp eq i64 %8, 2
-  br i1 %9, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit", label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread"
+  br i1 %9, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit", label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit.thread"
 
-"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit": ; preds = %6
+"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit": ; preds = %6
   %10 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
@@ -517,19 +517,19 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   %16 = getelementptr inbounds i8, ptr %5, i64 56
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef08bb7ec18bd030E"(ptr nonnull align 1 %15, i64 %17, ptr nonnull align 1 %11, i64 %13)
-  br i1 %18, label %22, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread"
+  br i1 %18, label %22, label %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit.thread"
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 5, ptr %20, align 16
   br label %33
 
-"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread": ; preds = %6, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit"
+"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit.thread": ; preds = %6, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit"
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 5, ptr %21, align 16
   br label %33
 
-22:                                               ; preds = %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit"
+22:                                               ; preds = %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit"
   call void @_ZN14cranelift_isle5lexer5Lexer4next17h3915cd2eff007a52E(ptr nonnull sret({ i64, [9 x i64] }) align 16 %4, ptr align 16 %1)
   %23 = load i64, ptr %4, align 16, !range !3, !noundef !4
   %24 = icmp eq i64 %23, 0
@@ -566,8 +566,8 @@ define hidden void @_ZN14cranelift_isle6parser6Parser3eat17h785c4d065ccd8464E(pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   br label %33
 
-33:                                               ; preds = %19, %31, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread", %27
-  %.sink = phi i64 [ 0, %19 ], [ 0, %31 ], [ 0, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.exit.thread" ], [ 1, %27 ]
+33:                                               ; preds = %19, %31, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit.thread", %27
+  %.sink = phi i64 [ 0, %19 ], [ 0, %31 ], [ 0, %"_ZN14cranelift_isle6parser6Parser11eat_sym_str28_$u7b$$u7b$closure$u7d$$u7d$17h7114c43e08f1488aE.argprom.exit.thread" ], [ 1, %27 ]
   store i64 %.sink, ptr %0, align 16
   ret void
 }
@@ -666,7 +666,7 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %6 = load i64, ptr %5, align 16, !range !5, !noundef !4
   %7 = icmp eq i64 %6, 2
-  br i1 %7, label %8, label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
+  br i1 %7, label %8, label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.argprom.exit"
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %3, i64 48
@@ -678,15 +678,15 @@ define hidden zeroext i1 @_ZN14cranelift_isle6parser6Parser2is17hfd1d9837b467f34
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
   %16 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hc1c9572cea80b99bE"(ptr nonnull align 1 %10, i64 %12, ptr align 1 %14, i64 %15)
-  br label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
+  br label %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.argprom.exit"
 
-"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit": ; preds = %4, %8
+"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.argprom.exit": ; preds = %4, %8
   %.0.i = phi i1 [ %16, %8 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %17
 
-17:                                               ; preds = %1, %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit"
-  %.0 = phi i1 [ %.0.i, %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.exit" ], [ false, %1 ]
+17:                                               ; preds = %1, %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.argprom.exit"
+  %.0 = phi i1 [ %.0.i, %"_ZN14cranelift_isle6parser6Parser8is_const28_$u7b$$u7b$closure$u7d$$u7d$17h26fd6cb3fe2d0805E.argprom.exit" ], [ false, %1 ]
   ret i1 %.0
 }
 

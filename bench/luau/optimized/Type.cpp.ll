@@ -4297,47 +4297,47 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
   %.sroa.030.066.i.i.i.i = phi ptr [ %31, %30 ], [ %7, %.lr.ph.preheader.i.i.i.i ]
   %16 = load ptr, ptr %.sroa.030.066.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit.i.i.i.i"
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
   %17 = load i32, ptr %16, align 8
   %.not41.i.i.i.i = icmp eq i32 %17, 8
   br i1 %.not41.i.i.i.i, label %18, label %.loopexit
 
-18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit.i.i.i.i"
+18:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit.i.i.i.i"
   %19 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i16.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i16.i.i.i.i, label %.loopexit.loopexit.split.loop.exit36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit17.i.i.i.i"
+  br i1 %.not.i.i.i.i16.i.i.i.i, label %.loopexit.loopexit.split.loop.exit36, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit17.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit17.i.i.i.i": ; preds = %18
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit17.i.i.i.i": ; preds = %18
   %21 = load i32, ptr %20, align 8
   %.not42.i.i.i.i = icmp eq i32 %21, 8
   br i1 %.not42.i.i.i.i, label %22, label %.loopexit.loopexit.split.loop.exit42
 
-22:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit17.i.i.i.i"
+22:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit17.i.i.i.i"
   %23 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i.i18.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i18.i.i.i.i, label %.loopexit.loopexit.split.loop.exit34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit19.i.i.i.i"
+  br i1 %.not.i.i.i.i18.i.i.i.i, label %.loopexit.loopexit.split.loop.exit34, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit19.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit19.i.i.i.i": ; preds = %22
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit19.i.i.i.i": ; preds = %22
   %25 = load i32, ptr %24, align 8
   %.not43.i.i.i.i = icmp eq i32 %25, 8
   br i1 %.not43.i.i.i.i, label %26, label %.loopexit.loopexit.split.loop.exit40
 
-26:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit19.i.i.i.i"
+26:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit19.i.i.i.i"
   %27 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i.i20.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i20.i.i.i.i, label %.loopexit.loopexit.split.loop.exit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit21.i.i.i.i"
+  br i1 %.not.i.i.i.i20.i.i.i.i, label %.loopexit.loopexit.split.loop.exit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit21.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit21.i.i.i.i": ; preds = %26
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit21.i.i.i.i": ; preds = %26
   %29 = load i32, ptr %28, align 8
   %.not44.i.i.i.i = icmp eq i32 %29, 8
   br i1 %.not44.i.i.i.i, label %30, label %.loopexit.loopexit.split.loop.exit38
 
-30:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit21.i.i.i.i"
+30:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit21.i.i.i.i"
   %31 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 32
   %32 = add nsw i64 %.067.i.i.i.i, -1
   %33 = icmp sgt i64 %.067.i.i.i.i, 1
@@ -4361,14 +4361,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
 35:                                               ; preds = %._crit_edge.i.i.i.i
   %36 = load ptr, ptr %.sroa.030.0.lcssa.i.i.i.i, align 8
   %.not.i.i.i.i22.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i22.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit23.i.i.i.i"
+  br i1 %.not.i.i.i.i22.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit23.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit23.i.i.i.i": ; preds = %35
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit23.i.i.i.i": ; preds = %35
   %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i = icmp eq i32 %37, 8
   br i1 %.not.i.i.i.i, label %38, label %.loopexit
 
-38:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit23.i.i.i.i"
+38:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit23.i.i.i.i"
   %39 = getelementptr inbounds i8, ptr %.sroa.030.0.lcssa.i.i.i.i, i64 8
   br label %40
 
@@ -4376,14 +4376,14 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
   %.sroa.030.1.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %39, %38 ]
   %41 = load ptr, ptr %.sroa.030.1.i.i.i.i, align 8
   %.not.i.i.i.i24.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i24.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit25.i.i.i.i"
+  br i1 %.not.i.i.i.i24.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit25.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit25.i.i.i.i": ; preds = %40
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit25.i.i.i.i": ; preds = %40
   %42 = load i32, ptr %41, align 8
   %.not39.i.i.i.i = icmp eq i32 %42, 8
   br i1 %.not39.i.i.i.i, label %43, label %.loopexit
 
-43:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit25.i.i.i.i"
+43:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit25.i.i.i.i"
   %44 = getelementptr inbounds i8, ptr %.sroa.030.1.i.i.i.i, i64 8
   br label %45
 
@@ -4391,9 +4391,9 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
   %.sroa.030.2.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %44, %43 ]
   %46 = load ptr, ptr %.sroa.030.2.i.i.i.i, align 8
   %.not.i.i.i.i26.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i26.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit27.i.i.i.i"
+  br i1 %.not.i.i.i.i26.i.i.i.i, label %.loopexit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit27.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit27.i.i.i.i": ; preds = %45
+"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit27.i.i.i.i": ; preds = %45
   %47 = load i32, ptr %46, align 8
   %.not40.i.i.i.i = icmp eq i32 %47, 8
   %spec.select.i.i.i.i = select i1 %.not40.i.i.i.i, ptr %9, ptr %.sroa.030.2.i.i.i.i
@@ -4411,20 +4411,20 @@ _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %4
   %50 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit38:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit21.i.i.i.i"
+.loopexit.loopexit.split.loop.exit38:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit21.i.i.i.i"
   %51 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit40:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit19.i.i.i.i"
+.loopexit.loopexit.split.loop.exit40:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit19.i.i.i.i"
   %52 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit42:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit17.i.i.i.i"
+.loopexit.loopexit.split.loop.exit42:             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit17.i.i.i.i"
   %53 = getelementptr inbounds i8, ptr %.sroa.030.066.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit34, %.loopexit.loopexit.split.loop.exit36, %.loopexit.loopexit.split.loop.exit38, %.loopexit.loopexit.split.loop.exit40, %.loopexit.loopexit.split.loop.exit42, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit27.i.i.i.i", %45, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit25.i.i.i.i", %40, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit23.i.i.i.i", %35, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit23.i.i.i.i" ], [ %.sroa.030.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit25.i.i.i.i" ], [ %9, %._crit_edge.i.i.i.i ], [ %.sroa.030.0.lcssa.i.i.i.i, %35 ], [ %.sroa.030.1.i.i.i.i, %40 ], [ %.sroa.030.2.i.i.i.i, %45 ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit27.i.i.i.i" ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit34 ], [ %50, %.loopexit.loopexit.split.loop.exit36 ], [ %51, %.loopexit.loopexit.split.loop.exit38 ], [ %52, %.loopexit.loopexit.split.loop.exit40 ], [ %53, %.loopexit.loopexit.split.loop.exit42 ], [ %.sroa.030.066.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.030.066.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.exit.i.i.i.i" ]
+.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit.i.i.i.i", %.lr.ph.i.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit34, %.loopexit.loopexit.split.loop.exit36, %.loopexit.loopexit.split.loop.exit38, %.loopexit.loopexit.split.loop.exit40, %.loopexit.loopexit.split.loop.exit42, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit27.i.i.i.i", %45, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit25.i.i.i.i", %40, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit23.i.i.i.i", %35, %._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.030.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit23.i.i.i.i" ], [ %.sroa.030.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit25.i.i.i.i" ], [ %9, %._crit_edge.i.i.i.i ], [ %.sroa.030.0.lcssa.i.i.i.i, %35 ], [ %.sroa.030.1.i.i.i.i, %40 ], [ %.sroa.030.2.i.i.i.i, %45 ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit27.i.i.i.i" ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ %49, %.loopexit.loopexit.split.loop.exit34 ], [ %50, %.loopexit.loopexit.split.loop.exit36 ], [ %51, %.loopexit.loopexit.split.loop.exit38 ], [ %52, %.loopexit.loopexit.split.loop.exit40 ], [ %53, %.loopexit.loopexit.split.loop.exit42 ], [ %.sroa.030.066.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sroa.030.066.i.i.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4Luau20isOverloadedFunctionEPKNS2_4TypeEE3$_0EclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEEEEbT_.argprom.exit.i.i.i.i" ]
   %54 = icmp eq ptr %9, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %55

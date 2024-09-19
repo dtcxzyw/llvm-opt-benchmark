@@ -947,7 +947,7 @@ land.lhs.true51:                                  ; preds = %sub_0, %land.lhs.tr
   br i1 %tobool53.not, label %if.then54, label %land.lhs.true60
 
 if.then54:                                        ; preds = %land.lhs.true51
-  tail call fastcc void @show_gitcomp(ptr noundef %options, i32 noundef 0)
+  tail call fastcc void @show_gitcomp.retelim(ptr noundef %options, i32 noundef 0)
   br label %return
 
 land.lhs.true60:                                  ; preds = %land.lhs.true51
@@ -956,7 +956,7 @@ land.lhs.true60:                                  ; preds = %land.lhs.true51
   br i1 %tobool62.not, label %if.then63, label %if.end65
 
 if.then63:                                        ; preds = %land.lhs.true60
-  tail call fastcc void @show_gitcomp(ptr noundef %options, i32 noundef 1)
+  tail call fastcc void @show_gitcomp.retelim(ptr noundef %options, i32 noundef 1)
   br label %return
 
 if.end65:                                         ; preds = %land.lhs.true39, %if.end47, %land.lhs.true60
@@ -1092,7 +1092,7 @@ land.lhs.true147:                                 ; preds = %if.end145
   br i1 %tobool150.not, label %if.then151, label %land.lhs.true155
 
 if.then151:                                       ; preds = %land.lhs.true147
-  tail call fastcc void @usage_with_options_internal(ptr noundef nonnull %ctx, ptr noundef %usagestr, ptr noundef %options, i32 noundef 1, i32 noundef 0)
+  tail call fastcc void @usage_with_options_internal.retelim(ptr noundef nonnull %ctx, ptr noundef %usagestr, ptr noundef %options, i32 noundef 1, i32 noundef 0)
   br label %return
 
 land.lhs.true155:                                 ; preds = %land.lhs.true147
@@ -1444,7 +1444,7 @@ for.inc:                                          ; preds = %while.cond, %parse_
   br i1 %tobool1.not, label %return, label %for.body, !llvm.loop !17
 
 show_usage:                                       ; preds = %parse_long_opt.exit, %land.lhs.true155, %land.lhs.true103, %land.lhs.true82, %land.lhs.true43.tail, %parse_long_opt.exit.thread103
-  tail call fastcc void @usage_with_options_internal(ptr noundef nonnull %ctx, ptr noundef %usagestr, ptr noundef %options, i32 noundef 0, i32 noundef 0)
+  tail call fastcc void @usage_with_options_internal.retelim(ptr noundef nonnull %ctx, ptr noundef %usagestr, ptr noundef %options, i32 noundef 0, i32 noundef 0)
   br label %return
 
 return.loopexit110.split.loop.exit217:            ; preds = %if.end173
@@ -1482,7 +1482,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @usage_with_options(ptr noundef %usagestr, ptr nocapture noundef readonly %opts) local_unnamed_addr #3 {
 entry:
-  tail call fastcc void @usage_with_options_internal(ptr noundef null, ptr noundef %usagestr, ptr noundef %opts, i32 noundef 0, i32 noundef 1)
+  tail call fastcc void @usage_with_options_internal.retelim(ptr noundef null, ptr noundef %usagestr, ptr noundef %opts, i32 noundef 0, i32 noundef 1)
   %call1 = tail call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 1266, i32 noundef 129) #17
   tail call void @exit(i32 noundef %call1) #16
   unreachable
@@ -1495,7 +1495,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_gitcomp(ptr noundef readonly %opts, i32 noundef range(i32 0, 2) %show_all) unnamed_addr #0 {
+define internal fastcc void @show_gitcomp.retelim(ptr noundef readonly %opts, i32 noundef range(i32 0, 2) %show_all) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opts, align 8
   %cmp.not20 = icmp eq i32 %0, 0
@@ -1787,7 +1787,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @usage_with_options_internal(ptr noundef readonly %ctx, ptr noundef readonly %usagestr, ptr nocapture noundef readonly %opts, i32 noundef range(i32 0, 2) %full, i32 noundef range(i32 0, 2) %err) unnamed_addr #0 {
+define internal fastcc void @usage_with_options_internal.retelim(ptr noundef readonly %ctx, ptr noundef readonly %usagestr, ptr nocapture noundef readonly %opts, i32 noundef range(i32 0, 2) %full, i32 noundef range(i32 0, 2) %err) unnamed_addr #0 {
 entry:
   %list = alloca %struct.string_list, align 8
   %tobool.not = icmp eq i32 %err, 0
@@ -3005,24 +3005,24 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i.i = icmp eq ptr %2, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i.i, label %strbuf_setlen.exit.i.i, label %if.then4.i.i.i
+  br i1 %cmp3.not.i.i.i, label %strbuf_setlen.argprom.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %_.exit.i
   store i8 0, ptr %2, align 1
-  br label %strbuf_setlen.exit.i.i
+  br label %strbuf_setlen.argprom.exit.i.i
 
-strbuf_setlen.exit.i.i:                           ; preds = %if.then4.i.i.i, %_.exit.i
+strbuf_setlen.argprom.exit.i.i:                   ; preds = %if.then4.i.i.i, %_.exit.i
   %and.i.i = and i32 %flags, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.then3.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %strbuf_setlen.exit.i.i
+if.then.i.i:                                      ; preds = %strbuf_setlen.argprom.exit.i.i
   %short_name.i.i = getelementptr inbounds i8, ptr %opt, i64 4
   %3 = load i32, ptr %short_name.i.i, align 4
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.51, i32 noundef %3) #17
   br label %optname.exit.i
 
-if.then3.i.i:                                     ; preds = %strbuf_setlen.exit.i.i
+if.then3.i.i:                                     ; preds = %strbuf_setlen.argprom.exit.i.i
   %long_name.i.i = getelementptr inbounds i8, ptr %opt, i64 8
   %4 = load ptr, ptr %long_name.i.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.52, ptr noundef %4) #17
@@ -3054,24 +3054,24 @@ _.exit110.i:                                      ; preds = %if.end3.i107.i, %if
   store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i111.i = icmp eq ptr %8, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i111.i, label %strbuf_setlen.exit.i113.i, label %if.then4.i.i112.i
+  br i1 %cmp3.not.i.i111.i, label %strbuf_setlen.argprom.exit.i113.i, label %if.then4.i.i112.i
 
 if.then4.i.i112.i:                                ; preds = %_.exit110.i
   store i8 0, ptr %8, align 1
-  br label %strbuf_setlen.exit.i113.i
+  br label %strbuf_setlen.argprom.exit.i113.i
 
-strbuf_setlen.exit.i113.i:                        ; preds = %if.then4.i.i112.i, %_.exit110.i
+strbuf_setlen.argprom.exit.i113.i:                ; preds = %if.then4.i.i112.i, %_.exit110.i
   %and.i114.i = and i32 %flags, 1
   %tobool.not.i115.i = icmp eq i32 %and.i114.i, 0
   br i1 %tobool.not.i115.i, label %if.then3.i121.i, label %if.then.i116.i
 
-if.then.i116.i:                                   ; preds = %strbuf_setlen.exit.i113.i
+if.then.i116.i:                                   ; preds = %strbuf_setlen.argprom.exit.i113.i
   %short_name.i117.i = getelementptr inbounds i8, ptr %opt, i64 4
   %9 = load i32, ptr %short_name.i117.i, align 4
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.51, i32 noundef %9) #17
   br label %optname.exit128.i
 
-if.then3.i121.i:                                  ; preds = %strbuf_setlen.exit.i113.i
+if.then3.i121.i:                                  ; preds = %strbuf_setlen.argprom.exit.i113.i
   %long_name.i122.i = getelementptr inbounds i8, ptr %opt, i64 8
   %10 = load ptr, ptr %long_name.i122.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.52, ptr noundef %10) #17
@@ -3701,24 +3701,24 @@ entry:
   store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
-  br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
+  br i1 %cmp3.not.i, label %strbuf_setlen.argprom.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   store i8 0, ptr %0, align 1
-  br label %strbuf_setlen.exit
+  br label %strbuf_setlen.argprom.exit
 
-strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
+strbuf_setlen.argprom.exit:                       ; preds = %entry, %if.then4.i
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
-if.then:                                          ; preds = %strbuf_setlen.exit
+if.then:                                          ; preds = %strbuf_setlen.argprom.exit
   %short_name = getelementptr inbounds i8, ptr %opt, i64 4
   %1 = load i32, ptr %short_name, align 4
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.51, i32 noundef %1) #17
   br label %if.end9
 
-if.else:                                          ; preds = %strbuf_setlen.exit
+if.else:                                          ; preds = %strbuf_setlen.argprom.exit
   %and1 = and i32 %flags, 2
   %tobool2.not = icmp eq i32 %and1, 0
   br i1 %tobool2.not, label %if.else4, label %if.then3
@@ -3809,24 +3809,24 @@ _.exit:                                           ; preds = %if.else12, %if.end3
   store i64 0, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 8), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @optname.sb, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %8, @strbuf_slopbuf
-  br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
+  br i1 %cmp3.not.i.i, label %strbuf_setlen.argprom.exit.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %_.exit
   store i8 0, ptr %8, align 1
-  br label %strbuf_setlen.exit.i
+  br label %strbuf_setlen.argprom.exit.i
 
-strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %_.exit
+strbuf_setlen.argprom.exit.i:                     ; preds = %if.then4.i.i, %_.exit
   %and.i = and i32 %flags, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
-if.then.i:                                        ; preds = %strbuf_setlen.exit.i
+if.then.i:                                        ; preds = %strbuf_setlen.argprom.exit.i
   %short_name.i = getelementptr inbounds i8, ptr %opt, i64 4
   %9 = load i32, ptr %short_name.i, align 4
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull @optname.sb, ptr noundef nonnull @.str.51, i32 noundef %9) #17
   br label %optname.exit
 
-if.else.i:                                        ; preds = %strbuf_setlen.exit.i
+if.else.i:                                        ; preds = %strbuf_setlen.argprom.exit.i
   %and1.i = and i32 %flags, 2
   %tobool2.not.i = icmp eq i32 %and1.i, 0
   br i1 %tobool2.not.i, label %if.else4.i, label %if.then3.i

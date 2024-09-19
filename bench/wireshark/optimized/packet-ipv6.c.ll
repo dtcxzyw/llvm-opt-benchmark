@@ -2359,8 +2359,8 @@ add_ipv6_address_isatap.exit305:                  ; preds = %proto_item_set_hidd
   br i1 %.not280, label %185, label %184
 
 184:                                              ; preds = %add_ipv6_address_isatap.exit305
-  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %95, i32 noundef 0)
-  call fastcc void @add_geoip_info_entry(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %107, i32 noundef 1)
+  call fastcc void @add_geoip_info_entry.argelim(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %95, i32 noundef 0)
+  call fastcc void @add_geoip_info_entry.argelim(ptr noundef %20, ptr noundef readonly %1, ptr noundef %0, ptr noundef %107, i32 noundef 1)
   br label %185
 
 185:                                              ; preds = %add_ipv6_address_isatap.exit305, %184, %proto_item_set_generated.exit
@@ -2913,7 +2913,7 @@ define internal i32 @dissect_hopopts(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.869, ptr noundef nonnull @.str.870) #13
   %7 = load i32, ptr @proto_ipv6_hopopts, align 4
-  %8 = tail call fastcc i32 @dissect_opts(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3, i32 noundef %7)
+  %8 = tail call fastcc i32 @dissect_opts.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3, i32 noundef %7)
   ret i32 %8
 }
 
@@ -3239,7 +3239,7 @@ define internal i32 @dissect_dstopts(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_sep_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.869, ptr noundef nonnull @.str.911) #13
   %7 = load i32, ptr @proto_ipv6_dstopts, align 4
-  %8 = tail call fastcc i32 @dissect_opts(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3, i32 noundef %7)
+  %8 = tail call fastcc i32 @dissect_opts.argelim(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3, i32 noundef %7)
   ret i32 %8
 }
 
@@ -5469,7 +5469,7 @@ declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @add_geoip_info_entry.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call nonnull ptr @maxmind_db_lookup_ipv6(ptr noundef %3) #13
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -6006,7 +6006,7 @@ declare i32 @try_capture_dissector(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_opts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_opts.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -6074,25 +6074,25 @@ p_ipv6_pinfo_add_len.exit:                        ; preds = %p_ipv6_pinfo_select
 44:                                               ; preds = %40
   %45 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %42) #13
   %.not7.i245 = icmp eq ptr %45, null
-  br i1 %.not7.i245, label %ipv6_previous_layer_id.exit, label %46
+  br i1 %.not7.i245, label %ipv6_previous_layer_id.argprom.exit, label %46
 
 46:                                               ; preds = %44
   %47 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %45) #13
   %48 = ptrtoint ptr %47 to i64
   %49 = trunc i64 %48 to i32
-  br label %ipv6_previous_layer_id.exit
+  br label %ipv6_previous_layer_id.argprom.exit
 
-ipv6_previous_layer_id.exit:                      ; preds = %44, %46
+ipv6_previous_layer_id.argprom.exit:              ; preds = %44, %46
   %.0.i246 = phi i32 [ %49, %46 ], [ -1, %44 ]
   %50 = load i32, ptr @proto_ipv6, align 4
   %.not = icmp eq i32 %.0.i246, %50
   br i1 %.not, label %53, label %51
 
-51:                                               ; preds = %ipv6_previous_layer_id.exit
+51:                                               ; preds = %ipv6_previous_layer_id.argprom.exit
   %52 = tail call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %39, ptr noundef nonnull @ei_ipv6_hopopts_not_first) #13
   br label %53
 
-53:                                               ; preds = %51, %ipv6_previous_layer_id.exit, %p_ipv6_pinfo_add_len.exit
+53:                                               ; preds = %51, %ipv6_previous_layer_id.argprom.exit, %p_ipv6_pinfo_add_len.exit
   %54 = load i32, ptr @proto_ipv6_hopopts, align 4
   %55 = icmp eq i32 %4, %54
   br i1 %55, label %60, label %56
@@ -6324,13 +6324,13 @@ dissect_opt_jumbo.exit:                           ; preds = %143, %146
 
 149:                                              ; preds = %ipv6_opt_type_hdr.exit.thread, %ipv6_opt_type_hdr.exit.thread
   %150 = icmp ult i8 %88, 4
-  br i1 %150, label %151, label %dissect_opt_rpl.exit
+  br i1 %150, label %151, label %dissect_opt_rpl.argprom.exit
 
 151:                                              ; preds = %149
   %152 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.879, i32 noundef %92) #13
-  br label %dissect_opt_rpl.exit
+  br label %dissect_opt_rpl.argprom.exit
 
-dissect_opt_rpl.exit:                             ; preds = %149, %151
+dissect_opt_rpl.argprom.exit:                     ; preds = %149, %151
   %153 = load i32, ptr @hf_ipv6_opt_rpl_flag, align 4
   %154 = load i32, ptr @ett_ipv6_opt_rpl, align 4
   %155 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %153, i32 noundef %154, ptr noundef nonnull @dissect_opt_rpl.rpl_flags, i32 noundef 0) #13
@@ -6345,13 +6345,13 @@ dissect_opt_rpl.exit:                             ; preds = %149, %151
 
 163:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i252 = icmp eq i8 %88, 1
-  br i1 %.not.i252, label %dissect_opt_tel.exit, label %164
+  br i1 %.not.i252, label %dissect_opt_tel.argprom.exit, label %164
 
 164:                                              ; preds = %163
   %165 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.880, i32 noundef %92) #13
-  br label %dissect_opt_tel.exit
+  br label %dissect_opt_tel.argprom.exit
 
-dissect_opt_tel.exit:                             ; preds = %163, %164
+dissect_opt_tel.argprom.exit:                     ; preds = %163, %164
   %166 = load i32, ptr @hf_ipv6_opt_tel, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %166, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
   %168 = add nsw i32 %.0293, 3
@@ -6359,13 +6359,13 @@ dissect_opt_tel.exit:                             ; preds = %163, %164
 
 169:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i253 = icmp eq i8 %88, 2
-  br i1 %.not.i253, label %dissect_opt_rtalert.exit, label %170
+  br i1 %.not.i253, label %dissect_opt_rtalert.argprom.exit, label %170
 
 170:                                              ; preds = %169
   %171 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.881, i32 noundef %92) #13
-  br label %dissect_opt_rtalert.exit
+  br label %dissect_opt_rtalert.argprom.exit
 
-dissect_opt_rtalert.exit:                         ; preds = %169, %170
+dissect_opt_rtalert.argprom.exit:                 ; preds = %169, %170
   %172 = load i32, ptr @hf_ipv6_opt_rtalert, align 4
   %173 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %172, ptr noundef %0, i32 noundef %123, i32 noundef 2, i32 noundef 0) #13
   %174 = add nsw i32 %.0293, 4
@@ -6373,13 +6373,13 @@ dissect_opt_rtalert.exit:                         ; preds = %169, %170
 
 175:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i254 = icmp eq i8 %88, 4
-  br i1 %.not.i254, label %dissect_opt_pmtu.exit, label %176
+  br i1 %.not.i254, label %dissect_opt_pmtu.argprom.exit, label %176
 
 176:                                              ; preds = %175
   %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.882, i32 noundef %92) #13
-  br label %dissect_opt_pmtu.exit
+  br label %dissect_opt_pmtu.argprom.exit
 
-dissect_opt_pmtu.exit:                            ; preds = %175, %176
+dissect_opt_pmtu.argprom.exit:                    ; preds = %175, %176
   %178 = load i32, ptr @hf_ipv6_opt_pmtu_min, align 4
   %179 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %178, ptr noundef %0, i32 noundef %123, i32 noundef 2, i32 noundef 0) #13
   %180 = add nsw i32 %.0293, 4
@@ -7038,13 +7038,13 @@ dissect_opt_ioam.exit:                            ; preds = %289, %dissect_opt_i
 
 550:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i260 = icmp eq i8 %88, 4
-  br i1 %.not.i260, label %dissect_opt_tpf.exit, label %551
+  br i1 %.not.i260, label %dissect_opt_tpf.argprom.exit, label %551
 
 551:                                              ; preds = %550
   %552 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.898, i32 noundef %92) #13
-  br label %dissect_opt_tpf.exit
+  br label %dissect_opt_tpf.argprom.exit
 
-dissect_opt_tpf.exit:                             ; preds = %550, %551
+dissect_opt_tpf.argprom.exit:                     ; preds = %550, %551
   %553 = load i32, ptr @hf_ipv6_opt_tpf_information, align 4
   %554 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %553, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
   %555 = add nsw i32 %.0293, 6
@@ -7054,13 +7054,13 @@ dissect_opt_tpf.exit:                             ; preds = %550, %551
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %557 = icmp ult i8 %88, 8
-  br i1 %557, label %558, label %dissect_opt_calipso.exit
+  br i1 %557, label %558, label %dissect_opt_calipso.argprom.exit
 
 558:                                              ; preds = %556
   %559 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.899, i32 noundef %92) #13
-  br label %dissect_opt_calipso.exit
+  br label %dissect_opt_calipso.argprom.exit
 
-dissect_opt_calipso.exit:                         ; preds = %556, %558
+dissect_opt_calipso.argprom.exit:                 ; preds = %556, %558
   %560 = load i32, ptr @hf_ipv6_opt_calipso_doi, align 4
   %561 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %560, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #13
   %562 = add nsw i32 %.0293, 6
@@ -7130,13 +7130,13 @@ dissect_opt_calipso.exit:                         ; preds = %556, %558
 
 607:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i263 = icmp eq i8 %88, 10
-  br i1 %.not.i263, label %dissect_opt_pdm.exit, label %608
+  br i1 %.not.i263, label %dissect_opt_pdm.argprom.exit, label %608
 
 608:                                              ; preds = %607
   %609 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.900, i32 noundef %92) #13
-  br label %dissect_opt_pdm.exit
+  br label %dissect_opt_pdm.argprom.exit
 
-dissect_opt_pdm.exit:                             ; preds = %607, %608
+dissect_opt_pdm.argprom.exit:                     ; preds = %607, %608
   %610 = load i32, ptr @hf_ipv6_opt_pdm_scale_dtlr, align 4
   %611 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %610, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #13
   %612 = add nsw i32 %.0293, 3
@@ -7159,13 +7159,13 @@ dissect_opt_pdm.exit:                             ; preds = %607, %608
 
 628:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i264 = icmp eq i8 %88, 16
-  br i1 %.not.i264, label %dissect_opt_home_address.exit, label %629
+  br i1 %.not.i264, label %dissect_opt_home_address.argprom.exit, label %629
 
 629:                                              ; preds = %628
   %630 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.901, i32 noundef %92) #13
-  br label %dissect_opt_home_address.exit
+  br label %dissect_opt_home_address.argprom.exit
 
-dissect_opt_home_address.exit:                    ; preds = %628, %629
+dissect_opt_home_address.argprom.exit:            ; preds = %628, %629
   %631 = load i32, ptr @hf_ipv6_opt_mipv6_home_address, align 4
   %632 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %631, ptr noundef %0, i32 noundef %123, i32 noundef 16, i32 noundef 0) #13
   %633 = load ptr, ptr %20, align 8
@@ -7193,14 +7193,14 @@ dissect_opt_home_address.exit:                    ; preds = %628, %629
   %644 = load i32, ptr %7, align 4
   %645 = add i32 %644, 1
   %646 = icmp ugt i32 %645, %92
-  br i1 %646, label %647, label %dissect_opt_lio.exit
+  br i1 %646, label %647, label %dissect_opt_lio.argprom.exit
 
 647:                                              ; preds = %641
   %648 = add nsw i32 %92, -1
   store i32 %648, ptr %7, align 4
-  br label %dissect_opt_lio.exit
+  br label %dissect_opt_lio.argprom.exit
 
-dissect_opt_lio.exit:                             ; preds = %641, %647
+dissect_opt_lio.argprom.exit:                     ; preds = %641, %647
   %649 = phi i32 [ %648, %647 ], [ %644, %641 ]
   %650 = add nsw i32 %.0293, 3
   %651 = load i32, ptr @hf_ipv6_opt_lio_id, align 4
@@ -7239,13 +7239,13 @@ dissect_opt_lio.exit:                             ; preds = %641, %647
 
 675:                                              ; preds = %ipv6_opt_type_hdr.exit.thread
   %.not.i267 = icmp eq i8 %88, 3
-  br i1 %.not.i267, label %dissect_opt_dff.exit, label %676
+  br i1 %.not.i267, label %dissect_opt_dff.argprom.exit, label %676
 
 676:                                              ; preds = %675
   %677 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_ipv6_opt_invalid_len, ptr noundef nonnull @.str.902, i32 noundef %92) #13
-  br label %dissect_opt_dff.exit
+  br label %dissect_opt_dff.argprom.exit
 
-dissect_opt_dff.exit:                             ; preds = %675, %676
+dissect_opt_dff.argprom.exit:                     ; preds = %675, %676
   %678 = load i32, ptr @hf_ipv6_opt_dff_flags, align 4
   %679 = load i32, ptr @ett_ipv6_opt_dff_flags, align 4
   %680 = call ptr @proto_tree_add_bitmask(ptr noundef %96, ptr noundef %0, i32 noundef %123, i32 noundef %678, i32 noundef %679, ptr noundef nonnull @dissect_opt_dff.dff_flags, i32 noundef 0) #13
@@ -7276,8 +7276,8 @@ dissect_opt_dff.exit:                             ; preds = %675, %676
   %699 = add nsw i32 %123, %92
   br label %dissect_opt_apn6.exit
 
-dissect_opt_apn6.exit:                            ; preds = %673, %668, %603, %601, %583, %232, %222, %213, %206, %695, %691, %685, %dissect_opt_dff.exit, %dissect_opt_lio.exit, %637, %dissect_opt_home_address.exit, %dissect_opt_pdm.exit, %dissect_opt_calipso.exit, %dissect_opt_tpf.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.exit, %dissect_opt_rtalert.exit, %dissect_opt_tel.exit, %dissect_opt_rpl.exit, %dissect_opt_jumbo.exit
-  %.1 = phi i32 [ %699, %695 ], [ %694, %691 ], [ %689, %685 ], [ %684, %dissect_opt_dff.exit ], [ %654, %dissect_opt_lio.exit ], [ %640, %637 ], [ %636, %dissect_opt_home_address.exit ], [ %627, %dissect_opt_pdm.exit ], [ %578, %dissect_opt_calipso.exit ], [ %555, %dissect_opt_tpf.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %191, %dissect_opt_pmtu.exit ], [ %174, %dissect_opt_rtalert.exit ], [ %168, %dissect_opt_tel.exit ], [ %162, %dissect_opt_rpl.exit ], [ %148, %dissect_opt_jumbo.exit ], [ %238, %232 ], [ %225, %222 ], [ %216, %213 ], [ %212, %206 ], [ %586, %583 ], [ %606, %603 ], [ %.039.i, %601 ], [ %672, %668 ], [ %667, %673 ]
+dissect_opt_apn6.exit:                            ; preds = %673, %668, %603, %601, %583, %232, %222, %213, %206, %695, %691, %685, %dissect_opt_dff.argprom.exit, %dissect_opt_lio.argprom.exit, %637, %dissect_opt_home_address.argprom.exit, %dissect_opt_pdm.argprom.exit, %dissect_opt_calipso.argprom.exit, %dissect_opt_tpf.argprom.exit, %dissect_opt_ioam.exit, %dissect_opt_quickstart.exit, %dissect_opt_pmtu.argprom.exit, %dissect_opt_rtalert.argprom.exit, %dissect_opt_tel.argprom.exit, %dissect_opt_rpl.argprom.exit, %dissect_opt_jumbo.exit
+  %.1 = phi i32 [ %699, %695 ], [ %694, %691 ], [ %689, %685 ], [ %684, %dissect_opt_dff.argprom.exit ], [ %654, %dissect_opt_lio.argprom.exit ], [ %640, %637 ], [ %636, %dissect_opt_home_address.argprom.exit ], [ %627, %dissect_opt_pdm.argprom.exit ], [ %578, %dissect_opt_calipso.argprom.exit ], [ %555, %dissect_opt_tpf.argprom.exit ], [ %.0.i258, %dissect_opt_ioam.exit ], [ %.0.i257, %dissect_opt_quickstart.exit ], [ %191, %dissect_opt_pmtu.argprom.exit ], [ %174, %dissect_opt_rtalert.argprom.exit ], [ %168, %dissect_opt_tel.argprom.exit ], [ %162, %dissect_opt_rpl.argprom.exit ], [ %148, %dissect_opt_jumbo.exit ], [ %238, %232 ], [ %225, %222 ], [ %216, %213 ], [ %212, %206 ], [ %586, %583 ], [ %606, %603 ], [ %.039.i, %601 ], [ %672, %668 ], [ %667, %673 ]
   %700 = and i32 %123, 255
   %701 = add nuw nsw i32 %700, %92
   %702 = icmp slt i32 %.1, %701

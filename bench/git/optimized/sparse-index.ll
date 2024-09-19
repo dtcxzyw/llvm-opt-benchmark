@@ -538,20 +538,20 @@ if.end34:                                         ; preds = %land.lhs.true27, %i
 if.then36:                                        ; preds = %if.end34
   %18 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i = icmp eq i32 %18, 0
-  br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
+  br i1 %tobool1.not.i, label %_.argprom.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then36
   %call.i = call ptr @gettext(ptr noundef nonnull @.str.11) #12
   %.pre = load i32, ptr %ce_flags, align 8
-  br label %_.exit
+  br label %_.argprom.exit
 
-_.exit:                                           ; preds = %if.then36, %if.end3.i
+_.argprom.exit:                                   ; preds = %if.then36, %if.end3.i
   %19 = phi i32 [ %.pre, %if.end3.i ], [ %17, %if.then36 ]
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.11, %if.then36 ]
   call void (ptr, ...) @warning(ptr noundef %retval.0.i, i32 noundef %19) #12
   br label %if.end39
 
-if.end39:                                         ; preds = %_.exit, %if.end34
+if.end39:                                         ; preds = %_.argprom.exit, %if.end34
   %20 = load ptr, ptr %repo, align 8
   %oid = getelementptr inbounds i8, ptr %6, i64 72
   %call41 = call ptr @lookup_tree(ptr noundef %20, ptr noundef nonnull %oid) #12

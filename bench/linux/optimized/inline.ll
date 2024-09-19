@@ -87,7 +87,7 @@ define dso_local i32 @ext4_get_max_inline_size(ptr noundef %0) local_unnamed_add
   %.val = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   %.val2 = load i64, ptr %15, align 8
-  %16 = call fastcc i32 @get_max_inline_xattr_value_size(ptr noundef %0, ptr %.val, i64 %.val2)
+  %16 = call fastcc i32 @get_max_inline_xattr_value_size.argprom(ptr noundef %0, ptr %.val, i64 %.val2)
   call void @up_read(ptr noundef %14) #8
   %17 = load ptr, ptr %2, align 8
   %18 = icmp eq ptr %17, null
@@ -125,7 +125,7 @@ declare dso_local void @__ext4_error_inode(ptr noundef, ptr noundef, i32 noundef
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @get_max_inline_xattr_value_size(ptr noundef %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 16 {
+define internal fastcc i32 @get_max_inline_xattr_value_size.argprom(ptr noundef %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 728
   %3 = load i16, ptr %2, align 8
   %4 = icmp eq i16 %3, 0
@@ -1817,7 +1817,7 @@ define dso_local i32 @ext4_try_add_inline_entry(ptr noundef %0, ptr noundef %1, 
 36:                                               ; preds = %30
   %.val = load ptr, ptr %5, align 8
   %.val12 = load i64, ptr %24, align 8
-  %37 = call fastcc i32 @get_max_inline_xattr_value_size(ptr noundef %2, ptr %.val, i64 %.val12)
+  %37 = call fastcc i32 @get_max_inline_xattr_value_size.argprom(ptr noundef %2, ptr %.val, i64 %.val12)
   %38 = icmp ugt i32 %37, 12
   br i1 %38, label %39, label %.thread
 

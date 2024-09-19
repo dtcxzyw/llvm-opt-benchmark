@@ -3709,7 +3709,7 @@ define noundef range(i32 0, 6) i32 @_ZN5Yosys12QuickConeSat15cell_complexityEPNS
 74:                                               ; preds = %72, %68, %1
   %75 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEvE2id", align 4, !noalias !33
   %.not.i.i.i = icmp eq i32 %75, 0
-  br i1 %.not.i.i.i, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.exit", label %76
+  br i1 %.not.i.i.i, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom.exit", label %76
 
 76:                                               ; preds = %74
   %77 = sext i32 %75 to i64
@@ -3718,7 +3718,7 @@ define noundef range(i32 0, 6) i32 @_ZN5Yosys12QuickConeSat15cell_complexityEPNS
   %80 = load i32, ptr %79, align 4, !noalias !33
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 4, !noalias !33
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
 
 common.resume:                                    ; preds = %.body, %.body154, %.body405, %.body458, %.body493, %2235, %2026, %1712, %221, %82
   %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %222, %221 ], [ %1713, %1712 ], [ %2027, %2026 ], [ %2236, %2235 ], [ %.pn127.pn.pn.pn.pn, %.body493 ], [ %.pn122.pn.pn.pn, %.body458 ], [ %.pn114.pn.pn.pn.pn.pn.pn, %.body405 ], [ %.pn73.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body154 ], [ %.pn.pn.pn, %.body ]
@@ -3730,14 +3730,14 @@ common.resume:                                    ; preds = %.body, %.body154, %
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEvE2id") #24, !noalias !33
   br label %common.resume
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.exit": ; preds = %74, %76
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom.exit": ; preds = %74, %76
   store i32 %75, ptr %2, align 4, !alias.scope !33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %84 = load atomic i8, ptr @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEvE2id" acquire, align 8, !noalias !36
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %92, !prof !18
 
-86:                                               ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.exit"
+86:                                               ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
   %87 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEvE2id") #24, !noalias !36
   %.not.i135 = icmp eq i32 %87, 0
   br i1 %.not.i135, label %92, label %88
@@ -3752,7 +3752,7 @@ common.resume:                                    ; preds = %.body, %.body154, %
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEvE2id") #24, !noalias !36
   br label %92
 
-92:                                               ; preds = %90, %86, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.exit"
+92:                                               ; preds = %90, %86, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom.exit"
   %93 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEvE2id", align 4, !noalias !36
   %.not.i.i.i134 = icmp eq i32 %93, 0
   br i1 %.not.i.i.i134, label %102, label %94
@@ -4016,7 +4016,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
 213:                                              ; preds = %211, %207, %204
   %214 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEvE2id", align 4, !noalias !45
   %.not.i.i.i150 = icmp eq i32 %214, 0
-  br i1 %.not.i.i.i150, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.exit", label %215
+  br i1 %.not.i.i.i150, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom.exit", label %215
 
 215:                                              ; preds = %213
   %216 = sext i32 %214 to i64
@@ -4025,7 +4025,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %219 = load i32, ptr %218, align 4, !noalias !45
   %220 = add nsw i32 %219, 1
   store i32 %220, ptr %218, align 4, !noalias !45
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom.exit"
 
 221:                                              ; preds = %209
   %222 = landingpad { ptr, i32 }
@@ -4033,14 +4033,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEvE2id") #24, !noalias !45
   br label %common.resume
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.exit": ; preds = %213, %215
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom.exit": ; preds = %213, %215
   store i32 %214, ptr %5, align 4, !alias.scope !45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %223 = load atomic i8, ptr @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEvE2id" acquire, align 8, !noalias !48
   %224 = icmp eq i8 %223, 0
   br i1 %224, label %225, label %231, !prof !18
 
-225:                                              ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.exit"
+225:                                              ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom.exit"
   %226 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEvE2id") #24, !noalias !48
   %.not.i153 = icmp eq i32 %226, 0
   br i1 %.not.i153, label %231, label %227
@@ -4055,7 +4055,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEvE2id") #24, !noalias !48
   br label %231
 
-231:                                              ; preds = %229, %225, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.exit"
+231:                                              ; preds = %229, %225, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom.exit"
   %232 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEvE2id", align 4, !noalias !48
   %.not.i.i.i152 = icmp eq i32 %232, 0
   br i1 %.not.i.i.i152, label %241, label %233
@@ -5737,7 +5737,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
 991:                                              ; preds = %989, %985, %982
   %992 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEvE2id", align 4, !noalias !168
   %.not.i.i.i312 = icmp eq i32 %992, 0
-  br i1 %.not.i.i.i312, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.exit", label %993
+  br i1 %.not.i.i.i312, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom.exit", label %993
 
 993:                                              ; preds = %991
   %994 = sext i32 %992 to i64
@@ -5746,7 +5746,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %997 = load i32, ptr %996, align 4, !noalias !168
   %998 = add nsw i32 %997, 1
   store i32 %998, ptr %996, align 4, !noalias !168
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom.exit"
 
 .body314:                                         ; preds = %987
   %999 = landingpad { ptr, i32 }
@@ -5755,7 +5755,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %45) #24
   br label %.body310
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.exit": ; preds = %993, %991
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom.exit": ; preds = %993, %991
   %1000 = load i32, ptr %65, align 4
   %1001 = load i32, ptr %5, align 4
   %1002 = icmp eq i32 %1000, %1001
@@ -5887,7 +5887,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i317 = and i1 %1087, %1086
   br i1 %or.cond.i.i317, label %1088, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit318
 
-1088:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.exit"
+1088:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom.exit"
   %1089 = sext i32 %992 to i64
   %1090 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1091 = getelementptr inbounds i32, ptr %1090, i64 %1089
@@ -5908,7 +5908,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit149:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %1098) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit318:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.exit", %1088, %1095
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit318:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom.exit", %1088, %1095
   %1099 = load i32, ptr %45, align 4
   %1100 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1101 = trunc i8 %1100 to i1
@@ -7305,7 +7305,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
 1704:                                             ; preds = %1702, %1698, %1695
   %1705 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEvE2id", align 4, !noalias !171
   %.not.i.i.i401 = icmp eq i32 %1705, 0
-  br i1 %.not.i.i.i401, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.exit", label %1706
+  br i1 %.not.i.i.i401, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom.exit", label %1706
 
 1706:                                             ; preds = %1704
   %1707 = sext i32 %1705 to i64
@@ -7314,7 +7314,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %1710 = load i32, ptr %1709, align 4, !noalias !171
   %1711 = add nsw i32 %1710, 1
   store i32 %1711, ptr %1709, align 4, !noalias !171
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom.exit"
 
 1712:                                             ; preds = %1700
   %1713 = landingpad { ptr, i32 }
@@ -7322,14 +7322,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEvE2id") #24, !noalias !171
   br label %common.resume
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.exit": ; preds = %1704, %1706
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom.exit": ; preds = %1704, %1706
   store i32 %1705, ptr %46, align 4, !alias.scope !171
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %1714 = load atomic i8, ptr @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEvE2id" acquire, align 8, !noalias !174
   %1715 = icmp eq i8 %1714, 0
   br i1 %1715, label %1716, label %1722, !prof !18
 
-1716:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.exit"
+1716:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom.exit"
   %1717 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEvE2id") #24, !noalias !174
   %.not.i404 = icmp eq i32 %1717, 0
   br i1 %.not.i404, label %1722, label %1718
@@ -7344,7 +7344,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEvE2id") #24, !noalias !174
   br label %1722
 
-1722:                                             ; preds = %1720, %1716, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.exit"
+1722:                                             ; preds = %1720, %1716, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom.exit"
   %1723 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEvE2id", align 4, !noalias !174
   %.not.i.i.i403 = icmp eq i32 %1723, 0
   br i1 %.not.i.i.i403, label %1732, label %1724
@@ -7640,7 +7640,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
 1855:                                             ; preds = %1853, %1849, %1846
   %1856 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEvE2id", align 4, !noalias !195
   %.not.i.i.i431 = icmp eq i32 %1856, 0
-  br i1 %.not.i.i.i431, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.exit", label %1857
+  br i1 %.not.i.i.i431, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom.exit", label %1857
 
 1857:                                             ; preds = %1855
   %1858 = sext i32 %1856 to i64
@@ -7649,7 +7649,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %1861 = load i32, ptr %1860, align 4, !noalias !195
   %1862 = add nsw i32 %1861, 1
   store i32 %1862, ptr %1860, align 4, !noalias !195
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom.exit"
 
 .body433:                                         ; preds = %1851
   %1863 = landingpad { ptr, i32 }
@@ -7658,7 +7658,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %53) #24
   br label %.body429
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.exit": ; preds = %1857, %1855
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom.exit": ; preds = %1857, %1855
   %1864 = load i32, ptr %65, align 4
   %1865 = load i32, ptr %46, align 4
   %1866 = icmp eq i32 %1864, %1865
@@ -7691,7 +7691,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i436 = and i1 %1885, %1884
   br i1 %or.cond.i.i436, label %1886, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit437
 
-1886:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.exit"
+1886:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom.exit"
   %1887 = sext i32 %1856 to i64
   %1888 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %1889 = getelementptr inbounds i32, ptr %1888, i64 %1887
@@ -7712,7 +7712,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit400:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %1896) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit437:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.exit", %1886, %1893
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit437:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom.exit", %1886, %1893
   %1897 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %1898 = trunc i8 %1897 to i1
   %1899 = icmp ne i32 %1879, 0
@@ -7998,7 +7998,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
 2018:                                             ; preds = %2016, %2012, %2009
   %2019 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEvE2id", align 4, !noalias !198
   %.not.i.i.i454 = icmp eq i32 %2019, 0
-  br i1 %.not.i.i.i454, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.exit", label %2020
+  br i1 %.not.i.i.i454, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom.exit", label %2020
 
 2020:                                             ; preds = %2018
   %2021 = sext i32 %2019 to i64
@@ -8007,7 +8007,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2024 = load i32, ptr %2023, align 4, !noalias !198
   %2025 = add nsw i32 %2024, 1
   store i32 %2025, ptr %2023, align 4, !noalias !198
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom.exit"
 
 2026:                                             ; preds = %2014
   %2027 = landingpad { ptr, i32 }
@@ -8015,14 +8015,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEvE2id") #24, !noalias !198
   br label %common.resume
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.exit": ; preds = %2018, %2020
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom.exit": ; preds = %2018, %2020
   store i32 %2019, ptr %54, align 4, !alias.scope !198
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %2028 = load atomic i8, ptr @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEvE2id" acquire, align 8, !noalias !201
   %2029 = icmp eq i8 %2028, 0
   br i1 %2029, label %2030, label %2036, !prof !18
 
-2030:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.exit"
+2030:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom.exit"
   %2031 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEvE2id") #24, !noalias !201
   %.not.i457 = icmp eq i32 %2031, 0
   br i1 %.not.i457, label %2036, label %2032
@@ -8037,7 +8037,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEvE2id") #24, !noalias !201
   br label %2036
 
-2036:                                             ; preds = %2034, %2030, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.exit"
+2036:                                             ; preds = %2034, %2030, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom.exit"
   %2037 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEvE2id", align 4, !noalias !201
   %.not.i.i.i456 = icmp eq i32 %2037, 0
   br i1 %.not.i.i.i456, label %2046, label %2038
@@ -8207,7 +8207,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
 2112:                                             ; preds = %2110, %2106, %2103
   %2113 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEvE2id", align 4, !noalias !213
   %.not.i.i.i472 = icmp eq i32 %2113, 0
-  br i1 %.not.i.i.i472, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.exit", label %2114
+  br i1 %.not.i.i.i472, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom.exit", label %2114
 
 2114:                                             ; preds = %2112
   %2115 = sext i32 %2113 to i64
@@ -8216,7 +8216,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2118 = load i32, ptr %2117, align 4, !noalias !213
   %2119 = add nsw i32 %2118, 1
   store i32 %2119, ptr %2117, align 4, !noalias !213
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom.exit"
 
 .body474:                                         ; preds = %2108
   %2120 = landingpad { ptr, i32 }
@@ -8225,7 +8225,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %58) #24
   br label %.body470
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.exit": ; preds = %2114, %2112
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom.exit": ; preds = %2114, %2112
   %2121 = load i32, ptr %65, align 4
   %2122 = load i32, ptr %54, align 4
   %2123 = icmp eq i32 %2121, %2122
@@ -8249,7 +8249,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i477 = and i1 %2136, %2135
   br i1 %or.cond.i.i477, label %2137, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit478
 
-2137:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.exit"
+2137:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom.exit"
   %2138 = sext i32 %2113 to i64
   %2139 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2140 = getelementptr inbounds i32, ptr %2139, i64 %2138
@@ -8270,7 +8270,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit453:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %2147) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit478:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.exit", %2137, %2144
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit478:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom.exit", %2137, %2144
   %2148 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2149 = trunc i8 %2148 to i1
   %2150 = icmp ne i32 %2130, 0
@@ -8457,7 +8457,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
 2227:                                             ; preds = %2225, %2221, %2218
   %2228 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEvE2id", align 4, !noalias !216
   %.not.i.i.i489 = icmp eq i32 %2228, 0
-  br i1 %.not.i.i.i489, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.exit", label %2229
+  br i1 %.not.i.i.i489, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom.exit", label %2229
 
 2229:                                             ; preds = %2227
   %2230 = sext i32 %2228 to i64
@@ -8466,7 +8466,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2233 = load i32, ptr %2232, align 4, !noalias !216
   %2234 = add nsw i32 %2233, 1
   store i32 %2234, ptr %2232, align 4, !noalias !216
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom.exit"
 
 2235:                                             ; preds = %2223
   %2236 = landingpad { ptr, i32 }
@@ -8474,14 +8474,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_abort(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEvE2id") #24, !noalias !216
   br label %common.resume
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.exit": ; preds = %2227, %2229
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom.exit": ; preds = %2227, %2229
   store i32 %2228, ptr %59, align 4, !alias.scope !216
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
   %2237 = load atomic i8, ptr @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEvE2id" acquire, align 8, !noalias !219
   %2238 = icmp eq i8 %2237, 0
   br i1 %2238, label %2239, label %2245, !prof !18
 
-2239:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.exit"
+2239:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom.exit"
   %2240 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEvE2id") #24, !noalias !219
   %.not.i492 = icmp eq i32 %2240, 0
   br i1 %.not.i492, label %2245, label %2241
@@ -8496,7 +8496,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEvE2id") #24, !noalias !219
   br label %2245
 
-2245:                                             ; preds = %2243, %2239, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.exit"
+2245:                                             ; preds = %2243, %2239, %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom.exit"
   %2246 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEvE2id", align 4, !noalias !219
   %.not.i.i.i491 = icmp eq i32 %2246, 0
   br i1 %.not.i.i.i491, label %2255, label %2247
@@ -8708,7 +8708,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
 2340:                                             ; preds = %2338, %2334, %2331
   %2341 = load i32, ptr @"_ZZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEvE2id", align 4, !noalias !234
   %.not.i.i.i511 = icmp eq i32 %2341, 0
-  br i1 %.not.i.i.i511, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.exit", label %2342
+  br i1 %.not.i.i.i511, label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom.exit", label %2342
 
 2342:                                             ; preds = %2340
   %2343 = sext i32 %2341 to i64
@@ -8717,7 +8717,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %2346 = load i32, ptr %2345, align 4, !noalias !234
   %2347 = add nsw i32 %2346, 1
   store i32 %2347, ptr %2345, align 4, !noalias !234
-  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.exit"
+  br label %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom.exit"
 
 .body513:                                         ; preds = %2336
   %2348 = landingpad { ptr, i32 }
@@ -8726,7 +8726,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %64) #24
   br label %.body509
 
-"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.exit": ; preds = %2342, %2340
+"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom.exit": ; preds = %2342, %2340
   %2349 = load i32, ptr %65, align 4
   %2350 = load i32, ptr %59, align 4
   %2351 = icmp eq i32 %2349, %2350
@@ -8753,7 +8753,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   %or.cond.i.i519 = and i1 %2366, %2365
   br i1 %or.cond.i.i519, label %2367, label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit520
 
-2367:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.exit"
+2367:                                             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom.exit"
   %2368 = sext i32 %2341 to i64
   %2369 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   %2370 = getelementptr inbounds i32, ptr %2369, i64 %2368
@@ -8774,7 +8774,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit488:             ; preds = %_ZN5Yosys5RTLIL8IdS
   tail call void @__clang_call_terminate(ptr %2377) #26
   unreachable
 
-_ZN5Yosys5RTLIL8IdStringD2Ev.exit520:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.exit", %2367, %2374
+_ZN5Yosys5RTLIL8IdStringD2Ev.exit520:             ; preds = %"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom.exit", %2367, %2374
   %2378 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
   %2379 = trunc i8 %2378 to i1
   %2380 = icmp ne i32 %2360, 0
@@ -10411,7 +10411,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   %81 = getelementptr inbounds i32, ptr %74, i64 %70
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
-.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit, %117, %119, %37, %71, %98, %115
+.loopexit:                                        ; preds = %55, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit, %117, %119, %37, %71, %98, %115
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %32, ptr %16, align 8
@@ -10495,9 +10495,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 115:                                              ; preds = %110
   %116 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %114)
-          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit unwind label %.loopexit
+          to label %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit unwind label %.loopexit
 
-_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
+_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.6, ptr noundef %116)
           to label %122 unwind label %.loopexit
 
@@ -10511,7 +10511,7 @@ _ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit: ; preds = %115
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.7, ptr noundef %118, i32 noundef %121)
           to label %122 unwind label %.loopexit
 
-122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.exit
+122:                                              ; preds = %119, %_ZN5YosysL6log_idINS_5RTLIL4WireEEEPKcPT_S4_.argprom.exit
   %123 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %124 unwind label %161
 
@@ -16590,209 +16590,209 @@ attributes #27 = { nounwind willreturn memory(read) }
 !31 = distinct !{!31, !10}
 !32 = distinct !{!32, !10}
 !33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv: argument 0"}
-!35 = distinct !{!35, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv"}
+!34 = distinct !{!34, !35, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom: argument 0"}
+!35 = distinct !{!35, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_0clEv.argprom"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEv: argument 0"}
-!38 = distinct !{!38, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEv"}
+!37 = distinct !{!37, !38, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEv.argprom: argument 0"}
+!38 = distinct !{!38, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_1clEv.argprom"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_2clEv: argument 0"}
-!41 = distinct !{!41, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_2clEv"}
+!40 = distinct !{!40, !41, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_2clEv.argprom: argument 0"}
+!41 = distinct !{!41, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_2clEv.argprom"}
 !42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_3clEv: argument 0"}
-!44 = distinct !{!44, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_3clEv"}
+!43 = distinct !{!43, !44, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_3clEv.argprom: argument 0"}
+!44 = distinct !{!44, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_3clEv.argprom"}
 !45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv: argument 0"}
-!47 = distinct !{!47, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv"}
+!46 = distinct !{!46, !47, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom: argument 0"}
+!47 = distinct !{!47, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_4clEv.argprom"}
 !48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEv: argument 0"}
-!50 = distinct !{!50, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEv"}
+!49 = distinct !{!49, !50, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEv.argprom: argument 0"}
+!50 = distinct !{!50, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_5clEv.argprom"}
 !51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_6clEv: argument 0"}
-!53 = distinct !{!53, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_6clEv"}
+!52 = distinct !{!52, !53, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_6clEv.argprom: argument 0"}
+!53 = distinct !{!53, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_6clEv.argprom"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_7clEv: argument 0"}
-!56 = distinct !{!56, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_7clEv"}
+!55 = distinct !{!55, !56, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_7clEv.argprom: argument 0"}
+!56 = distinct !{!56, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_7clEv.argprom"}
 !57 = !{!58}
-!58 = distinct !{!58, !59, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_8clEv: argument 0"}
-!59 = distinct !{!59, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_8clEv"}
+!58 = distinct !{!58, !59, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_8clEv.argprom: argument 0"}
+!59 = distinct !{!59, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_8clEv.argprom"}
 !60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_9clEv: argument 0"}
-!62 = distinct !{!62, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_9clEv"}
+!61 = distinct !{!61, !62, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_9clEv.argprom: argument 0"}
+!62 = distinct !{!62, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK3$_9clEv.argprom"}
 !63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_10clEv: argument 0"}
-!65 = distinct !{!65, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_10clEv"}
+!64 = distinct !{!64, !65, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_10clEv.argprom: argument 0"}
+!65 = distinct !{!65, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_10clEv.argprom"}
 !66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_11clEv: argument 0"}
-!68 = distinct !{!68, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_11clEv"}
+!67 = distinct !{!67, !68, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_11clEv.argprom: argument 0"}
+!68 = distinct !{!68, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_11clEv.argprom"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_12clEv: argument 0"}
-!71 = distinct !{!71, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_12clEv"}
+!70 = distinct !{!70, !71, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_12clEv.argprom: argument 0"}
+!71 = distinct !{!71, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_12clEv.argprom"}
 !72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_13clEv: argument 0"}
-!74 = distinct !{!74, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_13clEv"}
+!73 = distinct !{!73, !74, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_13clEv.argprom: argument 0"}
+!74 = distinct !{!74, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_13clEv.argprom"}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_14clEv: argument 0"}
-!77 = distinct !{!77, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_14clEv"}
+!76 = distinct !{!76, !77, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_14clEv.argprom: argument 0"}
+!77 = distinct !{!77, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_14clEv.argprom"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_15clEv: argument 0"}
-!80 = distinct !{!80, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_15clEv"}
+!79 = distinct !{!79, !80, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_15clEv.argprom: argument 0"}
+!80 = distinct !{!80, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_15clEv.argprom"}
 !81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_16clEv: argument 0"}
-!83 = distinct !{!83, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_16clEv"}
+!82 = distinct !{!82, !83, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_16clEv.argprom: argument 0"}
+!83 = distinct !{!83, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_16clEv.argprom"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_17clEv: argument 0"}
-!86 = distinct !{!86, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_17clEv"}
+!85 = distinct !{!85, !86, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_17clEv.argprom: argument 0"}
+!86 = distinct !{!86, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_17clEv.argprom"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_18clEv: argument 0"}
-!89 = distinct !{!89, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_18clEv"}
+!88 = distinct !{!88, !89, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_18clEv.argprom: argument 0"}
+!89 = distinct !{!89, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_18clEv.argprom"}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_19clEv: argument 0"}
-!92 = distinct !{!92, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_19clEv"}
+!91 = distinct !{!91, !92, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_19clEv.argprom: argument 0"}
+!92 = distinct !{!92, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_19clEv.argprom"}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_20clEv: argument 0"}
-!95 = distinct !{!95, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_20clEv"}
+!94 = distinct !{!94, !95, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_20clEv.argprom: argument 0"}
+!95 = distinct !{!95, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_20clEv.argprom"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_21clEv: argument 0"}
-!98 = distinct !{!98, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_21clEv"}
+!97 = distinct !{!97, !98, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_21clEv.argprom: argument 0"}
+!98 = distinct !{!98, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_21clEv.argprom"}
 !99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_22clEv: argument 0"}
-!101 = distinct !{!101, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_22clEv"}
+!100 = distinct !{!100, !101, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_22clEv.argprom: argument 0"}
+!101 = distinct !{!101, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_22clEv.argprom"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_23clEv: argument 0"}
-!104 = distinct !{!104, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_23clEv"}
+!103 = distinct !{!103, !104, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_23clEv.argprom: argument 0"}
+!104 = distinct !{!104, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_23clEv.argprom"}
 !105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_24clEv: argument 0"}
-!107 = distinct !{!107, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_24clEv"}
+!106 = distinct !{!106, !107, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_24clEv.argprom: argument 0"}
+!107 = distinct !{!107, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_24clEv.argprom"}
 !108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_25clEv: argument 0"}
-!110 = distinct !{!110, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_25clEv"}
+!109 = distinct !{!109, !110, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_25clEv.argprom: argument 0"}
+!110 = distinct !{!110, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_25clEv.argprom"}
 !111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_26clEv: argument 0"}
-!113 = distinct !{!113, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_26clEv"}
+!112 = distinct !{!112, !113, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_26clEv.argprom: argument 0"}
+!113 = distinct !{!113, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_26clEv.argprom"}
 !114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_27clEv: argument 0"}
-!116 = distinct !{!116, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_27clEv"}
+!115 = distinct !{!115, !116, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_27clEv.argprom: argument 0"}
+!116 = distinct !{!116, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_27clEv.argprom"}
 !117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_28clEv: argument 0"}
-!119 = distinct !{!119, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_28clEv"}
+!118 = distinct !{!118, !119, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_28clEv.argprom: argument 0"}
+!119 = distinct !{!119, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_28clEv.argprom"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_29clEv: argument 0"}
-!122 = distinct !{!122, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_29clEv"}
+!121 = distinct !{!121, !122, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_29clEv.argprom: argument 0"}
+!122 = distinct !{!122, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_29clEv.argprom"}
 !123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_30clEv: argument 0"}
-!125 = distinct !{!125, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_30clEv"}
+!124 = distinct !{!124, !125, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_30clEv.argprom: argument 0"}
+!125 = distinct !{!125, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_30clEv.argprom"}
 !126 = !{!127}
-!127 = distinct !{!127, !128, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_31clEv: argument 0"}
-!128 = distinct !{!128, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_31clEv"}
+!127 = distinct !{!127, !128, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_31clEv.argprom: argument 0"}
+!128 = distinct !{!128, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_31clEv.argprom"}
 !129 = !{!130}
-!130 = distinct !{!130, !131, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_32clEv: argument 0"}
-!131 = distinct !{!131, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_32clEv"}
+!130 = distinct !{!130, !131, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_32clEv.argprom: argument 0"}
+!131 = distinct !{!131, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_32clEv.argprom"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_33clEv: argument 0"}
-!134 = distinct !{!134, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_33clEv"}
+!133 = distinct !{!133, !134, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_33clEv.argprom: argument 0"}
+!134 = distinct !{!134, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_33clEv.argprom"}
 !135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_34clEv: argument 0"}
-!137 = distinct !{!137, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_34clEv"}
+!136 = distinct !{!136, !137, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_34clEv.argprom: argument 0"}
+!137 = distinct !{!137, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_34clEv.argprom"}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_35clEv: argument 0"}
-!140 = distinct !{!140, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_35clEv"}
+!139 = distinct !{!139, !140, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_35clEv.argprom: argument 0"}
+!140 = distinct !{!140, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_35clEv.argprom"}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_36clEv: argument 0"}
-!143 = distinct !{!143, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_36clEv"}
+!142 = distinct !{!142, !143, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_36clEv.argprom: argument 0"}
+!143 = distinct !{!143, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_36clEv.argprom"}
 !144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_37clEv: argument 0"}
-!146 = distinct !{!146, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_37clEv"}
+!145 = distinct !{!145, !146, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_37clEv.argprom: argument 0"}
+!146 = distinct !{!146, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_37clEv.argprom"}
 !147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_38clEv: argument 0"}
-!149 = distinct !{!149, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_38clEv"}
+!148 = distinct !{!148, !149, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_38clEv.argprom: argument 0"}
+!149 = distinct !{!149, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_38clEv.argprom"}
 !150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_39clEv: argument 0"}
-!152 = distinct !{!152, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_39clEv"}
+!151 = distinct !{!151, !152, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_39clEv.argprom: argument 0"}
+!152 = distinct !{!152, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_39clEv.argprom"}
 !153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_40clEv: argument 0"}
-!155 = distinct !{!155, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_40clEv"}
+!154 = distinct !{!154, !155, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_40clEv.argprom: argument 0"}
+!155 = distinct !{!155, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_40clEv.argprom"}
 !156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_41clEv: argument 0"}
-!158 = distinct !{!158, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_41clEv"}
+!157 = distinct !{!157, !158, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_41clEv.argprom: argument 0"}
+!158 = distinct !{!158, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_41clEv.argprom"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_42clEv: argument 0"}
-!161 = distinct !{!161, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_42clEv"}
+!160 = distinct !{!160, !161, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_42clEv.argprom: argument 0"}
+!161 = distinct !{!161, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_42clEv.argprom"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_43clEv: argument 0"}
-!164 = distinct !{!164, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_43clEv"}
+!163 = distinct !{!163, !164, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_43clEv.argprom: argument 0"}
+!164 = distinct !{!164, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_43clEv.argprom"}
 !165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_44clEv: argument 0"}
-!167 = distinct !{!167, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_44clEv"}
+!166 = distinct !{!166, !167, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_44clEv.argprom: argument 0"}
+!167 = distinct !{!167, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_44clEv.argprom"}
 !168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv: argument 0"}
-!170 = distinct !{!170, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv"}
+!169 = distinct !{!169, !170, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom: argument 0"}
+!170 = distinct !{!170, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_45clEv.argprom"}
 !171 = !{!172}
-!172 = distinct !{!172, !173, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv: argument 0"}
-!173 = distinct !{!173, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv"}
+!172 = distinct !{!172, !173, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom: argument 0"}
+!173 = distinct !{!173, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_46clEv.argprom"}
 !174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEv: argument 0"}
-!176 = distinct !{!176, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEv"}
+!175 = distinct !{!175, !176, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEv.argprom: argument 0"}
+!176 = distinct !{!176, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_47clEv.argprom"}
 !177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_48clEv: argument 0"}
-!179 = distinct !{!179, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_48clEv"}
+!178 = distinct !{!178, !179, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_48clEv.argprom: argument 0"}
+!179 = distinct !{!179, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_48clEv.argprom"}
 !180 = !{!181}
-!181 = distinct !{!181, !182, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_49clEv: argument 0"}
-!182 = distinct !{!182, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_49clEv"}
+!181 = distinct !{!181, !182, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_49clEv.argprom: argument 0"}
+!182 = distinct !{!182, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_49clEv.argprom"}
 !183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_50clEv: argument 0"}
-!185 = distinct !{!185, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_50clEv"}
+!184 = distinct !{!184, !185, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_50clEv.argprom: argument 0"}
+!185 = distinct !{!185, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_50clEv.argprom"}
 !186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_51clEv: argument 0"}
-!188 = distinct !{!188, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_51clEv"}
+!187 = distinct !{!187, !188, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_51clEv.argprom: argument 0"}
+!188 = distinct !{!188, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_51clEv.argprom"}
 !189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_52clEv: argument 0"}
-!191 = distinct !{!191, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_52clEv"}
+!190 = distinct !{!190, !191, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_52clEv.argprom: argument 0"}
+!191 = distinct !{!191, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_52clEv.argprom"}
 !192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_53clEv: argument 0"}
-!194 = distinct !{!194, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_53clEv"}
+!193 = distinct !{!193, !194, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_53clEv.argprom: argument 0"}
+!194 = distinct !{!194, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_53clEv.argprom"}
 !195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv: argument 0"}
-!197 = distinct !{!197, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv"}
+!196 = distinct !{!196, !197, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom: argument 0"}
+!197 = distinct !{!197, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_54clEv.argprom"}
 !198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv: argument 0"}
-!200 = distinct !{!200, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv"}
+!199 = distinct !{!199, !200, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom: argument 0"}
+!200 = distinct !{!200, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_55clEv.argprom"}
 !201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEv: argument 0"}
-!203 = distinct !{!203, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEv"}
+!202 = distinct !{!202, !203, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEv.argprom: argument 0"}
+!203 = distinct !{!203, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_56clEv.argprom"}
 !204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_57clEv: argument 0"}
-!206 = distinct !{!206, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_57clEv"}
+!205 = distinct !{!205, !206, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_57clEv.argprom: argument 0"}
+!206 = distinct !{!206, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_57clEv.argprom"}
 !207 = !{!208}
-!208 = distinct !{!208, !209, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_58clEv: argument 0"}
-!209 = distinct !{!209, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_58clEv"}
+!208 = distinct !{!208, !209, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_58clEv.argprom: argument 0"}
+!209 = distinct !{!209, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_58clEv.argprom"}
 !210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_59clEv: argument 0"}
-!212 = distinct !{!212, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_59clEv"}
+!211 = distinct !{!211, !212, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_59clEv.argprom: argument 0"}
+!212 = distinct !{!212, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_59clEv.argprom"}
 !213 = !{!214}
-!214 = distinct !{!214, !215, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv: argument 0"}
-!215 = distinct !{!215, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv"}
+!214 = distinct !{!214, !215, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom: argument 0"}
+!215 = distinct !{!215, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_60clEv.argprom"}
 !216 = !{!217}
-!217 = distinct !{!217, !218, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv: argument 0"}
-!218 = distinct !{!218, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv"}
+!217 = distinct !{!217, !218, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom: argument 0"}
+!218 = distinct !{!218, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_61clEv.argprom"}
 !219 = !{!220}
-!220 = distinct !{!220, !221, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEv: argument 0"}
-!221 = distinct !{!221, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEv"}
+!220 = distinct !{!220, !221, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEv.argprom: argument 0"}
+!221 = distinct !{!221, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_62clEv.argprom"}
 !222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_63clEv: argument 0"}
-!224 = distinct !{!224, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_63clEv"}
+!223 = distinct !{!223, !224, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_63clEv.argprom: argument 0"}
+!224 = distinct !{!224, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_63clEv.argprom"}
 !225 = !{!226}
-!226 = distinct !{!226, !227, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_64clEv: argument 0"}
-!227 = distinct !{!227, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_64clEv"}
+!226 = distinct !{!226, !227, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_64clEv.argprom: argument 0"}
+!227 = distinct !{!227, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_64clEv.argprom"}
 !228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_65clEv: argument 0"}
-!230 = distinct !{!230, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_65clEv"}
+!229 = distinct !{!229, !230, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_65clEv.argprom: argument 0"}
+!230 = distinct !{!230, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_65clEv.argprom"}
 !231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_66clEv: argument 0"}
-!233 = distinct !{!233, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_66clEv"}
+!232 = distinct !{!232, !233, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_66clEv.argprom: argument 0"}
+!233 = distinct !{!233, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_66clEv.argprom"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv: argument 0"}
-!236 = distinct !{!236, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv"}
+!235 = distinct !{!235, !236, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom: argument 0"}
+!236 = distinct !{!236, !"_ZZN5Yosys12QuickConeSat15cell_complexityEPNS_5RTLIL4CellEENK4$_67clEv.argprom"}
 !237 = distinct !{!237, !10}
 !238 = distinct !{!238, !10}
 !239 = distinct !{!239, !10}

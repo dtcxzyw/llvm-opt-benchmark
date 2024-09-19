@@ -78,7 +78,7 @@ if.else19:                                        ; preds = %if.end
   %10 = getelementptr i8, ptr %6, i64 8
   %.val = load i16, ptr %10, align 8
   %tobool.not.i = icmp eq i16 %.val, 0
-  br i1 %tobool.not.i, label %clib_extsym.exit, label %if.then.i
+  br i1 %tobool.not.i, label %clib_extsym.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else19
   %11 = load ptr, ptr %5, align 8
@@ -87,15 +87,15 @@ if.then.i:                                        ; preds = %if.else19
   %12 = load i32, ptr %arrayidx.i.i, align 8
   %and.i32 = and i32 %12, -251723776
   %cmp.i = icmp eq i32 %and.i32, -2147221504
-  br i1 %cmp.i, label %if.then3.i, label %clib_extsym.exit
+  br i1 %cmp.i, label %if.then3.i, label %clib_extsym.argprom.exit
 
 if.then3.i:                                       ; preds = %if.then.i
   %name4.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %13 = load i64, ptr %name4.i, align 8
   %14 = inttoptr i64 %13 to ptr
-  br label %clib_extsym.exit
+  br label %clib_extsym.argprom.exit
 
-clib_extsym.exit:                                 ; preds = %if.else19, %if.then.i, %if.then3.i
+clib_extsym.argprom.exit:                         ; preds = %if.else19, %if.then.i, %if.then3.i
   %.pn.i = phi ptr [ %14, %if.then3.i ], [ %name, %if.then.i ], [ %name, %if.else19 ]
   %retval.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %cl.val = load ptr, ptr %cl, align 8
@@ -103,11 +103,11 @@ clib_extsym.exit:                                 ; preds = %if.else19, %if.then
   %tobool22.not = icmp eq ptr %call.i, null
   br i1 %tobool22.not, label %if.then23, label %if.end24
 
-if.then23:                                        ; preds = %clib_extsym.exit
+if.then23:                                        ; preds = %clib_extsym.argprom.exit
   call fastcc void @clib_error_(ptr noundef nonnull %L) #11
   unreachable
 
-if.end24:                                         ; preds = %clib_extsym.exit
+if.end24:                                         ; preds = %clib_extsym.argprom.exit
   %15 = load ptr, ptr %L2.i, align 8
   %call.i44 = call ptr @lj_mem_newgco(ptr noundef %15, i64 noundef 24) #9
   %gct.i = getelementptr inbounds i8, ptr %call.i44, i64 9
@@ -395,13 +395,13 @@ define hidden void @lj_clib_unload(ptr nocapture noundef %cl) local_unnamed_addr
 entry:
   %cl.val = load ptr, ptr %cl, align 8
   %tobool.not.i = icmp eq ptr %cl.val, null
-  br i1 %tobool.not.i, label %clib_unloadlib.exit, label %if.then.i
+  br i1 %tobool.not.i, label %clib_unloadlib.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 @dlclose(ptr noundef nonnull %cl.val) #9
-  br label %clib_unloadlib.exit
+  br label %clib_unloadlib.argprom.exit
 
-clib_unloadlib.exit:                              ; preds = %entry, %if.then.i
+clib_unloadlib.argprom.exit:                      ; preds = %entry, %if.then.i
   store ptr null, ptr %cl, align 8
   ret void
 }

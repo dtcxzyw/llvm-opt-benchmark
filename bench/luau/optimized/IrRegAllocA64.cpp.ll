@@ -404,7 +404,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %.sroa.06.0.copyload = load i32, ptr %4, align 4
   %5 = and i32 %.sroa.06.0.copyload, 15
   %6 = icmp eq i32 %5, 4
-  br i1 %6, label %7, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+  br i1 %6, label %7, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit"
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
@@ -416,19 +416,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %2
-  br i1 %16, label %17, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+  br i1 %16, label %17, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit"
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds i8, ptr %13, i64 40
   %19 = load i8, ptr %18, align 4
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %21
+  br i1 %20, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit", label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %13, i64 39
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", label %25
+  br i1 %24, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit", label %25
 
 25:                                               ; preds = %21
   %26 = and i8 %23, 7
@@ -448,16 +448,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %35 = getelementptr inbounds [32 x i32], ptr %33, i64 0, i64 %34
   store i32 -1, ptr %35, align 4
   store i8 0, ptr %22, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit": ; preds = %3, %7, %17, %21, %25
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit": ; preds = %3, %7, %17, %21, %25
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.05.0.copyload = load i32, ptr %36, align 4
   %37 = and i32 %.sroa.05.0.copyload, 15
   %38 = icmp eq i32 %37, 4
-  br i1 %38, label %39, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
+  br i1 %38, label %39, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32"
 
-39:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit"
+39:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit"
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = lshr i32 %.sroa.05.0.copyload, 4
@@ -467,19 +467,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %2
-  br i1 %48, label %49, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
+  br i1 %48, label %49, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32"
 
 49:                                               ; preds = %39
   %50 = getelementptr inbounds i8, ptr %45, i64 40
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %53
+  br i1 %52, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32", label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %45, i64 39
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", label %57
+  br i1 %56, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32", label %57
 
 57:                                               ; preds = %53
   %58 = and i8 %55, 7
@@ -499,16 +499,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %67 = getelementptr inbounds [32 x i32], ptr %65, i64 0, i64 %66
   store i32 -1, ptr %67, align 4
   store i8 0, ptr %54, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit", %39, %49, %53, %57
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit", %39, %49, %53, %57
   %68 = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.04.0.copyload = load i32, ptr %68, align 4
   %69 = and i32 %.sroa.04.0.copyload, 15
   %70 = icmp eq i32 %69, 4
-  br i1 %70, label %71, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
+  br i1 %70, label %71, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37"
 
-71:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32"
+71:                                               ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32"
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 24
   %74 = lshr i32 %.sroa.04.0.copyload, 4
@@ -518,19 +518,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %78 = getelementptr inbounds i8, ptr %77, i64 32
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %2
-  br i1 %80, label %81, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
+  br i1 %80, label %81, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37"
 
 81:                                               ; preds = %71
   %82 = getelementptr inbounds i8, ptr %77, i64 40
   %83 = load i8, ptr %82, align 4
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", label %85
+  br i1 %84, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37", label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds i8, ptr %77, i64 39
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 0
-  br i1 %88, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", label %89
+  br i1 %88, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37", label %89
 
 89:                                               ; preds = %85
   %90 = and i8 %87, 7
@@ -550,16 +550,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %99 = getelementptr inbounds [32 x i32], ptr %97, i64 0, i64 %98
   store i32 -1, ptr %99, align 4
   store i8 0, ptr %86, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit32", %71, %81, %85, %89
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit32", %71, %81, %85, %89
   %100 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.03.0.copyload = load i32, ptr %100, align 4
   %101 = and i32 %.sroa.03.0.copyload, 15
   %102 = icmp eq i32 %101, 4
-  br i1 %102, label %103, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
+  br i1 %102, label %103, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-103:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37"
+103:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37"
   %104 = load ptr, ptr %0, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = lshr i32 %.sroa.03.0.copyload, 4
@@ -569,19 +569,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %110 = getelementptr inbounds i8, ptr %109, i64 32
   %111 = load i32, ptr %110, align 4
   %112 = icmp eq i32 %111, %2
-  br i1 %112, label %113, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
+  br i1 %112, label %113, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42"
 
 113:                                              ; preds = %103
   %114 = getelementptr inbounds i8, ptr %109, i64 40
   %115 = load i8, ptr %114, align 4
   %116 = trunc i8 %115 to i1
-  br i1 %116, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", label %117
+  br i1 %116, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42", label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds i8, ptr %109, i64 39
   %119 = load i8, ptr %118, align 1
   %120 = icmp eq i8 %119, 0
-  br i1 %120, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", label %121
+  br i1 %120, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42", label %121
 
 121:                                              ; preds = %117
   %122 = and i8 %119, 7
@@ -601,16 +601,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %131 = getelementptr inbounds [32 x i32], ptr %129, i64 0, i64 %130
   store i32 -1, ptr %131, align 4
   store i8 0, ptr %118, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit37", %103, %113, %117, %121
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit37", %103, %113, %117, %121
   %132 = getelementptr inbounds i8, ptr %1, i64 20
   %.sroa.02.0.copyload = load i32, ptr %132, align 4
   %133 = and i32 %.sroa.02.0.copyload, 15
   %134 = icmp eq i32 %133, 4
-  br i1 %134, label %135, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
+  br i1 %134, label %135, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47"
 
-135:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42"
+135:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42"
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 24
   %138 = lshr i32 %.sroa.02.0.copyload, 4
@@ -620,19 +620,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %142 = getelementptr inbounds i8, ptr %141, i64 32
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, %2
-  br i1 %144, label %145, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
+  br i1 %144, label %145, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47"
 
 145:                                              ; preds = %135
   %146 = getelementptr inbounds i8, ptr %141, i64 40
   %147 = load i8, ptr %146, align 4
   %148 = trunc i8 %147 to i1
-  br i1 %148, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47", label %149
+  br i1 %148, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47", label %149
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds i8, ptr %141, i64 39
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 0
-  br i1 %152, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47", label %153
+  br i1 %152, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47", label %153
 
 153:                                              ; preds = %149
   %154 = and i8 %151, 7
@@ -652,16 +652,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %163 = getelementptr inbounds [32 x i32], ptr %161, i64 0, i64 %162
   store i32 -1, ptr %163, align 4
   store i8 0, ptr %150, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit42", %135, %145, %149, %153
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit42", %135, %145, %149, %153
   %164 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.01.0.copyload = load i32, ptr %164, align 4
   %165 = and i32 %.sroa.01.0.copyload, 15
   %166 = icmp eq i32 %165, 4
-  br i1 %166, label %167, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
+  br i1 %166, label %167, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52"
 
-167:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47"
+167:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47"
   %168 = load ptr, ptr %0, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 24
   %170 = lshr i32 %.sroa.01.0.copyload, 4
@@ -671,19 +671,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %174 = getelementptr inbounds i8, ptr %173, i64 32
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, %2
-  br i1 %176, label %177, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
+  br i1 %176, label %177, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52"
 
 177:                                              ; preds = %167
   %178 = getelementptr inbounds i8, ptr %173, i64 40
   %179 = load i8, ptr %178, align 4
   %180 = trunc i8 %179 to i1
-  br i1 %180, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52", label %181
+  br i1 %180, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52", label %181
 
 181:                                              ; preds = %177
   %182 = getelementptr inbounds i8, ptr %173, i64 39
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 0
-  br i1 %184, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52", label %185
+  br i1 %184, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52", label %185
 
 185:                                              ; preds = %181
   %186 = and i8 %183, 7
@@ -703,19 +703,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %195 = getelementptr inbounds [32 x i32], ptr %193, i64 0, i64 %194
   store i32 -1, ptr %195, align 4
   store i8 0, ptr %182, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit47", %167, %177, %181, %185
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52": ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit47", %167, %177, %181, %185
   %196 = load i8, ptr @_ZN5FFlag16LuauCodegenInstGE, align 8
   %197 = trunc i8 %196 to i1
-  br i1 %197, label %198, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
+  br i1 %197, label %198, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57"
 
-198:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
+198:                                              ; preds = %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52"
   %199 = getelementptr inbounds i8, ptr %1, i64 28
   %.sroa.0.0.copyload = load i32, ptr %199, align 4
   %200 = and i32 %.sroa.0.0.copyload, 15
   %201 = icmp eq i32 %200, 4
-  br i1 %201, label %202, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
+  br i1 %201, label %202, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57"
 
 202:                                              ; preds = %198
   %203 = load ptr, ptr %0, align 8
@@ -727,19 +727,19 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %209 = getelementptr inbounds i8, ptr %208, i64 32
   %210 = load i32, ptr %209, align 4
   %211 = icmp eq i32 %210, %2
-  br i1 %211, label %212, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
+  br i1 %211, label %212, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57"
 
 212:                                              ; preds = %202
   %213 = getelementptr inbounds i8, ptr %208, i64 40
   %214 = load i8, ptr %213, align 4
   %215 = trunc i8 %214 to i1
-  br i1 %215, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57", label %216
+  br i1 %215, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57", label %216
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds i8, ptr %208, i64 39
   %218 = load i8, ptr %217, align 1
   %219 = icmp eq i8 %218, 0
-  br i1 %219, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57", label %220
+  br i1 %219, label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57", label %220
 
 220:                                              ; preds = %216
   %221 = and i8 %218, 7
@@ -759,9 +759,9 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS
   %230 = getelementptr inbounds [32 x i32], ptr %228, i64 0, i64 %229
   store i32 -1, ptr %230, align 4
   store i8 0, ptr %217, align 1
-  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57"
+  br label %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57"
 
-"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit57": ; preds = %220, %216, %212, %202, %198, %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.exit52"
+"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit57": ; preds = %220, %216, %212, %202, %198, %"_ZZN4Luau7CodeGen3A6413IrRegAllocA6415freeLastUseRegsERKNS0_6IrInstEjENK3$_0clENS0_4IrOpE.argprom.exit52"
   ret void
 }
 

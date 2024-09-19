@@ -5191,24 +5191,24 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %call7.i.i.i.noexc unwind label %lpad139.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 call7.i.i.i.noexc:                                ; preds = %invoke.cont140
-  br i1 %call7.i.i.i125, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.exit.i.i", label %if.then.i.i.i115
+  br i1 %call7.i.i.i125, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i", label %if.then.i.i.i115
 
 if.then.i.i.i115:                                 ; preds = %call7.i.i.i.noexc
   %93 = load ptr, ptr %agg.tmp141112.sroa.6.0.ref.tmp.i113.sroa_idx, align 8
   store i8 1, ptr %93, align 1
-  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.exit.i.i"
+  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i"
 
-"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.exit.i.i": ; preds = %if.then.i.i.i115, %call7.i.i.i.noexc
+"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i": ; preds = %if.then.i.i.i115, %call7.i.i.i.noexc
   %message_type_count_.i.i.i116 = getelementptr inbounds i8, ptr %87, i64 60
   %94 = load i32, ptr %message_type_count_.i.i.i116, align 4
   %cmp60.i.i = icmp sgt i32 %94, 0
   br i1 %cmp60.i.i, label %for.body.lr.ph.i.i119, label %for.cond5.preheader.i.i
 
-for.body.lr.ph.i.i119:                            ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.exit.i.i"
+for.body.lr.ph.i.i119:                            ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i"
   %message_types_.i.i.i120 = getelementptr inbounds i8, ptr %87, i64 96
   br label %for.body.i.i121
 
-for.cond5.preheader.i.i:                          ; preds = %.noexc126, %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.exit.i.i"
+for.cond5.preheader.i.i:                          ; preds = %.noexc126, %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14FileDescriptorENS0_19FileDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i"
   %enum_type_count_.i.i.i = getelementptr inbounds i8, ptr %87, i64 64
   %95 = load i32, ptr %enum_type_count_.i.i.i, align 8
   %cmp762.i.i = icmp sgt i32 %95, 0
@@ -5276,7 +5276,7 @@ for.body8.i.i:                                    ; preds = %.noexc127, %for.bod
   %cmp7.i.i = icmp slt i64 %indvars.iv.next70.i.i, %111
   br i1 %cmp7.i.i, label %for.body8.i.i, label %for.cond15.preheader.i.i, !llvm.loop !93
 
-for.cond25.preheader.i.i:                         ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i", %for.cond15.preheader.i.i
+for.cond25.preheader.i.i:                         ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i", %for.cond15.preheader.i.i
   %service_count_.i.i.i = getelementptr inbounds i8, ptr %87, i64 68
   %112 = load i32, ptr %service_count_.i.i.i, align 4
   %cmp2766.i.i = icmp sgt i32 %112, 0
@@ -5287,8 +5287,8 @@ for.body28.lr.ph.i.i:                             ; preds = %for.cond25.preheade
   %113 = load ptr, ptr %agg.tmp141112.sroa.6.0.ref.tmp.i113.sroa_idx, align 8
   br label %for.body28.i.i
 
-for.body18.i.i:                                   ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i", %for.body18.lr.ph.i.i
-  %indvars.iv72.i.i = phi i64 [ 0, %for.body18.lr.ph.i.i ], [ %indvars.iv.next73.i.i, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i" ]
+for.body18.i.i:                                   ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i", %for.body18.lr.ph.i.i
+  %indvars.iv72.i.i = phi i64 [ 0, %for.body18.lr.ph.i.i ], [ %indvars.iv.next73.i.i, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i" ]
   %114 = load ptr, ptr %extension_.i.i.i.i.i, align 8
   %115 = ptrtoint ptr %114 to i64
   %and.i.i.i.i.i.i37.i.i = and i64 %115, 1
@@ -5316,13 +5316,13 @@ for.body18.i.i:                                   ; preds = %"_ZN6google8protobu
           to label %call7.i.i.i.i.noexc unwind label %lpad139.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call7.i.i.i.i.noexc:                              ; preds = %for.body18.i.i
-  br i1 %call7.i.i.i.i128, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i", label %if.then.i.i.i.i118
+  br i1 %call7.i.i.i.i128, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i", label %if.then.i.i.i.i118
 
 if.then.i.i.i.i118:                               ; preds = %call7.i.i.i.i.noexc
   store i8 1, ptr %104, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit.i.i": ; preds = %if.then.i.i.i.i118, %call7.i.i.i.i.noexc
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit.i.i": ; preds = %if.then.i.i.i.i118, %call7.i.i.i.i.noexc
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %125 = load i32, ptr %extension_count_.i.i.i117, align 4
   %126 = sext i32 %125 to i64
@@ -5359,24 +5359,24 @@ for.body28.i.i:                                   ; preds = %"_ZN6google8protobu
           to label %call7.i.i58.i.i.noexc unwind label %lpad139.loopexit.split-lp.loopexit
 
 call7.i.i58.i.i.noexc:                            ; preds = %for.body28.i.i
-  br i1 %call7.i.i58.i.i129, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.exit.i.i.i", label %if.then.i.i59.i.i
+  br i1 %call7.i.i58.i.i129, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i.i", label %if.then.i.i59.i.i
 
 if.then.i.i59.i.i:                                ; preds = %call7.i.i58.i.i.noexc
   store i8 1, ptr %113, align 1
-  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.exit.i.i.i"
+  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i.i"
 
-"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.exit.i.i.i": ; preds = %if.then.i.i59.i.i, %call7.i.i58.i.i.noexc
+"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i.i": ; preds = %if.then.i.i59.i.i, %call7.i.i58.i.i.noexc
   %method_count_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::ServiceDescriptor", ptr %127, i64 %indvars.iv75.i.i, i32 8
   %139 = load i32, ptr %method_count_.i.i.i.i, align 8
   %cmp8.i.i.i = icmp sgt i32 %139, 0
   br i1 %cmp8.i.i.i, label %for.body.lr.ph.i.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_22ServiceDescriptorProtoEEEEvRKNS0_17ServiceDescriptorEDpRT_.exit.i.i"
 
-for.body.lr.ph.i.i.i:                             ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.exit.i.i.i"
+for.body.lr.ph.i.i.i:                             ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i.i"
   %method_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %131, i64 24
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i", %for.body.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i" ]
+for.body.i.i.i:                                   ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i", %for.body.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i" ]
   %140 = load ptr, ptr %method_.i.i.i.i.i.i, align 8
   %141 = ptrtoint ptr %140 to i64
   %and.i.i.i.i.i.i.i.i.i = and i64 %141, 1
@@ -5404,20 +5404,20 @@ for.body.i.i.i:                                   ; preds = %"_ZN6google8protobu
           to label %call7.i.i.i.i.i.noexc unwind label %lpad139.loopexit
 
 call7.i.i.i.i.i.noexc:                            ; preds = %for.body.i.i.i
-  br i1 %call7.i.i.i.i.i130, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i", label %if.then.i.i.i.i.i
+  br i1 %call7.i.i.i.i.i130, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call7.i.i.i.i.i.noexc
   store i8 1, ptr %113, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i": ; preds = %if.then.i.i.i.i.i, %call7.i.i.i.i.i.noexc
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i": ; preds = %if.then.i.i.i.i.i, %call7.i.i.i.i.i.noexc
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %151 = load i32, ptr %method_count_.i.i.i.i, align 8
   %152 = sext i32 %151 to i64
   %cmp.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %152
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_22ServiceDescriptorProtoEEEEvRKNS0_17ServiceDescriptorEDpRT_.exit.i.i", !llvm.loop !95
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_22ServiceDescriptorProtoEEEEvRKNS0_17ServiceDescriptorEDpRT_.exit.i.i": ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.exit.i.i.i", %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.exit.i.i.i"
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_22ServiceDescriptorProtoEEEEvRKNS0_17ServiceDescriptorEDpRT_.exit.i.i": ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_21MethodDescriptorProtoEEEEvRKNS0_16MethodDescriptorEDpRT_.argprom.exit.i.i.i", %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_17ServiceDescriptorENS0_22ServiceDescriptorProtoEEEDaRKT_RKT0_.argprom.exit.i.i.i"
   %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
   %153 = load i32, ptr %service_count_.i.i.i, align 4
   %154 = sext i32 %153 to i64
@@ -24199,26 +24199,26 @@ entry:
   %10 = extractvalue { i64, ptr } %call5.i, 0
   %11 = extractvalue { i64, ptr } %call5.i, 1
   %call7.i = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 %10, ptr %11, i32 noundef 3)
-  br i1 %call7.i, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.exit", label %if.then.i
+  br i1 %call7.i, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %12 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %12, align 8
   store i8 1, ptr %13, align 1
-  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.exit"
+  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
 
-"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.exit": ; preds = %entry, %if.then.i
+"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.argprom.exit": ; preds = %entry, %if.then.i
   %enum_type_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 132
   %14 = load i32, ptr %enum_type_count_.i, align 4
   %cmp105 = icmp sgt i32 %14, 0
   br i1 %cmp105, label %for.body.lr.ph, label %for.cond5.preheader
 
-for.body.lr.ph:                                   ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.exit"
+for.body.lr.ph:                                   ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
   %enum_types_.i = getelementptr inbounds i8, ptr %descriptor, i64 80
   %enum_type_.i.i.i = getelementptr inbounds i8, ptr %proto, i64 72
   br label %for.body
 
-for.cond5.preheader:                              ; preds = %for.body, %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.exit"
+for.cond5.preheader:                              ; preds = %for.body, %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_10DescriptorENS0_15DescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
   %oneof_decl_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 120
   %15 = load i32, ptr %oneof_decl_count_.i, align 8
   %cmp7107 = icmp sgt i32 %15, 0
@@ -24250,7 +24250,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp = icmp slt i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.cond5.preheader, !llvm.loop !365
 
-for.cond15.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit", %for.cond5.preheader
+for.cond15.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit", %for.cond5.preheader
   %field_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %24 = load i32, ptr %field_count_.i, align 4
   %cmp17109 = icmp sgt i32 %24, 0
@@ -24261,8 +24261,8 @@ for.body18.lr.ph:                                 ; preds = %for.cond15.preheade
   %25 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body18
 
-for.body8:                                        ; preds = %for.body8.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit"
-  %indvars.iv118 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next119, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit" ]
+for.body8:                                        ; preds = %for.body8.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit"
+  %indvars.iv118 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next119, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit" ]
   %26 = load ptr, ptr %oneof_decl_.i.i.i, align 8
   %27 = ptrtoint ptr %26 to i64
   %and.i.i.i.i.i.i40 = and i64 %27, 1
@@ -24290,21 +24290,21 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %"
   %38 = extractvalue { i64, ptr } %call5.i.i, 0
   %39 = extractvalue { i64, ptr } %call5.i.i, 1
   %call7.i.i = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %32, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, i64 %38, ptr %39, i32 noundef 5)
-  br i1 %call7.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit", label %if.then.i.i
+  br i1 %call7.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body8
   %40 = load ptr, ptr %16, align 8
   store i8 1, ptr %40, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.exit": ; preds = %for.body8, %if.then.i.i
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20OneofDescriptorProtoEEEEvRKNS0_15OneofDescriptorEDpRT_.argprom.exit": ; preds = %for.body8, %if.then.i.i
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %41 = load i32, ptr %oneof_decl_count_.i, align 8
   %42 = sext i32 %41 to i64
   %cmp7 = icmp slt i64 %indvars.iv.next119, %42
   br i1 %cmp7, label %for.body8, label %for.cond15.preheader, !llvm.loop !366
 
-for.cond25.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit", %for.cond15.preheader
+for.cond25.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit", %for.cond15.preheader
   %nested_type_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 128
   %43 = load i32, ptr %nested_type_count_.i, align 8
   %cmp27111 = icmp sgt i32 %43, 0
@@ -24315,8 +24315,8 @@ for.body28.lr.ph:                                 ; preds = %for.cond25.preheade
   %nested_type_.i.i.i = getelementptr inbounds i8, ptr %proto, i64 48
   br label %for.body28
 
-for.body18:                                       ; preds = %for.body18.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit"
-  %indvars.iv121 = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next122, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit" ]
+for.body18:                                       ; preds = %for.body18.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit"
+  %indvars.iv121 = phi i64 [ 0, %for.body18.lr.ph ], [ %indvars.iv.next122, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit" ]
   %44 = load ptr, ptr %field_.i.i.i, align 8
   %45 = ptrtoint ptr %44 to i64
   %and.i.i.i.i.i.i49 = and i64 %45, 1
@@ -24344,14 +24344,14 @@ for.body18:                                       ; preds = %for.body18.lr.ph, %
   %56 = extractvalue { i64, ptr } %call5.i.i60, 0
   %57 = extractvalue { i64, ptr } %call5.i.i60, 1
   %call7.i.i61 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i58, i64 %56, ptr %57, i32 noundef 4)
-  br i1 %call7.i.i61, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit", label %if.then.i.i62
+  br i1 %call7.i.i61, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit", label %if.then.i.i62
 
 if.then.i.i62:                                    ; preds = %for.body18
   %58 = load ptr, ptr %25, align 8
   store i8 1, ptr %58, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit": ; preds = %for.body18, %if.then.i.i62
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit": ; preds = %for.body18, %if.then.i.i62
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %59 = load i32, ptr %field_count_.i, align 4
   %60 = sext i32 %59 to i64
@@ -24390,7 +24390,7 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %cmp27 = icmp slt i64 %indvars.iv.next125, %69
   br i1 %cmp27, label %for.body28, label %for.cond35.preheader, !llvm.loop !368
 
-for.cond45.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88", %for.cond35.preheader
+for.cond45.preheader:                             ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88", %for.cond35.preheader
   %extension_range_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 136
   %70 = load i32, ptr %extension_range_count_.i, align 8
   %cmp47115 = icmp sgt i32 %70, 0
@@ -24401,8 +24401,8 @@ for.body48.lr.ph:                                 ; preds = %for.cond45.preheade
   %71 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body48
 
-for.body38:                                       ; preds = %for.body38.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88"
-  %indvars.iv127 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next128, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88" ]
+for.body38:                                       ; preds = %for.body38.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88"
+  %indvars.iv127 = phi i64 [ 0, %for.body38.lr.ph ], [ %indvars.iv.next128, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88" ]
   %72 = load ptr, ptr %extension_.i.i.i, align 8
   %73 = ptrtoint ptr %72 to i64
   %and.i.i.i.i.i.i74 = and i64 %73, 1
@@ -24430,22 +24430,22 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %84 = extractvalue { i64, ptr } %call5.i.i85, 0
   %85 = extractvalue { i64, ptr } %call5.i.i85, 1
   %call7.i.i86 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i.i82, ptr noundef nonnull align 8 dereferenceable(96) %78, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i83, i64 %84, ptr %85, i32 noundef 4)
-  br i1 %call7.i.i86, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88", label %if.then.i.i87
+  br i1 %call7.i.i86, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88", label %if.then.i.i87
 
 if.then.i.i87:                                    ; preds = %for.body38
   %86 = load ptr, ptr %62, align 8
   store i8 1, ptr %86, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.exit88": ; preds = %for.body38, %if.then.i.i87
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_20FieldDescriptorProtoEEEEvRKNS0_15FieldDescriptorEDpRT_.argprom.exit88": ; preds = %for.body38, %if.then.i.i87
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %87 = load i32, ptr %extension_count_.i, align 4
   %88 = sext i32 %87 to i64
   %cmp37 = icmp slt i64 %indvars.iv.next128, %88
   br i1 %cmp37, label %for.body38, label %for.cond45.preheader, !llvm.loop !369
 
-for.body48:                                       ; preds = %for.body48.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit"
-  %indvars.iv130 = phi i64 [ 0, %for.body48.lr.ph ], [ %indvars.iv.next131, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit" ]
+for.body48:                                       ; preds = %for.body48.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit"
+  %indvars.iv130 = phi i64 [ 0, %for.body48.lr.ph ], [ %indvars.iv.next131, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit" ]
   %89 = load ptr, ptr %extension_range_.i.i.i, align 8
   %90 = ptrtoint ptr %89 to i64
   %and.i.i.i.i.i.i91 = and i64 %90, 1
@@ -24473,21 +24473,21 @@ for.body48:                                       ; preds = %for.body48.lr.ph, %
   %101 = extractvalue { i64, ptr } %call5.i.i102, 0
   %102 = extractvalue { i64, ptr } %call5.i.i102, 1
   %call7.i.i103 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i.i99, ptr noundef nonnull align 8 dereferenceable(96) %95, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i100, i64 %101, ptr %102, i32 noundef 2)
-  br i1 %call7.i.i103, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit", label %if.then.i.i104
+  br i1 %call7.i.i103, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit", label %if.then.i.i104
 
 if.then.i.i104:                                   ; preds = %for.body48
   %103 = load ptr, ptr %71, align 8
   store i8 1, ptr %103, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit": ; preds = %for.body48, %if.then.i.i104
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit": ; preds = %for.body48, %if.then.i.i104
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %104 = load i32, ptr %extension_range_count_.i, align 8
   %105 = sext i32 %104 to i64
   %cmp47 = icmp slt i64 %indvars.iv.next131, %105
   br i1 %cmp47, label %for.body48, label %for.end53, !llvm.loop !370
 
-for.end53:                                        ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.exit", %for.cond45.preheader
+for.end53:                                        ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_30DescriptorProto_ExtensionRangeEEEEvRKNS0_10Descriptor14ExtensionRangeEDpRT_.argprom.exit", %for.cond45.preheader
   ret void
 }
 
@@ -24513,27 +24513,27 @@ entry:
   %10 = extractvalue { i64, ptr } %call5.i, 0
   %11 = extractvalue { i64, ptr } %call5.i, 1
   %call7.i = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i64 %10, ptr %11, i32 noundef 6)
-  br i1 %call7.i, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.exit", label %if.then.i
+  br i1 %call7.i, label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.argprom.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %12 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %12, align 8
   store i8 1, ptr %13, align 1
-  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.exit"
+  br label %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
 
-"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.exit": ; preds = %entry, %if.then.i
+"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.argprom.exit": ; preds = %entry, %if.then.i
   %value_count_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %14 = load i32, ptr %value_count_.i, align 4
   %cmp8 = icmp sgt i32 %14, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
-for.body.lr.ph:                                   ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.exit"
+for.body.lr.ph:                                   ; preds = %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
   %value_.i.i.i = getelementptr inbounds i8, ptr %proto, i64 24
   %15 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit"
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit" ]
+for.body:                                         ; preds = %for.body.lr.ph, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit"
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit" ]
   %16 = load ptr, ptr %value_.i.i.i, align 8
   %17 = ptrtoint ptr %16 to i64
   %and.i.i.i.i.i.i = and i64 %17, 1
@@ -24561,21 +24561,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %"_
   %28 = extractvalue { i64, ptr } %call5.i.i, 0
   %29 = extractvalue { i64, ptr } %call5.i.i, 1
   %call7.i.i = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler12_GLOBAL__N_125ValidateTargetConstraintsERKNS0_7MessageERKNS0_14DescriptorPoolERNS6_14ErrorCollectorESt17basic_string_viewIcSt11char_traitsIcEENS0_29FieldOptions_OptionTargetTypeE(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, i64 %28, ptr %29, i32 noundef 7)
-  br i1 %call7.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit", label %if.then.i.i
+  br i1 %call7.i.i, label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit", label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
   %30 = load ptr, ptr %15, align 8
   store i8 1, ptr %30, align 1
-  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit"
+  br label %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit"
 
-"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit": ; preds = %for.body, %if.then.i.i
+"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit": ; preds = %for.body, %if.then.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %value_count_.i, align 4
   %32 = sext i32 %31 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %32
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !371
 
-for.end:                                          ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.exit", %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.exit"
+for.end:                                          ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_8compiler20CommandLineInterface3RunEiPKPKcE3$_1EEE5VisitIJNS0_24EnumValueDescriptorProtoEEEEvRKNS0_19EnumValueDescriptorEDpRT_.argprom.exit", %"_ZZN6google8protobuf8compiler20CommandLineInterface3RunEiPKPKcENK3$_1clINS0_14EnumDescriptorENS0_19EnumDescriptorProtoEEEDaRKT_RKT0_.argprom.exit"
   ret void
 }
 

@@ -7479,15 +7479,15 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %161, %_ZN17QArrayDa
   %176 = sext i32 %.val to i64
   %bcmp.i = call i32 @bcmp(ptr readonly %.val12, ptr %175, i64 %176)
   %177 = icmp eq i32 %bcmp.i, 0
-  br i1 %177, label %_ZL20addresses_data_equalPK8_addressS1_.exit, label %_ZN7QStringD2Ev.exit76
+  br i1 %177, label %_ZL20addresses_data_equalPK8_addressS1_.argprom.exit, label %_ZN7QStringD2Ev.exit76
 
-_ZL20addresses_data_equalPK8_addressS1_.exit:     ; preds = %172
+_ZL20addresses_data_equalPK8_addressS1_.argprom.exit: ; preds = %172
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %29, ptr noundef nonnull align 8 dereferenceable(56) @_ZN7QObject16staticMetaObjectE, ptr noundef nonnull @.str.41, ptr noundef null, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %.noexc69 unwind label %236
 
-.noexc69:                                         ; preds = %_ZL20addresses_data_equalPK8_addressS1_.exit
+.noexc69:                                         ; preds = %_ZL20addresses_data_equalPK8_addressS1_.argprom.exit
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 32
   %180 = load ptr, ptr %179, align 8
@@ -7685,7 +7685,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i106:   ; preds = %.body62
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %235, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit80
 
-236:                                              ; preds = %_ZL20addresses_data_equalPK8_addressS1_.exit
+236:                                              ; preds = %_ZL20addresses_data_equalPK8_addressS1_.argprom.exit
   %237 = landingpad { ptr, i32 }
           cleanup
   br label %.body70

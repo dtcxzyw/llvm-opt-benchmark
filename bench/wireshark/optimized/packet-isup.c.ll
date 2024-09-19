@@ -3349,7 +3349,7 @@ define internal i32 @dissect_isup(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.053 = phi ptr [ null, %._crit_edge60 ], [ %26, %22 ]
   tail call void @conversation_set_elements_by_id(ptr noundef nonnull %1, i32 noundef 24, i32 noundef %.pre-phi) #5
   %31 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2) #5
-  tail call fastcc void @dissect_ansi_isup_message(ptr noundef %31, ptr noundef nonnull %1, ptr noundef %.053, i32 noundef %.pre-phi)
+  tail call fastcc void @dissect_ansi_isup_message.argelim(ptr noundef %31, ptr noundef nonnull %1, ptr noundef %.053, i32 noundef %.pre-phi)
   br label %65
 
 32:                                               ; preds = %4
@@ -3596,7 +3596,7 @@ define internal i32 @dissect_application_isup(ptr noundef %0, ptr noundef %1, pt
 42:                                               ; preds = %37, %30
   %.053 = phi ptr [ %41, %37 ], [ null, %30 ]
   %43 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0) #5
-  tail call fastcc void @dissect_ansi_isup_message(ptr noundef %43, ptr noundef nonnull %1, ptr noundef %.053, i32 noundef 0)
+  tail call fastcc void @dissect_ansi_isup_message.argelim(ptr noundef %43, ptr noundef nonnull %1, ptr noundef %.053, i32 noundef 0)
   br label %67
 
 44:                                               ; preds = %27, %26
@@ -3786,7 +3786,7 @@ declare void @conversation_set_elements_by_id(ptr noundef, i32 noundef, i32 noun
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 16384) %3) unnamed_addr #1 {
+define internal fastcc void @dissect_ansi_isup_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 16384) %3) unnamed_addr #1 {
   store ptr null, ptr @tap_calling_number, align 8
   tail call void @increment_dissection_depth(ptr noundef %1) #5
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
@@ -3862,75 +3862,75 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   ]
 
 17:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_initial_address_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 0)
+  tail call fastcc void @dissect_isup_initial_address_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext 0)
   br label %61
 
 18:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_subsequent_address_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_subsequent_address_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %61
 
 19:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_information_request_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_information_request_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 20:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_information_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_information_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 21:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_continuity_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_continuity_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %.thread188
 
 22:                                               ; preds = %4
-  tail call fastcc void @dissect_ansi_isup_address_complete_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_ansi_isup_address_complete_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %61
 
 23:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_connect_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_connect_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %61
 
 24:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_release_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_release_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 25:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_suspend_resume_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_suspend_resume_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 26:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_suspend_resume_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_suspend_resume_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 27:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_query_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 28:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 29:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 30:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 31:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 32:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_request_accepted_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 33:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_request_accepted_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 34:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_facility_reject_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_reject_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 35:                                               ; preds = %4
@@ -3939,31 +3939,31 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %38 = zext i8 %36 to i32
   %39 = tail call ptr @val_to_str_ext_const(i32 noundef %38, ptr noundef nonnull @isup_message_type_value_acro_ext, ptr noundef nonnull @.str.1120) #5
   %40 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %16, i32 noundef 1, i32 noundef -1, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.1654, ptr noundef %39, i32 noundef %38) #5
-  tail call fastcc void @dissect_ansi_isup_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %3)
+  tail call fastcc void @dissect_ansi_isup_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %3)
   br label %.thread188
 
 41:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 42:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_query_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 43:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_circuit_group_query_response_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_query_response_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 44:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_call_progress_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_call_progress_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 45:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_user_to_user_information_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_user_to_user_information_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %61
 
 46:                                               ; preds = %4
-  tail call fastcc void @dissect_isup_confusion_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_isup_confusion_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 47:                                               ; preds = %4
@@ -3985,11 +3985,11 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   br label %.thread188
 
 55:                                               ; preds = %4
-  tail call fastcc void @dissect_ansi_isup_circuit_reservation_message(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_ansi_isup_circuit_reservation_message.argelim(ptr noundef %16, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread188
 
 56:                                               ; preds = %4
-  tail call fastcc void @dissect_ansi_isup_circuit_validation_test_resp_message(ptr noundef %16, ptr noundef %2)
+  tail call fastcc void @dissect_ansi_isup_circuit_validation_test_resp_message.argelim(ptr noundef %16, ptr noundef %2)
   br label %61
 
 57:                                               ; preds = %4
@@ -4013,7 +4013,7 @@ define internal fastcc void @dissect_ansi_isup_message(ptr noundef %0, ptr nound
   %66 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.0.ph, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.1655, i32 noundef %64) #5
   %67 = add nuw nsw i32 %.0.ph, %64
   %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %67) #5
-  tail call fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %68, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_ansi_isup_optional_parameter.argelim(ptr noundef %68, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread192
 
 69:                                               ; preds = %61
@@ -4139,19 +4139,19 @@ switch.lookup:                                    ; preds = %5
   ]
 
 22:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_initial_address_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext %3)
+  tail call fastcc void @dissect_isup_initial_address_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2, i8 noundef zeroext %3)
   br label %92
 
 23:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_subsequent_address_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_subsequent_address_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %92
 
 24:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_information_request_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_information_request_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 25:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_information_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_information_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 26:                                               ; preds = %14
@@ -4174,55 +4174,55 @@ switch.lookup:                                    ; preds = %5
   br label %.thread251
 
 40:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_address_complete_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_address_complete_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %92
 
 41:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_connect_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_connect_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %92
 
 42:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_release_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_release_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 43:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_suspend_resume_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_suspend_resume_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 44:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_suspend_resume_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_suspend_resume_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 45:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_query_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 46:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 47:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 48:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 49:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 50:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_request_accepted_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 51:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_request_accepted_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 52:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_facility_reject_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_facility_reject_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 53:                                               ; preds = %14
@@ -4235,27 +4235,27 @@ switch.lookup:                                    ; preds = %5
   br label %.thread251
 
 59:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 60:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_reset_query_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 61:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_circuit_group_query_response_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_circuit_group_query_response_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %.thread251
 
 62:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_call_progress_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_call_progress_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 63:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_user_to_user_information_message(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_isup_user_to_user_information_message.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %92
 
 64:                                               ; preds = %14
-  tail call fastcc void @dissect_isup_confusion_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_isup_confusion_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 65:                                               ; preds = %14
@@ -4298,7 +4298,7 @@ switch.lookup:                                    ; preds = %5
   ]
 
 77:                                               ; preds = %76
-  tail call fastcc void @dissect_french_isup_charging_pulse_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_french_isup_charging_pulse_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %92
 
 78:                                               ; preds = %76
@@ -4314,11 +4314,11 @@ switch.lookup:                                    ; preds = %5
   ]
 
 81:                                               ; preds = %80
-  tail call fastcc void @dissect_israeli_backward_charging_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_israeli_backward_charging_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %.thread251
 
 82:                                               ; preds = %80
-  tail call fastcc void @dissect_israeli_traffic_change_message(ptr noundef %21, ptr noundef %2)
+  tail call fastcc void @dissect_israeli_traffic_change_message.argelim(ptr noundef %21, ptr noundef %2)
   br label %.thread251
 
 83:                                               ; preds = %80
@@ -4342,7 +4342,7 @@ switch.lookup:                                    ; preds = %5
   br i1 %cond1, label %89, label %90
 
 89:                                               ; preds = %88
-  tail call fastcc void @dissect_japan_chg_inf(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
+  tail call fastcc void @dissect_japan_chg_inf.argelim(ptr noundef %21, ptr noundef nonnull %1, ptr noundef %2)
   br label %92
 
 90:                                               ; preds = %88
@@ -4414,7 +4414,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_initial_address_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_initial_address_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @ett_isup_parameter, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1711) #5
@@ -4551,7 +4551,7 @@ define internal fastcc void @dissect_isup_initial_address_message(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_subsequent_address_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_subsequent_address_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
@@ -4585,7 +4585,7 @@ define internal fastcc void @dissect_isup_subsequent_address_message(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_information_request_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_information_request_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.1735) #5
@@ -4603,7 +4603,7 @@ define internal fastcc void @dissect_isup_information_request_message(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_information_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_information_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.1736) #5
@@ -4621,7 +4621,7 @@ define internal fastcc void @dissect_isup_information_message(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_continuity_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_continuity_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.1737) #5
@@ -4641,7 +4641,7 @@ define internal fastcc void @dissect_isup_continuity_message(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ansi_isup_address_complete_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_ansi_isup_address_complete_message.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.1738) #5
@@ -4663,7 +4663,7 @@ define internal fastcc void @dissect_ansi_isup_address_complete_message(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_connect_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_connect_message.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.1738) #5
@@ -4685,7 +4685,7 @@ define internal fastcc void @dissect_isup_connect_message(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_release_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_release_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %5 = zext i8 %4 to i32
@@ -4725,7 +4725,7 @@ define internal fastcc void @dissect_isup_release_message(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_suspend_resume_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_suspend_resume_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.226) #5
@@ -4745,7 +4745,7 @@ define internal fastcc void @dissect_isup_suspend_resume_message(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_circuit_group_reset_query_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_circuit_group_reset_query_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
@@ -4770,7 +4770,7 @@ define internal fastcc void @dissect_isup_circuit_group_reset_query_message(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_circuit_group_blocking_messages(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_circuit_group_blocking_messages.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.22) #5
@@ -4810,7 +4810,7 @@ define internal fastcc void @dissect_isup_circuit_group_blocking_messages(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_facility_request_accepted_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_facility_request_accepted_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.24) #5
@@ -4828,7 +4828,7 @@ define internal fastcc void @dissect_isup_facility_request_accepted_message(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_facility_reject_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_facility_reject_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.24) #5
@@ -4883,7 +4883,7 @@ define internal fastcc void @dissect_isup_facility_reject_message(ptr noundef %0
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_circuit_group_reset_acknowledgement_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
@@ -4908,7 +4908,7 @@ define internal fastcc void @dissect_isup_circuit_group_reset_acknowledgement_me
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_circuit_group_query_response_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_circuit_group_query_response_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
@@ -4953,7 +4953,7 @@ define internal fastcc void @dissect_isup_circuit_group_query_response_message(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_call_progress_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_call_progress_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.32) #5
@@ -4978,7 +4978,7 @@ define internal fastcc void @dissect_isup_call_progress_message(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_user_to_user_information_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_user_to_user_information_message.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %6 = zext i8 %5 to i32
@@ -5005,7 +5005,7 @@ define internal fastcc void @dissect_isup_user_to_user_information_message(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_confusion_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_confusion_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %5 = zext i8 %4 to i32
@@ -5047,7 +5047,7 @@ define internal fastcc void @dissect_isup_confusion_message(ptr noundef %0, ptr 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ansi_isup_circuit_reservation_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_ansi_isup_circuit_reservation_message.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.1711) #5
@@ -5069,7 +5069,7 @@ define internal fastcc void @dissect_ansi_isup_circuit_reservation_message(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ansi_isup_circuit_validation_test_resp_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_ansi_isup_circuit_validation_test_resp_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @ett_isup_parameter, align 4
   %5 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @.str.1752) #5
@@ -5109,7 +5109,7 @@ define internal fastcc void @dissect_ansi_isup_circuit_validation_test_resp_mess
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_ansi_isup_optional_parameter.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
@@ -5253,7 +5253,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %40 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %39, ptr noundef %31, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
   %41 = zext nneg i16 %36 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.1758, i32 noundef %34, i32 noundef %41) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 42:                                               ; preds = %29
   %43 = load ptr, ptr %5, align 8
@@ -5263,18 +5263,18 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %47 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %45, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %46) #5
   %48 = call ptr @val_to_str_ext_const(i32 noundef %46, ptr noundef nonnull @isup_transmission_medium_requirement_value_ext, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.1734, i32 noundef %46, ptr noundef %48) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 49:                                               ; preds = %29
   %50 = load i32, ptr @hf_isup_access_transport_parameter_field, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %50, ptr noundef %31, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %52 = load ptr, ptr @q931_ie_handle, align 8
   %.not.i = icmp eq ptr %52, null
-  br i1 %.not.i, label %dissect_isup_access_transport_parameter.exit, label %53
+  br i1 %.not.i, label %dissect_isup_access_transport_parameter.argprom.exit, label %53
 
 53:                                               ; preds = %49
   %54 = call i32 @call_dissector(ptr noundef nonnull %52, ptr noundef %31, ptr noundef %1, ptr noundef %19) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 55:                                               ; preds = %29
   %56 = load ptr, ptr %5, align 8
@@ -5294,7 +5294,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %68 = zext nneg i8 %67 to i32
   %69 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %56, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %63, i32 noundef %66, i32 noundef %68)
   store ptr %69, ptr @tap_called_number, align 8
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 70:                                               ; preds = %29
   %71 = load ptr, ptr %5, align 8
@@ -5308,7 +5308,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %79 = icmp sgt i8 %72, -1
   %80 = zext i1 %79 to i32
   %81 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 1, ptr noundef %1, ptr noundef %19, ptr noundef %71, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %80, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 82:                                               ; preds = %29
   %83 = load ptr, ptr %5, align 8
@@ -5320,7 +5320,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %87, i32 noundef 0) #5
   %88 = zext i8 %84 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.1714, i32 noundef %88) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 89:                                               ; preds = %29
   %90 = load ptr, ptr %5, align 8
@@ -5332,7 +5332,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %94, i32 noundef 0) #5
   %95 = zext i16 %91 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef nonnull @.str.1714, i32 noundef %95) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 96:                                               ; preds = %29
   %97 = load ptr, ptr %5, align 8
@@ -5342,7 +5342,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %100 = and i32 %99, 3
   %101 = call ptr @val_to_str_const(i32 noundef %100, ptr noundef nonnull @isup_CUG_call_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.1739, ptr noundef %101, i32 noundef %99) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 102:                                              ; preds = %29
   %103 = load ptr, ptr %5, align 8
@@ -5352,7 +5352,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %106 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %hf_isup_calling_partys_category.val.i, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %105) #5
   %107 = call ptr @val_to_str_ext_const(i32 noundef %105, ptr noundef nonnull @isup_calling_partys_category_value_ext, ptr noundef nonnull @.str.1716) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.1715, i32 noundef %105, ptr noundef %107) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 108:                                              ; preds = %29
   %109 = load ptr, ptr %5, align 8
@@ -5372,7 +5372,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %121 = zext nneg i8 %120 to i32
   %122 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %109, i32 noundef %112, i32 noundef %113, i32 noundef %114, i32 noundef %116, i32 noundef %119, i32 noundef %121)
   store ptr %122, ptr @tap_calling_number, align 8
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 123:                                              ; preds = %29
   %124 = load ptr, ptr %5, align 8
@@ -5385,7 +5385,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %129 = icmp sgt i8 %125, -1
   %130 = zext i1 %129 to i32
   %131 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %124, i32 noundef %126, i32 noundef %127, i32 noundef %128, i32 noundef %130, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 132:                                              ; preds = %29
   %133 = load ptr, ptr %5, align 8
@@ -5398,12 +5398,12 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %138 = icmp sgt i8 %134, -1
   %139 = zext i1 %138 to i32
   %140 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %133, i32 noundef %135, i32 noundef %136, i32 noundef %137, i32 noundef %139, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 141:                                              ; preds = %29
   %142 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_connection_request_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %142)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 143:                                              ; preds = %29
   %144 = load ptr, ptr %5, align 8
@@ -5411,7 +5411,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %145 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef 0) #5
   %146 = zext i16 %145 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %144, ptr noundef nonnull @.str.1714, i32 noundef %146) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 147:                                              ; preds = %29
   %148 = load ptr, ptr %5, align 8
@@ -5419,7 +5419,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %149 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef 0) #5
   %150 = zext i16 %149 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %148, ptr noundef nonnull @.str.1714, i32 noundef %150) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 151:                                              ; preds = %29
   %152 = load ptr, ptr %5, align 8
@@ -5429,7 +5429,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %156 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %154, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %155) #5
   %157 = zext i8 %153 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull @.str.1714, i32 noundef %157) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 158:                                              ; preds = %29
   %159 = load ptr, ptr %5, align 8
@@ -5441,17 +5441,17 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %162 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef 0) #5
   %163 = zext i16 %162 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %159, ptr noundef nonnull @.str.1714, i32 noundef %163) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 164:                                              ; preds = %29
   %165 = load ptr, ptr %5, align 8
   call fastcc void @dissect_ansi_isup_cause_indicators_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %165)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 166:                                              ; preds = %29
   %167 = load ptr, ptr %5, align 8
   call void @dissect_isup_redirection_information_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %167)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 168:                                              ; preds = %29
   %169 = load ptr, ptr %5, align 8
@@ -5461,12 +5461,12 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %173 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %171, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %172) #5
   %174 = call ptr @val_to_str_const(i32 noundef %172, ptr noundef nonnull @isup_cgs_message_type_value, ptr noundef nonnull @.str.1745) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %169, ptr noundef nonnull @.str.1739, ptr noundef %174, i32 noundef %172) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 175:                                              ; preds = %29
   %176 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_range_and_status_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19, ptr noundef %176)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 177:                                              ; preds = %29
   %178 = load ptr, ptr %5, align 8
@@ -5474,19 +5474,19 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %180 = zext i8 %179 to i32
   %181 = call ptr @val_to_str_const(i32 noundef %180, ptr noundef nonnull @isup_facility_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %178, ptr noundef nonnull @.str.1739, ptr noundef %181, i32 noundef %180) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 182:                                              ; preds = %29
   %183 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_closed_user_group_interlock_code_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %183)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 184:                                              ; preds = %29
   %185 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %186 = load i32, ptr @hf_isup_user_service_information, align 4
   %187 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %186, ptr noundef %31, i32 noundef 0, i32 noundef %185, i32 noundef 0) #5
   call void @dissect_q931_bearer_capability_ie(ptr noundef %31, i32 noundef 0, i32 noundef %185, ptr noundef %19) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 188:                                              ; preds = %29
   %189 = load ptr, ptr %5, align 8
@@ -5496,14 +5496,14 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %193 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %192, ptr noundef %31, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %194 = zext nneg i16 %191 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %189, ptr noundef nonnull @.str.1761, i32 noundef %194) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 195:                                              ; preds = %29
   %196 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %197 = load i32, ptr @hf_isup_user_to_user_info, align 4
   %198 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %197, ptr noundef %31, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   call void @dissect_q931_user_user_ie(ptr noundef %31, ptr noundef %1, i32 noundef 0, i32 noundef %196, ptr noundef %19) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 199:                                              ; preds = %29
   %200 = load ptr, ptr %5, align 8
@@ -5516,7 +5516,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %205 = icmp sgt i8 %201, -1
   %206 = zext i1 %205 to i32
   %207 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %200, i32 noundef %202, i32 noundef %203, i32 noundef %204, i32 noundef %206, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 208:                                              ; preds = %29
   %209 = load ptr, ptr %5, align 8
@@ -5526,7 +5526,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %213 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %211, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %212) #5
   %214 = zext i8 %210 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %209, ptr noundef nonnull @.str.1714, i32 noundef %214) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 215:                                              ; preds = %29
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_ansi_isup_transit_network_selection_parameter.indicators_fields, i32 noundef 0) #5
@@ -5534,7 +5534,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %217 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %216, ptr noundef %31, i32 noundef 1, i32 noundef 2, i32 noundef -2147483580) #5
   %218 = load i32, ptr @hf_ansi_isup_circuit_code, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %218, ptr noundef %31, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 220:                                              ; preds = %29
   %221 = load ptr, ptr %5, align 8
@@ -5549,7 +5549,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %230 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %228, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %229) #5
   %231 = call ptr @val_to_str_const(i32 noundef %225, ptr noundef nonnull @isup_event_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %221, ptr noundef nonnull @.str.1739, ptr noundef %231, i32 noundef %224) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 232:                                              ; preds = %29
   %233 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef 0) #5
@@ -5558,12 +5558,12 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %236 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %234, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %235) #5
   %237 = load i32, ptr @hf_isup_circuit_assignment_map, align 4
   %238 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %237, ptr noundef %31, i32 noundef 1, i32 noundef 5, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 239:                                              ; preds = %29
   %240 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_circuit_state_ind_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %240)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 241:                                              ; preds = %29
   %242 = load ptr, ptr %5, align 8
@@ -5573,7 +5573,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %246 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %244, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %245) #5
   %247 = call ptr @val_to_str_const(i32 noundef %245, ptr noundef nonnull @isup_auto_congestion_level_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %242, ptr noundef nonnull @.str.1739, ptr noundef %247, i32 noundef %245) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 248:                                              ; preds = %29
   %249 = load ptr, ptr %5, align 8
@@ -5586,7 +5586,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %254 = icmp sgt i8 %250, -1
   %255 = zext i1 %254 to i32
   %256 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %249, i32 noundef %251, i32 noundef %252, i32 noundef %253, i32 noundef %255, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 257:                                              ; preds = %29
   %258 = load ptr, ptr %5, align 8
@@ -5594,7 +5594,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %259 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef 0) #5
   %260 = zext i8 %259 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %258, ptr noundef nonnull @.str.1714, i32 noundef %260) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 261:                                              ; preds = %29
   %262 = load ptr, ptr %5, align 8
@@ -5608,7 +5608,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %dissect_isup_user_to_user_indicators_parameter.req_fields.dissect_isup_user_to_user_indicators_parameter.res_fields.i = select i1 %269, ptr @dissect_isup_user_to_user_indicators_parameter.req_fields, ptr @dissect_isup_user_to_user_indicators_parameter.res_fields
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %dissect_isup_user_to_user_indicators_parameter.req_fields.dissect_isup_user_to_user_indicators_parameter.res_fields.i, i32 noundef 0) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %262, ptr noundef nonnull @.str.1714, i32 noundef %267) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 270:                                              ; preds = %29
   %271 = load ptr, ptr %5, align 8
@@ -5618,7 +5618,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %275 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %274, ptr noundef %31, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %276 = zext nneg i16 %273 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.1761, i32 noundef %276) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 277:                                              ; preds = %29
   %278 = load ptr, ptr %5, align 8
@@ -5631,7 +5631,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %285 = zext nneg i8 %284 to i32
   %286 = call ptr @val_to_str_ext(i32 noundef %285, ptr noundef nonnull @q763_generic_notification_indicator_vals_ext, ptr noundef nonnull @.str.1763) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %278, ptr noundef nonnull @.str.1762, ptr noundef %286) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 287:                                              ; preds = %29
   %288 = load ptr, ptr %5, align 8
@@ -5640,7 +5640,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %291 = zext i16 %289 to i32
   %292 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %290, ptr noundef %31, i32 noundef 0, i32 noundef 2, i32 noundef %291, ptr noundef nonnull @.str.1764, i32 noundef %291) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %288, ptr noundef nonnull @.str.1765, i32 noundef %291) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 293:                                              ; preds = %29
   %294 = load ptr, ptr %5, align 8
@@ -5650,20 +5650,20 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %298 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %296, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %297) #5
   %299 = zext i8 %295 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %294, ptr noundef nonnull @.str.1714, i32 noundef %299) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 300:                                              ; preds = %29
   %301 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %302 = load i32, ptr @hf_isup_network_specific_facility, align 4
   %303 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %302, ptr noundef %31, i32 noundef 0, i32 noundef %301, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 304:                                              ; preds = %29
   %305 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %306 = load i32, ptr @hf_isup_user_service_information_prime, align 4
   %307 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %306, ptr noundef %31, i32 noundef 0, i32 noundef %305, i32 noundef 0) #5
   call void @dissect_q931_bearer_capability_ie(ptr noundef %31, i32 noundef 0, i32 noundef %305, ptr noundef %19) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 308:                                              ; preds = %29
   %309 = load ptr, ptr %5, align 8
@@ -5673,18 +5673,18 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %312 = load i32, ptr %4, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %309, ptr noundef nonnull @.str.1766, i32 noundef %312) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 313:                                              ; preds = %29
   %314 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %315 = load i32, ptr @hf_isup_remote_operations, align 4
   %316 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %315, ptr noundef %31, i32 noundef 0, i32 noundef %314, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 317:                                              ; preds = %29
   %318 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %.not.i258 = icmp eq i32 %318, 0
-  br i1 %.not.i258, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i
+  br i1 %.not.i258, label %dissect_isup_access_transport_parameter.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %317, %.lr.ph.i
   %.01.i = phi i32 [ %322, %.lr.ph.i ], [ 0, %317 ]
@@ -5694,14 +5694,14 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %322 = add nuw i32 %.01.i, 1
   %323 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %320, ptr noundef %31, i32 noundef %.01.i, i32 noundef 1, i32 noundef %321, ptr noundef nonnull @.str.1767, i32 noundef %322, i32 noundef %321) #5
   %exitcond.not.i = icmp eq i32 %322, %318
-  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.argprom.exit, label %.lr.ph.i, !llvm.loop !8
 
 324:                                              ; preds = %29
   %325 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %326 = load i32, ptr @hf_isup_user_teleservice_information, align 4
   %327 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %326, ptr noundef %31, i32 noundef 0, i32 noundef %325, i32 noundef 0) #5
   call void @dissect_q931_high_layer_compat_ie(ptr noundef %31, i32 noundef 0, i32 noundef %325, ptr noundef %19) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 328:                                              ; preds = %29
   %329 = load ptr, ptr %5, align 8
@@ -5711,7 +5711,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %333 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %331, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %332) #5
   %334 = call ptr @val_to_str_ext_const(i32 noundef %332, ptr noundef nonnull @isup_transmission_medium_requirement_prime_value_ext, ptr noundef nonnull @.str.1768) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %329, ptr noundef nonnull @.str.1734, i32 noundef %332, ptr noundef %334) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 335:                                              ; preds = %29
   %336 = load ptr, ptr %5, align 8
@@ -5720,7 +5720,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %339 = zext i8 %337 to i32
   %340 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %338, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %339, ptr noundef nonnull @.str.1769, i32 noundef %339) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %336, ptr noundef nonnull @.str.1714, i32 noundef %339) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 341:                                              ; preds = %29
   %342 = load ptr, ptr %5, align 8
@@ -5730,22 +5730,22 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %346 = call ptr @proto_tree_add_bitmask(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef %344, i32 noundef %345, ptr noundef nonnull @dissect_isup_echo_control_information_parameter.info, i32 noundef 0) #5
   %347 = zext i8 %343 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %342, ptr noundef nonnull @.str.1714, i32 noundef %347) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 348:                                              ; preds = %29
   %349 = load i32, ptr @hf_isup_message_compatibility_information, align 4
   %350 = load i32, ptr @ett_message_compatibility_information, align 4
   %351 = call ptr @proto_tree_add_bitmask(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef %349, i32 noundef %350, ptr noundef nonnull @dissect_isup_message_compatibility_information_parameter.params, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 352:                                              ; preds = %29
-  call fastcc void @dissect_isup_parameter_compatibility_information_parameter(ptr noundef %31, ptr noundef %19)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_isup_parameter_compatibility_information_parameter.argprom(ptr noundef %31, ptr noundef %19)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 353:                                              ; preds = %29
   %354 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef %31, ptr noundef %19, ptr noundef %354)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 355:                                              ; preds = %29
   %356 = load ptr, ptr %5, align 8
@@ -5754,7 +5754,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %359 = zext i8 %357 to i32
   %360 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %358, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %359, ptr noundef nonnull @.str.1773, i32 noundef %359) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %356, ptr noundef nonnull @.str.1714, i32 noundef %359) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 361:                                              ; preds = %29
   %362 = load ptr, ptr %5, align 8
@@ -5763,7 +5763,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %365 = zext i8 %363 to i32
   %366 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %364, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %365, ptr noundef nonnull @.str.1774, i32 noundef %365) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %362, ptr noundef nonnull @.str.1714, i32 noundef %365) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 367:                                              ; preds = %29
   %368 = load ptr, ptr %5, align 8
@@ -5773,7 +5773,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %372 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %371, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %373 = zext nneg i8 %370 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %368, ptr noundef nonnull @.str.1761, i32 noundef %373) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 374:                                              ; preds = %29
   %375 = load ptr, ptr %5, align 8
@@ -5782,7 +5782,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %378 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %377, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %379 = zext i8 %376 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %375, ptr noundef nonnull @.str.1775, i32 noundef %379) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 380:                                              ; preds = %29
   %381 = load ptr, ptr %5, align 8
@@ -5792,12 +5792,12 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %385 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %383, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %384) #5
   %386 = call ptr @val_to_str_ext_const(i32 noundef %384, ptr noundef nonnull @isup_transmission_medium_requirement_prime_value_ext, ptr noundef nonnull @.str.1768) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %381, ptr noundef nonnull @.str.1734, i32 noundef %384, ptr noundef %386) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 387:                                              ; preds = %29
   %388 = load ptr, ptr %5, align 8
   call void @dissect_isup_location_number_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19, ptr noundef %388)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 389:                                              ; preds = %29
   %390 = load ptr, ptr %5, align 8
@@ -5806,7 +5806,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %393 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %392, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %394 = zext i8 %391 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %390, ptr noundef nonnull @.str.1776, i32 noundef %394) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 395:                                              ; preds = %29
   %396 = load ptr, ptr %5, align 8
@@ -5815,7 +5815,7 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
   %399 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %398, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %400 = zext i8 %397 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %396, ptr noundef nonnull @.str.1761, i32 noundef %400) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 401:                                              ; preds = %29
   %402 = load ptr, ptr %5, align 8
@@ -5835,12 +5835,12 @@ define internal fastcc void @dissect_ansi_isup_optional_parameter(ptr noundef %0
 dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %.str.1778.sink.i = phi ptr [ @.str.1778, %409 ], [ @.str.1777, %401 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %402, ptr noundef nonnull %.str.1778.sink.i, i32 noundef %406) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 412:                                              ; preds = %29
   %413 = load ptr, ptr %5, align 8
   call fastcc void @dissect_isup_call_transfer_number_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19, ptr noundef %413)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 414:                                              ; preds = %29
   %415 = load ptr, ptr %5, align 8
@@ -5852,13 +5852,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %421 = icmp eq i32 %420, 0
   %.str.1779..str.1780.i = select i1 %421, ptr @.str.1779, ptr @.str.1780
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %415, ptr noundef nonnull %.str.1779..str.1780.i, i32 noundef %419) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 422:                                              ; preds = %29
   %423 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %424 = load i32, ptr @hf_isup_forward_gvns, align 4
   %425 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %424, ptr noundef %31, i32 noundef 0, i32 noundef %423, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 426:                                              ; preds = %29
   %427 = load ptr, ptr %5, align 8
@@ -5867,13 +5867,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %430 = zext i8 %428 to i32
   %431 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %429, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %430, ptr noundef nonnull @.str.1781, i32 noundef %430) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %427, ptr noundef nonnull @.str.1714, i32 noundef %430) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 432:                                              ; preds = %29
   %433 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %434 = load i32, ptr @hf_isup_redirect_capability, align 4
   %435 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %434, ptr noundef %31, i32 noundef 0, i32 noundef %433, i32 noundef 0, ptr noundef nonnull @.str.1782) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 436:                                              ; preds = %29
   %437 = load ptr, ptr %5, align 8
@@ -5885,19 +5885,19 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %443 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %442, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %440) #5
   %444 = zext i8 %438 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %437, ptr noundef nonnull @.str.1714, i32 noundef %444) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 445:                                              ; preds = %29
   %446 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %447 = load i32, ptr @hf_isup_correlation_id, align 4
   %448 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %447, ptr noundef %31, i32 noundef 0, i32 noundef %446, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 449:                                              ; preds = %29
   %450 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %451 = load i32, ptr @hf_isup_scf_id, align 4
   %452 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %451, ptr noundef %31, i32 noundef 0, i32 noundef %450, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 453:                                              ; preds = %29
   %454 = load ptr, ptr %5, align 8
@@ -5909,7 +5909,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %460 = zext i8 %455 to i64
   %461 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %459, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %460) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %454, ptr noundef nonnull @.str.1714, i32 noundef %457) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 462:                                              ; preds = %29
   %463 = load ptr, ptr %5, align 8
@@ -5922,7 +5922,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %468 = icmp sgt i8 %464, -1
   %469 = zext i1 %468 to i32
   %470 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %463, i32 noundef %465, i32 noundef %466, i32 noundef %467, i32 noundef %469, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 471:                                              ; preds = %29
   %472 = load ptr, ptr %5, align 8
@@ -5934,13 +5934,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %478 = zext i8 %473 to i64
   %479 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %477, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %478) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %472, ptr noundef nonnull @.str.1714, i32 noundef %475) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 480:                                              ; preds = %29
   %481 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %482 = load i32, ptr @hf_isup_charged_party_identification, align 4
   %483 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %482, ptr noundef %31, i32 noundef 0, i32 noundef %481, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 484:                                              ; preds = %29
   %485 = load ptr, ptr %5, align 8
@@ -5952,13 +5952,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %491 = zext i8 %486 to i64
   %492 = call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %490, ptr noundef %31, i32 noundef 0, i32 noundef 1, i64 noundef %491) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %485, ptr noundef nonnull @.str.1714, i32 noundef %488) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 493:                                              ; preds = %29
   %494 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %495 = load i32, ptr @hf_isup_display_information, align 4
   %496 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %495, ptr noundef %31, i32 noundef 0, i32 noundef %494, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 497:                                              ; preds = %29
   %498 = load ptr, ptr %5, align 8
@@ -5967,7 +5967,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %501 = zext i8 %499 to i32
   %502 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %500, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %501, ptr noundef nonnull @.str.1783, i32 noundef %501) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %498, ptr noundef nonnull @.str.1714, i32 noundef %501) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 503:                                              ; preds = %29
   %504 = load ptr, ptr %5, align 8
@@ -5976,13 +5976,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %507 = zext i8 %505 to i32
   %508 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %506, ptr noundef %31, i32 noundef 0, i32 noundef 1, i32 noundef %507, ptr noundef nonnull @.str.1784, i32 noundef %507) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %504, ptr noundef nonnull @.str.1714, i32 noundef %507) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 509:                                              ; preds = %29
   %510 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %511 = load i32, ptr @hf_isup_redirect_counter, align 4
   %512 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %511, ptr noundef %31, i32 noundef 0, i32 noundef %510, i32 noundef 0, ptr noundef nonnull @.str.1782) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 513:                                              ; preds = %29
   %514 = load ptr, ptr %5, align 8
@@ -5994,16 +5994,16 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %520 = icmp eq i32 %519, 0
   %.str.1785..str.1786.i = select i1 %520, ptr @.str.1785, ptr @.str.1786
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %514, ptr noundef nonnull %.str.1785..str.1786.i, i32 noundef %518) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 521:                                              ; preds = %29
   call void @dissect_isup_calling_geodetic_location_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19, ptr poison)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 522:                                              ; preds = %29
   %523 = load ptr, ptr %5, align 8
   call void @dissect_isup_generic_number_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19, ptr noundef %523)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 524:                                              ; preds = %29
   %525 = load ptr, ptr %5, align 8
@@ -6014,7 +6014,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %530 = icmp ne i32 %529, 0
   %531 = zext i1 %530 to i32
   %532 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 0, ptr noundef %1, ptr noundef %19, ptr noundef %525, i32 noundef %526, i32 noundef %527, i32 noundef %528, i32 noundef %531, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 533:                                              ; preds = %29
   %534 = load ptr, ptr %5, align 8
@@ -6031,13 +6031,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %543 = load i32, ptr @hf_isup_generic_name_ia5, align 4
   %544 = call ptr @proto_tree_add_string(ptr noundef %19, i32 noundef %543, ptr noundef %31, i32 noundef 1, i32 noundef %538, ptr noundef %540) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %534, ptr noundef nonnull @.str.1762, ptr noundef %540) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 545:                                              ; preds = %29
   %546 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %547 = load i32, ptr @hf_isup_generic_digits, align 4
   %548 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %547, ptr noundef %31, i32 noundef 0, i32 noundef %546, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 549:                                              ; preds = %29
   %550 = load ptr, ptr %5, align 8
@@ -6051,25 +6051,25 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %401, %409
   %557 = icmp sgt i8 %551, -1
   %558 = zext i1 %557 to i32
   %559 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %31, i32 noundef 2, ptr noundef %1, ptr noundef %19, ptr noundef %550, i32 noundef %554, i32 noundef %555, i32 noundef %556, i32 noundef %558, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 560:                                              ; preds = %29
-  call fastcc void @dissect_isup_application_transport_parameter(ptr noundef %31, ptr noundef %1, ptr noundef %19)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_isup_application_transport_parameter.argprom(ptr noundef %31, ptr noundef %1, ptr noundef %19)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 561:                                              ; preds = %29
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %31, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_ansi_isup_param_carrier_id.flags, i32 noundef 0) #5
   %562 = load i32, ptr @hf_ansi_isup_nw_id, align 4
   %563 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %562, ptr noundef %31, i32 noundef 1, i32 noundef 2, i32 noundef -2147483580) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 564:                                              ; preds = %29
   %565 = call i32 @tvb_reported_length(ptr noundef %31) #5
   %566 = load i32, ptr @hf_isup_parameter_value, align 4
   %567 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %566, ptr noundef %31, i32 noundef 0, i32 noundef %565, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
-dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %317, %53, %49, %564, %561, %560, %549, %545, %533, %524, %522, %521, %513, %509, %503, %497, %493, %484, %480, %471, %462, %453, %449, %445, %436, %432, %426, %422, %414, %412, %dissect_isup_loop_prevention_indicators_parameter.exit, %395, %389, %387, %380, %374, %367, %361, %355, %353, %352, %348, %341, %335, %328, %324, %313, %308, %304, %300, %293, %287, %277, %270, %261, %257, %248, %241, %239, %232, %220, %215, %208, %199, %195, %188, %184, %182, %177, %175, %168, %166, %164, %158, %151, %147, %143, %141, %132, %123, %108, %102, %96, %89, %82, %70, %55, %42, %32
+dissect_isup_access_transport_parameter.argprom.exit: ; preds = %.lr.ph.i, %317, %53, %49, %564, %561, %560, %549, %545, %533, %524, %522, %521, %513, %509, %503, %497, %493, %484, %480, %471, %462, %453, %449, %445, %436, %432, %426, %422, %414, %412, %dissect_isup_loop_prevention_indicators_parameter.exit, %395, %389, %387, %380, %374, %367, %361, %355, %353, %352, %348, %341, %335, %328, %324, %313, %308, %304, %300, %293, %287, %277, %270, %261, %257, %248, %241, %239, %232, %220, %215, %208, %199, %195, %188, %184, %182, %177, %175, %168, %166, %164, %158, %151, %147, %143, %141, %132, %123, %108, %102, %96, %89, %82, %70, %55, %42, %32
   %568 = add i32 %30, %25
   br label %.backedge
 
@@ -6079,8 +6079,8 @@ dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %317, %53
   %571 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0259) #5
   br label %._crit_edge
 
-.backedge:                                        ; preds = %dissect_isup_access_transport_parameter.exit, %27, %11
-  %.0.be = phi i32 [ %25, %11 ], [ %25, %27 ], [ %568, %dissect_isup_access_transport_parameter.exit ]
+.backedge:                                        ; preds = %dissect_isup_access_transport_parameter.argprom.exit, %27, %11
+  %.0.be = phi i32 [ %25, %11 ], [ %25, %27 ], [ %568, %dissect_isup_access_transport_parameter.argprom.exit ]
   %572 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.be) #5
   %573 = icmp sgt i32 %572, 0
   br i1 %573, label %9, label %._crit_edge, !llvm.loop !9
@@ -6332,7 +6332,7 @@ define internal fastcc void @dissect_isup_closed_user_group_interlock_code_param
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_parameter_compatibility_information_parameter(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_parameter_compatibility_information_parameter.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %.old1.not = icmp eq i32 %3, 0
   br i1 %.old1.not, label %.loopexit, label %.preheader
@@ -6468,7 +6468,7 @@ define internal fastcc void @dissect_isup_call_transfer_number_parameter(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_application_transport_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_application_transport_parameter.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
@@ -7029,7 +7029,7 @@ dissect_bat_ase_Encapsulated_Application_Information.exit: ; preds = %.loopexit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_unknown_parameter(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_unknown_parameter.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %4 = load i32, ptr @hf_isup_parameter_value, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef 0) #5
@@ -7070,7 +7070,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_isup_address_complete_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_isup_address_complete_message.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.1738) #5
@@ -7092,7 +7092,7 @@ define internal fastcc void @dissect_isup_address_complete_message(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_french_isup_charging_pulse_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_french_isup_charging_pulse_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_isup_french_coll_field, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %5 = load i32, ptr @hf_isup_french_msg_num, align 4
@@ -7101,7 +7101,7 @@ define internal fastcc void @dissect_french_isup_charging_pulse_message(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_israeli_backward_charging_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_israeli_backward_charging_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_isup_israeli_charging_message_indicators_current, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_isup_israeli_charging_message_indicators_next, align 4
@@ -7116,7 +7116,7 @@ define internal fastcc void @dissect_israeli_backward_charging_message(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_israeli_traffic_change_message(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_israeli_traffic_change_message.argelim(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_isup_israeli_charging_message_indicators_current, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #5
   %5 = load i32, ptr @hf_isup_israeli_charging_message_indicators_next, align 4
@@ -7129,7 +7129,7 @@ define internal fastcc void @dissect_israeli_traffic_change_message(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_chg_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_chg_inf.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_isup_parameter, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.582) #5
@@ -7168,11 +7168,11 @@ define internal fastcc void @dissect_japan_chg_inf(ptr noundef %0, ptr noundef %
   ]
 
 36:                                               ; preds = %3
-  call fastcc void @dissect_japan_chg_inf_type_acr(ptr noundef %35, ptr noundef %24)
+  call fastcc void @dissect_japan_chg_inf_type_acr.argprom(ptr noundef %35, ptr noundef %24)
   br label %40
 
 37:                                               ; preds = %3
-  call fastcc void @dissect_japan_chg_inf_type_crt(ptr noundef %35, ptr noundef %24)
+  call fastcc void @dissect_japan_chg_inf_type_crt.argprom(ptr noundef %35, ptr noundef %24)
   br label %40
 
 38:                                               ; preds = %3
@@ -7194,9 +7194,9 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %russian_isup_calling_partys_category_value_ext.isup_calling_partys_category_value_ext.i = select i1 %9, ptr @russian_isup_calling_partys_category_value_ext, ptr @isup_calling_partys_category_value_ext
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %dissect_isup_access_transport_parameter.exit, %4
-  %.0295.ph.ph = phi i32 [ %585, %dissect_isup_access_transport_parameter.exit ], [ 0, %4 ]
-  %.0.ph.ph = phi i16 [ %.1, %dissect_isup_access_transport_parameter.exit ], [ -1, %4 ]
+.outer.outer:                                     ; preds = %dissect_isup_access_transport_parameter.argprom.exit, %4
+  %.0295.ph.ph = phi i32 [ %585, %dissect_isup_access_transport_parameter.argprom.exit ], [ 0, %4 ]
+  %.0.ph.ph = phi i16 [ %.1, %dissect_isup_access_transport_parameter.argprom.exit ], [ -1, %4 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
@@ -7366,7 +7366,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %57 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %56, ptr noundef %48, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
   %58 = zext nneg i16 %53 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.1758, i32 noundef %51, i32 noundef %58) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 59:                                               ; preds = %46
   %60 = load ptr, ptr %6, align 8
@@ -7376,18 +7376,18 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %64 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %62, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %63) #5
   %65 = call ptr @val_to_str_ext_const(i32 noundef %63, ptr noundef nonnull @isup_transmission_medium_requirement_value_ext, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.1734, i32 noundef %63, ptr noundef %65) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 66:                                               ; preds = %46
   %67 = load i32, ptr @hf_isup_access_transport_parameter_field, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %67, ptr noundef %48, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %69 = load ptr, ptr @q931_ie_handle, align 8
   %.not.i = icmp eq ptr %69, null
-  br i1 %.not.i, label %dissect_isup_access_transport_parameter.exit, label %70
+  br i1 %.not.i, label %dissect_isup_access_transport_parameter.argprom.exit, label %70
 
 70:                                               ; preds = %66
   %71 = call i32 @call_dissector(ptr noundef nonnull %69, ptr noundef %48, ptr noundef %1, ptr noundef %30) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %6, align 8
@@ -7407,7 +7407,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %85 = zext nneg i8 %84 to i32
   %86 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %73, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %80, i32 noundef %83, i32 noundef %85)
   store ptr %86, ptr @tap_called_number, align 8
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 87:                                               ; preds = %46
   %88 = load ptr, ptr %6, align 8
@@ -7421,7 +7421,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %96 = icmp sgt i8 %89, -1
   %97 = zext i1 %96 to i32
   %98 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 1, ptr noundef %1, ptr noundef %30, ptr noundef %88, i32 noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef %97, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 99:                                               ; preds = %46
   %100 = load ptr, ptr %6, align 8
@@ -7433,7 +7433,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   call void @proto_tree_add_bitmask_list(ptr noundef %30, ptr noundef %48, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %104, i32 noundef 0) #5
   %105 = zext i8 %101 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.1714, i32 noundef %105) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 106:                                              ; preds = %46
   %107 = load ptr, ptr %6, align 8
@@ -7445,7 +7445,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   call void @proto_tree_add_bitmask_list(ptr noundef %30, ptr noundef %48, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %111, i32 noundef 0) #5
   %112 = zext i16 %108 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef nonnull @.str.1714, i32 noundef %112) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 113:                                              ; preds = %46
   %114 = load ptr, ptr %6, align 8
@@ -7455,7 +7455,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %117 = and i32 %116, 3
   %118 = call ptr @val_to_str_const(i32 noundef %117, ptr noundef nonnull @isup_CUG_call_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.1739, ptr noundef %118, i32 noundef %116) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 119:                                              ; preds = %46
   %120 = load ptr, ptr %6, align 8
@@ -7467,7 +7467,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %124 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %123, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %122) #5
   %125 = call ptr @val_to_str_ext_const(i32 noundef %122, ptr noundef nonnull %russian_isup_calling_partys_category_value_ext.isup_calling_partys_category_value_ext.i, ptr noundef nonnull @.str.1716) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %120, ptr noundef nonnull @.str.1715, i32 noundef %122, ptr noundef %125) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 126:                                              ; preds = %46
   %127 = load ptr, ptr %6, align 8
@@ -7487,7 +7487,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %139 = zext nneg i8 %138 to i32
   %140 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %127, i32 noundef %130, i32 noundef %131, i32 noundef %132, i32 noundef %134, i32 noundef %137, i32 noundef %139)
   store ptr %140, ptr @tap_calling_number, align 8
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 141:                                              ; preds = %46
   %142 = load ptr, ptr %6, align 8
@@ -7500,7 +7500,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %147 = icmp sgt i8 %143, -1
   %148 = zext i1 %147 to i32
   %149 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %142, i32 noundef %144, i32 noundef %145, i32 noundef %146, i32 noundef %148, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 150:                                              ; preds = %46
   %151 = load ptr, ptr %6, align 8
@@ -7513,12 +7513,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %156 = icmp sgt i8 %152, -1
   %157 = zext i1 %156 to i32
   %158 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %151, i32 noundef %153, i32 noundef %154, i32 noundef %155, i32 noundef %157, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 159:                                              ; preds = %46
   %160 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_connection_request_parameter(ptr noundef %48, ptr noundef %30, ptr noundef %160)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 161:                                              ; preds = %46
   %162 = load ptr, ptr %6, align 8
@@ -7526,7 +7526,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %163 = call zeroext i16 @tvb_get_ntohs(ptr noundef %48, i32 noundef 0) #5
   %164 = zext i16 %163 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %162, ptr noundef nonnull @.str.1714, i32 noundef %164) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 165:                                              ; preds = %46
   %166 = load ptr, ptr %6, align 8
@@ -7534,7 +7534,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %167 = call zeroext i16 @tvb_get_ntohs(ptr noundef %48, i32 noundef 0) #5
   %168 = zext i16 %167 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %166, ptr noundef nonnull @.str.1714, i32 noundef %168) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 169:                                              ; preds = %46
   %170 = load ptr, ptr %6, align 8
@@ -7544,7 +7544,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %174 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %172, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %173) #5
   %175 = zext i8 %171 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.1714, i32 noundef %175) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 176:                                              ; preds = %46
   %177 = load ptr, ptr %6, align 8
@@ -7556,7 +7556,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %180 = call zeroext i16 @tvb_get_ntohs(ptr noundef %48, i32 noundef 0) #5
   %181 = zext i16 %180 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %177, ptr noundef nonnull @.str.1714, i32 noundef %181) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 182:                                              ; preds = %46
   %183 = call i32 @tvb_reported_length(ptr noundef %48) #5
@@ -7564,12 +7564,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %185 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %184, ptr noundef %48, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %186 = load i32, ptr @hf_isup_cause_indicator, align 4
   call void @dissect_q931_cause_ie(ptr noundef %48, i32 noundef 0, i32 noundef %183, ptr noundef %30, i32 noundef %186, ptr noundef nonnull @tap_cause_value, ptr noundef nonnull @isup_parameter_type_value) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 187:                                              ; preds = %46
   %188 = load ptr, ptr %6, align 8
   call void @dissect_isup_redirection_information_parameter(ptr noundef %48, ptr noundef %30, ptr noundef %188)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 189:                                              ; preds = %46
   %190 = load ptr, ptr %6, align 8
@@ -7579,12 +7579,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %194 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %192, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %193) #5
   %195 = call ptr @val_to_str_const(i32 noundef %193, ptr noundef nonnull @isup_cgs_message_type_value, ptr noundef nonnull @.str.1745) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef nonnull @.str.1739, ptr noundef %195, i32 noundef %193) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 196:                                              ; preds = %46
   %197 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_range_and_status_parameter(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %197)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 198:                                              ; preds = %46
   %199 = load ptr, ptr %6, align 8
@@ -7592,19 +7592,19 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %201 = zext i8 %200 to i32
   %202 = call ptr @val_to_str_const(i32 noundef %201, ptr noundef nonnull @isup_facility_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %199, ptr noundef nonnull @.str.1739, ptr noundef %202, i32 noundef %201) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 203:                                              ; preds = %46
   %204 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_closed_user_group_interlock_code_parameter(ptr noundef %48, ptr noundef %30, ptr noundef %204)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 205:                                              ; preds = %46
   %206 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %207 = load i32, ptr @hf_isup_user_service_information, align 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %207, ptr noundef %48, i32 noundef 0, i32 noundef %206, i32 noundef 0) #5
   call void @dissect_q931_bearer_capability_ie(ptr noundef %48, i32 noundef 0, i32 noundef %206, ptr noundef %30) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 209:                                              ; preds = %46
   %210 = load ptr, ptr %6, align 8
@@ -7614,14 +7614,14 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %214 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %213, ptr noundef %48, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %215 = zext nneg i16 %212 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %210, ptr noundef nonnull @.str.1761, i32 noundef %215) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 216:                                              ; preds = %46
   %217 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %218 = load i32, ptr @hf_isup_user_to_user_info, align 4
   %219 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %218, ptr noundef %48, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   call void @dissect_q931_user_user_ie(ptr noundef %48, ptr noundef %1, i32 noundef 0, i32 noundef %217, ptr noundef %30) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 220:                                              ; preds = %46
   %221 = load ptr, ptr %6, align 8
@@ -7634,7 +7634,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %226 = icmp sgt i8 %222, -1
   %227 = zext i1 %226 to i32
   %228 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %221, i32 noundef %223, i32 noundef %224, i32 noundef %225, i32 noundef %227, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 229:                                              ; preds = %46
   %230 = load ptr, ptr %6, align 8
@@ -7644,7 +7644,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %234 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %232, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %233) #5
   %235 = zext i8 %231 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef nonnull @.str.1714, i32 noundef %235) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 236:                                              ; preds = %46
   %237 = load ptr, ptr %6, align 8
@@ -7656,7 +7656,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %242 = icmp sgt i8 %238, -1
   %243 = zext i1 %242 to i32
   %244 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 1, ptr noundef %1, ptr noundef %30, ptr noundef %237, i32 noundef %239, i32 noundef %240, i32 noundef %241, i32 noundef %243, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 245:                                              ; preds = %46
   %246 = load ptr, ptr %6, align 8
@@ -7671,7 +7671,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %255 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %253, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %254) #5
   %256 = call ptr @val_to_str_const(i32 noundef %250, ptr noundef nonnull @isup_event_ind_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %246, ptr noundef nonnull @.str.1739, ptr noundef %256, i32 noundef %249) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 257:                                              ; preds = %46
   %258 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef 0) #5
@@ -7680,12 +7680,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %261 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %259, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %260) #5
   %262 = load i32, ptr @hf_isup_circuit_assignment_map, align 4
   %263 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %262, ptr noundef %48, i32 noundef 1, i32 noundef 5, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 264:                                              ; preds = %46
   %265 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_circuit_state_ind_parameter(ptr noundef %48, ptr noundef %30, ptr noundef %265)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 266:                                              ; preds = %46
   %267 = load ptr, ptr %6, align 8
@@ -7695,7 +7695,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %271 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %269, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %270) #5
   %272 = call ptr @val_to_str_const(i32 noundef %270, ptr noundef nonnull @isup_auto_congestion_level_value, ptr noundef nonnull @.str.861) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %267, ptr noundef nonnull @.str.1739, ptr noundef %272, i32 noundef %270) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 273:                                              ; preds = %46
   %274 = load ptr, ptr %6, align 8
@@ -7708,7 +7708,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %279 = icmp sgt i8 %275, -1
   %280 = zext i1 %279 to i32
   %281 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %274, i32 noundef %276, i32 noundef %277, i32 noundef %278, i32 noundef %280, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 282:                                              ; preds = %46
   %283 = load ptr, ptr %6, align 8
@@ -7716,7 +7716,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %284 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef 0) #5
   %285 = zext i8 %284 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %283, ptr noundef nonnull @.str.1714, i32 noundef %285) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 286:                                              ; preds = %46
   %287 = load ptr, ptr %6, align 8
@@ -7730,7 +7730,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %dissect_isup_user_to_user_indicators_parameter.req_fields.dissect_isup_user_to_user_indicators_parameter.res_fields.i = select i1 %294, ptr @dissect_isup_user_to_user_indicators_parameter.req_fields, ptr @dissect_isup_user_to_user_indicators_parameter.res_fields
   call void @proto_tree_add_bitmask_list(ptr noundef %30, ptr noundef %48, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %dissect_isup_user_to_user_indicators_parameter.req_fields.dissect_isup_user_to_user_indicators_parameter.res_fields.i, i32 noundef 0) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %287, ptr noundef nonnull @.str.1714, i32 noundef %292) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 295:                                              ; preds = %46
   %296 = load ptr, ptr %6, align 8
@@ -7740,7 +7740,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %300 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %299, ptr noundef %48, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
   %301 = zext nneg i16 %298 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef nonnull @.str.1761, i32 noundef %301) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 302:                                              ; preds = %46
   %303 = load ptr, ptr %6, align 8
@@ -7753,7 +7753,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %310 = zext nneg i8 %309 to i32
   %311 = call ptr @val_to_str_ext(i32 noundef %310, ptr noundef nonnull @q763_generic_notification_indicator_vals_ext, ptr noundef nonnull @.str.1763) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %303, ptr noundef nonnull @.str.1762, ptr noundef %311) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 312:                                              ; preds = %46
   %313 = load ptr, ptr %6, align 8
@@ -7762,7 +7762,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %316 = zext i16 %314 to i32
   %317 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %315, ptr noundef %48, i32 noundef 0, i32 noundef 2, i32 noundef %316, ptr noundef nonnull @.str.1764, i32 noundef %316) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %313, ptr noundef nonnull @.str.1765, i32 noundef %316) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 318:                                              ; preds = %46
   %319 = load ptr, ptr %6, align 8
@@ -7772,20 +7772,20 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %323 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %321, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %322) #5
   %324 = zext i8 %320 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %319, ptr noundef nonnull @.str.1714, i32 noundef %324) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 325:                                              ; preds = %46
   %326 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %327 = load i32, ptr @hf_isup_network_specific_facility, align 4
   %328 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %327, ptr noundef %48, i32 noundef 0, i32 noundef %326, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 329:                                              ; preds = %46
   %330 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %331 = load i32, ptr @hf_isup_user_service_information_prime, align 4
   %332 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %331, ptr noundef %48, i32 noundef 0, i32 noundef %330, i32 noundef 0) #5
   call void @dissect_q931_bearer_capability_ie(ptr noundef %48, i32 noundef 0, i32 noundef %330, ptr noundef %30) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 333:                                              ; preds = %46
   %334 = load ptr, ptr %6, align 8
@@ -7795,18 +7795,18 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %337 = load i32, ptr %5, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %334, ptr noundef nonnull @.str.1766, i32 noundef %337) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 338:                                              ; preds = %46
   %339 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %340 = load i32, ptr @hf_isup_remote_operations, align 4
   %341 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %340, ptr noundef %48, i32 noundef 0, i32 noundef %339, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 342:                                              ; preds = %46
   %343 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %.not.i308 = icmp eq i32 %343, 0
-  br i1 %.not.i308, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i
+  br i1 %.not.i308, label %dissect_isup_access_transport_parameter.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %342, %.lr.ph.i
   %.01.i = phi i32 [ %347, %.lr.ph.i ], [ 0, %342 ]
@@ -7816,14 +7816,14 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %347 = add nuw i32 %.01.i, 1
   %348 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %30, i32 noundef %345, ptr noundef %48, i32 noundef %.01.i, i32 noundef 1, i32 noundef %346, ptr noundef nonnull @.str.1767, i32 noundef %347, i32 noundef %346) #5
   %exitcond.not.i = icmp eq i32 %347, %343
-  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %dissect_isup_access_transport_parameter.argprom.exit, label %.lr.ph.i, !llvm.loop !8
 
 349:                                              ; preds = %46
   %350 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %351 = load i32, ptr @hf_isup_user_teleservice_information, align 4
   %352 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %351, ptr noundef %48, i32 noundef 0, i32 noundef %350, i32 noundef 0) #5
   call void @dissect_q931_high_layer_compat_ie(ptr noundef %48, i32 noundef 0, i32 noundef %350, ptr noundef %30) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 353:                                              ; preds = %46
   %354 = load ptr, ptr %6, align 8
@@ -7833,7 +7833,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %358 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %356, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %357) #5
   %359 = call ptr @val_to_str_ext_const(i32 noundef %357, ptr noundef nonnull @isup_transmission_medium_requirement_prime_value_ext, ptr noundef nonnull @.str.1768) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %354, ptr noundef nonnull @.str.1734, i32 noundef %357, ptr noundef %359) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 360:                                              ; preds = %46
   %361 = load ptr, ptr %6, align 8
@@ -7842,7 +7842,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %364 = zext i8 %362 to i32
   %365 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %363, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %364, ptr noundef nonnull @.str.1769, i32 noundef %364) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %361, ptr noundef nonnull @.str.1714, i32 noundef %364) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 366:                                              ; preds = %46
   %367 = load ptr, ptr %6, align 8
@@ -7852,22 +7852,22 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %371 = call ptr @proto_tree_add_bitmask(ptr noundef %30, ptr noundef %48, i32 noundef 0, i32 noundef %369, i32 noundef %370, ptr noundef nonnull @dissect_isup_echo_control_information_parameter.info, i32 noundef 0) #5
   %372 = zext i8 %368 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %367, ptr noundef nonnull @.str.1714, i32 noundef %372) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 373:                                              ; preds = %46
   %374 = load i32, ptr @hf_isup_message_compatibility_information, align 4
   %375 = load i32, ptr @ett_message_compatibility_information, align 4
   %376 = call ptr @proto_tree_add_bitmask(ptr noundef %30, ptr noundef %48, i32 noundef 0, i32 noundef %374, i32 noundef %375, ptr noundef nonnull @dissect_isup_message_compatibility_information_parameter.params, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 377:                                              ; preds = %46
-  call fastcc void @dissect_isup_parameter_compatibility_information_parameter(ptr noundef %48, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_isup_parameter_compatibility_information_parameter.argprom(ptr noundef %48, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 378:                                              ; preds = %46
   %379 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_mlpp_precedence_parameter(ptr noundef %48, ptr noundef %30, ptr noundef %379)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 380:                                              ; preds = %46
   %381 = load ptr, ptr %6, align 8
@@ -7876,7 +7876,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %384 = zext i8 %382 to i32
   %385 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %383, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %384, ptr noundef nonnull @.str.1773, i32 noundef %384) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %381, ptr noundef nonnull @.str.1714, i32 noundef %384) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 386:                                              ; preds = %46
   %387 = load ptr, ptr %6, align 8
@@ -7885,7 +7885,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %390 = zext i8 %388 to i32
   %391 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %389, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %390, ptr noundef nonnull @.str.1774, i32 noundef %390) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %387, ptr noundef nonnull @.str.1714, i32 noundef %390) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 392:                                              ; preds = %46
   %393 = load ptr, ptr %6, align 8
@@ -7895,7 +7895,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %397 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %396, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %398 = zext nneg i8 %395 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %393, ptr noundef nonnull @.str.1761, i32 noundef %398) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 399:                                              ; preds = %46
   %400 = load ptr, ptr %6, align 8
@@ -7905,12 +7905,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %404 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %402, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %403) #5
   %405 = call ptr @val_to_str_ext_const(i32 noundef %403, ptr noundef nonnull @isup_transmission_medium_requirement_prime_value_ext, ptr noundef nonnull @.str.1768) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %400, ptr noundef nonnull @.str.1734, i32 noundef %403, ptr noundef %405) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 406:                                              ; preds = %46
   %407 = load ptr, ptr %6, align 8
   call void @dissect_isup_location_number_parameter(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %407)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 408:                                              ; preds = %46
   %409 = load ptr, ptr %6, align 8
@@ -7919,7 +7919,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %412 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %411, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %413 = zext i8 %410 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %409, ptr noundef nonnull @.str.1776, i32 noundef %413) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 414:                                              ; preds = %46
   %415 = load ptr, ptr %6, align 8
@@ -7928,7 +7928,7 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
   %418 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %417, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %419 = zext i8 %416 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %415, ptr noundef nonnull @.str.1761, i32 noundef %419) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 420:                                              ; preds = %46
   %421 = load ptr, ptr %6, align 8
@@ -7948,12 +7948,12 @@ define internal fastcc void @dissect_isup_optional_parameter(ptr noundef %0, ptr
 dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %.str.1778.sink.i = phi ptr [ @.str.1778, %428 ], [ @.str.1777, %420 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %421, ptr noundef nonnull %.str.1778.sink.i, i32 noundef %425) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 431:                                              ; preds = %46
   %432 = load ptr, ptr %6, align 8
   call fastcc void @dissect_isup_call_transfer_number_parameter(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %432)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 433:                                              ; preds = %46
   %434 = load ptr, ptr %6, align 8
@@ -7965,13 +7965,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %440 = icmp eq i32 %439, 0
   %.str.1779..str.1780.i = select i1 %440, ptr @.str.1779, ptr @.str.1780
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %434, ptr noundef nonnull %.str.1779..str.1780.i, i32 noundef %438) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 441:                                              ; preds = %46
   %442 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %443 = load i32, ptr @hf_isup_forward_gvns, align 4
   %444 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %443, ptr noundef %48, i32 noundef 0, i32 noundef %442, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 445:                                              ; preds = %46
   %446 = load ptr, ptr %6, align 8
@@ -7980,7 +7980,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %449 = zext i8 %447 to i32
   %450 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %448, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %449, ptr noundef nonnull @.str.1781, i32 noundef %449) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %446, ptr noundef nonnull @.str.1714, i32 noundef %449) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 451:                                              ; preds = %46
   %452 = call i32 @tvb_reported_length(ptr noundef %48) #5
@@ -7991,12 +7991,12 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %455 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %454, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %456 = load i32, ptr @hf_japan_isup_redirect_capability, align 4
   %457 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %456, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 458:                                              ; preds = %451
   %459 = load i32, ptr @hf_isup_redirect_capability, align 4
   %460 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %459, ptr noundef %48, i32 noundef 0, i32 noundef %452, i32 noundef %8, ptr noundef nonnull @.str.1782) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 461:                                              ; preds = %46
   %462 = load ptr, ptr %6, align 8
@@ -8008,19 +8008,19 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %468 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %467, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %465) #5
   %469 = zext i8 %463 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %462, ptr noundef nonnull @.str.1714, i32 noundef %469) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 470:                                              ; preds = %46
   %471 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %472 = load i32, ptr @hf_isup_correlation_id, align 4
   %473 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %472, ptr noundef %48, i32 noundef 0, i32 noundef %471, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 474:                                              ; preds = %46
   %475 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %476 = load i32, ptr @hf_isup_scf_id, align 4
   %477 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %476, ptr noundef %48, i32 noundef 0, i32 noundef %475, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 478:                                              ; preds = %46
   %479 = load ptr, ptr %6, align 8
@@ -8032,7 +8032,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %485 = zext i8 %480 to i64
   %486 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %484, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %485) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %479, ptr noundef nonnull @.str.1714, i32 noundef %482) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 487:                                              ; preds = %46
   %488 = load ptr, ptr %6, align 8
@@ -8045,7 +8045,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %493 = icmp sgt i8 %489, -1
   %494 = zext i1 %493 to i32
   %495 = call fastcc ptr @dissect_isup_digits_common(ptr noundef %48, i32 noundef 2, ptr noundef %1, ptr noundef %30, ptr noundef %488, i32 noundef %490, i32 noundef %491, i32 noundef %492, i32 noundef %494, i32 noundef 0, i32 noundef 0)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 496:                                              ; preds = %46
   %497 = load ptr, ptr %6, align 8
@@ -8057,13 +8057,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %503 = zext i8 %498 to i64
   %504 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %502, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %503) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %497, ptr noundef nonnull @.str.1714, i32 noundef %500) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 505:                                              ; preds = %46
   %506 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %507 = load i32, ptr @hf_isup_charged_party_identification, align 4
   %508 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %507, ptr noundef %48, i32 noundef 0, i32 noundef %506, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 509:                                              ; preds = %46
   %510 = load ptr, ptr %6, align 8
@@ -8075,13 +8075,13 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %516 = zext i8 %511 to i64
   %517 = call ptr @proto_tree_add_boolean(ptr noundef %30, i32 noundef %515, ptr noundef %48, i32 noundef 0, i32 noundef 1, i64 noundef %516) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %510, ptr noundef nonnull @.str.1714, i32 noundef %513) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 518:                                              ; preds = %46
   %519 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %520 = load i32, ptr @hf_isup_display_information, align 4
   %521 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %520, ptr noundef %48, i32 noundef 0, i32 noundef %519, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 522:                                              ; preds = %46
   %523 = load ptr, ptr %6, align 8
@@ -8090,7 +8090,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %526 = zext i8 %524 to i32
   %527 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %525, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %526, ptr noundef nonnull @.str.1783, i32 noundef %526) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %523, ptr noundef nonnull @.str.1714, i32 noundef %526) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 528:                                              ; preds = %46
   %529 = load ptr, ptr %6, align 8
@@ -8099,7 +8099,7 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %532 = zext i8 %530 to i32
   %533 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %531, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef %532, ptr noundef nonnull @.str.1784, i32 noundef %532) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %529, ptr noundef nonnull @.str.1714, i32 noundef %532) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 534:                                              ; preds = %46
   %535 = call i32 @tvb_reported_length(ptr noundef %48) #5
@@ -8108,12 +8108,12 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
 536:                                              ; preds = %534
   %537 = load i32, ptr @hf_japan_isup_redirect_counter, align 4
   %538 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %537, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 539:                                              ; preds = %534
   %540 = load i32, ptr @hf_isup_redirect_counter, align 4
   %541 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %540, ptr noundef %48, i32 noundef 0, i32 noundef %535, i32 noundef %8, ptr noundef nonnull @.str.1782) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 542:                                              ; preds = %46
   %543 = load ptr, ptr %6, align 8
@@ -8125,22 +8125,22 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   %549 = icmp eq i32 %548, 0
   %.str.1785..str.1786.i = select i1 %549, ptr @.str.1785, ptr @.str.1786
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %543, ptr noundef nonnull %.str.1785..str.1786.i, i32 noundef %547) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 550:                                              ; preds = %46
   %551 = load ptr, ptr %6, align 8
   call void @dissect_isup_generic_number_parameter(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %551)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 552:                                              ; preds = %46
   %553 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %554 = load i32, ptr @hf_isup_generic_digits, align 4
   %555 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %554, ptr noundef %48, i32 noundef 0, i32 noundef %553, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 556:                                              ; preds = %46
-  call fastcc void @dissect_isup_application_transport_parameter(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_isup_application_transport_parameter.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 557:                                              ; preds = %46
   br i1 %switch, label %558, label %581
@@ -8164,76 +8164,76 @@ dissect_isup_loop_prevention_indicators_parameter.exit: ; preds = %420, %428
   ]
 
 559:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_called_dir_num(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_called_dir_num.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 560:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_redirect_fwd_inf.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 561:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_redirect_backw_inf.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 562:                                              ; preds = %558
   %563 = load i32, ptr @hf_japan_isup_emerg_call_type, align 4
   %564 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %563, ptr noundef %48, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 565:                                              ; preds = %558
   %566 = load i32, ptr @hf_japan_isup_hold_at_emerg_call_disc_ind, align 4
   %567 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %566, ptr noundef %48, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 568:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_network_poi_cad.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 569:                                              ; preds = %558
   %570 = load ptr, ptr %6, align 8
   call fastcc void @dissect_japan_isup_carrier_information(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %570)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 571:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_charge_inf_delay(ptr noundef %48, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_charge_inf_delay.argprom(ptr noundef %48, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 572:                                              ; preds = %558
   call void @dissect_japan_isup_additonal_user_cat(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr poison)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 573:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_reason_for_clip_fail(ptr noundef %48, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_reason_for_clip_fail.argprom(ptr noundef %48, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 574:                                              ; preds = %558
   %575 = load ptr, ptr %6, align 8
   call fastcc void @dissect_japan_isup_contractor_number(ptr noundef %48, ptr noundef %1, ptr noundef %30, ptr noundef %575)
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 576:                                              ; preds = %558
-  %577 = call fastcc zeroext i16 @dissect_japan_chg_inf_type(ptr noundef %48, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  %577 = call fastcc zeroext i16 @dissect_japan_chg_inf_type.argprom(ptr noundef %48, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 578:                                              ; preds = %558
-  call fastcc void @dissect_japan_chg_inf_param(ptr noundef %48, ptr noundef %1, ptr noundef %30, i16 noundef zeroext %.0.ph.ph)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_chg_inf_param.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30, i16 noundef zeroext %.0.ph.ph)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 579:                                              ; preds = %558
-  call fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %48, ptr noundef %1, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_japan_isup_charge_area_info.argprom(ptr noundef %48, ptr noundef %1, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 580:                                              ; preds = %558
-  call fastcc void @dissect_isup_unknown_parameter(ptr noundef %48, ptr noundef %30)
-  br label %dissect_isup_access_transport_parameter.exit
+  call fastcc void @dissect_isup_unknown_parameter.argprom(ptr noundef %48, ptr noundef %30)
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
 581:                                              ; preds = %557
   %582 = call i32 @tvb_reported_length(ptr noundef %48) #5
   %583 = load i32, ptr @hf_isup_parameter_value, align 4
   %584 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %583, ptr noundef %48, i32 noundef 0, i32 noundef %582, i32 noundef 0) #5
-  br label %dissect_isup_access_transport_parameter.exit
+  br label %dissect_isup_access_transport_parameter.argprom.exit
 
-dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %539, %536, %458, %453, %342, %70, %66, %581, %580, %579, %578, %576, %574, %573, %572, %571, %569, %568, %565, %562, %561, %560, %559, %556, %552, %550, %542, %528, %522, %518, %509, %505, %496, %487, %478, %474, %470, %461, %445, %441, %433, %431, %dissect_isup_loop_prevention_indicators_parameter.exit, %414, %408, %406, %399, %392, %386, %380, %378, %377, %373, %366, %360, %353, %349, %338, %333, %329, %325, %318, %312, %302, %295, %286, %282, %273, %266, %264, %257, %245, %236, %229, %220, %216, %209, %205, %203, %198, %196, %189, %187, %182, %176, %169, %165, %161, %159, %150, %141, %126, %119, %113, %106, %99, %87, %72, %59, %49
+dissect_isup_access_transport_parameter.argprom.exit: ; preds = %.lr.ph.i, %539, %536, %458, %453, %342, %70, %66, %581, %580, %579, %578, %576, %574, %573, %572, %571, %569, %568, %565, %562, %561, %560, %559, %556, %552, %550, %542, %528, %522, %518, %509, %505, %496, %487, %478, %474, %470, %461, %445, %441, %433, %431, %dissect_isup_loop_prevention_indicators_parameter.exit, %414, %408, %406, %399, %392, %386, %380, %378, %377, %373, %366, %360, %353, %349, %338, %333, %329, %325, %318, %312, %302, %295, %286, %282, %273, %266, %264, %257, %245, %236, %229, %220, %216, %209, %205, %203, %198, %196, %189, %187, %182, %176, %169, %165, %161, %159, %150, %141, %126, %119, %113, %106, %99, %87, %72, %59, %49
   %.1 = phi i16 [ %.0.ph.ph, %581 ], [ %.0.ph.ph, %580 ], [ %.0.ph.ph, %579 ], [ %.0.ph.ph, %578 ], [ %577, %576 ], [ %.0.ph.ph, %574 ], [ %.0.ph.ph, %573 ], [ %.0.ph.ph, %572 ], [ %.0.ph.ph, %571 ], [ %.0.ph.ph, %569 ], [ %.0.ph.ph, %568 ], [ %.0.ph.ph, %565 ], [ %.0.ph.ph, %562 ], [ %.0.ph.ph, %561 ], [ %.0.ph.ph, %560 ], [ %.0.ph.ph, %559 ], [ %.0.ph.ph, %556 ], [ %.0.ph.ph, %552 ], [ %.0.ph.ph, %550 ], [ %.0.ph.ph, %542 ], [ %.0.ph.ph, %528 ], [ %.0.ph.ph, %522 ], [ %.0.ph.ph, %518 ], [ %.0.ph.ph, %509 ], [ %.0.ph.ph, %505 ], [ %.0.ph.ph, %496 ], [ %.0.ph.ph, %487 ], [ %.0.ph.ph, %478 ], [ %.0.ph.ph, %474 ], [ %.0.ph.ph, %470 ], [ %.0.ph.ph, %461 ], [ %.0.ph.ph, %445 ], [ %.0.ph.ph, %441 ], [ %.0.ph.ph, %433 ], [ %.0.ph.ph, %431 ], [ %.0.ph.ph, %dissect_isup_loop_prevention_indicators_parameter.exit ], [ %.0.ph.ph, %414 ], [ %.0.ph.ph, %408 ], [ %.0.ph.ph, %406 ], [ %.0.ph.ph, %399 ], [ %.0.ph.ph, %392 ], [ %.0.ph.ph, %386 ], [ %.0.ph.ph, %380 ], [ %.0.ph.ph, %378 ], [ %.0.ph.ph, %377 ], [ %.0.ph.ph, %373 ], [ %.0.ph.ph, %366 ], [ %.0.ph.ph, %360 ], [ %.0.ph.ph, %353 ], [ %.0.ph.ph, %349 ], [ %.0.ph.ph, %338 ], [ %.0.ph.ph, %333 ], [ %.0.ph.ph, %329 ], [ %.0.ph.ph, %325 ], [ %.0.ph.ph, %318 ], [ %.0.ph.ph, %312 ], [ %.0.ph.ph, %302 ], [ %.0.ph.ph, %295 ], [ %.0.ph.ph, %286 ], [ %.0.ph.ph, %282 ], [ %.0.ph.ph, %273 ], [ %.0.ph.ph, %266 ], [ %.0.ph.ph, %264 ], [ %.0.ph.ph, %257 ], [ %.0.ph.ph, %245 ], [ %.0.ph.ph, %236 ], [ %.0.ph.ph, %229 ], [ %.0.ph.ph, %220 ], [ %.0.ph.ph, %216 ], [ %.0.ph.ph, %209 ], [ %.0.ph.ph, %205 ], [ %.0.ph.ph, %203 ], [ %.0.ph.ph, %198 ], [ %.0.ph.ph, %196 ], [ %.0.ph.ph, %189 ], [ %.0.ph.ph, %187 ], [ %.0.ph.ph, %182 ], [ %.0.ph.ph, %176 ], [ %.0.ph.ph, %169 ], [ %.0.ph.ph, %165 ], [ %.0.ph.ph, %161 ], [ %.0.ph.ph, %159 ], [ %.0.ph.ph, %150 ], [ %.0.ph.ph, %141 ], [ %.0.ph.ph, %126 ], [ %.0.ph.ph, %119 ], [ %.0.ph.ph, %113 ], [ %.0.ph.ph, %106 ], [ %.0.ph.ph, %99 ], [ %.0.ph.ph, %87 ], [ %.0.ph.ph, %72 ], [ %.0.ph.ph, %59 ], [ %.0.ph.ph, %49 ], [ %.0.ph.ph, %66 ], [ %.0.ph.ph, %70 ], [ %.0.ph.ph, %342 ], [ %.0.ph.ph, %453 ], [ %.0.ph.ph, %458 ], [ %.0.ph.ph, %536 ], [ %.0.ph.ph, %539 ], [ %.0.ph.ph, %.lr.ph.i ]
   %585 = add i32 %47, %42
   br label %.outer.outer, !llvm.loop !16
@@ -8248,7 +8248,7 @@ dissect_isup_access_transport_parameter.exit:     ; preds = %.lr.ph.i, %539, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i16 0, 256) i16 @dissect_japan_chg_inf_type(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc zeroext range(i16 0, 256) i16 @dissect_japan_chg_inf_type.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %4 = zext i8 %3 to i16
   %5 = load i32, ptr @hf_japan_isup_charge_info_type, align 4
@@ -8257,7 +8257,7 @@ define internal fastcc zeroext range(i16 0, 256) i16 @dissect_japan_chg_inf_type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_chg_inf_type_acr(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_chg_inf_type_acr.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %4 = load i32, ptr @hf_isup_extension_ind, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -8303,7 +8303,7 @@ define internal fastcc void @dissect_japan_chg_inf_type_acr(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_chg_inf_type_crt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_chg_inf_type_crt.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %4 = load i32, ptr @hf_japan_isup_utp, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -8396,7 +8396,7 @@ define internal fastcc void @dissect_japan_chg_inf_type_crt(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_called_dir_num(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_called_dir_num.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %5 = load i32, ptr @hf_isup_odd_even_indicator, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
@@ -8412,7 +8412,7 @@ define internal fastcc void @dissect_japan_isup_called_dir_num(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_redirect_fwd_inf.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -8473,7 +8473,7 @@ define internal fastcc void @dissect_japan_isup_redirect_fwd_inf(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_redirect_backw_inf.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -8518,7 +8518,7 @@ define internal fastcc void @dissect_japan_isup_redirect_backw_inf(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_network_poi_cad(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_network_poi_cad.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
@@ -8897,7 +8897,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_charge_inf_delay(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_charge_inf_delay.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -8915,7 +8915,7 @@ define internal fastcc void @dissect_japan_isup_charge_inf_delay(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_reason_for_clip_fail(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_reason_for_clip_fail.argprom(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @hf_isup_extension_ind, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %5 = load i32, ptr @hf_japan_isup_reason_for_clip_fail, align 4
@@ -8944,18 +8944,18 @@ define internal fastcc void @dissect_japan_isup_contractor_number(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_chg_inf_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_chg_inf_param.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   switch i16 %3, label %7 [
     i16 3, label %5
     i16 254, label %6
   ]
 
 5:                                                ; preds = %4
-  tail call fastcc void @dissect_japan_chg_inf_type_acr(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_japan_chg_inf_type_acr.argprom(ptr noundef %0, ptr noundef %2)
   br label %9
 
 6:                                                ; preds = %4
-  tail call fastcc void @dissect_japan_chg_inf_type_crt(ptr noundef %0, ptr noundef %2)
+  tail call fastcc void @dissect_japan_chg_inf_type_crt.argprom(ptr noundef %0, ptr noundef %2)
   br label %9
 
 7:                                                ; preds = %4
@@ -8967,7 +8967,7 @@ define internal fastcc void @dissect_japan_chg_inf_param(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @dissect_japan_isup_charge_area_info.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8

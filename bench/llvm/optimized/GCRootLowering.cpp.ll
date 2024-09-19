@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm14GCLoweringPass3runERNS_8FunctionERNS_15Analysis
 
 20:                                               ; preds = %4
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm18GCFunctionAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #14
-  %22 = tail call fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE(ptr noundef nonnull align 8 dereferenceable(136) %2)
+  %22 = tail call fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %2)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %23, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -167,7 +167,7 @@ define dso_local void @_ZN4llvm14GCLoweringPass3runERNS_8FunctionERNS_15Analysis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE.argprom(ptr noundef nonnull readonly align 8 dereferenceable(136) %0) unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallPtrSet.177", align 8
   %3 = alloca %"class.llvm::SmallVector.153", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -542,19 +542,19 @@ _ZNK4llvm15SmallPtrSetImplIPNS_10AllocaInstEE5countEPKS1_.exit.i: ; preds = %.lr
   %184 = load ptr, ptr %97, align 8
   %185 = load ptr, ptr %2, align 8
   %186 = icmp eq ptr %184, %185
-  br i1 %186, label %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.exit, label %187
+  br i1 %186, label %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.argprom.exit, label %187
 
 187:                                              ; preds = %._crit_edge.i
   call void @free(ptr noundef %184) #14
-  br label %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.exit
+  br label %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.argprom.exit
 
-_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.exit: ; preds = %._crit_edge.i, %187
+_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.argprom.exit: ; preds = %._crit_edge.i, %187
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
   %188 = or i1 %.0.lcssa, %.0.lcssa.i
   br label %189
 
-189:                                              ; preds = %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.exit, %._crit_edge30
-  %.3 = phi i1 [ %188, %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.exit ], [ %.0.lcssa, %._crit_edge30 ]
+189:                                              ; preds = %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.argprom.exit, %._crit_edge30
+  %.3 = phi i1 [ %188, %_ZL22InsertRootInitializersRN4llvm8FunctionENS_8ArrayRefIPNS_10AllocaInstEEE.argprom.exit ], [ %.0.lcssa, %._crit_edge30 ]
   %190 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %191 = load ptr, ptr %3, align 8
   %192 = icmp eq ptr %191, %5
@@ -905,7 +905,7 @@ _ZNK4llvm4Pass11getAnalysisINS_12GCModuleInfoEEERT_v.exit: ; preds = %.lr.ph.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef nonnull align 8 dereferenceable(128) ptr %21(ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef nonnull @_ZN4llvm12GCModuleInfo2IDE) #14
   %23 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4llvm12GCModuleInfo15getFunctionInfoERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(136) %1) #14
-  %24 = tail call fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE(ptr noundef nonnull align 8 dereferenceable(136) %1)
+  %24 = tail call fastcc noundef zeroext i1 @_ZL10DoLoweringRN4llvm8FunctionERNS_10GCStrategyE.argprom(ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %25
 
 25:                                               ; preds = %2, %_ZNK4llvm4Pass11getAnalysisINS_12GCModuleInfoEEERT_v.exit

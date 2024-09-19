@@ -1147,12 +1147,12 @@ _ZN4llvm5ErrorD2Ev.exit92:                        ; preds = %86, %86
 96:                                               ; preds = %95
   %97 = trunc i64 %.val to i32
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %18, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %97)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 98:                                               ; preds = %95
   %99 = trunc i64 %.val to i32
   call void @_ZN4llvm21SimpleBitstreamCursor9ReadVBR64Ej(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %18, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %99)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 100:                                              ; preds = %95
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %12, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 6), !noalias !96
@@ -1184,12 +1184,12 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %100
   %storemerge.in.i = phi i64 [ %104, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %111, %105 ]
   %storemerge.i93 = inttoptr i64 %storemerge.in.i to ptr
   store ptr %storemerge.i93, ptr %18, align 8, !alias.scope !96
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 116:                                              ; preds = %95
   unreachable
 
-_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit: ; preds = %96, %98, %115
+_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit: ; preds = %96, %98, %115
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %118 = load i8, ptr %117, align 8
@@ -1197,7 +1197,7 @@ _ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit: 
   %120 = load i64, ptr %18, align 8
   br i1 %119, label %_ZN4llvm8ExpectedImED2Ev.exit101.thread, label %_ZN4llvm8ExpectedImED2Ev.exit101
 
-_ZN4llvm8ExpectedImED2Ev.exit101.thread:          ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+_ZN4llvm8ExpectedImED2Ev.exit101.thread:          ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
   %121 = inttoptr i64 %120 to ptr
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %123 = load i8, ptr %122, align 8
@@ -1207,8 +1207,8 @@ _ZN4llvm8ExpectedImED2Ev.exit101.thread:          ; preds = %_ZL20readAbbreviate
   store ptr null, ptr %18, align 8
   br label %_ZN4llvm8ExpectedImED2Ev.exit114
 
-_ZN4llvm8ExpectedImED2Ev.exit101:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit, %84
-  %.sink = phi i64 [ %85, %84 ], [ %120, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit ]
+_ZN4llvm8ExpectedImED2Ev.exit101:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit, %84
+  %.sink = phi i64 [ %85, %84 ], [ %120, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit ]
   %125 = trunc i64 %.sink to i32
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #15
   %127 = trunc i64 %126 to i32
@@ -1271,12 +1271,12 @@ _ZN4llvm8ExpectedImED2Ev.exit101:                 ; preds = %_ZL20readAbbreviate
 155:                                              ; preds = %154
   %156 = trunc i64 %.val68 to i32
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %19, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %156)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106
 
 157:                                              ; preds = %154
   %158 = trunc i64 %.val68 to i32
   call void @_ZN4llvm21SimpleBitstreamCursor9ReadVBR64Ej(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %19, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %158)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106
 
 159:                                              ; preds = %154
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %11, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 6), !noalias !102
@@ -1305,18 +1305,18 @@ _ZN4llvm5ErrorD2Ev.exit.i105:                     ; preds = %159
   %storemerge.in.i103 = phi i64 [ %162, %_ZN4llvm5ErrorD2Ev.exit.i105 ], [ %168, %163 ]
   %storemerge.i104 = inttoptr i64 %storemerge.in.i103 to ptr
   store ptr %storemerge.i104, ptr %19, align 8, !alias.scope !102
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106
 
 172:                                              ; preds = %154
   unreachable
 
-_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106: ; preds = %155, %157, %171
+_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106: ; preds = %155, %157, %171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %173 = load i8, ptr %141, align 8
   %174 = trunc i8 %173 to i1
   br i1 %174, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i113, label %_ZN4llvm8ExpectedImED2Ev.exit163
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i113: ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i113: ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106
   %175 = load i64, ptr %19, align 8, !noalias !105
   %176 = inttoptr i64 %175 to ptr
   %177 = or i8 %143, 1
@@ -1619,10 +1619,10 @@ _ZN4llvm8ExpectedIjED2Ev.exit159:                 ; preds = %_ZN4llvm5ErrorD2Ev.
     i32 5, label %_ZN4llvm8ExpectedIjED2Ev.exit159._crit_edge
   ]
 
-_ZN4llvm8ExpectedImED2Ev.exit163:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106, %_ZN4llvm8ExpectedIjED2Ev.exit159, %142, %_ZN4llvm8ExpectedIjED2Ev.exit144
-  %305 = phi i8 [ %143, %142 ], [ %246, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %296, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %143, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106 ]
-  %306 = phi ptr [ %144, %142 ], [ %247, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %297, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %144, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106 ]
-  %.152 = phi i32 [ %.051210, %142 ], [ %.253, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %.051210, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %.051210, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit106 ]
+_ZN4llvm8ExpectedImED2Ev.exit163:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106, %_ZN4llvm8ExpectedIjED2Ev.exit159, %142, %_ZN4llvm8ExpectedIjED2Ev.exit144
+  %305 = phi i8 [ %143, %142 ], [ %246, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %296, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %143, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106 ]
+  %306 = phi ptr [ %144, %142 ], [ %247, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %297, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %144, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106 ]
+  %.152 = phi i32 [ %.051210, %142 ], [ %.253, %_ZN4llvm8ExpectedIjED2Ev.exit144 ], [ %.051210, %_ZN4llvm8ExpectedIjED2Ev.exit159 ], [ %.051210, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit106 ]
   %307 = add i32 %.152, 1
   %308 = icmp ult i32 %307, %127
   br i1 %308, label %142, label %_ZN4llvm8ExpectedIjED2Ev.exit159._crit_edge, !llvm.loop !145
@@ -2240,12 +2240,12 @@ _ZN4llvm5ErrorD2Ev.exit126:                       ; preds = %158, %158
 168:                                              ; preds = %167
   %169 = trunc i64 %.val104 to i32
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %29, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %169)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 170:                                              ; preds = %167
   %171 = trunc i64 %.val104 to i32
   call void @_ZN4llvm21SimpleBitstreamCursor9ReadVBR64Ej(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %29, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %171)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 172:                                              ; preds = %167
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %18, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 6), !noalias !199
@@ -2277,12 +2277,12 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %172
   %storemerge.in.i = phi i64 [ %176, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %183, %177 ]
   %storemerge.i127 = inttoptr i64 %storemerge.in.i to ptr
   store ptr %storemerge.i127, ptr %29, align 8, !alias.scope !199
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
 
 188:                                              ; preds = %167
   unreachable
 
-_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit: ; preds = %168, %170, %187
+_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit: ; preds = %168, %170, %187
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   %189 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %190 = load i8, ptr %189, align 8
@@ -2290,7 +2290,7 @@ _ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit: 
   %192 = load i64, ptr %29, align 8
   br i1 %191, label %_ZN4llvm8ExpectedImED2Ev.exit135.thread, label %_ZN4llvm8ExpectedImED2Ev.exit135
 
-_ZN4llvm8ExpectedImED2Ev.exit135.thread:          ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit
+_ZN4llvm8ExpectedImED2Ev.exit135.thread:          ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit
   %193 = inttoptr i64 %192 to ptr
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %195 = load i8, ptr %194, align 8
@@ -2300,8 +2300,8 @@ _ZN4llvm8ExpectedImED2Ev.exit135.thread:          ; preds = %_ZL20readAbbreviate
   store ptr null, ptr %29, align 8
   br label %_ZN4llvm8ExpectedIjED2Ev.exit212
 
-_ZN4llvm8ExpectedImED2Ev.exit135:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit, %156
-  %.sink = phi i64 [ %157, %156 ], [ %192, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit ]
+_ZN4llvm8ExpectedImED2Ev.exit135:                 ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit, %156
+  %.sink = phi i64 [ %157, %156 ], [ %192, %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit ]
   %197 = trunc i64 %.sink to i32
   %198 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %151) #15
   %199 = trunc i64 %198 to i32
@@ -2380,12 +2380,12 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit137: ; preds = %221, %2
 236:                                              ; preds = %235
   %237 = trunc i64 %.val to i32
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %30, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %237)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142
 
 238:                                              ; preds = %235
   %239 = trunc i64 %.val to i32
   call void @_ZN4llvm21SimpleBitstreamCursor9ReadVBR64Ej(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %30, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %239)
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142
 
 240:                                              ; preds = %235
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.15") align 8 %17, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 6), !noalias !205
@@ -2414,19 +2414,19 @@ _ZN4llvm5ErrorD2Ev.exit.i141:                     ; preds = %240
   %storemerge.in.i139 = phi i64 [ %243, %_ZN4llvm5ErrorD2Ev.exit.i141 ], [ %249, %244 ]
   %storemerge.i140 = inttoptr i64 %storemerge.in.i139 to ptr
   store ptr %storemerge.i140, ptr %30, align 8, !alias.scope !205
-  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142
+  br label %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142
 
 253:                                              ; preds = %235
   unreachable
 
-_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142: ; preds = %236, %238, %252
+_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142: ; preds = %236, %238, %252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %254 = load i8, ptr %213, align 8
   %255 = trunc i8 %254 to i1
   %256 = load i64, ptr %30, align 8
   br i1 %255, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i146, label %257
 
-257:                                              ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142
+257:                                              ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142
   %258 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %259 = add i64 %258, 1
   %260 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
@@ -2448,7 +2448,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit144: ; preds = %257, %2
   %.pre314 = load i8, ptr %213, align 8
   br label %270
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i146: ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.exit142
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i146: ; preds = %_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom.exit142
   %267 = inttoptr i64 %256 to ptr
   store ptr null, ptr %30, align 8, !noalias !208
   %268 = load i8, ptr %207, align 8
@@ -6522,14 +6522,14 @@ attributes #19 = { noreturn nounwind }
 !94 = distinct !{!94, !95, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !95 = distinct !{!95, !"_ZN4llvm5Error11takePayloadEv"}
 !96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE: argument 0"}
-!98 = distinct !{!98, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE"}
+!97 = distinct !{!97, !98, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom: argument 0"}
+!98 = distinct !{!98, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom"}
 !99 = !{!100}
 !100 = distinct !{!100, !101, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !101 = distinct !{!101, !"_ZN4llvm5Error11takePayloadEv"}
 !102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE: argument 0"}
-!104 = distinct !{!104, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE"}
+!103 = distinct !{!103, !104, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom: argument 0"}
+!104 = distinct !{!104, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom"}
 !105 = !{!106}
 !106 = distinct !{!106, !107, !"_ZN4llvm8ExpectedImE9takeErrorEv: argument 0"}
 !107 = distinct !{!107, !"_ZN4llvm8ExpectedImE9takeErrorEv"}
@@ -6625,14 +6625,14 @@ attributes #19 = { noreturn nounwind }
 !197 = distinct !{!197, !198, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !198 = distinct !{!198, !"_ZN4llvm5Error11takePayloadEv"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE: argument 0"}
-!201 = distinct !{!201, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE"}
+!200 = distinct !{!200, !201, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom: argument 0"}
+!201 = distinct !{!201, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom"}
 !202 = !{!203}
 !203 = distinct !{!203, !204, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !204 = distinct !{!204, !"_ZN4llvm5Error11takePayloadEv"}
 !205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE: argument 0"}
-!207 = distinct !{!207, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE"}
+!206 = distinct !{!206, !207, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom: argument 0"}
+!207 = distinct !{!207, !"_ZL20readAbbreviatedFieldRN4llvm15BitstreamCursorERKNS_15BitCodeAbbrevOpE.argprom"}
 !208 = !{!209}
 !209 = distinct !{!209, !210, !"_ZN4llvm8ExpectedImE9takeErrorEv: argument 0"}
 !210 = distinct !{!210, !"_ZN4llvm8ExpectedImE9takeErrorEv"}

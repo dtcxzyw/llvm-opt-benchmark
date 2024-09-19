@@ -781,7 +781,7 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc ptr @fib_info_nhc(ptr noundef readonly %0) unnamed_addr #5 align 16 {
+define internal fastcc ptr @fib_info_nhc.argelim(ptr noundef readonly %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1146,7 +1146,7 @@ define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i3
   br i1 %142, label %143, label %150
 
 143:                                              ; preds = %141
-  %144 = call fastcc ptr @fib_info_nhc(ptr noundef %13)
+  %144 = call fastcc ptr @fib_info_nhc.argelim(ptr noundef %13)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #16
   store i8 0, ptr %12, align 1
   %145 = call i32 @fib_nexthop_info(ptr noundef %0, ptr noundef %144, i8 noundef zeroext 2, ptr noundef nonnull %12, i1 noundef zeroext false), !range !27
@@ -4753,7 +4753,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @fib_add_multipath(ptr noun
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %16, i64 128
   %.val = load ptr, ptr %19, align 8
-  %20 = tail call fastcc i32 @nexthop_mpath_fill_node(ptr noundef %0, ptr %.val)
+  %20 = tail call fastcc i32 @nexthop_mpath_fill_node.argprom(ptr noundef %0, ptr %.val)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %90, label %.loopexit
 
@@ -6349,7 +6349,7 @@ declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare dso_local ptr @__nlmsg_put(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node(ptr noundef %0, ptr nocapture readonly %.128.val) unnamed_addr #9 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node.argprom(ptr noundef %0, ptr nocapture readonly %.128.val) unnamed_addr #9 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %.128.val, i64 8
   %4 = load i16, ptr %3, align 8

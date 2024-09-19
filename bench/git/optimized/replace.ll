@@ -379,7 +379,7 @@ if.end134:                                        ; preds = %sw.bb
   %10 = load i64, ptr %len.i, align 8
   %11 = load ptr, ptr %argv, align 8
   %tobool.not4.i = icmp eq ptr %11, null
-  br i1 %tobool.not4.i, label %for_each_replace_name.exit, label %for.body.lr.ph.i
+  br i1 %tobool.not4.i, label %for_each_replace_name.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end134
   %buf.i.i = getelementptr inbounds i8, ptr %ref.i, i64 16
@@ -469,9 +469,9 @@ for.inc.i:                                        ; preds = %21, %if.end12.i, %_
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.06.i, i64 8
   %22 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i, label %for_each_replace_name.exit, label %for.body.i, !llvm.loop !5
+  br i1 %tobool.not.i, label %for_each_replace_name.argprom.exit, label %for.body.i, !llvm.loop !5
 
-for_each_replace_name.exit:                       ; preds = %for.inc.i, %if.end134
+for_each_replace_name.argprom.exit:               ; preds = %for.inc.i, %if.end134
   %had_error.0.lcssa.i = phi i32 [ 0, %if.end134 ], [ %had_error.1.i, %for.inc.i ]
   call void @strbuf_release(ptr noundef nonnull %ref.i) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.i)
@@ -1096,8 +1096,8 @@ sw.default:                                       ; preds = %if.end129
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.25, i32 noundef 632, ptr noundef nonnull @.str.26, i32 noundef %1) #16
   unreachable
 
-return:                                           ; preds = %list_replace_refs.exit, %convert_graft_file.exit, %if.end157, %edit_and_replace.exit, %replace_object.exit, %for_each_replace_name.exit
-  %retval.0 = phi i32 [ %retval.0.i81, %list_replace_refs.exit ], [ %retval.0.i68, %convert_graft_file.exit ], [ %call158, %if.end157 ], [ %retval.0.i36, %edit_and_replace.exit ], [ %retval.0.i, %replace_object.exit ], [ %had_error.0.lcssa.i, %for_each_replace_name.exit ]
+return:                                           ; preds = %list_replace_refs.exit, %convert_graft_file.exit, %if.end157, %edit_and_replace.exit, %replace_object.exit, %for_each_replace_name.argprom.exit
+  %retval.0 = phi i32 [ %retval.0.i81, %list_replace_refs.exit ], [ %retval.0.i68, %convert_graft_file.exit ], [ %call158, %if.end157 ], [ %retval.0.i36, %edit_and_replace.exit ], [ %retval.0.i, %replace_object.exit ], [ %had_error.0.lcssa.i, %for_each_replace_name.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -1691,13 +1691,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
-hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
+hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32

@@ -3309,9 +3309,9 @@ define internal fastcc noundef nonnull ptr @spl_dllist_object_new_ex(ptr noundef
   %25 = load ptr, ptr %19, align 8
   %.val = load ptr, ptr %25, align 8
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %spl_ptr_llist_copy.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %spl_ptr_llist_copy.argprom.exit.thread, label %.lr.ph.i
 
-spl_ptr_llist_copy.exit.thread:                   ; preds = %23
+spl_ptr_llist_copy.argprom.exit.thread:           ; preds = %23
   %26 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr null, ptr %26, align 8
   br label %.thread150
@@ -3362,9 +3362,9 @@ spl_ptr_llist_push.exit.i:                        ; preds = %42, %29
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %28, align 8
   %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %spl_ptr_llist_copy.exit, label %29
+  br i1 %.not.i, label %spl_ptr_llist_copy.argprom.exit, label %29
 
-spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.exit.i
+spl_ptr_llist_copy.argprom.exit:                  ; preds = %spl_ptr_llist_push.exit.i
   %.pre = load ptr, ptr %14, align 8
   %.pre147 = load ptr, ptr %.pre, align 8
   %50 = getelementptr inbounds i8, ptr %14, i64 8
@@ -3372,7 +3372,7 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   %.not126 = icmp eq ptr %.pre147, null
   br i1 %.not126, label %67, label %51
 
-51:                                               ; preds = %spl_ptr_llist_copy.exit
+51:                                               ; preds = %spl_ptr_llist_copy.argprom.exit
   %52 = getelementptr inbounds i8, ptr %.pre147, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
@@ -3403,13 +3403,13 @@ spl_ptr_llist_copy.exit:                          ; preds = %spl_ptr_llist_push.
   store ptr null, ptr %64, align 8
   br label %.lr.ph
 
-.thread150:                                       ; preds = %59, %55, %spl_ptr_llist_copy.exit.thread
+.thread150:                                       ; preds = %59, %55, %spl_ptr_llist_copy.argprom.exit.thread
   %65 = getelementptr inbounds i8, ptr %1, i64 -52
   %66 = load i32, ptr %65, align 4
   store i32 %66, ptr %16, align 4
   br label %.lr.ph
 
-67:                                               ; preds = %51, %spl_ptr_llist_copy.exit
+67:                                               ; preds = %51, %spl_ptr_llist_copy.argprom.exit
   %68 = getelementptr inbounds i8, ptr %1, i64 -52
   %69 = load i32, ptr %68, align 4
   store i32 %69, ptr %16, align 4

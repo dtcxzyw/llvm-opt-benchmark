@@ -29043,11 +29043,11 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_292Ev() #5 personalit
   store ptr %23, ptr %18, align 8
   store ptr @_ZNSt17_Function_handlerIFvPKcEZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit.i, label %24
+  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.argprom.exit.i, label %24
 
 24:                                               ; preds = %0
   %25 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit.i unwind label %26
+          to label %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.argprom.exit.i unwind label %26
 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
@@ -29056,12 +29056,12 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_292Ev() #5 personalit
   call void @__clang_call_terminate(ptr %28) #22
   unreachable
 
-_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit.i: ; preds = %24, %0
+_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.argprom.exit.i: ; preds = %24, %0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %29 = invoke noundef ptr @_ZN7doctest17getContextOptionsEv()
           to label %30 unwind label %41
 
-30:                                               ; preds = %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit.i
+30:                                               ; preds = %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.argprom.exit.i
   %31 = getelementptr inbounds i8, ptr %29, i64 114
   %32 = load i8, ptr %31, align 2
   %33 = trunc i8 %32 to i1
@@ -29106,7 +29106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #24
   br label %55
 
-41:                                               ; preds = %72, %34, %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.exit.i
+41:                                               ; preds = %72, %34, %_ZNSt8functionIFvPKcEEaSIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2911fEvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NS8_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISA_E4typeEE4typeES3_EE5valueESt5decayISA_EE4type4typeESt15__invoke_resultIRSL_JS1_EEEE5valueERS3_E4typeEOSA_.argprom.exit.i
   %42 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN12ScopedFValueIbED2Ev.exit21.i
@@ -45671,13 +45671,13 @@ define internal void @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENUlRKNSt7__
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvE6outputB5cxx11, i64 8), align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %6, ptr getelementptr inbounds (i8, ptr @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvE6outputB5cxx11, i64 8), align 8
-  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.exit
+  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.argprom.exit
 
 7:                                                ; preds = %1
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvE6outputB5cxx11, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.exit
+  br label %_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.argprom.exit
 
-_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.exit: ; preds = %4, %7
+_ZZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2971fEvENKUlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES8_.argprom.exit: ; preds = %4, %7
   ret void
 }
 

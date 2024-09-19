@@ -161,27 +161,27 @@ define internal void @fig_box(ptr nocapture noundef readonly %0, ptr nocapture n
   %13 = icmp ne i32 %.val, 0
   %14 = icmp ne ptr %7, null
   %or.cond.i = and i1 %14, %13
-  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.exit
+  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.argprom.exit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %7, i64 232
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 68
   %20 = load i32, ptr %19, align 4
-  br label %lstopo_obj_cpukind_style.exit
+  br label %lstopo_obj_cpukind_style.argprom.exit
 
-lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
+lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %15, %18
   %.0.i = phi i32 [ %20, %18 ], [ 0, %15 ], [ 0, %9 ]
   %21 = icmp ne i32 %4, 0
   %22 = icmp ne i32 %6, 0
   %or.cond = and i1 %21, %22
   br i1 %or.cond, label %23, label %43
 
-23:                                               ; preds = %lstopo_obj_cpukind_style.exit
+23:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit
   %24 = getelementptr inbounds i8, ptr %0, i64 944
   %25 = load i32, ptr %24, align 8
   %.not = icmp ne i32 %.0.i, 0
@@ -207,7 +207,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   %fputc = tail call i32 @fputc(i32 10, ptr %11)
   br label %43
 
-43:                                               ; preds = %lstopo_obj_cpukind_style.exit, %23
+43:                                               ; preds = %lstopo_obj_cpukind_style.argprom.exit, %23
   ret void
 }
 
@@ -237,22 +237,22 @@ define internal void @fig_text(ptr nocapture noundef readonly %0, ptr nocapture 
   %13 = icmp ne i32 %.val, 0
   %14 = icmp ne ptr %7, null
   %or.cond.i = and i1 %14, %13
-  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.exit
+  br i1 %or.cond.i, label %15, label %lstopo_obj_cpukind_style.argprom.exit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %7, i64 232
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
+  br i1 %.not.i, label %lstopo_obj_cpukind_style.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 1
   %22 = and i32 %21, 2
-  br label %lstopo_obj_cpukind_style.exit
+  br label %lstopo_obj_cpukind_style.argprom.exit
 
-lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
+lstopo_obj_cpukind_style.argprom.exit:            ; preds = %9, %15, %18
   %.0.i = phi i32 [ %22, %18 ], [ 0, %15 ], [ 0, %9 ]
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
   %24 = trunc i64 %23 to i32

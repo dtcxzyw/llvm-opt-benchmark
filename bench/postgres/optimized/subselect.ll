@@ -246,14 +246,14 @@ contain_dml.exit.thread:                          ; preds = %44, %64, %62, %47, 
   store i32 %111, ptr %97, align 4
   %112 = load ptr, ptr %107, align 8
   %113 = call i32 @exprCollation(ptr noundef %112) #10
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
 114:                                              ; preds = %100, %88
   store i32 2278, ptr %96, align 4
   store i32 -1, ptr %97, align 4
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
-get_first_col_type.exit:                          ; preds = %106, %114
+get_first_col_type.argprom.exit:                  ; preds = %106, %114
   %storemerge.i = phi i32 [ %113, %106 ], [ 0, %114 ]
   store i32 %storemerge.i, ptr %98, align 4
   %115 = getelementptr inbounds i8, ptr %93, i64 52
@@ -292,13 +292,13 @@ get_first_col_type.exit:                          ; preds = %106, %114
   %.not.i81 = icmp eq ptr %137, null
   br i1 %.not.i81, label %list_length.exit, label %138
 
-138:                                              ; preds = %get_first_col_type.exit
+138:                                              ; preds = %get_first_col_type.argprom.exit
   %139 = getelementptr inbounds i8, ptr %137, i64 4
   %140 = load i32, ptr %139, align 4
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %get_first_col_type.exit, %138
-  %141 = phi i32 [ %140, %138 ], [ 0, %get_first_col_type.exit ]
+list_length.exit:                                 ; preds = %get_first_col_type.argprom.exit, %138
+  %141 = phi i32 [ %140, %138 ], [ 0, %get_first_col_type.argprom.exit ]
   %142 = getelementptr inbounds i8, ptr %93, i64 24
   store i32 %141, ptr %142, align 8
   %143 = load ptr, ptr %15, align 8
@@ -413,13 +413,13 @@ list_length.exit:                                 ; preds = %22, %31
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %.not.i41 = icmp eq ptr %38, null
-  br i1 %.not.i41, label %generate_subquery_vars.exit, label %.lr.ph.i
+  br i1 %.not.i41, label %generate_subquery_vars.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_length.exit
   %40 = getelementptr inbounds i8, ptr %38, i64 16
   %41 = load i32, ptr %39, align 4
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph10.i, label %generate_subquery_vars.exit
+  br i1 %42, label %.lr.ph10.i, label %generate_subquery_vars.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.lr.ph.i, %53
   %43 = phi i32 [ %54, %53 ], [ %41, %.lr.ph.i ]
@@ -445,9 +445,9 @@ list_length.exit:                                 ; preds = %22, %31
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next.i, %55
-  br i1 %56, label %.lr.ph10.i, label %generate_subquery_vars.exit
+  br i1 %56, label %.lr.ph10.i, label %generate_subquery_vars.argprom.exit
 
-generate_subquery_vars.exit:                      ; preds = %53, %list_length.exit, %.lr.ph.i
+generate_subquery_vars.argprom.exit:              ; preds = %53, %list_length.exit, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %list_length.exit ], [ null, %.lr.ph.i ], [ %.1.i, %53 ]
   %57 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -476,8 +476,8 @@ generate_subquery_vars.exit:                      ; preds = %53, %list_length.ex
   store i32 0, ptr %68, align 8
   br label %69
 
-69:                                               ; preds = %19, %17, %12, %3, %generate_subquery_vars.exit
-  %.0 = phi ptr [ %60, %generate_subquery_vars.exit ], [ null, %3 ], [ null, %12 ], [ null, %17 ], [ null, %19 ]
+69:                                               ; preds = %19, %17, %12, %3, %generate_subquery_vars.argprom.exit
+  %.0 = phi ptr [ %60, %generate_subquery_vars.argprom.exit ], [ null, %3 ], [ null, %12 ], [ null, %17 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1120,7 +1120,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
   %.val136.i = load i32, ptr %169, align 4
   %170 = getelementptr i8, ptr %165, i64 32
   %.val137.i = load ptr, ptr %170, align 8
-  %171 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val136.i, ptr %.val137.i)
+  %171 = tail call fastcc zeroext i1 @hash_ok_operator.argprom(i32 %.val136.i, ptr %.val137.i)
   br i1 %171, label %172, label %202
 
 172:                                              ; preds = %168
@@ -1156,7 +1156,7 @@ simplify_EXISTS_query.exit:                       ; preds = %92, %96, %99, %103,
 
 192:                                              ; preds = %189
   %.val139.i = load ptr, ptr %170, align 8
-  %193 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %191, ptr %.val139.i)
+  %193 = tail call fastcc zeroext i1 @hash_ok_operator.argprom(i32 %191, ptr %.val139.i)
   br i1 %193, label %194, label %make_subplan.exit
 
 194:                                              ; preds = %192
@@ -2787,14 +2787,14 @@ list_length.exit:                                 ; preds = %4, %23
   store i32 %46, ptr %33, align 4
   %47 = load ptr, ptr %42, align 8
   %48 = tail call i32 @exprCollation(ptr noundef %47) #10
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
 49:                                               ; preds = %35, %list_length.exit
   store i32 2278, ptr %32, align 4
   store i32 -1, ptr %33, align 4
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
-get_first_col_type.exit:                          ; preds = %41, %49
+get_first_col_type.argprom.exit:                  ; preds = %41, %49
   %storemerge.i = phi i32 [ %48, %41 ], [ 0, %49 ]
   %50 = getelementptr inbounds i8, ptr %18, i64 48
   store i32 %storemerge.i, ptr %50, align 4
@@ -3125,14 +3125,14 @@ define internal fastcc ptr @build_subplan(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %33, ptr %19, align 4
   %34 = load ptr, ptr %29, align 8
   %35 = tail call i32 @exprCollation(ptr noundef %34) #10
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
 36:                                               ; preds = %22, %9
   store i32 2278, ptr %18, align 4
   store i32 -1, ptr %19, align 4
-  br label %get_first_col_type.exit
+  br label %get_first_col_type.argprom.exit
 
-get_first_col_type.exit:                          ; preds = %28, %36
+get_first_col_type.argprom.exit:                  ; preds = %28, %36
   %storemerge.i = phi i32 [ %35, %28 ], [ 0, %36 ]
   store i32 %storemerge.i, ptr %20, align 4
   %37 = getelementptr inbounds i8, ptr %14, i64 52
@@ -3152,7 +3152,7 @@ get_first_col_type.exit:                          ; preds = %28, %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %get_first_col_type.exit
+.lr.ph:                                           ; preds = %get_first_col_type.argprom.exit
   %47 = getelementptr inbounds i8, ptr %3, i64 16
   %48 = getelementptr inbounds i8, ptr %12, i64 8
   %49 = load i32, ptr %46, align 4
@@ -3202,8 +3202,8 @@ get_first_col_type.exit:                          ; preds = %28, %36
   %69 = icmp eq ptr %.pre, null
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %get_first_col_type.exit
-  %70 = phi i1 [ %69, %._crit_edge.loopexit ], [ true, %.lr.ph ], [ true, %get_first_col_type.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %get_first_col_type.argprom.exit
+  %70 = phi i1 [ %69, %._crit_edge.loopexit ], [ true, %.lr.ph ], [ true, %get_first_col_type.argprom.exit ]
   %71 = icmp eq i32 %4, 0
   %or.cond = and i1 %71, %70
   br i1 %or.cond, label %72, label %78
@@ -3652,7 +3652,7 @@ define internal fastcc noundef zeroext i1 @testexpr_is_hashable(ptr noundef read
   %.val7.i = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %0, i64 32
   %.val8.i = load ptr, ptr %7, align 8
-  %8 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val7.i, ptr %.val8.i)
+  %8 = tail call fastcc zeroext i1 @hash_ok_operator.argprom(i32 %.val7.i, ptr %.val8.i)
   br i1 %8, label %9, label %test_opexpr_is_hashable.exit.thread
 
 9:                                                ; preds = %5
@@ -3722,7 +3722,7 @@ test_opexpr_is_hashable.exit:                     ; preds = %13
   %.val7.i22 = load i32, ptr %42, align 4
   %43 = getelementptr i8, ptr %38, i64 32
   %.val8.i23 = load ptr, ptr %43, align 8
-  %44 = tail call fastcc zeroext i1 @hash_ok_operator(i32 %.val7.i22, ptr %.val8.i23)
+  %44 = tail call fastcc zeroext i1 @hash_ok_operator.argprom(i32 %.val7.i22, ptr %.val8.i23)
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %41
@@ -3774,7 +3774,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 declare i64 @get_hash_memory_limit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @hash_ok_operator(i32 %.4.val, ptr readonly %.32.val) unnamed_addr #0 {
+define internal fastcc zeroext i1 @hash_ok_operator.argprom(i32 %.4.val, ptr readonly %.32.val) unnamed_addr #0 {
   %.not.i = icmp eq ptr %.32.val, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 

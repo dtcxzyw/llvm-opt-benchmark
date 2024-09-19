@@ -456,7 +456,7 @@ define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nocapt
   %5 = getelementptr i8, ptr %4, i64 8
   %.val1 = load ptr, ptr %5, align 8
   %6 = icmp sgt i32 %.val, 0
-  br i1 %6, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit"
+  br i1 %6, label %.lr.ph.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.argprom.exit"
 
 .lr.ph.i:                                         ; preds = %2
   %wide.trip.count.i = zext nneg i32 %.val to i64
@@ -473,13 +473,13 @@ define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nocapt
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit", label %7, !llvm.loop !13
+  br i1 %exitcond.not.i, label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.argprom.exit", label %7, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit5.i:          ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit"
+  br label %"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.argprom.exit"
 
-"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.exit": ; preds = %11, %2, %._crit_edge.loopexit.split.loop.exit5.i
+"_ZNK17GrowableArrayViewIPN16MutableNUMASpace9LGRPSpaceEE7find_ifIZNKS0_16lgrp_space_indexEiE3$_0EEiT_.argprom.exit": ; preds = %11, %2, %._crit_edge.loopexit.split.loop.exit5.i
   %.05.i = phi i32 [ -1, %2 ], [ %12, %._crit_edge.loopexit.split.loop.exit5.i ], [ -1, %11 ]
   ret i32 %.05.i
 }

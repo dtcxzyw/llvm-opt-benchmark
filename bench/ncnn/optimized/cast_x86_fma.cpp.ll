@@ -234,7 +234,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
   %123 = load i32, ptr %7, align 4
   %124 = icmp eq i32 %123, 2
   %or.cond = select i1 %122, i1 %124, i1 false
-  br i1 %or.cond, label %125, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %or.cond, label %125, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 125:                                              ; preds = %117
   %126 = load i32, ptr %64, align 4
@@ -246,7 +246,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
   %132 = mul i32 %131, %128
   %133 = mul i32 %132, %130
   %134 = icmp sgt i32 %129, 0
-  br i1 %134, label %.lr.ph20.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %134, label %.lr.ph20.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph20.i:                                       ; preds = %125
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -280,7 +280,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
 ._crit_edge.us.i:                                 ; preds = %.lr.ph17.us.i, %.preheader.us.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.lr.ph.us.i, !llvm.loop !4
+  br i1 %exitcond72.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.lr.ph.us.i, !llvm.loop !4
 
 .lr.ph17.us.i:                                    ; preds = %.preheader.us.i, %.lr.ph17.us.i
   %.216.us.i = phi ptr [ %153, %.lr.ph17.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
@@ -364,7 +364,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
 ._crit_edge.us40.i:                               ; preds = %.lr.ph17.us39.i, %..preheader_crit_edge.us35.i
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i, !llvm.loop !4
+  br i1 %exitcond66.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i, !llvm.loop !4
 
 .lr.ph17.us39.i:                                  ; preds = %..preheader_crit_edge.us35.i, %.lr.ph17.us39.i
   %.216.us24.i = phi ptr [ %190, %.lr.ph17.us39.i ], [ %200, %..preheader_crit_edge.us35.i ]
@@ -400,7 +400,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
 
 .lr.ph20.split.split.i:                           ; preds = %.lr.ph20.split.i
   %205 = icmp sgt i32 %133, 0
-  br i1 %205, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %205, label %.preheader1.us41.preheader.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .preheader1.us41.preheader.i:                     ; preds = %.lr.ph20.split.split.i
   %wide.trip.count.i = zext nneg i32 %129 to i64
@@ -438,17 +438,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12Cast_x86_fma7forwardERK
 ._crit_edge.us47.i:                               ; preds = %218
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us41.i, !llvm.loop !4
+  br i1 %exitcond60.not.i, label %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us41.i, !llvm.loop !4
 
-_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i, %._crit_edge.us.i, %.lr.ph20.split.split.i, %125, %117
+_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us47.i, %._crit_edge.us40.i, %._crit_edge.us.i, %.lr.ph20.split.split.i, %125, %117
   %224 = load i32, ptr %5, align 8
   %225 = icmp eq i32 %224, 2
   %226 = load i32, ptr %7, align 4
   %227 = icmp eq i32 %226, 1
   %or.cond211 = select i1 %225, i1 %227, i1 false
-  br i1 %or.cond211, label %228, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %or.cond211, label %228, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
-228:                                              ; preds = %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+228:                                              ; preds = %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
   %229 = load i32, ptr %64, align 4
   %230 = load i32, ptr %66, align 8
   %231 = load i32, ptr %68, align 4
@@ -458,7 +458,7 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %235 = mul i32 %234, %231
   %236 = mul i32 %235, %233
   %237 = icmp sgt i32 %232, 0
-  br i1 %237, label %.lr.ph20.i218, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %237, label %.lr.ph20.i218, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .lr.ph20.i218:                                    ; preds = %228
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -492,7 +492,7 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
 ._crit_edge.us.i250:                              ; preds = %.lr.ph17.us.i253, %.preheader.us.i247
   %indvars.iv.next69.i251 = add nuw nsw i64 %indvars.iv68.i245, 1
   %exitcond72.not.i252 = icmp eq i64 %indvars.iv.next69.i251, %wide.trip.count71.i243
-  br i1 %exitcond72.not.i252, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.lr.ph.us.i244, !llvm.loop !9
+  br i1 %exitcond72.not.i252, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.lr.ph.us.i244, !llvm.loop !9
 
 .lr.ph17.us.i253:                                 ; preds = %.preheader.us.i247, %.lr.ph17.us.i253
   %.216.us.i254 = phi ptr [ %256, %.lr.ph17.us.i253 ], [ %.1.lcssa.us.i249, %.preheader.us.i247 ]
@@ -574,7 +574,7 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
 ._crit_edge.us40.i236:                            ; preds = %.lr.ph17.us39.i239, %..preheader_crit_edge.us35.i235
   %indvars.iv.next63.i237 = add nuw nsw i64 %indvars.iv62.i233, 1
   %exitcond66.not.i238 = icmp eq i64 %indvars.iv.next63.i237, %wide.trip.count65.i231
-  br i1 %exitcond66.not.i238, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us22.i232, !llvm.loop !9
+  br i1 %exitcond66.not.i238, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us22.i232, !llvm.loop !9
 
 .lr.ph17.us39.i239:                               ; preds = %..preheader_crit_edge.us35.i235, %.lr.ph17.us39.i239
   %.216.us24.i240 = phi ptr [ %291, %.lr.ph17.us39.i239 ], [ %299, %..preheader_crit_edge.us35.i235 ]
@@ -608,7 +608,7 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
 
 .lr.ph20.split.split.i220:                        ; preds = %.lr.ph20.split.i219
   %304 = icmp sgt i32 %236, 0
-  br i1 %304, label %.preheader1.us41.preheader.i221, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+  br i1 %304, label %.preheader1.us41.preheader.i221, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
 
 .preheader1.us41.preheader.i221:                  ; preds = %.lr.ph20.split.split.i220
   %wide.trip.count.i222 = zext nneg i32 %232 to i64
@@ -646,9 +646,9 @@ _ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
 ._crit_edge.us47.i227:                            ; preds = %317
   %indvars.iv.next.i228 = add nuw nsw i64 %indvars.iv.i224, 1
   %exitcond60.not.i229 = icmp eq i64 %indvars.iv.next.i228, %wide.trip.count.i222
-  br i1 %exitcond60.not.i229, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit, label %.preheader1.us41.i223, !llvm.loop !9
+  br i1 %exitcond60.not.i229, label %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit, label %.preheader1.us41.i223, !llvm.loop !9
 
-_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._crit_edge.us47.i227, %._crit_edge.us40.i236, %._crit_edge.us.i250, %.lr.ph20.split.split.i220, %228, %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit: ; preds = %._crit_edge.us47.i227, %._crit_edge.us40.i236, %._crit_edge.us.i250, %.lr.ph20.split.split.i220, %228, %_ZN4ncnnL21cast_fp32_to_fp16_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
   %323 = load i32, ptr %5, align 8
   %324 = icmp eq i32 %323, 3
   %325 = load i32, ptr %7, align 4
@@ -658,7 +658,7 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %or.cond319 = select i1 %or.cond213, i1 %327, i1 false
   br i1 %or.cond319, label %.lr.ph318, label %.loopexit
 
-.lr.ph318:                                        ; preds = %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
+.lr.ph318:                                        ; preds = %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %329 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %330 = icmp sgt i32 %120, 0
@@ -703,9 +703,9 @@ _ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit: ; preds = %._
   %.pre361 = load i32, ptr %7, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit
-  %348 = phi i32 [ %.pre361, %.loopexit.loopexit ], [ %325, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit ]
-  %349 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %323, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.exit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit
+  %348 = phi i32 [ %.pre361, %.loopexit.loopexit ], [ %325, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit ]
+  %349 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %323, %_ZN4ncnnL21cast_fp16_to_fp32_sseERKNS_3MatERS0_RKNS_6OptionE.argprom.exit ]
   %350 = icmp eq i32 %349, 1
   %351 = icmp eq i32 %348, 4
   %or.cond215 = select i1 %350, i1 %351, i1 false

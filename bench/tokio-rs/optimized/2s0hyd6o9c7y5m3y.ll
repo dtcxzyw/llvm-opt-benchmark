@@ -284,13 +284,13 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io
   %21 = icmp ult i64 %20, -9223372036854775807
   tail call void @llvm.assume(i1 %21)
   %22 = icmp eq i64 %18, 0
-  br i1 %22, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.exit", label %23
+  br i1 %22, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.argprom.exit", label %23
 
 23:                                               ; preds = %15
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef %18, i64 noundef %20) #6
-  br label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.exit"
+  br label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.argprom.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.exit": ; preds = %23, %15
+"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h3441fec1f4f7737bE.argprom.exit": ; preds = %23, %15
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 24, i64 noundef 8) #6
   ret void
 

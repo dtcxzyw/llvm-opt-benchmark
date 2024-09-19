@@ -724,7 +724,7 @@ define i32 @Mig_ManSuppSize_rec(ptr noundef readonly %0) local_unnamed_addr #2 {
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 88
   %12 = add nuw nsw i32 %4, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %11, i32 noundef %12)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %11, i32 noundef %12)
   %13 = getelementptr i8, ptr %10, i64 96
   %.val.i3.i = load ptr, ptr %13, align 8
   %14 = zext nneg i32 %4 to i64
@@ -746,7 +746,7 @@ define i32 @Mig_ManSuppSize_rec(ptr noundef readonly %0) local_unnamed_addr #2 {
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds i8, ptr %23, i64 88
   %28 = add nuw nsw i32 %17, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %27, i32 noundef %28)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %27, i32 noundef %28)
   %29 = getelementptr i8, ptr %23, i64 96
   %.val.i4.i10 = load ptr, ptr %29, align 8
   %30 = zext nneg i32 %17 to i64
@@ -887,7 +887,7 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %.tr2123 = phi i32 [ %1, %.lr.ph ], [ %35, %Mig_ObjIsCi.exit.thread ]
   %accumulator.tr22 = phi i32 [ 0, %.lr.ph ], [ %37, %Mig_ObjIsCi.exit.thread ]
   %9 = add nsw i32 %.tr2123, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %9)
   %.val.i.i = load ptr, ptr %5, align 8
   %10 = sext i32 %.tr2123 to i64
   %11 = getelementptr inbounds i32, ptr %.val.i.i, i64 %10
@@ -897,7 +897,7 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %.not, label %Mig_ObjIsCi.exit._crit_edge.loopexit, label %14
 
 14:                                               ; preds = %8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %3, i32 noundef %9)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef nonnull %3, i32 noundef %9)
   %.val.i.i19 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i32, ptr %.val.i.i19, i64 %10
   store i32 %13, ptr %15, align 4
@@ -1247,7 +1247,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

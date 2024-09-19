@@ -183,7 +183,7 @@ Abc_Clock.exit163:                                ; preds = %Abc_Clock.exit161, 
 
 Vec_PtrGrow.exit.i:                               ; preds = %104, %69
   %.not.i = icmp ult i32 %92, 268435456
-  br i1 %.not.i, label %Vec_PtrFill.exit, label %.lr.ph.i
+  br i1 %.not.i, label %Vec_PtrFill.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrGrow.exit.i
   %106 = getelementptr inbounds i8, ptr %91, i64 8
@@ -197,9 +197,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %104, %69
   store ptr null, ptr %109, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrFill.exit, label %107, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Vec_PtrFill.argprom.exit, label %107, !llvm.loop !4
 
-Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.exit.i
+Vec_PtrFill.argprom.exit:                         ; preds = %107, %Vec_PtrGrow.exit.i
   %110 = getelementptr inbounds i8, ptr %91, i64 4
   store i32 %93, ptr %110, align 4
   %111 = load i32, ptr %.0137236, align 8
@@ -207,7 +207,7 @@ Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.e
   %.not244 = icmp ult i32 %111, 268435456
   br i1 %.not244, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %Vec_PtrFill.exit
+.lr.ph.preheader:                                 ; preds = %Vec_PtrFill.argprom.exit
   %113 = load ptr, ptr %2, align 8
   %114 = load i8, ptr %84, align 1
   %115 = sext i8 %114 to i64
@@ -267,9 +267,9 @@ Vec_PtrFill.exit:                                 ; preds = %107, %Vec_PtrGrow.e
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge.loopexit.split.loop.exit271, %Vec_PtrFill.exit
-  %.0132.lcssa = phi i32 [ 0, %Vec_PtrFill.exit ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit271 ], [ 0, %.lr.ph.preheader ], [ %136, %.lr.ph ]
-  %.lcssa = phi i32 [ %112, %Vec_PtrFill.exit ], [ %149, %._crit_edge.loopexit.split.loop.exit271 ], [ %112, %.lr.ph.preheader ], [ %149, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge.loopexit.split.loop.exit271, %Vec_PtrFill.argprom.exit
+  %.0132.lcssa = phi i32 [ 0, %Vec_PtrFill.argprom.exit ], [ %indvars.le, %._crit_edge.loopexit.split.loop.exit271 ], [ 0, %.lr.ph.preheader ], [ %136, %.lr.ph ]
+  %.lcssa = phi i32 [ %112, %Vec_PtrFill.argprom.exit ], [ %149, %._crit_edge.loopexit.split.loop.exit271 ], [ %112, %.lr.ph.preheader ], [ %149, %.lr.ph ]
   %.not145 = icmp eq i32 %.0132.lcssa, %.lcssa
   br i1 %.not145, label %155, label %152
 

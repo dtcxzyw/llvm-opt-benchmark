@@ -15275,7 +15275,7 @@ land.lhs.true143.lr.ph:                           ; preds = %if.end138
   %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp220, i64 8
   br label %land.lhs.true143
 
-land.lhs.true143:                                 ; preds = %land.lhs.true143.lr.ph, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit"
+land.lhs.true143:                                 ; preds = %land.lhs.true143.lr.ph, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom.exit"
   %35 = load ptr, ptr %deferredIngress_, align 8
   %cmp.i80.not = icmp eq ptr %35, null
   br i1 %cmp.i80.not, label %cleanup250, label %land.rhs
@@ -15512,7 +15512,7 @@ cleanup:                                          ; preds = %_ZNKSt14default_del
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.cast) #29
   call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %.cast) #29
   store ptr null, ptr %data, align 8
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #29
   br label %cleanup250, !llvm.loop !102
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit97: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i, %invoke.cont227
@@ -15625,7 +15625,7 @@ if.then.i.sink.split:                             ; preds = %_ZNKSt14default_del
 if.then.i:                                        ; preds = %if.then.i.sink.split, %cleanup.done190, %invoke.cont229, %sw.bb232, %sw.bb240, %if.then.i.i, %if.then6.i.i
   %this.val.val.i = load ptr, ptr %deferredIngress_, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %this.val.val.i, null
-  br i1 %cmp.i.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
   %_M_start.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
@@ -15659,20 +15659,20 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %storemerge.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %75, %if.else.i.i.i.i.i ]
   store ptr %storemerge.i.i.i.i.i, ptr %_M_start.i.i.i.i.i, align 8
-  br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit"
+  br label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom.exit"
 
-"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit": ; preds = %if.then.i, %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i
+"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom.exit": ; preds = %if.then.i, %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i
   %bf.load140 = load i32, ptr %ingressPaused_, align 8
   %bf.cast142 = trunc i32 %bf.load140 to i1
   br i1 %bf.cast142, label %cleanup250, label %land.lhs.true143
 
 ehcleanup249:                                     ; preds = %lpad196.loopexit, %lpad196.loopexit.split-lp, %lpad237, %ehcleanup, %lpad208
   %.pn19 = phi { ptr, i32 } [ %59, %lpad237 ], [ %.pn, %ehcleanup ], [ %49, %lpad208 ], [ %lpad.loopexit, %lpad196.loopexit ], [ %lpad.loopexit.split-lp, %lpad196.loopexit.split-lp ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #29
   br label %ehcleanup251
 
-cleanup250:                                       ; preds = %land.lhs.true143, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", %land.rhs, %if.end138, %cleanup
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+cleanup250:                                       ; preds = %land.lhs.true143, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom.exit", %land.rhs, %if.end138, %cleanup
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #29
   br label %if.then.i105
 
 if.then.i105:                                     ; preds = %cleanup250, %cond.end27, %cleanup.action69, %cond.end91, %cleanup.action112, %cond.false25, %cond.false89
@@ -15702,7 +15702,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
 
 ehcleanup251:                                     ; preds = %lpad173, %ehcleanup249, %lpad127
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %ehcleanup249 ], [ %45, %lpad173 ], [ %34, %lpad127 ]
-  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %this) #29
+  call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev.argprom"(i8 0, ptr nonnull %this) #29
   br label %ehcleanup255
 
 ehcleanup255:                                     ; preds = %lpad102, %lpad38, %ehcleanup251, %lpad16
@@ -15716,7 +15716,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup255
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 %this.0.val, ptr nocapture readonly %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.argprom"(i8 %this.0.val, ptr nocapture readonly %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -15766,7 +15766,7 @@ if.end:                                           ; preds = %_ZNSt5queueIN8proxy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev"(i8 %this.0.val, ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EED2Ev.argprom"(i8 %this.0.val, ptr %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -15820,27 +15820,27 @@ if.then.i.i.i:                                    ; preds = %_ZNK8proxygen15HTTP
   %timer_.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 776
   %6 = load ptr, ptr %timer_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit", label %land.lhs.true.i1.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit", label %land.lhs.true.i1.i.i.i
 
 land.lhs.true.i1.i.i.i:                           ; preds = %if.then.i.i.i
   %hasValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 768
   %7 = load i8, ptr %hasValue.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %7 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit"
+  br i1 %tobool.i.i.i.i.i.i, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit"
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i: ; preds = %land.lhs.true.i1.i.i.i
   %idleTimeout_.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 760
   %8 = load i64, ptr %idleTimeout_.i.i.i.i, align 8
   %cmp.i.i.not.i.i.i.i = icmp eq i64 %8, 0
-  br i1 %cmp.i.i.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit", label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i
+  br i1 %cmp.i.i.not.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit", label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i: ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i
   invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %6, ptr noundef nonnull %this.8.val, i64 %8)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit" unwind label %terminate.lpad.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK8proxygen15HTTPTransaction18isExpectingIngressEv.exit.i.i.i, %lor.rhs4.i.i.i.i
   invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(64) %this.8.val)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit" unwind label %terminate.lpad.i.i
+          to label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit" unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.else.i.i.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i, %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit.i.i.i.i
   %9 = landingpad { ptr, i32 }
@@ -15849,14 +15849,14 @@ terminate.lpad.i.i:                               ; preds = %if.else.i.i.i, %_ZN
   tail call void @__clang_call_terminate(ptr %10) #31
   unreachable
 
-"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit": ; preds = %if.then.i.i.i, %land.lhs.true.i1.i.i.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i, %if.else.i.i.i
+"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit": ; preds = %if.then.i.i.i, %land.lhs.true.i1.i.i.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i.i.i.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit6.i.i.i.i, %if.else.i.i.i
   %inResume_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 728
   %bf.load.i.i = load i32, ptr %inResume_.i.i, align 8
   %bf.clear.i.i = and i32 %bf.load.i.i, -1025
   store i32 %bf.clear.i.i, ptr %inResume_.i.i, align 8
   br label %if.end
 
-if.end:                                           ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit", %entry
+if.end:                                           ; preds = %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.argprom.exit", %entry
   ret void
 }
 

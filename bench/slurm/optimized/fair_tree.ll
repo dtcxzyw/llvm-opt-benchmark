@@ -197,7 +197,7 @@ define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %
   %13 = getelementptr inbounds i8, ptr %.val.i, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %_ft_set_assoc_usage_efctv.exit.i, label %15
+  br i1 %.not.i.i, label %_ft_set_assoc_usage_efctv.argprom.exit.i, label %15
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds i8, ptr %14, i64 312
@@ -205,15 +205,15 @@ define internal fastcc void @_calc_tree_fs(ptr noundef %0, i16 noundef zeroext %
   %18 = getelementptr inbounds i8, ptr %17, i64 144
   %19 = load x86_fp80, ptr %18, align 16
   %20 = fcmp une x86_fp80 %19, 0xK00000000000000000000
-  br i1 %20, label %21, label %_ft_set_assoc_usage_efctv.exit.i
+  br i1 %20, label %21, label %_ft_set_assoc_usage_efctv.argprom.exit.i
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %.val.i, i64 144
   %23 = load x86_fp80, ptr %22, align 16
   %24 = fdiv x86_fp80 %23, %19
-  br label %_ft_set_assoc_usage_efctv.exit.i
+  br label %_ft_set_assoc_usage_efctv.argprom.exit.i
 
-_ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
+_ft_set_assoc_usage_efctv.argprom.exit.i:         ; preds = %21, %15, %.lr.ph
   %.sink.i.i = phi x86_fp80 [ %24, %21 ], [ 0xK00000000000000000000, %15 ], [ 0xK00000000000000000000, %.lr.ph ]
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 112
   store x86_fp80 %.sink.i.i, ptr %25, align 16
@@ -229,7 +229,7 @@ _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
   %34 = icmp eq i32 %33, 2147483647
   br i1 %34, label %35, label %41
 
-35:                                               ; preds = %_ft_set_assoc_usage_efctv.exit.i
+35:                                               ; preds = %_ft_set_assoc_usage_efctv.argprom.exit.i
   %36 = getelementptr inbounds i8, ptr %11, i64 320
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
@@ -244,7 +244,7 @@ _ft_set_assoc_usage_efctv.exit.i:                 ; preds = %21, %15, %.lr.ph
   store x86_fp80 0xK401EFFFFFFFE00000000, ptr %38, align 16
   br label %_calc_assoc_fs.exit
 
-41:                                               ; preds = %_ft_set_assoc_usage_efctv.exit.i
+41:                                               ; preds = %_ft_set_assoc_usage_efctv.argprom.exit.i
   %42 = fcmp oeq double %30, 0.000000e+00
   br i1 %42, label %43, label %45
 

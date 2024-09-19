@@ -5409,7 +5409,7 @@ define internal fastcc i32 @tc_fill_qdisc(ptr noundef %0, ptr noundef nonnull %1
   br i1 %201, label %205, label %202
 
 202:                                              ; preds = %199
-  %203 = call fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef nonnull %200)
+  %203 = call fastcc i32 @nla_put_string.argelim(ptr noundef %0, ptr noundef nonnull %200)
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %.thread
 
@@ -5469,7 +5469,7 @@ declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unn
 declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @nla_put_string(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #14 align 16 {
+define internal fastcc i32 @nla_put_string.argelim(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #14 align 16 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = trunc i64 %3 to i32
   %5 = add i32 %4, 1

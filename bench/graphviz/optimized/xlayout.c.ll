@@ -120,9 +120,9 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %44 = getelementptr i8, ptr %.01319.i.i, i64 16
   br label %45
 
-45:                                               ; preds = %overlap.exit.i.i, %.lr.ph.i.i
-  %.117.i.i = phi i32 [ %.020.i.i, %.lr.ph.i.i ], [ %112, %overlap.exit.i.i ]
-  %.01216.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %113, %overlap.exit.i.i ]
+45:                                               ; preds = %overlap.argprom.exit.i.i, %.lr.ph.i.i
+  %.117.i.i = phi i32 [ %.020.i.i, %.lr.ph.i.i ], [ %112, %overlap.argprom.exit.i.i ]
+  %.01216.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %113, %overlap.argprom.exit.i.i ]
   %.013.val.i.i = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %.01216.i.i, i64 16
   %.012.val.i.i = load ptr, ptr %46, align 8
@@ -157,7 +157,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %73 = fadd double %72, %70
   %74 = fadd double %71, %73
   %75 = fcmp ugt double %54, %74
-  br i1 %75, label %overlap.exit.i.i, label %84
+  br i1 %75, label %overlap.argprom.exit.i.i, label %84
 
 .thread3.i.i.i:                                   ; preds = %45
   %76 = load float, ptr @X_marg, align 8
@@ -168,7 +168,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %81 = fmul double %80, 5.000000e-01
   %82 = fadd double %79, %81
   %83 = fcmp ugt double %54, %82
-  br i1 %83, label %overlap.exit.i.i, label %.thread4.i.i.i
+  br i1 %83, label %overlap.argprom.exit.i.i, label %.thread4.i.i.i
 
 84:                                               ; preds = %67
   %85 = getelementptr inbounds i8, ptr %.013.val.i.i, i64 56
@@ -202,17 +202,17 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
   %108 = fadd double %106, %107
   %109 = fcmp ole double %60, %108
   %110 = zext i1 %109 to i32
-  br label %overlap.exit.i.i
+  br label %overlap.argprom.exit.i.i
 
-overlap.exit.i.i:                                 ; preds = %105, %.thread3.i.i.i, %67
+overlap.argprom.exit.i.i:                         ; preds = %105, %.thread3.i.i.i, %67
   %111 = phi i32 [ 0, %67 ], [ %110, %105 ], [ 0, %.thread3.i.i.i ]
   %112 = add nsw i32 %111, %.117.i.i
   %113 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01216.i.i) #10
   %.not14.i.i = icmp eq ptr %113, null
   br i1 %.not14.i.i, label %._crit_edge.i.i, label %45
 
-._crit_edge.i.i:                                  ; preds = %overlap.exit.i.i, %.lr.ph22.i.i
-  %.1.lcssa.i.i = phi i32 [ %.020.i.i, %.lr.ph22.i.i ], [ %112, %overlap.exit.i.i ]
+._crit_edge.i.i:                                  ; preds = %overlap.argprom.exit.i.i, %.lr.ph22.i.i
+  %.1.lcssa.i.i = phi i32 [ %.020.i.i, %.lr.ph22.i.i ], [ %112, %overlap.argprom.exit.i.i ]
   %114 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01319.i.i) #10
   %.not.i.i = icmp eq ptr %114, null
   br i1 %.not.i.i, label %cntOverlaps.exit.i, label %.lr.ph22.i.i
@@ -257,7 +257,7 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
 125:                                              ; preds = %124, %123
   %126 = fmul double %.sroa.3.056.i, %.sroa.3.056.i
   store double %126, ptr @K2, align 8
-  br i1 %117, label %127, label %xinit_params.exit.i
+  br i1 %117, label %127, label %xinit_params.argprom.exit.i
 
 127:                                              ; preds = %125
   %128 = tail call double @sqrt(double noundef %118) #10
@@ -266,9 +266,9 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
   store double %130, ptr @xParams.1, align 8
   %.pre.i = load double, ptr @K2, align 8
   %.pre64.i = load i32, ptr @xParams.4, align 8
-  br label %xinit_params.exit.i
+  br label %xinit_params.argprom.exit.i
 
-xinit_params.exit.i:                              ; preds = %127, %125
+xinit_params.argprom.exit.i:                      ; preds = %127, %125
   %131 = phi double [ %.sroa.238.0.copyload.i, %125 ], [ %130, %127 ]
   %132 = phi i32 [ %.sroa.8.0.copyload.i, %125 ], [ %.pre64.i, %127 ]
   %133 = phi double [ %126, %125 ], [ %.pre.i, %127 ]
@@ -282,7 +282,7 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %139 = icmp sgt i32 %132, 0
   br i1 %139, label %.lr.ph.i.preheader, label %adjust.exit.thread.i
 
-.lr.ph.i.preheader:                               ; preds = %xinit_params.exit.i
+.lr.ph.i.preheader:                               ; preds = %xinit_params.argprom.exit.i
   %140 = load i32, ptr @xParams.0, align 8
   %141 = sitofp i32 %140 to double
   %142 = fmul double %131, %141
@@ -446,7 +446,7 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %231 = load double, ptr %230, align 8
   %232 = fmul double %231, 5.000000e-01
   %233 = fadd double %232, %228
-  br label %overlap.exit.i.i.i.i
+  br label %overlap.argprom.exit.i.i.i.i
 
 .thread4.i.i.i.i.i:                               ; preds = %.thread3.i.i.i.i.i
   %234 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 56
@@ -459,9 +459,9 @@ xinit_params.exit.i:                              ; preds = %127, %125
   %241 = load double, ptr %240, align 8
   %242 = fmul double %241, %237
   %243 = fmul double %242, 5.000000e-01
-  br label %overlap.exit.i.i.i.i
+  br label %overlap.argprom.exit.i.i.i.i
 
-overlap.exit.i.i.i.i:                             ; preds = %.thread4.i.i.i.i.i, %223
+overlap.argprom.exit.i.i.i.i:                     ; preds = %.thread4.i.i.i.i.i, %223
   %244 = phi double [ %229, %223 ], [ %239, %.thread4.i.i.i.i.i ]
   %245 = phi double [ %233, %223 ], [ %243, %.thread4.i.i.i.i.i ]
   %246 = fadd double %244, %245
@@ -471,9 +471,9 @@ overlap.exit.i.i.i.i:                             ; preds = %.thread4.i.i.i.i.i,
   %spec.select.i.i.i.i = select i1 %.fr.i.i.i.i, ptr @X_ov, ptr @X_nonov
   br label %applyRep.exit.i.i
 
-applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.i, %.thread3.i.i.i.i.i, %206
-  %249 = phi i32 [ 0, %206 ], [ 0, %.thread3.i.i.i.i.i ], [ %248, %overlap.exit.i.i.i.i ]
-  %250 = phi ptr [ @X_nonov, %206 ], [ @X_nonov, %.thread3.i.i.i.i.i ], [ %spec.select.i.i.i.i, %overlap.exit.i.i.i.i ]
+applyRep.exit.i.i:                                ; preds = %overlap.argprom.exit.i.i.i.i, %.thread3.i.i.i.i.i, %206
+  %249 = phi i32 [ 0, %206 ], [ 0, %.thread3.i.i.i.i.i ], [ %248, %overlap.argprom.exit.i.i.i.i ]
+  %250 = phi ptr [ @X_nonov, %206 ], [ @X_nonov, %.thread3.i.i.i.i.i ], [ %spec.select.i.i.i.i, %overlap.argprom.exit.i.i.i.i ]
   %.pn.i.i.i.i = load double, ptr %250, align 8
   %.0.i.i.i.i = fdiv double %.pn.i.i.i.i, %.022.lcssa.i.i.i.i
   %251 = getelementptr inbounds i8, ptr %.val24.i.i.i.i, i64 152
@@ -563,7 +563,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %314 = fadd double %313, %311
   %315 = fadd double %312, %314
   %316 = fcmp ugt double %295, %315
-  br i1 %316, label %overlap.exit.thread.i.i.i, label %325
+  br i1 %316, label %overlap.argprom.exit.thread.i.i.i, label %325
 
 .thread3.i.i.i.i:                                 ; preds = %280
   %317 = load float, ptr @X_marg, align 8
@@ -574,7 +574,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %322 = fmul double %321, 5.000000e-01
   %323 = fadd double %320, %322
   %324 = fcmp ugt double %295, %323
-  br i1 %324, label %overlap.exit.thread.i.i.i, label %.thread4.i.i.i.i
+  br i1 %324, label %overlap.argprom.exit.thread.i.i.i, label %.thread4.i.i.i.i
 
 325:                                              ; preds = %308
   %326 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
@@ -587,7 +587,7 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %333 = load double, ptr %332, align 8
   %334 = fmul double %333, 5.000000e-01
   %335 = fadd double %334, %330
-  br label %overlap.exit.i.i.i
+  br label %overlap.argprom.exit.i.i.i
 
 .thread4.i.i.i.i:                                 ; preds = %.thread3.i.i.i.i
   %336 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 56
@@ -600,16 +600,16 @@ applyRep.exit.i.i:                                ; preds = %overlap.exit.i.i.i.
   %343 = load double, ptr %342, align 8
   %344 = fmul double %343, %339
   %345 = fmul double %344, 5.000000e-01
-  br label %overlap.exit.i.i.i
+  br label %overlap.argprom.exit.i.i.i
 
-overlap.exit.i.i.i:                               ; preds = %.thread4.i.i.i.i, %325
+overlap.argprom.exit.i.i.i:                       ; preds = %.thread4.i.i.i.i, %325
   %346 = phi double [ %331, %325 ], [ %341, %.thread4.i.i.i.i ]
   %347 = phi double [ %335, %325 ], [ %345, %.thread4.i.i.i.i ]
   %348 = fadd double %346, %347
   %349 = fcmp ugt double %301, %348
-  br i1 %349, label %overlap.exit.thread.i.i.i, label %applyAttr.exit.i.i
+  br i1 %349, label %overlap.argprom.exit.thread.i.i.i, label %applyAttr.exit.i.i
 
-overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i, %.thread3.i.i.i.i, %308
+overlap.argprom.exit.thread.i.i.i:                ; preds = %overlap.argprom.exit.i.i.i, %.thread3.i.i.i.i, %308
   %350 = tail call double @hypot(double noundef %294, double noundef %300) #10
   %351 = load i8, ptr getelementptr inbounds (i8, ptr @X_marg, i64 8), align 8
   %352 = trunc i8 %351 to i1
@@ -620,7 +620,7 @@ overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i,
   %357 = load double, ptr %356, align 8
   br i1 %352, label %358, label %367
 
-358:                                              ; preds = %overlap.exit.thread.i.i.i
+358:                                              ; preds = %overlap.argprom.exit.thread.i.i.i
   %359 = fmul double %355, 5.000000e-01
   %360 = load float, ptr @X_marg, align 8
   %361 = fpext float %360 to double
@@ -631,7 +631,7 @@ overlap.exit.thread.i.i.i:                        ; preds = %overlap.exit.i.i.i,
   %366 = fadd double %363, %365
   br label %RAD.exit.i.i.i
 
-367:                                              ; preds = %overlap.exit.thread.i.i.i
+367:                                              ; preds = %overlap.argprom.exit.thread.i.i.i
   %368 = load float, ptr @X_marg, align 8
   %369 = fpext float %368 to double
   %370 = fmul double %355, %369
@@ -720,7 +720,7 @@ RAD.exit29.i.i.i:                                 ; preds = %395, %386
   store double %439, ptr %437, align 8
   br label %applyAttr.exit.i.i
 
-applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %overlap.exit.i.i.i
+applyAttr.exit.i.i:                               ; preds = %RAD.exit29.i.i.i, %overlap.argprom.exit.i.i.i
   %440 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.06077.i.i) #10
   %.not65.i.i = icmp eq ptr %440, null
   br i1 %.not65.i.i, label %._crit_edge80.i.i, label %280
@@ -804,8 +804,8 @@ adjust.exit.thread43.i:                           ; preds = %481, %443
   %485 = icmp slt i32 %483, %484
   br i1 %485, label %.lr.ph.i, label %adjust.exit.thread.i
 
-adjust.exit.thread.i:                             ; preds = %.lr.ph.i, %adjust.exit.thread43.i, %.lr.ph.i.preheader, %xinit_params.exit.i
-  %.2.i = phi i32 [ %.02957.i, %xinit_params.exit.i ], [ %.02957.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i37.i, %adjust.exit.thread43.i ], [ %.1.lcssa.i37.i, %.lr.ph.i ]
+adjust.exit.thread.i:                             ; preds = %.lr.ph.i, %adjust.exit.thread43.i, %.lr.ph.i.preheader, %xinit_params.argprom.exit.i
+  %.2.i = phi i32 [ %.02957.i, %xinit_params.argprom.exit.i ], [ %.02957.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i37.i, %adjust.exit.thread43.i ], [ %.1.lcssa.i37.i, %.lr.ph.i ]
   %486 = add nuw nsw i32 %.02858.i, 1
   %487 = fadd double %.sroa.3.0.copyload.i, %.sroa.3.056.i
   %488 = icmp ne i32 %.2.i, 0

@@ -334,7 +334,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.228 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.229 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
 @.str.230 = private unnamed_addr constant [31 x i8] c" [DLT: Unsupported Data Type!]\00", align 1
-@switch.table.dissect_dlt = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16], align 4
+@switch.table.dissect_dlt.argprom = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 4, i32 8, i32 16], align 4
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define hidden i32 @dlt_ecu_id_to_gint32(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -440,7 +440,7 @@ define internal i32 @dissect_dlt_storage_header(ptr noundef %0, ptr noundef %1, 
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 8, i32 noundef 5, i32 noundef 0) #7
   %20 = load i32, ptr @hf_dlt_storage_reserved, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 13, i32 noundef 3, i32 noundef 0) #7
-  %22 = tail call fastcc i32 @dissect_dlt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 16)
+  %22 = tail call fastcc i32 @dissect_dlt.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 16)
   %23 = add i32 %22, 16
   ret i32 %23
 }
@@ -497,7 +497,7 @@ define internal range(i32 0, 65536) i32 @get_dlt_message_len(ptr nocapture readn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dlt_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #2 {
-  %5 = tail call fastcc i32 @dissect_dlt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %5 = tail call fastcc i32 @dissect_dlt.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %5
 }
 
@@ -506,7 +506,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dlt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 17) %3) unnamed_addr #2 {
+define internal fastcc i32 @dissect_dlt.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 17) %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.dlt_info, align 8
   %7 = alloca i32, align 4
@@ -1059,7 +1059,7 @@ expert_dlt_parsing_error.exit.i.i:                ; preds = %308, %306
 
 switch.lookup:                                    ; preds = %316
   %320 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_dlt, i64 0, i64 %320
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_dlt.argprom, i64 0, i64 %320
   %switch.load = load i32, ptr %switch.gep, align 4
   %321 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %317) #7
   %322 = icmp slt i32 %321, %switch.load

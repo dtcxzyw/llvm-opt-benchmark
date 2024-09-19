@@ -789,14 +789,14 @@ define internal i64 @rb_digest_base_alloc(i64 noundef %0) #0 {
   %.val = load ptr, ptr %14, align 8
   %15 = tail call i32 %.val(ptr noundef %13) #9
   %.not.i = icmp eq i32 %15, 1
-  br i1 %.not.i, label %algo_init.exit, label %16
+  br i1 %.not.i, label %algo_init.argprom.exit, label %16
 
 16:                                               ; preds = %6
   %17 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.36) #10
   unreachable
 
-algo_init.exit:                                   ; preds = %6
+algo_init.argprom.exit:                           ; preds = %6
   ret i64 %10
 }
 
@@ -860,14 +860,14 @@ define internal noundef i64 @rb_digest_base_reset(i64 noundef returned %0) #0 {
   %.val = load ptr, ptr %5, align 8
   %6 = tail call i32 %.val(ptr noundef %4) #9
   %.not.i = icmp eq i32 %6, 1
-  br i1 %.not.i, label %algo_init.exit, label %7
+  br i1 %.not.i, label %algo_init.argprom.exit, label %7
 
 7:                                                ; preds = %1
   %8 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.36) #10
   unreachable
 
-algo_init.exit:                                   ; preds = %1
+algo_init.argprom.exit:                           ; preds = %1
   ret i64 %0
 }
 
@@ -934,14 +934,14 @@ RSTRING_PTR.exit:                                 ; preds = %1, %14
   %.val = load ptr, ptr %16, align 8
   %17 = tail call i32 %.val(ptr noundef %4) #9
   %.not.i = icmp eq i32 %17, 1
-  br i1 %.not.i, label %algo_init.exit, label %18
+  br i1 %.not.i, label %algo_init.argprom.exit, label %18
 
 18:                                               ; preds = %RSTRING_PTR.exit
   %19 = load i64, ptr @rb_eRuntimeError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.36) #10
   unreachable
 
-algo_init.exit:                                   ; preds = %RSTRING_PTR.exit
+algo_init.argprom.exit:                           ; preds = %RSTRING_PTR.exit
   ret i64 %7
 }
 

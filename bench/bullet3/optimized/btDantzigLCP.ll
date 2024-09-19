@@ -1464,7 +1464,7 @@ if.then40:                                        ; preds = %land.lhs.true36
   %18 = load ptr, ptr %m_p, align 8
   %19 = load ptr, ptr %m_state, align 8
   %20 = trunc nsw i64 %indvars.iv63 to i32
-  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %18, ptr noundef %19, ptr noundef %5, i32 noundef %4, i32 noundef %10, i32 noundef %20, i32 noundef 0)
+  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %18, ptr noundef %19, ptr noundef %5, i32 noundef %4, i32 noundef %10, i32 noundef %20, i32 noundef 0)
   %21 = load i32, ptr %m_nub, align 8
   %inc50 = add nsw i32 %21, 1
   store i32 %inc50, ptr %m_nub, align 8
@@ -1588,7 +1588,7 @@ if.then112:                                       ; preds = %for.body108
   %57 = xor i32 %num_at_end.055, -1
   %sub124 = add i32 %56, %57
   %58 = trunc nsw i64 %indvars.iv.next78 to i32
-  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %42, i32 noundef %56, i32 noundef %58, i32 noundef %sub124, i32 noundef 1)
+  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %42, i32 noundef %56, i32 noundef %58, i32 noundef %sub124, i32 noundef 1)
   %inc126 = add nsw i32 %num_at_end.055, 1
   br label %for.inc128
 
@@ -1602,7 +1602,7 @@ if.end130:                                        ; preds = %for.inc128, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr nocapture noundef %A, ptr nocapture noundef %x, ptr nocapture noundef %b, ptr nocapture noundef %w, ptr nocapture noundef %lo, ptr nocapture noundef %hi, ptr nocapture noundef %p, ptr nocapture noundef %state, ptr noundef %findex, i32 noundef %n, i32 noundef %i1, i32 noundef %i2, i32 noundef range(i32 0, 2) %do_fast_row_swaps) unnamed_addr #2 {
+define internal fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr nocapture noundef %A, ptr nocapture noundef %x, ptr nocapture noundef %b, ptr nocapture noundef %w, ptr nocapture noundef %lo, ptr nocapture noundef %hi, ptr nocapture noundef %p, ptr nocapture noundef %state, ptr noundef %findex, i32 noundef %n, i32 noundef %i1, i32 noundef %i2, i32 noundef range(i32 0, 2) %do_fast_row_swaps) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %i1, %i2
   br i1 %cmp, label %if.end69, label %if.end
@@ -1900,7 +1900,7 @@ if.end:                                           ; preds = %if.else, %_Z10btLar
   %35 = load ptr, ptr %m_findex, align 8
   %36 = load i32, ptr %this, align 8
   %37 = load i32, ptr %m_nC, align 4
-  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %i, i32 noundef 1)
+  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef %i, i32 noundef 1)
   %38 = load i32, ptr %m_nC, align 4
   %m_C = getelementptr inbounds i8, ptr %this, i64 136
   %39 = load ptr, ptr %m_C, align 8
@@ -2126,7 +2126,7 @@ if.end:                                           ; preds = %if.else, %_Z10btLar
   %53 = load ptr, ptr %m_findex, align 8
   %54 = load i32, ptr %this, align 8
   %55 = load i32, ptr %m_nC, align 4
-  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %i, i32 noundef 1)
+  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %i, i32 noundef 1)
   %56 = load i32, ptr %m_nC, align 4
   %m_C69 = getelementptr inbounds i8, ptr %this, i64 136
   %57 = load ptr, ptr %m_C69, align 8
@@ -2895,7 +2895,7 @@ for.end35:                                        ; preds = %for.inc33, %entry, 
   %m_findex = getelementptr inbounds i8, ptr %this, i64 120
   %21 = load ptr, ptr %m_findex, align 8
   %22 = load i32, ptr %this, align 8
-  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %i, i32 noundef %sub, i32 noundef 1)
+  tail call fastcc void @_ZL13btSwapProblemPPfS_S_S_S_S_PiPbS1_iiiii.argelim(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %i, i32 noundef %sub, i32 noundef 1)
   %m_nN = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load i32, ptr %m_nN, align 8
   %inc40 = add nsw i32 %23, 1

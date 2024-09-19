@@ -253,22 +253,22 @@ define i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr no
 
 ._crit_edge.i:                                    ; preds = %.lr.ph20.split.us.i, %.critedge.us.i
   %132 = icmp sgt i32 %spec.select.us.i, 2
-  br i1 %132, label %pglz_find_match.exit, label %._crit_edge.i.thread
+  br i1 %132, label %pglz_find_match.argprom.exit, label %._crit_edge.i.thread
 
-pglz_find_match.exit:                             ; preds = %._crit_edge.i
+pglz_find_match.argprom.exit:                     ; preds = %._crit_edge.i
   %133 = icmp eq i8 %.0169241, 0
   br i1 %133, label %134, label %136
 
-134:                                              ; preds = %pglz_find_match.exit
+134:                                              ; preds = %pglz_find_match.argprom.exit
   store i8 %.0161243, ptr %.0154244, align 1
   %135 = getelementptr i8, ptr %.0140248, i64 1
   br label %136
 
-136:                                              ; preds = %pglz_find_match.exit, %134
-  %.1170 = phi i8 [ 1, %134 ], [ %.0169241, %pglz_find_match.exit ]
-  %.1162 = phi i8 [ 0, %134 ], [ %.0161243, %pglz_find_match.exit ]
-  %.1155 = phi ptr [ %.0140248, %134 ], [ %.0154244, %pglz_find_match.exit ]
-  %.1 = phi ptr [ %135, %134 ], [ %.0140248, %pglz_find_match.exit ]
+136:                                              ; preds = %pglz_find_match.argprom.exit, %134
+  %.1170 = phi i8 [ 1, %134 ], [ %.0169241, %pglz_find_match.argprom.exit ]
+  %.1162 = phi i8 [ 0, %134 ], [ %.0161243, %pglz_find_match.argprom.exit ]
+  %.1155 = phi ptr [ %.0140248, %134 ], [ %.0154244, %pglz_find_match.argprom.exit ]
+  %.1 = phi ptr [ %135, %134 ], [ %.0140248, %pglz_find_match.argprom.exit ]
   %137 = or i8 %.1162, %.1170
   %138 = icmp ugt i32 %spec.select.us.i, 17
   %139 = lshr i32 %spec.select79.us.i, 4

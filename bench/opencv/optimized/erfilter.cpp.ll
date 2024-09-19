@@ -15643,7 +15643,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEE
   %690 = sdiv exact i64 %689, 24
   %691 = trunc i64 %690 to i32
   %692 = icmp sgt i32 %691, 0
-  br i1 %692, label %.preheader.preheader.i, label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511
+  br i1 %692, label %.preheader.preheader.i, label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511
 
 .preheader.preheader.i:                           ; preds = %676
   %wide.trip.count13.i = and i64 %690, 2147483647
@@ -15733,19 +15733,19 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv3VecIfLi4EEESt6vectorIS4_SaIS4_EEE
 ._crit_edge.i499:                                 ; preds = %720, %.preheader.i497
   %indvars.iv.next11.i500 = add nuw nsw i64 %indvars.iv10.i498, 1
   %exitcond14.not.i501 = icmp eq i64 %indvars.iv.next11.i500, %wide.trip.count13.i
-  br i1 %exitcond14.not.i501, label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511, label %.preheader.i497, !llvm.loop !183
+  br i1 %exitcond14.not.i501, label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511, label %.preheader.i497, !llvm.loop !183
 
 .loopexit.loopexit.i510:                          ; preds = %.lr.ph.i504
   %726 = trunc nuw nsw i64 %indvars.iv10.i498 to i32
-  br label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511
+  br label %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511
 
-_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511: ; preds = %._crit_edge.i499, %676, %.loopexit.loopexit.i510
+_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511: ; preds = %._crit_edge.i499, %676, %.loopexit.loopexit.i510
   %.013.i1006 = phi i32 [ %.013.i, %.loopexit.loopexit.i510 ], [ -1, %676 ], [ %.013.i, %._crit_edge.i499 ]
   %.013.i494 = phi i32 [ %726, %.loopexit.loopexit.i510 ], [ -1, %676 ], [ -1, %._crit_edge.i499 ]
   %727 = icmp sgt i32 %680, 0
   br i1 %727, label %728, label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit529
 
-728:                                              ; preds = %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511
+728:                                              ; preds = %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511
   %729 = load i32, ptr %140, align 8
   %730 = icmp slt i32 %680, %729
   %731 = icmp sgt i32 %682, 0
@@ -16049,10 +16049,10 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit754
 
-_ZNSt6vectorIfSaIfEE9push_backEOf.exit529:        ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526, %812, %736, %732, %728, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511
-  %.sroa.18.1 = phi ptr [ %.sroa.18.0, %736 ], [ %.sroa.18.0, %732 ], [ %.sroa.18.0, %728 ], [ %.sroa.18.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511 ], [ %.sroa.18.2, %812 ], [ %.sroa.18.2, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.0, %736 ], [ %.sroa.10.0, %732 ], [ %.sroa.10.0, %728 ], [ %.sroa.10.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511 ], [ %.sroa.10.3, %812 ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
-  %.sroa.0876.3 = phi ptr [ %.sroa.0876.0, %736 ], [ %.sroa.0876.0, %732 ], [ %.sroa.0876.0, %728 ], [ %.sroa.0876.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.exit511 ], [ %.sroa.0876.5, %812 ], [ %.sroa.0876.5, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
+_ZNSt6vectorIfSaIfEE9push_backEOf.exit529:        ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526, %812, %736, %732, %728, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511
+  %.sroa.18.1 = phi ptr [ %.sroa.18.0, %736 ], [ %.sroa.18.0, %732 ], [ %.sroa.18.0, %728 ], [ %.sroa.18.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511 ], [ %.sroa.18.2, %812 ], [ %.sroa.18.2, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.0, %736 ], [ %.sroa.10.0, %732 ], [ %.sroa.10.0, %728 ], [ %.sroa.10.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511 ], [ %.sroa.10.3, %812 ], [ %.sroa.10.3, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
+  %.sroa.0876.3 = phi ptr [ %.sroa.0876.0, %736 ], [ %.sroa.0876.0, %732 ], [ %.sroa.0876.0, %728 ], [ %.sroa.0876.0, %_ZN2cv4textL11find_vertexERSt6vectorIS1_INS_6Point_IiEESaIS3_EESaIS5_EERS3_.argprom.exit511 ], [ %.sroa.0876.5, %812 ], [ %.sroa.0876.5, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i526 ]
   %850 = ptrtoint ptr %.sroa.10.2 to i64
   %851 = ptrtoint ptr %.sroa.0876.3 to i64
   %852 = sub i64 %850, %851

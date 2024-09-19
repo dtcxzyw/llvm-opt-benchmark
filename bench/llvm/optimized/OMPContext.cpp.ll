@@ -542,16 +542,16 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
 54:                                               ; preds = %.split
   %or.cond.v = select i1 %.not116, i32 2, i32 0
   %or.cond.not = icmp eq i32 %.0.val.fr.i73, %or.cond.v
-  br i1 %or.cond.not, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit", label %56
+  br i1 %or.cond.not, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit", label %56
 
 55:                                               ; preds = %.split
-  br i1 %.not116, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit", label %56
+  br i1 %.not116, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit", label %56
 
 56:                                               ; preds = %54, %55
   %.sroa.0.011.i = phi i16 [ 1, %55 ], [ 0, %54 ]
-  br label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit"
+  br label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit"
 
-"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit": ; preds = %54, %55, %56
+"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit": ; preds = %54, %55, %56
   %.sroa.0.09.i = phi i16 [ %.sroa.0.011.i, %56 ], [ 1, %55 ], [ 0, %54 ]
   %57 = phi i16 [ 256, %56 ], [ 0, %55 ], [ 0, %54 ]
   %.sroa.0.0.insert.insert.i = or disjoint i16 %57, %.sroa.0.09.i
@@ -695,23 +695,23 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
 122:                                              ; preds = %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_9StringRefELj8EEEZL34isVariantApplicableInContextHelperRKNS_3omp16VariantMatchInfoERKNS6_10OMPContextEPNS_15SmallVectorImplIjEEbE3$_0EEbOT_T0_.exit"
   %or.cond110.v = select i1 %121, i32 0, i32 2
   %or.cond110.not = icmp eq i32 %.0.val.fr.i73, %or.cond110.v
-  br i1 %or.cond110.not, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72", label %124
+  br i1 %or.cond110.not, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72", label %124
 
 123:                                              ; preds = %"_ZN4llvm6all_ofIRKNS_11SmallVectorINS_9StringRefELj8EEEZL34isVariantApplicableInContextHelperRKNS_3omp16VariantMatchInfoERKNS6_10OMPContextEPNS_15SmallVectorImplIjEEbE3$_0EEbOT_T0_.exit"
-  br i1 %121, label %124, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72"
+  br i1 %121, label %124, label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72"
 
 124:                                              ; preds = %122, %123
   %.sroa.0.011.i71 = phi i16 [ 1, %123 ], [ 0, %122 ]
-  br label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72"
+  br label %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72"
 
-"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72": ; preds = %122, %123, %124
+"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72": ; preds = %122, %123, %124
   %.sroa.0.09.i69 = phi i16 [ %.sroa.0.011.i71, %124 ], [ 1, %123 ], [ 0, %122 ]
   %125 = phi i16 [ 256, %124 ], [ 0, %123 ], [ 0, %122 ]
   %.sroa.0.0.insert.insert.i70 = or disjoint i16 %125, %.sroa.0.09.i69
   br label %126
 
-126:                                              ; preds = %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit", %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72"
-  %phi.call = phi i16 [ %.sroa.0.0.insert.insert.i, %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit" ], [ %.sroa.0.0.insert.insert.i70, %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.exit72" ]
+126:                                              ; preds = %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit", %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72"
+  %phi.call = phi i16 [ %.sroa.0.0.insert.insert.i, %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit" ], [ %.sroa.0.0.insert.insert.i70, %"_ZZL34isVariantApplicableInContextHelperRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextEPNS_15SmallVectorImplIjEEbENK3$_1clENS0_13TraitPropertyEb.argprom.exit72" ]
   %127 = and i16 %phi.call, 256
   %.not117 = icmp eq i16 %127, 0
   br i1 %.not117, label %._crit_edge174, label %128
@@ -1263,7 +1263,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i: ; preds = %13
   %150 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   %151 = getelementptr inbounds i32, ptr %149, i64 %150
   %.not20.i = icmp eq i64 %150, 0
-  br i1 %.not20.i, label %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit, label %.lr.ph24.i
+  br i1 %.not20.i, label %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %._crit_edge.i, %.lr.ph24.i
   %.022.i = phi i32 [ %152, %.lr.ph24.i ], [ 0, %._crit_edge.i ]
@@ -1278,15 +1278,15 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i: ; preds = %13
   %159 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %6, i64 noundef %158) #15
   %160 = getelementptr inbounds i8, ptr %.02421.i, i64 4
   %.not.i = icmp eq ptr %160, %151
-  br i1 %.not.i, label %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit, label %.lr.ph24.i
+  br i1 %.not.i, label %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit, label %.lr.ph24.i
 
-_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit: ; preds = %.lr.ph24.i, %._crit_edge.i
+_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit: ; preds = %.lr.ph24.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %161 = call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %4) #17
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %_ZN4llvm5APIntaSERKS0_.exit, label %163
 
-163:                                              ; preds = %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit
+163:                                              ; preds = %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit
   %164 = load i32, ptr %11, align 8
   %165 = icmp ult i32 %164, 65
   br i1 %165, label %166, label %_ZNK4llvm5APInt2eqERKS0_.exit
@@ -1330,9 +1330,9 @@ _ZNK4llvm5APInt2eqERKS0_.exit:                    ; preds = %163
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %6) #15
   br label %_ZN4llvm5APIntaSERKS0_.exit
 
-_ZN4llvm5APIntaSERKS0_.exit:                      ; preds = %184, %182, %173, %171, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit
-  %.218 = phi ptr [ %.01630, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit ], [ %.01630, %171 ], [ %.01630, %173 ], [ %15, %182 ], [ %15, %184 ]
-  %.2 = phi i32 [ %.031, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.exit ], [ %.031, %171 ], [ %.031, %173 ], [ %178, %182 ], [ %178, %184 ]
+_ZN4llvm5APIntaSERKS0_.exit:                      ; preds = %184, %182, %173, %171, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit
+  %.218 = phi ptr [ %.01630, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit ], [ %.01630, %171 ], [ %.01630, %173 ], [ %15, %182 ], [ %15, %184 ]
+  %.2 = phi i32 [ %.031, %_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom.exit ], [ %.031, %171 ], [ %.031, %173 ], [ %178, %182 ], [ %178, %184 ]
   %185 = load i32, ptr %11, align 8
   %186 = icmp ugt i32 %185, 64
   br i1 %186, label %187, label %_ZN4llvm5APIntD2Ev.exit
@@ -3799,8 +3799,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE: argument 0"}
-!13 = distinct !{!13, !"_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE"}
+!12 = distinct !{!12, !13, !"_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZL20getVariantMatchScoreRKN4llvm3omp16VariantMatchInfoERKNS0_10OMPContextERNS_15SmallVectorImplIjEE.argprom"}
 !14 = !{!15, !12}
 !15 = distinct !{!15, !16, !"_ZNK4llvm9BitVector8set_bitsEv: argument 0"}
 !16 = distinct !{!16, !"_ZNK4llvm9BitVector8set_bitsEv"}

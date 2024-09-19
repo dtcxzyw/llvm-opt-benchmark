@@ -297,11 +297,11 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 2.000000e+00)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 2.000000e+00)
   br label %if.end23
 
 sw.bb4:                                           ; preds = %if.then
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 2.000000e+00)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 2.000000e+00)
   br label %if.end23
 
 if.else:                                          ; preds = %entry
@@ -316,11 +316,11 @@ if.then7:                                         ; preds = %if.else
   ]
 
 sw.bb8:                                           ; preds = %if.then7
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 1.000000e+01)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 1.000000e+01)
   br label %if.end23
 
 sw.bb9:                                           ; preds = %if.then7
-  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 1.000000e+01)
+  tail call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, float noundef 1.000000e+01)
   br label %if.end23
 
 if.else11:                                        ; preds = %if.else
@@ -770,7 +770,7 @@ invoke.cont249.i:                                 ; preds = %invoke.cont244.i
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %37 = load ptr, ptr %vfn.i, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %call250.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad251.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit unwind label %lpad251.i
 
 lpad.i:                                           ; preds = %invoke.cont48.i, %invoke.cont43.i, %invoke.cont38.i, %invoke.cont33.i, %invoke.cont.i, %sw.bb15
   %38 = landingpad { ptr, i32 }
@@ -1119,7 +1119,7 @@ common.resume:                                    ; preds = %lpad.i179, %lpad31.
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %st.i155.sink238.sroa.phi266) #7
   resume { ptr, i32 } %common.resume.op
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit: ; preds = %invoke.cont249.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit: ; preds = %invoke.cont249.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i) #7
@@ -1615,7 +1615,7 @@ invoke.cont263.i:                                 ; preds = %invoke.cont258.i
   %vfn.i115 = getelementptr inbounds i8, ptr %vtable.i114, i64 144
   %104 = load ptr, ptr %vfn.i115, align 8
   invoke void %104(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %call264.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad265.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit unwind label %lpad265.i
 
 lpad.i56:                                         ; preds = %invoke.cont56.i, %invoke.cont51.i, %invoke.cont46.i60, %invoke.cont41.i59, %invoke.cont.i58, %sw.bb16
   %105 = landingpad { ptr, i32 }
@@ -1962,7 +1962,7 @@ ehcleanup269.i:                                   ; preds = %ehcleanup268.i, %eh
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i28) #7
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit: ; preds = %invoke.cont263.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit: ; preds = %invoke.cont263.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i29) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i28) #7
@@ -2284,7 +2284,7 @@ invoke.cont138.i:                                 ; preds = %invoke.cont133.i
   %vfn.i152 = getelementptr inbounds i8, ptr %vtable.i151, i64 144
   %175 = load ptr, ptr %vfn.i152, align 8
   invoke void %175(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef %call139.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad140.i
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit unwind label %lpad140.i
 
 lpad.i132:                                        ; preds = %invoke.cont28.i, %invoke.cont23.i, %invoke.cont18.i, %invoke.cont13.i, %invoke.cont.i133, %sw.bb19
   %176 = landingpad { ptr, i32 }
@@ -2456,7 +2456,7 @@ ehcleanup144.i:                                   ; preds = %ehcleanup143.i, %eh
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i120) #7
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit: ; preds = %invoke.cont138.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit: ; preds = %invoke.cont138.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137.i126) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i121) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i120) #7
@@ -2771,7 +2771,7 @@ invoke.cont158.i:                                 ; preds = %invoke.cont153.i231
   %vfn.i233 = getelementptr inbounds i8, ptr %vtable.i232, i64 144
   %223 = load ptr, ptr %vfn.i233, align 8
   invoke void %223(ptr noundef nonnull align 8 dereferenceable(16) %222, ptr noundef %call159.i)
-          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad160.i234
+          to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit unwind label %lpad160.i234
 
 lpad.i179:                                        ; preds = %invoke.cont47.i187, %invoke.cont42.i, %invoke.cont37.i, %invoke.cont32.i, %invoke.cont.i181, %sw.bb20
   %224 = landingpad { ptr, i32 }
@@ -2949,7 +2949,7 @@ ehcleanup164.i:                                   ; preds = %ehcleanup163.i, %eh
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i157) #7
   br label %common.resume
 
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit: ; preds = %invoke.cont158.i
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit: ; preds = %invoke.cont158.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157.i168) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i158) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i157) #7
@@ -2984,14 +2984,14 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16G
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp157.i168)
   br label %if.end23
 
-if.end23:                                         ; preds = %sw.bb9, %sw.bb8, %if.then7, %if.else18, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit, %if.then14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit, %if.then, %sw.bb, %sw.bb4
+if.end23:                                         ; preds = %sw.bb9, %sw.bb8, %if.then7, %if.else18, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit, %if.then14, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.argprom.exit, %if.then, %sw.bb, %sw.bb4
   ret void
 }
 
 declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isLog2Ev(ptr noundef nonnull align 8 dereferenceable(252)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, float noundef %base) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112AddLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, float noundef %base) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -3336,7 +3336,7 @@ ehcleanup104:                                     ; preds = %ehcleanup103, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, float noundef %base) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116AddAntiLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEEf.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, float noundef %base) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
   %ref.tmp = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8

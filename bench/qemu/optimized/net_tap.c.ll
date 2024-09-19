@@ -654,14 +654,14 @@ if.end84:                                         ; preds = %lor.lhs.false74
   %call85 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 8) #19
   %call86 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 8) #19
   %27 = load ptr, ptr %fds59, align 8
-  %call88 = tail call fastcc i32 @get_fds(ptr noundef %27, ptr noundef %call85)
+  %call88 = tail call fastcc i32 @get_fds.argelim(ptr noundef %27, ptr noundef %call85)
   %vhostfds89 = getelementptr inbounds i8, ptr %netdev, i64 104
   %28 = load ptr, ptr %vhostfds89, align 8
   %tobool90.not = icmp eq ptr %28, null
   br i1 %tobool90.not, label %if.end97, label %if.then91
 
 if.then91:                                        ; preds = %if.end84
-  %call93 = tail call fastcc i32 @get_fds(ptr noundef nonnull %28, ptr noundef %call86)
+  %call93 = tail call fastcc i32 @get_fds.argelim(ptr noundef nonnull %28, ptr noundef %call86)
   %cmp94.not = icmp eq i32 %call88, %call93
   br i1 %cmp94.not, label %if.end97, label %if.then95
 
@@ -1302,7 +1302,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @get_fds(ptr noundef %str, ptr nocapture noundef writeonly %fds) unnamed_addr #2 {
+define internal fastcc i32 @get_fds.argelim(ptr noundef %str, ptr nocapture noundef writeonly %fds) unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
   %add.ptr = getelementptr i8, ptr %str, i64 %call
@@ -2291,15 +2291,15 @@ if.end9:                                          ; preds = %if.then6, %land.lhs
   %buf.0 = phi ptr [ %buf1, %land.lhs.true ], [ %add.ptr, %if.then6 ], [ %buf1, %if.end ]
   %opaque.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %opaque.val, null
-  br i1 %tobool.not.i, label %if.end19, label %net_peer_needs_padding.exit
+  br i1 %tobool.not.i, label %if.end19, label %net_peer_needs_padding.argprom.exit
 
-net_peer_needs_padding.exit:                      ; preds = %if.end9
+net_peer_needs_padding.argprom.exit:              ; preds = %if.end9
   %do_not_pad.i = getelementptr inbounds i8, ptr %opaque.val, i64 353
   %4 = load i8, ptr %do_not_pad.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end19, label %if.then11
 
-if.then11:                                        ; preds = %net_peer_needs_padding.exit
+if.then11:                                        ; preds = %net_peer_needs_padding.argprom.exit
   %conv13 = sext i32 %size.0 to i64
   %call14 = call zeroext i1 @eth_pad_short_frame(ptr noundef nonnull %min_pkt, ptr noundef nonnull %min_pktsz, ptr noundef %buf.0, i64 noundef %conv13) #15
   br i1 %call14, label %if.then15, label %if.end19
@@ -2309,9 +2309,9 @@ if.then15:                                        ; preds = %if.then11
   %conv17 = trunc i64 %5 to i32
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end9, %if.then11, %if.then15, %net_peer_needs_padding.exit
-  %size.1 = phi i32 [ %conv17, %if.then15 ], [ %size.0, %if.then11 ], [ %size.0, %net_peer_needs_padding.exit ], [ %size.0, %if.end9 ]
-  %buf.1 = phi ptr [ %min_pkt, %if.then15 ], [ %buf.0, %if.then11 ], [ %buf.0, %net_peer_needs_padding.exit ], [ %buf.0, %if.end9 ]
+if.end19:                                         ; preds = %if.end9, %if.then11, %if.then15, %net_peer_needs_padding.argprom.exit
+  %size.1 = phi i32 [ %conv17, %if.then15 ], [ %size.0, %if.then11 ], [ %size.0, %net_peer_needs_padding.argprom.exit ], [ %size.0, %if.end9 ]
+  %buf.1 = phi ptr [ %min_pkt, %if.then15 ], [ %buf.0, %if.then11 ], [ %buf.0, %net_peer_needs_padding.argprom.exit ], [ %buf.0, %if.end9 ]
   %call21 = call i64 @qemu_send_packet_async(ptr noundef nonnull %opaque, ptr noundef %buf.1, i32 noundef %size.1, ptr noundef nonnull @tap_send_completed) #15
   %conv22 = trunc i64 %call21 to i32
   %cmp23 = icmp eq i32 %conv22, 0

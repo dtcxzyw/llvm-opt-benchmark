@@ -69,7 +69,7 @@ define dso_local void @mixbox_rgb_to_latent(i8 noundef zeroext %0, i8 noundef ze
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %10
 
@@ -473,7 +473,7 @@ define dso_local void @mixbox_float_rgb_to_latent(float noundef %0, float nounde
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %10
 
@@ -787,7 +787,7 @@ define dso_local void @mixbox_linear_float_rgb_to_latent(float noundef %0, float
   br i1 %.not, label %34, label %33
 
 33:                                               ; preds = %31
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %34
 
@@ -1377,7 +1377,7 @@ define dso_local void @mixbox_lerp(i8 noundef zeroext %0, i8 noundef zeroext %1,
   br i1 %.not, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %43
 
@@ -1644,7 +1644,7 @@ define dso_local void @mixbox_lerp(i8 noundef zeroext %0, i8 noundef zeroext %1,
   br i1 %.not895, label %294, label %293
 
 293:                                              ; preds = %291
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %294
 
@@ -2067,7 +2067,7 @@ define dso_local void @mixbox_lerp_float(float noundef %0, float noundef %1, flo
   br i1 %.not, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %43
 
@@ -2334,7 +2334,7 @@ define dso_local void @mixbox_lerp_float(float noundef %0, float noundef %1, flo
   br i1 %.not887, label %294, label %293
 
 293:                                              ; preds = %291
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %294
 
@@ -2787,7 +2787,7 @@ define dso_local void @mixbox_lerp_linear_float(float noundef %0, float noundef 
   br i1 %.not, label %67, label %66
 
 66:                                               ; preds = %64
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %67
 
@@ -3096,7 +3096,7 @@ define dso_local void @mixbox_lerp_linear_float(float noundef %0, float noundef 
   br i1 %.not946, label %342, label %341
 
 341:                                              ; preds = %339
-  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev()
+  tail call fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom()
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZL10mixbox_lutvE12decompressed) #12
   br label %342
 
@@ -3517,7 +3517,7 @@ define dso_local void @mixbox_lerp_linear_float(float noundef %0, float noundef 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev() unnamed_addr #5 align 2 {
+define internal fastcc void @_ZZL10mixbox_lutvEN13mixbox_init_tC2Ev.argprom() unnamed_addr #5 align 2 {
   %1 = alloca %struct.zhuffman, align 4
   %2 = alloca [455 x i8], align 16
   %3 = alloca [19 x i8], align 16
@@ -3603,7 +3603,7 @@ thread-pre-split.i:                               ; preds = %478, %0
   %52 = add nsw i32 %48, -2
   store i32 %52, ptr %12, align 8
   %.not.i = icmp eq i32 %50, 2
-  br i1 %.not.i, label %53, label %_ZL10decompressPci.exit
+  br i1 %.not.i, label %53, label %_ZL10decompressPci.argprom.exit
 
 53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 2020, ptr nonnull %1)
@@ -4075,7 +4075,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.thread.i:   ; preds = %294, %293, %180, %2
   call void @llvm.lifetime.end.p0(i64 2020, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3)
-  br label %_ZL10decompressPci.exit
+  br label %_ZL10decompressPci.argprom.exit
 
 _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %296 = zext nneg i32 %62 to i64
@@ -4085,7 +4085,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   call void @llvm.lifetime.end.p0(i64 455, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3)
   %.not43.i = icmp eq i32 %298, 0
-  br i1 %.not43.i, label %_ZL10decompressPci.exit, label %299
+  br i1 %.not43.i, label %_ZL10decompressPci.argprom.exit, label %299
 
 299:                                              ; preds = %_ZL21compute_huffman_codesP4zbuf.exit.i
   %300 = load ptr, ptr %9, align 8
@@ -4100,7 +4100,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
 304:                                              ; preds = %301
   %305 = load i32, ptr %11, align 8
   %.not.i58.i = icmp eq i32 %305, 0
-  br i1 %.not.i58.i, label %306, label %_ZL10decompressPci.exit
+  br i1 %.not.i58.i, label %306, label %_ZL10decompressPci.argprom.exit
 
 306:                                              ; preds = %304
   call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
@@ -4143,7 +4143,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
 326:                                              ; preds = %322
   %327 = trunc nuw nsw i64 %indvars.iv.i.i55.i to i32
   %328 = icmp ugt i64 %indvars.iv.i.i55.i, 15
-  br i1 %328, label %_ZL10decompressPci.exit, label %329
+  br i1 %328, label %_ZL10decompressPci.argprom.exit, label %329
 
 329:                                              ; preds = %326
   %330 = sub nuw nsw i32 16, %327
@@ -4157,7 +4157,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %338 = zext i16 %337 to i32
   %339 = add nsw i32 %335, %338
   %340 = icmp sgt i32 %339, 287
-  br i1 %340, label %_ZL10decompressPci.exit, label %341
+  br i1 %340, label %_ZL10decompressPci.argprom.exit, label %341
 
 341:                                              ; preds = %329
   %342 = sext i32 %339 to i64
@@ -4165,7 +4165,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   %344 = load i8, ptr %343, align 1
   %345 = zext i8 %344 to i64
   %.not.i.i57.i = icmp eq i64 %indvars.iv.i.i55.i, %345
-  br i1 %.not.i.i57.i, label %346, label %_ZL10decompressPci.exit
+  br i1 %.not.i.i57.i, label %346, label %_ZL10decompressPci.argprom.exit
 
 346:                                              ; preds = %341
   %347 = lshr i32 %308, %327
@@ -4188,7 +4188,7 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i: ; preds = %346, %313
 355:                                              ; preds = %_ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit.i47.i
   %356 = load ptr, ptr %10, align 8
   %.not117.i.i = icmp ult ptr %.097.i.i, %356
-  br i1 %.not117.i.i, label %357, label %_ZL10decompressPci.exit
+  br i1 %.not117.i.i, label %357, label %_ZL10decompressPci.argprom.exit
 
 357:                                              ; preds = %355
   %358 = trunc nuw i32 %.0.i49.i to i8
@@ -4244,7 +4244,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
 384:                                              ; preds = %thread-pre-split.i.i
   %385 = load i32, ptr %11, align 8
   %.not109.i.i = icmp eq i32 %385, 0
-  br i1 %.not109.i.i, label %386, label %_ZL10decompressPci.exit
+  br i1 %.not109.i.i, label %386, label %_ZL10decompressPci.argprom.exit
 
 386:                                              ; preds = %384
   call fastcc void @_ZL9fill_bitsP4zbuf(ptr noundef %4)
@@ -4288,7 +4288,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
 406:                                              ; preds = %402
   %407 = trunc nuw nsw i64 %indvars.iv.i120.i.i to i32
   %408 = icmp ugt i64 %indvars.iv.i120.i.i, 15
-  br i1 %408, label %_ZL10decompressPci.exit, label %409
+  br i1 %408, label %_ZL10decompressPci.argprom.exit, label %409
 
 409:                                              ; preds = %406
   %410 = sub nuw nsw i32 16, %407
@@ -4302,7 +4302,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   %418 = zext i16 %417 to i32
   %419 = add nsw i32 %415, %418
   %420 = icmp sgt i32 %419, 287
-  br i1 %420, label %_ZL10decompressPci.exit, label %421
+  br i1 %420, label %_ZL10decompressPci.argprom.exit, label %421
 
 421:                                              ; preds = %409
   %422 = sext i32 %419 to i64
@@ -4310,7 +4310,7 @@ thread-pre-split.i.i:                             ; preds = %373, %362
   %424 = load i8, ptr %423, align 1
   %425 = zext i8 %424 to i64
   %.not.i122.i.i = icmp eq i64 %indvars.iv.i120.i.i, %425
-  br i1 %.not.i122.i.i, label %426, label %_ZL10decompressPci.exit
+  br i1 %.not.i122.i.i, label %426, label %_ZL10decompressPci.argprom.exit
 
 426:                                              ; preds = %421
   %427 = lshr i32 %388, %407
@@ -4367,14 +4367,14 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
   %456 = sub i64 %454, %455
   %457 = sext i32 %.094.i.i to i64
   %458 = icmp slt i64 %456, %457
-  br i1 %458, label %_ZL10decompressPci.exit, label %459
+  br i1 %458, label %_ZL10decompressPci.argprom.exit, label %459
 
 459:                                              ; preds = %452
   %460 = sext i32 %.095.i.i to i64
   %461 = getelementptr inbounds i8, ptr %.097.i.i, i64 %460
   %462 = load ptr, ptr %10, align 8
   %463 = icmp ugt ptr %461, %462
-  br i1 %463, label %_ZL10decompressPci.exit, label %464
+  br i1 %463, label %_ZL10decompressPci.argprom.exit, label %464
 
 464:                                              ; preds = %459
   %465 = sub nsw i64 0, %457
@@ -4450,9 +4450,9 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
 .split.us.i:                                      ; preds = %.preheader.split.i, %.preheader.i
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 266369
-  br i1 %exitcond83.not.i, label %_ZL10decompressPci.exit, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond83.not.i, label %_ZL10decompressPci.argprom.exit, label %.preheader.i, !llvm.loop !18
 
-_ZL10decompressPci.exit:                          ; preds = %47, %_ZL21compute_huffman_codesP4zbuf.exit.i, %304, %326, %329, %341, %355, %384, %406, %409, %421, %452, %459, %.split.us.i, %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
+_ZL10decompressPci.argprom.exit:                  ; preds = %47, %_ZL21compute_huffman_codesP4zbuf.exit.i, %304, %326, %329, %341, %355, %384, %406, %409, %421, %452, %459, %.split.us.i, %_ZL21compute_huffman_codesP4zbuf.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %4)
   ret void
 }

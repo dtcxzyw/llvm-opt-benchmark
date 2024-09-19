@@ -156,10 +156,10 @@ return:                                           ; preds = %for.cond, %for.cond
 define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr nocapture readnone %method, ptr nocapture noundef readonly %a, ptr noundef %bp, i32 noundef %ind) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  tail call fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.10)
+  tail call fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %0, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.10)
   %excludedSubtrees = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %excludedSubtrees, align 8
-  tail call fastcc void @do_i2r_name_constraints(ptr noundef %1, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.11)
+  tail call fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %1, ptr noundef %bp, i32 noundef %ind, ptr noundef nonnull @.str.11)
   ret i32 1
 }
 
@@ -397,7 +397,7 @@ declare ptr @sk_new_null() local_unnamed_addr #1
 declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_i2r_name_constraints(ptr noundef %trees, ptr noundef %bp, i32 noundef %ind, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @do_i2r_name_constraints.argprom.retelim(ptr noundef %trees, ptr noundef %bp, i32 noundef %ind, ptr noundef %name) unnamed_addr #0 {
 entry:
   %call = tail call i64 @sk_num(ptr noundef %trees) #5
   %cmp.not = icmp eq i64 %call, 0

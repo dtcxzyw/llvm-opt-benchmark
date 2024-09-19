@@ -362,7 +362,7 @@ define internal i32 @dissect_cpha(ptr noundef %0, ptr nocapture noundef readonly
   ]
 
 51:                                               ; preds = %45
-  tail call fastcc void @dissect_my_state(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
+  tail call fastcc void @dissect_my_state.retelim(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
   br label %63
 
 52:                                               ; preds = %45, %45
@@ -371,11 +371,11 @@ define internal i32 @dissect_cpha(ptr noundef %0, ptr nocapture noundef readonly
   br label %63
 
 55:                                               ; preds = %45
-  tail call fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
+  tail call fastcc void @dissect_conf_reply.retelim(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
   br label %63
 
 56:                                               ; preds = %45
-  tail call fastcc void @dissect_lb_conf(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
+  tail call fastcc void @dissect_lb_conf.retelim(ptr noundef %0, i32 noundef %.082, ptr noundef %50)
   br label %63
 
 57:                                               ; preds = %45
@@ -427,7 +427,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_my_state.retelim(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_id_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #2
@@ -513,7 +513,7 @@ define internal fastcc void @dissect_my_state(ptr noundef %0, i32 noundef range(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_conf_reply.retelim(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_num_reported_ifs, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #2
   %6 = add nuw nsw i32 %1, 4
@@ -529,7 +529,7 @@ define internal fastcc void @dissect_conf_reply(ptr noundef %0, i32 noundef rang
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_lb_conf(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_lb_conf.retelim(ptr noundef %0, i32 noundef range(i32 16, 21) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_slot_num, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #2
   %6 = add nuw nsw i32 %1, 2

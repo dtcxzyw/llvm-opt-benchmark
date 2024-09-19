@@ -897,7 +897,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont4
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x36A0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x36A0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, i32 noundef -45)
           to label %invoke.cont12 unwind label %lpad10
 
 invoke.cont12:                                    ; preds = %invoke.cont9
@@ -908,7 +908,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont12
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x380FFFFFC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x380FFFFFC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i32 noundef -45)
           to label %invoke.cont22 unwind label %lpad18
 
 invoke.cont22:                                    ; preds = %invoke.cont17
@@ -919,7 +919,7 @@ invoke.cont22:                                    ; preds = %invoke.cont17
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont22
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3810000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3810000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, i32 noundef -45)
           to label %invoke.cont32 unwind label %lpad28
 
 invoke.cont32:                                    ; preds = %invoke.cont27
@@ -930,7 +930,7 @@ invoke.cont32:                                    ; preds = %invoke.cont27
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont32
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3810000020000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3810000020000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, i32 noundef -45)
           to label %invoke.cont42 unwind label %lpad38
 
 invoke.cont42:                                    ; preds = %invoke.cont37
@@ -941,7 +941,7 @@ invoke.cont42:                                    ; preds = %invoke.cont37
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont42
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x381FFFFFE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x381FFFFFE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i32 noundef -45)
           to label %invoke.cont52 unwind label %lpad48
 
 invoke.cont52:                                    ; preds = %invoke.cont47
@@ -952,7 +952,7 @@ invoke.cont52:                                    ; preds = %invoke.cont47
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont52
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3820000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3820000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, i32 noundef -45)
           to label %invoke.cont62 unwind label %lpad58
 
 invoke.cont62:                                    ; preds = %invoke.cont57
@@ -963,7 +963,7 @@ invoke.cont62:                                    ; preds = %invoke.cont57
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont62
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3820000020000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, i32 noundef -44)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3820000020000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, i32 noundef -44)
           to label %invoke.cont72 unwind label %lpad68
 
 invoke.cont72:                                    ; preds = %invoke.cont67
@@ -974,7 +974,7 @@ invoke.cont72:                                    ; preds = %invoke.cont67
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont72
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3980000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, i32 noundef -39)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3980000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, i32 noundef -39)
           to label %invoke.cont82 unwind label %lpad78
 
 invoke.cont82:                                    ; preds = %invoke.cont77
@@ -985,7 +985,7 @@ invoke.cont82:                                    ; preds = %invoke.cont77
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont82
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x39E0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84, i32 noundef -37)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x39E0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84, i32 noundef -37)
           to label %invoke.cont92 unwind label %lpad88
 
 invoke.cont92:                                    ; preds = %invoke.cont87
@@ -996,7 +996,7 @@ invoke.cont92:                                    ; preds = %invoke.cont87
           to label %invoke.cont97 unwind label %lpad96
 
 invoke.cont97:                                    ; preds = %invoke.cont92
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x39F0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94, i32 noundef -36)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x39F0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94, i32 noundef -36)
           to label %invoke.cont102 unwind label %lpad98
 
 invoke.cont102:                                   ; preds = %invoke.cont97
@@ -1007,7 +1007,7 @@ invoke.cont102:                                   ; preds = %invoke.cont97
           to label %invoke.cont107 unwind label %lpad106
 
 invoke.cont107:                                   ; preds = %invoke.cont102
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3B90000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, i32 noundef -29)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3B90000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, i32 noundef -29)
           to label %invoke.cont112 unwind label %lpad108
 
 invoke.cont112:                                   ; preds = %invoke.cont107
@@ -1018,7 +1018,7 @@ invoke.cont112:                                   ; preds = %invoke.cont107
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %invoke.cont112
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x47EFFFFFC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, i32 noundef 31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x47EFFFFFC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, i32 noundef 31)
           to label %invoke.cont122 unwind label %lpad118
 
 invoke.cont122:                                   ; preds = %invoke.cont117
@@ -1029,7 +1029,7 @@ invoke.cont122:                                   ; preds = %invoke.cont117
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %invoke.cont122
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x47EFFFFFE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124, i32 noundef 31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x47EFFFFFE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp124, i32 noundef 31)
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %invoke.cont127
@@ -1040,7 +1040,7 @@ invoke.cont129:                                   ; preds = %invoke.cont127
           to label %invoke.cont137 unwind label %lpad136
 
 invoke.cont137:                                   ; preds = %invoke.cont129
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3B082DB340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, i32 noundef -25)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3B082DB340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, i32 noundef -25)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %invoke.cont137
@@ -1051,7 +1051,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %invoke.cont147 unwind label %lpad146
 
 invoke.cont147:                                   ; preds = %invoke.cont139
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3AF82DB340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, i32 noundef -26)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3AF82DB340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, i32 noundef -26)
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %invoke.cont147
@@ -1062,7 +1062,7 @@ invoke.cont149:                                   ; preds = %invoke.cont147
           to label %invoke.cont157 unwind label %lpad156
 
 invoke.cont157:                                   ; preds = %invoke.cont149
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x46CD7582A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154, i32 noundef 30)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x46CD7582A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154, i32 noundef 30)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %invoke.cont157
@@ -1073,7 +1073,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %invoke.cont159
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x38CA321D60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, i32 noundef -39)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x38CA321D60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, i32 noundef -39)
           to label %invoke.cont169 unwind label %lpad168
 
 invoke.cont169:                                   ; preds = %invoke.cont167
@@ -1084,7 +1084,7 @@ invoke.cont169:                                   ; preds = %invoke.cont167
           to label %invoke.cont177 unwind label %lpad176
 
 invoke.cont177:                                   ; preds = %invoke.cont169
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3947B47DA0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp174, i32 noundef -38)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3947B47DA0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp174, i32 noundef -38)
           to label %invoke.cont179 unwind label %lpad178
 
 invoke.cont179:                                   ; preds = %invoke.cont177
@@ -1095,7 +1095,7 @@ invoke.cont179:                                   ; preds = %invoke.cont177
           to label %invoke.cont187 unwind label %lpad186
 
 invoke.cont187:                                   ; preds = %invoke.cont179
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x384D3F52A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x384D3F52A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184, i32 noundef -43)
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %invoke.cont187
@@ -1106,7 +1106,7 @@ invoke.cont189:                                   ; preds = %invoke.cont187
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont189
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3ED5F829E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194, i32 noundef -13)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3ED5F829E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194, i32 noundef -13)
           to label %invoke.cont199 unwind label %lpad198
 
 invoke.cont199:                                   ; preds = %invoke.cont197
@@ -1117,7 +1117,7 @@ invoke.cont199:                                   ; preds = %invoke.cont197
           to label %invoke.cont207 unwind label %lpad206
 
 invoke.cont207:                                   ; preds = %invoke.cont199
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x385800FF20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x385800FF20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp204, i32 noundef -43)
           to label %invoke.cont209 unwind label %lpad208
 
 invoke.cont209:                                   ; preds = %invoke.cont207
@@ -1128,7 +1128,7 @@ invoke.cont209:                                   ; preds = %invoke.cont207
           to label %invoke.cont217 unwind label %lpad216
 
 invoke.cont217:                                   ; preds = %invoke.cont209
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x399E717F80000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214, i32 noundef -38)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x399E717F80000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214, i32 noundef -38)
           to label %invoke.cont219 unwind label %lpad218
 
 invoke.cont219:                                   ; preds = %invoke.cont217
@@ -1139,7 +1139,7 @@ invoke.cont219:                                   ; preds = %invoke.cont217
           to label %invoke.cont227 unwind label %lpad226
 
 invoke.cont227:                                   ; preds = %invoke.cont219
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x384C731D20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, i32 noundef -44)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x384C731D20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224, i32 noundef -44)
           to label %invoke.cont229 unwind label %lpad228
 
 invoke.cont229:                                   ; preds = %invoke.cont227
@@ -1150,7 +1150,7 @@ invoke.cont229:                                   ; preds = %invoke.cont227
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %invoke.cont229
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3B04AFA580000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234, i32 noundef -31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3B04AFA580000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234, i32 noundef -31)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %invoke.cont237
@@ -1161,7 +1161,7 @@ invoke.cont239:                                   ; preds = %invoke.cont237
           to label %invoke.cont247 unwind label %lpad246
 
 invoke.cont247:                                   ; preds = %invoke.cont239
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3D9F56FA60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp244, i32 noundef -18)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3D9F56FA60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp244, i32 noundef -18)
           to label %invoke.cont249 unwind label %lpad248
 
 invoke.cont249:                                   ; preds = %invoke.cont247
@@ -1172,7 +1172,7 @@ invoke.cont249:                                   ; preds = %invoke.cont247
           to label %invoke.cont257 unwind label %lpad256
 
 invoke.cont257:                                   ; preds = %invoke.cont249
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x45BEB23740000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254, i32 noundef 26)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x45BEB23740000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp254, i32 noundef 26)
           to label %invoke.cont259 unwind label %lpad258
 
 invoke.cont259:                                   ; preds = %invoke.cont257
@@ -1183,7 +1183,7 @@ invoke.cont259:                                   ; preds = %invoke.cont257
           to label %invoke.cont267 unwind label %lpad266
 
 invoke.cont267:                                   ; preds = %invoke.cont259
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x42F30AE440000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp264, i32 noundef 12)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x42F30AE440000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp264, i32 noundef 12)
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont267
@@ -1194,7 +1194,7 @@ invoke.cont269:                                   ; preds = %invoke.cont267
           to label %invoke.cont277 unwind label %lpad276
 
 invoke.cont277:                                   ; preds = %invoke.cont269
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x47E84F2940000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274, i32 noundef 35)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x47E84F2940000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274, i32 noundef 35)
           to label %invoke.cont279 unwind label %lpad278
 
 invoke.cont279:                                   ; preds = %invoke.cont277
@@ -1205,7 +1205,7 @@ invoke.cont279:                                   ; preds = %invoke.cont277
           to label %invoke.cont287 unwind label %lpad286
 
 invoke.cont287:                                   ; preds = %invoke.cont279
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x45E83C5F20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284, i32 noundef 24)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x45E83C5F20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp284, i32 noundef 24)
           to label %invoke.cont289 unwind label %lpad288
 
 invoke.cont289:                                   ; preds = %invoke.cont287
@@ -1216,7 +1216,7 @@ invoke.cont289:                                   ; preds = %invoke.cont287
           to label %invoke.cont297 unwind label %lpad296
 
 invoke.cont297:                                   ; preds = %invoke.cont289
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x4434FD8C80000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294, i32 noundef 15)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x4434FD8C80000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294, i32 noundef 15)
           to label %invoke.cont299 unwind label %lpad298
 
 invoke.cont299:                                   ; preds = %invoke.cont297
@@ -1227,7 +1227,7 @@ invoke.cont299:                                   ; preds = %invoke.cont297
           to label %invoke.cont307 unwind label %lpad306
 
 invoke.cont307:                                   ; preds = %invoke.cont299
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x45DCB94B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304, i32 noundef 22)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x45DCB94B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp304, i32 noundef 22)
           to label %invoke.cont309 unwind label %lpad308
 
 invoke.cont309:                                   ; preds = %invoke.cont307
@@ -1238,7 +1238,7 @@ invoke.cont309:                                   ; preds = %invoke.cont307
           to label %invoke.cont317 unwind label %lpad316
 
 invoke.cont317:                                   ; preds = %invoke.cont309
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3B3E8C2960000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp314, i32 noundef -30)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3B3E8C2960000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp314, i32 noundef -30)
           to label %invoke.cont319 unwind label %lpad318
 
 invoke.cont319:                                   ; preds = %invoke.cont317
@@ -1249,7 +1249,7 @@ invoke.cont319:                                   ; preds = %invoke.cont317
           to label %invoke.cont327 unwind label %lpad326
 
 invoke.cont327:                                   ; preds = %invoke.cont319
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x44E0885A60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp324, i32 noundef 17)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x44E0885A60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp324, i32 noundef 17)
           to label %invoke.cont329 unwind label %lpad328
 
 invoke.cont329:                                   ; preds = %invoke.cont327
@@ -1260,7 +1260,7 @@ invoke.cont329:                                   ; preds = %invoke.cont327
           to label %invoke.cont337 unwind label %lpad336
 
 invoke.cont337:                                   ; preds = %invoke.cont329
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3C4C55DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp334, i32 noundef -25)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3C4C55DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp334, i32 noundef -25)
           to label %invoke.cont339 unwind label %lpad338
 
 invoke.cont339:                                   ; preds = %invoke.cont337
@@ -1271,7 +1271,7 @@ invoke.cont339:                                   ; preds = %invoke.cont337
           to label %invoke.cont347 unwind label %lpad346
 
 invoke.cont347:                                   ; preds = %invoke.cont339
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3C3C55DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344, i32 noundef -25)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3C3C55DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp344, i32 noundef -25)
           to label %invoke.cont349 unwind label %lpad348
 
 invoke.cont349:                                   ; preds = %invoke.cont347
@@ -1282,7 +1282,7 @@ invoke.cont349:                                   ; preds = %invoke.cont347
           to label %invoke.cont357 unwind label %lpad356
 
 invoke.cont357:                                   ; preds = %invoke.cont349
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x3A83593480000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354, i32 noundef -32)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x3A83593480000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354, i32 noundef -32)
           to label %invoke.cont359 unwind label %lpad358
 
 invoke.cont359:                                   ; preds = %invoke.cont357
@@ -1293,7 +1293,7 @@ invoke.cont359:                                   ; preds = %invoke.cont357
           to label %invoke.cont367 unwind label %lpad366
 
 invoke.cont367:                                   ; preds = %invoke.cont359
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef 0x475944C940000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp364, i32 noundef 28)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef 0x475944C940000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp364, i32 noundef 28)
           to label %invoke.cont369 unwind label %lpad368
 
 invoke.cont369:                                   ; preds = %invoke.cont367
@@ -1924,7 +1924,7 @@ invoke.cont382:                                   ; preds = %invoke.cont379
           to label %invoke.cont387 unwind label %lpad386
 
 invoke.cont387:                                   ; preds = %invoke.cont382
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.940660e-324, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp384, i32 noundef -324)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.940660e-324, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp384, i32 noundef -324)
           to label %invoke.cont392 unwind label %lpad388
 
 invoke.cont392:                                   ; preds = %invoke.cont387
@@ -1935,7 +1935,7 @@ invoke.cont392:                                   ; preds = %invoke.cont387
           to label %invoke.cont397 unwind label %lpad396
 
 invoke.cont397:                                   ; preds = %invoke.cont392
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0xFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp394, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0xFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp394, i32 noundef -323)
           to label %invoke.cont402 unwind label %lpad398
 
 invoke.cont402:                                   ; preds = %invoke.cont397
@@ -1946,7 +1946,7 @@ invoke.cont402:                                   ; preds = %invoke.cont397
           to label %invoke.cont407 unwind label %lpad406
 
 invoke.cont407:                                   ; preds = %invoke.cont402
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp404, i32 noundef -324)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp404, i32 noundef -324)
           to label %invoke.cont412 unwind label %lpad408
 
 invoke.cont412:                                   ; preds = %invoke.cont407
@@ -1957,7 +1957,7 @@ invoke.cont412:                                   ; preds = %invoke.cont407
           to label %invoke.cont417 unwind label %lpad416
 
 invoke.cont417:                                   ; preds = %invoke.cont412
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x10000000000001, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp414, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x10000000000001, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp414, i32 noundef -323)
           to label %invoke.cont422 unwind label %lpad418
 
 invoke.cont422:                                   ; preds = %invoke.cont417
@@ -1968,7 +1968,7 @@ invoke.cont422:                                   ; preds = %invoke.cont417
           to label %invoke.cont427 unwind label %lpad426
 
 invoke.cont427:                                   ; preds = %invoke.cont422
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x1FFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp424, i32 noundef -324)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x1FFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp424, i32 noundef -324)
           to label %invoke.cont432 unwind label %lpad428
 
 invoke.cont432:                                   ; preds = %invoke.cont427
@@ -1979,7 +1979,7 @@ invoke.cont432:                                   ; preds = %invoke.cont427
           to label %invoke.cont437 unwind label %lpad436
 
 invoke.cont437:                                   ; preds = %invoke.cont432
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x20000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp434, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x20000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp434, i32 noundef -323)
           to label %invoke.cont442 unwind label %lpad438
 
 invoke.cont442:                                   ; preds = %invoke.cont437
@@ -1990,7 +1990,7 @@ invoke.cont442:                                   ; preds = %invoke.cont437
           to label %invoke.cont447 unwind label %lpad446
 
 invoke.cont447:                                   ; preds = %invoke.cont442
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x20000000000001, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x20000000000001, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444, i32 noundef -323)
           to label %invoke.cont452 unwind label %lpad448
 
 invoke.cont452:                                   ; preds = %invoke.cont447
@@ -2001,7 +2001,7 @@ invoke.cont452:                                   ; preds = %invoke.cont447
           to label %invoke.cont457 unwind label %lpad456
 
 invoke.cont457:                                   ; preds = %invoke.cont452
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x40000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp454, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x40000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp454, i32 noundef -323)
           to label %invoke.cont462 unwind label %lpad458
 
 invoke.cont462:                                   ; preds = %invoke.cont457
@@ -2012,7 +2012,7 @@ invoke.cont462:                                   ; preds = %invoke.cont457
           to label %invoke.cont467 unwind label %lpad466
 
 invoke.cont467:                                   ; preds = %invoke.cont462
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x50000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp464, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x50000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp464, i32 noundef -323)
           to label %invoke.cont472 unwind label %lpad468
 
 invoke.cont472:                                   ; preds = %invoke.cont467
@@ -2023,7 +2023,7 @@ invoke.cont472:                                   ; preds = %invoke.cont467
           to label %invoke.cont477 unwind label %lpad476
 
 invoke.cont477:                                   ; preds = %invoke.cont472
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x60000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp474, i32 noundef -322)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x60000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp474, i32 noundef -322)
           to label %invoke.cont482 unwind label %lpad478
 
 invoke.cont482:                                   ; preds = %invoke.cont477
@@ -2034,7 +2034,7 @@ invoke.cont482:                                   ; preds = %invoke.cont477
           to label %invoke.cont487 unwind label %lpad486
 
 invoke.cont487:                                   ; preds = %invoke.cont482
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0xA0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484, i32 noundef -321)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0xA0000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484, i32 noundef -321)
           to label %invoke.cont492 unwind label %lpad488
 
 invoke.cont492:                                   ; preds = %invoke.cont487
@@ -2045,7 +2045,7 @@ invoke.cont492:                                   ; preds = %invoke.cont487
           to label %invoke.cont497 unwind label %lpad496
 
 invoke.cont497:                                   ; preds = %invoke.cont492
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x7FEFFFFFFFFFFFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp494, i32 noundef 292)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x7FEFFFFFFFFFFFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp494, i32 noundef 292)
           to label %invoke.cont502 unwind label %lpad498
 
 invoke.cont502:                                   ; preds = %invoke.cont497
@@ -2056,7 +2056,7 @@ invoke.cont502:                                   ; preds = %invoke.cont497
           to label %invoke.cont507 unwind label %lpad506
 
 invoke.cont507:                                   ; preds = %invoke.cont502
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x7FEFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp504, i32 noundef 292)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x7FEFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp504, i32 noundef 292)
           to label %invoke.cont509 unwind label %lpad508
 
 invoke.cont509:                                   ; preds = %invoke.cont507
@@ -2067,7 +2067,7 @@ invoke.cont509:                                   ; preds = %invoke.cont507
           to label %invoke.cont515 unwind label %lpad514
 
 invoke.cont515:                                   ; preds = %invoke.cont509
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 1.000000e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp512, i32 noundef 4)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 1.000000e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp512, i32 noundef 4)
           to label %invoke.cont517 unwind label %lpad516
 
 invoke.cont517:                                   ; preds = %invoke.cont515
@@ -2078,7 +2078,7 @@ invoke.cont517:                                   ; preds = %invoke.cont515
           to label %invoke.cont523 unwind label %lpad522
 
 invoke.cont523:                                   ; preds = %invoke.cont517
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 1.200000e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp520, i32 noundef 5)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 1.200000e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp520, i32 noundef 5)
           to label %invoke.cont525 unwind label %lpad524
 
 invoke.cont525:                                   ; preds = %invoke.cont523
@@ -2089,7 +2089,7 @@ invoke.cont525:                                   ; preds = %invoke.cont523
           to label %invoke.cont531 unwind label %lpad530
 
 invoke.cont531:                                   ; preds = %invoke.cont525
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.940660e-324, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp528, i32 noundef -324)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.940660e-324, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp528, i32 noundef -324)
           to label %invoke.cont533 unwind label %lpad532
 
 invoke.cont533:                                   ; preds = %invoke.cont531
@@ -2100,7 +2100,7 @@ invoke.cont533:                                   ; preds = %invoke.cont531
           to label %invoke.cont539 unwind label %lpad538
 
 invoke.cont539:                                   ; preds = %invoke.cont533
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0xFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp536, i32 noundef -323)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0xFFFFFFFFFFFFF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp536, i32 noundef -323)
           to label %invoke.cont541 unwind label %lpad540
 
 invoke.cont541:                                   ; preds = %invoke.cont539
@@ -2111,7 +2111,7 @@ invoke.cont541:                                   ; preds = %invoke.cont539
           to label %invoke.cont547 unwind label %lpad546
 
 invoke.cont547:                                   ; preds = %invoke.cont541
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2B70000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp544, i32 noundef -113)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2B70000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp544, i32 noundef -113)
           to label %invoke.cont549 unwind label %lpad548
 
 invoke.cont549:                                   ; preds = %invoke.cont547
@@ -2122,7 +2122,7 @@ invoke.cont549:                                   ; preds = %invoke.cont547
           to label %invoke.cont555 unwind label %lpad554
 
 invoke.cont555:                                   ; preds = %invoke.cont549
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3E13C42855500898, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp552, i32 noundef -25)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3E13C42855500898, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp552, i32 noundef -25)
           to label %invoke.cont557 unwind label %lpad556
 
 invoke.cont557:                                   ; preds = %invoke.cont555
@@ -2133,7 +2133,7 @@ invoke.cont557:                                   ; preds = %invoke.cont555
           to label %invoke.cont563 unwind label %lpad562
 
 invoke.cont563:                                   ; preds = %invoke.cont557
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x443E2A6B41CE4B23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp560, i32 noundef 5)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x443E2A6B41CE4B23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp560, i32 noundef 5)
           to label %invoke.cont565 unwind label %lpad564
 
 invoke.cont565:                                   ; preds = %invoke.cont563
@@ -2144,7 +2144,7 @@ invoke.cont565:                                   ; preds = %invoke.cont563
           to label %invoke.cont571 unwind label %lpad570
 
 invoke.cont571:                                   ; preds = %invoke.cont565
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x404A8475527A8B30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp568, i32 noundef -15)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x404A8475527A8B30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp568, i32 noundef -15)
           to label %invoke.cont573 unwind label %lpad572
 
 invoke.cont573:                                   ; preds = %invoke.cont571
@@ -2155,7 +2155,7 @@ invoke.cont573:                                   ; preds = %invoke.cont571
           to label %invoke.cont579 unwind label %lpad578
 
 invoke.cont579:                                   ; preds = %invoke.cont573
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3F6141F8CE9A7906, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp576, i32 noundef -19)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3F6141F8CE9A7906, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp576, i32 noundef -19)
           to label %invoke.cont581 unwind label %lpad580
 
 invoke.cont581:                                   ; preds = %invoke.cont579
@@ -2166,7 +2166,7 @@ invoke.cont581:                                   ; preds = %invoke.cont579
           to label %invoke.cont589 unwind label %lpad588
 
 invoke.cont589:                                   ; preds = %invoke.cont581
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2DDE3CBC9907FDC8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp586, i32 noundef -89)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2DDE3CBC9907FDC8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp586, i32 noundef -89)
           to label %invoke.cont591 unwind label %lpad590
 
 invoke.cont591:                                   ; preds = %invoke.cont589
@@ -2177,7 +2177,7 @@ invoke.cont591:                                   ; preds = %invoke.cont589
           to label %invoke.cont599 unwind label %lpad598
 
 invoke.cont599:                                   ; preds = %invoke.cont591
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.650000e-233, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp596, i32 noundef -235)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.650000e-233, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp596, i32 noundef -235)
           to label %invoke.cont601 unwind label %lpad600
 
 invoke.cont601:                                   ; preds = %invoke.cont599
@@ -2188,7 +2188,7 @@ invoke.cont601:                                   ; preds = %invoke.cont599
           to label %invoke.cont609 unwind label %lpad608
 
 invoke.cont609:                                   ; preds = %invoke.cont601
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 1.415000e+87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp606, i32 noundef 84)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 1.415000e+87, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp606, i32 noundef 84)
           to label %invoke.cont611 unwind label %lpad610
 
 invoke.cont611:                                   ; preds = %invoke.cont609
@@ -2199,7 +2199,7 @@ invoke.cont611:                                   ; preds = %invoke.cont609
           to label %invoke.cont619 unwind label %lpad618
 
 invoke.cont619:                                   ; preds = %invoke.cont611
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 3.981500e+37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp616, i32 noundef 33)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 3.981500e+37, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp616, i32 noundef 33)
           to label %invoke.cont621 unwind label %lpad620
 
 invoke.cont621:                                   ; preds = %invoke.cont619
@@ -2210,7 +2210,7 @@ invoke.cont621:                                   ; preds = %invoke.cont619
           to label %invoke.cont629 unwind label %lpad628
 
 invoke.cont629:                                   ; preds = %invoke.cont621
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.104050e+45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp626, i32 noundef 40)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.104050e+45, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp626, i32 noundef 40)
           to label %invoke.cont631 unwind label %lpad630
 
 invoke.cont631:                                   ; preds = %invoke.cont629
@@ -2221,7 +2221,7 @@ invoke.cont631:                                   ; preds = %invoke.cont629
           to label %invoke.cont639 unwind label %lpad638
 
 invoke.cont639:                                   ; preds = %invoke.cont631
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x709D657059DC79AA, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp636, i32 noundef 228)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x709D657059DC79AA, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp636, i32 noundef 228)
           to label %invoke.cont641 unwind label %lpad640
 
 invoke.cont641:                                   ; preds = %invoke.cont639
@@ -2232,7 +2232,7 @@ invoke.cont641:                                   ; preds = %invoke.cont639
           to label %invoke.cont649 unwind label %lpad648
 
 invoke.cont649:                                   ; preds = %invoke.cont641
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x26B31E0CF0B3E774, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp646, i32 noundef -129)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x26B31E0CF0B3E774, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp646, i32 noundef -129)
           to label %invoke.cont651 unwind label %lpad650
 
 invoke.cont651:                                   ; preds = %invoke.cont649
@@ -2243,7 +2243,7 @@ invoke.cont651:                                   ; preds = %invoke.cont649
           to label %invoke.cont659 unwind label %lpad658
 
 invoke.cont659:                                   ; preds = %invoke.cont651
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x12805C19E680456, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp656, i32 noundef -311)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x12805C19E680456, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp656, i32 noundef -311)
           to label %invoke.cont661 unwind label %lpad660
 
 invoke.cont661:                                   ; preds = %invoke.cont659
@@ -2254,7 +2254,7 @@ invoke.cont661:                                   ; preds = %invoke.cont659
           to label %invoke.cont669 unwind label %lpad668
 
 invoke.cont669:                                   ; preds = %invoke.cont661
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x5ABC569E968E0944, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp666, i32 noundef 120)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x5ABC569E968E0944, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp666, i32 noundef 120)
           to label %invoke.cont671 unwind label %lpad670
 
 invoke.cont671:                                   ; preds = %invoke.cont669
@@ -2265,7 +2265,7 @@ invoke.cont671:                                   ; preds = %invoke.cont669
           to label %invoke.cont679 unwind label %lpad678
 
 invoke.cont679:                                   ; preds = %invoke.cont671
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x5AC540F6F0EA86F3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp676, i32 noundef 119)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x5AC540F6F0EA86F3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp676, i32 noundef 119)
           to label %invoke.cont681 unwind label %lpad680
 
 invoke.cont681:                                   ; preds = %invoke.cont679
@@ -2276,7 +2276,7 @@ invoke.cont681:                                   ; preds = %invoke.cont679
           to label %invoke.cont689 unwind label %lpad688
 
 invoke.cont689:                                   ; preds = %invoke.cont681
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x4903ABDE2775E9B5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp686, i32 noundef 32)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x4903ABDE2775E9B5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp686, i32 noundef 32)
           to label %invoke.cont691 unwind label %lpad690
 
 invoke.cont691:                                   ; preds = %invoke.cont689
@@ -2287,7 +2287,7 @@ invoke.cont691:                                   ; preds = %invoke.cont689
           to label %invoke.cont699 unwind label %lpad698
 
 invoke.cont699:                                   ; preds = %invoke.cont691
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x6F99AB8261990292, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp696, i32 noundef 217)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x6F99AB8261990292, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp696, i32 noundef 217)
           to label %invoke.cont701 unwind label %lpad700
 
 invoke.cont701:                                   ; preds = %invoke.cont699
@@ -2298,7 +2298,7 @@ invoke.cont701:                                   ; preds = %invoke.cont699
           to label %invoke.cont709 unwind label %lpad708
 
 invoke.cont709:                                   ; preds = %invoke.cont701
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x6F89AB8261990292, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp706, i32 noundef 216)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x6F89AB8261990292, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp706, i32 noundef 216)
           to label %invoke.cont711 unwind label %lpad710
 
 invoke.cont711:                                   ; preds = %invoke.cont709
@@ -2309,7 +2309,7 @@ invoke.cont711:                                   ; preds = %invoke.cont709
           to label %invoke.cont719 unwind label %lpad718
 
 invoke.cont719:                                   ; preds = %invoke.cont711
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x4A8EEBABE0957AF3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp716, i32 noundef 37)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x4A8EEBABE0957AF3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp716, i32 noundef 37)
           to label %invoke.cont721 unwind label %lpad720
 
 invoke.cont721:                                   ; preds = %invoke.cont719
@@ -2320,7 +2320,7 @@ invoke.cont721:                                   ; preds = %invoke.cont719
           to label %invoke.cont729 unwind label %lpad728
 
 invoke.cont729:                                   ; preds = %invoke.cont721
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x4AFC6C26F899DD1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp726, i32 noundef -301)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x4AFC6C26F899DD1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp726, i32 noundef -301)
           to label %invoke.cont731 unwind label %lpad730
 
 invoke.cont731:                                   ; preds = %invoke.cont729
@@ -2331,7 +2331,7 @@ invoke.cont731:                                   ; preds = %invoke.cont729
           to label %invoke.cont739 unwind label %lpad738
 
 invoke.cont739:                                   ; preds = %invoke.cont731
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x170A80A6E566428C, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp736, i32 noundef -213)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x170A80A6E566428C, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp736, i32 noundef -213)
           to label %invoke.cont741 unwind label %lpad740
 
 invoke.cont741:                                   ; preds = %invoke.cont739
@@ -2342,7 +2342,7 @@ invoke.cont741:                                   ; preds = %invoke.cont739
           to label %invoke.cont749 unwind label %lpad748
 
 invoke.cont749:                                   ; preds = %invoke.cont741
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2B659A2783CE70AB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp746, i32 noundef -114)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2B659A2783CE70AB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp746, i32 noundef -114)
           to label %invoke.cont751 unwind label %lpad750
 
 invoke.cont751:                                   ; preds = %invoke.cont749
@@ -2353,7 +2353,7 @@ invoke.cont751:                                   ; preds = %invoke.cont749
           to label %invoke.cont759 unwind label %lpad758
 
 invoke.cont759:                                   ; preds = %invoke.cont751
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x704DCA94E3990085, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp756, i32 noundef 218)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x704DCA94E3990085, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp756, i32 noundef 218)
           to label %invoke.cont761 unwind label %lpad760
 
 invoke.cont761:                                   ; preds = %invoke.cont759
@@ -2364,7 +2364,7 @@ invoke.cont761:                                   ; preds = %invoke.cont759
           to label %invoke.cont769 unwind label %lpad768
 
 invoke.cont769:                                   ; preds = %invoke.cont761
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0xF7AB223EFCEE35A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp766, i32 noundef -248)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0xF7AB223EFCEE35A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp766, i32 noundef -248)
           to label %invoke.cont771 unwind label %lpad770
 
 invoke.cont771:                                   ; preds = %invoke.cont769
@@ -2375,7 +2375,7 @@ invoke.cont771:                                   ; preds = %invoke.cont769
           to label %invoke.cont779 unwind label %lpad778
 
 invoke.cont779:                                   ; preds = %invoke.cont771
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2DADD54C40A2F25F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp776, i32 noundef -104)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2DADD54C40A2F25F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp776, i32 noundef -104)
           to label %invoke.cont781 unwind label %lpad780
 
 invoke.cont781:                                   ; preds = %invoke.cont779
@@ -2386,7 +2386,7 @@ invoke.cont781:                                   ; preds = %invoke.cont779
           to label %invoke.cont789 unwind label %lpad788
 
 invoke.cont789:                                   ; preds = %invoke.cont781
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x4FD7EC0BA61194CF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp786, i32 noundef 61)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x4FD7EC0BA61194CF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp786, i32 noundef 61)
           to label %invoke.cont791 unwind label %lpad790
 
 invoke.cont791:                                   ; preds = %invoke.cont789
@@ -2397,7 +2397,7 @@ invoke.cont791:                                   ; preds = %invoke.cont789
           to label %invoke.cont799 unwind label %lpad798
 
 invoke.cont799:                                   ; preds = %invoke.cont791
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x25ACBF21A5F9247A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp796, i32 noundef -142)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x25ACBF21A5F9247A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp796, i32 noundef -142)
           to label %invoke.cont801 unwind label %lpad800
 
 invoke.cont801:                                   ; preds = %invoke.cont799
@@ -2408,7 +2408,7 @@ invoke.cont801:                                   ; preds = %invoke.cont799
           to label %invoke.cont809 unwind label %lpad808
 
 invoke.cont809:                                   ; preds = %invoke.cont801
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 2.500000e+302, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp806, i32 noundef 301)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 2.500000e+302, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp806, i32 noundef 301)
           to label %invoke.cont811 unwind label %lpad810
 
 invoke.cont811:                                   ; preds = %invoke.cont809
@@ -2419,7 +2419,7 @@ invoke.cont811:                                   ; preds = %invoke.cont809
           to label %invoke.cont819 unwind label %lpad818
 
 invoke.cont819:                                   ; preds = %invoke.cont811
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 7.550000e+176, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp816, i32 noundef 174)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 7.550000e+176, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp816, i32 noundef 174)
           to label %invoke.cont821 unwind label %lpad820
 
 invoke.cont821:                                   ; preds = %invoke.cont819
@@ -2430,7 +2430,7 @@ invoke.cont821:                                   ; preds = %invoke.cont819
           to label %invoke.cont829 unwind label %lpad828
 
 invoke.cont829:                                   ; preds = %invoke.cont821
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 3.775000e+176, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp826, i32 noundef 173)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 3.775000e+176, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp826, i32 noundef 173)
           to label %invoke.cont831 unwind label %lpad830
 
 invoke.cont831:                                   ; preds = %invoke.cont829
@@ -2441,7 +2441,7 @@ invoke.cont831:                                   ; preds = %invoke.cont829
           to label %invoke.cont839 unwind label %lpad838
 
 invoke.cont839:                                   ; preds = %invoke.cont831
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.349500e-273, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp836, i32 noundef -277)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.349500e-273, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp836, i32 noundef -277)
           to label %invoke.cont841 unwind label %lpad840
 
 invoke.cont841:                                   ; preds = %invoke.cont839
@@ -2452,7 +2452,7 @@ invoke.cont841:                                   ; preds = %invoke.cont839
           to label %invoke.cont849 unwind label %lpad848
 
 invoke.cont849:                                   ; preds = %invoke.cont841
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 2.303650e-28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp846, i32 noundef -33)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 2.303650e-28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp846, i32 noundef -33)
           to label %invoke.cont851 unwind label %lpad850
 
 invoke.cont851:                                   ; preds = %invoke.cont849
@@ -2463,7 +2463,7 @@ invoke.cont851:                                   ; preds = %invoke.cont849
           to label %invoke.cont859 unwind label %lpad858
 
 invoke.cont859:                                   ; preds = %invoke.cont851
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x59E7E1E0F1C7A4AC, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp856, i32 noundef 119)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x59E7E1E0F1C7A4AC, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp856, i32 noundef 119)
           to label %invoke.cont861 unwind label %lpad860
 
 invoke.cont861:                                   ; preds = %invoke.cont859
@@ -2474,7 +2474,7 @@ invoke.cont861:                                   ; preds = %invoke.cont859
           to label %invoke.cont869 unwind label %lpad868
 
 invoke.cont869:                                   ; preds = %invoke.cont861
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38A2FCBC91078FEF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp866, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38A2FCBC91078FEF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp866, i32 noundef -43)
           to label %invoke.cont871 unwind label %lpad870
 
 invoke.cont871:                                   ; preds = %invoke.cont869
@@ -2485,7 +2485,7 @@ invoke.cont871:                                   ; preds = %invoke.cont869
           to label %invoke.cont879 unwind label %lpad878
 
 invoke.cont879:                                   ; preds = %invoke.cont871
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0xDEDBBAC6F83A821, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp876, i32 noundef -249)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0xDEDBBAC6F83A821, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp876, i32 noundef -249)
           to label %invoke.cont881 unwind label %lpad880
 
 invoke.cont881:                                   ; preds = %invoke.cont879
@@ -2496,7 +2496,7 @@ invoke.cont881:                                   ; preds = %invoke.cont879
           to label %invoke.cont889 unwind label %lpad888
 
 invoke.cont889:                                   ; preds = %invoke.cont881
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x127FF5A70D3D2FEF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp886, i32 noundef -228)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x127FF5A70D3D2FEF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp886, i32 noundef -228)
           to label %invoke.cont891 unwind label %lpad890
 
 invoke.cont891:                                   ; preds = %invoke.cont889
@@ -2507,7 +2507,7 @@ invoke.cont891:                                   ; preds = %invoke.cont889
           to label %invoke.cont899 unwind label %lpad898
 
 invoke.cont899:                                   ; preds = %invoke.cont891
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2B4FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp896, i32 noundef -110)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2B4FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp896, i32 noundef -110)
           to label %invoke.cont901 unwind label %lpad900
 
 invoke.cont901:                                   ; preds = %invoke.cont899
@@ -2518,7 +2518,7 @@ invoke.cont901:                                   ; preds = %invoke.cont899
           to label %invoke.cont909 unwind label %lpad908
 
 invoke.cont909:                                   ; preds = %invoke.cont901
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2B3FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp906, i32 noundef -111)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2B3FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp906, i32 noundef -111)
           to label %invoke.cont911 unwind label %lpad910
 
 invoke.cont911:                                   ; preds = %invoke.cont909
@@ -2529,7 +2529,7 @@ invoke.cont911:                                   ; preds = %invoke.cont909
           to label %invoke.cont919 unwind label %lpad918
 
 invoke.cont919:                                   ; preds = %invoke.cont911
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x2B2FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp916, i32 noundef -112)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x2B2FC575867314EE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp916, i32 noundef -112)
           to label %invoke.cont921 unwind label %lpad920
 
 invoke.cont921:                                   ; preds = %invoke.cont919
@@ -2540,7 +2540,7 @@ invoke.cont921:                                   ; preds = %invoke.cont919
           to label %invoke.cont929 unwind label %lpad928
 
 invoke.cont929:                                   ; preds = %invoke.cont921
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x33A8BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp926, i32 noundef -73)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x33A8BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp926, i32 noundef -73)
           to label %invoke.cont931 unwind label %lpad930
 
 invoke.cont931:                                   ; preds = %invoke.cont929
@@ -2551,7 +2551,7 @@ invoke.cont931:                                   ; preds = %invoke.cont929
           to label %invoke.cont939 unwind label %lpad938
 
 invoke.cont939:                                   ; preds = %invoke.cont931
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3398BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp936, i32 noundef -74)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3398BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp936, i32 noundef -74)
           to label %invoke.cont941 unwind label %lpad940
 
 invoke.cont941:                                   ; preds = %invoke.cont939
@@ -2562,7 +2562,7 @@ invoke.cont941:                                   ; preds = %invoke.cont939
           to label %invoke.cont949 unwind label %lpad948
 
 invoke.cont949:                                   ; preds = %invoke.cont941
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3388BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp946, i32 noundef -75)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3388BF7E7FA6F02A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp946, i32 noundef -75)
           to label %invoke.cont951 unwind label %lpad950
 
 invoke.cont951:                                   ; preds = %invoke.cont949
@@ -2573,7 +2573,7 @@ invoke.cont951:                                   ; preds = %invoke.cont949
           to label %invoke.cont959 unwind label %lpad958
 
 invoke.cont959:                                   ; preds = %invoke.cont951
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x657A999DDEC72ACA, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp956, i32 noundef 164)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x657A999DDEC72ACA, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp956, i32 noundef 164)
           to label %invoke.cont961 unwind label %lpad960
 
 invoke.cont961:                                   ; preds = %invoke.cont959
@@ -2584,7 +2584,7 @@ invoke.cont961:                                   ; preds = %invoke.cont959
           to label %invoke.cont969 unwind label %lpad968
 
 invoke.cont969:                                   ; preds = %invoke.cont961
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x4D73DE005BD620DF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp966, i32 noundef 49)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x4D73DE005BD620DF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp966, i32 noundef 49)
           to label %invoke.cont971 unwind label %lpad970
 
 invoke.cont971:                                   ; preds = %invoke.cont969
@@ -2595,7 +2595,7 @@ invoke.cont971:                                   ; preds = %invoke.cont969
           to label %invoke.cont979 unwind label %lpad978
 
 invoke.cont979:                                   ; preds = %invoke.cont971
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x6CCF92BACB3CB40C, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp976, i32 noundef 200)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x6CCF92BACB3CB40C, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp976, i32 noundef 200)
           to label %invoke.cont981 unwind label %lpad980
 
 invoke.cont981:                                   ; preds = %invoke.cont979
@@ -2606,7 +2606,7 @@ invoke.cont981:                                   ; preds = %invoke.cont979
           to label %invoke.cont989 unwind label %lpad988
 
 invoke.cont989:                                   ; preds = %invoke.cont981
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x6E58D92D2BCC7A81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp986, i32 noundef 207)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x6E58D92D2BCC7A81, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp986, i32 noundef 207)
           to label %invoke.cont991 unwind label %lpad990
 
 invoke.cont991:                                   ; preds = %invoke.cont989
@@ -2617,7 +2617,7 @@ invoke.cont991:                                   ; preds = %invoke.cont989
           to label %invoke.cont999 unwind label %lpad998
 
 invoke.cont999:                                   ; preds = %invoke.cont991
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x67FF41596AE0562F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp996, i32 noundef 177)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x67FF41596AE0562F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp996, i32 noundef 177)
           to label %invoke.cont1001 unwind label %lpad1000
 
 invoke.cont1001:                                  ; preds = %invoke.cont999
@@ -2628,7 +2628,7 @@ invoke.cont1001:                                  ; preds = %invoke.cont999
           to label %invoke.cont1009 unwind label %lpad1008
 
 invoke.cont1009:                                  ; preds = %invoke.cont1001
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x543A28E81A50D339, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1006, i32 noundef 81)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x543A28E81A50D339, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1006, i32 noundef 81)
           to label %invoke.cont1011 unwind label %lpad1010
 
 invoke.cont1011:                                  ; preds = %invoke.cont1009
@@ -2639,7 +2639,7 @@ invoke.cont1011:                                  ; preds = %invoke.cont1009
           to label %invoke.cont1019 unwind label %lpad1018
 
 invoke.cont1019:                                  ; preds = %invoke.cont1011
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x273E5FB8FC355526, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1016, i32 noundef -135)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x273E5FB8FC355526, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1016, i32 noundef -135)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit unwind label %lpad1020
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit:           ; preds = %invoke.cont1019
@@ -2650,7 +2650,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit:           ; preds = %invoke.cont1019
           to label %invoke.cont1029 unwind label %lpad1028
 
 invoke.cont1029:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38A698CCDC600159, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1026, i32 noundef -51)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38A698CCDC600159, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1026, i32 noundef -51)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit638 unwind label %lpad1030
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit638:        ; preds = %invoke.cont1029
@@ -2661,7 +2661,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit638:        ; preds = %invoke.cont1029
           to label %invoke.cont1039 unwind label %lpad1038
 
 invoke.cont1039:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit638
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 2.550000e-35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1036, i32 noundef -37)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 2.550000e-35, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1036, i32 noundef -37)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit672 unwind label %lpad1040
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit672:        ; preds = %invoke.cont1039
@@ -2672,7 +2672,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit672:        ; preds = %invoke.cont1039
           to label %invoke.cont1049 unwind label %lpad1048
 
 invoke.cont1049:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit672
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3D169304DFED17DF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1046, i32 noundef -30)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3D169304DFED17DF, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1046, i32 noundef -30)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit706 unwind label %lpad1050
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit706:        ; preds = %invoke.cont1049
@@ -2683,7 +2683,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit706:        ; preds = %invoke.cont1049
           to label %invoke.cont1059 unwind label %lpad1058
 
 invoke.cont1059:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit706
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3C9703856844BDBE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1056, i32 noundef -32)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3C9703856844BDBE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1056, i32 noundef -32)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit740 unwind label %lpad1060
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit740:        ; preds = %invoke.cont1059
@@ -2694,7 +2694,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit740:        ; preds = %invoke.cont1059
           to label %invoke.cont1069 unwind label %lpad1068
 
 invoke.cont1069:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit740
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38ADAED875074464, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1066, i32 noundef -51)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38ADAED875074464, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1066, i32 noundef -51)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit774 unwind label %lpad1070
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit774:        ; preds = %invoke.cont1069
@@ -2705,7 +2705,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit774:        ; preds = %invoke.cont1069
           to label %invoke.cont1079 unwind label %lpad1078
 
 invoke.cont1079:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit774
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3AC8796C29CBAB01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1076, i32 noundef -31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3AC8796C29CBAB01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1076, i32 noundef -31)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit808 unwind label %lpad1080
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit808:        ; preds = %invoke.cont1079
@@ -2716,7 +2716,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit808:        ; preds = %invoke.cont1079
           to label %invoke.cont1089 unwind label %lpad1088
 
 invoke.cont1089:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit808
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3C6FD7E648C9CDA1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1086, i32 noundef -24)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3C6FD7E648C9CDA1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1086, i32 noundef -24)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit842 unwind label %lpad1090
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit842:        ; preds = %invoke.cont1089
@@ -2727,7 +2727,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit842:        ; preds = %invoke.cont1089
           to label %invoke.cont1099 unwind label %lpad1098
 
 invoke.cont1099:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit842
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A8DD350E1EF985A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1096, i32 noundef -42)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A8DD350E1EF985A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1096, i32 noundef -42)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit876 unwind label %lpad1100
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit876:        ; preds = %invoke.cont1099
@@ -2738,7 +2738,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit876:        ; preds = %invoke.cont1099
           to label %invoke.cont1109 unwind label %lpad1108
 
 invoke.cont1109:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit876
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x39E7A45CBC10BC7F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1106, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x39E7A45CBC10BC7F, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1106, i32 noundef -45)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit910 unwind label %lpad1110
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit910:        ; preds = %invoke.cont1109
@@ -2749,7 +2749,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit910:        ; preds = %invoke.cont1109
           to label %invoke.cont1119 unwind label %lpad1118
 
 invoke.cont1119:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit910
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3C6BE1DD94F63085, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1116, i32 noundef -27)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3C6BE1DD94F63085, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1116, i32 noundef -27)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit944 unwind label %lpad1120
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit944:        ; preds = %invoke.cont1119
@@ -2760,7 +2760,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit944:        ; preds = %invoke.cont1119
           to label %invoke.cont1129 unwind label %lpad1128
 
 invoke.cont1129:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit944
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3E957AC4C3475BFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1126, i32 noundef -18)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3E957AC4C3475BFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1126, i32 noundef -18)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit978 unwind label %lpad1130
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit978:        ; preds = %invoke.cont1129
@@ -2771,7 +2771,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit978:        ; preds = %invoke.cont1129
           to label %invoke.cont1139 unwind label %lpad1138
 
 invoke.cont1139:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit978
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3D02E5A0B062A9A9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1136, i32 noundef -30)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3D02E5A0B062A9A9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1136, i32 noundef -30)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1012 unwind label %lpad1140
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1012:       ; preds = %invoke.cont1139
@@ -2782,7 +2782,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1012:       ; preds = %invoke.cont1139
           to label %invoke.cont1149 unwind label %lpad1148
 
 invoke.cont1149:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1012
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3C6C417AAEC16F25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1146, i32 noundef -30)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3C6C417AAEC16F25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1146, i32 noundef -30)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1046 unwind label %lpad1150
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1046:       ; preds = %invoke.cont1149
@@ -2793,7 +2793,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1046:       ; preds = %invoke.cont1149
           to label %invoke.cont1159 unwind label %lpad1158
 
 invoke.cont1159:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1046
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3D3358ECC98CBEFB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1156, i32 noundef -28)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3D3358ECC98CBEFB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1156, i32 noundef -28)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1080 unwind label %lpad1160
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1080:       ; preds = %invoke.cont1159
@@ -2804,7 +2804,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1080:       ; preds = %invoke.cont1159
           to label %invoke.cont1169 unwind label %lpad1168
 
 invoke.cont1169:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1080
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3978355F7EAE78D9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1166, i32 noundef -47)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3978355F7EAE78D9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1166, i32 noundef -47)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1114 unwind label %lpad1170
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1114:       ; preds = %invoke.cont1169
@@ -2815,7 +2815,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1114:       ; preds = %invoke.cont1169
           to label %invoke.cont1179 unwind label %lpad1178
 
 invoke.cont1179:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1114
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38F73A8F3B6ADFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1176, i32 noundef -49)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38F73A8F3B6ADFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1176, i32 noundef -49)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1148 unwind label %lpad1180
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1148:       ; preds = %invoke.cont1179
@@ -2826,7 +2826,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1148:       ; preds = %invoke.cont1179
           to label %invoke.cont1189 unwind label %lpad1188
 
 invoke.cont1189:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1148
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38E73A8F3B6ADFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1186, i32 noundef -50)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38E73A8F3B6ADFFE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1186, i32 noundef -50)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1182 unwind label %lpad1190
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1182:       ; preds = %invoke.cont1189
@@ -2837,7 +2837,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1182:       ; preds = %invoke.cont1189
           to label %invoke.cont1199 unwind label %lpad1198
 
 invoke.cont1199:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1182
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3DD237F88AAD0EA1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1196, i32 noundef -26)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3DD237F88AAD0EA1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1196, i32 noundef -26)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1216 unwind label %lpad1200
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1216:       ; preds = %invoke.cont1199
@@ -2848,7 +2848,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1216:       ; preds = %invoke.cont1199
           to label %invoke.cont1209 unwind label %lpad1208
 
 invoke.cont1209:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1216
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3B20B9E743B67A9A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1206, i32 noundef -39)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3B20B9E743B67A9A, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1206, i32 noundef -39)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1250 unwind label %lpad1210
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1250:       ; preds = %invoke.cont1209
@@ -2859,7 +2859,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1250:       ; preds = %invoke.cont1209
           to label %invoke.cont1219 unwind label %lpad1218
 
 invoke.cont1219:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1250
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3D90ACED72DBDB5E, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1216, i32 noundef -27)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3D90ACED72DBDB5E, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1216, i32 noundef -27)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1284 unwind label %lpad1220
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1284:       ; preds = %invoke.cont1219
@@ -2870,7 +2870,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1284:       ; preds = %invoke.cont1219
           to label %invoke.cont1229 unwind label %lpad1228
 
 invoke.cont1229:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1284
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3CEEB2806388FDEB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1226, i32 noundef -31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3CEEB2806388FDEB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1226, i32 noundef -31)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1318 unwind label %lpad1230
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1318:       ; preds = %invoke.cont1229
@@ -2881,7 +2881,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1318:       ; preds = %invoke.cont1229
           to label %invoke.cont1239 unwind label %lpad1238
 
 invoke.cont1239:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1318
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3CDEB2806388FDEB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1236, i32 noundef -31)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3CDEB2806388FDEB, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1236, i32 noundef -31)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1352 unwind label %lpad1240
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1352:       ; preds = %invoke.cont1239
@@ -2892,7 +2892,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1352:       ; preds = %invoke.cont1239
           to label %invoke.cont1249 unwind label %lpad1248
 
 invoke.cont1249:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1352
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 2.500000e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1246, i32 noundef -13)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 2.500000e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1246, i32 noundef -13)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1386 unwind label %lpad1250
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1386:       ; preds = %invoke.cont1249
@@ -2903,7 +2903,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1386:       ; preds = %invoke.cont1249
           to label %invoke.cont1259 unwind label %lpad1258
 
 invoke.cont1259:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1386
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 1.250000e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1256, i32 noundef -14)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 1.250000e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1256, i32 noundef -14)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1420 unwind label %lpad1260
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1420:       ; preds = %invoke.cont1259
@@ -2914,7 +2914,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1420:       ; preds = %invoke.cont1259
           to label %invoke.cont1269 unwind label %lpad1268
 
 invoke.cont1269:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1420
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 4.995000e-24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1266, i32 noundef -40)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 4.995000e-24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1266, i32 noundef -40)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1454 unwind label %lpad1270
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1454:       ; preds = %invoke.cont1269
@@ -2925,7 +2925,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1454:       ; preds = %invoke.cont1269
           to label %invoke.cont1279 unwind label %lpad1278
 
 invoke.cont1279:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1454
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 3.930500e-31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1276, i32 noundef -47)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 3.930500e-31, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1276, i32 noundef -47)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1488 unwind label %lpad1280
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1488:       ; preds = %invoke.cont1279
@@ -2936,7 +2936,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1488:       ; preds = %invoke.cont1279
           to label %invoke.cont1289 unwind label %lpad1288
 
 invoke.cont1289:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1488
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3831F4F57978C539, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1286, i32 noundef -53)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3831F4F57978C539, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1286, i32 noundef -53)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1522 unwind label %lpad1290
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1522:       ; preds = %invoke.cont1289
@@ -2947,7 +2947,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1522:       ; preds = %invoke.cont1289
           to label %invoke.cont1299 unwind label %lpad1298
 
 invoke.cont1299:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1522
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x39196BA937B5DEC5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1296, i32 noundef -39)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x39196BA937B5DEC5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1296, i32 noundef -39)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1556 unwind label %lpad1300
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1556:       ; preds = %invoke.cont1299
@@ -2958,7 +2958,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1556:       ; preds = %invoke.cont1299
           to label %invoke.cont1309 unwind label %lpad1308
 
 invoke.cont1309:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1556
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x470CF720FA605778, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1306, i32 noundef 18)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x470CF720FA605778, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1306, i32 noundef 18)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1590 unwind label %lpad1310
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1590:       ; preds = %invoke.cont1309
@@ -2969,7 +2969,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1590:       ; preds = %invoke.cont1309
           to label %invoke.cont1319 unwind label %lpad1318
 
 invoke.cont1319:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1590
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3ACF29CA0FF893B1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1316, i32 noundef -33)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3ACF29CA0FF893B1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1316, i32 noundef -33)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1624 unwind label %lpad1320
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1624:       ; preds = %invoke.cont1319
@@ -2980,7 +2980,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1624:       ; preds = %invoke.cont1319
           to label %invoke.cont1329 unwind label %lpad1328
 
 invoke.cont1329:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1624
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3D3076B1E2DB2804, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1326, i32 noundef -29)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3D3076B1E2DB2804, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1326, i32 noundef -29)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1658 unwind label %lpad1330
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1658:       ; preds = %invoke.cont1329
@@ -2991,7 +2991,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1658:       ; preds = %invoke.cont1329
           to label %invoke.cont1339 unwind label %lpad1338
 
 invoke.cont1339:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1658
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38693E88BE5F8C90, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1336, i32 noundef -47)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38693E88BE5F8C90, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1336, i32 noundef -47)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1692 unwind label %lpad1340
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1692:       ; preds = %invoke.cont1339
@@ -3002,7 +3002,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1692:       ; preds = %invoke.cont1339
           to label %invoke.cont1349 unwind label %lpad1348
 
 invoke.cont1349:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1692
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A5855179275EF6D, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1346, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A5855179275EF6D, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1346, i32 noundef -43)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1726 unwind label %lpad1350
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1726:       ; preds = %invoke.cont1349
@@ -3013,7 +3013,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1726:       ; preds = %invoke.cont1349
           to label %invoke.cont1359 unwind label %lpad1358
 
 invoke.cont1359:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1726
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38DDAA512624F586, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1356, i32 noundef -50)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38DDAA512624F586, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1356, i32 noundef -50)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1760 unwind label %lpad1360
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1760:       ; preds = %invoke.cont1359
@@ -3024,7 +3024,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1760:       ; preds = %invoke.cont1359
           to label %invoke.cont1369 unwind label %lpad1368
 
 invoke.cont1369:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1760
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x38CDAA512624F586, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1366, i32 noundef -51)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x38CDAA512624F586, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1366, i32 noundef -51)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1794 unwind label %lpad1370
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1794:       ; preds = %invoke.cont1369
@@ -3035,7 +3035,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1794:       ; preds = %invoke.cont1369
           to label %invoke.cont1379 unwind label %lpad1378
 
 invoke.cont1379:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1794
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3BFD909FD279EA66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1376, i32 noundef -35)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3BFD909FD279EA66, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1376, i32 noundef -35)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1828 unwind label %lpad1380
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1828:       ; preds = %invoke.cont1379
@@ -3046,7 +3046,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1828:       ; preds = %invoke.cont1379
           to label %invoke.cont1389 unwind label %lpad1388
 
 invoke.cont1389:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1828
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x389D26FE30293BE2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1386, i32 noundef -51)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x389D26FE30293BE2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1386, i32 noundef -51)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1862 unwind label %lpad1390
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1862:       ; preds = %invoke.cont1389
@@ -3057,7 +3057,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1862:       ; preds = %invoke.cont1389
           to label %invoke.cont1399 unwind label %lpad1398
 
 invoke.cont1399:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1862
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3C9B7738011E75FE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1396, i32 noundef -32)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3C9B7738011E75FE, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1396, i32 noundef -32)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1896 unwind label %lpad1400
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1896:       ; preds = %invoke.cont1399
@@ -3068,7 +3068,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1896:       ; preds = %invoke.cont1399
           to label %invoke.cont1409 unwind label %lpad1408
 
 invoke.cont1409:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1896
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A51C26AEDBFD138, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1406, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A51C26AEDBFD138, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1406, i32 noundef -43)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1930 unwind label %lpad1410
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1930:       ; preds = %invoke.cont1409
@@ -3079,7 +3079,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1930:       ; preds = %invoke.cont1409
           to label %invoke.cont1419 unwind label %lpad1418
 
 invoke.cont1419:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1930
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A1A54C193694CB3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1416, i32 noundef -44)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A1A54C193694CB3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1416, i32 noundef -44)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1964 unwind label %lpad1420
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1964:       ; preds = %invoke.cont1419
@@ -3090,7 +3090,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1964:       ; preds = %invoke.cont1419
           to label %invoke.cont1429 unwind label %lpad1428
 
 invoke.cont1429:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1964
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A7EB1A49A8BA5B9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1426, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A7EB1A49A8BA5B9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1426, i32 noundef -43)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit1998 unwind label %lpad1430
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit1998:       ; preds = %invoke.cont1429
@@ -3101,7 +3101,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit1998:       ; preds = %invoke.cont1429
           to label %invoke.cont1439 unwind label %lpad1438
 
 invoke.cont1439:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit1998
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x3A6EB1A49A8BA5B9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1436, i32 noundef -43)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x3A6EB1A49A8BA5B9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1436, i32 noundef -43)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit2032 unwind label %lpad1440
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit2032:       ; preds = %invoke.cont1439
@@ -3112,7 +3112,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit2032:       ; preds = %invoke.cont1439
           to label %invoke.cont1449 unwind label %lpad1448
 
 invoke.cont1449:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit2032
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x39E1865F599191F4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1446, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x39E1865F599191F4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1446, i32 noundef -45)
           to label %_ZN12_GLOBAL__N_111make_doubleEmi.exit2066 unwind label %lpad1450
 
 _ZN12_GLOBAL__N_111make_doubleEmi.exit2066:       ; preds = %invoke.cont1449
@@ -3123,7 +3123,7 @@ _ZN12_GLOBAL__N_111make_doubleEmi.exit2066:       ; preds = %invoke.cont1449
           to label %invoke.cont1459 unwind label %lpad1458
 
 invoke.cont1459:                                  ; preds = %_ZN12_GLOBAL__N_111make_doubleEmi.exit2066
-  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef 0x39D1865F599191F4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456, i32 noundef -45)
+  invoke fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef 0x39D1865F599191F4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1456, i32 noundef -45)
           to label %invoke.cont1461 unwind label %lpad1460
 
 invoke.cont1461:                                  ; preds = %invoke.cont1459
@@ -5251,7 +5251,7 @@ if.then:                                          ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBB62A7BDA0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBB62A7BDA0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -5262,7 +5262,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont9
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBB9751AD00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBB9751AD00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -5273,7 +5273,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont15
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBBCD261840000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBBCD261840000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -5284,7 +5284,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont23
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBC0237CF20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBC0237CF20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
@@ -5295,7 +5295,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %invoke.cont31
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBC36C5C2E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBC36C5C2E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -5306,7 +5306,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont39
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBC6C7733A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBC6C7733A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont45
@@ -5317,7 +5317,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont47
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBCA1CA8040000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBCA1CA8040000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50)
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %invoke.cont53
@@ -5328,7 +5328,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont55
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBCD63D2060000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBCD63D2060000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont61
@@ -5339,7 +5339,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont63
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBD0BCC6880000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBD0BCC6880000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %invoke.cont69
@@ -5350,7 +5350,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont71
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBD415FC140000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBD415FC140000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont77
@@ -5361,7 +5361,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont79
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBD75B7B1A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBD75B7B1A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82)
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont85
@@ -5372,7 +5372,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont87
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBDAB259E00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBDAB259E00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90)
           to label %invoke.cont95 unwind label %lpad94
 
 invoke.cont95:                                    ; preds = %invoke.cont93
@@ -5383,7 +5383,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont95
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBDE0F782C0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBDE0F782C0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %invoke.cont101
@@ -5394,7 +5394,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %invoke.cont109 unwind label %lpad108
 
 invoke.cont109:                                   ; preds = %invoke.cont103
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBE15356360000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBE15356360000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp106)
           to label %invoke.cont111 unwind label %lpad110
 
 invoke.cont111:                                   ; preds = %invoke.cont109
@@ -5405,7 +5405,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %invoke.cont117 unwind label %lpad116
 
 invoke.cont117:                                   ; preds = %invoke.cont111
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBE4A82BC40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBE4A82BC40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114)
           to label %invoke.cont119 unwind label %lpad118
 
 invoke.cont119:                                   ; preds = %invoke.cont117
@@ -5416,7 +5416,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont119
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBE8091B5A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBE8091B5A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %invoke.cont125
@@ -5427,7 +5427,7 @@ invoke.cont127:                                   ; preds = %invoke.cont125
           to label %invoke.cont133 unwind label %lpad132
 
 invoke.cont133:                                   ; preds = %invoke.cont127
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBEB4B62320000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBEB4B62320000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130)
           to label %invoke.cont135 unwind label %lpad134
 
 invoke.cont135:                                   ; preds = %invoke.cont133
@@ -5438,7 +5438,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %invoke.cont135
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBEE9E3ABE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp138)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBEE9E3ABE0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp138)
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont141
@@ -5449,7 +5449,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %invoke.cont143
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBF202E4B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBF202E4B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %invoke.cont149
@@ -5460,7 +5460,7 @@ invoke.cont151:                                   ; preds = %invoke.cont149
           to label %invoke.cont157 unwind label %lpad156
 
 invoke.cont157:                                   ; preds = %invoke.cont151
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBF5439DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBF5439DE40000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154)
           to label %invoke.cont159 unwind label %lpad158
 
 invoke.cont159:                                   ; preds = %invoke.cont157
@@ -5471,7 +5471,7 @@ invoke.cont159:                                   ; preds = %invoke.cont157
           to label %invoke.cont165 unwind label %lpad164
 
 invoke.cont165:                                   ; preds = %invoke.cont159
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBF894855E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBF894855E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %invoke.cont165
@@ -5482,7 +5482,7 @@ invoke.cont167:                                   ; preds = %invoke.cont165
           to label %invoke.cont173 unwind label %lpad172
 
 invoke.cont173:                                   ; preds = %invoke.cont167
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0xBFBF9A6B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0xBFBF9A6B60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170)
           to label %invoke.cont175 unwind label %lpad174
 
 invoke.cont175:                                   ; preds = %invoke.cont173
@@ -5493,7 +5493,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
           to label %invoke.cont181 unwind label %lpad180
 
 invoke.cont181:                                   ; preds = %invoke.cont175
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef -0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef -0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178)
           to label %invoke.cont183 unwind label %lpad182
 
 invoke.cont183:                                   ; preds = %invoke.cont181
@@ -5504,7 +5504,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %invoke.cont189 unwind label %lpad188
 
 invoke.cont189:                                   ; preds = %invoke.cont183
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186)
           to label %invoke.cont191 unwind label %lpad190
 
 invoke.cont191:                                   ; preds = %invoke.cont189
@@ -5515,7 +5515,7 @@ invoke.cont191:                                   ; preds = %invoke.cont189
           to label %invoke.cont197 unwind label %lpad196
 
 invoke.cont197:                                   ; preds = %invoke.cont191
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x3FF3C08320000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x3FF3C08320000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194)
           to label %invoke.cont199 unwind label %lpad198
 
 invoke.cont199:                                   ; preds = %invoke.cont197
@@ -5526,7 +5526,7 @@ invoke.cont199:                                   ; preds = %invoke.cont197
           to label %invoke.cont205 unwind label %lpad204
 
 invoke.cont205:                                   ; preds = %invoke.cont199
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4028B0A3E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4028B0A3E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202)
           to label %invoke.cont207 unwind label %lpad206
 
 invoke.cont207:                                   ; preds = %invoke.cont205
@@ -5537,7 +5537,7 @@ invoke.cont207:                                   ; preds = %invoke.cont205
           to label %invoke.cont213 unwind label %lpad212
 
 invoke.cont213:                                   ; preds = %invoke.cont207
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x405EDCCCC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x405EDCCCC0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210)
           to label %invoke.cont215 unwind label %lpad214
 
 invoke.cont215:                                   ; preds = %invoke.cont213
@@ -5548,7 +5548,7 @@ invoke.cont215:                                   ; preds = %invoke.cont213
           to label %invoke.cont221 unwind label %lpad220
 
 invoke.cont221:                                   ; preds = %invoke.cont215
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218)
           to label %invoke.cont223 unwind label %lpad222
 
 invoke.cont223:                                   ; preds = %invoke.cont221
@@ -5559,7 +5559,7 @@ invoke.cont223:                                   ; preds = %invoke.cont221
           to label %invoke.cont229 unwind label %lpad228
 
 invoke.cont229:                                   ; preds = %invoke.cont223
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp226)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp226)
           to label %invoke.cont231 unwind label %lpad230
 
 invoke.cont231:                                   ; preds = %invoke.cont229
@@ -5570,7 +5570,7 @@ invoke.cont231:                                   ; preds = %invoke.cont229
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %invoke.cont231
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234)
           to label %invoke.cont239 unwind label %lpad238
 
 invoke.cont239:                                   ; preds = %invoke.cont237
@@ -5581,7 +5581,7 @@ invoke.cont239:                                   ; preds = %invoke.cont237
           to label %invoke.cont245 unwind label %lpad244
 
 invoke.cont245:                                   ; preds = %invoke.cont239
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242)
           to label %invoke.cont247 unwind label %lpad246
 
 invoke.cont247:                                   ; preds = %invoke.cont245
@@ -5592,7 +5592,7 @@ invoke.cont247:                                   ; preds = %invoke.cont245
           to label %invoke.cont253 unwind label %lpad252
 
 invoke.cont253:                                   ; preds = %invoke.cont247
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp250)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp250)
           to label %invoke.cont255 unwind label %lpad254
 
 invoke.cont255:                                   ; preds = %invoke.cont253
@@ -5603,7 +5603,7 @@ invoke.cont255:                                   ; preds = %invoke.cont253
           to label %invoke.cont261 unwind label %lpad260
 
 invoke.cont261:                                   ; preds = %invoke.cont255
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 1.234500e+08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 1.234500e+08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp258)
           to label %invoke.cont263 unwind label %lpad262
 
 invoke.cont263:                                   ; preds = %invoke.cont261
@@ -5614,7 +5614,7 @@ invoke.cont263:                                   ; preds = %invoke.cont261
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont263
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x41D2653E60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x41D2653E60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266)
           to label %invoke.cont271 unwind label %lpad270
 
 invoke.cont271:                                   ; preds = %invoke.cont269
@@ -5625,7 +5625,7 @@ invoke.cont271:                                   ; preds = %invoke.cont269
           to label %invoke.cont277 unwind label %lpad276
 
 invoke.cont277:                                   ; preds = %invoke.cont271
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4206FE8E00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4206FE8E00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274)
           to label %invoke.cont279 unwind label %lpad278
 
 invoke.cont279:                                   ; preds = %invoke.cont277
@@ -5636,7 +5636,7 @@ invoke.cont279:                                   ; preds = %invoke.cont277
           to label %invoke.cont285 unwind label %lpad284
 
 invoke.cont285:                                   ; preds = %invoke.cont279
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x423CBE3180000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp282)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x423CBE3180000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp282)
           to label %invoke.cont287 unwind label %lpad286
 
 invoke.cont287:                                   ; preds = %invoke.cont285
@@ -5647,7 +5647,7 @@ invoke.cont287:                                   ; preds = %invoke.cont285
           to label %invoke.cont293 unwind label %lpad292
 
 invoke.cont293:                                   ; preds = %invoke.cont287
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4271F6DF00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4271F6DF00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp290)
           to label %invoke.cont295 unwind label %lpad294
 
 invoke.cont295:                                   ; preds = %invoke.cont293
@@ -5658,7 +5658,7 @@ invoke.cont295:                                   ; preds = %invoke.cont293
           to label %invoke.cont301 unwind label %lpad300
 
 invoke.cont301:                                   ; preds = %invoke.cont295
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x42A67496A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp298)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x42A67496A0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp298)
           to label %invoke.cont303 unwind label %lpad302
 
 invoke.cont303:                                   ; preds = %invoke.cont301
@@ -5669,7 +5669,7 @@ invoke.cont303:                                   ; preds = %invoke.cont301
           to label %invoke.cont309 unwind label %lpad308
 
 invoke.cont309:                                   ; preds = %invoke.cont303
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x42DC11BC60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp306)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x42DC11BC60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp306)
           to label %invoke.cont311 unwind label %lpad310
 
 invoke.cont311:                                   ; preds = %invoke.cont309
@@ -5680,7 +5680,7 @@ invoke.cont311:                                   ; preds = %invoke.cont309
           to label %invoke.cont317 unwind label %lpad316
 
 invoke.cont317:                                   ; preds = %invoke.cont311
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x43118B15C0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp314)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x43118B15C0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp314)
           to label %invoke.cont319 unwind label %lpad318
 
 invoke.cont319:                                   ; preds = %invoke.cont317
@@ -5691,7 +5691,7 @@ invoke.cont319:                                   ; preds = %invoke.cont317
           to label %invoke.cont325 unwind label %lpad324
 
 invoke.cont325:                                   ; preds = %invoke.cont319
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4345EDDB20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp322)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4345EDDB20000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp322)
           to label %invoke.cont327 unwind label %lpad326
 
 invoke.cont327:                                   ; preds = %invoke.cont325
@@ -5702,7 +5702,7 @@ invoke.cont327:                                   ; preds = %invoke.cont325
           to label %invoke.cont333 unwind label %lpad332
 
 invoke.cont333:                                   ; preds = %invoke.cont327
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x437B6951E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp330)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x437B6951E0000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp330)
           to label %invoke.cont335 unwind label %lpad334
 
 invoke.cont335:                                   ; preds = %invoke.cont333
@@ -5713,7 +5713,7 @@ invoke.cont335:                                   ; preds = %invoke.cont333
           to label %invoke.cont341 unwind label %lpad340
 
 invoke.cont341:                                   ; preds = %invoke.cont335
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x43B121D340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp338)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x43B121D340000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp338)
           to label %invoke.cont343 unwind label %lpad342
 
 invoke.cont343:                                   ; preds = %invoke.cont341
@@ -5724,7 +5724,7 @@ invoke.cont343:                                   ; preds = %invoke.cont341
           to label %invoke.cont349 unwind label %lpad348
 
 invoke.cont349:                                   ; preds = %invoke.cont343
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x43E56A4800000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp346)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x43E56A4800000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp346)
           to label %invoke.cont351 unwind label %lpad350
 
 invoke.cont351:                                   ; preds = %invoke.cont349
@@ -5735,7 +5735,7 @@ invoke.cont351:                                   ; preds = %invoke.cont349
           to label %invoke.cont357 unwind label %lpad356
 
 invoke.cont357:                                   ; preds = %invoke.cont351
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x441AC4DA00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x441AC4DA00000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354)
           to label %invoke.cont359 unwind label %lpad358
 
 invoke.cont359:                                   ; preds = %invoke.cont357
@@ -5746,7 +5746,7 @@ invoke.cont359:                                   ; preds = %invoke.cont357
           to label %invoke.cont365 unwind label %lpad364
 
 invoke.cont365:                                   ; preds = %invoke.cont359
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4450BB0840000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp362)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4450BB0840000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp362)
           to label %invoke.cont367 unwind label %lpad366
 
 invoke.cont367:                                   ; preds = %invoke.cont365
@@ -5757,7 +5757,7 @@ invoke.cont367:                                   ; preds = %invoke.cont365
           to label %invoke.cont373 unwind label %lpad372
 
 invoke.cont373:                                   ; preds = %invoke.cont367
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef 0x4484E9CA60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp370)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef 0x4484E9CA60000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp370)
           to label %invoke.cont375 unwind label %lpad374
 
 invoke.cont375:                                   ; preds = %invoke.cont373
@@ -6548,7 +6548,7 @@ if.then387:                                       ; preds = %invoke.cont385
           to label %invoke.cont391 unwind label %lpad390
 
 invoke.cont391:                                   ; preds = %if.then387
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp388)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp388)
           to label %invoke.cont393 unwind label %lpad392
 
 invoke.cont393:                                   ; preds = %invoke.cont391
@@ -6559,7 +6559,7 @@ invoke.cont393:                                   ; preds = %invoke.cont391
           to label %invoke.cont399 unwind label %lpad398
 
 invoke.cont399:                                   ; preds = %invoke.cont393
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp396)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp396)
           to label %invoke.cont401 unwind label %lpad400
 
 invoke.cont401:                                   ; preds = %invoke.cont399
@@ -6570,7 +6570,7 @@ invoke.cont401:                                   ; preds = %invoke.cont399
           to label %invoke.cont407 unwind label %lpad406
 
 invoke.cont407:                                   ; preds = %invoke.cont401
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp404)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp404)
           to label %invoke.cont409 unwind label %lpad408
 
 invoke.cont409:                                   ; preds = %invoke.cont407
@@ -6581,7 +6581,7 @@ invoke.cont409:                                   ; preds = %invoke.cont407
           to label %invoke.cont415 unwind label %lpad414
 
 invoke.cont415:                                   ; preds = %invoke.cont409
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp412)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp412)
           to label %invoke.cont417 unwind label %lpad416
 
 invoke.cont417:                                   ; preds = %invoke.cont415
@@ -6592,7 +6592,7 @@ invoke.cont417:                                   ; preds = %invoke.cont415
           to label %invoke.cont423 unwind label %lpad422
 
 invoke.cont423:                                   ; preds = %invoke.cont417
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp420)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp420)
           to label %invoke.cont425 unwind label %lpad424
 
 invoke.cont425:                                   ; preds = %invoke.cont423
@@ -6603,7 +6603,7 @@ invoke.cont425:                                   ; preds = %invoke.cont423
           to label %invoke.cont431 unwind label %lpad430
 
 invoke.cont431:                                   ; preds = %invoke.cont425
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp428)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp428)
           to label %invoke.cont433 unwind label %lpad432
 
 invoke.cont433:                                   ; preds = %invoke.cont431
@@ -6614,7 +6614,7 @@ invoke.cont433:                                   ; preds = %invoke.cont431
           to label %invoke.cont439 unwind label %lpad438
 
 invoke.cont439:                                   ; preds = %invoke.cont433
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp436)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp436)
           to label %invoke.cont441 unwind label %lpad440
 
 invoke.cont441:                                   ; preds = %invoke.cont439
@@ -6625,7 +6625,7 @@ invoke.cont441:                                   ; preds = %invoke.cont439
           to label %invoke.cont447 unwind label %lpad446
 
 invoke.cont447:                                   ; preds = %invoke.cont441
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp444)
           to label %invoke.cont449 unwind label %lpad448
 
 invoke.cont449:                                   ; preds = %invoke.cont447
@@ -6636,7 +6636,7 @@ invoke.cont449:                                   ; preds = %invoke.cont447
           to label %invoke.cont455 unwind label %lpad454
 
 invoke.cont455:                                   ; preds = %invoke.cont449
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp452)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp452)
           to label %invoke.cont457 unwind label %lpad456
 
 invoke.cont457:                                   ; preds = %invoke.cont455
@@ -6647,7 +6647,7 @@ invoke.cont457:                                   ; preds = %invoke.cont455
           to label %invoke.cont463 unwind label %lpad462
 
 invoke.cont463:                                   ; preds = %invoke.cont457
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp460)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp460)
           to label %invoke.cont465 unwind label %lpad464
 
 invoke.cont465:                                   ; preds = %invoke.cont463
@@ -6658,7 +6658,7 @@ invoke.cont465:                                   ; preds = %invoke.cont463
           to label %invoke.cont471 unwind label %lpad470
 
 invoke.cont471:                                   ; preds = %invoke.cont465
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp468)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp468)
           to label %invoke.cont473 unwind label %lpad472
 
 invoke.cont473:                                   ; preds = %invoke.cont471
@@ -6669,7 +6669,7 @@ invoke.cont473:                                   ; preds = %invoke.cont471
           to label %invoke.cont479 unwind label %lpad478
 
 invoke.cont479:                                   ; preds = %invoke.cont473
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp476)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp476)
           to label %invoke.cont481 unwind label %lpad480
 
 invoke.cont481:                                   ; preds = %invoke.cont479
@@ -6680,7 +6680,7 @@ invoke.cont481:                                   ; preds = %invoke.cont479
           to label %invoke.cont487 unwind label %lpad486
 
 invoke.cont487:                                   ; preds = %invoke.cont481
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484)
           to label %invoke.cont489 unwind label %lpad488
 
 invoke.cont489:                                   ; preds = %invoke.cont487
@@ -6691,7 +6691,7 @@ invoke.cont489:                                   ; preds = %invoke.cont487
           to label %invoke.cont495 unwind label %lpad494
 
 invoke.cont495:                                   ; preds = %invoke.cont489
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-09, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp492)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-09, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp492)
           to label %invoke.cont497 unwind label %lpad496
 
 invoke.cont497:                                   ; preds = %invoke.cont495
@@ -6702,7 +6702,7 @@ invoke.cont497:                                   ; preds = %invoke.cont495
           to label %invoke.cont503 unwind label %lpad502
 
 invoke.cont503:                                   ; preds = %invoke.cont497
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp500)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp500)
           to label %invoke.cont505 unwind label %lpad504
 
 invoke.cont505:                                   ; preds = %invoke.cont503
@@ -6713,7 +6713,7 @@ invoke.cont505:                                   ; preds = %invoke.cont503
           to label %invoke.cont511 unwind label %lpad510
 
 invoke.cont511:                                   ; preds = %invoke.cont505
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp508)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp508)
           to label %invoke.cont513 unwind label %lpad512
 
 invoke.cont513:                                   ; preds = %invoke.cont511
@@ -6724,7 +6724,7 @@ invoke.cont513:                                   ; preds = %invoke.cont511
           to label %invoke.cont519 unwind label %lpad518
 
 invoke.cont519:                                   ; preds = %invoke.cont513
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp516)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp516)
           to label %invoke.cont521 unwind label %lpad520
 
 invoke.cont521:                                   ; preds = %invoke.cont519
@@ -6735,7 +6735,7 @@ invoke.cont521:                                   ; preds = %invoke.cont519
           to label %invoke.cont527 unwind label %lpad526
 
 invoke.cont527:                                   ; preds = %invoke.cont521
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp524)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp524)
           to label %invoke.cont529 unwind label %lpad528
 
 invoke.cont529:                                   ; preds = %invoke.cont527
@@ -6746,7 +6746,7 @@ invoke.cont529:                                   ; preds = %invoke.cont527
           to label %invoke.cont535 unwind label %lpad534
 
 invoke.cont535:                                   ; preds = %invoke.cont529
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp532)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp532)
           to label %invoke.cont537 unwind label %lpad536
 
 invoke.cont537:                                   ; preds = %invoke.cont535
@@ -6757,7 +6757,7 @@ invoke.cont537:                                   ; preds = %invoke.cont535
           to label %invoke.cont543 unwind label %lpad542
 
 invoke.cont543:                                   ; preds = %invoke.cont537
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp540)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp540)
           to label %invoke.cont545 unwind label %lpad544
 
 invoke.cont545:                                   ; preds = %invoke.cont543
@@ -6768,7 +6768,7 @@ invoke.cont545:                                   ; preds = %invoke.cont543
           to label %invoke.cont551 unwind label %lpad550
 
 invoke.cont551:                                   ; preds = %invoke.cont545
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-02, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-02, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp548)
           to label %invoke.cont553 unwind label %lpad552
 
 invoke.cont553:                                   ; preds = %invoke.cont551
@@ -6779,7 +6779,7 @@ invoke.cont553:                                   ; preds = %invoke.cont551
           to label %invoke.cont559 unwind label %lpad558
 
 invoke.cont559:                                   ; preds = %invoke.cont553
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -1.234500e-01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp556)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -1.234500e-01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp556)
           to label %invoke.cont561 unwind label %lpad560
 
 invoke.cont561:                                   ; preds = %invoke.cont559
@@ -6790,7 +6790,7 @@ invoke.cont561:                                   ; preds = %invoke.cont559
           to label %invoke.cont567 unwind label %lpad566
 
 invoke.cont567:                                   ; preds = %invoke.cont561
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef -0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp564)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef -0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp564)
           to label %invoke.cont569 unwind label %lpad568
 
 invoke.cont569:                                   ; preds = %invoke.cont567
@@ -6801,7 +6801,7 @@ invoke.cont569:                                   ; preds = %invoke.cont567
           to label %invoke.cont575 unwind label %lpad574
 
 invoke.cont575:                                   ; preds = %invoke.cont569
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp572)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp572)
           to label %invoke.cont577 unwind label %lpad576
 
 invoke.cont577:                                   ; preds = %invoke.cont575
@@ -6812,7 +6812,7 @@ invoke.cont577:                                   ; preds = %invoke.cont575
           to label %invoke.cont583 unwind label %lpad582
 
 invoke.cont583:                                   ; preds = %invoke.cont577
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp580)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+00, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp580)
           to label %invoke.cont585 unwind label %lpad584
 
 invoke.cont585:                                   ; preds = %invoke.cont583
@@ -6823,7 +6823,7 @@ invoke.cont585:                                   ; preds = %invoke.cont583
           to label %invoke.cont591 unwind label %lpad590
 
 invoke.cont591:                                   ; preds = %invoke.cont585
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp588)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+01, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp588)
           to label %invoke.cont593 unwind label %lpad592
 
 invoke.cont593:                                   ; preds = %invoke.cont591
@@ -6834,7 +6834,7 @@ invoke.cont593:                                   ; preds = %invoke.cont591
           to label %invoke.cont599 unwind label %lpad598
 
 invoke.cont599:                                   ; preds = %invoke.cont593
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+02, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp596)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+02, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp596)
           to label %invoke.cont601 unwind label %lpad600
 
 invoke.cont601:                                   ; preds = %invoke.cont599
@@ -6845,7 +6845,7 @@ invoke.cont601:                                   ; preds = %invoke.cont599
           to label %invoke.cont607 unwind label %lpad606
 
 invoke.cont607:                                   ; preds = %invoke.cont601
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp604)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+03, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp604)
           to label %invoke.cont609 unwind label %lpad608
 
 invoke.cont609:                                   ; preds = %invoke.cont607
@@ -6856,7 +6856,7 @@ invoke.cont609:                                   ; preds = %invoke.cont607
           to label %invoke.cont615 unwind label %lpad614
 
 invoke.cont615:                                   ; preds = %invoke.cont609
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp612)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+04, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp612)
           to label %invoke.cont617 unwind label %lpad616
 
 invoke.cont617:                                   ; preds = %invoke.cont615
@@ -6867,7 +6867,7 @@ invoke.cont617:                                   ; preds = %invoke.cont615
           to label %invoke.cont623 unwind label %lpad622
 
 invoke.cont623:                                   ; preds = %invoke.cont617
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp620)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+05, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp620)
           to label %invoke.cont625 unwind label %lpad624
 
 invoke.cont625:                                   ; preds = %invoke.cont623
@@ -6878,7 +6878,7 @@ invoke.cont625:                                   ; preds = %invoke.cont623
           to label %invoke.cont631 unwind label %lpad630
 
 invoke.cont631:                                   ; preds = %invoke.cont625
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp628)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+06, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp628)
           to label %invoke.cont633 unwind label %lpad632
 
 invoke.cont633:                                   ; preds = %invoke.cont631
@@ -6889,7 +6889,7 @@ invoke.cont633:                                   ; preds = %invoke.cont631
           to label %invoke.cont639 unwind label %lpad638
 
 invoke.cont639:                                   ; preds = %invoke.cont633
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp636)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+07, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp636)
           to label %invoke.cont641 unwind label %lpad640
 
 invoke.cont641:                                   ; preds = %invoke.cont639
@@ -6900,7 +6900,7 @@ invoke.cont641:                                   ; preds = %invoke.cont639
           to label %invoke.cont647 unwind label %lpad646
 
 invoke.cont647:                                   ; preds = %invoke.cont641
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp644)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+08, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp644)
           to label %invoke.cont649 unwind label %lpad648
 
 invoke.cont649:                                   ; preds = %invoke.cont647
@@ -6911,7 +6911,7 @@ invoke.cont649:                                   ; preds = %invoke.cont647
           to label %invoke.cont655 unwind label %lpad654
 
 invoke.cont655:                                   ; preds = %invoke.cont649
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+09, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp652)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+09, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp652)
           to label %invoke.cont657 unwind label %lpad656
 
 invoke.cont657:                                   ; preds = %invoke.cont655
@@ -6922,7 +6922,7 @@ invoke.cont657:                                   ; preds = %invoke.cont655
           to label %invoke.cont663 unwind label %lpad662
 
 invoke.cont663:                                   ; preds = %invoke.cont657
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp660)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp660)
           to label %invoke.cont665 unwind label %lpad664
 
 invoke.cont665:                                   ; preds = %invoke.cont663
@@ -6933,7 +6933,7 @@ invoke.cont665:                                   ; preds = %invoke.cont663
           to label %invoke.cont671 unwind label %lpad670
 
 invoke.cont671:                                   ; preds = %invoke.cont665
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp668)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp668)
           to label %invoke.cont673 unwind label %lpad672
 
 invoke.cont673:                                   ; preds = %invoke.cont671
@@ -6944,7 +6944,7 @@ invoke.cont673:                                   ; preds = %invoke.cont671
           to label %invoke.cont679 unwind label %lpad678
 
 invoke.cont679:                                   ; preds = %invoke.cont673
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp676)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp676)
           to label %invoke.cont681 unwind label %lpad680
 
 invoke.cont681:                                   ; preds = %invoke.cont679
@@ -6955,7 +6955,7 @@ invoke.cont681:                                   ; preds = %invoke.cont679
           to label %invoke.cont687 unwind label %lpad686
 
 invoke.cont687:                                   ; preds = %invoke.cont681
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp684)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+13, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp684)
           to label %invoke.cont689 unwind label %lpad688
 
 invoke.cont689:                                   ; preds = %invoke.cont687
@@ -6966,7 +6966,7 @@ invoke.cont689:                                   ; preds = %invoke.cont687
           to label %invoke.cont695 unwind label %lpad694
 
 invoke.cont695:                                   ; preds = %invoke.cont689
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp692)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp692)
           to label %invoke.cont697 unwind label %lpad696
 
 invoke.cont697:                                   ; preds = %invoke.cont695
@@ -6977,7 +6977,7 @@ invoke.cont697:                                   ; preds = %invoke.cont695
           to label %invoke.cont703 unwind label %lpad702
 
 invoke.cont703:                                   ; preds = %invoke.cont697
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp700)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp700)
           to label %invoke.cont705 unwind label %lpad704
 
 invoke.cont705:                                   ; preds = %invoke.cont703
@@ -6988,7 +6988,7 @@ invoke.cont705:                                   ; preds = %invoke.cont703
           to label %invoke.cont711 unwind label %lpad710
 
 invoke.cont711:                                   ; preds = %invoke.cont705
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp708)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp708)
           to label %invoke.cont713 unwind label %lpad712
 
 invoke.cont713:                                   ; preds = %invoke.cont711
@@ -6999,7 +6999,7 @@ invoke.cont713:                                   ; preds = %invoke.cont711
           to label %invoke.cont719 unwind label %lpad718
 
 invoke.cont719:                                   ; preds = %invoke.cont713
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp716)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp716)
           to label %invoke.cont721 unwind label %lpad720
 
 invoke.cont721:                                   ; preds = %invoke.cont719
@@ -7010,7 +7010,7 @@ invoke.cont721:                                   ; preds = %invoke.cont719
           to label %invoke.cont727 unwind label %lpad726
 
 invoke.cont727:                                   ; preds = %invoke.cont721
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp724)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+18, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp724)
           to label %invoke.cont729 unwind label %lpad728
 
 invoke.cont729:                                   ; preds = %invoke.cont727
@@ -7021,7 +7021,7 @@ invoke.cont729:                                   ; preds = %invoke.cont727
           to label %invoke.cont735 unwind label %lpad734
 
 invoke.cont735:                                   ; preds = %invoke.cont729
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp732)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp732)
           to label %invoke.cont737 unwind label %lpad736
 
 invoke.cont737:                                   ; preds = %invoke.cont735
@@ -7032,7 +7032,7 @@ invoke.cont737:                                   ; preds = %invoke.cont735
           to label %invoke.cont743 unwind label %lpad742
 
 invoke.cont743:                                   ; preds = %invoke.cont737
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp740)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+20, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp740)
           to label %invoke.cont745 unwind label %lpad744
 
 invoke.cont745:                                   ; preds = %invoke.cont743
@@ -7043,7 +7043,7 @@ invoke.cont745:                                   ; preds = %invoke.cont743
           to label %invoke.cont751 unwind label %lpad750
 
 invoke.cont751:                                   ; preds = %invoke.cont745
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp748)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp748)
           to label %invoke.cont753 unwind label %lpad752
 
 invoke.cont753:                                   ; preds = %invoke.cont751
@@ -7054,7 +7054,7 @@ invoke.cont753:                                   ; preds = %invoke.cont751
           to label %invoke.cont759 unwind label %lpad758
 
 invoke.cont759:                                   ; preds = %invoke.cont753
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef 1.234500e+22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp756)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef 1.234500e+22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp756)
           to label %invoke.cont761 unwind label %lpad760
 
 invoke.cont761:                                   ; preds = %invoke.cont759
@@ -7850,7 +7850,7 @@ if.then774:                                       ; preds = %invoke.cont772
           to label %invoke.cont778 unwind label %lpad777
 
 invoke.cont778:                                   ; preds = %if.then774
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -9223372036854775808, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -9223372036854775808, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775)
           to label %invoke.cont780 unwind label %lpad779
 
 invoke.cont780:                                   ; preds = %invoke.cont778
@@ -7861,7 +7861,7 @@ invoke.cont780:                                   ; preds = %invoke.cont778
           to label %invoke.cont786 unwind label %lpad785
 
 invoke.cont786:                                   ; preds = %invoke.cont780
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 9223372036854775807, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp783)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 9223372036854775807, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp783)
           to label %invoke.cont788 unwind label %lpad787
 
 invoke.cont788:                                   ; preds = %invoke.cont786
@@ -7872,7 +7872,7 @@ invoke.cont788:                                   ; preds = %invoke.cont786
           to label %invoke.cont794 unwind label %lpad793
 
 invoke.cont794:                                   ; preds = %invoke.cont788
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -3456789012345678901, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp791)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -3456789012345678901, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp791)
           to label %invoke.cont796 unwind label %lpad795
 
 invoke.cont796:                                   ; preds = %invoke.cont794
@@ -7883,7 +7883,7 @@ invoke.cont796:                                   ; preds = %invoke.cont794
           to label %invoke.cont802 unwind label %lpad801
 
 invoke.cont802:                                   ; preds = %invoke.cont796
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 3456789012345678901, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp799)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 3456789012345678901, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp799)
           to label %invoke.cont804 unwind label %lpad803
 
 invoke.cont804:                                   ; preds = %invoke.cont802
@@ -7894,7 +7894,7 @@ invoke.cont804:                                   ; preds = %invoke.cont802
           to label %invoke.cont810 unwind label %lpad809
 
 invoke.cont810:                                   ; preds = %invoke.cont804
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -5678901234567890123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp807)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -5678901234567890123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp807)
           to label %invoke.cont812 unwind label %lpad811
 
 invoke.cont812:                                   ; preds = %invoke.cont810
@@ -7905,7 +7905,7 @@ invoke.cont812:                                   ; preds = %invoke.cont810
           to label %invoke.cont818 unwind label %lpad817
 
 invoke.cont818:                                   ; preds = %invoke.cont812
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 5678901234567890123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp815)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 5678901234567890123, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp815)
           to label %invoke.cont820 unwind label %lpad819
 
 invoke.cont820:                                   ; preds = %invoke.cont818
@@ -7916,7 +7916,7 @@ invoke.cont820:                                   ; preds = %invoke.cont818
           to label %invoke.cont826 unwind label %lpad825
 
 invoke.cont826:                                   ; preds = %invoke.cont820
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp823)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp823)
           to label %invoke.cont828 unwind label %lpad827
 
 invoke.cont828:                                   ; preds = %invoke.cont826
@@ -7927,7 +7927,7 @@ invoke.cont828:                                   ; preds = %invoke.cont826
           to label %invoke.cont834 unwind label %lpad833
 
 invoke.cont834:                                   ; preds = %invoke.cont828
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp831)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp831)
           to label %invoke.cont836 unwind label %lpad835
 
 invoke.cont836:                                   ; preds = %invoke.cont834
@@ -7938,7 +7938,7 @@ invoke.cont836:                                   ; preds = %invoke.cont834
           to label %invoke.cont842 unwind label %lpad841
 
 invoke.cont842:                                   ; preds = %invoke.cont836
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp839)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp839)
           to label %invoke.cont844 unwind label %lpad843
 
 invoke.cont844:                                   ; preds = %invoke.cont842
@@ -7949,7 +7949,7 @@ invoke.cont844:                                   ; preds = %invoke.cont842
           to label %invoke.cont850 unwind label %lpad849
 
 invoke.cont850:                                   ; preds = %invoke.cont844
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp847)
           to label %invoke.cont852 unwind label %lpad851
 
 invoke.cont852:                                   ; preds = %invoke.cont850
@@ -7960,7 +7960,7 @@ invoke.cont852:                                   ; preds = %invoke.cont850
           to label %invoke.cont858 unwind label %lpad857
 
 invoke.cont858:                                   ; preds = %invoke.cont852
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp855)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp855)
           to label %invoke.cont860 unwind label %lpad859
 
 invoke.cont860:                                   ; preds = %invoke.cont858
@@ -7971,7 +7971,7 @@ invoke.cont860:                                   ; preds = %invoke.cont858
           to label %invoke.cont866 unwind label %lpad865
 
 invoke.cont866:                                   ; preds = %invoke.cont860
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp863)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp863)
           to label %invoke.cont868 unwind label %lpad867
 
 invoke.cont868:                                   ; preds = %invoke.cont866
@@ -7982,7 +7982,7 @@ invoke.cont868:                                   ; preds = %invoke.cont866
           to label %invoke.cont874 unwind label %lpad873
 
 invoke.cont874:                                   ; preds = %invoke.cont868
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp871)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp871)
           to label %invoke.cont876 unwind label %lpad875
 
 invoke.cont876:                                   ; preds = %invoke.cont874
@@ -7993,7 +7993,7 @@ invoke.cont876:                                   ; preds = %invoke.cont874
           to label %invoke.cont882 unwind label %lpad881
 
 invoke.cont882:                                   ; preds = %invoke.cont876
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp879)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp879)
           to label %invoke.cont884 unwind label %lpad883
 
 invoke.cont884:                                   ; preds = %invoke.cont882
@@ -8004,7 +8004,7 @@ invoke.cont884:                                   ; preds = %invoke.cont882
           to label %invoke.cont890 unwind label %lpad889
 
 invoke.cont890:                                   ; preds = %invoke.cont884
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp887)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp887)
           to label %invoke.cont892 unwind label %lpad891
 
 invoke.cont892:                                   ; preds = %invoke.cont890
@@ -8015,7 +8015,7 @@ invoke.cont892:                                   ; preds = %invoke.cont890
           to label %invoke.cont898 unwind label %lpad897
 
 invoke.cont898:                                   ; preds = %invoke.cont892
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp895)
           to label %invoke.cont900 unwind label %lpad899
 
 invoke.cont900:                                   ; preds = %invoke.cont898
@@ -8026,7 +8026,7 @@ invoke.cont900:                                   ; preds = %invoke.cont898
           to label %invoke.cont906 unwind label %lpad905
 
 invoke.cont906:                                   ; preds = %invoke.cont900
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp903)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp903)
           to label %invoke.cont908 unwind label %lpad907
 
 invoke.cont908:                                   ; preds = %invoke.cont906
@@ -8037,7 +8037,7 @@ invoke.cont908:                                   ; preds = %invoke.cont906
           to label %invoke.cont914 unwind label %lpad913
 
 invoke.cont914:                                   ; preds = %invoke.cont908
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp911)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp911)
           to label %invoke.cont916 unwind label %lpad915
 
 invoke.cont916:                                   ; preds = %invoke.cont914
@@ -8048,7 +8048,7 @@ invoke.cont916:                                   ; preds = %invoke.cont914
           to label %invoke.cont922 unwind label %lpad921
 
 invoke.cont922:                                   ; preds = %invoke.cont916
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp919)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp919)
           to label %invoke.cont924 unwind label %lpad923
 
 invoke.cont924:                                   ; preds = %invoke.cont922
@@ -8059,7 +8059,7 @@ invoke.cont924:                                   ; preds = %invoke.cont922
           to label %invoke.cont930 unwind label %lpad929
 
 invoke.cont930:                                   ; preds = %invoke.cont924
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp927)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp927)
           to label %invoke.cont932 unwind label %lpad931
 
 invoke.cont932:                                   ; preds = %invoke.cont930
@@ -8070,7 +8070,7 @@ invoke.cont932:                                   ; preds = %invoke.cont930
           to label %invoke.cont938 unwind label %lpad937
 
 invoke.cont938:                                   ; preds = %invoke.cont932
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp935)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp935)
           to label %invoke.cont940 unwind label %lpad939
 
 invoke.cont940:                                   ; preds = %invoke.cont938
@@ -8081,7 +8081,7 @@ invoke.cont940:                                   ; preds = %invoke.cont938
           to label %invoke.cont946 unwind label %lpad945
 
 invoke.cont946:                                   ; preds = %invoke.cont940
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp943)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp943)
           to label %invoke.cont948 unwind label %lpad947
 
 invoke.cont948:                                   ; preds = %invoke.cont946
@@ -8092,7 +8092,7 @@ invoke.cont948:                                   ; preds = %invoke.cont946
           to label %invoke.cont954 unwind label %lpad953
 
 invoke.cont954:                                   ; preds = %invoke.cont948
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -100, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp951)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -100, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp951)
           to label %invoke.cont956 unwind label %lpad955
 
 invoke.cont956:                                   ; preds = %invoke.cont954
@@ -8103,7 +8103,7 @@ invoke.cont956:                                   ; preds = %invoke.cont954
           to label %invoke.cont962 unwind label %lpad961
 
 invoke.cont962:                                   ; preds = %invoke.cont956
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp959)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp959)
           to label %invoke.cont964 unwind label %lpad963
 
 invoke.cont964:                                   ; preds = %invoke.cont962
@@ -8114,7 +8114,7 @@ invoke.cont964:                                   ; preds = %invoke.cont962
           to label %invoke.cont970 unwind label %lpad969
 
 invoke.cont970:                                   ; preds = %invoke.cont964
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef -1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp967)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef -1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp967)
           to label %invoke.cont972 unwind label %lpad971
 
 invoke.cont972:                                   ; preds = %invoke.cont970
@@ -8125,7 +8125,7 @@ invoke.cont972:                                   ; preds = %invoke.cont970
           to label %invoke.cont978 unwind label %lpad977
 
 invoke.cont978:                                   ; preds = %invoke.cont972
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp975)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp975)
           to label %invoke.cont980 unwind label %lpad979
 
 invoke.cont980:                                   ; preds = %invoke.cont978
@@ -8136,7 +8136,7 @@ invoke.cont980:                                   ; preds = %invoke.cont978
           to label %invoke.cont986 unwind label %lpad985
 
 invoke.cont986:                                   ; preds = %invoke.cont980
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp983)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp983)
           to label %invoke.cont988 unwind label %lpad987
 
 invoke.cont988:                                   ; preds = %invoke.cont986
@@ -8147,7 +8147,7 @@ invoke.cont988:                                   ; preds = %invoke.cont986
           to label %invoke.cont994 unwind label %lpad993
 
 invoke.cont994:                                   ; preds = %invoke.cont988
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp991)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp991)
           to label %invoke.cont996 unwind label %lpad995
 
 invoke.cont996:                                   ; preds = %invoke.cont994
@@ -8158,7 +8158,7 @@ invoke.cont996:                                   ; preds = %invoke.cont994
           to label %invoke.cont1002 unwind label %lpad1001
 
 invoke.cont1002:                                  ; preds = %invoke.cont996
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp999)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp999)
           to label %invoke.cont1004 unwind label %lpad1003
 
 invoke.cont1004:                                  ; preds = %invoke.cont1002
@@ -8169,7 +8169,7 @@ invoke.cont1004:                                  ; preds = %invoke.cont1002
           to label %invoke.cont1010 unwind label %lpad1009
 
 invoke.cont1010:                                  ; preds = %invoke.cont1004
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1007)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1007)
           to label %invoke.cont1012 unwind label %lpad1011
 
 invoke.cont1012:                                  ; preds = %invoke.cont1010
@@ -8180,7 +8180,7 @@ invoke.cont1012:                                  ; preds = %invoke.cont1010
           to label %invoke.cont1018 unwind label %lpad1017
 
 invoke.cont1018:                                  ; preds = %invoke.cont1012
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1015)
           to label %invoke.cont1020 unwind label %lpad1019
 
 invoke.cont1020:                                  ; preds = %invoke.cont1018
@@ -8191,7 +8191,7 @@ invoke.cont1020:                                  ; preds = %invoke.cont1018
           to label %invoke.cont1026 unwind label %lpad1025
 
 invoke.cont1026:                                  ; preds = %invoke.cont1020
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1023)
           to label %invoke.cont1028 unwind label %lpad1027
 
 invoke.cont1028:                                  ; preds = %invoke.cont1026
@@ -8202,7 +8202,7 @@ invoke.cont1028:                                  ; preds = %invoke.cont1026
           to label %invoke.cont1034 unwind label %lpad1033
 
 invoke.cont1034:                                  ; preds = %invoke.cont1028
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1031)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1031)
           to label %invoke.cont1036 unwind label %lpad1035
 
 invoke.cont1036:                                  ; preds = %invoke.cont1034
@@ -8213,7 +8213,7 @@ invoke.cont1036:                                  ; preds = %invoke.cont1034
           to label %invoke.cont1042 unwind label %lpad1041
 
 invoke.cont1042:                                  ; preds = %invoke.cont1036
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1039)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1039)
           to label %invoke.cont1044 unwind label %lpad1043
 
 invoke.cont1044:                                  ; preds = %invoke.cont1042
@@ -8224,7 +8224,7 @@ invoke.cont1044:                                  ; preds = %invoke.cont1042
           to label %invoke.cont1050 unwind label %lpad1049
 
 invoke.cont1050:                                  ; preds = %invoke.cont1044
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1047)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1047)
           to label %invoke.cont1052 unwind label %lpad1051
 
 invoke.cont1052:                                  ; preds = %invoke.cont1050
@@ -8235,7 +8235,7 @@ invoke.cont1052:                                  ; preds = %invoke.cont1050
           to label %invoke.cont1058 unwind label %lpad1057
 
 invoke.cont1058:                                  ; preds = %invoke.cont1052
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1055)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1055)
           to label %invoke.cont1060 unwind label %lpad1059
 
 invoke.cont1060:                                  ; preds = %invoke.cont1058
@@ -8246,7 +8246,7 @@ invoke.cont1060:                                  ; preds = %invoke.cont1058
           to label %invoke.cont1066 unwind label %lpad1065
 
 invoke.cont1066:                                  ; preds = %invoke.cont1060
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1063)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1063)
           to label %invoke.cont1068 unwind label %lpad1067
 
 invoke.cont1068:                                  ; preds = %invoke.cont1066
@@ -8257,7 +8257,7 @@ invoke.cont1068:                                  ; preds = %invoke.cont1066
           to label %invoke.cont1074 unwind label %lpad1073
 
 invoke.cont1074:                                  ; preds = %invoke.cont1068
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1071)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1071)
           to label %invoke.cont1076 unwind label %lpad1075
 
 invoke.cont1076:                                  ; preds = %invoke.cont1074
@@ -8268,7 +8268,7 @@ invoke.cont1076:                                  ; preds = %invoke.cont1074
           to label %invoke.cont1082 unwind label %lpad1081
 
 invoke.cont1082:                                  ; preds = %invoke.cont1076
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1079)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1079)
           to label %invoke.cont1084 unwind label %lpad1083
 
 invoke.cont1084:                                  ; preds = %invoke.cont1082
@@ -8279,7 +8279,7 @@ invoke.cont1084:                                  ; preds = %invoke.cont1082
           to label %invoke.cont1090 unwind label %lpad1089
 
 invoke.cont1090:                                  ; preds = %invoke.cont1084
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1087)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1087)
           to label %invoke.cont1092 unwind label %lpad1091
 
 invoke.cont1092:                                  ; preds = %invoke.cont1090
@@ -8290,7 +8290,7 @@ invoke.cont1092:                                  ; preds = %invoke.cont1090
           to label %invoke.cont1098 unwind label %lpad1097
 
 invoke.cont1098:                                  ; preds = %invoke.cont1092
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1095)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1095)
           to label %invoke.cont1100 unwind label %lpad1099
 
 invoke.cont1100:                                  ; preds = %invoke.cont1098
@@ -8301,7 +8301,7 @@ invoke.cont1100:                                  ; preds = %invoke.cont1098
           to label %invoke.cont1106 unwind label %lpad1105
 
 invoke.cont1106:                                  ; preds = %invoke.cont1100
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1103)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1103)
           to label %invoke.cont1108 unwind label %lpad1107
 
 invoke.cont1108:                                  ; preds = %invoke.cont1106
@@ -8312,7 +8312,7 @@ invoke.cont1108:                                  ; preds = %invoke.cont1106
           to label %invoke.cont1114 unwind label %lpad1113
 
 invoke.cont1114:                                  ; preds = %invoke.cont1108
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 10000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1111)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 10000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1111)
           to label %invoke.cont1116 unwind label %lpad1115
 
 invoke.cont1116:                                  ; preds = %invoke.cont1114
@@ -8323,7 +8323,7 @@ invoke.cont1116:                                  ; preds = %invoke.cont1114
           to label %invoke.cont1122 unwind label %lpad1121
 
 invoke.cont1122:                                  ; preds = %invoke.cont1116
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 100000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1119)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 100000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1119)
           to label %invoke.cont1124 unwind label %lpad1123
 
 invoke.cont1124:                                  ; preds = %invoke.cont1122
@@ -8334,7 +8334,7 @@ invoke.cont1124:                                  ; preds = %invoke.cont1122
           to label %invoke.cont1130 unwind label %lpad1129
 
 invoke.cont1130:                                  ; preds = %invoke.cont1124
-  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef 1000000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1127)
+  invoke fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef 1000000000000000000, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1127)
           to label %invoke.cont1132 unwind label %lpad1131
 
 invoke.cont1132:                                  ; preds = %invoke.cont1130
@@ -9099,7 +9099,7 @@ declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -45, 36) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -45, 36) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %agg.tmp3.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
@@ -9425,7 +9425,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -324, 302) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.argprom"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -324, 302) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %agg.tmp3.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
@@ -11186,7 +11186,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"struct.std::array.23", align 1
   %actual = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11273,7 +11273,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca %"struct.std::array.23", align 1
   %actual = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11360,7 +11360,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL20DOCTEST_ANON_FUNC_24vENK3$_2clElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %expected) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2IRllTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISD_SH_EE5valueEiE4typeELi0EEEOT_.exit:
   %j = alloca %"class.nlohmann::json_abi_v3_11_3::basic_json", align 8
   %ref.tmp = alloca %"struct.doctest::detail::Result", align 8

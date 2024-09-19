@@ -601,20 +601,20 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
 171:                                              ; preds = %170
   %172 = load i32, ptr %156, align 4
   %173 = icmp slt i32 %.3149, %172
-  br i1 %173, label %Extra_ProgressBarUpdate.exit, label %174
+  br i1 %173, label %Extra_ProgressBarUpdate.argprom.exit, label %174
 
 174:                                              ; preds = %171, %170
   tail call void @Extra_ProgressBarUpdate_int(ptr noundef %156, i32 noundef %.3149, ptr noundef null) #11
-  br label %Extra_ProgressBarUpdate.exit
+  br label %Extra_ProgressBarUpdate.argprom.exit
 
-Extra_ProgressBarUpdate.exit:                     ; preds = %171, %174
+Extra_ProgressBarUpdate.argprom.exit:             ; preds = %171, %174
   %175 = load ptr, ptr %165, align 8
   %176 = getelementptr i8, ptr %175, i64 4
   %.val.i102 = load i32, ptr %176, align 4
   %.not.i103 = icmp eq i32 %.val.i102, 4
   br i1 %.not.i103, label %177, label %185
 
-177:                                              ; preds = %Extra_ProgressBarUpdate.exit
+177:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %.val5.i.i = load i32, ptr %168, align 4
   %178 = and i32 %.val5.i.i, 15
   %.not7.i.i = icmp eq i32 %178, 7
@@ -636,7 +636,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %Io_NtkEdgelistWriteNode.exit.thread
 
-185:                                              ; preds = %Extra_ProgressBarUpdate.exit
+185:                                              ; preds = %Extra_ProgressBarUpdate.argprom.exit
   %186 = getelementptr i8, ptr %165, i64 28
   %.val98110.i.i = load i32, ptr %186, align 4
   %187 = icmp sgt i32 %.val98110.i.i, 0

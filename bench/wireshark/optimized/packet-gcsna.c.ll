@@ -161,8 +161,8 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12, %gcsna_message_decode.exit
-  %.02832 = phi i32 [ %.129, %gcsna_message_decode.exit ], [ 0, %12 ]
+.lr.ph:                                           ; preds = %12, %gcsna_message_decode.argprom.exit
+  %.02832 = phi i32 [ %.129, %gcsna_message_decode.argprom.exit ], [ 0, %12 ]
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02832) #2
   %17 = add i32 %.02832, 1
   switch i8 %16, label %155 [
@@ -251,18 +251,18 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef -1, i32 noundef 0) #2
   %73 = load ptr, ptr @cdma2k_handle, align 8
   %.not81.i.i = icmp eq ptr %73, null
-  br i1 %.not81.i.i, label %gcsna_message_GCSNA1xCircuitService.exit.i, label %74
+  br i1 %.not81.i.i, label %gcsna_message_GCSNA1xCircuitService.argprom.exit.i, label %74
 
 74:                                               ; preds = %52
   %75 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %70, i32 noundef -1) #2
   %76 = load ptr, ptr @cdma2k_handle, align 8
   %77 = tail call i32 @call_dissector(ptr noundef %76, ptr noundef %75, ptr noundef %1, ptr noundef nonnull %2) #2
-  br label %gcsna_message_GCSNA1xCircuitService.exit.i
+  br label %gcsna_message_GCSNA1xCircuitService.argprom.exit.i
 
-gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
+gcsna_message_GCSNA1xCircuitService.argprom.exit.i: ; preds = %74, %52
   %78 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70) #2
   %79 = add i32 %78, %70
-  br label %gcsna_message_decode.exit
+  br label %gcsna_message_decode.argprom.exit
 
 80:                                               ; preds = %.lr.ph
   %81 = load i32, ptr @hf_gcsna_l2ack, align 4
@@ -273,7 +273,7 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   %86 = shl i32 %17, 3
   %87 = tail call ptr @proto_tree_add_bits_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %86, i32 noundef 6, i32 noundef 0) #2
   %88 = add i32 %.02832, 2
-  br label %gcsna_message_decode.exit
+  br label %gcsna_message_decode.argprom.exit
 
 89:                                               ; preds = %.lr.ph
   %90 = load i32, ptr @hf_gcsna_servicereject, align 4
@@ -328,35 +328,35 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
 ._crit_edge.i.i:                                  ; preds = %.lr.ph7.i.i, %105
   %.0.lcssa.i.i = phi i16 [ %108, %105 ], [ %117, %.lr.ph7.i.i ]
   %119 = icmp eq i8 %102, 2
-  br i1 %119, label %120, label %gcsna_message_GCSNAServiceReject.exit.i
+  br i1 %119, label %120, label %gcsna_message_GCSNAServiceReject.argprom.exit.i
 
 120:                                              ; preds = %._crit_edge.i.i
   %121 = load i32, ptr @hf_gcsna_1xProtocolRevision, align 4
   %122 = zext i16 %.0.lcssa.i.i to i32
   %123 = tail call ptr @proto_tree_add_bits_item(ptr noundef %93, i32 noundef %121, ptr noundef %0, i32 noundef %122, i32 noundef 8, i32 noundef 0) #2
   %124 = add i16 %.0.lcssa.i.i, 8
-  br label %gcsna_message_GCSNAServiceReject.exit.i
+  br label %gcsna_message_GCSNAServiceReject.argprom.exit.i
 
 125:                                              ; preds = %89
   %126 = load i32, ptr @hf_gcsna_1xProtocolRevision, align 4
   %127 = zext i16 %104 to i32
   %128 = tail call ptr @proto_tree_add_bits_item(ptr noundef %93, i32 noundef %126, ptr noundef %0, i32 noundef %127, i32 noundef 8, i32 noundef 0) #2
   %129 = add i16 %103, 22
-  br label %gcsna_message_GCSNAServiceReject.exit.i
+  br label %gcsna_message_GCSNAServiceReject.argprom.exit.i
 
 130:                                              ; preds = %89
   %131 = load i32, ptr @hf_gcsna_invalidMessageId, align 4
   %132 = zext i16 %104 to i32
   %133 = tail call ptr @proto_tree_add_bits_item(ptr noundef %93, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef 8, i32 noundef 0) #2
   %134 = add i16 %103, 22
-  br label %gcsna_message_GCSNAServiceReject.exit.i
+  br label %gcsna_message_GCSNAServiceReject.argprom.exit.i
 
 135:                                              ; preds = %89
   %136 = zext i16 %104 to i32
   %137 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %136, i32 noundef 8) #2
   %138 = add i16 %103, 22
   %.not1.i.i = icmp eq i8 %137, 0
-  br i1 %.not1.i.i, label %gcsna_message_GCSNAServiceReject.exit.i, label %.lr.ph.preheader.i18.i
+  br i1 %.not1.i.i, label %gcsna_message_GCSNAServiceReject.argprom.exit.i, label %.lr.ph.preheader.i18.i
 
 .lr.ph.preheader.i18.i:                           ; preds = %135
   %139 = zext i8 %137 to i16
@@ -371,15 +371,15 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   %143 = add i16 %.23.i.i, 8
   %144 = add nsw i16 %.1592.i.i, -1
   %.not.i20.i = icmp eq i16 %144, 0
-  br i1 %.not.i20.i, label %gcsna_message_GCSNAServiceReject.exit.i, label %.lr.ph.i19.i, !llvm.loop !7
+  br i1 %.not.i20.i, label %gcsna_message_GCSNAServiceReject.argprom.exit.i, label %.lr.ph.i19.i, !llvm.loop !7
 
 145:                                              ; preds = %89
   %146 = load i32, ptr @hf_gcsna_unsupported_reject_seq, align 4
   %147 = zext i16 %104 to i32
   %148 = tail call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef -1, i32 noundef 0) #2
-  br label %gcsna_message_GCSNAServiceReject.exit.i
+  br label %gcsna_message_GCSNAServiceReject.argprom.exit.i
 
-gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145, %135, %130, %125, %120, %._crit_edge.i.i
+gcsna_message_GCSNAServiceReject.argprom.exit.i:  ; preds = %.lr.ph.i19.i, %145, %135, %130, %125, %120, %._crit_edge.i.i
   %.1.i.i = phi i16 [ %104, %145 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %138, %135 ], [ %143, %.lr.ph.i19.i ]
   %149 = zext i16 %.1.i.i to i32
   %150 = and i32 %149, 7
@@ -387,10 +387,10 @@ gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145,
   %152 = lshr i32 %149, 3
   %153 = zext i1 %151 to i32
   %storemerge.i.i = add nuw nsw i32 %152, %153
-  br label %gcsna_message_decode.exit
+  br label %gcsna_message_decode.argprom.exit
 
-gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA1xCircuitService.exit.i, %80, %gcsna_message_GCSNAServiceReject.exit.i
-  %.129 = phi i32 [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ], [ %88, %80 ], [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ]
+gcsna_message_decode.argprom.exit:                ; preds = %gcsna_message_GCSNA1xCircuitService.argprom.exit.i, %80, %gcsna_message_GCSNAServiceReject.argprom.exit.i
+  %.129 = phi i32 [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.argprom.exit.i ], [ %88, %80 ], [ %79, %gcsna_message_GCSNA1xCircuitService.argprom.exit.i ]
   %154 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129) #2
   %.not43 = icmp eq i32 %154, 0
   br i1 %.not43, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
@@ -400,7 +400,7 @@ gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA
   %157 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_gcsna_error) #2
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %gcsna_message_decode.exit, %12, %155, %4
+._crit_edge.thread:                               ; preds = %gcsna_message_decode.argprom.exit, %12, %155, %4
   %158 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   ret i32 %158
 }

@@ -17801,7 +17801,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   %11 = getelementptr inbounds i8, ptr %1, i64 56
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.exit", label %13
+  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.argprom.exit", label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %12, i64 48
@@ -17811,9 +17811,9 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %12, i64 56
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %19)
-  br label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.exit"
+  br label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.argprom.exit"
 
-"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.exit": ; preds = %2, %13
+"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_12TypeMismatchEEEDaOT_.argprom.exit": ; preds = %2, %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   ret void
 }
@@ -18002,7 +18002,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not17.i.i = icmp eq ptr %7, %9
-  br i1 %.not17.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.exit", label %.lr.ph.i.i
+  br i1 %.not17.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.011.018.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %7, %2 ]
@@ -18011,9 +18011,9 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   store ptr %11, ptr %.sroa.011.018.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %.sroa.011.018.i.i, i64 8
   %.not.i.i = icmp eq ptr %12, %9
-  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.exit", label %.lr.ph.i.i
+  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.argprom.exit", label %.lr.ph.i.i
 
-"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.exit": ; preds = %.lr.ph.i.i, %2
+"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_19CannotAssignToNeverEEEDaOT_.argprom.exit": ; preds = %.lr.ph.i.i, %2
   ret void
 }
 
@@ -18066,7 +18066,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not17.i.i = icmp eq ptr %7, %9
-  br i1 %.not17.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.exit", label %.lr.ph.i.i
+  br i1 %.not17.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.sroa.011.018.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %7, %2 ]
@@ -18075,9 +18075,9 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   store ptr %11, ptr %.sroa.011.018.i.i, align 8
   %12 = getelementptr inbounds i8, ptr %.sroa.011.018.i.i, i64 8
   %.not.i.i = icmp eq ptr %12, %9
-  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.exit", label %.lr.ph.i.i
+  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.argprom.exit", label %.lr.ph.i.i
 
-"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.exit": ; preds = %.lr.ph.i.i, %2
+"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_20MissingUnionPropertyEEEDaOT_.argprom.exit": ; preds = %.lr.ph.i.i, %2
   ret void
 }
 
@@ -18251,7 +18251,7 @@ define internal void @"_ZN4LuauL8fnVisitVIRZNS_10copyErrorsERSt6vectorINS_9TypeE
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not18.i.i = icmp eq ptr %8, %10
-  br i1 %.not18.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.exit", label %.lr.ph.i.i
+  br i1 %.not18.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
   %11 = getelementptr inbounds i8, ptr %3, i64 32
@@ -18271,7 +18271,7 @@ _ZZN4Luau9copyErrorINS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RNS_9TypeAr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %16 = getelementptr inbounds i8, ptr %.sroa.012.019.i.i, i64 40
   %.not.i.i = icmp eq ptr %16, %10
-  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.exit", label %12
+  br i1 %.not.i.i, label %"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.argprom.exit", label %12
 
 17:                                               ; preds = %12
   %18 = landingpad { ptr, i32 }
@@ -18279,7 +18279,7 @@ _ZZN4Luau9copyErrorINS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RNS_9TypeAr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   resume { ptr, i32 } %18
 
-"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.exit": ; preds = %_ZZN4Luau9copyErrorINS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RNS_9TypeArenaERNS_10CloneStateEENKUlOS2_E_clIRPKNS_4TypeEEEDaS8_.exit.i.i, %2
+"_ZZN4Luau10copyErrorsERSt6vectorINS_9TypeErrorESaIS1_EERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEENK3$_0clIRNS_37ExplicitFunctionAnnotationRecommendedEEEDaOT_.argprom.exit": ; preds = %_ZZN4Luau9copyErrorINS_37ExplicitFunctionAnnotationRecommendedEEEvRT_RNS_9TypeArenaERNS_10CloneStateEENKUlOS2_E_clIRPKNS_4TypeEEEDaS8_.exit.i.i, %2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
 }

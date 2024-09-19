@@ -882,13 +882,13 @@ sw.bb7:                                           ; preds = %process_dummy_ref.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i15)
   %call.i16 = call i32 @parse_oid_hex_algop(ptr noundef %reader.val, ptr noundef nonnull %old_oid.i, ptr noundef nonnull %name.i15, ptr noundef %reader.val8) #23
   %tobool.not.i17 = icmp eq i32 %call.i16, 0
-  br i1 %tobool.not.i17, label %if.end.i19, label %process_ref.exit.thread
+  br i1 %tobool.not.i17, label %if.end.i19, label %process_ref.argprom.exit.thread
 
 if.end.i19:                                       ; preds = %sw.bb7
   %20 = load ptr, ptr %name.i15, align 8
   %21 = load i8, ptr %20, align 1
   %cmp.not.i20 = icmp eq i8 %21, 32
-  br i1 %cmp.not.i20, label %if.end4.i21, label %process_ref.exit.thread
+  br i1 %cmp.not.i20, label %if.end4.i21, label %process_ref.argprom.exit.thread
 
 if.end4.i21:                                      ; preds = %if.end.i19
   %incdec.ptr.i22 = getelementptr inbounds i8, ptr %20, i64 1
@@ -979,7 +979,7 @@ if.end21.i:                                       ; preds = %do.cond.i.i.i, %if.
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reader.val) #25
   %conv.i.i = sext i32 %len.3 to i64
   %cmp.not.i.i = icmp eq i64 %call.i.i, %conv.i.i
-  br i1 %cmp.not.i.i, label %process_ref.exit, label %if.then.i.i27
+  br i1 %cmp.not.i.i, label %process_ref.argprom.exit, label %if.then.i.i27
 
 if.then.i.i27:                                    ; preds = %if.end21.i
   %26 = load i32, ptr @git_gettext_enabled, align 4
@@ -995,20 +995,20 @@ _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.
   %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reader.val) #25
   %add.ptr.i.i = getelementptr inbounds i8, ptr %reader.val, i64 %call3.i.i
   call void (ptr, ...) @warning(ptr noundef %retval.0.i.i.i28, ptr noundef %add.ptr.i.i) #23
-  br label %process_ref.exit
+  br label %process_ref.argprom.exit
 
-process_ref.exit.thread:                          ; preds = %sw.bb7, %if.end.i19
+process_ref.argprom.exit.thread:                  ; preds = %sw.bb7, %if.end.i19
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %old_oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i15)
   br label %sw.bb12
 
-process_ref.exit:                                 ; preds = %if.end21.i, %_.exit.i.i
+process_ref.argprom.exit:                         ; preds = %if.end21.i, %_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %old_oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i15)
   br label %sw.epilog19
 
-sw.bb12:                                          ; preds = %process_ref.exit.thread, %sw.epilog
-  %len.4 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.exit.thread ]
+sw.bb12:                                          ; preds = %process_ref.argprom.exit.thread, %sw.epilog
+  %len.4 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.argprom.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %old_oid.i31)
   %27 = load ptr, ptr %line1.i, align 8
   %scevgep.i = getelementptr i8, ptr %27, i64 8
@@ -1082,10 +1082,10 @@ if.end16:                                         ; preds = %do.cond.i.i
   call void (ptr, ...) @die(ptr noundef %call17, ptr noundef %32) #24
   unreachable
 
-sw.epilog19:                                      ; preds = %process_shallow.exit.thread, %process_ref.exit, %process_dummy_ref.exit, %sw.epilog
-  %list.addr.1 = phi ptr [ %list.addr.0119, %sw.epilog ], [ %list.addr.3, %process_ref.exit ], [ %list.addr.0119, %process_dummy_ref.exit ], [ %list.addr.0119, %process_shallow.exit.thread ]
-  %len.2 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.exit ], [ %len.5, %process_dummy_ref.exit ], [ %len.4, %process_shallow.exit.thread ]
-  %state.2 = phi i32 [ %state.0122, %sw.epilog ], [ 1, %process_ref.exit ], [ 2, %process_dummy_ref.exit ], [ 2, %process_shallow.exit.thread ]
+sw.epilog19:                                      ; preds = %process_shallow.exit.thread, %process_ref.argprom.exit, %process_dummy_ref.exit, %sw.epilog
+  %list.addr.1 = phi ptr [ %list.addr.0119, %sw.epilog ], [ %list.addr.3, %process_ref.argprom.exit ], [ %list.addr.0119, %process_dummy_ref.exit ], [ %list.addr.0119, %process_shallow.exit.thread ]
+  %len.2 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.argprom.exit ], [ %len.5, %process_dummy_ref.exit ], [ %len.4, %process_shallow.exit.thread ]
+  %state.2 = phi i32 [ %state.0122, %sw.epilog ], [ 1, %process_ref.argprom.exit ], [ 2, %process_dummy_ref.exit ], [ 2, %process_shallow.exit.thread ]
   %cmp.not = icmp eq i32 %state.2, 3
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
@@ -2521,26 +2521,26 @@ if.end12.i:                                       ; preds = %if.then10.i, %if.el
   %start.0.i.i = select i1 %tobool.not.i30.i, ptr %host.0.i, ptr %incdec.ptr.i.i
   %0 = load i8, ptr %start.0.i.i, align 1
   %cmp.i31.i = icmp eq i8 %0, 91
-  br i1 %cmp.i31.i, label %if.then2.i.i, label %host_end.exit.i
+  br i1 %cmp.i31.i, label %if.then2.i.i, label %host_end.argprom.exit.i
 
 if.then2.i.i:                                     ; preds = %if.end12.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %start.0.i.i, i64 1
   %call3.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, i32 noundef 93) #25
   %tobool4.not.i.i = icmp eq ptr %call3.i.i, null
   %spec.select35.i = select i1 %tobool4.not.i.i, ptr %host.0.i, ptr %call3.i.i
-  br label %host_end.exit.i
+  br label %host_end.argprom.exit.i
 
-host_end.exit.i:                                  ; preds = %if.then2.i.i, %if.end12.i
+host_end.argprom.exit.i:                          ; preds = %if.then2.i.i, %if.end12.i
   %end.0.i.i = phi ptr [ %host.0.i, %if.end12.i ], [ %spec.select35.i, %if.then2.i.i ]
   %cond.i = icmp eq i32 %protocol.0.i, 1
   br i1 %cond.i, label %if.end40.i, label %if.else36.i
 
-if.else36.i:                                      ; preds = %host_end.exit.i
+if.else36.i:                                      ; preds = %host_end.argprom.exit.i
   %call37.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %end.0.i.i, i32 noundef %separator.0.i) #25
   br label %if.end40.i
 
-if.end40.i:                                       ; preds = %if.else36.i, %host_end.exit.i
-  %path.0.i = phi ptr [ %call37.i, %if.else36.i ], [ %end.0.i.i, %host_end.exit.i ]
+if.end40.i:                                       ; preds = %if.else36.i, %host_end.argprom.exit.i
+  %path.0.i = phi ptr [ %call37.i, %if.else36.i ], [ %end.0.i.i, %host_end.argprom.exit.i ]
   %tobool41.not.i = icmp eq ptr %path.0.i, null
   br i1 %tobool41.not.i, label %if.then43.i, label %lor.lhs.false.i
 
@@ -2648,7 +2648,7 @@ git_use_proxy.exit.i:                             ; preds = %if.end9.i
 if.then12.i:                                      ; preds = %git_use_proxy.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %port.i.i)
   store ptr @.str.84, ptr %port.i.i, align 8
-  call fastcc void @get_host_and_port(ptr %call64.i, ptr noundef %port.i.i)
+  call fastcc void @get_host_and_port.argprom(ptr %call64.i, ptr noundef %port.i.i)
   %call.i12.i = tail call i32 @looks_like_command_line_option(ptr noundef %call64.i) #23
   %tobool.not.i13.i = icmp eq i32 %call.i12.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i.i47, label %if.then.i.i
@@ -2706,7 +2706,7 @@ if.else14.i:                                      ; preds = %git_use_proxy.exit.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ai.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %error_message.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.git_tcp_connect_sock.error_message, i64 24, i1 false)
   store ptr @.str.84, ptr %port.i.i.i, align 8
-  call fastcc void @get_host_and_port(ptr %call64.i, ptr noundef %port.i.i.i)
+  call fastcc void @get_host_and_port.argprom(ptr %call64.i, ptr noundef %port.i.i.i)
   %12 = load ptr, ptr %port.i.i.i, align 8
   %13 = load i8, ptr %12, align 1
   %tobool.not.i.i.i = icmp eq i8 %13, 0
@@ -2816,13 +2816,13 @@ if.then33.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %.val14.i.i.i = load ptr, ptr %28, align 8
   %call.i22.i.i.i = call i32 @getnameinfo(ptr noundef %.val14.i.i.i, i32 noundef %.val.i.i.i, ptr noundef nonnull @ai_name.addr, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #23
   %cmp.not.i.i.i.i = icmp eq i32 %call.i22.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %ai_name.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %ai_name.argprom.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then33.i.i.i
   %call1.i.i.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull @ai_name.addr, i64 noundef 1025, ptr noundef nonnull @.str.96) #23
-  br label %ai_name.exit.i.i.i
+  br label %ai_name.argprom.exit.i.i.i
 
-ai_name.exit.i.i.i:                               ; preds = %if.then.i.i.i.i, %if.then33.i.i.i
+ai_name.argprom.exit.i.i.i:                       ; preds = %if.then.i.i.i.i, %if.then33.i.i.i
   %call35.i.i.i = tail call ptr @__errno_location() #28
   %29 = load i32, ptr %call35.i.i.i, align 4
   %call36.i.i.i = call ptr @strerror(i32 noundef %29) #23
@@ -2830,11 +2830,11 @@ ai_name.exit.i.i.i:                               ; preds = %if.then.i.i.i.i, %i
   %cmp37.i.i.i = icmp sgt i32 %call30.i.i.i, -1
   br i1 %cmp37.i.i.i, label %if.then38.i.i.i, label %if.end40.i.i.i
 
-if.then38.i.i.i:                                  ; preds = %ai_name.exit.i.i.i
+if.then38.i.i.i:                                  ; preds = %ai_name.argprom.exit.i.i.i
   %call39.i.i.i = call i32 @close(i32 noundef %call30.i.i.i) #23
   br label %if.end40.i.i.i
 
-if.end40.i.i.i:                                   ; preds = %if.then38.i.i.i, %ai_name.exit.i.i.i
+if.end40.i.i.i:                                   ; preds = %if.then38.i.i.i, %ai_name.argprom.exit.i.i.i
   %30 = load ptr, ptr %ai.i.i.i, align 8
   %ai_next.i.i.i = getelementptr inbounds i8, ptr %30, i64 40
   %31 = load ptr, ptr %ai_next.i.i.i, align 8
@@ -2855,13 +2855,13 @@ if.then44.i.i.i:                                  ; preds = %if.end41.i.i.i
   %.val16.i.i.i = load ptr, ptr %35, align 8
   %call.i23.i.i.i = call i32 @getnameinfo(ptr noundef %.val16.i.i.i, i32 noundef %.val15.i.i.i, ptr noundef nonnull @ai_name.addr, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #23
   %cmp.not.i24.i.i.i = icmp eq i32 %call.i23.i.i.i, 0
-  br i1 %cmp.not.i24.i.i.i, label %ai_name.exit27.i.i.i, label %if.then.i25.i.i.i
+  br i1 %cmp.not.i24.i.i.i, label %ai_name.argprom.exit27.i.i.i, label %if.then.i25.i.i.i
 
 if.then.i25.i.i.i:                                ; preds = %if.then44.i.i.i
   %call1.i26.i.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull @ai_name.addr, i64 noundef 1025, ptr noundef nonnull @.str.96) #23
-  br label %ai_name.exit27.i.i.i
+  br label %ai_name.argprom.exit27.i.i.i
 
-ai_name.exit27.i.i.i:                             ; preds = %if.then.i25.i.i.i, %if.then44.i.i.i
+ai_name.argprom.exit27.i.i.i:                     ; preds = %if.then.i25.i.i.i, %if.then44.i.i.i
   %call46.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.93, ptr noundef nonnull @ai_name.addr) #27
   br label %if.end51.i.i.i
 
@@ -2873,7 +2873,7 @@ if.then49.i.i.i:                                  ; preds = %if.end40.i.i.i, %if
   call void (ptr, ...) @die(ptr noundef %call50.i.i.i, ptr noundef %call64.i, ptr noundef %36) #24
   unreachable
 
-if.end51.i.i.i:                                   ; preds = %ai_name.exit27.i.i.i, %if.end41.i.i.i
+if.end51.i.i.i:                                   ; preds = %ai_name.argprom.exit27.i.i.i, %if.end41.i.i.i
   call void @freeaddrinfo(ptr noundef nonnull %18) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ka.i.i.i.i)
   store i32 1, ptr %ka.i.i.i.i, align 4
@@ -3062,7 +3062,7 @@ for.end:                                          ; preds = %for.body, %strbuf_a
 if.then37:                                        ; preds = %for.end
   store ptr null, ptr %port, align 8
   call void @transport_check_allowed(ptr noundef nonnull @.str.35) #23
-  call fastcc void @get_host_and_port(ptr %call64.i, ptr noundef %port)
+  call fastcc void @get_host_and_port.argprom(ptr %call64.i, ptr noundef %port)
   %58 = load ptr, ptr %port, align 8
   %tobool38.not = icmp eq ptr %58, null
   br i1 %tobool38.not, label %if.then39, label %if.end41
@@ -3403,7 +3403,7 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @transport_check_allowed(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc void @get_host_and_port(ptr %host.0.val, ptr nocapture noundef nonnull writeonly %port) unnamed_addr #14 {
+define internal fastcc void @get_host_and_port.argprom(ptr %host.0.val, ptr nocapture noundef nonnull writeonly %port) unnamed_addr #14 {
 entry:
   %end = alloca ptr, align 8
   %call.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %host.0.val, ptr noundef nonnull dereferenceable(1) @.str.74) #25
@@ -3412,13 +3412,13 @@ entry:
   %start.0.i = select i1 %tobool.not.i, ptr %host.0.val, ptr %incdec.ptr.i
   %0 = load i8, ptr %start.0.i, align 1
   %cmp.i = icmp eq i8 %0, 91
-  br i1 %cmp.i, label %if.then2.i, label %host_end.exit
+  br i1 %cmp.i, label %if.then2.i, label %host_end.argprom.exit
 
 if.then2.i:                                       ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %start.0.i, i64 1
   %call3.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 93) #25
   %tobool4.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool4.not.i, label %host_end.exit, label %if.then5.i
+  br i1 %tobool4.not.i, label %host_end.argprom.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then2.i
   store i8 0, ptr %call3.i, align 1
@@ -3427,16 +3427,16 @@ if.then5.i:                                       ; preds = %if.then2.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %start.0.i, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i, i1 false)
   %incdec.ptr9.i = getelementptr inbounds i8, ptr %call3.i, i64 1
-  br label %host_end.exit
+  br label %host_end.argprom.exit
 
-host_end.exit:                                    ; preds = %entry, %if.then2.i, %if.then5.i
+host_end.argprom.exit:                            ; preds = %entry, %if.then2.i, %if.then5.i
   %end.0.i = phi ptr [ %incdec.ptr9.i, %if.then5.i ], [ %host.0.val, %if.then2.i ], [ %host.0.val, %entry ]
   store ptr %end.0.i, ptr %end, align 8
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %end.0.i, i32 noundef 58) #25
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end17, label %if.then
 
-if.then:                                          ; preds = %host_end.exit
+if.then:                                          ; preds = %host_end.argprom.exit
   %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1
   %call2 = call i64 @strtol(ptr noundef nonnull %add.ptr, ptr noundef nonnull %end, i32 noundef 10) #23
   %1 = load ptr, ptr %end, align 8
@@ -3464,7 +3464,7 @@ if.then15:                                        ; preds = %if.else
   store i8 0, ptr %call1, align 1
   br label %if.end17
 
-if.end17:                                         ; preds = %if.then12, %if.then15, %if.else, %host_end.exit
+if.end17:                                         ; preds = %if.then12, %if.then15, %if.else, %host_end.argprom.exit
   ret void
 }
 

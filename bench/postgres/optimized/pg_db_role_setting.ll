@@ -45,7 +45,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds i8, ptr %16, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = call fastcc i64 @heap_getattr(ptr noundef %21, ptr noundef %28, ptr noundef %5)
+  %29 = call fastcc i64 @heap_getattr.argelim(ptr noundef %21, ptr noundef %28, ptr noundef %5)
   %30 = load i8, ptr %5, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %.thread, label %32
@@ -88,7 +88,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i8 0, ptr %48, align 1
   %49 = getelementptr inbounds i8, ptr %16, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = call fastcc i64 @heap_getattr(ptr noundef %21, ptr noundef %50, ptr noundef %12)
+  %51 = call fastcc i64 @heap_getattr.argelim(ptr noundef %21, ptr noundef %50, ptr noundef %12)
   %52 = load i8, ptr %12, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %57, label %54
@@ -180,7 +180,7 @@ declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, pt
 declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr.argelim(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 18
@@ -388,7 +388,7 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
 14:                                               ; preds = %.lr.ph, %23
   %15 = phi ptr [ %12, %.lr.ph ], [ %24, %23 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = call fastcc i64 @heap_getattr(ptr noundef %15, ptr noundef %16, ptr noundef %7)
+  %17 = call fastcc i64 @heap_getattr.argelim(ptr noundef %15, ptr noundef %16, ptr noundef %7)
   %18 = load i8, ptr %7, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %23, label %20

@@ -298,7 +298,7 @@ define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr nocapture
   tail call void @_raw_spin_lock(ptr noundef %6) #8
   %7 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %7, align 8
-  %8 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %2)
+  %8 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11, !prof !17
 
@@ -327,7 +327,7 @@ define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr nocapture
   %22 = lshr i16 %21, 6
   %23 = and i16 %22, 7
   %.val5 = load ptr, ptr %7, align 8
-  %24 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val5, i32 noundef %2)
+  %24 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val5, i32 noundef %2)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27, !prof !17
 
@@ -477,7 +477,7 @@ define dso_local void @intel_pasid_tear_down_entry(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @intel_pasid_get_entry(ptr readonly %.704.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @intel_pasid_get_entry.argprom(ptr readonly %.704.val, i32 noundef %0) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.704.val, null
   br i1 %2, label %.thread1, label %3
 
@@ -622,7 +622,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_first_level(pt
   tail call void @_raw_spin_lock(ptr noundef %28) #8
   %29 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %29, align 8
-  %30 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %3)
+  %30 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %3)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
@@ -838,7 +838,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_second_level(p
   tail call void @_raw_spin_lock(ptr noundef %54) #8
   %55 = getelementptr i8, ptr %2, i64 704
   %.val = load ptr, ptr %55, align 8
-  %56 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %3)
+  %56 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %3)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
@@ -968,7 +968,7 @@ define dso_local noundef range(i32 -95, 1) i32 @intel_pasid_setup_dirty_tracking
   tail call void @_raw_spin_lock(ptr noundef %6) #8
   %7 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %7, align 8
-  %8 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %2)
+  %8 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %2)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
 
@@ -1113,7 +1113,7 @@ define dso_local noundef range(i32 -19, 1) i32 @intel_pasid_setup_pass_through(p
   tail call void @_raw_spin_lock(ptr noundef %5) #8
   %6 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %6, align 8
-  %7 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %2)
+  %7 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %2)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -1223,7 +1223,7 @@ define dso_local void @intel_pasid_setup_page_snoop_control(ptr noundef %0, ptr 
   tail call void @_raw_spin_lock(ptr noundef %5) #8
   %6 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %6, align 8
-  %7 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %2)
+  %7 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %2)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
@@ -1425,7 +1425,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_pasid_setup_nested(ptr nou
   tail call void @_raw_spin_lock(ptr noundef %66) #8
   %67 = getelementptr i8, ptr %1, i64 704
   %.val = load ptr, ptr %67, align 8
-  %68 = tail call fastcc ptr @intel_pasid_get_entry(ptr %.val, i32 noundef %2)
+  %68 = tail call fastcc ptr @intel_pasid_get_entry.argprom(ptr %.val, i32 noundef %2)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %71
 

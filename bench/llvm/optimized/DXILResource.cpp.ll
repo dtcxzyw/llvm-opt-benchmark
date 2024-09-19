@@ -1079,18 +1079,18 @@ define dso_local noundef ptr @_ZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11
   %30 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %29) #21
   %31 = load i32, ptr %28, align 8
   %32 = icmp ugt i32 %31, 64
-  br i1 %32, label %33, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit"
+  br i1 %32, label %33, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit"
 
 33:                                               ; preds = %2
   %34 = load ptr, ptr %19, align 8
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit", label %36
+  br i1 %35, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit", label %36
 
 36:                                               ; preds = %33
   call void @_ZdaPv(ptr noundef nonnull %34) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit": ; preds = %2, %33, %36
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit": ; preds = %2, %33, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %38 = add i64 %37, 1
@@ -1098,11 +1098,11 @@ define dso_local noundef ptr @_ZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11
   %.not.i.i.i = icmp ugt i64 %38, %39
   br i1 %.not.i.i.i, label %40, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
 
-40:                                               ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit"
+40:                                               ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %38, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit", %40
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit", %40
   %41 = load ptr, ptr %20, align 8
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
@@ -1167,18 +1167,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25: ; pr
   %76 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %75) #21
   %77 = load i32, ptr %74, align 8
   %78 = icmp ugt i32 %77, 64
-  br i1 %78, label %79, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26"
+  br i1 %78, label %79, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26"
 
 79:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25
   %80 = load ptr, ptr %18, align 8
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26", label %82
+  br i1 %81, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26", label %82
 
 82:                                               ; preds = %79
   call void @_ZdaPv(ptr noundef nonnull %80) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25, %79, %82
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25, %79, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %84 = add i64 %83, 1
@@ -1186,11 +1186,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit25: ; pr
   %.not.i.i.i27 = icmp ugt i64 %84, %85
   br i1 %.not.i.i.i27, label %86, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28
 
-86:                                               ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26"
+86:                                               ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %84, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit26", %86
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit26", %86
   %87 = load ptr, ptr %20, align 8
   %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %89 = getelementptr inbounds ptr, ptr %87, i64 %88
@@ -1210,18 +1210,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28: ; pr
   %98 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %97) #21
   %99 = load i32, ptr %96, align 8
   %100 = icmp ugt i32 %99, 64
-  br i1 %100, label %101, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29"
+  br i1 %100, label %101, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29"
 
 101:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28
   %102 = load ptr, ptr %17, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29", label %104
+  br i1 %103, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29", label %104
 
 104:                                              ; preds = %101
   call void @_ZdaPv(ptr noundef nonnull %102) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28, %101, %104
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28, %101, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %106 = add i64 %105, 1
@@ -1229,11 +1229,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit28: ; pr
   %.not.i.i.i30 = icmp ugt i64 %106, %107
   br i1 %.not.i.i.i30, label %108, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31
 
-108:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29"
+108:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %106, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit29", %108
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit29", %108
   %109 = load ptr, ptr %20, align 8
   %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %111 = getelementptr inbounds ptr, ptr %109, i64 %110
@@ -1253,18 +1253,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31: ; pr
   %120 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %119) #21
   %121 = load i32, ptr %118, align 8
   %122 = icmp ugt i32 %121, 64
-  br i1 %122, label %123, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32"
+  br i1 %122, label %123, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32"
 
 123:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31
   %124 = load ptr, ptr %16, align 8
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32", label %126
+  br i1 %125, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32", label %126
 
 126:                                              ; preds = %123
   call void @_ZdaPv(ptr noundef nonnull %124) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31, %123, %126
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31, %123, %126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   %127 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %128 = add i64 %127, 1
@@ -1272,11 +1272,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit31: ; pr
   %.not.i.i.i33 = icmp ugt i64 %128, %129
   br i1 %.not.i.i.i33, label %130, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34
 
-130:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32"
+130:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %128, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit32", %130
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit32", %130
   %131 = load ptr, ptr %20, align 8
   %132 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %133 = getelementptr inbounds ptr, ptr %131, i64 %132
@@ -1304,18 +1304,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34: ; pr
   %145 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %144) #21
   %146 = load i32, ptr %143, align 8
   %147 = icmp ugt i32 %146, 64
-  br i1 %147, label %148, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35"
+  br i1 %147, label %148, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35"
 
 148:                                              ; preds = %139
   %149 = load ptr, ptr %15, align 8
   %150 = icmp eq ptr %149, null
-  br i1 %150, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35", label %151
+  br i1 %150, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35", label %151
 
 151:                                              ; preds = %148
   call void @_ZdaPv(ptr noundef nonnull %149) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35": ; preds = %139, %148, %151
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35": ; preds = %139, %148, %151
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   %152 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %153 = add i64 %152, 1
@@ -1323,11 +1323,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit34: ; pr
   %.not.i.i.i36 = icmp ugt i64 %153, %154
   br i1 %.not.i.i.i36, label %155, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit37
 
-155:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35"
+155:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %153, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit37
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit37: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit35", %155
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit37: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit35", %155
   %156 = load ptr, ptr %20, align 8
   %157 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %158 = getelementptr inbounds ptr, ptr %156, i64 %157
@@ -1368,18 +1368,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit39: ; pr
   %177 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %176) #21
   %178 = load i32, ptr %175, align 8
   %179 = icmp ugt i32 %178, 64
-  br i1 %179, label %180, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40"
+  br i1 %179, label %180, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40"
 
 180:                                              ; preds = %171
   %181 = load ptr, ptr %14, align 8
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40", label %183
+  br i1 %182, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40", label %183
 
 183:                                              ; preds = %180
   call void @_ZdaPv(ptr noundef nonnull %181) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40": ; preds = %171, %180, %183
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40": ; preds = %171, %180, %183
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   %184 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %185 = add i64 %184, 1
@@ -1387,11 +1387,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit39: ; pr
   %.not.i.i.i41 = icmp ugt i64 %185, %186
   br i1 %.not.i.i.i41, label %187, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit42
 
-187:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40"
+187:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %185, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit42
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit42: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit40", %187
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit42: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit40", %187
   %188 = load ptr, ptr %20, align 8
   %189 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %190 = getelementptr inbounds ptr, ptr %188, i64 %189
@@ -1432,18 +1432,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit44: ; pr
   %209 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %208) #21
   %210 = load i32, ptr %207, align 8
   %211 = icmp ugt i32 %210, 64
-  br i1 %211, label %212, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45"
+  br i1 %211, label %212, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45"
 
 212:                                              ; preds = %203
   %213 = load ptr, ptr %13, align 8
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45", label %215
+  br i1 %214, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45", label %215
 
 215:                                              ; preds = %212
   call void @_ZdaPv(ptr noundef nonnull %213) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45": ; preds = %203, %212, %215
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45": ; preds = %203, %212, %215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %217 = add i64 %216, 1
@@ -1451,11 +1451,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit44: ; pr
   %.not.i.i.i46 = icmp ugt i64 %217, %218
   br i1 %.not.i.i.i46, label %219, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47
 
-219:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45"
+219:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %217, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit45", %219
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit45", %219
   %220 = load ptr, ptr %20, align 8
   %221 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %222 = getelementptr inbounds ptr, ptr %220, i64 %221
@@ -1481,18 +1481,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; pr
   %235 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %234) #21
   %236 = load i32, ptr %233, align 8
   %237 = icmp ugt i32 %236, 64
-  br i1 %237, label %238, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit"
+  br i1 %237, label %238, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit"
 
 238:                                              ; preds = %228
   %239 = load ptr, ptr %12, align 8
   %240 = icmp eq ptr %239, null
-  br i1 %240, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit", label %241
+  br i1 %240, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit", label %241
 
 241:                                              ; preds = %238
   call void @_ZdaPv(ptr noundef nonnull %239) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit": ; preds = %228, %238, %241
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit": ; preds = %228, %238, %241
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %242 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %243 = add i64 %242, 1
@@ -1500,11 +1500,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit47: ; pr
   %.not.i.i.i48 = icmp ugt i64 %243, %244
   br i1 %.not.i.i.i48, label %245, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49
 
-245:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit"
+245:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %243, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit", %245
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit", %245
   %246 = load ptr, ptr %20, align 8
   %247 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %248 = getelementptr inbounds ptr, ptr %246, i64 %247
@@ -1525,18 +1525,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; pr
   %258 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %257) #21
   %259 = load i32, ptr %256, align 8
   %260 = icmp ugt i32 %259, 64
-  br i1 %260, label %261, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50"
+  br i1 %260, label %261, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50"
 
 261:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49
   %262 = load ptr, ptr %11, align 8
   %263 = icmp eq ptr %262, null
-  br i1 %263, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50", label %264
+  br i1 %263, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50", label %264
 
 264:                                              ; preds = %261
   call void @_ZdaPv(ptr noundef nonnull %262) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49, %261, %264
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49, %261, %264
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %265 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %266 = add i64 %265, 1
@@ -1544,11 +1544,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit49: ; pr
   %.not.i.i.i51 = icmp ugt i64 %266, %267
   br i1 %.not.i.i.i51, label %268, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52
 
-268:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50"
+268:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %266, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit50", %268
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit50", %268
   %269 = load ptr, ptr %20, align 8
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %271 = getelementptr inbounds ptr, ptr %269, i64 %270
@@ -1569,18 +1569,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; pr
   %281 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %280) #21
   %282 = load i32, ptr %279, align 8
   %283 = icmp ugt i32 %282, 64
-  br i1 %283, label %284, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53"
+  br i1 %283, label %284, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53"
 
 284:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52
   %285 = load ptr, ptr %10, align 8
   %286 = icmp eq ptr %285, null
-  br i1 %286, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53", label %287
+  br i1 %286, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53", label %287
 
 287:                                              ; preds = %284
   call void @_ZdaPv(ptr noundef nonnull %285) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52, %284, %287
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52, %284, %287
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %288 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %289 = add i64 %288, 1
@@ -1605,18 +1605,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; pr
   %301 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %300) #21
   %302 = load i32, ptr %299, align 8
   %303 = icmp ugt i32 %302, 64
-  br i1 %303, label %304, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56"
+  br i1 %303, label %304, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56"
 
 304:                                              ; preds = %291
   %305 = load ptr, ptr %9, align 8
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56", label %307
+  br i1 %306, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56", label %307
 
 307:                                              ; preds = %304
   call void @_ZdaPv(ptr noundef nonnull %305) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56": ; preds = %291, %304, %307
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56": ; preds = %291, %304, %307
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %308 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %309 = add i64 %308, 1
@@ -1624,14 +1624,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit52: ; pr
   %.not.i.i.i57 = icmp ugt i64 %309, %310
   br i1 %.not.i.i.i57, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53"
-  %.sink = phi i64 [ %289, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53" ], [ %309, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56" ]
-  %.sink86.ph = phi ptr [ %281, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53" ], [ %301, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56" ]
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53"
+  %.sink = phi i64 [ %289, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53" ], [ %309, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56" ]
+  %.sink86.ph = phi ptr [ %281, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53" ], [ %301, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56" ]
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %22, i64 noundef %.sink, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53"
-  %.sink86 = phi ptr [ %281, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.exit53" ], [ %301, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit56" ], [ %.sink86.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split ]
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53"
+  %.sink86 = phi ptr [ %281, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_1clEj.argprom.argprom.exit53" ], [ %301, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit56" ], [ %.sink86.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55.sink.split ]
   %311 = load ptr, ptr %20, align 8
   %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #21
   %313 = getelementptr inbounds ptr, ptr %311, i64 %312
@@ -1655,18 +1655,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55: ; pr
   %323 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %322) #21
   %324 = load i32, ptr %321, align 8
   %325 = icmp ugt i32 %324, 64
-  br i1 %325, label %326, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59"
+  br i1 %325, label %326, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59"
 
 326:                                              ; preds = %320
   %327 = load ptr, ptr %8, align 8
   %328 = icmp eq ptr %327, null
-  br i1 %328, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59", label %329
+  br i1 %328, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59", label %329
 
 329:                                              ; preds = %326
   call void @_ZdaPv(ptr noundef nonnull %327) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59": ; preds = %320, %326, %329
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59": ; preds = %320, %326, %329
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %330 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %331 = add i64 %330, 1
@@ -1674,11 +1674,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit55: ; pr
   %.not.i.i.i60 = icmp ugt i64 %331, %332
   br i1 %.not.i.i.i60, label %333, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61
 
-333:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59"
+333:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %317, i64 noundef %331, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit59", %333
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit59", %333
   %334 = load ptr, ptr %21, align 8
   %335 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %336 = getelementptr inbounds ptr, ptr %334, i64 %335
@@ -1698,18 +1698,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; pr
   %345 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %344) #21
   %346 = load i32, ptr %343, align 8
   %347 = icmp ugt i32 %346, 64
-  br i1 %347, label %348, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62"
+  br i1 %347, label %348, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62"
 
 348:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61
   %349 = load ptr, ptr %7, align 8
   %350 = icmp eq ptr %349, null
-  br i1 %350, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62", label %351
+  br i1 %350, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62", label %351
 
 351:                                              ; preds = %348
   call void @_ZdaPv(ptr noundef nonnull %349) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61, %348, %351
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61, %348, %351
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %352 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %353 = add i64 %352, 1
@@ -1731,18 +1731,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; pr
   %359 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %358) #21
   %360 = load i32, ptr %357, align 8
   %361 = icmp ugt i32 %360, 64
-  br i1 %361, label %362, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65"
+  br i1 %361, label %362, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65"
 
 362:                                              ; preds = %356
   %363 = load ptr, ptr %6, align 8
   %364 = icmp eq ptr %363, null
-  br i1 %364, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65", label %365
+  br i1 %364, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65", label %365
 
 365:                                              ; preds = %362
   call void @_ZdaPv(ptr noundef nonnull %363) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65": ; preds = %356, %362, %365
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65": ; preds = %356, %362, %365
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %366 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %367 = add i64 %366, 1
@@ -1750,11 +1750,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit61: ; pr
   %.not.i.i.i66 = icmp ugt i64 %367, %368
   br i1 %.not.i.i.i66, label %369, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67
 
-369:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65"
+369:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %317, i64 noundef %367, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit65", %369
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit65", %369
   %370 = load ptr, ptr %21, align 8
   %371 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %372 = getelementptr inbounds ptr, ptr %370, i64 %371
@@ -1774,18 +1774,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; pr
   %381 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %380) #21
   %382 = load i32, ptr %379, align 8
   %383 = icmp ugt i32 %382, 64
-  br i1 %383, label %384, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68"
+  br i1 %383, label %384, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68"
 
 384:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67
   %385 = load ptr, ptr %5, align 8
   %386 = icmp eq ptr %385, null
-  br i1 %386, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68", label %387
+  br i1 %386, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68", label %387
 
 387:                                              ; preds = %384
   call void @_ZdaPv(ptr noundef nonnull %385) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67, %384, %387
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67, %384, %387
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %388 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %389 = add i64 %388, 1
@@ -1807,18 +1807,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; pr
   %396 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %395) #21
   %397 = load i32, ptr %394, align 8
   %398 = icmp ugt i32 %397, 64
-  br i1 %398, label %399, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72"
+  br i1 %398, label %399, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72"
 
 399:                                              ; preds = %393
   %400 = load ptr, ptr %4, align 8
   %401 = icmp eq ptr %400, null
-  br i1 %401, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72", label %402
+  br i1 %401, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72", label %402
 
 402:                                              ; preds = %399
   call void @_ZdaPv(ptr noundef nonnull %400) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72": ; preds = %393, %399, %402
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72": ; preds = %393, %399, %402
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %403 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %404 = add i64 %403, 1
@@ -1826,11 +1826,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit67: ; pr
   %.not.i.i.i73 = icmp ugt i64 %404, %405
   br i1 %.not.i.i.i73, label %406, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74
 
-406:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72"
+406:                                              ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72"
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %317, i64 noundef %404, i64 noundef 8) #21
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit72", %406
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74: ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit72", %406
   %407 = load ptr, ptr %21, align 8
   %408 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %409 = getelementptr inbounds ptr, ptr %407, i64 %408
@@ -1850,18 +1850,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74: ; pr
   %418 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %417) #21
   %419 = load i32, ptr %416, align 8
   %420 = icmp ugt i32 %419, 64
-  br i1 %420, label %421, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75"
+  br i1 %420, label %421, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75"
 
 421:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74
   %422 = load ptr, ptr %3, align 8
   %423 = icmp eq ptr %422, null
-  br i1 %423, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75", label %424
+  br i1 %423, label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75", label %424
 
 424:                                              ; preds = %421
   call void @_ZdaPv(ptr noundef nonnull %422) #22
-  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75"
+  br label %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75"
 
-"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74, %421, %424
+"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74, %421, %424
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %425 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %426 = add i64 %425, 1
@@ -1869,14 +1869,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit74: ; pr
   %.not.i.i.i76 = icmp ugt i64 %426, %427
   br i1 %.not.i.i.i76, label %.sink.split.sink.split, label %.sink.split
 
-.sink.split.sink.split:                           ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62"
-  %.sink92 = phi i64 [ %353, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62" ], [ %389, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68" ], [ %426, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75" ]
-  %.sink90.ph = phi ptr [ %345, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62" ], [ %381, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68" ], [ %418, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75" ]
+.sink.split.sink.split:                           ; preds = %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62"
+  %.sink92 = phi i64 [ %353, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62" ], [ %389, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68" ], [ %426, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75" ]
+  %.sink90.ph = phi ptr [ %345, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62" ], [ %381, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68" ], [ %418, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75" ]
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %317, i64 noundef %.sink92, i64 noundef 8) #21
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62"
-  %.sink90 = phi ptr [ %345, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit62" ], [ %381, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit68" ], [ %418, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.exit75" ], [ %.sink90.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68", %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62"
+  %.sink90 = phi ptr [ %345, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit62" ], [ %381, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit68" ], [ %418, %"_ZZNK4llvm4dxil12ResourceInfo13getAsMetadataERNS_11LLVMContextEENK3$_0clEj.argprom.argprom.exit75" ], [ %.sink90.ph, %.sink.split.sink.split ]
   %428 = load ptr, ptr %21, align 8
   %429 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
   %430 = getelementptr inbounds ptr, ptr %428, i64 %429
@@ -5114,17 +5114,17 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm8CallInstEN
   %13 = load i8, ptr %12, align 8
   %14 = load i8, ptr %6, align 8
   %15 = icmp ult i8 %13, %14
-  br i1 %15, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread", label %16
+  br i1 %15, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread", label %16
 
 16:                                               ; preds = %10
   %17 = icmp ult i8 %14, %13
-  br i1 %17, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit"
+  br i1 %17, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit": ; preds = %16
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit": ; preds = %16
   %18 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %11, ptr noundef nonnull readonly align 8 dereferenceable(64) %5)
-  br i1 %18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16"
+  br i1 %18, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread": ; preds = %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread": ; preds = %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit"
   %.sroa.0.0.copyload = load ptr, ptr %.020, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %19 = ptrtoint ptr %.020 to i64
@@ -5132,7 +5132,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm8CallInstEN
   %21 = icmp sgt i64 %20, 0
   br i1 %21, label %.lr.ph.preheader.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit
 
-.lr.ph.preheader.i.i.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread"
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread"
   %22 = getelementptr inbounds i8, ptr %.pn19, i64 144
   %23 = udiv exact i64 %20, 72
   br label %.lr.ph.i.i.i.i.i
@@ -5152,42 +5152,42 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt4pairIPN4llvm8CallInstEN
   %30 = icmp ugt i64 %.010.i.i.i.i.i, 1
   br i1 %30, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit, !llvm.loop !31
 
-_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread"
+_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread"
   store ptr %.sroa.0.0.copyload, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
   br label %44
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16": ; preds = %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16": ; preds = %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %.020, i64 72, i1 false)
   %31 = load i8, ptr %8, align 8
   br label %32
 
-32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16"
-  %.09.i = phi ptr [ %.020, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16" ], [ %.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i" ]
+32:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16"
+  %.09.i = phi ptr [ %.020, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16" ], [ %.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i" ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -72
   %33 = getelementptr inbounds i8, ptr %.09.i, i64 -64
   %34 = getelementptr inbounds i8, ptr %.09.i, i64 -40
   %35 = load i8, ptr %34, align 8
   %36 = icmp ult i8 %31, %35
-  br i1 %36, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i", label %37
+  br i1 %36, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i", label %37
 
 37:                                               ; preds = %32
   %38 = icmp ult i8 %35, %31
-  br i1 %38, label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i"
+  br i1 %38, label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i": ; preds = %37
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i": ; preds = %37
   %39 = call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %7, ptr noundef nonnull readonly align 8 dereferenceable(64) %33)
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit"
+  br i1 %39, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i", %32
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i", %32
   %40 = load ptr, ptr %.0.i, align 8
   store ptr %40, ptr %.09.i, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 8 dereferenceable(64) %33, i64 64, i1 false)
   br label %32, !llvm.loop !32
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit": ; preds = %37, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i"
+"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit": ; preds = %37, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i"
   %42 = load ptr, ptr %3, align 8
   store ptr %42, ptr %.09.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
@@ -5210,7 +5210,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPSt4pairIPN4llvm8Call
   %7 = icmp eq i64 %3, 0
   %8 = icmp eq i64 %4, 0
   %or.cond70 = or i1 %7, %8
-  br i1 %or.cond70, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60", label %.lr.ph
+  br i1 %or.cond70, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60", label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = ptrtoint ptr %2 to i64
@@ -5233,17 +5233,17 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPSt4pairIPN4llvm8Call
   %18 = getelementptr inbounds nuw i8, ptr %.tr71, i64 32
   %19 = load i8, ptr %18, align 8
   %20 = icmp ult i8 %16, %19
-  br i1 %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread", label %21
+  br i1 %20, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread", label %21
 
 21:                                               ; preds = %13
   %22 = icmp ult i8 %19, %16
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit"
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit": ; preds = %21
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit": ; preds = %21
   %23 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %14, ptr noundef nonnull readonly align 8 dereferenceable(64) %17)
-  br i1 %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60"
+  br i1 %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread": ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread": ; preds = %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit"
   %24 = load ptr, ptr %.tr71, align 8
   %25 = load ptr, ptr %.tr6372, align 8
   store ptr %25, ptr %.tr71, align 8
@@ -5253,7 +5253,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPSt4pairIPN4llvm8Call
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60"
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60"
 
 26:                                               ; preds = %10
   %27 = icmp sgt i64 %.tr6574, %.tr6675
@@ -5274,43 +5274,43 @@ _ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.l
   %36 = load i8, ptr %35, align 8
   br label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
 
-_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i
-  %.021.i = phi ptr [ %.tr6372, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %53, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i" ]
-  %.01120.i = phi i64 [ %33, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %52, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i" ]
+_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i
+  %.021.i = phi ptr [ %.tr6372, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %53, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i" ]
+  %.01120.i = phi i64 [ %33, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %52, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i" ]
   %37 = lshr i64 %.01120.i, 1
   %38 = getelementptr inbounds %"struct.std::pair.31", ptr %.021.i, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load i8, ptr %40, align 8
   %42 = icmp ult i8 %41, %36
-  br i1 %42, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i", label %46
+  br i1 %42, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i", label %46
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i": ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i": ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
   %43 = getelementptr inbounds i8, ptr %38, i64 72
   %44 = xor i64 %37, -1
   %45 = add nsw i64 %.01120.i, %44
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
 
 46:                                               ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
   %47 = icmp ult i8 %36, %41
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i"
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i": ; preds = %46
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i": ; preds = %46
   %48 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %39, ptr noundef nonnull readonly align 8 dereferenceable(64) %34)
   %49 = getelementptr inbounds i8, ptr %38, i64 72
   %50 = xor i64 %37, -1
   %51 = add nsw i64 %.01120.i, %50
   %spec.select.i = select i1 %48, i64 %51, i64 %37
   %spec.select19.i = select i1 %48, ptr %49, ptr %.021.i
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i", %46, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i"
-  %52 = phi i64 [ %45, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i" ], [ %37, %46 ]
-  %53 = phi ptr [ %43, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i" ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i" ], [ %.021.i, %46 ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i", %46, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i"
+  %52 = phi i64 [ %45, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i" ], [ %37, %46 ]
+  %53 = phi ptr [ %43, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i" ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i" ], [ %.021.i, %46 ]
   %54 = icmp sgt i64 %52, 0
   br i1 %54, label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !34
 
-"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
   %.pre = ptrtoint ptr %53 to i64
   br label %"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
@@ -5336,43 +5336,43 @@ _ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.l
   %65 = load i8, ptr %64, align 8
   br label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45
 
-_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44
-  %.020.i = phi ptr [ %.tr71, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44 ], [ %82, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i" ]
-  %.01119.i = phi i64 [ %62, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44 ], [ %81, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i" ]
+_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44
+  %.020.i = phi ptr [ %.tr71, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44 ], [ %82, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i" ]
+  %.01119.i = phi i64 [ %62, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i44 ], [ %81, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i" ]
   %66 = lshr i64 %.01119.i, 1
   %67 = getelementptr inbounds %"struct.std::pair.31", ptr %.020.i, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %70 = load i8, ptr %69, align 8
   %71 = icmp ult i8 %65, %70
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i", label %72
+  br i1 %71, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i", label %72
 
 72:                                               ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45
   %73 = icmp ult i8 %70, %65
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i"
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i": ; preds = %72
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i": ; preds = %72
   %74 = getelementptr inbounds i8, ptr %67, i64 72
   %75 = xor i64 %66, -1
   %76 = add nsw i64 %.01119.i, %75
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i": ; preds = %72
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i": ; preds = %72
   %77 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %63, ptr noundef nonnull readonly align 8 dereferenceable(64) %68)
   %78 = getelementptr inbounds i8, ptr %67, i64 72
   %79 = xor i64 %66, -1
   %80 = add nsw i64 %.01119.i, %79
   %spec.select.i48 = select i1 %77, i64 %66, i64 %80
   %spec.select18.i = select i1 %77, ptr %.020.i, ptr %78
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45
-  %81 = phi i64 [ %76, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i" ], [ %66, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45 ], [ %spec.select.i48, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i" ]
-  %82 = phi ptr [ %74, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i" ], [ %.020.i, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45 ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i" ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45
+  %81 = phi i64 [ %76, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i" ], [ %66, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45 ], [ %spec.select.i48, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i" ]
+  %82 = phi ptr [ %74, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i" ], [ %.020.i, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45 ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i" ]
   %83 = icmp sgt i64 %81, 0
   br i1 %83, label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i45, label %"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !35
 
-"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
   %.pre79 = ptrtoint ptr %82 to i64
   br label %"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
@@ -5395,9 +5395,9 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %89 = icmp eq i64 %87, 0
   %90 = icmp eq i64 %88, 0
   %or.cond = or i1 %89, %90
-  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60", label %10
+  br i1 %or.cond, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60", label %10
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread60": ; preds = %tailrecurse, %5, %21, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread60": ; preds = %tailrecurse, %5, %21, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread"
   ret void
 }
 
@@ -5579,17 +5579,17 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt4pairIPN4llvm8Ca
   %20 = load i8, ptr %19, align 8
   %21 = load i8, ptr %16, align 8
   %22 = icmp ult i8 %20, %21
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i.i", label %23
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i.i", label %23
 
 23:                                               ; preds = %17
   %24 = icmp ult i8 %21, %20
-  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i.i"
+  br i1 %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i.i": ; preds = %23
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i.i": ; preds = %23
   %25 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %18, ptr noundef nonnull readonly align 8 dereferenceable(64) %15)
-  br i1 %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16.i.i"
+  br i1 %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i.i", %17
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i.i", %17
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.020.i.ptr.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.i.i, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
   %26 = ptrtoint ptr %.020.i.ptr.i to i64
@@ -5597,7 +5597,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt4pairIPN4llvm8Ca
   %28 = icmp sgt i64 %27, 0
   br i1 %28, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i.i"
+.lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i.i"
   %29 = getelementptr inbounds i8, ptr %.pn19.i.i, i64 144
   %30 = udiv exact i64 %27, 72
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -5617,42 +5617,42 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt4pairIPN4llvm8Ca
   %37 = icmp ugt i64 %.010.i.i.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit.i.i, !llvm.loop !31
 
-_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i.i"
+_ZSt13move_backwardIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i.i"
   store ptr %.sroa.0.0.copyload.i.i, ptr %.013.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.i.i, i64 64, i1 false)
   br label %51
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i.i", %23
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i.i", %23
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %.020.i.ptr.i, i64 72, i1 false)
   %38 = load i8, ptr %12, align 8
   br label %39
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16.i.i"
-  %.09.i.i.i = phi ptr [ %.020.i.ptr.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread16.i.i" ], [ %.0.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i.i.i" ]
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16.i.i"
+  %.09.i.i.i = phi ptr [ %.020.i.ptr.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread16.i.i" ], [ %.0.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i.i.i" ]
   %.0.i.i.i = getelementptr inbounds i8, ptr %.09.i.i.i, i64 -72
   %40 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 -64
   %41 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 -40
   %42 = load i8, ptr %41, align 8
   %43 = icmp ult i8 %38, %42
-  br i1 %43, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i.i.i", label %44
+  br i1 %43, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i.i.i", label %44
 
 44:                                               ; preds = %39
   %45 = icmp ult i8 %42, %38
-  br i1 %45, label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i.i.i"
+  br i1 %45, label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i.i.i": ; preds = %44
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i.i.i": ; preds = %44
   %46 = call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %11, ptr noundef nonnull readonly align 8 dereferenceable(64) %40)
-  br i1 %46, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i"
+  br i1 %46, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i.i.i", label %"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i.i.i", %39
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.thread.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i.i.i", %39
   %47 = load ptr, ptr %.0.i.i.i, align 8
   store ptr %47, ptr %.09.i.i.i, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(64) %40, i64 64, i1 false)
   br label %39, !llvm.loop !32
 
-"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.exit.i.i.i", %44
+"_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_T0_.exit.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclISA_PSA_EEbRT_T0_.argprom.exit.i.i.i", %44
   %49 = load ptr, ptr %4, align 8
   store ptr %49, ptr %.09.i.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
@@ -5745,17 +5745,17 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %25 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 32
   %26 = load i8, ptr %25, align 8
   %27 = icmp ult i8 %23, %26
-  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i", label %28
+  br i1 %27, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i", label %28
 
 28:                                               ; preds = %.lr.ph.i
   %29 = icmp ult i8 %26, %23
-  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i"
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i": ; preds = %28
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i": ; preds = %28
   %30 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %21, ptr noundef nonnull readonly align 8 dereferenceable(64) %24)
-  br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i"
+  br i1 %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i", %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i", %.lr.ph.i
   %31 = load ptr, ptr %.01923.i, align 8
   store ptr %31, ptr %.025.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
@@ -5763,7 +5763,7 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %33 = getelementptr inbounds i8, ptr %.01923.i, i64 72
   br label %37
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i", %28
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i", %28
   %34 = load ptr, ptr %.01824.i, align 8
   store ptr %34, ptr %.025.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
@@ -5771,9 +5771,9 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %36 = getelementptr inbounds i8, ptr %.01824.i, i64 72
   br label %37
 
-37:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i"
-  %.120.i = phi ptr [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i" ], [ %.01923.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i" ]
-  %.1.i = phi ptr [ %.01824.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i" ], [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread22.i" ]
+37:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i"
+  %.120.i = phi ptr [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i" ], [ %.01923.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i" ]
+  %.1.i = phi ptr [ %.01824.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i" ], [ %36, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread22.i" ]
   %38 = getelementptr inbounds i8, ptr %.025.i, i64 72
   %39 = icmp ne ptr %.1.i, %18
   %40 = icmp ne ptr %.120.i, %2
@@ -5884,10 +5884,10 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %84 = getelementptr inbounds i8, ptr %.08.lcssa.i.i.i.i.i72, i64 -72
   br label %.outer
 
-.outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81", %83
-  %.026.i.ph.pn = phi ptr [ %.tr117139, %83 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81" ]
-  %.024.i.ph = phi ptr [ %84, %83 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81" ]
-  %.0.i.ph = phi ptr [ %2, %83 ], [ %96, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81" ]
+.outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81", %83
+  %.026.i.ph.pn = phi ptr [ %.tr117139, %83 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81" ]
+  %.024.i.ph = phi ptr [ %84, %83 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81" ]
+  %.0.i.ph = phi ptr [ %2, %83 ], [ %96, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81" ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -72
   %85 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -64
   %86 = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -40
@@ -5901,17 +5901,17 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %90 = load i8, ptr %89, align 8
   %91 = load i8, ptr %86, align 8
   %92 = icmp ult i8 %90, %91
-  br i1 %92, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81", label %93
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81", label %93
 
 93:                                               ; preds = %87
   %94 = icmp ult i8 %91, %90
-  br i1 %94, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread39.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i79"
+  br i1 %94, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread39.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i79"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i79": ; preds = %93
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i79": ; preds = %93
   %95 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %88, ptr noundef nonnull readonly align 8 dereferenceable(64) %85)
-  br i1 %95, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread39.i"
+  br i1 %95, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread39.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i79", %87
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i79", %87
   %96 = getelementptr inbounds i8, ptr %.0.i, i64 -72
   %97 = load ptr, ptr %.026.i.ph, align 8
   store ptr %97, ptr %96, align 8
@@ -5920,7 +5920,7 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %99 = icmp eq ptr %.tr138, %.026.i.ph
   br i1 %99, label %100, label %.outer, !llvm.loop !44
 
-100:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i81"
+100:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i81"
   %101 = getelementptr inbounds i8, ptr %.024.i, i64 72
   %102 = ptrtoint ptr %101 to i64
   %103 = ptrtoint ptr %5 to i64
@@ -5947,7 +5947,7 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %113 = icmp ugt i64 %.010.i.i.i.i.i35.i, 1
   br i1 %113, label %.lr.ph.i.i.i.i.i34.i, label %"_ZSt21__move_merge_adaptiveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", !llvm.loop !31
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread39.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i79", %93
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread39.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i79", %93
   %114 = getelementptr inbounds i8, ptr %.0.i, i64 -72
   %115 = load ptr, ptr %.024.i, align 8
   store ptr %115, ptr %114, align 8
@@ -5956,7 +5956,7 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %117 = icmp eq ptr %5, %.024.i
   br i1 %117, label %"_ZSt21__move_merge_adaptiveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit", label %118
 
-118:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread39.i"
+118:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread39.i"
   %119 = getelementptr inbounds i8, ptr %.024.i, i64 -72
   br label %87, !llvm.loop !44
 
@@ -5977,43 +5977,43 @@ _ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.l
   %128 = load i8, ptr %127, align 8
   br label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
 
-_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i
-  %.021.i = phi ptr [ %.tr117139, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %145, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i" ]
-  %.01120.i = phi i64 [ %125, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %144, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i" ]
+_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i: ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i
+  %.021.i = phi ptr [ %.tr117139, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %145, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i" ]
+  %.01120.i = phi i64 [ %125, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i ], [ %144, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i" ]
   %129 = lshr i64 %.01120.i, 1
   %130 = getelementptr inbounds %"struct.std::pair.31", ptr %.021.i, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %133 = load i8, ptr %132, align 8
   %134 = icmp ult i8 %133, %128
-  br i1 %134, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i", label %138
+  br i1 %134, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i", label %138
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i": ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i": ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
   %135 = getelementptr inbounds i8, ptr %130, i64 72
   %136 = xor i64 %129, -1
   %137 = add nsw i64 %.01120.i, %136
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
 
 138:                                              ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i
   %139 = icmp ult i8 %128, %133
-  br i1 %139, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i"
+  br i1 %139, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i": ; preds = %138
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i": ; preds = %138
   %140 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %131, ptr noundef nonnull readonly align 8 dereferenceable(64) %126)
   %141 = getelementptr inbounds i8, ptr %130, i64 72
   %142 = xor i64 %129, -1
   %143 = add nsw i64 %.01120.i, %142
   %spec.select.i = select i1 %140, i64 %143, i64 %129
   %spec.select19.i = select i1 %140, ptr %141, ptr %.021.i
-  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i", %138, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i"
-  %144 = phi i64 [ %137, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i" ], [ %129, %138 ]
-  %145 = phi ptr [ %135, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread.i" ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.i" ], [ %.021.i, %138 ]
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i", %138, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i"
+  %144 = phi i64 [ %137, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i" ], [ %129, %138 ]
+  %145 = phi ptr [ %135, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread.i" ], [ %spec.select19.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.i" ], [ %.021.i, %138 ]
   %146 = icmp sgt i64 %144, 0
   br i1 %146, label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !34
 
-"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.exit.thread16.i"
+"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_KSA_EEbT_RT0_.argprom.exit.thread16.i"
   %.pre = ptrtoint ptr %145 to i64
   br label %"_ZSt13__lower_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
@@ -6039,43 +6039,43 @@ _ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.l
   %157 = load i8, ptr %156, align 8
   br label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93
 
-_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92
-  %.020.i = phi ptr [ %.tr138, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92 ], [ %174, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i" ]
-  %.01119.i = phi i64 [ %154, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92 ], [ %173, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i" ]
+_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93: ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92
+  %.020.i = phi ptr [ %.tr138, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92 ], [ %174, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i" ]
+  %.01119.i = phi i64 [ %154, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.lr.ph.i92 ], [ %173, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i" ]
   %158 = lshr i64 %.01119.i, 1
   %159 = getelementptr inbounds %"struct.std::pair.31", ptr %.020.i, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %162 = load i8, ptr %161, align 8
   %163 = icmp ult i8 %157, %162
-  br i1 %163, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i", label %164
+  br i1 %163, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i", label %164
 
 164:                                              ; preds = %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93
   %165 = icmp ult i8 %162, %157
-  br i1 %165, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i"
+  br i1 %165, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i": ; preds = %164
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i": ; preds = %164
   %166 = getelementptr inbounds i8, ptr %159, i64 72
   %167 = xor i64 %158, -1
   %168 = add nsw i64 %.01119.i, %167
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i": ; preds = %164
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i": ; preds = %164
   %169 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %155, ptr noundef nonnull readonly align 8 dereferenceable(64) %160)
   %170 = getelementptr inbounds i8, ptr %159, i64 72
   %171 = xor i64 %158, -1
   %172 = add nsw i64 %.01119.i, %171
   %spec.select.i96 = select i1 %169, i64 %158, i64 %172
   %spec.select18.i = select i1 %169, ptr %.020.i, ptr %170
-  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+  br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93
-  %173 = phi i64 [ %168, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i" ], [ %158, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93 ], [ %spec.select.i96, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i" ]
-  %174 = phi ptr [ %166, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread16.i" ], [ %.020.i, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93 ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.i" ]
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i", %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93
+  %173 = phi i64 [ %168, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i" ], [ %158, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93 ], [ %spec.select.i96, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i" ]
+  %174 = phi ptr [ %166, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread16.i" ], [ %.020.i, %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93 ], [ %spec.select18.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.i" ]
   %175 = icmp sgt i64 %173, 0
   br i1 %175, label %_ZSt7advanceIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEElEvRT_T0_.exit.i93, label %"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit", !llvm.loop !35
 
-"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.exit.thread.i"
+"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIKSA_PSA_EEbRT_T0_.argprom.exit.thread.i"
   %.pre157 = ptrtoint ptr %174 to i64
   br label %"_ZSt13__upper_boundIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES6_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEET_SH_SH_RKT0_T1_.exit"
 
@@ -6100,7 +6100,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
   %or.cond = or i1 %.not70, %.not
   br i1 %or.cond, label %54, label %tailrecurse._crit_edge
 
-"_ZSt21__move_merge_adaptiveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread39.i", %.lr.ph.i.i.i.i.i34.i, %.lr.ph.i.i.i.i.i.i83, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %100, %81, %68, %._crit_edge.i.thread, %._crit_edge.i
+"_ZSt21__move_merge_adaptiveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_S7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_15DXILResourceMapC1EONS1_15SmallVectorImplIS6_EEE3$_0EEEvT_SH_T0_SI_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread39.i", %.lr.ph.i.i.i.i.i34.i, %.lr.ph.i.i.i.i.i.i83, %.lr.ph.i.i.i.i.i.i, %tailrecurse._crit_edge, %100, %81, %68, %._crit_edge.i.thread, %._crit_edge.i
   ret void
 }
 
@@ -6136,17 +6136,17 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstE
   %17 = getelementptr inbounds nuw i8, ptr %.01831.i, i64 32
   %18 = load i8, ptr %17, align 8
   %19 = icmp ult i8 %15, %18
-  br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i", label %20
+  br i1 %19, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i", label %20
 
 20:                                               ; preds = %.lr.ph.i
   %21 = icmp ult i8 %18, %15
-  br i1 %21, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i"
+  br i1 %21, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i": ; preds = %20
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i": ; preds = %20
   %22 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %13, ptr noundef nonnull readonly align 8 dereferenceable(64) %16)
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i"
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i", %.lr.ph.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i", %.lr.ph.i
   %23 = load ptr, ptr %.01930.i, align 8
   store ptr %23, ptr %.032.i, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
@@ -6154,7 +6154,7 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstE
   %25 = getelementptr inbounds i8, ptr %.01930.i, i64 72
   br label %29
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i", %20
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i", %20
   %26 = load ptr, ptr %.01831.i, align 8
   store ptr %26, ptr %.032.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.032.i, i64 8
@@ -6162,9 +6162,9 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIPN4llvm8CallInstE
   %28 = getelementptr inbounds i8, ptr %.01831.i, i64 72
   br label %29
 
-29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i"
-  %.120.i = phi ptr [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i" ], [ %.01930.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i" ]
-  %.1.i = phi ptr [ %.01831.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i" ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i" ]
+29:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i"
+  %.120.i = phi ptr [ %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i" ], [ %.01930.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i" ]
+  %.1.i = phi ptr [ %.01831.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i" ], [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i" ]
   %30 = getelementptr inbounds i8, ptr %.032.i, i64 72
   %31 = icmp ne ptr %.1.i, %11
   %32 = icmp ne ptr %.120.i, %12
@@ -6256,17 +6256,17 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %68 = getelementptr inbounds nuw i8, ptr %.01831.i42, i64 32
   %69 = load i8, ptr %68, align 8
   %70 = icmp ult i8 %66, %69
-  br i1 %70, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48", label %71
+  br i1 %70, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48", label %71
 
 71:                                               ; preds = %.lr.ph.i40
   %72 = icmp ult i8 %69, %66
-  br i1 %72, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i44"
+  br i1 %72, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i44"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i44": ; preds = %71
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i44": ; preds = %71
   %73 = tail call noundef zeroext i1 @_ZNK4llvm4dxil12ResourceInfoltERKS1_(ptr noundef nonnull readonly align 8 dereferenceable(64) %64, ptr noundef nonnull readonly align 8 dereferenceable(64) %67)
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45"
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i44", %.lr.ph.i40
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i44", %.lr.ph.i40
   %74 = load ptr, ptr %.01930.i43, align 8
   store ptr %74, ptr %.032.i41, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.032.i41, i64 8
@@ -6274,7 +6274,7 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %76 = getelementptr inbounds i8, ptr %.01930.i43, i64 72
   br label %80
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.i44", %71
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.i44", %71
   %77 = load ptr, ptr %.01831.i42, align 8
   store ptr %77, ptr %.032.i41, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.032.i41, i64 8
@@ -6282,9 +6282,9 @@ _ZSt4moveIPSt4pairIPN4llvm8CallInstENS1_4dxil12ResourceInfoEES7_ET0_T_S9_S8_.exi
   %79 = getelementptr inbounds i8, ptr %.01831.i42, i64 72
   br label %80
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48"
-  %.120.i46 = phi ptr [ %76, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48" ], [ %.01930.i43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45" ]
-  %.1.i47 = phi ptr [ %.01831.i42, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread.i48" ], [ %79, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.exit.thread28.i45" ]
+80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48"
+  %.120.i46 = phi ptr [ %76, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48" ], [ %.01930.i43, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45" ]
+  %.1.i47 = phi ptr [ %.01831.i42, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread.i48" ], [ %79, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15DXILResourceMapC1EONS2_15SmallVectorImplISt4pairIPNS2_8CallInstENS2_4dxil12ResourceInfoEEEEE3$_0EclIPSA_SG_EEbT_T0_.argprom.exit.thread28.i45" ]
   %81 = getelementptr inbounds i8, ptr %.032.i41, i64 72
   %82 = icmp ne ptr %.1.i47, %60
   %83 = icmp ne ptr %.120.i46, %1

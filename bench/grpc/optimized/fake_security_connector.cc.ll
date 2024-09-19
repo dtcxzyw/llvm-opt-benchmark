@@ -195,7 +195,7 @@ invoke.cont10.i.i:                                ; preds = %invoke.cont7.i.i
   store i8 %frombool.i.i, ptr %is_lb_channel_.i.i, align 8, !noalias !4
   %target_name_override_.i.i = getelementptr inbounds i8, ptr %call.i, i64 112
   invoke void @_ZNK9grpc_core11ChannelArgs14GetOwnedStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional") align 8 %target_name_override_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 29, ptr nonnull @.str.4)
-          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_136grpc_fake_channel_security_connectorEED2Ev.exit unwind label %lpad9.i.i, !noalias !4
+          to label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_136grpc_fake_channel_security_connectorEED2Ev.argprom.exit unwind label %lpad9.i.i, !noalias !4
 
 lpad.i.i:                                         ; preds = %entry
   %10 = landingpad { ptr, i32 }
@@ -263,7 +263,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit24.i: ; preds =
   call void @_ZdlPv(ptr noundef nonnull %call.i) #22, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i
 
-_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_136grpc_fake_channel_security_connectorEED2Ev.exit: ; preds = %invoke.cont10.i.i
+_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_136grpc_fake_channel_security_connectorEED2Ev.argprom.exit: ; preds = %invoke.cont10.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i), !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i.i), !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
@@ -285,20 +285,20 @@ entry:
 invoke.cont.i.i:                                  ; preds = %entry
   %1 = load ptr, ptr %agg.tmp2.i.i, align 8, !noalias !7
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.exit, label %if.then.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.argprom.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8, !noalias !7
   %cmp.i.i.i.i.i = icmp eq i64 %2, 1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.argprom.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !noalias !7
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8, !noalias !7
   call void %3(ptr noundef nonnull align 8 dereferenceable(40) %1) #21, !noalias !7
-  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.exit
+  br label %_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.argprom.exit
 
 lpad.i.i:                                         ; preds = %entry
   %4 = landingpad { ptr, i32 }
@@ -324,7 +324,7 @@ _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit9.i: ; preds = %
   call void @_ZdlPv(ptr noundef nonnull %call.i) #22, !noalias !7
   resume { ptr, i32 } %4
 
-_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.exit: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %invoke.cont.i.i
+_ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_135grpc_fake_server_security_connectorEED2Ev.argprom.exit: ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %invoke.cont.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_135grpc_fake_server_security_connectorE, i64 16), ptr %call.i, align 8, !noalias !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i), !noalias !7
   store ptr %call.i, ptr %agg.result, align 8
@@ -528,7 +528,7 @@ define internal void @_ZN12_GLOBAL__N_136grpc_fake_channel_security_connector10c
 entry:
   %lbs_and_backends.i = alloca ptr, align 8
   %lbs_and_backends_size.i = alloca i64, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked)
+  tail call fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure.argprom(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lbs_and_backends.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lbs_and_backends_size.i)
   %expected_targets_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -573,7 +573,7 @@ if.end17.i:                                       ; preds = %if.then11.i
   %7 = load ptr, ptr %lbs_and_backends.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %call18.i = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_(ptr noundef %6, ptr noundef %8)
+  %call18.i = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_.argprom(ptr noundef %6, ptr noundef %8)
   br i1 %call18.i, label %done.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
@@ -589,7 +589,7 @@ if.else.i:                                        ; preds = %if.end10.i
   %12 = load ptr, ptr %target_23.i, align 8
   %13 = load ptr, ptr %lbs_and_backends.i, align 8
   %14 = load ptr, ptr %13, align 8
-  %call25.i = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_(ptr noundef %12, ptr noundef %14)
+  %call25.i = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_.argprom(ptr noundef %12, ptr noundef %14)
   br i1 %call25.i, label %done.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.else.i
@@ -935,7 +935,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure.argprom(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1878,7 +1878,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_(ptr noundef readonly %target, ptr noundef %set_str) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_.argprom(ptr noundef readonly %target, ptr noundef %set_str) unnamed_addr #3 align 2 {
 entry:
   %set = alloca ptr, align 8
   %set_size = alloca i64, align 8
@@ -2037,7 +2037,7 @@ _ZN12_GLOBAL__N_135grpc_fake_server_security_connectorD2Ev.exit: ; preds = %entr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_135grpc_fake_server_security_connector10check_peerE8tsi_peerP13grpc_endpointRKN9grpc_core11ChannelArgsEPNS4_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr nocapture nonnull readnone align 8 %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 {
 entry:
-  tail call fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked)
+  tail call fastcc void @_ZN12_GLOBAL__N_115fake_check_peerEP23grpc_security_connector8tsi_peerPN9grpc_core13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure.argprom(ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %auth_context, ptr noundef %on_peer_checked)
   ret void
 }
 

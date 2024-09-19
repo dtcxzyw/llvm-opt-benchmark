@@ -60394,11 +60394,11 @@ for.end2691:                                      ; preds = %for.body2680
   store i64 0, ptr %mSize.i8091, align 8
   br label %for.body.i.i8092
 
-for.body.i.i8092:                                 ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i, %for.end2691
-  %first.addr.08.i.idx.i = phi i64 [ 0, %for.end2691 ], [ %first.addr.08.i.add.i, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i ]
-  %2289 = phi ptr [ %mBuffer.i.i8086, %for.end2691 ], [ %spec.store.select.i.i8095, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i ]
-  %2290 = phi ptr [ %mBuffer.i.i8086, %for.end2691 ], [ %2292, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i ]
-  %2291 = phi i64 [ 0, %for.end2691 ], [ %rb2693.val, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i ]
+for.body.i.i8092:                                 ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i, %for.end2691
+  %first.addr.08.i.idx.i = phi i64 [ 0, %for.end2691 ], [ %first.addr.08.i.add.i, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i ]
+  %2289 = phi ptr [ %mBuffer.i.i8086, %for.end2691 ], [ %spec.store.select.i.i8095, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i ]
+  %2290 = phi ptr [ %mBuffer.i.i8086, %for.end2691 ], [ %2292, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i ]
+  %2291 = phi i64 [ 0, %for.end2691 ], [ %rb2693.val, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i ]
   %incdec.ptr.i.i.i8093 = getelementptr inbounds i8, ptr %2289, i64 1
   %cmp.i.i6.i8094 = icmp eq ptr %incdec.ptr.i.i.i8093, %add.ptr28.i.i.i
   %spec.store.select.i.i8095 = select i1 %cmp.i.i6.i8094, ptr %mBuffer.i.i8086, ptr %incdec.ptr.i.i.i8093
@@ -60410,21 +60410,21 @@ if.then8.i.i.i8100:                               ; preds = %for.body.i.i8092
   %cmp13.i.i.i8102 = icmp eq ptr %incdec.ptr10.i.i.i8101, %add.ptr28.i.i.i
   %spec.store.select6.i.i = select i1 %cmp13.i.i.i8102, ptr %mBuffer.i.i8086, ptr %incdec.ptr10.i.i.i8101
   store ptr %spec.store.select6.i.i, ptr %mBegin.i8090, align 8
-  br label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i
+  br label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i
 
 if.else.i.i7.i:                                   ; preds = %for.body.i.i8092
   %inc.i.i.i8097 = add i64 %2291, 1
   store i64 %inc.i.i.i8097, ptr %mSize.i8091, align 8
-  br label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i
+  br label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i
 
-_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i: ; preds = %if.else.i.i7.i, %if.then8.i.i.i8100
+_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i: ; preds = %if.else.i.i7.i, %if.then8.i.i.i8100
   %rb2693.val = phi i64 [ %2291, %if.then8.i.i.i8100 ], [ %inc.i.i.i8097, %if.else.i.i7.i ]
   %2292 = phi ptr [ %spec.store.select6.i.i, %if.then8.i.i.i8100 ], [ %2290, %if.else.i.i7.i ]
   %first.addr.08.i.add.i = add nuw nsw i64 %first.addr.08.i.idx.i, 1
   %cmp.not.i.i8098 = icmp eq i64 %first.addr.08.i.add.i, 3
-  br i1 %cmp.not.i.i8098, label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.exit, label %for.body.i.i8092, !llvm.loop !3189
+  br i1 %cmp.not.i.i8098, label %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.argprom.exit, label %for.body.i.i8092, !llvm.loop !3189
 
-_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.exit: ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.exit.i.i
+_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.argprom.exit: ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_E9push_backERKS1_.argprom.exit.i.i
   %mEnd.i8099 = getelementptr inbounds i8, ptr %rb2693, i64 48
   store ptr %spec.store.select.i.i8095, ptr %mEnd.i8099, align 8
   %cmp2704 = icmp eq i64 %rb2693.val, 3
@@ -60451,7 +60451,7 @@ _ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9E
   %call.i.i.i.i1.i = invoke noundef ptr @_ZN15MallocAllocator8allocateEmi(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i, i64 noundef 8, i32 noundef 0)
           to label %call.i.i.i.i.noexc.i unwind label %lpad.i8107
 
-call.i.i.i.i.noexc.i:                             ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.exit
+call.i.i.i.i.noexc.i:                             ; preds = %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.argprom.exit
   %.pre25.i.i.i = load ptr, ptr %intBuffer2712, align 8
   %.pre26.i.i.i = load ptr, ptr %mpEnd.i.i8106, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.pre25.i.i.i, %.pre26.i.i.i
@@ -60480,7 +60480,7 @@ if.then.i16.i.i.i:                                ; preds = %_ZN5eastl31uninitia
   invoke void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i.i.i.i, ptr noundef nonnull %2295, i64 noundef %sub.ptr.sub21.i.i.i)
           to label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit unwind label %lpad.i8107
 
-lpad.i8107:                                       ; preds = %if.then.i16.i.i.i, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.exit
+lpad.i8107:                                       ; preds = %if.then.i16.i.i.i, %_ZN5eastl11ring_bufferIZ14TestRingBuffervE11LocalStructNS_12fixed_vectorIS1_Lm9ELb0ENS_15dummy_allocatorEEES3_EC2ESt16initializer_listIS1_ERKS3_.argprom.exit
   %2297 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZZ14TestRingBuffervEN12PaddedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(4040) %intBuffer2712) #16
@@ -60500,9 +60500,9 @@ _ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.
   store i64 0, ptr %mSize.i8113, align 8
   br label %for.body2718
 
-for.body2718:                                     ; preds = %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit
-  %2298 = phi ptr [ %call.i.i.i.i1.i, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit ], [ %2302, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit ]
-  %storemerge1518770 = phi i32 [ 0, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit ], [ %inc2722, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit ]
+for.body2718:                                     ; preds = %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit
+  %2298 = phi ptr [ %call.i.i.i.i1.i, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit ], [ %2302, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit ]
+  %storemerge1518770 = phi i32 [ 0, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorEC2Em.exit ], [ %inc2722, %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit ]
   store i32 %storemerge1518770, ptr %2298, align 4
   %2299 = load ptr, ptr %mEnd.i8112, align 8
   %incdec.ptr.i8116 = getelementptr inbounds i8, ptr %2299, i64 4
@@ -60526,20 +60526,20 @@ if.then8.i8126:                                   ; preds = %if.end.i8119
   %incdec.ptr10.i8127 = getelementptr inbounds i8, ptr %2303, i64 4
   store ptr %incdec.ptr10.i8127, ptr %mBegin.i8111, align 8
   %cmp13.i8128 = icmp eq ptr %incdec.ptr10.i8127, %2300
-  br i1 %cmp13.i8128, label %if.then14.i8129, label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit
+  br i1 %cmp13.i8128, label %if.then14.i8129, label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit
 
 if.then14.i8129:                                  ; preds = %if.then8.i8126
   %2304 = load ptr, ptr %intBuffer2712, align 8
   store ptr %2304, ptr %mBegin.i8111, align 8
-  br label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit
+  br label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit
 
 if.else.i8122:                                    ; preds = %if.end.i8119
   %2305 = load i64, ptr %mSize.i8113, align 8
   %inc.i8124 = add i64 %2305, 1
   store i64 %inc.i8124, ptr %mSize.i8113, align 8
-  br label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit
+  br label %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit
 
-_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit: ; preds = %if.then8.i8126, %if.then14.i8129, %if.else.i8122
+_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit: ; preds = %if.then8.i8126, %if.then14.i8129, %if.else.i8122
   %2306 = phi ptr [ %incdec.ptr10.i8127, %if.then8.i8126 ], [ %2304, %if.then14.i8129 ], [ %2303, %if.else.i8122 ]
   %inc2722 = add nuw nsw i32 %storemerge1518770, 1
   %exitcond8811.not = icmp eq i32 %inc2722, 4000
@@ -60555,7 +60555,7 @@ lpad2719.body:                                    ; preds = %lpad.i8155, %lpad27
   call fastcc void @_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(4064) %intBuffer2712) #16
   br label %ehcleanup2735
 
-for.end2723:                                      ; preds = %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.exit
+for.end2723:                                      ; preds = %_ZN5eastl11ring_bufferIiZ14TestRingBuffervE12PaddedVector15MallocAllocatorE9push_backERKi.argprom.exit
   %2308 = load i32, ptr @_ZN15MallocAllocator14mAllocCountAllE, align 4
   %intBuffer2712.val = load i64, ptr %mSize.i8113, align 8
   %mul2725 = shl i64 %intBuffer2712.val, 1

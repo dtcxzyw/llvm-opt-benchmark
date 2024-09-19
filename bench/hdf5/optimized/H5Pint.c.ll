@@ -1295,7 +1295,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P_copy_plist(ptr nocapture nou
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %82
-  tail call fastcc void @H5P__free_prop(ptr noundef nonnull %73)
+  tail call fastcc void @H5P__free_prop.retelim(ptr noundef nonnull %73)
   %91 = load i64, ptr @H5E_PLIST_g, align 8
   %92 = load i64, ptr @H5E_CANTCOPY_g, align 8
   %93 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P_copy_plist, i32 noundef 993, i64 noundef %91, i64 noundef %92, ptr noundef nonnull @.str.17) #13
@@ -1312,7 +1312,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P_copy_plist(ptr nocapture nou
   %100 = load i64, ptr @H5E_PLIST_g, align 8
   %101 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %102 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P__add_prop, i32 noundef 1335, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.30) #13
-  tail call fastcc void @H5P__free_prop(ptr noundef nonnull %73)
+  tail call fastcc void @H5P__free_prop.retelim(ptr noundef nonnull %73)
   %103 = load i64, ptr @H5E_PLIST_g, align 8
   %104 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P_copy_plist, i32 noundef 1000, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.25) #13
@@ -1616,7 +1616,7 @@ declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 declare i32 @H5SL_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5P__free_prop(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @H5P__free_prop.retelim(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3382,7 +3382,7 @@ define range(i32 -1, 1) i32 @H5P__get_size_pclass(ptr nocapture noundef readonly
   %.val = load ptr, ptr %4, align 8
   %5 = tail call ptr @H5SL_search(ptr noundef %.val, ptr noundef %1) #13
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %H5P__find_prop_pclass.exit
+  br i1 %6, label %7, label %H5P__find_prop_pclass.argprom.exit
 
 7:                                                ; preds = %3
   %8 = load i64, ptr @H5E_PLIST_g, align 8
@@ -3393,14 +3393,14 @@ define range(i32 -1, 1) i32 @H5P__get_size_pclass(ptr nocapture noundef readonly
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P__get_size_pclass, i32 noundef 3482, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.46) #13
   br label %16
 
-H5P__find_prop_pclass.exit:                       ; preds = %3
+H5P__find_prop_pclass.argprom.exit:               ; preds = %3
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %2, align 8
   br label %16
 
-16:                                               ; preds = %H5P__find_prop_pclass.exit, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %H5P__find_prop_pclass.exit ]
+16:                                               ; preds = %H5P__find_prop_pclass.argprom.exit, %7
+  %.0 = phi i32 [ -1, %7 ], [ 0, %H5P__find_prop_pclass.argprom.exit ]
   ret i32 %.0
 }
 
@@ -4914,7 +4914,7 @@ define range(i32 -1, 1) i32 @H5P__copy_prop_pclass(i64 noundef %0, i64 noundef %
   %.val = load ptr, ptr %19, align 8
   %20 = tail call ptr @H5SL_search(ptr noundef %.val, ptr noundef %2) #13
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %H5P__find_prop_pclass.exit
+  br i1 %21, label %22, label %H5P__find_prop_pclass.argprom.exit
 
 22:                                               ; preds = %18
   %23 = load i64, ptr @H5E_PLIST_g, align 8
@@ -4925,15 +4925,15 @@ define range(i32 -1, 1) i32 @H5P__copy_prop_pclass(i64 noundef %0, i64 noundef %
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.H5P__copy_prop_pclass, i32 noundef 5012, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.61) #13
   br label %81
 
-H5P__find_prop_pclass.exit:                       ; preds = %18
+H5P__find_prop_pclass.argprom.exit:               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %12, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @H5SL_search(ptr noundef %30, ptr noundef %2) #13
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %.preheader.i, label %.loopexit
 
-.preheader.i:                                     ; preds = %H5P__find_prop_pclass.exit, %32
-  %.0.in.i = phi ptr [ %.0.i, %32 ], [ %12, %H5P__find_prop_pclass.exit ]
+.preheader.i:                                     ; preds = %H5P__find_prop_pclass.argprom.exit, %32
+  %.0.in.i = phi ptr [ %.0.i, %32 ], [ %12, %H5P__find_prop_pclass.argprom.exit ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not8.i = icmp eq ptr %.0.i, null
   br i1 %.not8.i, label %H5P__exist_pclass.exit, label %32
@@ -4945,7 +4945,7 @@ H5P__find_prop_pclass.exit:                       ; preds = %18
   %.not9.i = icmp eq ptr %35, null
   br i1 %.not9.i, label %.preheader.i, label %.loopexit
 
-.loopexit:                                        ; preds = %32, %H5P__find_prop_pclass.exit
+.loopexit:                                        ; preds = %32, %H5P__find_prop_pclass.argprom.exit
   %36 = tail call i32 @H5P__unregister(ptr noundef nonnull %12, ptr noundef %2)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %H5P__exist_pclass.exit

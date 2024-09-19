@@ -12028,7 +12028,7 @@ _ZN5eastl10shared_ptrIvED2Ev.exit:                ; preds = %invoke.cont407, %if
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr, i8 0, i64 16, i1 false)
   %call.i.i.i987 = call noundef ptr @_ZnamPKcijS0_i(i64 noundef 32, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %tobool.not.i.i988 = icmp eq ptr %call.i.i.i987, null
-  br i1 %tobool.not.i.i988, label %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit", label %if.then.i.i989
+  br i1 %tobool.not.i.i988, label %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.argprom.exit", label %if.then.i.i989
 
 if.then.i.i989:                                   ; preds = %_ZN5eastl10shared_ptrIvED2Ev.exit
   %mpRefCount.i990 = getelementptr inbounds i8, ptr %ptr, i64 8
@@ -12041,13 +12041,13 @@ if.then.i.i989:                                   ; preds = %_ZN5eastl10shared_p
   store ptr null, ptr %mValue.i.i.i993, align 8
   store ptr %call.i.i.i987, ptr %mpRefCount.i990, align 8
   store ptr null, ptr %ptr, align 8
-  br label %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit"
+  br label %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.argprom.exit"
 
-"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit": ; preds = %_ZN5eastl10shared_ptrIvED2Ev.exit, %if.then.i.i989
+"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.argprom.exit": ; preds = %_ZN5eastl10shared_ptrIvED2Ev.exit, %if.then.i.i989
   %call415 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1219, ptr noundef nonnull @.str.110)
           to label %invoke.cont414 unwind label %lpad413
 
-invoke.cont414:                                   ; preds = %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit"
+invoke.cont414:                                   ; preds = %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.argprom.exit"
   %call419 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1220, ptr noundef nonnull @.str.111)
           to label %invoke.cont418 unwind label %lpad413
 
@@ -12848,7 +12848,7 @@ lpad396:                                          ; preds = %invoke.cont400, %_Z
   call void @_ZN5eastl10shared_ptrIvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %pVoid) #16
   br label %eh.resume
 
-lpad413:                                          ; preds = %invoke.cont414, %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.exit"
+lpad413:                                          ; preds = %invoke.cont414, %"_ZN5eastl10shared_ptrIiEC2IZL15Test_shared_ptrvE3$_0EEDnT_.argprom.exit"
   %410 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5eastl10shared_ptrIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ptr) #16

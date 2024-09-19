@@ -1788,9 +1788,9 @@ _ZN2cv4Mat_IfE6createEii.exit250:                 ; preds = %_ZN2cv4Mat_IfE6crea
   store i32 33619968, ptr %6, align 8
   store ptr %478, ptr %279, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %478, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef -1, double noundef %472, double noundef 0.000000e+00)
-          to label %_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.exit253 unwind label %.loopexit256
+          to label %_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.argprom.exit253 unwind label %.loopexit256
 
-_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.exit253:         ; preds = %476
+_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.argprom.exit253: ; preds = %476
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %487
 
@@ -1814,7 +1814,7 @@ _ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.exit253:         ; preds = %476
           cleanup
   br label %501
 
-487:                                              ; preds = %_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.exit253, %464, %_ZN2cv4Mat_INS_3VecIfLi2EEEE6createEii.exit
+487:                                              ; preds = %_ZN2cvdVIfEERNS_4Mat_IT_EES4_RKd.argprom.exit253, %464, %_ZN2cv4Mat_INS_3VecIfLi2EEEE6createEii.exit
   %488 = shl nsw i32 %.0117261, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %489 = load i32, ptr %29, align 4
@@ -5550,9 +5550,9 @@ _ZNK2cv11_InputArray6getMatEi.exit134:            ; preds = %155, %158
   store i32 -2113863675, ptr %6, align 8
   store ptr %452, ptr %312, align 8
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %452, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef -1, double noundef 2.000000e+00, double noundef 0.000000e+00)
-          to label %_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.exit147 unwind label %362
+          to label %_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.argprom.exit147 unwind label %362
 
-_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.exit147:         ; preds = %450
+_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.argprom.exit147: ; preds = %450
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %457
 
@@ -5566,7 +5566,7 @@ _ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.exit147:         ; preds = %450
           cleanup
   br label %465
 
-457:                                              ; preds = %_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.exit147, %424
+457:                                              ; preds = %_ZN2cvmLIfEERNS_4Mat_IT_EES4_RKd.argprom.exit147, %424
   %458 = load i32, ptr %314, align 8
   %.not.i = icmp eq i32 %458, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %459

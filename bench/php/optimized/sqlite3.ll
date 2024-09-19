@@ -2188,7 +2188,7 @@ declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 
 define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #17
   %5 = getelementptr inbounds i8, ptr %4, i64 24
-  tail call fastcc void @sqlite3_do_callback(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @sqlite3_do_callback.retelim(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0)
   ret void
 }
 
@@ -2390,7 +2390,7 @@ define internal void @php_sqlite3_callback_step(ptr noundef %0, i32 noundef %1, 
   %8 = add nsw i64 %7, 1
   store i64 %8, ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 64
-  tail call fastcc void @sqlite3_do_callback(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @sqlite3_do_callback.retelim(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 1)
   ret void
 }
 
@@ -2401,7 +2401,7 @@ define internal void @php_sqlite3_callback_final(ptr noundef %0) #0 {
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 104
-  tail call fastcc void @sqlite3_do_callback(ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @sqlite3_do_callback.retelim(ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef %0, i32 noundef 1)
   ret void
 }
 
@@ -8086,7 +8086,7 @@ declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @sqlite3_do_callback.retelim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = icmp ne i32 %4, 0
   %spec.store.select = select i1 %7, i32 2, i32 0

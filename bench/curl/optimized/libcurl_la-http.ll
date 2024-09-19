@@ -1300,7 +1300,7 @@ land.lhs.true114:                                 ; preds = %if.then103
   br i1 %tobool119.not, label %if.then120, label %do.body126
 
 if.then120:                                       ; preds = %land.lhs.true114
-  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %data, ptr noundef nonnull %0)
+  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %data, ptr noundef nonnull %0)
   br label %do.body126
 
 do.body126:                                       ; preds = %if.then103, %if.then103, %if.then120, %land.lhs.true114
@@ -1424,7 +1424,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @http_perhapsrewind(ptr noundef %data, ptr noundef %conn) unnamed_addr #0 {
+define internal fastcc void @http_perhapsrewind.retelim(ptr noundef %data, ptr noundef %conn) unnamed_addr #0 {
 entry:
   %req = getelementptr inbounds i8, ptr %data, i64 224
   %p = getelementptr inbounds i8, ptr %data, i64 392
@@ -5782,7 +5782,7 @@ do.end379:                                        ; preds = %if.else368
   br i1 %tobool386.not, label %return, label %if.end388
 
 if.end388:                                        ; preds = %do.end379
-  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %data, ptr noundef nonnull %conn)
+  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %data, ptr noundef nonnull %conn)
   %this_is_a_follow = getelementptr inbounds i8, ptr %data, i64 5044
   %bf.load394 = load i32, ptr %this_is_a_follow, align 4
   %bf.set396 = or i32 %bf.load394, 2
@@ -6210,7 +6210,7 @@ if.then6.i:                                       ; preds = %if.end.i
   %.val.i = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %.val.i, i64 132
   %.val.val.i = load i32, ptr %4, align 4
-  %call13.i = tail call fastcc i32 @checkprotoprefix(ptr noundef nonnull %data, i32 %.val.val.i, ptr noundef %call9.i, i64 noundef %call12.i)
+  %call13.i = tail call fastcc i32 @checkprotoprefix.argprom.argprom(ptr noundef nonnull %data, i32 %.val.val.i, ptr noundef %call9.i, i64 noundef %call12.i)
   %cmp.i = icmp eq i32 %call13.i, 2
   br i1 %cmp.i, label %if.then14.i, label %out.i
 
@@ -6267,13 +6267,13 @@ if.end.i.i:                                       ; preds = %if.then33.i
   %cmp.i4.i.i = icmp ugt i64 %call40.i, 4
   %head.015.i.i.i = load ptr, ptr %http200aliases.i.i.i, align 8
   %tobool.not16.i.i.i = icmp eq ptr %head.015.i.i.i, null
-  br i1 %tobool.not16.i.i.i, label %checkprotoprefix.exit.i, label %while.body.i.i.i
+  br i1 %tobool.not16.i.i.i, label %checkprotoprefix.argprom.argprom.exit.i, label %while.body.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %head.017.i.i.i, i64 8
   %head.0.i.i.i = load ptr, ptr %next.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %head.0.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %checkprotoprefix.exit.i, label %while.body.i.i.i, !llvm.loop !28
+  br i1 %tobool.not.i.i.i, label %checkprotoprefix.argprom.argprom.exit.i, label %while.body.i.i.i, !llvm.loop !28
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.cond.i.i.i
   %head.017.i.i.i = phi ptr [ %head.0.i.i.i, %while.cond.i.i.i ], [ %head.015.i.i.i, %if.end.i.i ]
@@ -6285,9 +6285,9 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.
   br i1 %tobool.i.not.i8.i.i, label %while.cond.i.i.i, label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i
-  br i1 %cmp.i4.i.i, label %if.end58.i, label %checkprotoprefix.exit.i
+  br i1 %cmp.i4.i.i, label %if.end58.i, label %checkprotoprefix.argprom.argprom.exit.i
 
-checkprotoprefix.exit.i:                          ; preds = %while.cond.i.i.i, %while.end.i.i.i, %if.end.i.i
+checkprotoprefix.argprom.argprom.exit.i:          ; preds = %while.cond.i.i.i, %while.end.i.i.i, %if.end.i.i
   %cmp42458.i = phi i1 [ false, %while.end.i.i.i ], [ true, %if.end.i.i ], [ true, %while.cond.i.i.i ]
   %call.len.i9.i.i.i = tail call i64 @llvm.umin.i64(i64 %call40.i, i64 5)
   %call2.i10.i.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull @.str.158, ptr noundef %call37.i, i64 noundef %call.len.i9.i.i.i) #12
@@ -6295,7 +6295,7 @@ checkprotoprefix.exit.i:                          ; preds = %while.cond.i.i.i, %
   %cmp42.i = and i1 %cmp42458.i, %tobool.i11.not.i.i.i
   br i1 %cmp42.i, label %if.then43.i, label %if.end58.i
 
-if.then43.i:                                      ; preds = %checkprotoprefix.exit.i, %if.then.i.i
+if.then43.i:                                      ; preds = %checkprotoprefix.argprom.argprom.exit.i, %if.then.i.i
   tail call void @Curl_conncontrol(ptr noundef %0, i32 noundef 2) #12
   %bf.load46.i = load i64, ptr %verbose168.i, align 2
   %10 = and i64 %bf.load46.i, 18014398509481984
@@ -6312,7 +6312,7 @@ if.end52.i:                                       ; preds = %if.then43.i
   store i16 %bf.clear55.i, ptr %header, align 1
   br label %land.lhs.true
 
-if.end58.i:                                       ; preds = %checkprotoprefix.exit.i, %while.end.i.i.i, %if.then.i.i, %if.end29.i
+if.end58.i:                                       ; preds = %checkprotoprefix.argprom.argprom.exit.i, %while.end.i.i.i, %if.then.i.i, %if.end29.i
   %call61.i = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %headerb25.i) #12
   %11 = load i8, ptr %call61.i, align 1
   switch i8 %11, label %if.end490.i [
@@ -6719,7 +6719,7 @@ if.then338.i:                                     ; preds = %land.lhs.true330.i
 
 do.end340.i:                                      ; preds = %if.then338.i, %land.lhs.true330.i
   tail call void @Curl_conncontrol(ptr noundef nonnull %0, i32 noundef 2) #12
-  tail call fastcc void @http_perhapsrewind(ptr noundef nonnull %data, ptr noundef nonnull %0)
+  tail call fastcc void @http_perhapsrewind.retelim(ptr noundef nonnull %data, ptr noundef nonnull %0)
   br label %if.end345.i
 
 if.end345.i:                                      ; preds = %do.end340.i, %if.then324.i, %land.lhs.true316.i
@@ -8104,7 +8104,7 @@ declare i32 @Curl_base64_encode(ptr noundef, i64 noundef, ptr noundef, ptr nound
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @checkprotoprefix(ptr nocapture noundef readonly %data, i32 %conn.712.val.132.val, ptr noundef %s, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @checkprotoprefix.argprom.argprom(ptr nocapture noundef readonly %data, i32 %conn.712.val.132.val, ptr noundef %s, i64 noundef %len) unnamed_addr #0 {
 entry:
   %and = and i32 %conn.712.val.132.val, 262144
   %tobool.not = icmp eq i32 %and, 0

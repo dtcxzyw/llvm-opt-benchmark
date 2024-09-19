@@ -2889,16 +2889,16 @@ if.then.i214:                                     ; preds = %lor.lhs.false.i, %i
   %call2.i = call ptr @null_oid() #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %branch_base, ptr noundef nonnull readonly align 4 dereferenceable(32) %call2.i, i64 32, i1 false)
   %algo.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  br label %fill_branch_base.exit
+  br label %fill_branch_base.argprom.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %200 = load ptr, ptr %call.i211, align 8
   %oid.i = getelementptr inbounds i8, ptr %200, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %branch_base, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid.i, i64 32, i1 false)
   %algo.i6.i = getelementptr inbounds i8, ptr %200, i64 36
-  br label %fill_branch_base.exit
+  br label %fill_branch_base.argprom.exit
 
-fill_branch_base.exit:                            ; preds = %if.then.i214, %if.else.i
+fill_branch_base.argprom.exit:                    ; preds = %if.then.i214, %if.else.i
   %algo.i6.sink.i = phi ptr [ %algo.i6.i, %if.else.i ], [ %algo.i.i, %if.then.i214 ]
   %201 = load i32, ptr %algo.i6.sink.i, align 4
   %algo3.i7.i = getelementptr inbounds i8, ptr %branch_base, i64 32
@@ -2906,7 +2906,7 @@ fill_branch_base.exit:                            ; preds = %if.then.i214, %if.e
   call void @free_commit_list(ptr noundef %call.i211) #19
   br label %if.end1340
 
-if.end1340:                                       ; preds = %fill_branch_base.exit, %if.end1327
+if.end1340:                                       ; preds = %fill_branch_base.argprom.exit, %if.end1327
   %202 = load i32, ptr %keep_base, align 4
   %tobool1341 = icmp ne i32 %202, 0
   %203 = load i32, ptr %reapply_cherry_picks, align 4
@@ -4244,7 +4244,7 @@ if.end129.i.i:                                    ; preds = %if.end123.i.i
   br i1 %tobool131.not.i.i, label %run_am.exit.i, label %if.then132.i.i
 
 if.then132.i.i:                                   ; preds = %if.end129.i.i
-  call fastcc void @rebase_write_basic_state(ptr noundef readonly %options)
+  call fastcc void @rebase_write_basic_state.retelim(ptr noundef readonly %options)
   br label %run_am.exit.i
 
 run_am.exit.i:                                    ; preds = %if.then132.i.i, %if.end129.i.i, %if.then127.i.i, %_.exit59.i.i, %_.exit54.i.i, %_.exit.i.i, %if.then31.i.i, %if.end26.i.i, %if.then18.i.i, %if.end13.i.i, %if.end.i24.i
@@ -5766,13 +5766,13 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then.i:                                        ; preds = %if.end
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %oid1, ptr noundef nonnull readonly dereferenceable(32) %oid2, i64 32)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(20) %oid1, ptr noundef nonnull readonly dereferenceable(20) %oid2, i64 20)
-  br label %hasheq_algop.exit
+  br label %hasheq_algop.argprom.exit
 
-hasheq_algop.exit:                                ; preds = %if.then.i, %if.end.i
+hasheq_algop.argprom.exit:                        ; preds = %if.then.i, %if.end.i
   %retval.0.in.in.i = phi i32 [ %bcmp3.i, %if.then.i ], [ %bcmp.i, %if.end.i ]
   %retval.0.in.i = icmp eq i32 %retval.0.in.in.i, 0
   %retval.0.i = zext i1 %retval.0.in.i to i32
@@ -6141,7 +6141,7 @@ declare void @strvec_split(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rebase_write_basic_state(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
+define internal fastcc void @rebase_write_basic_state.retelim(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr @state_dir_path.prefix_len, align 8
   %tobool.not.i = icmp eq i64 %0, 0

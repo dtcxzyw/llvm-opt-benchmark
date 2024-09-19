@@ -73,13 +73,13 @@ define noundef zeroext i1 @_ZN3gmx20PmeLoadBalanceHelper18doPmeLoadBalancingERKN
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %_ZL8usingPmeRK22CoulombInteractionType.exit
+  br i1 %7, label %8, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 68
   %.val = load i32, ptr %10, align 4
-  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.exit [
+  switch i32 %.val, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit [
     i32 3, label %11
     i32 14, label %11
     i32 13, label %11
@@ -91,22 +91,22 @@ define noundef zeroext i1 @_ZN3gmx20PmeLoadBalanceHelper18doPmeLoadBalancingERKN
   %12 = getelementptr inbounds i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 2
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZL8usingPmeRK22CoulombInteractionType.exit, label %15
+  br i1 %14, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %1, i64 36
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 1
-  br i1 %.not, label %_ZL8usingPmeRK22CoulombInteractionType.exit, label %18
+  br i1 %.not, label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %3, i64 19
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   %22 = xor i1 %21, true
-  br label %_ZL8usingPmeRK22CoulombInteractionType.exit
+  br label %_ZL8usingPmeRK22CoulombInteractionType.argprom.exit
 
-_ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %8, %18, %15, %11, %4
+_ZL8usingPmeRK22CoulombInteractionType.argprom.exit: ; preds = %8, %18, %15, %11, %4
   %23 = phi i1 [ false, %15 ], [ false, %11 ], [ false, %4 ], [ %22, %18 ], [ false, %8 ]
   ret i1 %23
 }

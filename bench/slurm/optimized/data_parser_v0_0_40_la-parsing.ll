@@ -624,7 +624,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 299:                                              ; preds = %296
   %.val.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit.argprom(i64 %.val.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
   br label %311
 
 300:                                              ; preds = %296
@@ -639,7 +639,7 @@ _parse_list.exit:                                 ; preds = %220, %222
 
 306:                                              ; preds = %301, %300
   %.val55.i = load i64, ptr %264, align 8
-  call fastcc void @_set_flag_bit_equal(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
+  call fastcc void @_set_flag_bit_equal.argprom(i64 %.val55.i, ptr noundef %spec.select.i153, ptr noundef nonnull readonly %272, i1 noundef zeroext %.0.i166)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %272, i64 24
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %307
@@ -882,7 +882,7 @@ thread-pre-split:                                 ; preds = %385
   br i1 %or.cond.i, label %440, label %452
 
 440:                                              ; preds = %436
-  %441 = call fastcc i32 @_is_duplicate_linked_parser_value(ptr noundef nonnull %2, ptr noundef nonnull %250, ptr noundef %3, ptr noundef %.0.i152)
+  %441 = call fastcc i32 @_is_duplicate_linked_parser_value.argprom(ptr noundef nonnull %2, ptr noundef nonnull %250, ptr noundef %3, ptr noundef %.0.i152)
   %.not144.i = icmp eq i32 %441, 0
   br i1 %.not144.i, label %442, label %452
 
@@ -1735,13 +1735,13 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
 55:                                               ; preds = %53, %50
   %56 = tail call i32 @data_get_type(ptr noundef %3) #6
   %.not.i = icmp eq i32 %56, 2
-  br i1 %.not.i, label %57, label %_dump_flag_bit_array.exit
+  br i1 %.not.i, label %57, label %_dump_flag_bit_array.argprom.exit
 
 57:                                               ; preds = %55, %46
   %58 = getelementptr inbounds i8, ptr %2, i64 136
   %59 = load i8, ptr %58, align 8
   %.not2.i = icmp eq i8 %59, 0
-  br i1 %.not2.i, label %_dump_flag_bit_array.exit, label %.lr.ph.i
+  br i1 %.not2.i, label %_dump_flag_bit_array.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57
   %60 = getelementptr inbounds i8, ptr %2, i64 128
@@ -1752,15 +1752,15 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
   %62 = load ptr, ptr %60, align 8
   %63 = sext i8 %.01.i to i64
   %64 = getelementptr inbounds %struct.flag_bit_t, ptr %62, i64 %63
-  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %64, i1 noundef zeroext false, ptr noundef %8)
+  call fastcc void @_dump_flag_bit_array_flag.argprom(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %64, i1 noundef zeroext false, ptr noundef %8)
   %65 = add i8 %.01.i, 1
   %66 = sext i8 %65 to i32
   %67 = load i8, ptr %58, align 8
   %68 = zext i8 %67 to i32
   %69 = icmp slt i32 %66, %68
-  br i1 %69, label %61, label %_dump_flag_bit_array.exit, !llvm.loop !12
+  br i1 %69, label %61, label %_dump_flag_bit_array.argprom.exit, !llvm.loop !12
 
-_dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
+_dump_flag_bit_array.argprom.exit:                ; preds = %61, %55, %57
   %.014.i = phi i32 [ 9202, %55 ], [ 0, %57 ], [ 0, %61 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %.critedge
@@ -1929,7 +1929,7 @@ _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = tail call ptr @data_define_dict_path(ptr noundef %.082.i, ptr noundef %154) #6
-  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %spec.select.i, ptr noundef %155, ptr noundef nonnull %75, ptr noundef %152, i1 noundef zeroext true, ptr noundef %7)
+  call fastcc void @_dump_flag_bit_array_flag.argprom(ptr noundef %spec.select.i, ptr noundef %155, ptr noundef nonnull %75, ptr noundef %152, i1 noundef zeroext true, ptr noundef %7)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %156 = load i8, ptr %147, align 8
   %157 = zext i8 %156 to i64
@@ -2230,8 +2230,8 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.dump, i32 noundef %33) #7
   unreachable
 
-.critedge:                                        ; preds = %._crit_edge, %286, %278, %264, %267, %70, %_dump_linked.exit, %272, %261, %256, %254, %252, %249, %._crit_edge97, %29, %292, %_dump_list.exit, %_dump_flag_bit_array.exit, %31
-  %.1 = phi i32 [ %30, %29 ], [ 0, %31 ], [ %295, %292 ], [ %.0.i78, %_dump_list.exit ], [ %.014.i, %_dump_flag_bit_array.exit ], [ %257, %256 ], [ 0, %249 ], [ 0, %254 ], [ 0, %252 ], [ 0, %._crit_edge97 ], [ 0, %261 ], [ 0, %272 ], [ 0, %70 ], [ %.0.i, %_dump_linked.exit ], [ 0, %264 ], [ %271, %267 ], [ %290, %286 ], [ 0, %._crit_edge ], [ 0, %278 ]
+.critedge:                                        ; preds = %._crit_edge, %286, %278, %264, %267, %70, %_dump_linked.exit, %272, %261, %256, %254, %252, %249, %._crit_edge97, %29, %292, %_dump_list.exit, %_dump_flag_bit_array.argprom.exit, %31
+  %.1 = phi i32 [ %30, %29 ], [ 0, %31 ], [ %295, %292 ], [ %.0.i78, %_dump_list.exit ], [ %.014.i, %_dump_flag_bit_array.argprom.exit ], [ %257, %256 ], [ 0, %249 ], [ 0, %254 ], [ 0, %252 ], [ 0, %._crit_edge97 ], [ 0, %261 ], [ 0, %272 ], [ 0, %70 ], [ %.0.i, %_dump_linked.exit ], [ 0, %264 ], [ %271, %267 ], [ %290, %286 ], [ 0, %._crit_edge ], [ 0, %278 ]
   %300 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %301 = and i64 %300, 256
   %.not75 = icmp eq i64 %301, 0
@@ -2358,7 +2358,7 @@ _flag_parent_path.exit:                           ; preds = %2, %28
 
 55:                                               ; preds = %51, %45
   %.val = load i64, ptr %34, align 8
-  call fastcc void @_set_flag_bit(i64 %.val, ptr noundef %5, ptr noundef nonnull %38, i1 noundef zeroext %.not)
+  call fastcc void @_set_flag_bit.argprom(i64 %.val, ptr noundef %5, ptr noundef nonnull %38, i1 noundef zeroext %.not)
   %.pre53 = load i64, ptr %33, align 8
   br label %56
 
@@ -2380,7 +2380,7 @@ _flag_parent_path.exit:                           ; preds = %2, %28
 
 66:                                               ; preds = %60, %59
   %.val46 = load i64, ptr %34, align 8
-  call fastcc void @_set_flag_bit_equal(i64 %.val46, ptr noundef %5, ptr noundef nonnull %38, i1 noundef zeroext %.not)
+  call fastcc void @_set_flag_bit_equal.argprom(i64 %.val46, ptr noundef %5, ptr noundef nonnull %38, i1 noundef zeroext %.not)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %38, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre52 = load i64, ptr %33, align 8
@@ -2446,7 +2446,7 @@ declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_flag_bit(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_set_flag_bit.argprom(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   switch i64 %.48.val, label %56 [
     i64 8, label %4
     i64 4, label %17
@@ -2547,7 +2547,7 @@ define internal fastcc void @_set_flag_bit(i64 %.48.val, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_flag_bit_equal(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_set_flag_bit_equal.argprom(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   switch i64 %.48.val, label %81 [
     i64 8, label %4
     i64 4, label %21
@@ -2774,7 +2774,7 @@ declare ptr @data_resolve_dict_path(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @openapi_append_rel_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_is_duplicate_linked_parser_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_is_duplicate_linked_parser_value.argprom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
@@ -3001,7 +3001,7 @@ declare i32 @openapi_data_type_to_type_format(i32 noundef) local_unnamed_addr #1
 declare ptr @data_type_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @_dump_flag_bit_array_flag.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %63 [
@@ -3018,7 +3018,7 @@ define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr nound
   %13 = and i64 %.val63, %.val
   %14 = and i64 %.val, %10
   %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %_match_flag_bit.exit.thread
+  br i1 %.not.i, label %15, label %_match_flag_bit.argprom.exit.thread
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds i8, ptr %2, i64 48
@@ -3034,28 +3034,28 @@ define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr nound
   %19 = load i64, ptr %0, align 8
   %20 = and i64 %19, %13
   %21 = icmp eq i64 %20, %13
-  br label %_match_flag_bit.exit
+  br label %_match_flag_bit.argprom.exit
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %0, align 4
   %24 = zext i32 %23 to i64
   %25 = and i64 %13, %24
   %26 = icmp eq i64 %25, %13
-  br label %_match_flag_bit.exit
+  br label %_match_flag_bit.argprom.exit
 
 27:                                               ; preds = %15
   %28 = load i16, ptr %0, align 2
   %29 = zext i16 %28 to i64
   %30 = and i64 %13, %29
   %31 = icmp eq i64 %30, %13
-  br label %_match_flag_bit.exit
+  br label %_match_flag_bit.argprom.exit
 
 32:                                               ; preds = %15
   %33 = load i8, ptr %0, align 1
   %34 = zext i8 %33 to i64
   %35 = and i64 %13, %34
   %36 = icmp eq i64 %35, %13
-  br label %_match_flag_bit.exit
+  br label %_match_flag_bit.argprom.exit
 
 37:                                               ; preds = %15
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__._match_flag_bit, i64 noundef %17) #7
@@ -3106,42 +3106,42 @@ define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr nound
 59:                                               ; preds = %54, %50, %46, %43
   %.pn.i = phi i64 [ %45, %43 ], [ %49, %46 ], [ %53, %50 ], [ %57, %54 ]
   %.0.in.i = icmp eq i64 %.pn.i, %42
-  br i1 %.0.in.i, label %60, label %_match_flag_bit.exit.thread8
+  br i1 %.0.in.i, label %60, label %_match_flag_bit.argprom.exit.thread8
 
 60:                                               ; preds = %59
   %61 = load i64, ptr %5, align 8
   %62 = or i64 %61, %.val65
   store i64 %62, ptr %5, align 8
-  br label %_match_flag_bit.exit
+  br label %_match_flag_bit.argprom.exit
 
 63:                                               ; preds = %6
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__._dump_flag_bit_array_flag) #7
   unreachable
 
-_match_flag_bit.exit:                             ; preds = %60, %32, %27, %22, %18
+_match_flag_bit.argprom.exit:                     ; preds = %60, %32, %27, %22, %18
   %.0.in = phi i1 [ %21, %18 ], [ %26, %22 ], [ %31, %27 ], [ %36, %32 ], [ true, %60 ]
   br i1 %4, label %66, label %68
 
-_match_flag_bit.exit.thread8:                     ; preds = %59
+_match_flag_bit.argprom.exit.thread8:             ; preds = %59
   br i1 %4, label %.thread13, label %.thread
 
-.thread13:                                        ; preds = %_match_flag_bit.exit.thread8
+.thread13:                                        ; preds = %_match_flag_bit.argprom.exit.thread8
   %64 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
   br label %.thread
 
-_match_flag_bit.exit.thread:                      ; preds = %9
+_match_flag_bit.argprom.exit.thread:              ; preds = %9
   br i1 %4, label %.thread6, label %.thread
 
-.thread6:                                         ; preds = %_match_flag_bit.exit.thread
+.thread6:                                         ; preds = %_match_flag_bit.argprom.exit.thread
   %65 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext false) #6
   br label %.thread
 
-66:                                               ; preds = %_match_flag_bit.exit
+66:                                               ; preds = %_match_flag_bit.argprom.exit
   %67 = tail call ptr @data_set_bool(ptr noundef %1, i1 noundef zeroext %.0.in) #6
   %spec.select = select i1 %.0.in, ptr @.str.45, ptr @.str.46
   br label %.thread
 
-68:                                               ; preds = %_match_flag_bit.exit
+68:                                               ; preds = %_match_flag_bit.argprom.exit
   br i1 %.0.in, label %69, label %.thread
 
 69:                                               ; preds = %68
@@ -3161,8 +3161,8 @@ _match_flag_bit.exit.thread:                      ; preds = %9
   %78 = tail call ptr @data_set_string(ptr noundef %.054, ptr noundef %77) #6
   br label %.thread
 
-.thread:                                          ; preds = %66, %.thread13, %_match_flag_bit.exit.thread8, %.thread6, %_match_flag_bit.exit.thread, %68, %75
-  %.0.in4 = phi ptr [ @.str.46, %68 ], [ @.str.45, %75 ], [ @.str.46, %_match_flag_bit.exit.thread ], [ @.str.46, %.thread6 ], [ @.str.46, %_match_flag_bit.exit.thread8 ], [ @.str.46, %.thread13 ], [ %spec.select, %66 ]
+.thread:                                          ; preds = %66, %.thread13, %_match_flag_bit.argprom.exit.thread8, %.thread6, %_match_flag_bit.argprom.exit.thread, %68, %75
+  %.0.in4 = phi ptr [ @.str.46, %68 ], [ @.str.45, %75 ], [ @.str.46, %_match_flag_bit.argprom.exit.thread ], [ @.str.46, %.thread6 ], [ @.str.46, %_match_flag_bit.argprom.exit.thread8 ], [ @.str.46, %.thread13 ], [ %spec.select, %66 ]
   %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %80 = and i64 %79, 256
   %.not = icmp eq i64 %80, 0

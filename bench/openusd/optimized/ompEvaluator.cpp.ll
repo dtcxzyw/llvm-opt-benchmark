@@ -238,7 +238,7 @@ define internal void @_ZN10OpenSubdiv6v3_6_03Osd12OmpEvaluator11EvalPatchesEPKfR
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %54 = load float, ptr %53, align 4
-  %55 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %50, i64 %47, float noundef %52, float noundef %54, ptr noundef %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %55 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %50, i64 %47, float noundef %52, float noundef %54, ptr noundef %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %56 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -326,7 +326,7 @@ declare void @__kmpc_for_static_init_4(ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 21) i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %0, i64 %1, float noundef %2, float noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 21) i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %0, i64 %1, float noundef %2, float noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #7 {
   %11 = alloca [4 x float], align 16
   %12 = alloca [4 x float], align 16
   %13 = alloca [4 x float], align 16
@@ -2801,7 +2801,7 @@ define internal void @_ZN10OpenSubdiv6v3_6_03Osd12OmpEvaluator11EvalPatchesEPKfR
   %74 = load float, ptr %73, align 4
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %76 = load float, ptr %75, align 4
-  %77 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %72, i64 %69, float noundef %74, float noundef %76, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef null)
+  %77 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %72, i64 %69, float noundef %74, float noundef %76, ptr noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef null)
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -3177,7 +3177,7 @@ define internal void @_ZN10OpenSubdiv6v3_6_03Osd12OmpEvaluator11EvalPatchesEPKfR
   %107 = load float, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %109 = load float, ptr %108, align 4
-  %110 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_(i32 noundef %105, i64 %102, float noundef %107, float noundef %109, ptr noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30)
+  %110 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03OsdL21OsdEvaluatePatchBasisEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.argelim(i32 noundef %105, i64 %102, float noundef %107, float noundef %109, ptr noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30)
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds nuw i8, ptr %96, i64 16

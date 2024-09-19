@@ -9635,7 +9635,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_3UseEEE11callb
   %.val1 = load ptr, ptr %3, align 8
   %4 = load i8, ptr %.val1, align 8
   %5 = icmp ult i8 %4, 29
-  br i1 %5, label %"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.exit", label %6
+  br i1 %5, label %"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.argprom.exit", label %6
 
 6:                                                ; preds = %2
   %7 = inttoptr i64 %0 to ptr
@@ -9643,9 +9643,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_3UseEEE11callb
   %8 = getelementptr inbounds i8, ptr %.val1, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, %.val
-  br label %"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.exit"
+  br label %"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.argprom.exit"
 
-"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.exit": ; preds = %2, %6
+"_ZZN4llvm5Value23replaceUsesOutsideBlockEPS0_PNS_10BasicBlockEENK3$_0clERNS_3UseE.argprom.exit": ; preds = %2, %6
   %11 = phi i1 [ true, %2 ], [ %10, %6 ]
   ret i1 %11
 }

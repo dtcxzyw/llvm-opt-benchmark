@@ -1562,12 +1562,12 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_url_scanner_add_session_var(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  tail call fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
+  tail call fastcc void @php_url_scanner_add_var_impl.retelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @php_url_scanner_add_var_impl.retelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %struct.smart_str, align 8
   %8 = alloca %struct.smart_str, align 8
   %9 = alloca %struct.smart_str, align 8
@@ -2378,7 +2378,7 @@ define internal fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 no
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_url_scanner_add_var(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  tail call fastcc void @php_url_scanner_add_var_impl(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
+  tail call fastcc void @php_url_scanner_add_var_impl.retelim(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef 0)
   ret i32 0
 }
 
@@ -3326,7 +3326,7 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call fastcc void @php_url_scanner_ex_deactivate(i32 noundef 1)
+  tail call fastcc void @php_url_scanner_ex_deactivate.retelim(i32 noundef 1)
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1000), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1040), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1044), align 4
@@ -3398,7 +3398,7 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
   br i1 %.not62, label %34, label %33
 
 33:                                               ; preds = %31
-  tail call fastcc void @php_url_scanner_ex_deactivate(i32 noundef 0)
+  tail call fastcc void @php_url_scanner_ex_deactivate.retelim(i32 noundef 0)
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1224), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1264), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1268), align 4
@@ -3469,7 +3469,7 @@ define hidden noundef i32 @zm_deactivate_url_scanner_ex(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_url_scanner_ex_deactivate(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
+define internal fastcc void @php_url_scanner_ex_deactivate.retelim(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 888)
   %2 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
@@ -4045,7 +4045,7 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   %.11.i.i = phi ptr [ %155, %154 ], [ %.2358.i.i, %120 ]
   %158 = getelementptr inbounds i8, ptr %.11.i.i, i64 1
   tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.2358.i.i, ptr noundef nonnull %158)
-  tail call fastcc void @handle_form(ptr noundef nonnull %.)
+  tail call fastcc void @handle_form.argprom(ptr noundef nonnull %.)
   br label %35
 
 159:                                              ; preds = %125, %123
@@ -4947,7 +4947,7 @@ define internal fastcc void @handle_tag(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handle_form(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @handle_form.argprom(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -5568,30 +5568,30 @@ declare ptr @zend_memnstr_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateSessionTags(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
-  %7 = tail call fastcc i32 @php_ini_on_update_tags(ptr noundef %1, i32 noundef 1)
+  %7 = tail call fastcc i32 @php_ini_on_update_tags.argprom.argelim(ptr noundef %1, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @OnUpdateSessionHosts(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
-  tail call fastcc void @php_ini_on_update_hosts(ptr noundef %1, i32 noundef 1)
+  tail call fastcc void @php_ini_on_update_hosts.argprom.argelim(ptr noundef %1, i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @OnUpdateOutputTags(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
-  %7 = tail call fastcc i32 @php_ini_on_update_tags(ptr noundef %1, i32 noundef 0)
+  %7 = tail call fastcc i32 @php_ini_on_update_tags.argprom.argelim(ptr noundef %1, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @OnUpdateOutputHosts(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
-  tail call fastcc void @php_ini_on_update_hosts(ptr noundef %1, i32 noundef 0)
+  tail call fastcc void @php_ini_on_update_hosts.argprom.argelim(ptr noundef %1, i32 noundef 0)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags.argprom.argelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -5758,7 +5758,7 @@ declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) 
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @php_ini_on_update_hosts.argprom.argelim(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq i32 %1, 0

@@ -2011,7 +2011,7 @@ define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef z
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #22
   call void @phpdbg_free_err_buf() #22
   %20 = call i32 @phpdbg_do_ev(ptr noundef nonnull %.08.val) #22
-  br label %phpdbg_internal_stack_execute.exit
+  br label %phpdbg_internal_stack_execute.argprom.exit
 
 21:                                               ; preds = %16
   br i1 %1, label %25, label %22
@@ -2025,7 +2025,7 @@ define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef z
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #22
   call void @phpdbg_free_err_buf() #22
   %26 = call i32 @phpdbg_do_run(ptr noundef nonnull %.08.val) #22
-  br label %phpdbg_internal_stack_execute.exit
+  br label %phpdbg_internal_stack_execute.argprom.exit
 
 27:                                               ; preds = %16
   br i1 %1, label %31, label %28
@@ -2033,18 +2033,18 @@ define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef z
 28:                                               ; preds = %27
   %29 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %30 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.48) #22
-  br label %phpdbg_internal_stack_execute.exit.thread
+  br label %phpdbg_internal_stack_execute.argprom.exit.thread
 
 31:                                               ; preds = %27
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #22
   call void @phpdbg_free_err_buf() #22
   %32 = call i32 @phpdbg_do_sh(ptr noundef nonnull %.08.val) #22
-  br label %phpdbg_internal_stack_execute.exit
+  br label %phpdbg_internal_stack_execute.argprom.exit
 
 33:                                               ; preds = %16
   %34 = call ptr @phpdbg_stack_resolve(ptr noundef nonnull @phpdbg_prompt_commands, ptr noundef null, ptr noundef nonnull %3)
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %phpdbg_internal_stack_execute.exit.thread, label %35
+  br i1 %.not.i, label %phpdbg_internal_stack_execute.argprom.exit.thread, label %35
 
 35:                                               ; preds = %33
   br i1 %1, label %44, label %36
@@ -2060,12 +2060,12 @@ define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef z
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %42 = load ptr, ptr %34, align 8
   %43 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.49, ptr noundef %42) #22
-  br label %phpdbg_internal_stack_execute.exit.thread
+  br label %phpdbg_internal_stack_execute.argprom.exit.thread
 
 44:                                               ; preds = %36, %35
   %45 = call i32 @phpdbg_stack_verify(ptr noundef nonnull %34, ptr noundef nonnull %3)
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %phpdbg_internal_stack_execute.exit.thread
+  br i1 %46, label %47, label %phpdbg_internal_stack_execute.argprom.exit.thread
 
 47:                                               ; preds = %44
   call void @phpdbg_activate_err_buf(i1 noundef zeroext false) #22
@@ -2074,31 +2074,31 @@ define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef z
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %3, align 8
   %51 = call i32 %49(ptr noundef %50) #22
-  br label %phpdbg_internal_stack_execute.exit
+  br label %phpdbg_internal_stack_execute.argprom.exit
 
 52:                                               ; preds = %16
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %54 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.50) #22
-  br label %phpdbg_internal_stack_execute.exit.thread
+  br label %phpdbg_internal_stack_execute.argprom.exit.thread
 
-phpdbg_internal_stack_execute.exit.thread:        ; preds = %44, %33, %52, %40, %28
+phpdbg_internal_stack_execute.argprom.exit.thread: ; preds = %44, %33, %52, %40, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit
 
-phpdbg_internal_stack_execute.exit:               ; preds = %19, %25, %31, %47
+phpdbg_internal_stack_execute.argprom.exit:       ; preds = %19, %25, %31, %47
   %.0.i = phi i32 [ %51, %47 ], [ %32, %31 ], [ %26, %25 ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not12 = icmp eq i32 %.0.i, 0
   br i1 %.not12, label %55, label %.loopexit
 
-55:                                               ; preds = %.preheader, %phpdbg_internal_stack_execute.exit
+55:                                               ; preds = %.preheader, %phpdbg_internal_stack_execute.argprom.exit
   %56 = getelementptr inbounds i8, ptr %.08, i64 72
   %57 = load ptr, ptr %56, align 8
   %.not13 = icmp eq ptr %57, null
   br i1 %.not13, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %55, %phpdbg_internal_stack_execute.exit, %phpdbg_internal_stack_execute.exit.thread, %11, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %phpdbg_internal_stack_execute.exit.thread ], [ 0, %55 ], [ %.0.i, %phpdbg_internal_stack_execute.exit ]
+.loopexit:                                        ; preds = %55, %phpdbg_internal_stack_execute.argprom.exit, %phpdbg_internal_stack_execute.argprom.exit.thread, %11, %5
+  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %phpdbg_internal_stack_execute.argprom.exit.thread ], [ 0, %55 ], [ %.0.i, %phpdbg_internal_stack_execute.argprom.exit ]
   ret i32 %.0
 }
 

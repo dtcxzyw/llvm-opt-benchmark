@@ -540,10 +540,10 @@ _ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   br label %.lr.ph.i35.i
 
-.lr.ph.i35.i:                                     ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i
-  %140 = phi i32 [ %162, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i ], [ %64, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
-  %141 = phi ptr [ %163, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i ], [ %65, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
-  %.016.i.i = phi i32 [ %.1.i37.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i ], [ %66, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
+.lr.ph.i35.i:                                     ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i
+  %140 = phi i32 [ %162, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i ], [ %64, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
+  %141 = phi ptr [ %163, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i ], [ %65, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
+  %.016.i.i = phi i32 [ %.1.i37.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i ], [ %66, %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i ]
   %142 = sext i32 %.016.i.i to i64
   %143 = getelementptr inbounds i32, ptr %141, i64 %142
   %144 = load i32, ptr %143, align 4
@@ -567,7 +567,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i: ; preds = %146
   %149 = icmp ult i32 %148, 3
   %150 = icmp slt i32 %147, %140
   %or.cond.i.i = select i1 %149, i1 %150, i1 false
-  br i1 %or.cond.i.i, label %151, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i
+  br i1 %or.cond.i.i, label %151, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i
 
 151:                                              ; preds = %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i
   %152 = icmp eq i32 %144, 927
@@ -584,24 +584,24 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i: ; preds = %146
   %157 = add nsw i32 %.016.i.i, 2
   %.pre.i.i = load ptr, ptr %1, align 8
   %.pre33.i.i = load i32, ptr %.pre.i.i, align 4
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i
 
 158:                                              ; preds = %151
   %159 = icmp eq i32 %144, 926
   %160 = select i1 %159, i32 2, i32 1
   %161 = add nsw i32 %160, %147
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i
 
-_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i: ; preds = %158, %.noexc, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i
+_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i: ; preds = %158, %.noexc, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i
   %162 = phi i32 [ %140, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i ], [ %.pre33.i.i, %.noexc ], [ %140, %158 ]
   %163 = phi ptr [ %141, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i ], [ %.pre.i.i, %.noexc ], [ %141, %158 ]
   %.1.i37.i = phi i32 [ %147, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i36.i ], [ %157, %.noexc ], [ %161, %158 ]
   %164 = icmp slt i32 %.1.i37.i, %162
   br i1 %164, label %.lr.ph.i35.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit.i, !llvm.loop !9
 
-_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i, %146, %146, %146, %146, %146, %146, %146, %.lr.ph.i35.i
-  %165 = phi ptr [ %163, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i ], [ %141, %.lr.ph.i35.i ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ]
-  %.0.lcssa.i.i = phi i32 [ %.1.i37.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i.i ], [ %.016.i.i, %.lr.ph.i35.i ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ]
+_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i, %146, %146, %146, %146, %146, %146, %146, %.lr.ph.i35.i
+  %165 = phi ptr [ %163, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i ], [ %141, %.lr.ph.i35.i ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ], [ %141, %146 ]
+  %.0.lcssa.i.i = phi i32 [ %.1.i37.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i.i ], [ %.016.i.i, %.lr.ph.i35.i ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ], [ %.016.i.i, %146 ]
   %166 = icmp sgt i32 %.033.i.i, 0
   br i1 %166, label %.preheader71.i, label %.preheader.i
 
@@ -715,10 +715,10 @@ _ZN5ZXing7Content9push_backEh.exit.i:             ; preds = %_ZNSt6vectorIhSaIhE
   %212 = icmp slt i32 %171, %211
   br i1 %212, label %.lr.ph.i39.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit47.i
 
-.lr.ph.i39.i:                                     ; preds = %209, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i
-  %213 = phi i32 [ %235, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i ], [ %211, %209 ]
-  %214 = phi ptr [ %236, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i ], [ %210, %209 ]
-  %.016.i40.i = phi i32 [ %.1.i44.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i ], [ %171, %209 ]
+.lr.ph.i39.i:                                     ; preds = %209, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i
+  %213 = phi i32 [ %235, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i ], [ %211, %209 ]
+  %214 = phi ptr [ %236, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i ], [ %210, %209 ]
+  %.016.i40.i = phi i32 [ %.1.i44.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i ], [ %171, %209 ]
   %215 = sext i32 %.016.i40.i to i64
   %216 = getelementptr inbounds i32, ptr %214, i64 %215
   %217 = load i32, ptr %216, align 4
@@ -742,7 +742,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i: ; preds = %219
   %222 = icmp ult i32 %221, 3
   %223 = icmp slt i32 %220, %213
   %or.cond.i42.i = select i1 %222, i1 %223, i1 false
-  br i1 %or.cond.i42.i, label %224, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i
+  br i1 %or.cond.i42.i, label %224, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i
 
 224:                                              ; preds = %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i
   %225 = icmp eq i32 %217, 927
@@ -759,24 +759,24 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i: ; preds = %219
   %230 = add nsw i32 %.016.i40.i, 2
   %.pre.i45.i = load ptr, ptr %1, align 8
   %.pre33.i46.i = load i32, ptr %.pre.i45.i, align 4
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i
 
 231:                                              ; preds = %224
   %232 = icmp eq i32 %217, 926
   %233 = select i1 %232, i32 2, i32 1
   %234 = add nsw i32 %233, %220
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i
 
-_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i: ; preds = %231, %.noexc60, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i
+_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i: ; preds = %231, %.noexc60, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i
   %235 = phi i32 [ %213, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i ], [ %.pre33.i46.i, %.noexc60 ], [ %213, %231 ]
   %236 = phi ptr [ %214, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i ], [ %.pre.i45.i, %.noexc60 ], [ %214, %231 ]
   %.1.i44.i = phi i32 [ %220, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i41.i ], [ %230, %.noexc60 ], [ %234, %231 ]
   %237 = icmp slt i32 %.1.i44.i, %235
   br i1 %237, label %.lr.ph.i39.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit47.i, !llvm.loop !9
 
-_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit47.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i, %219, %219, %219, %219, %219, %219, %219, %.lr.ph.i39.i, %209
-  %238 = phi ptr [ %210, %209 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %.lr.ph.i39.i ], [ %236, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i ]
-  %.0.lcssa.i38.i = phi i32 [ %171, %209 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %.lr.ph.i39.i ], [ %.1.i44.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i43.i ]
+_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit47.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i, %219, %219, %219, %219, %219, %219, %219, %.lr.ph.i39.i, %209
+  %238 = phi ptr [ %210, %209 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %219 ], [ %214, %.lr.ph.i39.i ], [ %236, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i ]
+  %.0.lcssa.i38.i = phi i32 [ %171, %209 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %219 ], [ %.016.i40.i, %.lr.ph.i39.i ], [ %.1.i44.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i43.i ]
   %239 = add nuw nsw i32 %.03389.i, 1
   %exitcond111.not.i = icmp eq i32 %239, %.033.i.i
   br i1 %exitcond111.not.i, label %.preheader.i, label %.preheader71.i, !llvm.loop !12
@@ -863,10 +863,10 @@ _ZN5ZXing7Content9push_backEh.exit56.i:           ; preds = %_ZNSt6vectorIhSaIhE
   %272 = icmp slt i32 %241, %271
   br i1 %272, label %.lr.ph.i58.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i
 
-.lr.ph.i58.i:                                     ; preds = %_ZN5ZXing7Content9push_backEh.exit56.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i
-  %273 = phi i32 [ %295, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i ], [ %271, %_ZN5ZXing7Content9push_backEh.exit56.i ]
-  %274 = phi ptr [ %296, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i ], [ %270, %_ZN5ZXing7Content9push_backEh.exit56.i ]
-  %.016.i59.i = phi i32 [ %.1.i63.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i ], [ %241, %_ZN5ZXing7Content9push_backEh.exit56.i ]
+.lr.ph.i58.i:                                     ; preds = %_ZN5ZXing7Content9push_backEh.exit56.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i
+  %273 = phi i32 [ %295, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i ], [ %271, %_ZN5ZXing7Content9push_backEh.exit56.i ]
+  %274 = phi ptr [ %296, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i ], [ %270, %_ZN5ZXing7Content9push_backEh.exit56.i ]
+  %.016.i59.i = phi i32 [ %.1.i63.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i ], [ %241, %_ZN5ZXing7Content9push_backEh.exit56.i ]
   %275 = sext i32 %.016.i59.i to i64
   %276 = getelementptr inbounds i32, ptr %274, i64 %275
   %277 = load i32, ptr %276, align 4
@@ -890,7 +890,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i: ; preds = %279
   %282 = icmp ult i32 %281, 3
   %283 = icmp slt i32 %280, %273
   %or.cond.i61.i = select i1 %282, i1 %283, i1 false
-  br i1 %or.cond.i61.i, label %284, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i
+  br i1 %or.cond.i61.i, label %284, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i
 
 284:                                              ; preds = %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i
   %285 = icmp eq i32 %277, 927
@@ -907,24 +907,24 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i: ; preds = %279
   %290 = add nsw i32 %.016.i59.i, 2
   %.pre.i64.i = load ptr, ptr %1, align 8
   %.pre33.i65.i = load i32, ptr %.pre.i64.i, align 4
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i
 
 291:                                              ; preds = %284
   %292 = icmp eq i32 %277, 926
   %293 = select i1 %292, i32 2, i32 1
   %294 = add nsw i32 %293, %280
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i
 
-_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i: ; preds = %291, %.noexc63, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i
+_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i: ; preds = %291, %.noexc63, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i
   %295 = phi i32 [ %273, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i ], [ %.pre33.i65.i, %.noexc63 ], [ %273, %291 ]
   %296 = phi ptr [ %274, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i ], [ %.pre.i64.i, %.noexc63 ], [ %274, %291 ]
   %.1.i63.i = phi i32 [ %280, %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.i60.i ], [ %290, %.noexc63 ], [ %294, %291 ]
   %297 = icmp slt i32 %.1.i63.i, %295
   br i1 %297, label %.lr.ph.i58.i, label %_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i, !llvm.loop !9
 
-_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i, %279, %279, %279, %279, %279, %279, %279, %.lr.ph.i58.i, %_ZN5ZXing7Content9push_backEh.exit56.i
-  %298 = phi ptr [ %270, %_ZN5ZXing7Content9push_backEh.exit56.i ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %.lr.ph.i58.i ], [ %296, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i ]
-  %.0.lcssa.i57.i = phi i32 [ %241, %_ZN5ZXing7Content9push_backEh.exit56.i ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %.lr.ph.i58.i ], [ %.1.i63.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit.i62.i ]
+_ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i, %279, %279, %279, %279, %279, %279, %279, %.lr.ph.i58.i, %_ZN5ZXing7Content9push_backEh.exit56.i
+  %298 = phi ptr [ %270, %_ZN5ZXing7Content9push_backEh.exit56.i ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %279 ], [ %274, %.lr.ph.i58.i ], [ %296, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i ]
+  %.0.lcssa.i57.i = phi i32 [ %241, %_ZN5ZXing7Content9push_backEh.exit56.i ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %279 ], [ %.016.i59.i, %.lr.ph.i58.i ], [ %.1.i63.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit.i62.i ]
   %299 = add nuw nsw i32 %.091.i, 1
   %exitcond112.not.i = icmp eq i32 %299, %.168.i
   br i1 %exitcond112.not.i, label %_ZN5ZXing6Pdf417L14ByteCompactionEiRKSt6vectorIiSaIiEEiRNS_7ContentE.exit, label %.lr.ph.i, !llvm.loop !13
@@ -2465,8 +2465,8 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit:   ; preds = %27
   %112 = add nsw i32 %111, %100
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i, %104, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i, %142, %116, %109, %99
-  %.070.be.i = phi i32 [ %112, %109 ], [ %100, %99 ], [ %124, %142 ], [ %124, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %117, %116 ], [ %105, %104 ], [ %.0.i87.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i ]
+.backedge.i:                                      ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i, %104, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i, %142, %116, %109, %99
+  %.070.be.i = phi i32 [ %112, %109 ], [ %100, %99 ], [ %124, %142 ], [ %124, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i ], [ %117, %116 ], [ %105, %104 ], [ %.0.i87.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i ]
   %113 = icmp slt i32 %.070.be.i, %.087.lcssa
   br i1 %113, label %93, label %_ZN5ZXing6Pdf417L20DecodeTextCompactionERKSt6vectorIiSaIiEEiRNS_7ContentE.exit.thread, !llvm.loop !19
 
@@ -2479,8 +2479,8 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit:   ; preds = %27
   %118 = icmp slt i32 %117, %.087.lcssa
   br i1 %118, label %.lr.ph.i, label %.backedge.i
 
-.lr.ph.i:                                         ; preds = %116, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i
-  %.171121.i = phi i32 [ %.0.i87.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i ], [ %117, %116 ]
+.lr.ph.i:                                         ; preds = %116, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i
+  %.171121.i = phi i32 [ %.0.i87.i, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i ], [ %117, %116 ]
   %119 = sext i32 %.171121.i to i64
   %120 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %119
   %121 = load i32, ptr %120, align 4
@@ -2491,7 +2491,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit:   ; preds = %27
 
 125:                                              ; preds = %.lr.ph.i
   %126 = icmp slt i32 %124, %.087.lcssa
-  br i1 %126, label %127, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i
+  br i1 %126, label %127, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i
 
 127:                                              ; preds = %125
   %128 = icmp eq i32 %121, 927
@@ -2503,15 +2503,15 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit:   ; preds = %27
   %132 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %131
   %133 = load i32, ptr %132, align 4
   invoke void @_ZN5ZXing7Content14switchEncodingENS_3ECIEb(ptr noundef nonnull align 8 dereferenceable(54) %2, i32 noundef %133, i1 noundef zeroext true)
-          to label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i unwind label %.thread.loopexit
+          to label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i unwind label %.thread.loopexit
 
 134:                                              ; preds = %127
   %135 = icmp eq i32 %121, 926
   %136 = select i1 %135, i32 2, i32 1
   %137 = add nsw i32 %136, %124
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i
 
-_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit88.i: ; preds = %129, %134, %125
+_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit88.i: ; preds = %129, %134, %125
   %.0.i87.i = phi i32 [ %137, %134 ], [ %124, %125 ], [ %130, %129 ]
   %138 = icmp slt i32 %.0.i87.i, %.087.lcssa
   br i1 %138, label %.lr.ph.i, label %.backedge.i, !llvm.loop !20
@@ -2836,11 +2836,11 @@ define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXin
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
-  %11 = phi i32 [ %7, %.lr.ph ], [ %63, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %12 = phi ptr [ %6, %.lr.ph ], [ %62, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %.02945 = phi i32 [ %1, %.lr.ph ], [ %.3, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %.03044 = phi i32 [ 0, %.lr.ph ], [ %.23238, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
+10:                                               ; preds = %.lr.ph, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
+  %11 = phi i32 [ %7, %.lr.ph ], [ %63, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit ]
+  %12 = phi ptr [ %6, %.lr.ph ], [ %62, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit ]
+  %.02945 = phi i32 [ %1, %.lr.ph ], [ %.3, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit ]
+  %.03044 = phi i32 [ 0, %.lr.ph ], [ %.23238, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit ]
   %13 = sext i32 %.02945 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4
@@ -2859,7 +2859,7 @@ define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXin
   %22 = icmp eq i32 %.2, %11
   %23 = icmp sgt i32 %15, 899
   %or.cond = or i1 %23, %22
-  br i1 %or.cond, label %.split, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
+  br i1 %or.cond, label %.split, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
 
 .split:                                           ; preds = %21, %19
   %.131.sink = phi i32 [ 15, %19 ], [ %.131, %21 ]
@@ -2887,7 +2887,7 @@ _ZN5ZXing7ContentpLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit:
 34:                                               ; preds = %_ZN5ZXing7ContentpLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %10
   %.232 = phi i32 [ 0, %_ZN5ZXing7ContentpLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.131, %10 ]
   %35 = icmp sgt i32 %15, 899
-  br i1 %35, label %36, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
+  br i1 %35, label %36, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %15, -925
@@ -2899,7 +2899,7 @@ _ZN5ZXing7ContentpLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit:
   %41 = load ptr, ptr %0, align 8
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %40, %42
-  br i1 %43, label %44, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
+  br i1 %43, label %44, label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
 
 44:                                               ; preds = %39
   %45 = icmp eq i32 %15, 927
@@ -2911,13 +2911,13 @@ _ZN5ZXing7ContentpLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit:
   %49 = getelementptr inbounds i32, ptr %41, i64 %48
   %50 = load i32, ptr %49, align 4
   call void @_ZN5ZXing7Content14switchEncodingENS_3ECIEb(ptr noundef nonnull align 8 dereferenceable(54) %2, i32 noundef %50, i1 noundef zeroext true)
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
 
 51:                                               ; preds = %44
   %52 = icmp eq i32 %15, 926
   %53 = select i1 %52, i32 2, i32 1
   %54 = add nsw i32 %53, %40
-  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
+  br label %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit
 
 55:                                               ; preds = %36
   switch i32 %15, label %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit [
@@ -2948,7 +2948,7 @@ _ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit:   ; preds = %55
           cleanup
   br label %65
 
-_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit: ; preds = %21, %51, %46, %39, %34
+_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit: ; preds = %21, %51, %46, %39, %34
   %.23238 = phi i32 [ %.232, %34 ], [ %.232, %39 ], [ %.232, %46 ], [ %.232, %51 ], [ %.131, %21 ]
   %.3 = phi i32 [ %.2, %34 ], [ %40, %39 ], [ %47, %46 ], [ %54, %51 ], [ %.2, %21 ]
   %62 = load ptr, ptr %0, align 8
@@ -2956,8 +2956,8 @@ _ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit: ; preds 
   %64 = icmp slt i32 %.3, %63
   br i1 %64, label %10, label %_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread, !llvm.loop !21
 
-_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit, %3, %55, %55, %55, %55, %55, %55, %55
-  %.1 = phi i32 [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %1, %3 ], [ %.3, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
+_ZN5ZXing6Pdf417L20TerminatesCompactionEi.exit.thread: ; preds = %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit, %3, %55, %55, %55, %55, %55, %55, %55
+  %.1 = phi i32 [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %.2, %55 ], [ %1, %3 ], [ %.3, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.argprom.exit ]
   ret i32 %.1
 
 65:                                               ; preds = %60, %32
@@ -3312,7 +3312,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKS
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %12
-  invoke fastcc void @"_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiENK3$_0clEv"()
+  invoke fastcc void @"_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiENK3$_0clEv.argprom"()
           to label %15 unwind label %61
 
 15:                                               ; preds = %14
@@ -3546,7 +3546,7 @@ _ZN5ZXing10BigIntegerD2Ev.exit31:                 ; preds = %90, %_ZN5ZXing10Big
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiENK3$_0clEv"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiENK3$_0clEv.argprom"() unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.ZXing::BigInteger", align 8
   %2 = alloca %"class.ZXing::BigInteger", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i8 0, i64 512, i1 false)

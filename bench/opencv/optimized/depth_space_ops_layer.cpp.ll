@@ -2274,7 +2274,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn13DepthSpaceOps10cpuComputeERKNS_3Mat
   %.idx = shl nsw i64 %13, 2
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, label %15
+  br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit, label %15
 
 15:                                               ; preds = %3
   %16 = icmp slt i32 %.val, 0
@@ -2292,17 +2292,17 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 %.idx
   store ptr %19, ptr %18, align 8
   store ptr %19, ptr %14, align 8
-  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+  br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
 
 common.resume:                                    ; preds = %42, %40
   resume { ptr, i32 } %.pn11.pn
 
-_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %3, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
+_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit: ; preds = %3, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
   invoke void @_ZNK2cv3Mat7reshapeEiRKSt6vectorIiSaIiEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %20 unwind label %34
 
-20:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+20:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 20
@@ -2347,7 +2347,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %3, %_ZNSt12_Vector
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %31, %33
   ret void
 
-34:                                               ; preds = %27, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
+34:                                               ; preds = %27, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom.exit
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %40
@@ -3754,8 +3754,8 @@ attributes #23 = { nounwind willreturn memory(read) }
 !18 = !{!19, !21}
 !19 = distinct !{!19, !20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii: argument 0"}
 !20 = distinct !{!20, !"_ZN2cv3dnn14dnn4_v20240521L5shapeEPKii"}
-!21 = distinct !{!21, !22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE: argument 0"}
-!22 = distinct !{!22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE"}
+!21 = distinct !{!21, !22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom: argument 0"}
+!22 = distinct !{!22, !"_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.argprom"}
 !23 = distinct !{!23, !15}
 !24 = distinct !{!24, !15}
 !25 = distinct !{!25, !15}

@@ -297,7 +297,7 @@ switch.lookup:                                    ; preds = %3
   %75 = zext nneg i16 %74 to i32
   %76 = mul i32 %.043.lcssa.i, %75
   %77 = icmp sgt i32 %76, 7
-  br i1 %77, label %.lr.ph20.preheader.i, label %parse_plain_data.exit
+  br i1 %77, label %.lr.ph20.preheader.i, label %parse_plain_data.argprom.exit
 
 .lr.ph20.preheader.i:                             ; preds = %.critedge.i
   %78 = zext nneg i32 %76 to i64
@@ -312,9 +312,9 @@ switch.lookup:                                    ; preds = %3
   store i8 %80, ptr %.2, align 1
   %81 = getelementptr i8, ptr %.2, i64 1
   %82 = icmp ugt i64 %indvars.iv23.i, 15
-  br i1 %82, label %.lr.ph20.i, label %parse_plain_data.exit, !llvm.loop !7
+  br i1 %82, label %.lr.ph20.i, label %parse_plain_data.argprom.exit, !llvm.loop !7
 
-parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.critedge.i
+parse_plain_data.argprom.exit:                    ; preds = %.lr.ph20.i, %.critedge.i
   %.6 = phi ptr [ %.1, %.critedge.i ], [ %81, %.lr.ph20.i ]
   %83 = load ptr, ptr @packet_buf, align 8
   %84 = ptrtoint ptr %.6 to i64
@@ -328,7 +328,7 @@ parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.crite
   %91 = icmp eq i32 %90, %87
   br i1 %91, label %92, label %.loopexit
 
-92:                                               ; preds = %parse_plain_data.exit
+92:                                               ; preds = %parse_plain_data.argprom.exit
   %93 = tail call fastcc i32 @write_current_packet(i32 noundef 1)
   %94 = load ptr, ptr @packet_buf, align 8
   %95 = load i32, ptr @curr_offset, align 4
@@ -340,7 +340,7 @@ parse_plain_data.exit:                            ; preds = %.lr.ph20.i, %.crite
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.1, i64 noundef 1007, ptr noundef nonnull @__func__.parse_data, ptr noundef nonnull @.str.2) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %parse_plain_data.exit, %98
+.loopexit:                                        ; preds = %parse_plain_data.argprom.exit, %98
   ret void
 }
 
@@ -1080,7 +1080,7 @@ define hidden void @parse_dir(ptr nocapture noundef readonly %0, ptr nocapture n
   %18 = load i32, ptr @direction, align 4
   %19 = and i32 %18, -4
   %20 = or disjoint i32 %19, 1
-  br label %_parse_dir.exit
+  br label %_parse_dir.argprom.exit
 
 .critedge.i:                                      ; preds = %23
   %21 = getelementptr i8, ptr %.0184.i, i64 1
@@ -1099,14 +1099,14 @@ define hidden void @parse_dir(ptr nocapture noundef readonly %0, ptr nocapture n
   %26 = load i32, ptr @direction, align 4
   %27 = and i32 %26, -4
   %28 = or disjoint i32 %27, 2
-  br label %_parse_dir.exit
+  br label %_parse_dir.argprom.exit
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
   %29 = load i32, ptr @direction, align 4
   %30 = and i32 %29, -4
-  br label %_parse_dir.exit
+  br label %_parse_dir.argprom.exit
 
-_parse_dir.exit:                                  ; preds = %17, %.critedge2.i, %.critedge._crit_edge.i
+_parse_dir.argprom.exit:                          ; preds = %17, %.critedge2.i, %.critedge._crit_edge.i
   %.sink.i = phi i32 [ %30, %.critedge._crit_edge.i ], [ %28, %.critedge2.i ], [ %20, %17 ]
   store i32 %.sink.i, ptr @direction, align 4
   ret void
@@ -1118,7 +1118,7 @@ define hidden void @parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %6 = tail call fastcc i32 @_parse_time.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %10
 
@@ -1133,7 +1133,7 @@ define hidden void @parse_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_parse_time(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_time.argprom(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
@@ -1318,7 +1318,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
   ]
 
 15:                                               ; preds = %14
-  tail call fastcc void @append_to_preamble(ptr noundef %1)
+  tail call fastcc void @append_to_preamble.retelim(ptr noundef %1)
   br label %196
 
 16:                                               ; preds = %14
@@ -1335,7 +1335,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  tail call fastcc void @append_to_preamble(ptr noundef %1)
+  tail call fastcc void @append_to_preamble.retelim(ptr noundef %1)
   %24 = tail call ptr @g_strsplit_set(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef 2) #15
   %.b55 = load i1, ptr @offset_warned, align 4
   br i1 %.b55, label %27, label %25
@@ -1409,7 +1409,7 @@ define hidden range(i32 0, 2) i32 @parse_token(i32 noundef %0, ptr noundef %1) l
   ]
 
 50:                                               ; preds = %49
-  tail call fastcc void @append_to_preamble(ptr noundef %1)
+  tail call fastcc void @append_to_preamble.retelim(ptr noundef %1)
   br label %196
 
 51:                                               ; preds = %49
@@ -1769,7 +1769,7 @@ declare i32 @ws_log_get_level() local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_to_preamble(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @append_to_preamble.retelim(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
   %3 = load i32, ptr @packet_preamble_len, align 4
   switch i32 %3, label %4 [
@@ -1936,7 +1936,7 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef range(i
   %22 = load i32, ptr @direction, align 4
   %23 = and i32 %22, -4
   %24 = or disjoint i32 %23, 1
-  br label %_parse_dir.exit.i
+  br label %_parse_dir.argprom.exit.i
 
 .critedge.i.i:                                    ; preds = %.critedge.preheader.i.i
   %25 = getelementptr i8, ptr %.0184.i.i, i64 1
@@ -1955,22 +1955,22 @@ define internal fastcc range(i32 0, 2) i32 @start_new_packet(i32 noundef range(i
   %29 = load i32, ptr @direction, align 4
   %30 = and i32 %29, -4
   %31 = or disjoint i32 %30, 2
-  br label %_parse_dir.exit.i
+  br label %_parse_dir.argprom.exit.i
 
 .critedge._crit_edge.i.i:                         ; preds = %.critedge.i.i
   %32 = load i32, ptr @direction, align 4
   %33 = and i32 %32, -4
-  br label %_parse_dir.exit.i
+  br label %_parse_dir.argprom.exit.i
 
-_parse_dir.exit.i:                                ; preds = %.critedge._crit_edge.i.i, %.critedge2.i.i, %21
+_parse_dir.argprom.exit.i:                        ; preds = %.critedge._crit_edge.i.i, %.critedge2.i.i, %21
   %.sink.i.i = phi i32 [ %33, %.critedge._crit_edge.i.i ], [ %31, %.critedge2.i.i ], [ %24, %21 ]
   store i32 %.sink.i.i, ptr @direction, align 4
   %34 = icmp ne i32 %.sink.i.i, 0
   %35 = zext i1 %34 to i32
   br label %36
 
-36:                                               ; preds = %.critedge.i, %_parse_dir.exit.i
-  %.0.i = phi i32 [ %35, %_parse_dir.exit.i ], [ %40, %.critedge.i ]
+36:                                               ; preds = %.critedge.i, %_parse_dir.argprom.exit.i
+  %.0.i = phi i32 [ %35, %_parse_dir.argprom.exit.i ], [ %40, %.critedge.i ]
   %37 = sext i32 %.0.i to i64
   %38 = getelementptr [2049 x i8], ptr @packet_preamble, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -2006,7 +2006,7 @@ _parse_dir.exit.i:                                ; preds = %.critedge._crit_edg
 
 52:                                               ; preds = %49
   %53 = getelementptr i8, ptr @packet_preamble, i64 %50
-  %54 = tail call fastcc i32 @_parse_time(ptr noundef nonnull @packet_preamble, ptr noundef %53, ptr noundef %48)
+  %54 = tail call fastcc i32 @_parse_time.argprom(ptr noundef nonnull @packet_preamble, ptr noundef %53, ptr noundef %48)
   %.not15.i = icmp eq i32 %54, 0
   br i1 %.not15.i, label %55, label %68
 

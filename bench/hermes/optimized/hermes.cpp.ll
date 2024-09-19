@@ -1348,7 +1348,7 @@ invoke.cont10.i.i:                                ; preds = %invoke.cont7.i.i
 
 invoke.cont13.i.i:                                ; preds = %invoke.cont10.i.i
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i)
-          to label %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.exit.i" unwind label %lpad.i.i
+          to label %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom.exit.i" unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont13.i.i, %invoke.cont10.i.i, %invoke.cont7.i.i, %invoke.cont4.i.i, %invoke.cont.i.i, %.noexc
   %5 = landingpad { ptr, i32 }
@@ -1356,7 +1356,7 @@ lpad.i.i:                                         ; preds = %invoke.cont13.i.i, 
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i) #39
   br label %lpad.body
 
-"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.exit.i": ; preds = %invoke.cont13.i.i
+"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom.exit.i": ; preds = %invoke.cont13.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i) #39
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i)
   %6 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -1364,14 +1364,14 @@ lpad.i.i:                                         ; preds = %invoke.cont13.i.i, 
   %cmp.not.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.exit.i"
+if.then.i.i.i.i:                                  ; preds = %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #39
   %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %invoke.cont5.i
 
-if.else.i.i.i.i:                                  ; preds = %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.exit.i"
+if.else.i.i.i.i:                                  ; preds = %"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom.exit.i"
   %9 = load ptr, ptr %res, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
@@ -2230,7 +2230,7 @@ delete.notnull.i:                                 ; preds = %entry
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -2266,7 +2266,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i32 [ %3, %if.then.i.i.i.i.i.i.i ], [ %6, %if.else.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit
+  br i1 %cmp6.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
@@ -2291,21 +2291,21 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i = phi i32 [ %9, %if.then.i.i.i.i.i.i.i.i.i ], [ %10, %if.else.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
   %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #39
-  br label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit
+  br label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit
 
-_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit: ; preds = %delete.notnull.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
+_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit: ; preds = %delete.notnull.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
   tail call void @_ZN6hermes6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #39
   tail call void @_ZdlPv(ptr noundef nonnull %0) #43
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -3787,14 +3787,14 @@ invoke.cont.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i5.i.i.i.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i.i.i) #39, !noalias !35
   %43 = load ptr, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !35
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
-  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit, label %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.argprom.exit, label %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont.i.i.i.i.i.i.i
   call void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %43) #39, !noalias !35
   call void @_ZdlPv(ptr noundef nonnull %43) #43, !noalias !35
-  br label %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit
+  br label %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.argprom.exit
 
-_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit: ; preds = %invoke.cont.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.argprom.exit: ; preds = %invoke.cont.i.i.i.i.i.i.i, %_ZNKSt14default_deleteIN6hermes3hbc20BCProviderFromBufferEEclEPS2_.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !35
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
@@ -3803,11 +3803,11 @@ _ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2
   %cmp.not.i47 = icmp eq ptr %23, null
   br i1 %cmp.not.i47, label %_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
 
-delete.notnull.i.i:                               ; preds = %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit
+delete.notnull.i.i:                               ; preds = %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.argprom.exit
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 32
   %44 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i, label %if.then.i.i.i.i.i.i48
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i, label %if.then.i.i.i.i.i.i48
 
 if.then.i.i.i.i.i.i48:                            ; preds = %delete.notnull.i.i
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
@@ -3843,7 +3843,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %46, %if.then.i.i.i.i.i.i.i.i ], [ %49, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %44, align 8
@@ -3868,21 +3868,21 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %52, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %53, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i49
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %44, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %54 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %44) #39
-  br label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i
+  br label %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i
 
-_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
+_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %delete.notnull.i.i
   call void @_ZN6hermes6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #39
   call void @_ZdlPv(ptr noundef nonnull %23) #43
   br label %_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev.exit
 
-_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.exit, %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.exit.i
+_ZNSt10unique_ptrIN8facebook6hermes12_GLOBAL__N_113BufferAdapterESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEED2Ev.argprom.exit, %_ZNKSt14default_deleteIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEEclEPS3_.argprom.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i) #39
   %55 = load ptr, ptr %bcErr, align 8
   %cmp.not.i.i51 = icmp eq ptr %55, null
@@ -10061,11 +10061,11 @@ invoke.cont34:                                    ; preds = %invoke.cont18.threa
   br i1 %34, label %invoke.cont42, label %if.end53
 
 invoke.cont42:                                    ; preds = %invoke.cont34
-  invoke fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr nonnull %this, ptr nonnull %retval.sroa.0.0.i24, i32 138, ptr noundef nonnull align 8 dereferenceable(32) %msg)
+  invoke fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr nonnull %this, ptr nonnull %retval.sroa.0.0.i24, i32 138, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %invoke.cont48 unwind label %lpad17
 
 invoke.cont48:                                    ; preds = %invoke.cont42
-  invoke fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr nonnull %this, ptr nonnull %retval.sroa.0.0.i24, i32 140, ptr noundef nonnull align 8 dereferenceable(32) %stack)
+  invoke fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr nonnull %this, ptr nonnull %retval.sroa.0.0.i24, i32 140, ptr noundef nonnull align 8 dereferenceable(32) %stack)
           to label %if.end53 unwind label %lpad17
 
 if.end53:                                         ; preds = %invoke.cont48, %invoke.cont34, %invoke.cont32
@@ -10141,7 +10141,7 @@ declare { i32, i64 } @_ZN6hermes2vm15StringPrimitive15createEfficientERNS0_7Runt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr %this.0.val, ptr %this.8.val, i32 %sym.coerce, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook6hermes17HermesRuntimeImpl17throwPendingErrorEvENK3$_0clEN6hermes2vm8SymbolIDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.argprom"(ptr %this.0.val, ptr %this.8.val, i32 %sym.coerce, ptr noundef nonnull align 8 dereferenceable(32) %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.facebook::jsi::Value", align 8
   %agg.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10571,16 +10571,16 @@ define internal fastcc void @_ZNSt10unique_ptrIN8facebook3jsi6detail21ThreadSafe
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
-  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.exit
+  br i1 %cmp.not, label %if.end, label %_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.argprom.exit
 
-_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.exit: ; preds = %entry
+_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.argprom.exit: ; preds = %entry
   %unsafe_.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN8facebook6hermes17HermesRuntimeImplD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %unsafe_.i.i) #39
   tail call void @_ZN8facebook3jsi7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #39
   tail call void @_ZdlPv(ptr noundef nonnull %0) #43
   br label %if.end
 
-if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.exit, %entry
+if.end:                                           ; preds = %_ZNKSt14default_deleteIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEEclEPS8_.argprom.exit, %entry
   store ptr null, ptr %this, align 8
   ret void
 }
@@ -13539,7 +13539,7 @@ entry:
   %1 = getelementptr i8, ptr %ns, i64 8
   %ns.val = load ptr, ptr %1, align 8
   %isnull.i = icmp eq ptr %ns.val, null
-  br i1 %isnull.i, label %"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.exit", label %delete.notnull.i
+  br i1 %isnull.i, label %"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.argprom.exit", label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ns.val, i64 8
@@ -13617,9 +13617,9 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef nonnull %ns.val) #43
-  br label %"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.exit"
+  br label %"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.argprom.exit"
 
-"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.exit": ; preds = %entry, %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit.i
+"_ZZN8facebook6hermes17HermesRuntimeImpl17createArrayBufferESt10shared_ptrINS_3jsi13MutableBufferEEENK3$_0clERN6hermes2vm7HadesGCEPNS8_11NativeStateE.argprom.exit": ; preds = %entry, %_ZNSt10shared_ptrIN8facebook3jsi13MutableBufferEED2Ev.exit.i
   ret void
 }
 
@@ -16459,7 +16459,7 @@ entry:
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.argprom.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
   %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -16495,7 +16495,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %2, %if.then.i.i.i.i.i.i.i.i ], [ %5, %if.else.i.i.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.exit
+  br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.argprom.exit
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
@@ -16520,16 +16520,16 @@ if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then7.i.i.i.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i32 [ %8, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %9, %if.else.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.exit
+  br label %_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.argprom.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptEEEvRS0_PT_.argprom.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN8facebook3jsi18PreparedJavaScriptD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i) #39
   ret void
@@ -16537,7 +16537,7 @@ _ZNSt16allocator_traitsISaIvEE7destroyIKN8facebook6hermes12_GLOBAL__N_124HermesP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.argprom.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #43
   ret void
 }
@@ -24498,8 +24498,8 @@ attributes #45 = { nounwind allocsize(0) }
 !5 = distinct !{!5, !6, !"_ZNKSt10error_code7messageB5cxx11Ev: %agg.result"}
 !6 = distinct !{!6, !"_ZNKSt10error_code7messageB5cxx11Ev"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE: %agg.result"}
-!9 = distinct !{!9, !"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE"}
+!8 = distinct !{!8, !9, !"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom: %agg.result"}
+!9 = distinct !{!9, !"_ZZN8facebook6hermes13HermesRuntime20getExecutedFunctionsB5cxx11EvENK3$_0clB5cxx11ERKN6hermes2vm20CodeCoverageProfiler8FuncInfoE.argprom"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
@@ -24516,11 +24516,11 @@ attributes #45 = { nounwind allocsize(0) }
 !23 = distinct !{!23, !24, !"_ZN8facebook3jsi5Value4nullEv: %agg.result"}
 !24 = distinct !{!24, !"_ZN8facebook3jsi5Value4nullEv"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScript16bytecodeProviderEv: %agg.result"}
-!27 = distinct !{!27, !"_ZNK8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScript16bytecodeProviderEv"}
+!26 = distinct !{!26, !27, !"_ZNK8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScript16bytecodeProviderEv.argprom: %agg.result"}
+!27 = distinct !{!27, !"_ZNK8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScript16bytecodeProviderEv.argprom"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEJRKSt10shared_ptrIKNS0_3jsi6BufferEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!30 = distinct !{!30, !"_ZSt11make_uniqueIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEJRKSt10shared_ptrIKNS0_3jsi6BufferEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!29 = distinct !{!29, !30, !"_ZSt11make_uniqueIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEJRKSt10shared_ptrIKNS0_3jsi6BufferEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!30 = distinct !{!30, !"_ZSt11make_uniqueIN8facebook6hermes12_GLOBAL__N_113BufferAdapterEJRKSt10shared_ptrIKNS0_3jsi6BufferEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN4llvh20format_hex_no_prefixEmjb: %agg.result"}
 !33 = distinct !{!33, !"_ZN4llvh20format_hex_no_prefixEmjb"}

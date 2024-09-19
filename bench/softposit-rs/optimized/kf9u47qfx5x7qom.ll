@@ -492,12 +492,12 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire32..Q32E2$u20$as$u20$core.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %6 = tail call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0)
   switch i32 %6, label %8 [
-    i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+    i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
     i32 -2147483648, label %7
   ]
 
 7:                                                ; preds = %2
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
 8:                                                ; preds = %2
   %9 = and i32 %6, -2147483648
@@ -556,9 +556,9 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %35 = add i64 %34, %30
   %36 = or disjoint i64 %35, %25
   %37 = bitcast i64 %36 to double
-  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
+  br label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit
 
-_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i
+_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom.exit: ; preds = %2, %7, %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i
   %.0.i = phi double [ %37, %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.17289136429668401858.exit.i ], [ 0x7FF8000000000000, %7 ], [ 0.000000e+00, %2 ]
   store double %.0.i, ptr %4, align 8
   store ptr %4, ptr %5, align 8
@@ -637,5 +637,5 @@ attributes #8 = { noreturn }
 !9 = distinct !{!9, !10, !"_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E: argument 0"}
 !10 = distinct !{!10, !"_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E"}
 !11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!13 = distinct !{!13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!12 = distinct !{!12, !13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom: argument 0"}
+!13 = distinct !{!13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.argprom"}

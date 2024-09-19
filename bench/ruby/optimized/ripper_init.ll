@@ -81,15 +81,15 @@ define void @ripper_compile_error(ptr noundef %0, ptr noundef %1, ...) local_unn
   %5 = call i64 @ripper_value(ptr noundef %0) #4
   %.pr.i = load i64, ptr @ripper_compile_error.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %6 = call i64 @rb_intern2(ptr noundef nonnull @.str, i64 noundef 13) #4
   store i64 %6, ptr @ripper_compile_error.rbimpl_id, align 8
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit, !llvm.loop !6
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %2
+rbimpl_intern_const.argprom.exit:                 ; preds = %.lr.ph.i, %2
   %.lcssa.i = phi i64 [ %.pr.i, %2 ], [ %6, %.lr.ph.i ]
   %7 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %5, i64 noundef %.lcssa.i, i32 noundef 1, i64 noundef %4) #4
   call void @ripper_error(ptr noundef %0) #4

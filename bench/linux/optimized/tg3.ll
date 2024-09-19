@@ -822,7 +822,7 @@ define internal i32 @tg3_init_one(ptr noundef %0, ptr nocapture noundef readonly
   %282 = select i1 %278, ptr %281, ptr @.str.12
   %283 = getelementptr i8, ptr %15, i64 7208
   %.val = load i32, ptr %283, align 8
-  %284 = call fastcc ptr @tg3_phy_string(i32 %.val)
+  %284 = call fastcc ptr @tg3_phy_string.argprom(i32 %.val)
   %285 = lshr i32 %273, 10
   %286 = and i32 %285, 1
   %287 = xor i32 %286, 1
@@ -6558,7 +6558,7 @@ define internal fastcc range(i32 -22, 1) i32 @tg3_get_device_address(ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @tg3_full_lock(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @tg3_full_lock.argelim(ptr noundef %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @_raw_spin_lock_bh(ptr noundef %2) #27
   %3 = load i32, ptr %0, align 64
@@ -7285,7 +7285,7 @@ define internal fastcc noundef ptr @tg3_bus_string(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef nonnull ptr @tg3_phy_string(i32 %.4904.val) unnamed_addr #9 align 16 {
+define internal fastcc noundef nonnull ptr @tg3_phy_string.argprom(i32 %.4904.val) unnamed_addr #9 align 16 {
   %1 = and i32 %.4904.val, -16
   switch i32 %1, label %26 [
     i32 1610645568, label %27
@@ -7547,7 +7547,7 @@ define internal void @tg3_write_flush_reg32(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tg3_init_hw(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @tg3_init_hw.argelim(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4832
@@ -11660,19 +11660,19 @@ define internal fastcc void @tg3_abort_hw(ptr noundef %0, i1 noundef zeroext %1)
 
 71:                                               ; preds = %64, %62
   tail call void @__const_udelay(i64 noundef 42950) #27
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 11264, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 8192, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 13312, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 9216, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 10240, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 12288, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 5120, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 6144, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 3072, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 18432, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 4096, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 25600, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 7168, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 11264, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 8192, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 13312, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 9216, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 10240, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 12288, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 5120, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 6144, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 3072, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 18432, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 4096, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 25600, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 7168, i1 noundef zeroext %1)
   %72 = getelementptr inbounds i8, ptr %0, i64 4824
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, -2097153
@@ -11766,15 +11766,15 @@ define internal fastcc void @tg3_abort_hw(ptr noundef %0, i1 noundef zeroext %1)
   br label %128
 
 128:                                              ; preds = %.thread, %122
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 15360, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 19456, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 14336, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 15360, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 19456, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 14336, i1 noundef zeroext %1)
   %129 = load ptr, ptr %3, align 8
   tail call void %129(ptr noundef %0, i32 noundef 23552, i32 noundef -1) #27
   %130 = load ptr, ptr %3, align 8
   tail call void %130(ptr noundef %0, i32 noundef 23552, i32 noundef 0) #27
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 17408, i1 noundef zeroext %1)
-  tail call fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef 16384, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 17408, i1 noundef zeroext %1)
+  tail call fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef 16384, i1 noundef zeroext %1)
   br label %131
 
 131:                                              ; preds = %128, %49
@@ -13284,7 +13284,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   br label %714
 
 714:                                              ; preds = %712, %707
-  tail call fastcc void @tg3_phy_toggle_auxctl_smdsp(ptr noundef %0)
+  tail call fastcc void @tg3_phy_toggle_auxctl_smdsp.argelim(ptr noundef %0)
   br label %716
 
 715:                                              ; preds = %686, %681
@@ -18584,7 +18584,7 @@ define internal fastcc void @__tg3_set_rx_mode(ptr noundef %0) unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @tw32_mailbox_flush(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @tw32_mailbox_flush.argelim(ptr noundef %0) unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void %3(ptr noundef %0, i32 noundef 516, i32 noundef 0) #27
@@ -18708,7 +18708,7 @@ define internal fastcc void @tg3_generate_fw_event(ptr noundef %0) unnamed_addr 
 declare dso_local i32 @jiffies_to_usecs(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_stop_block(ptr noundef %0, i64 noundef range(i64 3072, 25601) %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_stop_block.argelim(ptr noundef %0, i64 noundef range(i64 3072, 25601) %1, i1 noundef zeroext %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4680
   %5 = getelementptr i8, ptr %0, i64 4688
   %6 = load volatile i64, ptr %5, align 8
@@ -19046,7 +19046,7 @@ tg3_ump_link_report.exit:                         ; preds = %168, %53, %47, %15
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_phydsp_write(ptr noundef %0, i32 noundef range(i32 511, 0) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_phydsp_write.argelim(ptr noundef %0, i32 noundef range(i32 511, 0) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4900
   %4 = load i8, ptr %3, align 4
   %5 = zext i8 %4 to i32
@@ -19157,7 +19157,7 @@ define internal fastcc void @tg3_phy_toggle_apd(ptr noundef %0, i1 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_phy_toggle_auxctl_smdsp(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_phy_toggle_auxctl_smdsp.argelim(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 4900
@@ -21255,7 +21255,7 @@ define internal fastcc void @tg3_phy_autoneg_cfg(ptr noundef %0, i32 noundef %1,
 129:                                              ; preds = %124
   %130 = load i32, ptr %6, align 4
   %131 = or i32 %130, 511
-  tail call fastcc void @tg3_phydsp_write(ptr noundef %0, i32 noundef %131)
+  tail call fastcc void @tg3_phydsp_write.argelim(ptr noundef %0, i32 noundef %131)
   br label %132
 
 132:                                              ; preds = %129, %124, %119, %103
@@ -30844,7 +30844,7 @@ select.unfold..thread_crit_edge:                  ; preds = %select.unfold
   br label %88
 
 87:                                               ; preds = %73, %select.unfold
-  tail call fastcc void @tw32_mailbox_flush(ptr noundef %4)
+  tail call fastcc void @tw32_mailbox_flush.argelim(ptr noundef %4)
   br label %88
 
 88:                                               ; preds = %87, %86, %.thread, %41, %15, %10
@@ -33684,9 +33684,9 @@ tg3_request_irq.exit:                             ; preds = %460, %465
   br i1 %538, label %539, label %.thread35
 
 539:                                              ; preds = %527
-  call fastcc void @tg3_full_lock(ptr noundef %0)
+  call fastcc void @tg3_full_lock.argelim(ptr noundef %0)
   call fastcc void @tg3_halt(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true)
-  %540 = call fastcc i32 @tg3_init_hw(ptr noundef %0)
+  %540 = call fastcc i32 @tg3_init_hw.argelim(ptr noundef %0)
   call void @_raw_spin_unlock_bh(ptr noundef %488) #27
   %541 = icmp eq i32 %540, 0
   br i1 %541, label %.thread33, label %542

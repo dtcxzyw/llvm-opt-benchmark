@@ -942,12 +942,12 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @read_local_xlog_page(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i1 noundef zeroext true)
+  %6 = tail call fastcc i32 @read_local_xlog_page_guts.argelim(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i1 noundef zeroext true)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @read_local_xlog_page_guts.argelim(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.WALReadError, align 8
   %7 = alloca i32, align 4
   %8 = sext i32 %2 to i64
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @read_local_xlog_page_no_wait(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call fastcc i32 @read_local_xlog_page_guts(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i1 noundef zeroext false)
+  %6 = tail call fastcc i32 @read_local_xlog_page_guts.argelim(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i1 noundef zeroext false)
   ret i32 %6
 }
 

@@ -924,13 +924,13 @@ getEncodingIndex.exit.thread:                     ; preds = %15, %getEncodingInd
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @initScanProlog(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
-  %5 = tail call fastcc i32 @initScan(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %5 = tail call fastcc i32 @initScan.argprom(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @initScanContent(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
-  %5 = tail call fastcc i32 @initScan(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %5 = tail call fastcc i32 @initScan.argprom(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
@@ -1125,7 +1125,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
 
 56:                                               ; preds = %54
   %.not77.i = icmp eq i32 %0, 0
-  br i1 %.not77.i, label %doParseXmlDecl.exit, label %57
+  br i1 %.not77.i, label %doParseXmlDecl.argprom.exit, label %57
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %20, align 8
@@ -1289,7 +1289,7 @@ findEncoding.exit.i:                              ; preds = %110, %getEncodingIn
 118:                                              ; preds = %114
   %119 = load ptr, ptr %22, align 8
   %.not82.i = icmp eq ptr %119, null
-  br i1 %.not82.i, label %doParseXmlDecl.exit, label %._crit_edge9.i
+  br i1 %.not82.i, label %doParseXmlDecl.argprom.exit, label %._crit_edge9.i
 
 ._crit_edge9.i:                                   ; preds = %118
   %.pre10.i = load ptr, ptr %23, align 8
@@ -1377,14 +1377,14 @@ isSpace.exit.i:                                   ; preds = %148, %148, %148, %1
 
 159:                                              ; preds = %148
   %.not88.i = icmp eq ptr %149, %32
-  br i1 %.not88.i, label %doParseXmlDecl.exit, label %.sink.split12.i
+  br i1 %.not88.i, label %doParseXmlDecl.argprom.exit, label %.sink.split12.i
 
 .sink.split12.i:                                  ; preds = %159, %137, %120, %116, %64, %57, %52, %44, %37
   %.lcssa.sink.i = phi ptr [ %117, %116 ], [ %58, %57 ], [ %53, %52 ], [ %38, %37 ], [ %35, %44 ], [ %65, %64 ], [ %122, %120 ], [ %129, %137 ], [ %149, %159 ]
   store ptr %.lcssa.sink.i, ptr %4, align 8
-  br label %doParseXmlDecl.exit
+  br label %doParseXmlDecl.argprom.exit
 
-doParseXmlDecl.exit:                              ; preds = %56, %118, %159, %.sink.split12.i
+doParseXmlDecl.argprom.exit:                      ; preds = %56, %118, %159, %.sink.split12.i
   %.0.i = phi i32 [ 1, %56 ], [ 1, %118 ], [ 1, %159 ], [ 0, %.sink.split12.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
@@ -4864,18 +4864,18 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %111 [
     i8 108, label %109
-    i8 76, label %normal_checkPiTarget.exit
+    i8 76, label %normal_checkPiTarget.argprom.exit
   ]
 
 109:                                              ; preds = %106
   %.not11.i = icmp eq i32 %.1.i, 0
-  br i1 %.not11.i, label %110, label %normal_checkPiTarget.exit
+  br i1 %.not11.i, label %110, label %normal_checkPiTarget.argprom.exit
 
 110:                                              ; preds = %109
   store i32 12, ptr %5, align 4
   br label %111
 
-normal_checkPiTarget.exit:                        ; preds = %106, %109
+normal_checkPiTarget.argprom.exit:                ; preds = %106, %109
   store ptr %.1183, ptr %3, align 8
   br label %.loopexit
 
@@ -4991,7 +4991,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br i1 %162, label %.lr.ph191, label %.loopexit, !llvm.loop !31
 
 163:                                              ; preds = %62
-  %164 = call fastcc i32 @normal_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.1183, ptr noundef %5)
+  %164 = call fastcc i32 @normal_checkPiTarget.argprom(ptr noundef nonnull %1, ptr noundef nonnull %.1183, ptr noundef %5)
   %.not148 = icmp eq i32 %164, 0
   br i1 %.not148, label %165, label %166
 
@@ -5030,8 +5030,8 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   %181 = icmp sgt i64 %180, 0
   br i1 %181, label %62, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %70, %79, %88, %177, %122, %130, %138, %147, %159, %51, %111, %166, %39, %28, %17, %4, %.loopexit163, %174, %165, %155, %146, %143, %135, %127, %normal_checkPiTarget.exit, %96, %87, %78, %69, %50, %49, %38, %27, %16
-  %.0 = phi i32 [ 0, %50 ], [ 0, %49 ], [ 0, %.loopexit163 ], [ %176, %174 ], [ 0, %165 ], [ %112, %155 ], [ 0, %146 ], [ 0, %143 ], [ 0, %135 ], [ 0, %127 ], [ 0, %normal_checkPiTarget.exit ], [ 0, %96 ], [ 0, %87 ], [ 0, %78 ], [ 0, %69 ], [ 0, %38 ], [ 0, %27 ], [ 0, %16 ], [ -1, %4 ], [ -2, %17 ], [ -2, %28 ], [ -2, %39 ], [ -1, %166 ], [ -1, %111 ], [ -1, %51 ], [ -2, %122 ], [ -2, %130 ], [ -2, %138 ], [ -1, %147 ], [ -1, %159 ], [ -2, %70 ], [ -2, %79 ], [ -2, %88 ], [ -1, %177 ]
+.loopexit:                                        ; preds = %70, %79, %88, %177, %122, %130, %138, %147, %159, %51, %111, %166, %39, %28, %17, %4, %.loopexit163, %174, %165, %155, %146, %143, %135, %127, %normal_checkPiTarget.argprom.exit, %96, %87, %78, %69, %50, %49, %38, %27, %16
+  %.0 = phi i32 [ 0, %50 ], [ 0, %49 ], [ 0, %.loopexit163 ], [ %176, %174 ], [ 0, %165 ], [ %112, %155 ], [ 0, %146 ], [ 0, %143 ], [ 0, %135 ], [ 0, %127 ], [ 0, %normal_checkPiTarget.argprom.exit ], [ 0, %96 ], [ 0, %87 ], [ 0, %78 ], [ 0, %69 ], [ 0, %38 ], [ 0, %27 ], [ 0, %16 ], [ -1, %4 ], [ -2, %17 ], [ -2, %28 ], [ -2, %39 ], [ -1, %166 ], [ -1, %111 ], [ -1, %51 ], [ -2, %122 ], [ -2, %130 ], [ -2, %138 ], [ -1, %147 ], [ -1, %159 ], [ -2, %70 ], [ -2, %79 ], [ -2, %88 ], [ -1, %177 ]
   ret i32 %.0
 }
 
@@ -5361,7 +5361,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -10447,18 +10447,18 @@ unicode_byte_type.exit110.thread204:              ; preds = %49, %49, %49, %49, 
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %107 [
     i8 108, label %105
-    i8 76, label %little2_checkPiTarget.exit
+    i8 76, label %little2_checkPiTarget.argprom.exit
   ]
 
 105:                                              ; preds = %102
   %.not14.i = icmp eq i32 %.1.i, 0
-  br i1 %.not14.i, label %106, label %little2_checkPiTarget.exit
+  br i1 %.not14.i, label %106, label %little2_checkPiTarget.argprom.exit
 
 106:                                              ; preds = %105
   store i32 12, ptr %5, align 4
   br label %107
 
-little2_checkPiTarget.exit:                       ; preds = %102, %105
+little2_checkPiTarget.argprom.exit:               ; preds = %102, %105
   store ptr %.099153, ptr %3, align 8
   br label %.loopexit
 
@@ -10567,7 +10567,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   br i1 %149, label %.lr.ph155, label %.loopexit, !llvm.loop !60
 
 150:                                              ; preds = %unicode_byte_type.exit110
-  %151 = call fastcc i32 @little2_checkPiTarget(ptr noundef %1, ptr noundef nonnull %.099153, ptr noundef %5)
+  %151 = call fastcc i32 @little2_checkPiTarget.argprom(ptr noundef %1, ptr noundef nonnull %.099153, ptr noundef %5)
   %.not104 = icmp eq i32 %151, 0
   br i1 %.not104, label %152, label %153
 
@@ -10604,8 +10604,8 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   store ptr %.1, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %76, %124, %unicode_byte_type.exit114.thread210, %131, %146, %38, %107, %153, %unicode_byte_type.exit110.thread204, %81, %unicode_byte_type.exit.thread198, %44, %4, %.loopexit119, %165, %152, %143, %unicode_byte_type.exit114.thread, %little2_checkPiTarget.exit, %85, %83, %80, %75, %unicode_byte_type.exit.thread, %48, %46, %43, %37
-  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %48 ], [ 0, %46 ], [ 0, %43 ], [ 0, %.loopexit119 ], [ %167, %165 ], [ 0, %152 ], [ %108, %143 ], [ 0, %unicode_byte_type.exit114.thread ], [ 0, %little2_checkPiTarget.exit ], [ 0, %85 ], [ 0, %83 ], [ 0, %80 ], [ 0, %75 ], [ 0, %37 ], [ -1, %4 ], [ -2, %44 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %81 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %153 ], [ -1, %107 ], [ -1, %38 ], [ -2, %124 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %131 ], [ -1, %146 ], [ -1, %76 ]
+.loopexit:                                        ; preds = %76, %124, %unicode_byte_type.exit114.thread210, %131, %146, %38, %107, %153, %unicode_byte_type.exit110.thread204, %81, %unicode_byte_type.exit.thread198, %44, %4, %.loopexit119, %165, %152, %143, %unicode_byte_type.exit114.thread, %little2_checkPiTarget.argprom.exit, %85, %83, %80, %75, %unicode_byte_type.exit.thread, %48, %46, %43, %37
+  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %48 ], [ 0, %46 ], [ 0, %43 ], [ 0, %.loopexit119 ], [ %167, %165 ], [ 0, %152 ], [ %108, %143 ], [ 0, %unicode_byte_type.exit114.thread ], [ 0, %little2_checkPiTarget.argprom.exit ], [ 0, %85 ], [ 0, %83 ], [ 0, %80 ], [ 0, %75 ], [ 0, %37 ], [ -1, %4 ], [ -2, %44 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %81 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %153 ], [ -1, %107 ], [ -1, %38 ], [ -2, %124 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %131 ], [ -1, %146 ], [ -1, %76 ]
   ret i32 %.0
 }
 
@@ -11113,7 +11113,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -11912,7 +11912,7 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc i32 @initScan.argprom(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
   %.not = icmp ult ptr %2, %3
   br i1 %.not, label %6, label %91
 
@@ -15975,18 +15975,18 @@ unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, 
   %109 = load i8, ptr %108, align 1
   switch i8 %109, label %112 [
     i8 108, label %110
-    i8 76, label %big2_checkPiTarget.exit
+    i8 76, label %big2_checkPiTarget.argprom.exit
   ]
 
 110:                                              ; preds = %107
   %.not14.i = icmp eq i32 %.1.i, 0
-  br i1 %.not14.i, label %111, label %big2_checkPiTarget.exit
+  br i1 %.not14.i, label %111, label %big2_checkPiTarget.argprom.exit
 
 111:                                              ; preds = %110
   store i32 12, ptr %5, align 4
   br label %112
 
-big2_checkPiTarget.exit:                          ; preds = %107, %110
+big2_checkPiTarget.argprom.exit:                  ; preds = %107, %110
   store ptr %.099153, ptr %3, align 8
   br label %.loopexit
 
@@ -16096,7 +16096,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   br i1 %155, label %.lr.ph155, label %.loopexit, !llvm.loop !89
 
 156:                                              ; preds = %unicode_byte_type.exit110
-  %157 = call fastcc i32 @big2_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.099153, ptr noundef %5)
+  %157 = call fastcc i32 @big2_checkPiTarget.argprom(ptr noundef nonnull %1, ptr noundef nonnull %.099153, ptr noundef %5)
   %.not104 = icmp eq i32 %157, 0
   br i1 %.not104, label %158, label %159
 
@@ -16133,8 +16133,8 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   store ptr %.1, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %80, %130, %unicode_byte_type.exit114.thread210, %137, %152, %40, %112, %159, %unicode_byte_type.exit110.thread204, %85, %unicode_byte_type.exit.thread198, %46, %4, %.loopexit119, %171, %158, %149, %unicode_byte_type.exit114.thread, %big2_checkPiTarget.exit, %89, %87, %84, %79, %unicode_byte_type.exit.thread, %50, %48, %45, %39
-  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %50 ], [ 0, %48 ], [ 0, %45 ], [ 0, %.loopexit119 ], [ %173, %171 ], [ 0, %158 ], [ %113, %149 ], [ 0, %unicode_byte_type.exit114.thread ], [ 0, %big2_checkPiTarget.exit ], [ 0, %89 ], [ 0, %87 ], [ 0, %84 ], [ 0, %79 ], [ 0, %39 ], [ -1, %4 ], [ -2, %46 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %85 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %159 ], [ -1, %112 ], [ -1, %40 ], [ -2, %130 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %137 ], [ -1, %152 ], [ -1, %80 ]
+.loopexit:                                        ; preds = %80, %130, %unicode_byte_type.exit114.thread210, %137, %152, %40, %112, %159, %unicode_byte_type.exit110.thread204, %85, %unicode_byte_type.exit.thread198, %46, %4, %.loopexit119, %171, %158, %149, %unicode_byte_type.exit114.thread, %big2_checkPiTarget.argprom.exit, %89, %87, %84, %79, %unicode_byte_type.exit.thread, %50, %48, %45, %39
+  %.0 = phi i32 [ 0, %unicode_byte_type.exit.thread ], [ 0, %50 ], [ 0, %48 ], [ 0, %45 ], [ 0, %.loopexit119 ], [ %173, %171 ], [ 0, %158 ], [ %113, %149 ], [ 0, %unicode_byte_type.exit114.thread ], [ 0, %big2_checkPiTarget.argprom.exit ], [ 0, %89 ], [ 0, %87 ], [ 0, %84 ], [ 0, %79 ], [ 0, %39 ], [ -1, %4 ], [ -2, %46 ], [ -2, %unicode_byte_type.exit.thread198 ], [ -2, %85 ], [ -2, %unicode_byte_type.exit110.thread204 ], [ -1, %159 ], [ -1, %112 ], [ -1, %40 ], [ -2, %130 ], [ -2, %unicode_byte_type.exit114.thread210 ], [ -1, %137 ], [ -1, %152 ], [ -1, %80 ]
   ret i32 %.0
 }
 
@@ -16651,7 +16651,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget.argprom(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64

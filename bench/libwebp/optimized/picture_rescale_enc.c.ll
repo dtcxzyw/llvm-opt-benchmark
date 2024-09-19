@@ -141,9 +141,9 @@ define range(i32 0, 2) i32 @WebPPictureView(ptr noundef readonly %0, i32 noundef
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %5, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %AdjustAndCheckRectangle.exit.thread, label %SnapTopLeftPosition.exit.i
+  br i1 %or.cond, label %AdjustAndCheckRectangle.exit.thread, label %SnapTopLeftPosition.argprom.exit.i
 
-SnapTopLeftPosition.exit.i:                       ; preds = %6
+SnapTopLeftPosition.argprom.exit.i:               ; preds = %6
   %.val.i = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %.val.i, 0
   %9 = and i32 %1, -2
@@ -154,7 +154,7 @@ SnapTopLeftPosition.exit.i:                       ; preds = %6
   %or.cond62.not = icmp sgt i32 %11, -1
   br i1 %or.cond62.not, label %12, label %AdjustAndCheckRectangle.exit.thread
 
-12:                                               ; preds = %SnapTopLeftPosition.exit.i
+12:                                               ; preds = %SnapTopLeftPosition.argprom.exit.i
   %13 = icmp slt i32 %3, 1
   %14 = icmp slt i32 %4, 1
   %or.cond.i = or i1 %13, %14
@@ -269,8 +269,8 @@ AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %66, %73
   store i32 %83, ptr %84, align 8
   br label %AdjustAndCheckRectangle.exit.thread
 
-AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %15, %12, %SnapTopLeftPosition.exit.i, %30, %AdjustAndCheckRectangle.exit, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %12 ], [ 0, %15 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
+AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRectangle.exit.thread.sink.split, %15, %12, %SnapTopLeftPosition.argprom.exit.i, %30, %AdjustAndCheckRectangle.exit, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 1, %30 ], [ 0, %SnapTopLeftPosition.argprom.exit.i ], [ 0, %12 ], [ 0, %15 ], [ 1, %AdjustAndCheckRectangle.exit.thread.sink.split ]
   ret i32 %.0
 }
 
@@ -278,9 +278,9 @@ AdjustAndCheckRectangle.exit.thread:              ; preds = %AdjustAndCheckRecta
 define i32 @WebPPictureCrop(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.WebPPicture, align 8
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %AdjustAndCheckRectangle.exit.thread, label %SnapTopLeftPosition.exit.i
+  br i1 %7, label %AdjustAndCheckRectangle.exit.thread, label %SnapTopLeftPosition.argprom.exit.i
 
-SnapTopLeftPosition.exit.i:                       ; preds = %5
+SnapTopLeftPosition.argprom.exit.i:               ; preds = %5
   %.val.i = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %.val.i, 0
   %8 = and i32 %1, -2
@@ -291,7 +291,7 @@ SnapTopLeftPosition.exit.i:                       ; preds = %5
   %or.cond.not = icmp sgt i32 %10, -1
   br i1 %or.cond.not, label %11, label %AdjustAndCheckRectangle.exit.thread
 
-11:                                               ; preds = %SnapTopLeftPosition.exit.i
+11:                                               ; preds = %SnapTopLeftPosition.argprom.exit.i
   %12 = icmp slt i32 %3, 1
   %13 = icmp slt i32 %4, 1
   %or.cond.i = or i1 %12, %13
@@ -419,8 +419,8 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false)
   br label %AdjustAndCheckRectangle.exit.thread
 
-AdjustAndCheckRectangle.exit.thread:              ; preds = %14, %11, %SnapTopLeftPosition.exit.i, %AdjustAndCheckRectangle.exit, %5, %101, %26
-  %.0 = phi i32 [ 1, %101 ], [ %29, %26 ], [ 0, %5 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 0, %SnapTopLeftPosition.exit.i ], [ 0, %11 ], [ 0, %14 ]
+AdjustAndCheckRectangle.exit.thread:              ; preds = %14, %11, %SnapTopLeftPosition.argprom.exit.i, %AdjustAndCheckRectangle.exit, %5, %101, %26
+  %.0 = phi i32 [ 1, %101 ], [ %29, %26 ], [ 0, %5 ], [ 0, %AdjustAndCheckRectangle.exit ], [ 0, %SnapTopLeftPosition.argprom.exit.i ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

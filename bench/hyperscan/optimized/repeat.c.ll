@@ -2165,7 +2165,7 @@ if.then.i733.i:                                   ; preds = %if.then5.i
   %rem.i.i = and i32 %spec.select.i, 7
   %7 = lshr i32 %conv.i740.i, %rem.i.i
   %conv2.i744.i = and i32 %7, 1
-  br label %ringHasMatch.exit
+  br label %ringHasMatch.argprom.exit
 
 if.else.i732.i:                                   ; preds = %if.then5.i
   %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %info.val, i1 true)
@@ -2197,7 +2197,7 @@ do.body.i.i:                                      ; preds = %if.end.i763.i, %if.
   %18 = shl nuw i64 1, %sh_prom.i.i760.i
   %19 = and i64 %18, %15
   %tobool.i761.not.i = icmp eq i64 %19, 0
-  br i1 %tobool.i761.not.i, label %ringHasMatch.exit.thread45, label %if.end.i763.i
+  br i1 %tobool.i761.not.i, label %ringHasMatch.argprom.exit.thread45, label %if.end.i763.i
 
 if.end.i763.i:                                    ; preds = %do.body.i.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
@@ -2500,7 +2500,7 @@ if.end5.i45.i:                                    ; preds = %if.then.i157.i, %if
 if.end22.i:                                       ; preds = %if.else.i155.i, %if.end5.i45.i, %get_flat_masks.exit520.i, %for.end.i.i, %if.end.i437.i, %if.end7.i
   %cmp.i.i39 = icmp eq i32 %add10.i, %sub14.i
   %or.cond278.i = or i1 %cmp16.i, %cmp.i.i39
-  br i1 %or.cond278.i, label %ringHasMatch.exit.thread45, label %if.end.i.i
+  br i1 %or.cond278.i, label %ringHasMatch.argprom.exit.thread45, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end22.i
   %cmp.i52.i = icmp ult i32 %add.i, 257
@@ -2561,7 +2561,7 @@ if.end.i356.i:                                    ; preds = %sw.default.i.i, %sw
   %and.i128.i = and i64 %retval.i236.0.i, %cond.i360.i
   %tobool.i129.not.i = icmp ne i64 %and.i128.i, 0
   %spec.select28.i = zext i1 %tobool.i129.not.i to i32
-  br label %ringHasMatch.exit
+  br label %ringHasMatch.argprom.exit
 
 if.end5.i80.i:                                    ; preds = %if.then2.i.i
   %50 = and i32 %add.i, 448
@@ -2596,7 +2596,7 @@ if.end23.i117.i:                                  ; preds = %for.body.i109.i
 
 for.end.i93.i:                                    ; preds = %if.end23.i117.i, %if.end5.i80.i
   %cmp27.i94.i = icmp ugt i32 %spec.select274.i, %50
-  br i1 %cmp27.i94.i, label %if.then29.i96.i, label %ringHasMatch.exit.thread45
+  br i1 %cmp27.i94.i, label %if.then29.i96.i, label %ringHasMatch.argprom.exit.thread45
 
 if.then29.i96.i:                                  ; preds = %for.end.i93.i
   %div31.i97265.i = lshr exact i32 %50, 3
@@ -2654,7 +2654,7 @@ get_flat_masks.exit427.i:                         ; preds = %sw.default.i275.i, 
   %and37.i103.i = and i64 %retval.i252.0.i, %cond.i411.i
   %tobool38.i104.not.i = icmp ne i64 %and37.i103.i, 0
   %spec.select29.i = zext i1 %tobool38.i104.not.i to i32
-  br label %ringHasMatch.exit
+  br label %ringHasMatch.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %59 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %info.val, i1 true)
@@ -2721,7 +2721,7 @@ if.then24.i229.i:                                 ; preds = %if.then.i220.i
   %65 = and i64 %add21.i224.i, 4294967295
   %66 = icmp ne i64 %65, 4294967295
   %67 = zext i1 %66 to i32
-  br label %ringHasMatch.exit
+  br label %ringHasMatch.argprom.exit
 
 if.end.i227.i:                                    ; preds = %if.then.i220.i
   %inc.i225.i = add i32 %level.i169.0.i, 1
@@ -2731,7 +2731,7 @@ if.else.i205.i:                                   ; preds = %for.cond.i180.i
   %cmp29.i208.i = icmp ugt i64 %add.i190.i, %conv4.i189.i
   %cmp34.i211.i = icmp eq i32 %level.i169.0.i, 0
   %or.cond277.i = or i1 %cmp34.i211.i, %cmp29.i208.i
-  br i1 %or.cond277.i, label %ringHasMatch.exit.thread45, label %if.end37.i212.i
+  br i1 %or.cond277.i, label %ringHasMatch.argprom.exit.thread45, label %if.end37.i212.i
 
 if.end37.i212.i:                                  ; preds = %if.else.i205.i
   %dec33.i210.i = add i32 %level.i169.0.i, -1
@@ -2747,17 +2747,17 @@ if.end40.i216.i:                                  ; preds = %if.end37.i212.i, %i
   %add39.i215.i = add i32 %.sink30.i, %ks.i167.0.i
   br label %for.cond.i180.i
 
-ringHasMatch.exit:                                ; preds = %if.then.i733.i, %if.end.i356.i, %get_flat_masks.exit427.i, %if.then24.i229.i
+ringHasMatch.argprom.exit:                        ; preds = %if.then.i733.i, %if.end.i356.i, %get_flat_masks.exit427.i, %if.then24.i229.i
   %retval.0.i38 = phi i32 [ %conv2.i744.i, %if.then.i733.i ], [ %67, %if.then24.i229.i ], [ %spec.select28.i, %if.end.i356.i ], [ %spec.select29.i, %get_flat_masks.exit427.i ]
   %retval.0.i38.fr = freeze i32 %retval.0.i38
   %tobool.not = icmp eq i32 %retval.0.i38.fr, 0
-  br i1 %tobool.not, label %ringHasMatch.exit.thread45, label %return
+  br i1 %tobool.not, label %ringHasMatch.argprom.exit.thread45, label %return
 
-ringHasMatch.exit.thread45:                       ; preds = %if.else.i205.i, %do.body.i.i, %for.end.i93.i, %if.end22.i, %ringHasMatch.exit
+ringHasMatch.argprom.exit.thread45:               ; preds = %if.else.i205.i, %do.body.i.i, %for.end.i93.i, %if.end22.i, %ringHasMatch.argprom.exit
   br label %return
 
-return:                                           ; preds = %for.body.i109.i, %if.end.i763.i, %get_flat_masks.exit520.i, %if.end.i437.i, %if.end5.i45.i, %ringHasMatch.exit.thread45, %ringHasMatch.exit, %if.end13, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 2, %if.end ], [ 0, %if.end13 ], [ 0, %ringHasMatch.exit.thread45 ], [ 1, %ringHasMatch.exit ], [ 1, %if.end5.i45.i ], [ 1, %if.end.i437.i ], [ 1, %get_flat_masks.exit520.i ], [ 1, %if.end.i763.i ], [ 1, %for.body.i109.i ]
+return:                                           ; preds = %for.body.i109.i, %if.end.i763.i, %get_flat_masks.exit520.i, %if.end.i437.i, %if.end5.i45.i, %ringHasMatch.argprom.exit.thread45, %ringHasMatch.argprom.exit, %if.end13, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 2, %if.end ], [ 0, %if.end13 ], [ 0, %ringHasMatch.argprom.exit.thread45 ], [ 1, %ringHasMatch.argprom.exit ], [ 1, %if.end5.i45.i ], [ 1, %if.end.i437.i ], [ 1, %get_flat_masks.exit520.i ], [ 1, %if.end.i763.i ], [ 1, %for.body.i109.i ]
   ret i32 %retval.0
 }
 
@@ -3654,7 +3654,7 @@ if.then.i:                                        ; preds = %loadPackedRelative.
   store i16 %16, ptr %first.i, align 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %17 = load i16, ptr %add.ptr6.i, align 1
-  br label %repeatUnpackRing.exit
+  br label %repeatUnpackRing.argprom.exit
 
 if.else.i:                                        ; preds = %loadPackedRelative.exit.i
   %18 = load i8, ptr %add.ptr.i, align 1
@@ -3664,9 +3664,9 @@ if.else.i:                                        ; preds = %loadPackedRelative.
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   %19 = load i8, ptr %arrayidx11.i, align 1
   %conv12.i = zext i8 %19 to i16
-  br label %repeatUnpackRing.exit
+  br label %repeatUnpackRing.argprom.exit
 
-repeatUnpackRing.exit:                            ; preds = %if.then.i, %if.else.i
+repeatUnpackRing.argprom.exit:                    ; preds = %if.then.i, %if.else.i
   %conv12.sink.i = phi i16 [ %17, %if.then.i ], [ %conv12.i, %if.else.i ]
   %20 = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 %conv12.sink.i, ptr %20, align 2
@@ -3676,7 +3676,7 @@ sw.bb1:                                           ; preds = %entry, %entry
   %21 = getelementptr i8, ptr %info, i64 16
   %info.val23 = load i32, ptr %21, align 4
   switch i32 %info.val23, label %loadPackedRelative.exit.i28 [
-    i32 0, label %repeatUnpackOffset.exit
+    i32 0, label %repeatUnpackOffset.argprom.exit
     i32 8, label %sw.bb.i.i.i63
     i32 7, label %sw.bb1.i.i.i53
     i32 6, label %sw.bb9.i.i.i47
@@ -3754,9 +3754,9 @@ sw.bb37.i.i.i26:                                  ; preds = %sw.bb1
 loadPackedRelative.exit.i28:                      ; preds = %sw.bb37.i.i.i26, %sw.bb34.i.i.i31, %sw.bb27.i.i.i33, %sw.bb24.i.i.i39, %sw.bb17.i.i.i41, %sw.bb9.i.i.i47, %sw.bb1.i.i.i53, %sw.bb.i.i.i63, %sw.bb1
   %retval.i.i.0.i29 = phi i64 [ %conv38.i.i.i27, %sw.bb37.i.i.i26 ], [ %conv36.i.i.i32, %sw.bb34.i.i.i31 ], [ %or33.i.i.i38, %sw.bb27.i.i.i33 ], [ %conv26.i.i.i40, %sw.bb24.i.i.i39 ], [ %or23.i.i.i46, %sw.bb17.i.i.i41 ], [ %or16.i.i.i52, %sw.bb9.i.i.i47 ], [ %or8.i.i.i62, %sw.bb1.i.i.i53 ], [ %22, %sw.bb.i.i.i63 ], [ 0, %sw.bb1 ]
   %sub.i.i30 = sub i64 %offset, %retval.i.i.0.i29
-  br label %repeatUnpackOffset.exit
+  br label %repeatUnpackOffset.argprom.exit
 
-repeatUnpackOffset.exit:                          ; preds = %sw.bb1, %loadPackedRelative.exit.i28
+repeatUnpackOffset.argprom.exit:                  ; preds = %sw.bb1, %loadPackedRelative.exit.i28
   %storemerge.i = phi i64 [ %sub.i.i30, %loadPackedRelative.exit.i28 ], [ 0, %sw.bb1 ]
   store i64 %storemerge.i, ptr %ctrl, align 8
   br label %sw.epilog
@@ -4038,7 +4038,7 @@ if.then.i120:                                     ; preds = %loadPackedRelative.
   store i16 %81, ptr %first.i121, align 8
   %add.ptr6.i122 = getelementptr inbounds i8, ptr %add.ptr.i113, i64 2
   %82 = load i16, ptr %add.ptr6.i122, align 1
-  br label %repeatUnpackSparseOptimalP.exit
+  br label %repeatUnpackSparseOptimalP.argprom.exit
 
 if.else.i114:                                     ; preds = %loadPackedRelative.exit.i109
   %83 = load i8, ptr %add.ptr.i113, align 1
@@ -4048,9 +4048,9 @@ if.else.i114:                                     ; preds = %loadPackedRelative.
   %arrayidx11.i117 = getelementptr inbounds i8, ptr %add.ptr.i113, i64 1
   %84 = load i8, ptr %arrayidx11.i117, align 1
   %conv12.i118 = zext i8 %84 to i16
-  br label %repeatUnpackSparseOptimalP.exit
+  br label %repeatUnpackSparseOptimalP.argprom.exit
 
-repeatUnpackSparseOptimalP.exit:                  ; preds = %if.then.i120, %if.else.i114
+repeatUnpackSparseOptimalP.argprom.exit:          ; preds = %if.then.i120, %if.else.i114
   %conv12.sink.i119 = phi i16 [ %82, %if.then.i120 ], [ %conv12.i118, %if.else.i114 ]
   %85 = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 %conv12.sink.i119, ptr %85, align 2
@@ -4144,7 +4144,7 @@ repeatUnpackTrailer.exit:                         ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i.sroa.4)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %repeatUnpackTrailer.exit, %repeatUnpackSparseOptimalP.exit, %repeatUnpackBitmap.exit, %repeatUnpackRange.exit, %repeatUnpackOffset.exit, %repeatUnpackRing.exit, %entry
+sw.epilog:                                        ; preds = %repeatUnpackTrailer.exit, %repeatUnpackSparseOptimalP.argprom.exit, %repeatUnpackBitmap.exit, %repeatUnpackRange.exit, %repeatUnpackOffset.argprom.exit, %repeatUnpackRing.argprom.exit, %entry
   ret void
 }
 

@@ -1065,7 +1065,7 @@ define void @_ZN2cv12ppf_match_3d6Pose3D9printPoseEv(ptr noundef nonnull align 8
 
 .noexc8.i:                                        ; preds = %.noexc7.i
   %.not1.i.i = icmp eq ptr %41, null
-  br i1 %.not1.i.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit.i, label %.lr.ph.i.i
+  br i1 %.not1.i.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc8.i, %.noexc10.i
   %.02.i.i = phi ptr [ %46, %.noexc10.i ], [ %41, %.noexc8.i ]
@@ -1081,15 +1081,15 @@ define void @_ZN2cv12ppf_match_3d6Pose3D9printPoseEv(ptr noundef nonnull align 8
 
 .noexc10.i:                                       ; preds = %.noexc9.i
   %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not.i.i, label %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit.i, label %.lr.ph.i.i, !llvm.loop !31
 
-_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit.i:      ; preds = %.noexc10.i, %.noexc8.i
+_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit.i: ; preds = %.noexc10.i, %.noexc8.i
   %47 = getelementptr inbounds i8, ptr %4, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i, label %49
 
-49:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit.i
+49:                                               ; preds = %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit.i
   %50 = getelementptr inbounds i8, ptr %48, i64 8
   %51 = load atomic i64, ptr %50 acquire, align 8
   %52 = icmp eq i64 %51, 4294967297
@@ -1157,12 +1157,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %48) #22
   br label %_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i
 
-_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i:            ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %78, %65, %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.exit.i
+_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i:            ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %78, %65, %_ZN2cvlsERSoNS_3PtrINS_9FormattedEEE.argprom.exit.i
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #22
   %83 = getelementptr inbounds i8, ptr %5, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i.i11.i = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i11.i, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.exit, label %85
+  br i1 %.not.i.i.i.i11.i, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.argprom.exit, label %85
 
 85:                                               ; preds = %_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i
   %86 = getelementptr inbounds i8, ptr %84, i64 8
@@ -1198,7 +1198,7 @@ _ZN2cv3PtrINS_9FormattedEED2Ev.exit.i:            ; preds = %_ZNSt16_Sp_counted_
 101:                                              ; preds = %99, %97
   %.0.i.i.i.i.i13.i = phi i32 [ %89, %97 ], [ %100, %99 ]
   %102 = icmp eq i32 %.0.i.i.i.i.i13.i, 1
-  br i1 %102, label %103, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.exit
+  br i1 %102, label %103, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.argprom.exit
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %84, align 8
@@ -1223,14 +1223,14 @@ _ZN2cv3PtrINS_9FormattedEED2Ev.exit.i:            ; preds = %_ZNSt16_Sp_counted_
 114:                                              ; preds = %112, %109
   %.0.i.i.i.i.i.i.i15.i = phi i32 [ %110, %109 ], [ %113, %112 ]
   %115 = icmp eq i32 %.0.i.i.i.i.i.i.i15.i, 1
-  br i1 %115, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16.i, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.exit
+  br i1 %115, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16.i, label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.argprom.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16.i: ; preds = %114, %90
   %116 = load ptr, ptr %84, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(16) %84) #22
-  br label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.exit
+  br label %_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.argprom.exit
 
 119:                                              ; preds = %1
   %120 = landingpad { ptr, i32 }
@@ -1267,7 +1267,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @_ZN2cv3PtrINS_9FormatterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
   resume { ptr, i32 } %.pn.pn.i
 
-_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16.i
+_ZN2cvlsIdLi4ELi4EEERSoS1_RKNS_4MatxIT_XT0_EXT1_EEE.argprom.exit: ; preds = %_ZN2cv3PtrINS_9FormattedEED2Ev.exit.i, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)

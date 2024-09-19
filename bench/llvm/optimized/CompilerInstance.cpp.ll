@@ -8800,11 +8800,11 @@ define dso_local noundef zeroext i1 @_ZN5clang16CompilerInstance13ExecuteActionE
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(352) %0) #24
-  br i1 %15, label %16, label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.exit"
+  br i1 %15, label %16, label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.argprom.exit"
 
 16:                                               ; preds = %2
   %17 = tail call noundef zeroext i1 @_ZN5clang16CompilerInstance12createTargetEv(ptr noundef nonnull align 8 dereferenceable(352) %0)
-  br i1 %17, label %18, label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.exit"
+  br i1 %17, label %18, label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.argprom.exit"
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9330,9 +9330,9 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit: ; pr
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 12
   %285 = load i32, ptr %284, align 4
   %.not23 = icmp eq i32 %285, 0
-  br label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.exit"
+  br label %"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.argprom.exit"
 
-"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.exit": ; preds = %16, %2, %279
+"_ZN4llvm6detail10scope_exitIZN5clang16CompilerInstance13ExecuteActionERNS2_14FrontendActionEE3$_0ED2Ev.argprom.exit": ; preds = %16, %2, %279
   %.0 = phi i1 [ %.not23, %279 ], [ false, %2 ], [ false, %16 ]
   %286 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.val.i = load ptr, ptr %286, align 8
@@ -13505,7 +13505,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit63.i:        ; preds = %_ZN5clang19Streamin
   store i8 0, ptr %13, align 1
   %.val.i = load ptr, ptr %21, align 8
   %.val38.i = load ptr, ptr %75, align 8, !noalias !346
-  %149 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.val.i, ptr %.val38.i, i32 %1, i32 %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr noundef nonnull %13)
+  %149 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb.argprom(ptr %.val.i, ptr %.val38.i, i32 %1, i32 %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr noundef nonnull %13)
   br i1 %149, label %.thread.i, label %150
 
 150:                                              ; preds = %148
@@ -15370,7 +15370,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %131, %132
   %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #24
   %139 = ptrtoint ptr %22 to i64
   %140 = ptrtoint ptr %23 to i64
-  %141 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef %24, ptr null, i64 0, ptr %137, i64 %138, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZNS2_22createModuleFromSourceENS1_14SourceLocationENS_9StringRefES8_E3$_0EEvlS3_", i64 %139, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZNS2_22createModuleFromSourceENS1_14SourceLocationENS_9StringRefES8_E3$_1EEvlS3_", i64 %140)
+  %141 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_.argprom(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef %24, ptr null, i64 0, ptr %137, i64 %138, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZNS2_22createModuleFromSourceENS1_14SourceLocationENS_9StringRefES8_E3$_0EEvlS3_", i64 %139, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZNS2_22createModuleFromSourceENS1_14SourceLocationENS_9StringRefES8_E3$_1EEvlS3_", i64 %140)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
   br i1 %141, label %142, label %169
 
@@ -15480,7 +15480,7 @@ declare { i32, ptr } @_ZN4llvm3sys2fs19createTemporaryFileERKNS_5TwineENS_9Strin
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr nocapture readonly %.0.val5, i64 %.8.val7, ptr nocapture readonly %.0.val9, i64 %.8.val11) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_.argprom(ptr nocapture noundef nonnull align 8 dereferenceable(352) %0, i32 %1, ptr %2, i64 %3, ptr noundef nonnull %4, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, ptr nocapture readonly %.0.val5, i64 %.8.val7, ptr nocapture readonly %.0.val9, i64 %.8.val11) unnamed_addr #0 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::allocator.402", align 1
@@ -15694,7 +15694,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.thread.i.i.i.i": ; preds = %._crit_edge.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i"
+  br label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i"
 
 111:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %112 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENS2_14SourceLocationEN4llvm9StringRefENS2_17FrontendInputFileES7_S7_NS6_12function_refIFvS4_EEESB_E3$_0EclINS_17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorISN_SaISN_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i)
@@ -15726,7 +15726,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %.sroa.06.017.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 40
   %.not18.i.i.i.i = icmp eq ptr %.sroa.06.017.i.i.i.i, %.val5.i
   %or.cond.i.i.i.i = select i1 %121, i1 true, i1 %.not18.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i55
+  br i1 %or.cond.i.i.i.i, label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i", label %.lr.ph.i.i.i.i55
 
 .lr.ph.i.i.i.i55:                                 ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.i.i.i.i", %130
   %.sroa.06.021.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %130 ], [ %.sroa.06.017.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.i.i.i.i" ]
@@ -15749,16 +15749,16 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %.sroa.012.2.i.i.i.i = phi ptr [ %.sroa.012.120.i.i.i.i, %.lr.ph.i.i.i.i55 ], [ %129, %123 ]
   %.sroa.06.0.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.021.i.i.i.i, i64 40
   %.not.i.i.i.i56 = icmp eq ptr %.sroa.06.0.i.i.i.i, %.val5.i
-  br i1 %.not.i.i.i.i56, label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i", label %.lr.ph.i.i.i.i55, !llvm.loop !415
+  br i1 %.not.i.i.i.i56, label %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i", label %.lr.ph.i.i.i.i55, !llvm.loop !415
 
-"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i": ; preds = %130, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.thread.i.i.i.i"
+"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i": ; preds = %130, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.i.i.i.i", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.thread.i.i.i.i"
   %.sroa.012.0.i.i.i.i = phi ptr [ %.val5.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.thread.i.i.i.i" ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEENS0_5__ops10_Iter_predIZL17compileModuleImplRN5clang16CompilerInstanceENSH_14SourceLocationEN4llvm9StringRefENSH_17FrontendInputFileESM_SM_NSL_12function_refIFvSJ_EEESQ_E3$_0EEET_ST_ST_T0_.exit.i.i.i.i" ], [ %.sroa.012.2.i.i.i.i, %130 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %131 = load ptr, ptr %89, align 8
   %.not.i.i.i57 = icmp eq ptr %.sroa.012.0.i.i.i.i, %131
   br i1 %.not.i.i.i57, label %"_ZN4llvm8erase_ifISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSC_14SourceLocationENS_9StringRefENSC_17FrontendInputFileESG_SG_NS_12function_refIFvSE_EEESK_E3$_0EEvRT_T0_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i"
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESt6vectorIS9_SaIS9_EEEESE_ET0_T_SG_SF_.exit.i.i.i: ; preds = %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i"
   %132 = load ptr, ptr %86, align 8
   %133 = ptrtoint ptr %132 to i64
   %134 = ptrtoint ptr %.sroa.012.0.i.i.i.i to i64
@@ -15777,7 +15777,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbES7_
   store ptr %136, ptr %89, align 8
   br label %"_ZN4llvm8erase_ifISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSC_14SourceLocationENS_9StringRefENSC_17FrontendInputFileESG_SG_NS_12function_refIFvSE_EEESK_E3$_0EEvRT_T0_.exit"
 
-"_ZN4llvm8erase_ifISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSC_14SourceLocationENS_9StringRefENSC_17FrontendInputFileESG_SG_NS_12function_refIFvSE_EEESK_E3$_0EEvRT_T0_.exit": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.exit.i", %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
+"_ZN4llvm8erase_ifISt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSC_14SourceLocationENS_9StringRefENSC_17FrontendInputFileESG_SG_NS_12function_refIFvSE_EEESK_E3$_0EEvRT_T0_.exit": ; preds = %"_ZN4llvm9remove_ifIRSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS9_EEZL17compileModuleImplRN5clang16CompilerInstanceENSD_14SourceLocationENS_9StringRefENSD_17FrontendInputFileESH_SH_NS_12function_refIFvSF_EEESL_E3$_0EEDaOT_T0_.argprom.exit.i", %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbES7_EvT_S9_RSaIT0_E.exit.i.i.i.i
   %138 = load ptr, ptr %78, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 440
@@ -20704,7 +20704,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit.i:        ; preds = %199
   %205 = load i64, ptr %.0.i.i.i, align 8
   %206 = ptrtoint ptr %27 to i64
   %207 = ptrtoint ptr %28 to i64
-  %208 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %2, ptr %188, i64 %189, ptr noundef %26, ptr nonnull %204, i64 %205, ptr %4, i64 %5, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_6EEvlS3_", i64 %206, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_7EEvlS3_", i64 %207)
+  %208 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_.argprom(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %2, ptr %188, i64 %189, ptr noundef %26, ptr nonnull %204, i64 %205, ptr %4, i64 %5, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_6EEvlS3_", i64 %206, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_7EEvlS3_", i64 %207)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #24
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit.i
 
@@ -20811,7 +20811,7 @@ _ZNK5clang12FileEntryRef7getNameEv.exit103.i:     ; preds = %246
   store ptr %29, ptr %253, align 8
   %254 = ptrtoint ptr %37 to i64
   %255 = ptrtoint ptr %38 to i64
-  %256 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %2, ptr %231, i64 %232, ptr noundef %36, ptr nonnull %251, i64 %252, ptr %4, i64 %5, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZL13compileModuleS3_NS1_14SourceLocationEPNS1_6ModuleENS_9StringRefEE3$_0EEvlS3_", i64 %254, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_7EEvlS3_", i64 %255)
+  %256 = call fastcc noundef zeroext i1 @_ZL17compileModuleImplRN5clang16CompilerInstanceENS_14SourceLocationEN4llvm9StringRefENS_17FrontendInputFileES4_S4_NS3_12function_refIFvS1_EEES8_.argprom(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 %2, ptr %231, i64 %232, ptr noundef %36, ptr nonnull %251, i64 %252, ptr %4, i64 %5, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnIZL13compileModuleS3_NS1_14SourceLocationEPNS1_6ModuleENS_9StringRefEE3$_0EEvlS3_", i64 %254, ptr nonnull @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11callback_fnI3$_7EEvlS3_", i64 %255)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #24
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #24
@@ -20963,7 +20963,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %292, %_ZN5clang17Di
 311:                                              ; preds = %_ZL13compileModuleRN5clang16CompilerInstanceENS_14SourceLocationEPNS_6ModuleEN4llvm9StringRefE.exit
   %312 = getelementptr inbounds i8, ptr %0, i64 152
   %.val23 = load ptr, ptr %312, align 8, !noalias !539
-  %313 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.val, ptr %.val23, i32 %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef null)
+  %313 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb.argprom(ptr %.val, ptr %.val23, i32 %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef null)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %304, %310, %298, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %311
@@ -20982,7 +20982,7 @@ declare { i32, ptr } @_ZN4llvm15LockFileManager20unsafeRemoveLockFileEv(ptr noun
 declare noundef i32 @_ZN4llvm15LockFileManager13waitForUnlockEj(ptr noundef nonnull align 8 dereferenceable(552), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.32.val, ptr %.152.val, i32 %0, i32 %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb.argprom(ptr %.32.val, ptr %.152.val, i32 %0, i32 %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = icmp ne ptr %5, null
@@ -26746,7 +26746,7 @@ define internal void @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11c
   %11 = getelementptr inbounds i8, ptr %1, i64 248
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i, label %"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.exit", label %13
+  br i1 %.not.i.i.i.i, label %"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.argprom.exit", label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 240
@@ -26769,9 +26769,9 @@ define internal void @"_ZN4llvm12function_refIFvRN5clang16CompilerInstanceEEE11c
   store ptr %14, ptr %17, align 8
   store ptr %14, ptr %19, align 8
   store i64 0, ptr %22, align 8
-  br label %"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.exit"
+  br label %"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.argprom.exit"
 
-"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.exit": ; preds = %2, %13
+"_ZZN5clang16CompilerInstance22createModuleFromSourceENS_14SourceLocationEN4llvm9StringRefES3_ENK3$_1clERS0_.argprom.exit": ; preds = %2, %13
   ret void
 }
 
@@ -27686,8 +27686,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !586 = distinct !{!586, !"_ZNK4llvm9StringRef3strB5cxx11Ev"}
 !587 = distinct !{!587, !5}
 !588 = !{!589}
-!589 = distinct !{!589, !590, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_7ECErrorEEE5applyIZN5clang16CompilerInstance20createOutputFileImplENS_9StringRefEbbbbE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE: argument 0"}
-!590 = distinct !{!590, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_7ECErrorEEE5applyIZN5clang16CompilerInstance20createOutputFileImplENS_9StringRefEbbbbE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE"}
+!589 = distinct !{!589, !590, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_7ECErrorEEE5applyIZN5clang16CompilerInstance20createOutputFileImplENS_9StringRefEbbbbE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom: argument 0"}
+!590 = distinct !{!590, !"_ZN4llvm18ErrorHandlerTraitsIRFNS_5ErrorERNS_7ECErrorEEE5applyIZN5clang16CompilerInstance20createOutputFileImplENS_9StringRefEbbbbE3$_0EES1_OT_St10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISF_EE.argprom"}
 !591 = !{!592, !589}
 !592 = distinct !{!592, !593, !"_ZZN5clang16CompilerInstance20createOutputFileImplEN4llvm9StringRefEbbbbENK3$_0clERKNS1_7ECErrorE: argument 0"}
 !593 = distinct !{!593, !"_ZZN5clang16CompilerInstance20createOutputFileImplEN4llvm9StringRefEbbbbENK3$_0clERKNS1_7ECErrorE"}

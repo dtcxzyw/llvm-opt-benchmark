@@ -4499,7 +4499,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %cmp8.i.i.i.i.i = icmp eq i32 %27, %23
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %26, %22
   %or.cond.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i, %cmp8.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit", label %for.inc.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit", label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i, i64 16
@@ -4520,14 +4520,14 @@ if.then22.i.i.i.i.i:                              ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i = icmp eq i32 %29, %23
   %cmp.i.i.i23.i.i.i.i.i = icmp eq ptr %28, %22
   %or.cond26.i.i.i.i.i = and i1 %cmp.i.i.i23.i.i.i.i.i, %cmp24.i.i.i.i.i
-  br i1 %or.cond26.i.i.i.i.i, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit", label %for.inc36.i.i.i.i.i
+  br i1 %or.cond26.i.i.i.i.i, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit", label %for.inc36.i.i.i.i.i
 
 for.inc36.i.i.i.i.i:                              ; preds = %if.then22.i.i.i.i.i, %for.body20.i.i.i.i.i
   %incdec.ptr37.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i, i64 16
   %cmp19.not.i.i.i.i.i = icmp ne ptr %incdec.ptr37.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br label %for.body20.i.i.i.i.i
 
-"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit": ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i
+"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit": ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %curr.133.i.i.i.i.i, %if.then22.i.i.i.i.i ], [ %curr.031.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %m_value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 8
   %30 = load ptr, ptr %m_value.i.i.i, align 8
@@ -4538,14 +4538,14 @@ for.inc36.i.i.i.i.i:                              ; preds = %if.then22.i.i.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %call18, null
   br i1 %tobool.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i27
 
-if.then.i.i.i.i27:                                ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit"
+if.then.i.i.i.i27:                                ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit"
   %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call18, i64 8
   %32 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %32, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i27, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit"
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i27, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit"
   %m_nodes.i28 = getelementptr inbounds i8, ptr %lits, i64 8
   %33 = load ptr, ptr %m_nodes.i28, align 8
   %cmp.i.i29 = icmp eq ptr %33, null
@@ -4607,7 +4607,7 @@ if.then.i.i.i.i.i52:                              ; preds = %for.body.i.i.i.i.i4
   %cmp8.i.i.i.i.i54 = icmp eq i32 %45, %41
   %cmp.i.i.i.i.i.i.i.i55 = icmp eq ptr %44, %40
   %or.cond.i.i.i.i.i56 = and i1 %cmp.i.i.i.i.i.i.i.i55, %cmp8.i.i.i.i.i54
-  br i1 %or.cond.i.i.i.i.i56, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit76", label %for.inc.i.i.i.i.i57
+  br i1 %or.cond.i.i.i.i.i56, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit76", label %for.inc.i.i.i.i.i57
 
 for.inc.i.i.i.i.i57:                              ; preds = %if.then.i.i.i.i.i52, %for.body.i.i.i.i.i49
   %incdec.ptr.i.i.i.i.i58 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i50, i64 16
@@ -4628,14 +4628,14 @@ if.then22.i.i.i.i.i66:                            ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i68 = icmp eq i32 %47, %41
   %cmp.i.i.i23.i.i.i.i.i69 = icmp eq ptr %46, %40
   %or.cond26.i.i.i.i.i70 = and i1 %cmp.i.i.i23.i.i.i.i.i69, %cmp24.i.i.i.i.i68
-  br i1 %or.cond26.i.i.i.i.i70, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit76", label %for.inc36.i.i.i.i.i71
+  br i1 %or.cond26.i.i.i.i.i70, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit76", label %for.inc36.i.i.i.i.i71
 
 for.inc36.i.i.i.i.i71:                            ; preds = %if.then22.i.i.i.i.i66, %for.body20.i.i.i.i.i62
   %incdec.ptr37.i.i.i.i.i72 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i64, i64 16
   %cmp19.not.i.i.i.i.i73 = icmp ne ptr %incdec.ptr37.i.i.i.i.i72, %add.ptr.i.i.i.i.i45
   br label %for.body20.i.i.i.i.i62
 
-"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit76": ; preds = %if.then.i.i.i.i.i52, %if.then22.i.i.i.i.i66
+"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit76": ; preds = %if.then.i.i.i.i.i52, %if.then22.i.i.i.i.i66
   %retval.0.i.i.i.i.i74 = phi ptr [ %curr.133.i.i.i.i.i64, %if.then22.i.i.i.i.i66 ], [ %curr.031.i.i.i.i.i50, %if.then.i.i.i.i.i52 ]
   %m_value.i.i.i75 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i74, i64 8
   %48 = load ptr, ptr %m_value.i.i.i75, align 8
@@ -4649,14 +4649,14 @@ for.inc36.i.i.i.i.i71:                            ; preds = %if.then22.i.i.i.i.i
   %tobool.not.i.i.i.i80 = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i.i.i80, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i84, label %if.then.i.i.i.i81
 
-if.then.i.i.i.i81:                                ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit76"
+if.then.i.i.i.i81:                                ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit76"
   %m_ref_count.i.i.i.i.i82 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %51 = load i32, ptr %m_ref_count.i.i.i.i.i82, align 4
   %inc.i.i.i.i.i83 = add i32 %51, 1
   store i32 %inc.i.i.i.i.i83, ptr %m_ref_count.i.i.i.i.i82, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i84
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i84: ; preds = %if.then.i.i.i.i81, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit76"
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i84: ; preds = %if.then.i.i.i.i81, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit76"
   %m_nodes.i85 = getelementptr inbounds i8, ptr %lits, i64 8
   %52 = load ptr, ptr %m_nodes.i85, align 8
   %cmp.i.i86 = icmp eq ptr %52, null
@@ -4720,7 +4720,7 @@ if.then.i.i.i.i.i116:                             ; preds = %for.body.i.i.i.i.i1
   %cmp8.i.i.i.i.i118 = icmp eq i32 %65, %61
   %cmp.i.i.i.i.i.i.i.i119 = icmp eq ptr %64, %60
   %or.cond.i.i.i.i.i120 = and i1 %cmp.i.i.i.i.i.i.i.i119, %cmp8.i.i.i.i.i118
-  br i1 %or.cond.i.i.i.i.i120, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140", label %for.inc.i.i.i.i.i121
+  br i1 %or.cond.i.i.i.i.i120, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit140", label %for.inc.i.i.i.i.i121
 
 for.inc.i.i.i.i.i121:                             ; preds = %if.then.i.i.i.i.i116, %for.body.i.i.i.i.i113
   %incdec.ptr.i.i.i.i.i122 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i114, i64 16
@@ -4741,14 +4741,14 @@ if.then22.i.i.i.i.i130:                           ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i132 = icmp eq i32 %67, %61
   %cmp.i.i.i23.i.i.i.i.i133 = icmp eq ptr %66, %60
   %or.cond26.i.i.i.i.i134 = and i1 %cmp.i.i.i23.i.i.i.i.i133, %cmp24.i.i.i.i.i132
-  br i1 %or.cond26.i.i.i.i.i134, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140", label %for.inc36.i.i.i.i.i135
+  br i1 %or.cond26.i.i.i.i.i134, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit140", label %for.inc36.i.i.i.i.i135
 
 for.inc36.i.i.i.i.i135:                           ; preds = %if.then22.i.i.i.i.i130, %for.body20.i.i.i.i.i126
   %incdec.ptr37.i.i.i.i.i136 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i128, i64 16
   %cmp19.not.i.i.i.i.i137 = icmp ne ptr %incdec.ptr37.i.i.i.i.i136, %add.ptr.i.i.i.i.i109
   br label %for.body20.i.i.i.i.i126
 
-"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140": ; preds = %if.then.i.i.i.i.i116, %if.then22.i.i.i.i.i130
+"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit140": ; preds = %if.then.i.i.i.i.i116, %if.then22.i.i.i.i.i130
   %retval.0.i.i.i.i.i138 = phi ptr [ %curr.133.i.i.i.i.i128, %if.then22.i.i.i.i.i130 ], [ %curr.031.i.i.i.i.i114, %if.then.i.i.i.i.i116 ]
   %m_value.i.i.i139 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i138, i64 8
   %68 = load ptr, ptr %m_value.i.i.i139, align 8
@@ -4759,14 +4759,14 @@ for.inc36.i.i.i.i.i135:                           ; preds = %if.then22.i.i.i.i.i
   %tobool.not.i.i.i.i141 = icmp eq ptr %call32, null
   br i1 %tobool.not.i.i.i.i141, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145, label %if.then.i.i.i.i142
 
-if.then.i.i.i.i142:                               ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140"
+if.then.i.i.i.i142:                               ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit140"
   %m_ref_count.i.i.i.i.i143 = getelementptr inbounds i8, ptr %call32, i64 8
   %70 = load i32, ptr %m_ref_count.i.i.i.i.i143, align 4
   %inc.i.i.i.i.i144 = add i32 %70, 1
   store i32 %inc.i.i.i.i.i144, ptr %m_ref_count.i.i.i.i.i143, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145: ; preds = %if.then.i.i.i.i142, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit140"
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i145: ; preds = %if.then.i.i.i.i142, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit140"
   %71 = load ptr, ptr %m_nodes.i85, align 8
   %cmp.i.i147 = icmp eq ptr %71, null
   br i1 %cmp.i.i147, label %return.sink.split.sink.split, label %lor.lhs.false.i.i148
@@ -4821,7 +4821,7 @@ if.then.i.i.i.i.i177:                             ; preds = %for.body.i.i.i.i.i1
   %cmp8.i.i.i.i.i179 = icmp eq i32 %80, %76
   %cmp.i.i.i.i.i.i.i.i180 = icmp eq ptr %79, %75
   %or.cond.i.i.i.i.i181 = and i1 %cmp.i.i.i.i.i.i.i.i180, %cmp8.i.i.i.i.i179
-  br i1 %or.cond.i.i.i.i.i181, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit201", label %for.inc.i.i.i.i.i182
+  br i1 %or.cond.i.i.i.i.i181, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit201", label %for.inc.i.i.i.i.i182
 
 for.inc.i.i.i.i.i182:                             ; preds = %if.then.i.i.i.i.i177, %for.body.i.i.i.i.i174
   %incdec.ptr.i.i.i.i.i183 = getelementptr inbounds i8, ptr %curr.031.i.i.i.i.i175, i64 16
@@ -4842,14 +4842,14 @@ if.then22.i.i.i.i.i191:                           ; preds = %for.body20.i.i.i.i.
   %cmp24.i.i.i.i.i193 = icmp eq i32 %82, %76
   %cmp.i.i.i23.i.i.i.i.i194 = icmp eq ptr %81, %75
   %or.cond26.i.i.i.i.i195 = and i1 %cmp.i.i.i23.i.i.i.i.i194, %cmp24.i.i.i.i.i193
-  br i1 %or.cond26.i.i.i.i.i195, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit201", label %for.inc36.i.i.i.i.i196
+  br i1 %or.cond26.i.i.i.i.i195, label %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit201", label %for.inc36.i.i.i.i.i196
 
 for.inc36.i.i.i.i.i196:                           ; preds = %if.then22.i.i.i.i.i191, %for.body20.i.i.i.i.i187
   %incdec.ptr37.i.i.i.i.i197 = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i189, i64 16
   %cmp19.not.i.i.i.i.i198 = icmp ne ptr %incdec.ptr37.i.i.i.i.i197, %add.ptr.i.i.i.i.i170
   br label %for.body20.i.i.i.i.i187
 
-"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit201": ; preds = %if.then.i.i.i.i.i177, %if.then22.i.i.i.i.i191
+"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit201": ; preds = %if.then.i.i.i.i.i177, %if.then22.i.i.i.i.i191
   %retval.0.i.i.i.i.i199 = phi ptr [ %curr.133.i.i.i.i.i189, %if.then22.i.i.i.i.i191 ], [ %curr.031.i.i.i.i.i175, %if.then.i.i.i.i.i177 ]
   %m_value.i.i.i200 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i199, i64 8
   %83 = load ptr, ptr %m_value.i.i.i200, align 8
@@ -4863,14 +4863,14 @@ for.inc36.i.i.i.i.i196:                           ; preds = %if.then22.i.i.i.i.i
   %tobool.not.i.i.i.i207 = icmp eq ptr %call.i.i206, null
   br i1 %tobool.not.i.i.i.i207, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211, label %if.then.i.i.i.i208
 
-if.then.i.i.i.i208:                               ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit201"
+if.then.i.i.i.i208:                               ; preds = %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit201"
   %m_ref_count.i.i.i.i.i209 = getelementptr inbounds i8, ptr %call.i.i206, i64 8
   %86 = load i32, ptr %m_ref_count.i.i.i.i.i209, align 4
   %inc.i.i.i.i.i210 = add i32 %86, 1
   store i32 %inc.i.i.i.i.i210, ptr %m_ref_count.i.i.i.i.i209, align 4
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211: ; preds = %if.then.i.i.i.i208, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.exit201"
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i211: ; preds = %if.then.i.i.i.i208, %"_ZZN1q11model_fixer10invert_argEP3appjP4exprR10ref_vectorIS3_11ast_managerEENK3$_1clEj.argprom.argprom.exit201"
   %m_nodes.i212 = getelementptr inbounds i8, ptr %lits, i64 8
   %87 = load ptr, ptr %m_nodes.i212, align 8
   %cmp.i.i213 = icmp eq ptr %87, null

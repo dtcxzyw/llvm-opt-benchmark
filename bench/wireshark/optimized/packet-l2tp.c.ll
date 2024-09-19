@@ -1194,7 +1194,7 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
 .split.i:                                         ; preds = %56
   %61 = getelementptr inbounds i8, ptr %.0, i64 64
   %62 = load ptr, ptr %61, align 8
-  tail call fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %60, ptr noundef %58, i32 4, ptr noundef %62)
+  tail call fastcc void @process_l2tpv3_data.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %60, ptr noundef %58, i32 4, ptr noundef %62)
   br label %.sink.split
 
 .split16.i:                                       ; preds = %56
@@ -1206,7 +1206,7 @@ define internal i32 @dissect_l2tp_udp(ptr noundef %0, ptr noundef %1, ptr nounde
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %66, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
   %68 = getelementptr inbounds i8, ptr %.0, i64 64
   %69 = load ptr, ptr %68, align 8
-  tail call fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %60, ptr noundef %58, i32 4, ptr noundef %69)
+  tail call fastcc void @process_l2tpv3_data.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %60, ptr noundef %58, i32 4, ptr noundef %69)
   br label %.sink.split
 
 70:                                               ; preds = %41
@@ -1481,7 +1481,7 @@ define internal i32 @dissect_l2tp_ip(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.671) #8
   %25 = getelementptr inbounds i8, ptr %.0, i64 64
   %26 = load ptr, ptr %25, align 8
-  tail call fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %24, ptr noundef %22, i32 0, ptr noundef %26)
+  tail call fastcc void @process_l2tpv3_data.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %24, ptr noundef %22, i32 0, ptr noundef %26)
   br label %27
 
 27:                                               ; preds = %20, %19
@@ -4149,7 +4149,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %.0.val, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @process_l2tpv3_data.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %.0.val, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = load i32, ptr @l2tpv3_cookie, align 4
   %8 = load i32, ptr @l2tpv3_l2_specific, align 4
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.val) #8

@@ -1961,13 +1961,13 @@ define dso_local void @_ZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentati
   %12 = load i64, ptr %3, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, %7
-  br i1 %14, label %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.exit.i.i", label %15
+  br i1 %14, label %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.argprom.exit.i.i", label %15
 
 15:                                               ; preds = %6
   call void @free(ptr noundef %13) #26
-  br label %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.exit.i.i"
+  br label %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.argprom.exit.i.i"
 
-"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.exit.i.i": ; preds = %15, %6
+"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.argprom.exit.i.i": ; preds = %15, %6
   call void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %8, i64 noundef %12) #26
   %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   %17 = add i64 %16, 1
@@ -1988,7 +1988,7 @@ define dso_local void @_ZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentati
   %26 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %"_ZN4llvm28PassInstrumentationCallbacks37registerShouldRunOptionalPassCallbackIZNS_23registerCodeGenCallbackERS0_RNS_17LLVMTargetMachineEE3$_0EEvT_.exit"
 
-"_ZN4llvm28PassInstrumentationCallbacks37registerShouldRunOptionalPassCallbackIZNS_23registerCodeGenCallbackERS0_RNS_17LLVMTargetMachineEE3$_0EEvT_.exit": ; preds = %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.exit.i.i", %19
+"_ZN4llvm28PassInstrumentationCallbacks37registerShouldRunOptionalPassCallbackIZNS_23registerCodeGenCallbackERS0_RNS_17LLVMTargetMachineEE3$_0EEvT_.exit": ; preds = %"_ZN4llvm23SmallVectorTemplateBaseINS_15unique_functionIFbNS_9StringRefENS_3AnyEEEELb0EE18growAndEmplaceBackIJZNS_23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEE3$_0EEERS5_DpOT_.argprom.exit.i.i", %19
   ret void
 }
 
@@ -2569,7 +2569,7 @@ define dso_local void @_ZN4llvm16TargetPassConfig10insertPassEPKvNS_18Identifyin
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
   %.not.i.i.i.i.i = icmp ugt i64 %14, %15
   %.val.i.pre3.i.i.i = load ptr, ptr %8, align 8
-  br i1 %.not.i.i.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit.i
+  br i1 %.not.i.i.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.argprom.exit.i
 
 16:                                               ; preds = %11
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
@@ -2583,7 +2583,7 @@ define dso_local void @_ZN4llvm16TargetPassConfig10insertPassEPKvNS_18Identifyin
   %22 = getelementptr inbounds i8, ptr %7, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %22, i64 noundef %14, i64 noundef 24) #26
   %.val.i.pre.i.i.i = load ptr, ptr %8, align 8
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.argprom.exit.i
 
 23:                                               ; preds = %16
   %.val18.i.i.i.i.i = load ptr, ptr %8, align 8
@@ -2594,9 +2594,9 @@ define dso_local void @_ZN4llvm16TargetPassConfig10insertPassEPKvNS_18Identifyin
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %27, i64 noundef %14, i64 noundef 24) #26
   %.val.i.i.i.i.i = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %26
-  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.argprom.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit.i: ; preds = %23, %21, %11
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.argprom.exit.i: ; preds = %23, %21, %11
   %.val.i.i.i.i = phi ptr [ %.val.i.pre3.i.i.i, %11 ], [ %.val.i.i.i.i.i, %23 ], [ %.val.i.pre.i.i.i, %21 ]
   %.016.i.i.i.i.i = phi ptr [ %5, %11 ], [ %28, %23 ], [ %5, %21 ]
   %29 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
@@ -2624,7 +2624,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEm
   %40 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #26
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_112InsertedPassEE12emplace_backIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_112InsertedPassEE12emplace_backIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit.i, %34
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_112InsertedPassEE12emplace_backIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_112InsertedPassELb1EE18growAndEmplaceBackIJRPKvRNS_18IdentifyingPassPtrEEEERS2_DpOT_.argprom.exit.i, %34
   ret void
 }
 
@@ -3415,18 +3415,18 @@ _ZN4llvm16TargetPassConfig20addMachinePostPassesERKNSt7__cxx1112basic_stringIcSt
   %137 = getelementptr i8, ptr %.021, i64 16
   %.0.val19 = load i8, ptr %137, align 8
   %138 = trunc i8 %.0.val19 to i1
-  br i1 %138, label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit, label %139
+  br i1 %138, label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.argprom.exit, label %139
 
 139:                                              ; preds = %135
   %140 = call noundef ptr @_ZN4llvm4Pass10createPassEPKv(ptr noundef %.0.val) #26
-  br label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit
+  br label %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.argprom.exit
 
-_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit: ; preds = %135, %139
+_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.argprom.exit: ; preds = %135, %139
   %.0.i = phi ptr [ %140, %139 ], [ %.0.val, %135 ]
   call void @_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE(ptr noundef nonnull align 8 dereferenceable(134) %0, ptr noundef %.0.i)
   br label %141
 
-141:                                              ; preds = %.lr.ph, %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.exit
+141:                                              ; preds = %.lr.ph, %_ZNK12_GLOBAL__N_112InsertedPass15getInsertedPassEv.argprom.exit
   %142 = getelementptr inbounds i8, ptr %.021, i64 24
   %.not = icmp eq ptr %142, %132
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -12868,7 +12868,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 11:                                               ; preds = %4
   %12 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.180, i64 25, i64 noundef 0) #26
   %.not.i = icmp eq i64 %12, -1
-  br i1 %.not.i, label %13, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not.i, label %13, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 13:                                               ; preds = %11, %4
   %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17DisableBranchFold, i64 128), align 8
@@ -12878,7 +12878,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 16:                                               ; preds = %13
   %17 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.181, i64 16, i64 noundef 0) #26
   %.not27.i = icmp eq i64 %17, -1
-  br i1 %.not27.i, label %18, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not27.i, label %18, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 18:                                               ; preds = %16, %13
   %19 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL15DisableCopyProp, i64 128), align 8
@@ -12888,7 +12888,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 21:                                               ; preds = %18
   %22 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.182, i64 26, i64 noundef 0) #26
   %.not28.i = icmp eq i64 %22, -1
-  br i1 %.not28.i, label %23, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not28.i, label %23, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 23:                                               ; preds = %21, %18
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24DisableEarlyIfConversion, i64 128), align 8
@@ -12898,7 +12898,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 26:                                               ; preds = %23
   %27 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.183, i64 20, i64 noundef 0) #26
   %.not29.i = icmp eq i64 %27, -1
-  br i1 %.not29.i, label %28, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not29.i, label %28, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 28:                                               ; preds = %26, %23
   %29 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL19DisableEarlyTailDup, i64 128), align 8
@@ -12908,7 +12908,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 31:                                               ; preds = %28
   %32 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.184, i64 22, i64 noundef 0) #26
   %.not30.i = icmp eq i64 %32, -1
-  br i1 %.not30.i, label %33, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not30.i, label %33, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 33:                                               ; preds = %31, %28
   %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17DisableMachineCSE, i64 128), align 8
@@ -12918,7 +12918,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 36:                                               ; preds = %33
   %37 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.185, i64 14, i64 noundef 0) #26
   %.not31.i = icmp eq i64 %37, -1
-  br i1 %.not31.i, label %38, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not31.i, label %38, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 38:                                               ; preds = %36, %33
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17DisableMachineDCE, i64 128), align 8
@@ -12928,7 +12928,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 41:                                               ; preds = %38
   %42 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.186, i64 30, i64 noundef 0) #26
   %.not32.i = icmp eq i64 %42, -1
-  br i1 %.not32.i, label %43, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not32.i, label %43, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 43:                                               ; preds = %41, %38
   %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18DisableMachineLICM, i64 128), align 8
@@ -12938,7 +12938,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 46:                                               ; preds = %43
   %47 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.187, i64 20, i64 noundef 0) #26
   %.not33.i = icmp eq i64 %47, -1
-  br i1 %.not33.i, label %48, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not33.i, label %48, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 48:                                               ; preds = %46, %43
   %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18DisableMachineSink, i64 128), align 8
@@ -12948,7 +12948,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 51:                                               ; preds = %48
   %52 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.188, i64 18, i64 noundef 0) #26
   %.not34.i = icmp eq i64 %52, -1
-  br i1 %.not34.i, label %53, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not34.i, label %53, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 53:                                               ; preds = %51, %48
   %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24DisablePostRAMachineLICM, i64 128), align 8
@@ -12958,7 +12958,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 56:                                               ; preds = %53
   %57 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.189, i64 15, i64 noundef 0) #26
   %.not35.i = icmp eq i64 %57, -1
-  br i1 %.not35.i, label %58, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not35.i, label %58, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 58:                                               ; preds = %56, %53
   %59 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL24DisablePostRAMachineSink, i64 128), align 8
@@ -12968,7 +12968,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 61:                                               ; preds = %58
   %62 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.190, i64 24, i64 noundef 0) #26
   %.not36.i = icmp eq i64 %62, -1
-  br i1 %.not36.i, label %63, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not36.i, label %63, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 63:                                               ; preds = %61, %58
   %64 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18DisablePostRASched, i64 128), align 8
@@ -12978,7 +12978,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 66:                                               ; preds = %63
   %67 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.191, i64 19, i64 noundef 0) #26
   %.not37.i = icmp eq i64 %67, -1
-  br i1 %.not37.i, label %68, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not37.i, label %68, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 68:                                               ; preds = %66, %63
   %69 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL10DisableSSC, i64 128), align 8
@@ -12988,7 +12988,7 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 71:                                               ; preds = %68
   %72 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.192, i64 21, i64 noundef 0) #26
   %.not38.i = icmp eq i64 %72, -1
-  br i1 %.not38.i, label %73, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not38.i, label %73, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 73:                                               ; preds = %71, %68
   %74 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20DisableTailDuplicate, i64 128), align 8
@@ -12998,25 +12998,25 @@ define internal noundef zeroext i1 @"_ZN4llvm6detail18UniqueFunctionBaseIbJNS_9S
 76:                                               ; preds = %73
   %77 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.193, i64 17, i64 noundef 0) #26
   %.not39.i = icmp eq i64 %77, -1
-  br i1 %.not39.i, label %78, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br i1 %.not39.i, label %78, label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
 78:                                               ; preds = %76, %73
-  br label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+  br label %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
 
-"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit": ; preds = %11, %16, %21, %26, %31, %36, %41, %46, %51, %56, %61, %66, %71, %76, %78
+"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit": ; preds = %11, %16, %21, %26, %31, %36, %41, %46, %51, %56, %61, %66, %71, %76, %78
   %.0.i = phi i1 [ true, %78 ], [ false, %11 ], [ false, %16 ], [ false, %21 ], [ false, %26 ], [ false, %31 ], [ false, %36 ], [ false, %41 ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ false, %61 ], [ false, %66 ], [ false, %71 ], [ false, %76 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %_ZN4llvm3AnyD2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i: ; preds = %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit"
+_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i: ; preds = %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit"
   %79 = load ptr, ptr %7, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   br label %_ZN4llvm3AnyD2Ev.exit
 
-_ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.exit", %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
+_ZN4llvm3AnyD2Ev.exit:                            ; preds = %"_ZZN4llvm23registerCodeGenCallbackERNS_28PassInstrumentationCallbacksERNS_17LLVMTargetMachineEENK3$_0clENS_9StringRefENS_3AnyE.argprom.exit", %_ZNKSt14default_deleteIN4llvm3Any11StorageBaseEEclEPS2_.exit.i.i
   ret i1 %.0.i
 }
 

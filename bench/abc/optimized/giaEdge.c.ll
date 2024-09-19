@@ -146,9 +146,9 @@ Vec_IntStart.exit44:                              ; preds = %Vec_IntAlloc.exit.t
   %48 = getelementptr i8, ptr %1, i64 8
   br label %49
 
-49:                                               ; preds = %.lr.ph, %Gia_ObjEdgeAdd.exit49
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjEdgeAdd.exit49 ]
-  %.052 = phi i32 [ 0, %.lr.ph ], [ %78, %Gia_ObjEdgeAdd.exit49 ]
+49:                                               ; preds = %.lr.ph, %Gia_ObjEdgeAdd.argprom.exit49
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjEdgeAdd.argprom.exit49 ]
+  %.052 = phi i32 [ 0, %.lr.ph ], [ %78, %Gia_ObjEdgeAdd.argprom.exit49 ]
   %50 = or disjoint i64 %indvars.iv, 1
   %.val28 = load ptr, ptr %48, align 8
   %51 = getelementptr inbounds i32, ptr %.val28, i64 %indvars.iv
@@ -171,7 +171,7 @@ Vec_IntStart.exit44:                              ; preds = %Vec_IntAlloc.exit.t
   %64 = getelementptr inbounds i32, ptr %.val.i, i64 %57
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.sink.split.i, label %Gia_ObjEdgeAdd.exit
+  br i1 %66, label %.sink.split.i, label %Gia_ObjEdgeAdd.argprom.exit
 
 .sink.split.i:                                    ; preds = %61, %49
   %.sink.i = phi ptr [ %58, %49 ], [ %64, %61 ]
@@ -179,9 +179,9 @@ Vec_IntStart.exit44:                              ; preds = %Vec_IntAlloc.exit.t
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val31.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %Gia_ObjEdgeAdd.exit
+  br label %Gia_ObjEdgeAdd.argprom.exit
 
-Gia_ObjEdgeAdd.exit:                              ; preds = %61, %.sink.split.i
+Gia_ObjEdgeAdd.argprom.exit:                      ; preds = %61, %.sink.split.i
   %.val31 = phi ptr [ %.val30, %61 ], [ %.val31.pre, %.sink.split.i ]
   %.0.i = phi i32 [ 1, %61 ], [ 0, %.sink.split.i ]
   %67 = add nsw i32 %.0.i, %.052
@@ -191,21 +191,21 @@ Gia_ObjEdgeAdd.exit:                              ; preds = %61, %.sink.split.i
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.sink.split.i47, label %72
 
-72:                                               ; preds = %Gia_ObjEdgeAdd.exit
+72:                                               ; preds = %Gia_ObjEdgeAdd.argprom.exit
   %73 = load ptr, ptr %13, align 8
   %74 = getelementptr i8, ptr %73, i64 8
   %.val.i45 = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds i32, ptr %.val.i45, i64 %68
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.sink.split.i47, label %Gia_ObjEdgeAdd.exit49
+  br i1 %77, label %.sink.split.i47, label %Gia_ObjEdgeAdd.argprom.exit49
 
-.sink.split.i47:                                  ; preds = %72, %Gia_ObjEdgeAdd.exit
-  %.sink.i48 = phi ptr [ %69, %Gia_ObjEdgeAdd.exit ], [ %75, %72 ]
+.sink.split.i47:                                  ; preds = %72, %Gia_ObjEdgeAdd.argprom.exit
+  %.sink.i48 = phi ptr [ %69, %Gia_ObjEdgeAdd.argprom.exit ], [ %75, %72 ]
   store i32 %52, ptr %.sink.i48, align 4
-  br label %Gia_ObjEdgeAdd.exit49
+  br label %Gia_ObjEdgeAdd.argprom.exit49
 
-Gia_ObjEdgeAdd.exit49:                            ; preds = %72, %.sink.split.i47
+Gia_ObjEdgeAdd.argprom.exit49:                    ; preds = %72, %.sink.split.i47
   %.0.i46 = phi i32 [ 1, %72 ], [ 0, %.sink.split.i47 ]
   %78 = add nsw i32 %67, %.0.i46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -215,7 +215,7 @@ Gia_ObjEdgeAdd.exit49:                            ; preds = %72, %.sink.split.i4
   %81 = icmp slt i32 %80, %.val27
   br i1 %81, label %49, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %Gia_ObjEdgeAdd.exit49
+.critedge:                                        ; preds = %Gia_ObjEdgeAdd.argprom.exit49
   %.not = icmp eq i32 %78, 0
   br i1 %.not, label %.critedge.thread, label %82
 
@@ -617,7 +617,7 @@ Vec_IntStart.exit72:                              ; preds = %Vec_IntAlloc.exit.t
   %76 = getelementptr inbounds i32, ptr %.val.i, i64 %69
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.sink.split.i, label %Gia_ObjEdgeAdd.exit
+  br i1 %78, label %.sink.split.i, label %Gia_ObjEdgeAdd.argprom.exit
 
 .sink.split.i:                                    ; preds = %73, %66
   %.sink.i = phi ptr [ %70, %66 ], [ %76, %73 ]
@@ -625,9 +625,9 @@ Vec_IntStart.exit72:                              ; preds = %Vec_IntAlloc.exit.t
   %.pre122 = load ptr, ptr %7, align 8
   %.phi.trans.insert123 = getelementptr i8, ptr %.pre122, i64 8
   %.val58.pre = load ptr, ptr %.phi.trans.insert123, align 8
-  br label %Gia_ObjEdgeAdd.exit
+  br label %Gia_ObjEdgeAdd.argprom.exit
 
-Gia_ObjEdgeAdd.exit:                              ; preds = %73, %.sink.split.i
+Gia_ObjEdgeAdd.argprom.exit:                      ; preds = %73, %.sink.split.i
   %.val58 = phi ptr [ %.val59, %73 ], [ %.val58.pre, %.sink.split.i ]
   %.0.i = phi i32 [ 1, %73 ], [ 0, %.sink.split.i ]
   %79 = add nsw i32 %.0.i, %.0103
@@ -637,21 +637,21 @@ Gia_ObjEdgeAdd.exit:                              ; preds = %73, %.sink.split.i
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.sink.split.i75, label %84
 
-84:                                               ; preds = %Gia_ObjEdgeAdd.exit
+84:                                               ; preds = %Gia_ObjEdgeAdd.argprom.exit
   %85 = load ptr, ptr %17, align 8
   %86 = getelementptr i8, ptr %85, i64 8
   %.val.i73 = load ptr, ptr %86, align 8
   %87 = getelementptr inbounds i32, ptr %.val.i73, i64 %80
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.sink.split.i75, label %Gia_ObjEdgeAdd.exit77
+  br i1 %89, label %.sink.split.i75, label %Gia_ObjEdgeAdd.argprom.exit77
 
-.sink.split.i75:                                  ; preds = %84, %Gia_ObjEdgeAdd.exit
-  %.sink.i76 = phi ptr [ %81, %Gia_ObjEdgeAdd.exit ], [ %87, %84 ]
+.sink.split.i75:                                  ; preds = %84, %Gia_ObjEdgeAdd.argprom.exit
+  %.sink.i76 = phi ptr [ %81, %Gia_ObjEdgeAdd.argprom.exit ], [ %87, %84 ]
   store i32 %.0..0., ptr %.sink.i76, align 4
-  br label %Gia_ObjEdgeAdd.exit77
+  br label %Gia_ObjEdgeAdd.argprom.exit77
 
-Gia_ObjEdgeAdd.exit77:                            ; preds = %84, %.sink.split.i75
+Gia_ObjEdgeAdd.argprom.exit77:                    ; preds = %84, %.sink.split.i75
   %.0.i74 = phi i32 [ 1, %84 ], [ 0, %.sink.split.i75 ]
   %90 = add nsw i32 %79, %.0.i74
   br label %137
@@ -675,7 +675,7 @@ Gia_ObjEdgeAdd.exit77:                            ; preds = %84, %.sink.split.i7
   %101 = getelementptr inbounds i32, ptr %.val.i78, i64 %94
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.sink.split.i80, label %Gia_ObjEdgeAdd.exit82
+  br i1 %103, label %.sink.split.i80, label %Gia_ObjEdgeAdd.argprom.exit82
 
 .sink.split.i80:                                  ; preds = %98, %91
   %.sink.i81 = phi ptr [ %95, %91 ], [ %101, %98 ]
@@ -683,9 +683,9 @@ Gia_ObjEdgeAdd.exit77:                            ; preds = %84, %.sink.split.i7
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val56.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %Gia_ObjEdgeAdd.exit82
+  br label %Gia_ObjEdgeAdd.argprom.exit82
 
-Gia_ObjEdgeAdd.exit82:                            ; preds = %98, %.sink.split.i80
+Gia_ObjEdgeAdd.argprom.exit82:                    ; preds = %98, %.sink.split.i80
   %.val56 = phi ptr [ %.val57, %98 ], [ %.val56.pre, %.sink.split.i80 ]
   %.0.i79 = phi i32 [ 1, %98 ], [ 0, %.sink.split.i80 ]
   %104 = add nsw i32 %.0.i79, %.0103
@@ -695,24 +695,24 @@ Gia_ObjEdgeAdd.exit82:                            ; preds = %98, %.sink.split.i8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %.sink.split.i85, label %109
 
-109:                                              ; preds = %Gia_ObjEdgeAdd.exit82
+109:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit82
   %110 = load ptr, ptr %17, align 8
   %111 = getelementptr i8, ptr %110, i64 8
   %.val.i83 = load ptr, ptr %111, align 8
   %112 = getelementptr inbounds i32, ptr %.val.i83, i64 %105
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.sink.split.i85, label %Gia_ObjEdgeAdd.exit87
+  br i1 %114, label %.sink.split.i85, label %Gia_ObjEdgeAdd.argprom.exit87
 
-.sink.split.i85:                                  ; preds = %109, %Gia_ObjEdgeAdd.exit82
-  %.sink.i86 = phi ptr [ %106, %Gia_ObjEdgeAdd.exit82 ], [ %112, %109 ]
+.sink.split.i85:                                  ; preds = %109, %Gia_ObjEdgeAdd.argprom.exit82
+  %.sink.i86 = phi ptr [ %106, %Gia_ObjEdgeAdd.argprom.exit82 ], [ %112, %109 ]
   store i32 %.0..0.112, ptr %.sink.i86, align 4
   %.pre116 = load ptr, ptr %7, align 8
   %.phi.trans.insert117 = getelementptr i8, ptr %.pre116, i64 8
   %.val55.pre = load ptr, ptr %.phi.trans.insert117, align 8
-  br label %Gia_ObjEdgeAdd.exit87
+  br label %Gia_ObjEdgeAdd.argprom.exit87
 
-Gia_ObjEdgeAdd.exit87:                            ; preds = %109, %.sink.split.i85
+Gia_ObjEdgeAdd.argprom.exit87:                    ; preds = %109, %.sink.split.i85
   %.val55 = phi ptr [ %.val56, %109 ], [ %.val55.pre, %.sink.split.i85 ]
   %.0.i84 = phi i32 [ 1, %109 ], [ 0, %.sink.split.i85 ]
   %115 = add nsw i32 %104, %.0.i84
@@ -723,24 +723,24 @@ Gia_ObjEdgeAdd.exit87:                            ; preds = %109, %.sink.split.i
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.sink.split.i90, label %120
 
-120:                                              ; preds = %Gia_ObjEdgeAdd.exit87
+120:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit87
   %121 = load ptr, ptr %17, align 8
   %122 = getelementptr i8, ptr %121, i64 8
   %.val.i88 = load ptr, ptr %122, align 8
   %123 = getelementptr inbounds i32, ptr %.val.i88, i64 %116
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %.sink.split.i90, label %Gia_ObjEdgeAdd.exit92
+  br i1 %125, label %.sink.split.i90, label %Gia_ObjEdgeAdd.argprom.exit92
 
-.sink.split.i90:                                  ; preds = %120, %Gia_ObjEdgeAdd.exit87
-  %.sink.i91 = phi ptr [ %117, %Gia_ObjEdgeAdd.exit87 ], [ %123, %120 ]
+.sink.split.i90:                                  ; preds = %120, %Gia_ObjEdgeAdd.argprom.exit87
+  %.sink.i91 = phi ptr [ %117, %Gia_ObjEdgeAdd.argprom.exit87 ], [ %123, %120 ]
   store i32 %.8..8., ptr %.sink.i91, align 4
   %.pre119 = load ptr, ptr %7, align 8
   %.phi.trans.insert120 = getelementptr i8, ptr %.pre119, i64 8
   %.val54.pre = load ptr, ptr %.phi.trans.insert120, align 8
-  br label %Gia_ObjEdgeAdd.exit92
+  br label %Gia_ObjEdgeAdd.argprom.exit92
 
-Gia_ObjEdgeAdd.exit92:                            ; preds = %120, %.sink.split.i90
+Gia_ObjEdgeAdd.argprom.exit92:                    ; preds = %120, %.sink.split.i90
   %.val54 = phi ptr [ %.val55, %120 ], [ %.val54.pre, %.sink.split.i90 ]
   %.0.i89 = phi i32 [ 1, %120 ], [ 0, %.sink.split.i90 ]
   %126 = add nsw i32 %115, %.0.i89
@@ -749,27 +749,27 @@ Gia_ObjEdgeAdd.exit92:                            ; preds = %120, %.sink.split.i
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.sink.split.i95, label %130
 
-130:                                              ; preds = %Gia_ObjEdgeAdd.exit92
+130:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit92
   %131 = load ptr, ptr %17, align 8
   %132 = getelementptr i8, ptr %131, i64 8
   %.val.i93 = load ptr, ptr %132, align 8
   %133 = getelementptr inbounds i32, ptr %.val.i93, i64 %105
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.sink.split.i95, label %Gia_ObjEdgeAdd.exit97
+  br i1 %135, label %.sink.split.i95, label %Gia_ObjEdgeAdd.argprom.exit97
 
-.sink.split.i95:                                  ; preds = %130, %Gia_ObjEdgeAdd.exit92
-  %.sink.i96 = phi ptr [ %127, %Gia_ObjEdgeAdd.exit92 ], [ %133, %130 ]
+.sink.split.i95:                                  ; preds = %130, %Gia_ObjEdgeAdd.argprom.exit92
+  %.sink.i96 = phi ptr [ %127, %Gia_ObjEdgeAdd.argprom.exit92 ], [ %133, %130 ]
   store i32 %.4..4., ptr %.sink.i96, align 4
-  br label %Gia_ObjEdgeAdd.exit97
+  br label %Gia_ObjEdgeAdd.argprom.exit97
 
-Gia_ObjEdgeAdd.exit97:                            ; preds = %130, %.sink.split.i95
+Gia_ObjEdgeAdd.argprom.exit97:                    ; preds = %130, %.sink.split.i95
   %.0.i94 = phi i32 [ 1, %130 ], [ 0, %.sink.split.i95 ]
   %136 = add nsw i32 %126, %.0.i94
   br label %137
 
-137:                                              ; preds = %._crit_edge, %Gia_ObjEdgeAdd.exit77, %Gia_ObjEdgeAdd.exit97
-  %.1 = phi i32 [ %90, %Gia_ObjEdgeAdd.exit77 ], [ %136, %Gia_ObjEdgeAdd.exit97 ], [ %.0103, %._crit_edge ]
+137:                                              ; preds = %._crit_edge, %Gia_ObjEdgeAdd.argprom.exit77, %Gia_ObjEdgeAdd.argprom.exit97
+  %.1 = phi i32 [ %90, %Gia_ObjEdgeAdd.argprom.exit77 ], [ %136, %Gia_ObjEdgeAdd.argprom.exit97 ], [ %.0103, %._crit_edge ]
   %138 = load ptr, ptr %3, align 8
   %139 = getelementptr i8, ptr %138, i64 4
   %.val50 = load i32, ptr %139, align 4
@@ -1906,34 +1906,34 @@ define range(i32 -2147483638, -2147483648) i32 @Gia_ObjComputeEdgeDelay(ptr noca
 
 99:                                               ; preds = %97
   %100 = icmp eq i32 %95, 0
-  br i1 %100, label %.sink.split.i, label %Gia_ObjEdgeAdd.exit
+  br i1 %100, label %.sink.split.i, label %Gia_ObjEdgeAdd.argprom.exit
 
 .sink.split.i:                                    ; preds = %99, %97
   %.sink.i = phi ptr [ %91, %97 ], [ %94, %99 ]
   store i32 %1, ptr %.sink.i, align 4
   %.val156.pre = load ptr, ptr %7, align 8
-  br label %Gia_ObjEdgeAdd.exit
+  br label %Gia_ObjEdgeAdd.argprom.exit
 
-Gia_ObjEdgeAdd.exit:                              ; preds = %99, %.sink.split.i
+Gia_ObjEdgeAdd.argprom.exit:                      ; preds = %99, %.sink.split.i
   %.val156 = phi ptr [ %.val165, %99 ], [ %.val156.pre, %.sink.split.i ]
   %101 = getelementptr inbounds i32, ptr %.val156, i64 %8
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %.sink.split.i176, label %104
 
-104:                                              ; preds = %Gia_ObjEdgeAdd.exit
+104:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit
   %.val.i174 = load ptr, ptr %10, align 8
   %105 = getelementptr inbounds i32, ptr %.val.i174, i64 %8
   %106 = load i32, ptr %105, align 4
   %107 = icmp eq i32 %106, 0
-  br i1 %107, label %.sink.split.i176, label %Gia_ObjEdgeAdd.exit178
+  br i1 %107, label %.sink.split.i176, label %Gia_ObjEdgeAdd.argprom.exit178
 
-.sink.split.i176:                                 ; preds = %104, %Gia_ObjEdgeAdd.exit
-  %.sink.i177 = phi ptr [ %101, %Gia_ObjEdgeAdd.exit ], [ %105, %104 ]
+.sink.split.i176:                                 ; preds = %104, %Gia_ObjEdgeAdd.argprom.exit
+  %.sink.i177 = phi ptr [ %101, %Gia_ObjEdgeAdd.argprom.exit ], [ %105, %104 ]
   store i32 %.2116, ptr %.sink.i177, align 4
-  br label %Gia_ObjEdgeAdd.exit178
+  br label %Gia_ObjEdgeAdd.argprom.exit178
 
-Gia_ObjEdgeAdd.exit178:                           ; preds = %104, %.sink.split.i176
+Gia_ObjEdgeAdd.argprom.exit178:                   ; preds = %104, %.sink.split.i176
   %108 = add nsw i32 %.2131, -8
   %109 = tail call noundef i32 @llvm.smax.i32(i32 %.2126, i32 %108)
   br label %.critedge.thread
@@ -1972,7 +1972,7 @@ Gia_ObjEdgeAdd.exit178:                           ; preds = %104, %.sink.split.i
 
 130:                                              ; preds = %128
   %131 = icmp eq i32 %119, 0
-  br i1 %131, label %.sink.split.i181, label %Gia_ObjEdgeAdd.exit183
+  br i1 %131, label %.sink.split.i181, label %Gia_ObjEdgeAdd.argprom.exit183
 
 .sink.split.i181:                                 ; preds = %130, %128
   %.sink.i182 = phi ptr [ %115, %128 ], [ %118, %130 ]
@@ -1980,71 +1980,71 @@ Gia_ObjEdgeAdd.exit178:                           ; preds = %104, %.sink.split.i
   %.val154.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.val154.pre, i64 %121
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %Gia_ObjEdgeAdd.exit183
+  br label %Gia_ObjEdgeAdd.argprom.exit183
 
-Gia_ObjEdgeAdd.exit183:                           ; preds = %130, %.sink.split.i181
+Gia_ObjEdgeAdd.argprom.exit183:                   ; preds = %130, %.sink.split.i181
   %132 = phi i32 [ %123, %130 ], [ %.pre, %.sink.split.i181 ]
   %.val154 = phi ptr [ %.val167, %130 ], [ %.val154.pre, %.sink.split.i181 ]
   %133 = getelementptr inbounds i32, ptr %.val154, i64 %121
   %134 = icmp eq i32 %132, 0
   br i1 %134, label %.sink.split.i186, label %135
 
-135:                                              ; preds = %Gia_ObjEdgeAdd.exit183
+135:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit183
   %.val.i184 = load ptr, ptr %10, align 8
   %136 = getelementptr inbounds i32, ptr %.val.i184, i64 %121
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 0
-  br i1 %138, label %.sink.split.i186, label %Gia_ObjEdgeAdd.exit188
+  br i1 %138, label %.sink.split.i186, label %Gia_ObjEdgeAdd.argprom.exit188
 
-.sink.split.i186:                                 ; preds = %135, %Gia_ObjEdgeAdd.exit183
-  %.sink.i187 = phi ptr [ %133, %Gia_ObjEdgeAdd.exit183 ], [ %136, %135 ]
+.sink.split.i186:                                 ; preds = %135, %Gia_ObjEdgeAdd.argprom.exit183
+  %.sink.i187 = phi ptr [ %133, %Gia_ObjEdgeAdd.argprom.exit183 ], [ %136, %135 ]
   store i32 %1, ptr %.sink.i187, align 4
   %.val153.pre = load ptr, ptr %7, align 8
-  br label %Gia_ObjEdgeAdd.exit188
+  br label %Gia_ObjEdgeAdd.argprom.exit188
 
-Gia_ObjEdgeAdd.exit188:                           ; preds = %135, %.sink.split.i186
+Gia_ObjEdgeAdd.argprom.exit188:                   ; preds = %135, %.sink.split.i186
   %.val153 = phi ptr [ %.val154, %135 ], [ %.val153.pre, %.sink.split.i186 ]
   %139 = getelementptr inbounds i32, ptr %.val153, i64 %8
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, 0
-  br i1 %141, label %Gia_ObjEdgeAdd.exit193, label %142
+  br i1 %141, label %Gia_ObjEdgeAdd.argprom.exit193, label %142
 
-142:                                              ; preds = %Gia_ObjEdgeAdd.exit188
+142:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit188
   %.val.i189 = load ptr, ptr %10, align 8
   %143 = getelementptr inbounds i32, ptr %.val.i189, i64 %8
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %Gia_ObjEdgeAdd.exit193, label %Gia_ObjEdgeAdd.exit193.thread
+  br i1 %145, label %Gia_ObjEdgeAdd.argprom.exit193, label %Gia_ObjEdgeAdd.argprom.exit193.thread
 
-Gia_ObjEdgeAdd.exit193:                           ; preds = %Gia_ObjEdgeAdd.exit188, %142
-  %.sink.i192 = phi ptr [ %139, %Gia_ObjEdgeAdd.exit188 ], [ %143, %142 ]
+Gia_ObjEdgeAdd.argprom.exit193:                   ; preds = %Gia_ObjEdgeAdd.argprom.exit188, %142
+  %.sink.i192 = phi ptr [ %139, %Gia_ObjEdgeAdd.argprom.exit188 ], [ %143, %142 ]
   store i32 %.2116, ptr %.sink.i192, align 4
   %.val152.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert271 = getelementptr inbounds i32, ptr %.val152.pre, i64 %8
   %.pre272 = load i32, ptr %.phi.trans.insert271, align 4
   %146 = icmp eq i32 %.pre272, 0
   %147 = getelementptr inbounds i32, ptr %.val152.pre, i64 %8
-  br i1 %146, label %.sink.split.i196, label %Gia_ObjEdgeAdd.exit193.thread
+  br i1 %146, label %.sink.split.i196, label %Gia_ObjEdgeAdd.argprom.exit193.thread
 
-Gia_ObjEdgeAdd.exit193.thread:                    ; preds = %142, %Gia_ObjEdgeAdd.exit193
+Gia_ObjEdgeAdd.argprom.exit193.thread:            ; preds = %142, %Gia_ObjEdgeAdd.argprom.exit193
   %.val.i194 = load ptr, ptr %10, align 8
   %148 = getelementptr inbounds i32, ptr %.val.i194, i64 %8
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %.sink.split.i196, label %Gia_ObjEdgeAdd.exit198
+  br i1 %150, label %.sink.split.i196, label %Gia_ObjEdgeAdd.argprom.exit198
 
-.sink.split.i196:                                 ; preds = %Gia_ObjEdgeAdd.exit193.thread, %Gia_ObjEdgeAdd.exit193
-  %.sink.i197 = phi ptr [ %147, %Gia_ObjEdgeAdd.exit193 ], [ %148, %Gia_ObjEdgeAdd.exit193.thread ]
+.sink.split.i196:                                 ; preds = %Gia_ObjEdgeAdd.argprom.exit193.thread, %Gia_ObjEdgeAdd.argprom.exit193
+  %.sink.i197 = phi ptr [ %147, %Gia_ObjEdgeAdd.argprom.exit193 ], [ %148, %Gia_ObjEdgeAdd.argprom.exit193.thread ]
   store i32 %.2, ptr %.sink.i197, align 4
-  br label %Gia_ObjEdgeAdd.exit198
+  br label %Gia_ObjEdgeAdd.argprom.exit198
 
-Gia_ObjEdgeAdd.exit198:                           ; preds = %Gia_ObjEdgeAdd.exit193.thread, %.sink.split.i196
+Gia_ObjEdgeAdd.argprom.exit198:                   ; preds = %Gia_ObjEdgeAdd.argprom.exit193.thread, %.sink.split.i196
   %151 = add nsw i32 %.2131, -8
   %152 = tail call noundef i32 @llvm.smax.i32(i32 %.2126, i32 %151)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge, %110, %113, %89, %51, %.preheader216, %Gia_ObjEdgeAdd.exit198, %Gia_ObjEdgeAdd.exit178
-  %.2131204.sink = phi i32 [ %152, %Gia_ObjEdgeAdd.exit198 ], [ %109, %Gia_ObjEdgeAdd.exit178 ], [ %.2131, %89 ], [ %.2131, %113 ], [ %.2131, %110 ], [ %.2131, %.critedge ], [ 0, %51 ], [ 0, %.preheader216 ]
+.critedge.thread:                                 ; preds = %.critedge, %110, %113, %89, %51, %.preheader216, %Gia_ObjEdgeAdd.argprom.exit198, %Gia_ObjEdgeAdd.argprom.exit178
+  %.2131204.sink = phi i32 [ %152, %Gia_ObjEdgeAdd.argprom.exit198 ], [ %109, %Gia_ObjEdgeAdd.argprom.exit178 ], [ %.2131, %89 ], [ %.2131, %113 ], [ %.2131, %110 ], [ %.2131, %.critedge ], [ 0, %51 ], [ 0, %.preheader216 ]
   %153 = getelementptr i8, ptr %2, i64 8
   %.val147 = load ptr, ptr %153, align 8
   %154 = getelementptr inbounds i32, ptr %.val147, i64 %8
@@ -2640,34 +2640,34 @@ define i32 @Gia_ObjComputeEdgeDelay2(ptr nocapture noundef readonly %0, i32 noun
 
 35:                                               ; preds = %33
   %36 = icmp eq i32 %31, 0
-  br i1 %36, label %.sink.split.i, label %Gia_ObjEdgeAdd.exit
+  br i1 %36, label %.sink.split.i, label %Gia_ObjEdgeAdd.argprom.exit
 
 .sink.split.i:                                    ; preds = %35, %33
   %.sink.i = phi ptr [ %27, %33 ], [ %30, %35 ]
   store i32 %1, ptr %.sink.i, align 4
   %.val153.pre = load ptr, ptr %9, align 8
-  br label %Gia_ObjEdgeAdd.exit
+  br label %Gia_ObjEdgeAdd.argprom.exit
 
-Gia_ObjEdgeAdd.exit:                              ; preds = %35, %.sink.split.i
+Gia_ObjEdgeAdd.argprom.exit:                      ; preds = %35, %.sink.split.i
   %.val153 = phi ptr [ %.val166, %35 ], [ %.val153.pre, %.sink.split.i ]
   %37 = getelementptr inbounds i32, ptr %.val153, i64 %10
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.sink.split.i172, label %40
 
-40:                                               ; preds = %Gia_ObjEdgeAdd.exit
+40:                                               ; preds = %Gia_ObjEdgeAdd.argprom.exit
   %.val.i170 = load ptr, ptr %12, align 8
   %41 = getelementptr inbounds i32, ptr %.val.i170, i64 %10
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.sink.split.i172, label %Gia_ObjEdgeAdd.exit174
+  br i1 %43, label %.sink.split.i172, label %Gia_ObjEdgeAdd.argprom.exit174
 
-.sink.split.i172:                                 ; preds = %40, %Gia_ObjEdgeAdd.exit
-  %.sink.i173 = phi ptr [ %37, %Gia_ObjEdgeAdd.exit ], [ %41, %40 ]
+.sink.split.i172:                                 ; preds = %40, %Gia_ObjEdgeAdd.argprom.exit
+  %.sink.i173 = phi ptr [ %37, %Gia_ObjEdgeAdd.argprom.exit ], [ %41, %40 ]
   store i32 %25, ptr %.sink.i173, align 4
-  br label %Gia_ObjEdgeAdd.exit174
+  br label %Gia_ObjEdgeAdd.argprom.exit174
 
-Gia_ObjEdgeAdd.exit174:                           ; preds = %40, %.sink.split.i172
+Gia_ObjEdgeAdd.argprom.exit174:                   ; preds = %40, %.sink.split.i172
   %44 = add nsw i32 %16, -1
   br label %90
 
@@ -2707,7 +2707,7 @@ Gia_ObjEdgeAdd.exit174:                           ; preds = %40, %.sink.split.i1
 
 68:                                               ; preds = %66
   %69 = icmp eq i32 %57, 0
-  br i1 %69, label %.sink.split.i177, label %Gia_ObjEdgeAdd.exit179
+  br i1 %69, label %.sink.split.i177, label %Gia_ObjEdgeAdd.argprom.exit179
 
 .sink.split.i177:                                 ; preds = %68, %66
   %.sink.i178 = phi ptr [ %53, %66 ], [ %56, %68 ]
@@ -2715,70 +2715,70 @@ Gia_ObjEdgeAdd.exit174:                           ; preds = %40, %.sink.split.i1
   %.val151.pre = load ptr, ptr %9, align 8
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.val151.pre, i64 %59
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %Gia_ObjEdgeAdd.exit179
+  br label %Gia_ObjEdgeAdd.argprom.exit179
 
-Gia_ObjEdgeAdd.exit179:                           ; preds = %68, %.sink.split.i177
+Gia_ObjEdgeAdd.argprom.exit179:                   ; preds = %68, %.sink.split.i177
   %70 = phi i32 [ %61, %68 ], [ %.pre, %.sink.split.i177 ]
   %.val151 = phi ptr [ %.val164, %68 ], [ %.val151.pre, %.sink.split.i177 ]
   %71 = getelementptr inbounds i32, ptr %.val151, i64 %59
   %72 = icmp eq i32 %70, 0
   br i1 %72, label %.sink.split.i182, label %73
 
-73:                                               ; preds = %Gia_ObjEdgeAdd.exit179
+73:                                               ; preds = %Gia_ObjEdgeAdd.argprom.exit179
   %.val.i180 = load ptr, ptr %12, align 8
   %74 = getelementptr inbounds i32, ptr %.val.i180, i64 %59
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.sink.split.i182, label %Gia_ObjEdgeAdd.exit184
+  br i1 %76, label %.sink.split.i182, label %Gia_ObjEdgeAdd.argprom.exit184
 
-.sink.split.i182:                                 ; preds = %73, %Gia_ObjEdgeAdd.exit179
-  %.sink.i183 = phi ptr [ %71, %Gia_ObjEdgeAdd.exit179 ], [ %74, %73 ]
+.sink.split.i182:                                 ; preds = %73, %Gia_ObjEdgeAdd.argprom.exit179
+  %.sink.i183 = phi ptr [ %71, %Gia_ObjEdgeAdd.argprom.exit179 ], [ %74, %73 ]
   store i32 %1, ptr %.sink.i183, align 4
   %.val150.pre = load ptr, ptr %9, align 8
-  br label %Gia_ObjEdgeAdd.exit184
+  br label %Gia_ObjEdgeAdd.argprom.exit184
 
-Gia_ObjEdgeAdd.exit184:                           ; preds = %73, %.sink.split.i182
+Gia_ObjEdgeAdd.argprom.exit184:                   ; preds = %73, %.sink.split.i182
   %.val150 = phi ptr [ %.val151, %73 ], [ %.val150.pre, %.sink.split.i182 ]
   %77 = getelementptr inbounds i32, ptr %.val150, i64 %10
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %Gia_ObjEdgeAdd.exit189, label %80
+  br i1 %79, label %Gia_ObjEdgeAdd.argprom.exit189, label %80
 
-80:                                               ; preds = %Gia_ObjEdgeAdd.exit184
+80:                                               ; preds = %Gia_ObjEdgeAdd.argprom.exit184
   %.val.i185 = load ptr, ptr %12, align 8
   %81 = getelementptr inbounds i32, ptr %.val.i185, i64 %10
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 0
-  br i1 %83, label %Gia_ObjEdgeAdd.exit189, label %Gia_ObjEdgeAdd.exit189.thread
+  br i1 %83, label %Gia_ObjEdgeAdd.argprom.exit189, label %Gia_ObjEdgeAdd.argprom.exit189.thread
 
-Gia_ObjEdgeAdd.exit189:                           ; preds = %Gia_ObjEdgeAdd.exit184, %80
-  %.sink.i188 = phi ptr [ %77, %Gia_ObjEdgeAdd.exit184 ], [ %81, %80 ]
+Gia_ObjEdgeAdd.argprom.exit189:                   ; preds = %Gia_ObjEdgeAdd.argprom.exit184, %80
+  %.sink.i188 = phi ptr [ %77, %Gia_ObjEdgeAdd.argprom.exit184 ], [ %81, %80 ]
   store i32 %48, ptr %.sink.i188, align 4
   %.val149.pre = load ptr, ptr %9, align 8
   %.phi.trans.insert228 = getelementptr inbounds i32, ptr %.val149.pre, i64 %10
   %.pre229 = load i32, ptr %.phi.trans.insert228, align 4
   %84 = icmp eq i32 %.pre229, 0
   %85 = getelementptr inbounds i32, ptr %.val149.pre, i64 %10
-  br i1 %84, label %.sink.split.i192, label %Gia_ObjEdgeAdd.exit189.thread
+  br i1 %84, label %.sink.split.i192, label %Gia_ObjEdgeAdd.argprom.exit189.thread
 
-Gia_ObjEdgeAdd.exit189.thread:                    ; preds = %80, %Gia_ObjEdgeAdd.exit189
+Gia_ObjEdgeAdd.argprom.exit189.thread:            ; preds = %80, %Gia_ObjEdgeAdd.argprom.exit189
   %.val.i190 = load ptr, ptr %12, align 8
   %86 = getelementptr inbounds i32, ptr %.val.i190, i64 %10
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.sink.split.i192, label %Gia_ObjEdgeAdd.exit194
+  br i1 %88, label %.sink.split.i192, label %Gia_ObjEdgeAdd.argprom.exit194
 
-.sink.split.i192:                                 ; preds = %Gia_ObjEdgeAdd.exit189.thread, %Gia_ObjEdgeAdd.exit189
-  %.sink.i193 = phi ptr [ %85, %Gia_ObjEdgeAdd.exit189 ], [ %86, %Gia_ObjEdgeAdd.exit189.thread ]
+.sink.split.i192:                                 ; preds = %Gia_ObjEdgeAdd.argprom.exit189.thread, %Gia_ObjEdgeAdd.argprom.exit189
+  %.sink.i193 = phi ptr [ %85, %Gia_ObjEdgeAdd.argprom.exit189 ], [ %86, %Gia_ObjEdgeAdd.argprom.exit189.thread ]
   store i32 %51, ptr %.sink.i193, align 4
-  br label %Gia_ObjEdgeAdd.exit194
+  br label %Gia_ObjEdgeAdd.argprom.exit194
 
-Gia_ObjEdgeAdd.exit194:                           ; preds = %Gia_ObjEdgeAdd.exit189.thread, %.sink.split.i192
+Gia_ObjEdgeAdd.argprom.exit194:                   ; preds = %Gia_ObjEdgeAdd.argprom.exit189.thread, %.sink.split.i192
   %89 = add nsw i32 %16, -1
   br label %90
 
-90:                                               ; preds = %19, %Gia_ObjEdgeAdd.exit174, %22, %45, %Gia_ObjEdgeAdd.exit194, %8
-  %.0 = phi i32 [ 0, %8 ], [ %44, %Gia_ObjEdgeAdd.exit174 ], [ %16, %22 ], [ %89, %Gia_ObjEdgeAdd.exit194 ], [ %16, %45 ], [ %16, %19 ]
+90:                                               ; preds = %19, %Gia_ObjEdgeAdd.argprom.exit174, %22, %45, %Gia_ObjEdgeAdd.argprom.exit194, %8
+  %.0 = phi i32 [ 0, %8 ], [ %44, %Gia_ObjEdgeAdd.argprom.exit174 ], [ %16, %22 ], [ %89, %Gia_ObjEdgeAdd.argprom.exit194 ], [ %16, %45 ], [ %16, %19 ]
   %.val146 = load ptr, ptr %14, align 8
   %91 = getelementptr inbounds i32, ptr %.val146, i64 %10
   store i32 %.0, ptr %91, align 4
@@ -4995,9 +4995,9 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
   %wide.trip.count283 = zext nneg i32 %.0154.lcssa to i64
   br label %149
 
-149:                                              ; preds = %.lr.ph254, %Gia_ObjEdgeAdd.exit202
-  %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %Gia_ObjEdgeAdd.exit202 ]
-  %.0137252 = phi i32 [ 0, %.lr.ph254 ], [ %174, %Gia_ObjEdgeAdd.exit202 ]
+149:                                              ; preds = %.lr.ph254, %Gia_ObjEdgeAdd.argprom.exit202
+  %indvars.iv280 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next281, %Gia_ObjEdgeAdd.argprom.exit202 ]
+  %.0137252 = phi i32 [ 0, %.lr.ph254 ], [ %174, %Gia_ObjEdgeAdd.argprom.exit202 ]
   %150 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv280
   %151 = load i32, ptr %150, align 4
   %152 = load ptr, ptr %147, align 8
@@ -5015,7 +5015,7 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
   %160 = getelementptr inbounds i32, ptr %.val.i197, i64 %11
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %.sink.split.i, label %Gia_ObjEdgeAdd.exit
+  br i1 %162, label %.sink.split.i, label %Gia_ObjEdgeAdd.argprom.exit
 
 .sink.split.i:                                    ; preds = %157, %149
   %.sink.i = phi ptr [ %154, %149 ], [ %160, %157 ]
@@ -5023,9 +5023,9 @@ Gia_ObjHaveEdge.exit194.thread:                   ; preds = %78, %Gia_ObjHaveEdg
   %.pre = load ptr, ptr %147, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val174.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %Gia_ObjEdgeAdd.exit
+  br label %Gia_ObjEdgeAdd.argprom.exit
 
-Gia_ObjEdgeAdd.exit:                              ; preds = %157, %.sink.split.i
+Gia_ObjEdgeAdd.argprom.exit:                      ; preds = %157, %.sink.split.i
   %.val174 = phi ptr [ %.val175, %157 ], [ %.val174.pre, %.sink.split.i ]
   %.0.i = phi i32 [ 1, %157 ], [ 0, %.sink.split.i ]
   %163 = add nsw i32 %.0.i, %.0137252
@@ -5035,28 +5035,28 @@ Gia_ObjEdgeAdd.exit:                              ; preds = %157, %.sink.split.i
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %.sink.split.i200, label %168
 
-168:                                              ; preds = %Gia_ObjEdgeAdd.exit
+168:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit
   %169 = load ptr, ptr %148, align 8
   %170 = getelementptr i8, ptr %169, i64 8
   %.val.i198 = load ptr, ptr %170, align 8
   %171 = getelementptr inbounds i32, ptr %.val.i198, i64 %164
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, 0
-  br i1 %173, label %.sink.split.i200, label %Gia_ObjEdgeAdd.exit202
+  br i1 %173, label %.sink.split.i200, label %Gia_ObjEdgeAdd.argprom.exit202
 
-.sink.split.i200:                                 ; preds = %168, %Gia_ObjEdgeAdd.exit
-  %.sink.i201 = phi ptr [ %165, %Gia_ObjEdgeAdd.exit ], [ %171, %168 ]
+.sink.split.i200:                                 ; preds = %168, %Gia_ObjEdgeAdd.argprom.exit
+  %.sink.i201 = phi ptr [ %165, %Gia_ObjEdgeAdd.argprom.exit ], [ %171, %168 ]
   store i32 %1, ptr %.sink.i201, align 4
-  br label %Gia_ObjEdgeAdd.exit202
+  br label %Gia_ObjEdgeAdd.argprom.exit202
 
-Gia_ObjEdgeAdd.exit202:                           ; preds = %168, %.sink.split.i200
+Gia_ObjEdgeAdd.argprom.exit202:                   ; preds = %168, %.sink.split.i200
   %.0.i199 = phi i32 [ 1, %168 ], [ 0, %.sink.split.i200 ]
   %174 = add nsw i32 %163, %.0.i199
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond284.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count283
   br i1 %exitcond284.not, label %._crit_edge255, label %149, !llvm.loop !44
 
-._crit_edge255:                                   ; preds = %Gia_ObjEdgeAdd.exit202
+._crit_edge255:                                   ; preds = %Gia_ObjEdgeAdd.argprom.exit202
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %._crit_edge255.thread, label %176
 
@@ -5135,9 +5135,9 @@ Gia_ObjEdgeAdd.exit202:                           ; preds = %168, %.sink.split.i
   %wide.trip.count293 = zext nneg i32 %.0152.lcssa to i64
   br label %208
 
-208:                                              ; preds = %.lr.ph265, %Gia_ObjEdgeAdd.exit212
-  %indvars.iv290 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next291, %Gia_ObjEdgeAdd.exit212 ]
-  %.1138263 = phi i32 [ 0, %.lr.ph265 ], [ %233, %Gia_ObjEdgeAdd.exit212 ]
+208:                                              ; preds = %.lr.ph265, %Gia_ObjEdgeAdd.argprom.exit212
+  %indvars.iv290 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next291, %Gia_ObjEdgeAdd.argprom.exit212 ]
+  %.1138263 = phi i32 [ 0, %.lr.ph265 ], [ %233, %Gia_ObjEdgeAdd.argprom.exit212 ]
   %209 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv290
   %210 = load i32, ptr %209, align 4
   %211 = load ptr, ptr %206, align 8
@@ -5155,7 +5155,7 @@ Gia_ObjEdgeAdd.exit202:                           ; preds = %168, %.sink.split.i
   %219 = getelementptr inbounds i32, ptr %.val.i203, i64 %11
   %220 = load i32, ptr %219, align 4
   %221 = icmp eq i32 %220, 0
-  br i1 %221, label %.sink.split.i205, label %Gia_ObjEdgeAdd.exit207
+  br i1 %221, label %.sink.split.i205, label %Gia_ObjEdgeAdd.argprom.exit207
 
 .sink.split.i205:                                 ; preds = %216, %208
   %.sink.i206 = phi ptr [ %213, %208 ], [ %219, %216 ]
@@ -5163,9 +5163,9 @@ Gia_ObjEdgeAdd.exit202:                           ; preds = %168, %.sink.split.i
   %.pre296 = load ptr, ptr %206, align 8
   %.phi.trans.insert297 = getelementptr i8, ptr %.pre296, i64 8
   %.val172.pre = load ptr, ptr %.phi.trans.insert297, align 8
-  br label %Gia_ObjEdgeAdd.exit207
+  br label %Gia_ObjEdgeAdd.argprom.exit207
 
-Gia_ObjEdgeAdd.exit207:                           ; preds = %216, %.sink.split.i205
+Gia_ObjEdgeAdd.argprom.exit207:                   ; preds = %216, %.sink.split.i205
   %.val172 = phi ptr [ %.val173, %216 ], [ %.val172.pre, %.sink.split.i205 ]
   %.0.i204 = phi i32 [ 1, %216 ], [ 0, %.sink.split.i205 ]
   %222 = add nsw i32 %.0.i204, %.1138263
@@ -5175,28 +5175,28 @@ Gia_ObjEdgeAdd.exit207:                           ; preds = %216, %.sink.split.i
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %.sink.split.i210, label %227
 
-227:                                              ; preds = %Gia_ObjEdgeAdd.exit207
+227:                                              ; preds = %Gia_ObjEdgeAdd.argprom.exit207
   %228 = load ptr, ptr %207, align 8
   %229 = getelementptr i8, ptr %228, i64 8
   %.val.i208 = load ptr, ptr %229, align 8
   %230 = getelementptr inbounds i32, ptr %.val.i208, i64 %223
   %231 = load i32, ptr %230, align 4
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %.sink.split.i210, label %Gia_ObjEdgeAdd.exit212
+  br i1 %232, label %.sink.split.i210, label %Gia_ObjEdgeAdd.argprom.exit212
 
-.sink.split.i210:                                 ; preds = %227, %Gia_ObjEdgeAdd.exit207
-  %.sink.i211 = phi ptr [ %224, %Gia_ObjEdgeAdd.exit207 ], [ %230, %227 ]
+.sink.split.i210:                                 ; preds = %227, %Gia_ObjEdgeAdd.argprom.exit207
+  %.sink.i211 = phi ptr [ %224, %Gia_ObjEdgeAdd.argprom.exit207 ], [ %230, %227 ]
   store i32 %1, ptr %.sink.i211, align 4
-  br label %Gia_ObjEdgeAdd.exit212
+  br label %Gia_ObjEdgeAdd.argprom.exit212
 
-Gia_ObjEdgeAdd.exit212:                           ; preds = %227, %.sink.split.i210
+Gia_ObjEdgeAdd.argprom.exit212:                   ; preds = %227, %.sink.split.i210
   %.0.i209 = phi i32 [ 1, %227 ], [ 0, %.sink.split.i210 ]
   %233 = add nsw i32 %222, %.0.i209
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next291, %wide.trip.count293
   br i1 %exitcond294.not, label %._crit_edge266, label %208, !llvm.loop !46
 
-._crit_edge266:                                   ; preds = %Gia_ObjEdgeAdd.exit212
+._crit_edge266:                                   ; preds = %Gia_ObjEdgeAdd.argprom.exit212
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %._crit_edge266.thread, label %235
 

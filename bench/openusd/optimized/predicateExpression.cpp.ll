@@ -2260,7 +2260,7 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 noundef signext 40)
   %32 = icmp eq i32 %5, 1
-  br i1 %32, label %.split.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br i1 %32, label %.split.i, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 33:                                               ; preds = %26
   br i1 %27, label %.split.i, label %50
@@ -2280,19 +2280,19 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
 
 38:                                               ; preds = %.split18.i
   %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.15)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 40:                                               ; preds = %.split18.i
   %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.16)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 42:                                               ; preds = %.split18.i
   %43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.17)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 44:                                               ; preds = %.split18.i
   %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.18)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 .split.i:                                         ; preds = %33, %.thread5.i
   %.041020.i = phi i1 [ %.04.i, %33 ], [ true, %.thread5.i ]
@@ -2301,25 +2301,25 @@ define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRK
   %48 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull @.str.14)
   %49 = icmp eq i32 %7, 1
   %or.cond17.i = select i1 %.041020.i, i1 %49, i1 false
-  br i1 %or.cond17.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br i1 %or.cond17.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 50:                                               ; preds = %33
   %.old.i = icmp eq i32 %7, 1
   %or.cond24.i = select i1 %.04.i, i1 %.old.i, i1 false
-  br i1 %or.cond24.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br i1 %or.cond24.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 .thread21.i:                                      ; preds = %34
   %51 = icmp eq i32 %7, 2
   %or.cond26.i = select i1 %.04.i, i1 %51, i1 false
-  br i1 %or.cond26.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br i1 %or.cond26.i, label %52, label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
 52:                                               ; preds = %.thread21.i, %50, %.split.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef signext 41)
-  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit"
+  br label %"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit"
 
-"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.exit": ; preds = %.thread5.i, %38, %40, %42, %44, %.split.i, %50, %.thread21.i, %52
+"_ZZNK32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpression7GetTextB5cxx11EvENK3$_0clERKSt6vectorISt4pairINS0_2OpEiESaIS5_EE.argprom.exit": ; preds = %.thread5.i, %38, %40, %42, %44, %.split.i, %50, %.thread21.i, %52
   ret void
 }
 

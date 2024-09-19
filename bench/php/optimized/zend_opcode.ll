@@ -3129,18 +3129,18 @@ define internal fastcc void @zend_calc_live_ranges(ptr noundef %0, ptr noundef %
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 6
   %.not132 = icmp eq i8 %31, 0
-  br i1 %.not132, label %is_fake_def.exit.thread, label %32
+  br i1 %.not132, label %is_fake_def.argprom.exit.thread, label %32
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr i8, ptr %.0124144, i64 -4
   %.val = load i8, ptr %33, align 4
-  switch i8 %.val, label %is_fake_def.exit [
-    i8 55, label %is_fake_def.exit.thread
-    i8 72, label %is_fake_def.exit.thread
-    i8 -109, label %is_fake_def.exit.thread
+  switch i8 %.val, label %is_fake_def.argprom.exit [
+    i8 55, label %is_fake_def.argprom.exit.thread
+    i8 72, label %is_fake_def.argprom.exit.thread
+    i8 -109, label %is_fake_def.argprom.exit.thread
   ]
 
-is_fake_def.exit:                                 ; preds = %32
+is_fake_def.argprom.exit:                         ; preds = %32
   %34 = getelementptr inbounds i8, ptr %.0124144, i64 -16
   %35 = load i32, ptr %34, align 8
   %36 = lshr i32 %35, 4
@@ -3150,9 +3150,9 @@ is_fake_def.exit:                                 ; preds = %32
   %39 = getelementptr inbounds i32, ptr %21, i64 %38
   %40 = load i32, ptr %39, align 4
   %.not133 = icmp eq i32 %40, -1
-  br i1 %.not133, label %is_fake_def.exit.thread, label %41
+  br i1 %.not133, label %is_fake_def.argprom.exit.thread, label %41
 
-41:                                               ; preds = %is_fake_def.exit
+41:                                               ; preds = %is_fake_def.argprom.exit
   %.not134 = icmp eq i32 %.0123145, %40
   br i1 %.not134, label %44, label %42
 
@@ -3164,16 +3164,16 @@ is_fake_def.exit:                                 ; preds = %32
 
 44:                                               ; preds = %42, %41
   store i32 -1, ptr %39, align 4
-  br label %is_fake_def.exit.thread
+  br label %is_fake_def.argprom.exit.thread
 
-is_fake_def.exit.thread:                          ; preds = %32, %32, %32, %is_fake_def.exit, %44, %.lr.ph
+is_fake_def.argprom.exit.thread:                  ; preds = %32, %32, %32, %is_fake_def.argprom.exit, %44, %.lr.ph
   %45 = getelementptr inbounds i8, ptr %.0124144, i64 -3
   %46 = load i8, ptr %45, align 1
   %47 = and i8 %46, 6
   %.not135 = icmp eq i8 %47, 0
-  br i1 %.not135, label %keeps_op1_alive.exit.thread, label %48
+  br i1 %.not135, label %keeps_op1_alive.argprom.exit.thread, label %48
 
-48:                                               ; preds = %is_fake_def.exit.thread
+48:                                               ; preds = %is_fake_def.argprom.exit.thread
   %49 = getelementptr inbounds i8, ptr %.0124144, i64 -24
   %50 = load i32, ptr %49, align 8
   %51 = lshr i32 %50, 4
@@ -3183,20 +3183,20 @@ is_fake_def.exit.thread:                          ; preds = %32, %32, %32, %is_f
   %54 = getelementptr inbounds i32, ptr %21, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, -1
-  br i1 %56, label %57, label %keeps_op1_alive.exit.thread
+  br i1 %56, label %57, label %keeps_op1_alive.argprom.exit.thread
 
 57:                                               ; preds = %48
   %58 = getelementptr i8, ptr %.0124144, i64 -4
   %.val139 = load i8, ptr %58, align 4
   switch i8 %.val139, label %59 [
-    i8 48, label %keeps_op1_alive.exit.thread
-    i8 -60, label %keeps_op1_alive.exit.thread
-    i8 -69, label %keeps_op1_alive.exit.thread
-    i8 -68, label %keeps_op1_alive.exit.thread
-    i8 -61, label %keeps_op1_alive.exit.thread
-    i8 98, label %keeps_op1_alive.exit.thread
-    i8 -101, label %keeps_op1_alive.exit.thread
-    i8 -89, label %keeps_op1_alive.exit.thread
+    i8 48, label %keeps_op1_alive.argprom.exit.thread
+    i8 -60, label %keeps_op1_alive.argprom.exit.thread
+    i8 -69, label %keeps_op1_alive.argprom.exit.thread
+    i8 -68, label %keeps_op1_alive.argprom.exit.thread
+    i8 -61, label %keeps_op1_alive.argprom.exit.thread
+    i8 98, label %keeps_op1_alive.argprom.exit.thread
+    i8 -101, label %keeps_op1_alive.argprom.exit.thread
+    i8 -89, label %keeps_op1_alive.argprom.exit.thread
   ]
 
 59:                                               ; preds = %57
@@ -3214,16 +3214,16 @@ is_fake_def.exit.thread:                          ; preds = %32, %32, %32, %is_f
   %.neg = sext i1 %65 to i32
   %66 = add i32 %27, %.neg
   store i32 %66, ptr %54, align 4
-  br label %keeps_op1_alive.exit.thread
+  br label %keeps_op1_alive.argprom.exit.thread
 
-keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %48, %59, %is_fake_def.exit.thread
+keeps_op1_alive.argprom.exit.thread:              ; preds = %57, %57, %57, %57, %57, %57, %57, %57, %48, %59, %is_fake_def.argprom.exit.thread
   %67 = getelementptr inbounds i8, ptr %.0124144, i64 -2
   %68 = load i8, ptr %67, align 2
   %69 = and i8 %68, 6
   %.not136 = icmp eq i8 %69, 0
   br i1 %.not136, label %91, label %70
 
-70:                                               ; preds = %keeps_op1_alive.exit.thread
+70:                                               ; preds = %keeps_op1_alive.argprom.exit.thread
   %71 = getelementptr inbounds i8, ptr %.0124144, i64 -20
   %72 = load i32, ptr %71, align 4
   %73 = lshr i32 %72, 4
@@ -3268,7 +3268,7 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   store i32 %27, ptr %86, align 4
   br label %91
 
-91:                                               ; preds = %83, %77, %89, %84, %keeps_op1_alive.exit.thread
+91:                                               ; preds = %83, %77, %89, %84, %keeps_op1_alive.argprom.exit.thread
   %.not131 = icmp eq i32 %27, 0
   br i1 %.not131, label %._crit_edge, label %.lr.ph
 
@@ -3369,7 +3369,7 @@ define void @pass_two(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
   %5 = and i32 %4, 1
   %.not147 = icmp eq i32 %5, 0
-  br i1 %.not147, label %zend_update_extended_stmts.exit, label %6
+  br i1 %.not147, label %zend_update_extended_stmts.argprom.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 84
@@ -3379,7 +3379,7 @@ define void @pass_two(ptr noundef %0) local_unnamed_addr #0 {
   %9 = zext i32 %.val to i64
   %10 = getelementptr inbounds %struct._zend_op, ptr %.val160, i64 %9
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %zend_update_extended_stmts.exit, label %.lr.ph.i
+  br i1 %.not.i, label %zend_update_extended_stmts.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %.backedge.i
   %.01.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %.val160, %6 ]
@@ -3406,7 +3406,7 @@ define void @pass_two(ptr noundef %0) local_unnamed_addr #0 {
 .backedge.i:                                      ; preds = %28, %21
   %.0.be.i = phi ptr [ %15, %21 ], [ %29, %28 ]
   %22 = icmp ult ptr %.0.be.i, %10
-  br i1 %22, label %.lr.ph.i, label %zend_update_extended_stmts.exit.loopexit
+  br i1 %22, label %.lr.ph.i, label %zend_update_extended_stmts.argprom.exit.loopexit
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %.01.i, i64 56
@@ -3423,17 +3423,17 @@ define void @pass_two(ptr noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds i8, ptr %.01.i, i64 32
   br label %.backedge.i
 
-zend_update_extended_stmts.exit.loopexit:         ; preds = %.backedge.i
+zend_update_extended_stmts.argprom.exit.loopexit: ; preds = %.backedge.i
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 172), align 4
-  br label %zend_update_extended_stmts.exit
+  br label %zend_update_extended_stmts.argprom.exit
 
-zend_update_extended_stmts.exit:                  ; preds = %zend_update_extended_stmts.exit.loopexit, %6, %3
-  %30 = phi i32 [ %.pre, %zend_update_extended_stmts.exit.loopexit ], [ %4, %6 ], [ %4, %3 ]
+zend_update_extended_stmts.argprom.exit:          ; preds = %zend_update_extended_stmts.argprom.exit.loopexit, %6, %3
+  %30 = phi i32 [ %.pre, %zend_update_extended_stmts.argprom.exit.loopexit ], [ %4, %6 ], [ %4, %3 ]
   %31 = and i32 %30, 4
   %.not148 = icmp eq i32 %31, 0
   br i1 %.not148, label %36, label %32
 
-32:                                               ; preds = %zend_update_extended_stmts.exit
+32:                                               ; preds = %zend_update_extended_stmts.argprom.exit
   %33 = load i32, ptr @zend_extension_flags, align 4
   %34 = and i32 %33, 4
   %.not149 = icmp eq i32 %34, 0
@@ -3443,7 +3443,7 @@ zend_update_extended_stmts.exit:                  ; preds = %zend_update_extende
   tail call void @zend_llist_apply_with_argument(ptr noundef nonnull @zend_extensions, ptr noundef nonnull @zend_extension_op_array_handler, ptr noundef nonnull %0) #13
   br label %36
 
-36:                                               ; preds = %32, %35, %zend_update_extended_stmts.exit
+36:                                               ; preds = %32, %35, %zend_update_extended_stmts.argprom.exit
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 180), align 4
   %38 = getelementptr inbounds i8, ptr %0, i64 80
   %39 = load i32, ptr %38, align 8
@@ -3615,7 +3615,7 @@ zend_update_extended_stmts.exit:                  ; preds = %zend_update_extende
   %.082.i = load i32, ptr %132, align 4
   %134 = sext i32 %.082.i to i64
   %135 = icmp sgt i32 %131, 1
-  br i1 %135, label %.lr.ph.i161, label %zend_get_brk_cont_target.exit
+  br i1 %135, label %.lr.ph.i161, label %zend_get_brk_cont_target.argprom.exit
 
 .lr.ph.i161:                                      ; preds = %129, %.lr.ph.i161
   %136 = phi i64 [ %139, %.lr.ph.i161 ], [ %134, %129 ]
@@ -3625,9 +3625,9 @@ zend_update_extended_stmts.exit:                  ; preds = %zend_update_extende
   %.08.i = load i32, ptr %137, align 4
   %139 = sext i32 %.08.i to i64
   %140 = icmp ugt i32 %.03.i, 2
-  br i1 %140, label %.lr.ph.i161, label %zend_get_brk_cont_target.exit
+  br i1 %140, label %.lr.ph.i161, label %zend_get_brk_cont_target.argprom.exit
 
-zend_get_brk_cont_target.exit:                    ; preds = %.lr.ph.i161, %129
+zend_get_brk_cont_target.argprom.exit:            ; preds = %.lr.ph.i161, %129
   %.pn.i = phi i64 [ %134, %129 ], [ %139, %.lr.ph.i161 ]
   %.lcssa.i = getelementptr inbounds %struct._zend_brk_cont_element, ptr %133, i64 %.pn.i
   %141 = icmp eq i8 %96, -2
@@ -3637,13 +3637,13 @@ zend_get_brk_cont_target.exit:                    ; preds = %.lr.ph.i161, %129
   %143 = load i32, ptr %84, align 4
   %144 = and i32 %143, 32768
   %.not156 = icmp eq i32 %144, 0
-  br i1 %.not156, label %zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge, label %145
+  br i1 %.not156, label %zend_get_brk_cont_target.argprom.exit.zend_check_finally_breakout.exit_crit_edge, label %145
 
-zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge: ; preds = %zend_get_brk_cont_target.exit
+zend_get_brk_cont_target.argprom.exit.zend_check_finally_breakout.exit_crit_edge: ; preds = %zend_get_brk_cont_target.argprom.exit
   %.pre207 = ptrtoint ptr %.0140190 to i64
   br label %zend_check_finally_breakout.exit
 
-145:                                              ; preds = %zend_get_brk_cont_target.exit
+145:                                              ; preds = %zend_get_brk_cont_target.argprom.exit
   %146 = load ptr, ptr %48, align 8
   %147 = ptrtoint ptr %.0140190 to i64
   %148 = ptrtoint ptr %146 to i64
@@ -3727,8 +3727,8 @@ zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge: ; pred
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %zend_check_finally_breakout.exit, label %155
 
-zend_check_finally_breakout.exit:                 ; preds = %180, %zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge, %145
-  %.pre-phi = phi i64 [ %.pre207, %zend_get_brk_cont_target.exit.zend_check_finally_breakout.exit_crit_edge ], [ %147, %145 ], [ %147, %180 ]
+zend_check_finally_breakout.exit:                 ; preds = %180, %zend_get_brk_cont_target.argprom.exit.zend_check_finally_breakout.exit_crit_edge, %145
+  %.pre-phi = phi i64 [ %.pre207, %zend_get_brk_cont_target.argprom.exit.zend_check_finally_breakout.exit_crit_edge ], [ %147, %145 ], [ %147, %180 ]
   store i8 42, ptr %95, align 4
   store i32 %142, ptr %132, align 8
   store i32 0, ptr %130, align 4

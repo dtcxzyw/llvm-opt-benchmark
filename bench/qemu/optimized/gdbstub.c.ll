@@ -427,7 +427,7 @@ if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 69, ptr nonnull %line_buffer.i)
   %conv.i = sext i32 %len to i64
   %cmp1.not.i = icmp eq i32 %len, 0
-  br i1 %cmp1.not.i, label %hexdump.exit, label %for.body.lr.ph.i
+  br i1 %cmp1.not.i, label %hexdump.argprom.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
   %arrayidx.i = getelementptr inbounds i8, ptr %line_buffer.i, i64 68
@@ -526,13 +526,13 @@ for.inc.i:                                        ; preds = %trace_gdbstub_io_bi
   %and.i = and i64 %inc.i, 15
   %tobool.i = icmp ne i64 %and.i, 0
   %11 = or i1 %cmp.i, %tobool.i
-  br i1 %11, label %for.body.i, label %hexdump.exit, !llvm.loop !8
+  br i1 %11, label %for.body.i, label %hexdump.argprom.exit, !llvm.loop !8
 
-hexdump.exit:                                     ; preds = %for.inc.i, %if.then
+hexdump.argprom.exit:                             ; preds = %for.inc.i, %if.then
   call void @llvm.lifetime.end.p0(i64 69, ptr nonnull %line_buffer.i)
   br label %if.end
 
-if.end:                                           ; preds = %hexdump.exit, %land.lhs.true, %entry
+if.end:                                           ; preds = %hexdump.argprom.exit, %land.lhs.true, %entry
   %cmp15 = icmp sgt i32 %len, 0
   %arrayidx15 = getelementptr inbounds i8, ptr %footer, i64 1
   %arrayidx19 = getelementptr inbounds i8, ptr %footer, i64 2
@@ -857,11 +857,11 @@ for.cond.preheader.i.i:                           ; preds = %entry
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
   %4 = load i32, ptr %3, align 8
   %cmp3.i.i3 = icmp eq i32 %4, %call.i.i
-  br i1 %cmp3.i.i3, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i3, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit
+  br label %gdb_get_cpu_process.argprom.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %indvars.iv.i.i4 = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %for.cond.preheader.i.i ]
@@ -871,16 +871,16 @@ for.cond.i.i:                                     ; preds = %for.cond.preheader.
   %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %3, i64 %indvars.iv.next.i.i
   %6 = load i32, ptr %arrayidx1.i.i, align 8
   %cmp3.i.i = icmp eq i32 %6, %call.i.i
-  br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
-gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
+gdb_get_cpu_process.argprom.exit:                 ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %5, %if.then.i.i ], [ %3, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
   %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %7 = load i8, ptr %attached, align 4
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %return, label %if.then
 
-if.then:                                          ; preds = %gdb_get_cpu_process.exit
+if.then:                                          ; preds = %gdb_get_cpu_process.argprom.exit
   %node.i = getelementptr inbounds i8, ptr %1, i64 568
   %8 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -902,11 +902,11 @@ for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
-  br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i
+  br label %gdb_get_cpu_process.argprom.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %indvars.iv.i.i6.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -916,16 +916,16 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i
   %13 = load i32, ptr %arrayidx1.i.i.i, align 8
   %cmp3.i.i.i = icmp eq i32 %13, %call.i.i.i
-  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
-gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+gdb_get_cpu_process.argprom.exit.i:               ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %12, %if.then.i.i.i ], [ %10, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %14 = load i8, ptr %attached.i, align 4
   %tobool3.i = trunc i8 %14 to i1
   br i1 %tobool3.i, label %return, label %while.end8.i
 
-while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
+while.end8.i:                                     ; preds = %gdb_get_cpu_process.argprom.exit.i
   %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
   %15 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -933,8 +933,8 @@ while.end8.i:                                     ; preds = %gdb_get_cpu_process
   %tobool.not.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i, label %return, label %while.body2.i, !llvm.loop !18
 
-return:                                           ; preds = %while.end8.i, %gdb_get_cpu_process.exit.i, %if.then, %gdb_get_cpu_process.exit
-  %retval.0 = phi ptr [ %1, %gdb_get_cpu_process.exit ], [ %cpu.addr.07.i, %if.then ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.exit.i ]
+return:                                           ; preds = %while.end8.i, %gdb_get_cpu_process.argprom.exit.i, %if.then, %gdb_get_cpu_process.argprom.exit
+  %retval.0 = phi ptr [ %1, %gdb_get_cpu_process.argprom.exit ], [ %cpu.addr.07.i, %if.then ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.argprom.exit.i ]
   ret ptr %retval.0
 }
 
@@ -1215,11 +1215,11 @@ for.cond.preheader.i.i:                           ; preds = %entry
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   %2 = load i32, ptr %1, align 8
   %cmp3.i.i3 = icmp eq i32 %2, %call.i.i
-  br i1 %cmp3.i.i3, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i3, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %entry
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit
+  br label %gdb_get_cpu_process.argprom.exit
 
 for.cond.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %indvars.iv.i.i4 = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %for.cond.preheader.i.i ]
@@ -1229,21 +1229,21 @@ for.cond.i.i:                                     ; preds = %for.cond.preheader.
   %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %1, i64 %indvars.iv.next.i.i
   %4 = load i32, ptr %arrayidx1.i.i, align 8
   %cmp3.i.i = icmp eq i32 %4, %call.i.i
-  br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
-gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
+gdb_get_cpu_process.argprom.exit:                 ; preds = %for.cond.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %3, %if.then.i.i ], [ %1, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.cond.i.i ]
   %attached = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %5 = load i8, ptr %attached, align 4
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.end, label %return
 
-if.end:                                           ; preds = %gdb_get_cpu_process.exit
+if.end:                                           ; preds = %gdb_get_cpu_process.argprom.exit
   store ptr %cpu, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   store ptr %cpu, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
   br label %return
 
-return:                                           ; preds = %gdb_get_cpu_process.exit, %if.end
+return:                                           ; preds = %gdb_get_cpu_process.argprom.exit, %if.end
   ret void
 }
 
@@ -1802,13 +1802,13 @@ if.else127:                                       ; preds = %fromhex.exit133
   %79 = load i16, ptr @_TRACE_GDBSTUB_IO_COMMAND_DSTATE, align 2
   %tobool4.i.i.i = icmp ne i16 %79, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_gdbstub_io_command.exit.i
+  br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_gdbstub_io_command.argprom.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %if.else127
   %80 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %80, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
-  br i1 %cmp.i.not.i.i.i, label %trace_gdbstub_io_command.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %trace_gdbstub_io_command.argprom.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
   %81 = load i8, ptr @message_with_timestamp, align 1
@@ -1822,13 +1822,13 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %83 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i.i, i64 noundef %82, i64 noundef %83, ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36)) #18
-  br label %trace_gdbstub_io_command.exit.i
+  br label %trace_gdbstub_io_command.argprom.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36)) #18
-  br label %trace_gdbstub_io_command.exit.i
+  br label %trace_gdbstub_io_command.argprom.exit.i
 
-trace_gdbstub_io_command.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else127
+trace_gdbstub_io_command.argprom.exit.i:          ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %84 = load i8, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), align 4
   switch i8 %84, label %sw.default.i [
@@ -1856,92 +1856,92 @@ trace_gdbstub_io_command.exit.i:                  ; preds = %if.else.i.i.i, %if.
     i8 81, label %sw.bb21.i
   ]
 
-sw.bb.i:                                          ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb.i:                                          ; preds = %trace_gdbstub_io_command.argprom.exit.i
   %call.i = call i32 @gdb_put_packet(ptr noundef nonnull @.str.27)
-  br label %gdb_handle_packet.exit
+  br label %gdb_handle_packet.argprom.exit
 
-sw.bb2.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb2.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb3.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb3.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb4.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb4.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb5.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb5.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35) #18
   call void @gdb_exit(i32 noundef 0) #18
   call void @gdb_qemu_exit(i32 noundef 0) #18
-  br label %gdb_handle_packet.exit
+  br label %gdb_handle_packet.argprom.exit
 
-sw.bb6.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb6.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb7.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb7.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb8.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb8.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb9.i:                                         ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb9.i:                                         ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb10.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb10.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb11.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb11.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb12.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb12.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb13.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb13.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb14.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb14.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb15.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb15.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb16.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb16.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb17.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb17.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb18.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb18.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb19.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb19.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb20.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb20.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.bb21.i:                                        ; preds = %trace_gdbstub_io_command.exit.i
+sw.bb21.i:                                        ; preds = %trace_gdbstub_io_command.argprom.exit.i
   br label %if.then.i
 
-sw.default.i:                                     ; preds = %trace_gdbstub_io_command.exit.i
+sw.default.i:                                     ; preds = %trace_gdbstub_io_command.argprom.exit.i
   %call22.i = call i32 @gdb_put_packet(ptr noundef nonnull @.str.61)
-  br label %gdb_handle_packet.exit
+  br label %gdb_handle_packet.argprom.exit
 
-if.then.i:                                        ; preds = %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %trace_gdbstub_io_command.exit.i
-  %cmd_parser.0.ph.i = phi ptr [ @gdb_handle_packet.target_halted_cmd_desc, %trace_gdbstub_io_command.exit.i ], [ @gdb_handle_packet.continue_cmd_desc, %sw.bb2.i ], [ @gdb_handle_packet.cont_with_sig_cmd_desc, %sw.bb3.i ], [ @gdb_handle_packet.v_cmd_desc, %sw.bb4.i ], [ @gdb_handle_packet.detach_cmd_desc, %sw.bb6.i ], [ @gdb_handle_packet.step_cmd_desc, %sw.bb7.i ], [ @gdb_handle_packet.backward_cmd_desc, %sw.bb8.i ], [ @gdb_handle_packet.file_io_cmd_desc, %sw.bb9.i ], [ @gdb_handle_packet.read_all_regs_cmd_desc, %sw.bb10.i ], [ @gdb_handle_packet.write_all_regs_cmd_desc, %sw.bb11.i ], [ @gdb_handle_packet.read_mem_cmd_desc, %sw.bb12.i ], [ @gdb_handle_packet.write_mem_cmd_desc, %sw.bb13.i ], [ @gdb_handle_packet.get_reg_cmd_desc, %sw.bb14.i ], [ @gdb_handle_packet.set_reg_cmd_desc, %sw.bb15.i ], [ @gdb_handle_packet.insert_bp_cmd_desc, %sw.bb16.i ], [ @gdb_handle_packet.remove_bp_cmd_desc, %sw.bb17.i ], [ @gdb_handle_packet.set_thread_cmd_desc, %sw.bb18.i ], [ @gdb_handle_packet.thread_alive_cmd_desc, %sw.bb19.i ], [ @gdb_handle_packet.gen_query_cmd_desc, %sw.bb20.i ], [ @gdb_handle_packet.gen_set_cmd_desc, %sw.bb21.i ]
+if.then.i:                                        ; preds = %sw.bb21.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %trace_gdbstub_io_command.argprom.exit.i
+  %cmd_parser.0.ph.i = phi ptr [ @gdb_handle_packet.target_halted_cmd_desc, %trace_gdbstub_io_command.argprom.exit.i ], [ @gdb_handle_packet.continue_cmd_desc, %sw.bb2.i ], [ @gdb_handle_packet.cont_with_sig_cmd_desc, %sw.bb3.i ], [ @gdb_handle_packet.v_cmd_desc, %sw.bb4.i ], [ @gdb_handle_packet.detach_cmd_desc, %sw.bb6.i ], [ @gdb_handle_packet.step_cmd_desc, %sw.bb7.i ], [ @gdb_handle_packet.backward_cmd_desc, %sw.bb8.i ], [ @gdb_handle_packet.file_io_cmd_desc, %sw.bb9.i ], [ @gdb_handle_packet.read_all_regs_cmd_desc, %sw.bb10.i ], [ @gdb_handle_packet.write_all_regs_cmd_desc, %sw.bb11.i ], [ @gdb_handle_packet.read_mem_cmd_desc, %sw.bb12.i ], [ @gdb_handle_packet.write_mem_cmd_desc, %sw.bb13.i ], [ @gdb_handle_packet.get_reg_cmd_desc, %sw.bb14.i ], [ @gdb_handle_packet.set_reg_cmd_desc, %sw.bb15.i ], [ @gdb_handle_packet.insert_bp_cmd_desc, %sw.bb16.i ], [ @gdb_handle_packet.remove_bp_cmd_desc, %sw.bb17.i ], [ @gdb_handle_packet.set_thread_cmd_desc, %sw.bb18.i ], [ @gdb_handle_packet.thread_alive_cmd_desc, %sw.bb19.i ], [ @gdb_handle_packet.gen_query_cmd_desc, %sw.bb20.i ], [ @gdb_handle_packet.gen_set_cmd_desc, %sw.bb21.i ]
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %call.i.i = call ptr @g_string_set_size(ptr noundef %85, i64 noundef 0) #18
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i.i = call ptr @g_byte_array_set_size(ptr noundef %86, i32 noundef 0) #18
   %call2.i.i = call fastcc i32 @process_string_cmd(ptr noundef nonnull getelementptr inbounds (i8, ptr @gdbserver_state, i64 36), ptr noundef nonnull %cmd_parser.0.ph.i, i32 noundef 1)
   %tobool3.not.i.i = icmp eq i32 %call2.i.i, 0
-  br i1 %tobool3.not.i.i, label %gdb_handle_packet.exit, label %if.then4.i.i
+  br i1 %tobool3.not.i.i, label %gdb_handle_packet.argprom.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i
   %call5.i.i = call i32 @gdb_put_packet(ptr noundef nonnull @.str.61)
-  br label %gdb_handle_packet.exit
+  br label %gdb_handle_packet.argprom.exit
 
-gdb_handle_packet.exit:                           ; preds = %sw.bb.i, %sw.bb5.i, %sw.default.i, %if.then.i, %if.then4.i.i
+gdb_handle_packet.argprom.exit:                   ; preds = %sw.bb.i, %sw.bb5.i, %sw.default.i, %if.then.i, %if.then4.i.i
   store i32 1, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 32), align 8
   br label %sw.epilog
 
@@ -1949,7 +1949,7 @@ sw.default:                                       ; preds = %entry
   tail call void @abort() #17
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb, %trace_gdbstub_err_checksum_incorrect.exit, %gdb_handle_packet.exit, %trace_gdbstub_err_invalid_repeat.exit, %if.then85, %if.else86, %trace_gdbstub_err_overrun.exit89, %if.then42, %if.else48, %trace_gdbstub_err_overrun.exit58, %if.then12, %if.then25, %if.else31, %trace_gdbstub_err_overrun.exit, %if.then18, %if.then, %trace_gdbstub_err_garbage.exit, %trace_gdbstub_err_checksum_invalid.exit122, %fromhex.exit, %trace_gdbstub_err_checksum_invalid.exit
+sw.epilog:                                        ; preds = %sw.bb, %trace_gdbstub_err_checksum_incorrect.exit, %gdb_handle_packet.argprom.exit, %trace_gdbstub_err_invalid_repeat.exit, %if.then85, %if.else86, %trace_gdbstub_err_overrun.exit89, %if.then42, %if.else48, %trace_gdbstub_err_overrun.exit58, %if.then12, %if.then25, %if.else31, %trace_gdbstub_err_overrun.exit, %if.then18, %if.then, %trace_gdbstub_err_garbage.exit, %trace_gdbstub_err_checksum_invalid.exit122, %fromhex.exit, %trace_gdbstub_err_checksum_invalid.exit
   ret void
 }
 
@@ -2316,11 +2316,11 @@ for.cond.preheader.i.i.i:                         ; preds = %if.then7
   %wide.trip.count.i.i.i = zext nneg i32 %15 to i64
   %17 = load i32, ptr %16, align 8
   %cmp3.i.i3.i = icmp eq i32 %17, %call.i.i.i6
-  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then7
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i
+  br label %gdb_get_cpu_process.argprom.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -2330,16 +2330,16 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %16, i64 %indvars.iv.next.i.i.i
   %19 = load i32, ptr %arrayidx1.i.i.i, align 8
   %cmp3.i.i.i = icmp eq i32 %19, %call.i.i.i6
-  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
-gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+gdb_get_cpu_process.argprom.exit.i:               ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %18, %if.then.i.i.i ], [ %16, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %20 = load i8, ptr %attached.i, align 4
   %tobool.i = trunc i8 %20 to i1
   br i1 %tobool.i, label %gdb_first_attached_cpu.exit, label %if.then.i7
 
-if.then.i7:                                       ; preds = %gdb_get_cpu_process.exit.i
+if.then.i7:                                       ; preds = %gdb_get_cpu_process.argprom.exit.i
   %node.i.i8 = getelementptr inbounds i8, ptr %14, i64 568
   %21 = load atomic i64, ptr %node.i.i8 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -2361,11 +2361,11 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i11
   %wide.trip.count.i.i.i.i = zext nneg i32 %22 to i64
   %24 = load i32, ptr %23, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %24, %call.i.i.i.i
-  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i11
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i
+  br label %gdb_get_cpu_process.argprom.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
   %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
@@ -2375,16 +2375,16 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %23, i64 %indvars.iv.next.i.i.i.i
   %26 = load i32, ptr %arrayidx1.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %26, %call.i.i.i.i
-  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
-gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+gdb_get_cpu_process.argprom.exit.i.i:             ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %25, %if.then.i.i.i.i ], [ %23, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
   %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
   %27 = load i8, ptr %attached.i.i, align 4
   %tobool3.i.i = trunc i8 %27 to i1
   br i1 %tobool3.i.i, label %gdb_first_attached_cpu.exit, label %while.end8.i.i13
 
-while.end8.i.i13:                                 ; preds = %gdb_get_cpu_process.exit.i.i
+while.end8.i.i13:                                 ; preds = %gdb_get_cpu_process.argprom.exit.i.i
   %node9.i.i14 = getelementptr inbounds i8, ptr %cpu.addr.09.i.i12, i64 568
   %28 = load atomic i64, ptr %node9.i.i14 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -2392,8 +2392,8 @@ while.end8.i.i13:                                 ; preds = %gdb_get_cpu_process
   %tobool.not.i.i16 = icmp eq i64 %28, 0
   br i1 %tobool.not.i.i16, label %gdb_first_attached_cpu.exit, label %while.body2.i.i11, !llvm.loop !18
 
-gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i13, %gdb_get_cpu_process.exit.i, %if.then.i7
-  %retval.0.i17 = phi ptr [ %14, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i9, %if.then.i7 ], [ %cpu.addr.09.i.i12, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i15, %while.end8.i.i13 ]
+gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.argprom.exit.i.i, %while.end8.i.i13, %gdb_get_cpu_process.argprom.exit.i, %if.then.i7
+  %retval.0.i17 = phi ptr [ %14, %gdb_get_cpu_process.argprom.exit.i ], [ %cpu.addr.07.i.i9, %if.then.i7 ], [ %cpu.addr.09.i.i12, %gdb_get_cpu_process.argprom.exit.i.i ], [ %cpu.addr.0.i.i15, %while.end8.i.i13 ]
   store ptr %retval.0.i17, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 8), align 8
   br label %if.end9
 
@@ -2418,11 +2418,11 @@ for.cond.preheader.i.i.i21:                       ; preds = %if.then13
   %wide.trip.count.i.i.i23 = zext nneg i32 %31 to i64
   %33 = load i32, ptr %32, align 8
   %cmp3.i.i3.i24 = icmp eq i32 %33, %call.i.i.i19
-  br i1 %cmp3.i.i3.i24, label %gdb_get_cpu_process.exit.i31, label %for.cond.i.i.i25
+  br i1 %cmp3.i.i3.i24, label %gdb_get_cpu_process.argprom.exit.i31, label %for.cond.i.i.i25
 
 if.then.i.i.i63:                                  ; preds = %if.then13
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i31
+  br label %gdb_get_cpu_process.argprom.exit.i31
 
 for.cond.i.i.i25:                                 ; preds = %for.cond.preheader.i.i.i21, %for.cond.i.i.i25
   %indvars.iv.i.i4.i26 = phi i64 [ %indvars.iv.next.i.i.i27, %for.cond.i.i.i25 ], [ 0, %for.cond.preheader.i.i.i21 ]
@@ -2432,16 +2432,16 @@ for.cond.i.i.i25:                                 ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i29 = getelementptr %struct.GDBProcess, ptr %32, i64 %indvars.iv.next.i.i.i27
   %35 = load i32, ptr %arrayidx1.i.i.i29, align 8
   %cmp3.i.i.i30 = icmp eq i32 %35, %call.i.i.i19
-  br i1 %cmp3.i.i.i30, label %gdb_get_cpu_process.exit.i31, label %for.cond.i.i.i25
+  br i1 %cmp3.i.i.i30, label %gdb_get_cpu_process.argprom.exit.i31, label %for.cond.i.i.i25
 
-gdb_get_cpu_process.exit.i31:                     ; preds = %for.cond.i.i.i25, %if.then.i.i.i63, %for.cond.preheader.i.i.i21
+gdb_get_cpu_process.argprom.exit.i31:             ; preds = %for.cond.i.i.i25, %if.then.i.i.i63, %for.cond.preheader.i.i.i21
   %retval.0.i.i.i32 = phi ptr [ %34, %if.then.i.i.i63 ], [ %32, %for.cond.preheader.i.i.i21 ], [ %arrayidx1.i.i.i29, %for.cond.i.i.i25 ]
   %attached.i33 = getelementptr inbounds i8, ptr %retval.0.i.i.i32, i64 4
   %36 = load i8, ptr %attached.i33, align 4
   %tobool.i34 = trunc i8 %36 to i1
   br i1 %tobool.i34, label %gdb_first_attached_cpu.exit64, label %if.then.i35
 
-if.then.i35:                                      ; preds = %gdb_get_cpu_process.exit.i31
+if.then.i35:                                      ; preds = %gdb_get_cpu_process.argprom.exit.i31
   %node.i.i36 = getelementptr inbounds i8, ptr %30, i64 568
   %37 = load atomic i64, ptr %node.i.i36 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -2463,11 +2463,11 @@ for.cond.preheader.i.i.i.i43:                     ; preds = %while.body2.i.i39
   %wide.trip.count.i.i.i.i45 = zext nneg i32 %38 to i64
   %40 = load i32, ptr %39, align 8
   %cmp3.i.i5.i.i46 = icmp eq i32 %40, %call.i.i.i.i41
-  br i1 %cmp3.i.i5.i.i46, label %gdb_get_cpu_process.exit.i.i53, label %for.cond.i.i.i.i47
+  br i1 %cmp3.i.i5.i.i46, label %gdb_get_cpu_process.argprom.exit.i.i53, label %for.cond.i.i.i.i47
 
 if.then.i.i.i.i62:                                ; preds = %while.body2.i.i39
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i53
+  br label %gdb_get_cpu_process.argprom.exit.i.i53
 
 for.cond.i.i.i.i47:                               ; preds = %for.cond.preheader.i.i.i.i43, %for.cond.i.i.i.i47
   %indvars.iv.i.i6.i.i48 = phi i64 [ %indvars.iv.next.i.i.i.i49, %for.cond.i.i.i.i47 ], [ 0, %for.cond.preheader.i.i.i.i43 ]
@@ -2477,16 +2477,16 @@ for.cond.i.i.i.i47:                               ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i51 = getelementptr %struct.GDBProcess, ptr %39, i64 %indvars.iv.next.i.i.i.i49
   %42 = load i32, ptr %arrayidx1.i.i.i.i51, align 8
   %cmp3.i.i.i.i52 = icmp eq i32 %42, %call.i.i.i.i41
-  br i1 %cmp3.i.i.i.i52, label %gdb_get_cpu_process.exit.i.i53, label %for.cond.i.i.i.i47
+  br i1 %cmp3.i.i.i.i52, label %gdb_get_cpu_process.argprom.exit.i.i53, label %for.cond.i.i.i.i47
 
-gdb_get_cpu_process.exit.i.i53:                   ; preds = %for.cond.i.i.i.i47, %if.then.i.i.i.i62, %for.cond.preheader.i.i.i.i43
+gdb_get_cpu_process.argprom.exit.i.i53:           ; preds = %for.cond.i.i.i.i47, %if.then.i.i.i.i62, %for.cond.preheader.i.i.i.i43
   %retval.0.i.i.i.i54 = phi ptr [ %41, %if.then.i.i.i.i62 ], [ %39, %for.cond.preheader.i.i.i.i43 ], [ %arrayidx1.i.i.i.i51, %for.cond.i.i.i.i47 ]
   %attached.i.i55 = getelementptr inbounds i8, ptr %retval.0.i.i.i.i54, i64 4
   %43 = load i8, ptr %attached.i.i55, align 4
   %tobool3.i.i56 = trunc i8 %43 to i1
   br i1 %tobool3.i.i56, label %gdb_first_attached_cpu.exit64, label %while.end8.i.i57
 
-while.end8.i.i57:                                 ; preds = %gdb_get_cpu_process.exit.i.i53
+while.end8.i.i57:                                 ; preds = %gdb_get_cpu_process.argprom.exit.i.i53
   %node9.i.i58 = getelementptr inbounds i8, ptr %cpu.addr.09.i.i40, i64 568
   %44 = load atomic i64, ptr %node9.i.i58 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -2494,8 +2494,8 @@ while.end8.i.i57:                                 ; preds = %gdb_get_cpu_process
   %tobool.not.i.i60 = icmp eq i64 %44, 0
   br i1 %tobool.not.i.i60, label %gdb_first_attached_cpu.exit64, label %while.body2.i.i39, !llvm.loop !18
 
-gdb_first_attached_cpu.exit64:                    ; preds = %gdb_get_cpu_process.exit.i.i53, %while.end8.i.i57, %gdb_get_cpu_process.exit.i31, %if.then.i35
-  %retval.0.i61 = phi ptr [ %30, %gdb_get_cpu_process.exit.i31 ], [ %cpu.addr.07.i.i37, %if.then.i35 ], [ %cpu.addr.09.i.i40, %gdb_get_cpu_process.exit.i.i53 ], [ %cpu.addr.0.i.i59, %while.end8.i.i57 ]
+gdb_first_attached_cpu.exit64:                    ; preds = %gdb_get_cpu_process.argprom.exit.i.i53, %while.end8.i.i57, %gdb_get_cpu_process.argprom.exit.i31, %if.then.i35
+  %retval.0.i61 = phi ptr [ %30, %gdb_get_cpu_process.argprom.exit.i31 ], [ %cpu.addr.07.i.i37, %if.then.i35 ], [ %cpu.addr.09.i.i40, %gdb_get_cpu_process.argprom.exit.i.i53 ], [ %cpu.addr.0.i.i59, %while.end8.i.i57 ]
   store ptr %retval.0.i61, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
   br label %if.end15
 
@@ -4043,13 +4043,13 @@ for.inc:                                          ; preds = %land.lhs.true7, %la
 cleanup:                                          ; preds = %for.inc, %cmd_parse_params.exit, %entry, %if.end29
   %retval.0 = phi i32 [ 0, %if.end29 ], [ -1, %entry ], [ -1, %cmd_parse_params.exit ], [ -1, %for.inc ]
   %tobool.not.i.i18 = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i18, label %glib_autoptr_cleanup_GArray.exit, label %if.then.i.i19
+  br i1 %tobool.not.i.i18, label %glib_autoptr_cleanup_GArray.argprom.exit, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %cleanup
   call void @g_array_unref(ptr noundef nonnull %call) #18
-  br label %glib_autoptr_cleanup_GArray.exit
+  br label %glib_autoptr_cleanup_GArray.argprom.exit
 
-glib_autoptr_cleanup_GArray.exit:                 ; preds = %cleanup, %if.then.i.i19
+glib_autoptr_cleanup_GArray.argprom.exit:         ; preds = %cleanup, %if.then.i.i19
   ret i32 %retval.0
 }
 
@@ -4249,11 +4249,11 @@ for.cond.preheader.i.i.i.i:                       ; preds = %sw.bb59.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %23 to i64
   %25 = load i32, ptr %24, align 8
   %cmp3.i.i3.i.i = icmp eq i32 %25, %call.i.i.i.i
-  br i1 %cmp3.i.i3.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i3.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb59.i
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i
+  br label %gdb_get_cpu_process.argprom.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
   %indvars.iv.i.i4.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
@@ -4263,16 +4263,16 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %24, i64 %indvars.iv.next.i.i.i.i
   %27 = load i32, ptr %arrayidx1.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %27, %call.i.i.i.i
-  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
-gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+gdb_get_cpu_process.argprom.exit.i.i:             ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %26, %if.then.i.i.i.i ], [ %24, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
   %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
   %28 = load i8, ptr %attached.i.i, align 4
   %tobool.i.i = trunc i8 %28 to i1
   br i1 %tobool.i.i, label %gdb_first_attached_cpu.exit.i, label %if.then.i31.i
 
-if.then.i31.i:                                    ; preds = %gdb_get_cpu_process.exit.i.i
+if.then.i31.i:                                    ; preds = %gdb_get_cpu_process.argprom.exit.i.i
   %node.i.i.i = getelementptr inbounds i8, ptr %22, i64 568
   %29 = load atomic i64, ptr %node.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -4294,11 +4294,11 @@ for.cond.preheader.i.i.i.i.i:                     ; preds = %while.body2.i.i.i
   %wide.trip.count.i.i.i.i.i = zext nneg i32 %30 to i64
   %32 = load i32, ptr %31, align 8
   %cmp3.i.i5.i.i.i = icmp eq i32 %32, %call.i.i.i.i.i
-  br i1 %cmp3.i.i5.i.i.i, label %gdb_get_cpu_process.exit.i.i.i, label %for.cond.i.i.i.i.i
+  br i1 %cmp3.i.i5.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i.i, label %for.cond.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %while.body2.i.i.i
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i.i
+  br label %gdb_get_cpu_process.argprom.exit.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.cond.preheader.i.i.i.i.i, %for.cond.i.i.i.i.i
   %indvars.iv.i.i6.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %for.cond.i.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i.i ]
@@ -4308,16 +4308,16 @@ for.cond.i.i.i.i.i:                               ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i.i = getelementptr %struct.GDBProcess, ptr %31, i64 %indvars.iv.next.i.i.i.i.i
   %34 = load i32, ptr %arrayidx1.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp eq i32 %34, %call.i.i.i.i.i
-  br i1 %cmp3.i.i.i.i.i, label %gdb_get_cpu_process.exit.i.i.i, label %for.cond.i.i.i.i.i
+  br i1 %cmp3.i.i.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i.i, label %for.cond.i.i.i.i.i
 
-gdb_get_cpu_process.exit.i.i.i:                   ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
+gdb_get_cpu_process.argprom.exit.i.i.i:           ; preds = %for.cond.i.i.i.i.i, %if.then.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi ptr [ %33, %if.then.i.i.i.i.i ], [ %31, %for.cond.preheader.i.i.i.i.i ], [ %arrayidx1.i.i.i.i.i, %for.cond.i.i.i.i.i ]
   %attached.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 4
   %35 = load i8, ptr %attached.i.i.i, align 4
   %tobool3.i.i.i = trunc i8 %35 to i1
   br i1 %tobool3.i.i.i, label %gdb_first_attached_cpu.exit.i, label %while.end8.i.i.i
 
-while.end8.i.i.i:                                 ; preds = %gdb_get_cpu_process.exit.i.i.i
+while.end8.i.i.i:                                 ; preds = %gdb_get_cpu_process.argprom.exit.i.i.i
   %node9.i.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i.i, i64 568
   %36 = load atomic i64, ptr %node9.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -4325,8 +4325,8 @@ while.end8.i.i.i:                                 ; preds = %gdb_get_cpu_process
   %tobool.not.i.i.i = icmp eq i64 %36, 0
   br i1 %tobool.not.i.i.i, label %gdb_first_attached_cpu.exit.i, label %while.body2.i.i.i, !llvm.loop !18
 
-gdb_first_attached_cpu.exit.i:                    ; preds = %while.end8.i.i.i, %gdb_get_cpu_process.exit.i.i.i, %if.then.i31.i, %gdb_get_cpu_process.exit.i.i
-  %retval.0.i32.i = phi ptr [ %22, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.07.i.i.i, %if.then.i31.i ], [ %cpu.addr.0.i.i.i, %while.end8.i.i.i ], [ %cpu.addr.09.i.i.i, %gdb_get_cpu_process.exit.i.i.i ]
+gdb_first_attached_cpu.exit.i:                    ; preds = %while.end8.i.i.i, %gdb_get_cpu_process.argprom.exit.i.i.i, %if.then.i31.i, %gdb_get_cpu_process.argprom.exit.i.i
+  %retval.0.i32.i = phi ptr [ %22, %gdb_get_cpu_process.argprom.exit.i.i ], [ %cpu.addr.07.i.i.i, %if.then.i31.i ], [ %cpu.addr.0.i.i.i, %while.end8.i.i.i ], [ %cpu.addr.09.i.i.i, %gdb_get_cpu_process.argprom.exit.i.i.i ]
   %tobool62.not109.i = icmp eq ptr %retval.0.i32.i, null
   br i1 %tobool62.not109.i, label %sw.epilog.i, label %while.body63.i
 
@@ -4371,11 +4371,11 @@ for.cond.preheader.i.i.i35.i:                     ; preds = %while.body2.i.i
   %wide.trip.count.i.i.i37.i = zext nneg i32 %40 to i64
   %42 = load i32, ptr %41, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %42, %call.i.i.i33.i
-  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i43.i, label %for.cond.i.i.i38.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.argprom.exit.i43.i, label %for.cond.i.i.i38.i
 
 if.then.i.i.i47.i:                                ; preds = %while.body2.i.i
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i43.i
+  br label %gdb_get_cpu_process.argprom.exit.i43.i
 
 for.cond.i.i.i38.i:                               ; preds = %for.cond.preheader.i.i.i35.i, %for.cond.i.i.i38.i
   %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i39.i, %for.cond.i.i.i38.i ], [ 0, %for.cond.preheader.i.i.i35.i ]
@@ -4385,16 +4385,16 @@ for.cond.i.i.i38.i:                               ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i41.i = getelementptr %struct.GDBProcess, ptr %41, i64 %indvars.iv.next.i.i.i39.i
   %44 = load i32, ptr %arrayidx1.i.i.i41.i, align 8
   %cmp3.i.i.i42.i = icmp eq i32 %44, %call.i.i.i33.i
-  br i1 %cmp3.i.i.i42.i, label %gdb_get_cpu_process.exit.i43.i, label %for.cond.i.i.i38.i
+  br i1 %cmp3.i.i.i42.i, label %gdb_get_cpu_process.argprom.exit.i43.i, label %for.cond.i.i.i38.i
 
-gdb_get_cpu_process.exit.i43.i:                   ; preds = %for.cond.i.i.i38.i, %if.then.i.i.i47.i, %for.cond.preheader.i.i.i35.i
+gdb_get_cpu_process.argprom.exit.i43.i:           ; preds = %for.cond.i.i.i38.i, %if.then.i.i.i47.i, %for.cond.preheader.i.i.i35.i
   %retval.0.i.i.i44.i = phi ptr [ %43, %if.then.i.i.i47.i ], [ %41, %for.cond.preheader.i.i.i35.i ], [ %arrayidx1.i.i.i41.i, %for.cond.i.i.i38.i ]
   %attached.i45.i = getelementptr inbounds i8, ptr %retval.0.i.i.i44.i, i64 4
   %45 = load i8, ptr %attached.i45.i, align 4
   %tobool3.i.i = trunc i8 %45 to i1
   br i1 %tobool3.i.i, label %gdb_next_attached_cpu.exit.i, label %while.end8.i.i
 
-while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i43.i
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.argprom.exit.i43.i
   %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
   %46 = load atomic i64, ptr %node9.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -4402,8 +4402,8 @@ while.end8.i.i:                                   ; preds = %gdb_get_cpu_process
   %tobool.not.i46.i = icmp eq i64 %46, 0
   br i1 %tobool.not.i46.i, label %gdb_next_attached_cpu.exit.i, label %while.body2.i.i, !llvm.loop !18
 
-gdb_next_attached_cpu.exit.i:                     ; preds = %while.end8.i.i, %gdb_get_cpu_process.exit.i43.i, %if.end74.i
-  %cpu.addr.0.lcssa.i.i = phi ptr [ %cpu.addr.07.i.i, %if.end74.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i43.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
+gdb_next_attached_cpu.exit.i:                     ; preds = %while.end8.i.i, %gdb_get_cpu_process.argprom.exit.i43.i, %if.end74.i
+  %cpu.addr.0.lcssa.i.i = phi ptr [ %cpu.addr.07.i.i, %if.end74.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.argprom.exit.i43.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
   %tobool62.not.i = icmp eq ptr %cpu.addr.0.lcssa.i.i, null
   br i1 %tobool62.not.i, label %sw.epilog.i, label %while.body63.i, !llvm.loop !35
 
@@ -4782,11 +4782,11 @@ for.cond.preheader.i.i.i:                         ; preds = %if.then
   %wide.trip.count.i.i.i = zext nneg i32 %3 to i64
   %5 = load i32, ptr %4, align 8
   %cmp3.i.i3.i = icmp eq i32 %5, %call.i.i.i
-  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i
+  br label %gdb_get_cpu_process.argprom.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -4796,16 +4796,16 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %4, i64 %indvars.iv.next.i.i.i
   %7 = load i32, ptr %arrayidx1.i.i.i, align 8
   %cmp3.i.i.i = icmp eq i32 %7, %call.i.i.i
-  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
-gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+gdb_get_cpu_process.argprom.exit.i:               ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %6, %if.then.i.i.i ], [ %4, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %8 = load i8, ptr %attached.i, align 4
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %gdb_get_cpu_process.exit.i
+if.then.i:                                        ; preds = %gdb_get_cpu_process.argprom.exit.i
   %node.i.i = getelementptr inbounds i8, ptr %2, i64 568
   %9 = load atomic i64, ptr %node.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -4827,11 +4827,11 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %10 to i64
   %12 = load i32, ptr %11, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %12, %call.i.i.i.i
-  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i
+  br label %gdb_get_cpu_process.argprom.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
   %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
@@ -4841,16 +4841,16 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %11, i64 %indvars.iv.next.i.i.i.i
   %14 = load i32, ptr %arrayidx1.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %14, %call.i.i.i.i
-  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
-gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+gdb_get_cpu_process.argprom.exit.i.i:             ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %13, %if.then.i.i.i.i ], [ %11, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
   %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
   %15 = load i8, ptr %attached.i.i, align 4
   %tobool3.i.i = trunc i8 %15 to i1
   br i1 %tobool3.i.i, label %return, label %while.end8.i.i
 
-while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.argprom.exit.i.i
   %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
   %16 = load atomic i64, ptr %node9.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -4940,7 +4940,7 @@ if.end16:                                         ; preds = %for.body.i20
 for.cond.preheader.i.i:                           ; preds = %if.end16
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %26, 0
-  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
+  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.argprom.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
@@ -4949,38 +4949,38 @@ for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.
 
 if.then.i.i:                                      ; preds = %if.end16
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit
+  br label %gdb_get_cpu_process.argprom.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.body.i.i, !llvm.loop !11
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %27, i64 %indvars.iv.i.i
   %29 = load i32, ptr %arrayidx1.i.i, align 8
   %cmp3.i.i = icmp eq i32 %29, %call.i.i28
-  br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
-gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
+gdb_get_cpu_process.argprom.exit:                 ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %28, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
   br i1 %tobool.not, label %if.end23, label %land.lhs.true19
 
-land.lhs.true19:                                  ; preds = %gdb_get_cpu_process.exit
+land.lhs.true19:                                  ; preds = %gdb_get_cpu_process.argprom.exit
   %30 = load i32, ptr %retval.0.i.i, align 8
   %cmp21.not = icmp eq i32 %30, %pid
   br i1 %cmp21.not, label %if.end23, label %return
 
-if.end23:                                         ; preds = %land.lhs.true19, %gdb_get_cpu_process.exit
+if.end23:                                         ; preds = %land.lhs.true19, %gdb_get_cpu_process.argprom.exit
   %attached24 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
   %31 = load i8, ptr %attached24, align 4
   %tobool25 = trunc i8 %31 to i1
   %call13. = select i1 %tobool25, ptr %cpu.06.i22, ptr null
   br label %return
 
-return:                                           ; preds = %for.cond.i, %while.end5.i, %for.body.i16, %while.end5.i24, %while.end8.i.i, %gdb_get_cpu_process.exit.i.i, %if.else12, %for.cond.preheader.i, %if.end10, %if.then.i, %gdb_get_cpu_process.exit.i, %if.end23, %land.lhs.true19, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true19 ], [ %call13., %if.end23 ], [ %2, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ null, %if.end10 ], [ null, %for.cond.preheader.i ], [ null, %if.else12 ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ], [ null, %while.end5.i24 ], [ %cpu.06.i, %for.body.i16 ], [ null, %while.end5.i ], [ null, %for.cond.i ]
+return:                                           ; preds = %for.cond.i, %while.end5.i, %for.body.i16, %while.end5.i24, %while.end8.i.i, %gdb_get_cpu_process.argprom.exit.i.i, %if.else12, %for.cond.preheader.i, %if.end10, %if.then.i, %gdb_get_cpu_process.argprom.exit.i, %if.end23, %land.lhs.true19, %if.end
+  %retval.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true19 ], [ %call13., %if.end23 ], [ %2, %gdb_get_cpu_process.argprom.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ null, %if.end10 ], [ null, %for.cond.preheader.i ], [ null, %if.else12 ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.argprom.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ], [ null, %while.end5.i24 ], [ %cpu.06.i, %for.body.i16 ], [ null, %while.end5.i ], [ null, %for.cond.i ]
   ret ptr %retval.0
 }
 
@@ -5091,7 +5091,7 @@ entry:
 for.cond.preheader.i.i:                           ; preds = %entry
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %0, 0
-  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
+  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.argprom.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
@@ -5100,29 +5100,29 @@ for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.
 
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit
+  br label %gdb_get_cpu_process.argprom.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.body.i.i, !llvm.loop !11
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %1, i64 %indvars.iv.i.i
   %3 = load i32, ptr %arrayidx1.i.i, align 8
   %cmp3.i.i = icmp eq i32 %3, %call.i.i
-  br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
-gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
+gdb_get_cpu_process.argprom.exit:                 ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %2, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
   %4 = load atomic i64, ptr @cpus_queue monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
   %tobool.not5.i = icmp eq i64 %4, 0
   br i1 %tobool.not5.i, label %gdb_get_first_cpu_in_process.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %gdb_get_cpu_process.exit, %while.end5.i
-  %cpu.06.in.i = phi i64 [ %6, %while.end5.i ], [ %4, %gdb_get_cpu_process.exit ]
+for.body.i:                                       ; preds = %gdb_get_cpu_process.argprom.exit, %while.end5.i
+  %cpu.06.in.i = phi i64 [ %6, %while.end5.i ], [ %4, %gdb_get_cpu_process.argprom.exit ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
   %call.i.i1 = tail call i32 @getpid() #18
   %5 = load i32, ptr %retval.0.i.i, align 8
@@ -5136,8 +5136,8 @@ while.end5.i:                                     ; preds = %for.body.i
   %tobool.not.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i, label %gdb_get_first_cpu_in_process.exit, label %for.body.i, !llvm.loop !14
 
-gdb_get_first_cpu_in_process.exit:                ; preds = %for.body.i, %while.end5.i, %gdb_get_cpu_process.exit
-  %retval.0.i = phi ptr [ null, %gdb_get_cpu_process.exit ], [ %cpu.06.i, %for.body.i ], [ null, %while.end5.i ]
+gdb_get_first_cpu_in_process.exit:                ; preds = %for.body.i, %while.end5.i, %gdb_get_cpu_process.argprom.exit
+  %retval.0.i = phi ptr [ null, %gdb_get_cpu_process.argprom.exit ], [ %cpu.06.i, %for.body.i ], [ null, %while.end5.i ]
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
   %call2 = tail call ptr @g_string_assign(ptr noundef %7, ptr noundef nonnull @.str.106) #18
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4176), align 8
@@ -5220,11 +5220,11 @@ for.cond.preheader.i.i.i:                         ; preds = %while.body2.i
   %wide.trip.count.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i = icmp eq i32 %11, %call.i.i.i
-  br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i5.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.body2.i
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i
+  br label %gdb_get_cpu_process.argprom.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %indvars.iv.i.i6.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -5234,16 +5234,16 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i
   %13 = load i32, ptr %arrayidx1.i.i.i, align 8
   %cmp3.i.i.i = icmp eq i32 %13, %call.i.i.i
-  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
-gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+gdb_get_cpu_process.argprom.exit.i:               ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %12, %if.then.i.i.i ], [ %10, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %14 = load i8, ptr %attached.i, align 4
   %tobool3.i = trunc i8 %14 to i1
   br i1 %tobool3.i, label %gdb_next_attached_cpu.exit, label %while.end8.i
 
-while.end8.i:                                     ; preds = %gdb_get_cpu_process.exit.i
+while.end8.i:                                     ; preds = %gdb_get_cpu_process.argprom.exit.i
   %node9.i = getelementptr inbounds i8, ptr %cpu.addr.09.i, i64 568
   %15 = load atomic i64, ptr %node9.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -5251,8 +5251,8 @@ while.end8.i:                                     ; preds = %gdb_get_cpu_process
   %tobool.not.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i, label %gdb_next_attached_cpu.exit, label %while.body2.i, !llvm.loop !18
 
-gdb_next_attached_cpu.exit:                       ; preds = %gdb_get_cpu_process.exit.i, %while.end8.i, %gdb_append_thread_id.exit
-  %cpu.addr.0.lcssa.i = phi ptr [ %cpu.addr.07.i, %gdb_append_thread_id.exit ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.exit.i ]
+gdb_next_attached_cpu.exit:                       ; preds = %gdb_get_cpu_process.argprom.exit.i, %while.end8.i, %gdb_append_thread_id.exit
+  %cpu.addr.0.lcssa.i = phi ptr [ %cpu.addr.07.i, %gdb_append_thread_id.exit ], [ %cpu.addr.0.i, %while.end8.i ], [ %cpu.addr.09.i, %gdb_get_cpu_process.argprom.exit.i ]
   store ptr %cpu.addr.0.lcssa.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
   br label %return
 
@@ -5278,11 +5278,11 @@ for.cond.preheader.i.i.i:                         ; preds = %entry
   %wide.trip.count.i.i.i = zext nneg i32 %2 to i64
   %4 = load i32, ptr %3, align 8
   %cmp3.i.i3.i = icmp eq i32 %4, %call.i.i.i
-  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i3.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i
+  br label %gdb_get_cpu_process.argprom.exit.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.preheader.i.i.i, %for.cond.i.i.i
   %indvars.iv.i.i4.i = phi i64 [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
@@ -5292,16 +5292,16 @@ for.cond.i.i.i:                                   ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i = getelementptr %struct.GDBProcess, ptr %3, i64 %indvars.iv.next.i.i.i
   %6 = load i32, ptr %arrayidx1.i.i.i, align 8
   %cmp3.i.i.i = icmp eq i32 %6, %call.i.i.i
-  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.exit.i, label %for.cond.i.i.i
+  br i1 %cmp3.i.i.i, label %gdb_get_cpu_process.argprom.exit.i, label %for.cond.i.i.i
 
-gdb_get_cpu_process.exit.i:                       ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
+gdb_get_cpu_process.argprom.exit.i:               ; preds = %for.cond.i.i.i, %if.then.i.i.i, %for.cond.preheader.i.i.i
   %retval.0.i.i.i = phi ptr [ %5, %if.then.i.i.i ], [ %3, %for.cond.preheader.i.i.i ], [ %arrayidx1.i.i.i, %for.cond.i.i.i ]
   %attached.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
   %7 = load i8, ptr %attached.i, align 4
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %gdb_first_attached_cpu.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %gdb_get_cpu_process.exit.i
+if.then.i:                                        ; preds = %gdb_get_cpu_process.argprom.exit.i
   %node.i.i = getelementptr inbounds i8, ptr %1, i64 568
   %8 = load atomic i64, ptr %node.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
@@ -5323,11 +5323,11 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.body2.i.i
   %wide.trip.count.i.i.i.i = zext nneg i32 %9 to i64
   %11 = load i32, ptr %10, align 8
   %cmp3.i.i5.i.i = icmp eq i32 %11, %call.i.i.i.i
-  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i5.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body2.i.i
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit.i.i
+  br label %gdb_get_cpu_process.argprom.exit.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
   %indvars.iv.i.i6.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
@@ -5337,16 +5337,16 @@ for.cond.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %arrayidx1.i.i.i.i = getelementptr %struct.GDBProcess, ptr %10, i64 %indvars.iv.next.i.i.i.i
   %13 = load i32, ptr %arrayidx1.i.i.i.i, align 8
   %cmp3.i.i.i.i = icmp eq i32 %13, %call.i.i.i.i
-  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.exit.i.i, label %for.cond.i.i.i.i
+  br i1 %cmp3.i.i.i.i, label %gdb_get_cpu_process.argprom.exit.i.i, label %for.cond.i.i.i.i
 
-gdb_get_cpu_process.exit.i.i:                     ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
+gdb_get_cpu_process.argprom.exit.i.i:             ; preds = %for.cond.i.i.i.i, %if.then.i.i.i.i, %for.cond.preheader.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %12, %if.then.i.i.i.i ], [ %10, %for.cond.preheader.i.i.i.i ], [ %arrayidx1.i.i.i.i, %for.cond.i.i.i.i ]
   %attached.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 4
   %14 = load i8, ptr %attached.i.i, align 4
   %tobool3.i.i = trunc i8 %14 to i1
   br i1 %tobool3.i.i, label %gdb_first_attached_cpu.exit, label %while.end8.i.i
 
-while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.exit.i.i
+while.end8.i.i:                                   ; preds = %gdb_get_cpu_process.argprom.exit.i.i
   %node9.i.i = getelementptr inbounds i8, ptr %cpu.addr.09.i.i, i64 568
   %15 = load atomic i64, ptr %node9.i.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
@@ -5354,8 +5354,8 @@ while.end8.i.i:                                   ; preds = %gdb_get_cpu_process
   %tobool.not.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i, label %gdb_first_attached_cpu.exit, label %while.body2.i.i, !llvm.loop !18
 
-gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.exit.i.i, %while.end8.i.i, %gdb_get_cpu_process.exit.i, %if.then.i
-  %retval.0.i = phi ptr [ %1, %gdb_get_cpu_process.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
+gdb_first_attached_cpu.exit:                      ; preds = %gdb_get_cpu_process.argprom.exit.i.i, %while.end8.i.i, %gdb_get_cpu_process.argprom.exit.i, %if.then.i
+  %retval.0.i = phi ptr [ %1, %gdb_get_cpu_process.argprom.exit.i ], [ %cpu.addr.07.i.i, %if.then.i ], [ %cpu.addr.09.i.i, %gdb_get_cpu_process.argprom.exit.i.i ], [ %cpu.addr.0.i.i, %while.end8.i.i ]
   store ptr %retval.0.i, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 24), align 8
   tail call void @handle_query_threads(ptr poison, ptr poison)
   ret void
@@ -5469,13 +5469,13 @@ cleanup.thread:                                   ; preds = %if.else.i.i, %if.th
 
 cleanup:                                          ; preds = %if.end, %if.then
   %tobool.not.i.i = icmp eq ptr %call, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i11
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GString.argprom.exit, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %cleanup.thread, %cleanup
   %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #18
-  br label %glib_autoptr_cleanup_GString.exit
+  br label %glib_autoptr_cleanup_GString.argprom.exit
 
-glib_autoptr_cleanup_GString.exit:                ; preds = %cleanup, %if.then.i.i11
+glib_autoptr_cleanup_GString.argprom.exit:        ; preds = %cleanup, %if.then.i.i11
   ret void
 }
 
@@ -5570,7 +5570,7 @@ if.end:                                           ; preds = %entry
 for.cond.preheader.i.i:                           ; preds = %if.end
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4168), align 8
   %cmp5.i.i = icmp sgt i32 %1, 0
-  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.exit
+  br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %gdb_get_cpu_process.argprom.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
@@ -5579,21 +5579,21 @@ for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.
 
 if.then.i.i:                                      ; preds = %if.end
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4160), align 8
-  br label %gdb_get_cpu_process.exit
+  br label %gdb_get_cpu_process.argprom.exit
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.exit, label %for.body.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.body.i.i, !llvm.loop !11
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx1.i.i = getelementptr %struct.GDBProcess, ptr %2, i64 %indvars.iv.i.i
   %4 = load i32, ptr %arrayidx1.i.i, align 8
   %cmp3.i.i = icmp eq i32 %4, %call.i.i
-  br i1 %cmp3.i.i, label %gdb_get_cpu_process.exit, label %for.cond.i.i
+  br i1 %cmp3.i.i, label %gdb_get_cpu_process.argprom.exit, label %for.cond.i.i
 
-gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
+gdb_get_cpu_process.argprom.exit:                 ; preds = %for.cond.i.i, %for.body.i.i, %for.cond.preheader.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %3, %if.then.i.i ], [ null, %for.cond.preheader.i.i ], [ %arrayidx1.i.i, %for.body.i.i ], [ null, %for.cond.i.i ]
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 16), align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %5) #18
@@ -5603,11 +5603,11 @@ gdb_get_cpu_process.exit:                         ; preds = %for.cond.i.i, %for.
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.then4, label %if.end6
 
-if.then4:                                         ; preds = %gdb_get_cpu_process.exit
+if.then4:                                         ; preds = %gdb_get_cpu_process.argprom.exit
   %call5 = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.61)
   br label %return
 
-if.end6:                                          ; preds = %gdb_get_cpu_process.exit
+if.end6:                                          ; preds = %gdb_get_cpu_process.argprom.exit
   %7 = load ptr, ptr %params, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -5671,13 +5671,13 @@ if.end.i:                                         ; preds = %if.then8.i, %if.the
   %gdb_regs.i = getelementptr inbounds i8, ptr %retval.0.i.i17, i64 552
   %15 = load ptr, ptr %gdb_regs.i, align 8
   %tobool13.not.i = icmp eq ptr %15, null
-  br i1 %tobool13.not.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, label %for.cond.preheader.i
+  br i1 %tobool13.not.i, label %glib_autoptr_cleanup_GPtrArray.argprom.exit.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %len1638.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i32, ptr %len1638.i, align 8
   %cmp1739.not.i = icmp eq i32 %16, 0
-  br i1 %cmp1739.not.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, label %for.body.i
+  br i1 %cmp1739.not.i, label %glib_autoptr_cleanup_GPtrArray.argprom.exit.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
@@ -5693,9 +5693,9 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %21 = load i32, ptr %len16.i, align 8
   %22 = zext i32 %21 to i64
   %cmp17.i = icmp ult i64 %indvars.iv.next.i, %22
-  br i1 %cmp17.i, label %for.body.i, label %glib_autoptr_cleanup_GPtrArray.exit.i, !llvm.loop !42
+  br i1 %cmp17.i, label %for.body.i, label %glib_autoptr_cleanup_GPtrArray.argprom.exit.i, !llvm.loop !42
 
-glib_autoptr_cleanup_GPtrArray.exit.i:            ; preds = %for.body.i, %for.cond.preheader.i, %if.end.i
+glib_autoptr_cleanup_GPtrArray.argprom.exit.i:    ; preds = %for.body.i, %for.cond.preheader.i, %if.end.i
   %call22.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.126) #18
   tail call void @g_ptr_array_add(ptr noundef %call5.i, ptr noundef %call22.i) #18
   tail call void @g_ptr_array_add(ptr noundef %call5.i, ptr noundef null) #18
@@ -5749,8 +5749,8 @@ for.inc57.i:                                      ; preds = %land.lhs.true.i, %f
   %tobool43.not.i = icmp eq ptr %28, null
   br i1 %tobool43.not.i, label %if.then9, label %for.body44.i, !llvm.loop !43
 
-get_feature_xml.exit:                             ; preds = %glib_autoptr_cleanup_GPtrArray.exit.i, %if.then52.i
-  %target_xml.sink.i = phi ptr [ %target_xml.i, %glib_autoptr_cleanup_GPtrArray.exit.i ], [ %xml55.i, %if.then52.i ]
+get_feature_xml.exit:                             ; preds = %glib_autoptr_cleanup_GPtrArray.argprom.exit.i, %if.then52.i
+  %target_xml.sink.i = phi ptr [ %target_xml.i, %glib_autoptr_cleanup_GPtrArray.argprom.exit.i ], [ %xml55.i, %if.then52.i ]
   %.pre.i = load ptr, ptr %target_xml.sink.i, align 8
   %tobool8.not = icmp eq ptr %.pre.i, null
   br i1 %tobool8.not, label %if.then9, label %if.end11

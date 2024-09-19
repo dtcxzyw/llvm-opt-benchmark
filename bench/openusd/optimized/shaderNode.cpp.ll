@@ -3938,7 +3938,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstruc
   %18 = getelementptr inbounds i8, ptr %.sroa.067.089, i64 8
   %19 = getelementptr inbounds i8, ptr %.sroa.067.089, i64 16
   %.val = load ptr, ptr %19, align 8
-  %20 = invoke fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE"(ptr %.val)
+  %20 = invoke fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE.argprom"(ptr %.val)
           to label %21 unwind label %.loopexit.split-lp
 
 21:                                               ; preds = %17
@@ -4110,7 +4110,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
   %93 = getelementptr inbounds i8, ptr %.sroa.063.092, i64 8
   %94 = getelementptr inbounds i8, ptr %.sroa.063.092, i64 16
   %.val29 = load ptr, ptr %94, align 8
-  %95 = invoke fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE"(ptr %.val29)
+  %95 = invoke fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE.argprom"(ptr %.val29)
           to label %96 unwind label %.loopexit83
 
 96:                                               ; preds = %92
@@ -4726,7 +4726,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokeneqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE"(ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK32pxrInternal_v0_24__pxrReserved__13SdrShaderNode18GetAllVstructNamesEvENK3$_0clERKPKNS_17SdrShaderPropertyE.argprom"(ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr %.0.val, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %2, align 8

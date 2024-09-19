@@ -778,7 +778,7 @@ define dso_local void @intel_tc_port_init_mode(ptr nocapture noundef readonly %0
   %63 = tail call i32 @intel_port_to_tc(ptr noundef %61, i32 noundef %.val.val5) #7
   %64 = add i32 %63, 23
   %65 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %61, i32 noundef %64) #7
-  br i1 %65, label %assert_tc_port_power_enabled.exit, label %66, !prof !11
+  br i1 %65, label %assert_tc_port_power_enabled.argprom.argprom.exit, label %66, !prof !11
 
 66:                                               ; preds = %53
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !62
@@ -802,9 +802,9 @@ define dso_local void @intel_tc_port_init_mode(ptr nocapture noundef readonly %0
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 260, i32 2313, i64 12) #7, !srcloc !64
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !65
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #7, !srcloc !66
-  br label %assert_tc_port_power_enabled.exit
+  br label %assert_tc_port_power_enabled.argprom.argprom.exit
 
-assert_tc_port_power_enabled.exit:                ; preds = %53, %76
+assert_tc_port_power_enabled.argprom.argprom.exit: ; preds = %53, %76
   %78 = load i32, ptr %62, align 4
   %79 = shl i32 %78, 8
   %80 = add i32 %79, 409600
@@ -815,7 +815,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %53, %76
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %115
 
-86:                                               ; preds = %assert_tc_port_power_enabled.exit
+86:                                               ; preds = %assert_tc_port_power_enabled.argprom.argprom.exit
   %87 = load i32, ptr %6, align 8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %116
@@ -867,7 +867,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %53, %76
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %112, ptr noundef nonnull @.str.10, ptr noundef %114) #8
   br label %115
 
-115:                                              ; preds = %111, %assert_tc_port_power_enabled.exit
+115:                                              ; preds = %111, %assert_tc_port_power_enabled.argprom.argprom.exit
   tail call fastcc void @intel_tc_port_update_mode(ptr noundef %4, i32 noundef 1, i1 noundef zeroext false)
   br label %116
 
@@ -3575,7 +3575,7 @@ define internal zeroext i1 @adlp_tc_phy_is_owned(ptr nocapture noundef readonly 
   %6 = tail call i32 @intel_port_to_tc(ptr noundef %3, i32 noundef %5) #7
   %7 = add i32 %6, 23
   %8 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %3, i32 noundef %7) #7
-  br i1 %8, label %assert_tc_port_power_enabled.exit, label %9, !prof !11
+  br i1 %8, label %assert_tc_port_power_enabled.argprom.argprom.exit, label %9, !prof !11
 
 9:                                                ; preds = %1
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !62
@@ -3599,9 +3599,9 @@ define internal zeroext i1 @adlp_tc_phy_is_owned(ptr nocapture noundef readonly 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 260, i32 2313, i64 12) #7, !srcloc !64
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !65
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #7, !srcloc !66
-  br label %assert_tc_port_power_enabled.exit
+  br label %assert_tc_port_power_enabled.argprom.argprom.exit
 
-assert_tc_port_power_enabled.exit:                ; preds = %1, %19
+assert_tc_port_power_enabled.argprom.argprom.exit: ; preds = %1, %19
   %21 = shl i32 %5, 8
   %22 = add i32 %21, 409600
   %23 = getelementptr inbounds i8, ptr %3, i64 7368
@@ -3679,7 +3679,7 @@ define internal noundef zeroext i1 @adlp_tc_phy_connect(ptr noundef %0, i32 noun
   %27 = tail call i32 @intel_port_to_tc(ptr noundef %24, i32 noundef %26) #7
   %28 = add i32 %27, 23
   %29 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %24, i32 noundef %28) #7
-  br i1 %29, label %assert_tc_port_power_enabled.exit, label %30, !prof !11
+  br i1 %29, label %assert_tc_port_power_enabled.argprom.argprom.exit, label %30, !prof !11
 
 30:                                               ; preds = %21
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !62
@@ -3703,9 +3703,9 @@ define internal noundef zeroext i1 @adlp_tc_phy_connect(ptr noundef %0, i32 noun
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 260, i32 2313, i64 12) #7, !srcloc !64
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !65
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #7, !srcloc !66
-  br label %assert_tc_port_power_enabled.exit
+  br label %assert_tc_port_power_enabled.argprom.argprom.exit
 
-assert_tc_port_power_enabled.exit:                ; preds = %21, %40
+assert_tc_port_power_enabled.argprom.argprom.exit: ; preds = %21, %40
   %42 = shl i32 %26, 8
   %43 = add i32 %42, 409600
   %44 = getelementptr inbounds i8, ptr %24, i64 7368
@@ -3723,7 +3723,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %21, %40
   %55 = tail call zeroext i1 %54(ptr noundef %0) #7
   br i1 %55, label %80, label %56
 
-56:                                               ; preds = %assert_tc_port_power_enabled.exit
+56:                                               ; preds = %assert_tc_port_power_enabled.argprom.argprom.exit
   %57 = load i32, ptr %9, align 8
   %58 = icmp eq i32 %57, 3
   br i1 %58, label %59, label %71, !prof !5
@@ -3768,7 +3768,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %21, %40
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %77, i32 noundef 2, ptr noundef nonnull @.str.62, ptr noundef %79) #7
   br label %96
 
-80:                                               ; preds = %69, %assert_tc_port_power_enabled.exit
+80:                                               ; preds = %69, %assert_tc_port_power_enabled.argprom.argprom.exit
   %81 = load ptr, ptr %0, align 8
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %51, align 8
@@ -3802,7 +3802,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %21, %40
   %101 = tail call i32 @intel_port_to_tc(ptr noundef %98, i32 noundef %100) #7
   %102 = add i32 %101, 23
   %103 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %98, i32 noundef %102) #7
-  br i1 %103, label %assert_tc_port_power_enabled.exit5, label %104, !prof !11
+  br i1 %103, label %assert_tc_port_power_enabled.argprom.argprom.exit5, label %104, !prof !11
 
 104:                                              ; preds = %96
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !62
@@ -3826,9 +3826,9 @@ assert_tc_port_power_enabled.exit:                ; preds = %21, %40
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 260, i32 2313, i64 12) #7, !srcloc !64
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !65
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #7, !srcloc !66
-  br label %assert_tc_port_power_enabled.exit5
+  br label %assert_tc_port_power_enabled.argprom.argprom.exit5
 
-assert_tc_port_power_enabled.exit5:               ; preds = %96, %114
+assert_tc_port_power_enabled.argprom.argprom.exit5: ; preds = %96, %114
   %116 = shl i32 %100, 8
   %117 = add i32 %116, 409600
   %118 = getelementptr inbounds i8, ptr %98, i64 7368
@@ -3842,8 +3842,8 @@ assert_tc_port_power_enabled.exit5:               ; preds = %96, %114
   tail call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef %8) #7
   br label %125
 
-125:                                              ; preds = %assert_tc_port_power_enabled.exit5, %89, %12
-  %126 = phi i1 [ true, %12 ], [ true, %89 ], [ false, %assert_tc_port_power_enabled.exit5 ]
+125:                                              ; preds = %assert_tc_port_power_enabled.argprom.argprom.exit5, %89, %12
+  %126 = phi i1 [ true, %12 ], [ true, %89 ], [ false, %assert_tc_port_power_enabled.argprom.argprom.exit5 ]
   ret i1 %126
 }
 
@@ -3881,7 +3881,7 @@ define internal void @adlp_tc_phy_disconnect(ptr noundef %0) #0 align 16 {
   %23 = tail call i32 @intel_port_to_tc(ptr noundef %20, i32 noundef %22) #7
   %24 = add i32 %23, 23
   %25 = tail call zeroext i1 @intel_display_power_is_enabled(ptr noundef %20, i32 noundef %24) #7
-  br i1 %25, label %assert_tc_port_power_enabled.exit, label %26, !prof !11
+  br i1 %25, label %assert_tc_port_power_enabled.argprom.argprom.exit, label %26, !prof !11
 
 26:                                               ; preds = %18
   tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #7, !srcloc !62
@@ -3905,9 +3905,9 @@ define internal void @adlp_tc_phy_disconnect(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 260, i32 2313, i64 12) #7, !srcloc !64
   tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #7, !srcloc !65
   tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #7, !srcloc !66
-  br label %assert_tc_port_power_enabled.exit
+  br label %assert_tc_port_power_enabled.argprom.argprom.exit
 
-assert_tc_port_power_enabled.exit:                ; preds = %18, %36
+assert_tc_port_power_enabled.argprom.argprom.exit: ; preds = %18, %36
   %38 = shl i32 %22, 8
   %39 = add i32 %38, 409600
   %40 = getelementptr inbounds i8, ptr %20, i64 7368
@@ -3931,7 +3931,7 @@ assert_tc_port_power_enabled.exit:                ; preds = %18, %36
   tail call void asm sideeffect "979: nop\0A\09.pushsection .discard.instr_end\0A\09.long 979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 979) #7, !srcloc !199
   br label %50
 
-50:                                               ; preds = %47, %assert_tc_port_power_enabled.exit, %1
+50:                                               ; preds = %47, %assert_tc_port_power_enabled.argprom.argprom.exit, %1
   tail call void @intel_display_power_put_unchecked(ptr noundef %3, i32 noundef %7) #7
   ret void
 }

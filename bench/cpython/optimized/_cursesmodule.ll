@@ -3720,7 +3720,7 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   %10 = getelementptr i8, ptr %4, i64 16
   %obj.val13.i.i = load i64, ptr %10, align 8
   %call5.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.152, i64 noundef %obj.val13.i.i) #9
-  br label %PyCurses_ConvertToCchar_t.exit.thread.i
+  br label %PyCurses_ConvertToCchar_t.argprom.exit.thread.i
 
 if.else.i.i:                                      ; preds = %sw.epilog
   %11 = and i64 %call.val.i.i, 134217728
@@ -3756,14 +3756,14 @@ if.then17.i.i:                                    ; preds = %if.else14.i.i
 if.then20.i.i:                                    ; preds = %if.then17.i.i
   %14 = load ptr, ptr @PyExc_OverflowError, align 8
   call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.153) #9
-  br label %PyCurses_ConvertToCchar_t.exit.thread.i
+  br label %PyCurses_ConvertToCchar_t.argprom.exit.thread.i
 
 if.else22.i.i:                                    ; preds = %if.else14.i.i
   %15 = load ptr, ptr @PyExc_TypeError, align 8
   %tp_name.i.i = getelementptr inbounds i8, ptr %obj.val14.i.i, i64 24
   %16 = load ptr, ptr %tp_name.i.i, align 8
   %call24.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.154, ptr noundef %16) #9
-  br label %PyCurses_ConvertToCchar_t.exit.thread.i
+  br label %PyCurses_ConvertToCchar_t.argprom.exit.thread.i
 
 if.end27.i.i:                                     ; preds = %if.then17.i.i
   %conv28.i.i = trunc i64 %call18.i.i to i32
@@ -3773,9 +3773,9 @@ if.end27.i.i:                                     ; preds = %if.then17.i.i
 if.then32.i.i:                                    ; preds = %if.end27.i.i
   %17 = load ptr, ptr @PyExc_OverflowError, align 8
   %call33.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %17, ptr noundef nonnull @.str.155) #9
-  br label %PyCurses_ConvertToCchar_t.exit.thread.i
+  br label %PyCurses_ConvertToCchar_t.argprom.exit.thread.i
 
-PyCurses_ConvertToCchar_t.exit.thread.i:          ; preds = %if.then32.i.i, %if.else22.i.i, %if.then20.i.i, %if.then3.i.i
+PyCurses_ConvertToCchar_t.argprom.exit.thread.i:  ; preds = %if.then32.i.i, %if.else22.i.i, %if.then20.i.i, %if.then3.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %overflow.i.i)
   br label %_curses_window_addch_impl.exit
@@ -3847,8 +3847,8 @@ if.else.i16.i:                                    ; preds = %if.end38.i, %if.the
   %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.156, ptr noundef nonnull %funcname.028.i) #9
   br label %_curses_window_addch_impl.exit
 
-_curses_window_addch_impl.exit:                   ; preds = %PyCurses_ConvertToCchar_t.exit.thread.i, %if.end38.i, %if.else.i16.i
-  %retval.0.i = phi ptr [ null, %PyCurses_ConvertToCchar_t.exit.thread.i ], [ @_Py_NoneStruct, %if.end38.i ], [ null, %if.else.i16.i ]
+_curses_window_addch_impl.exit:                   ; preds = %PyCurses_ConvertToCchar_t.argprom.exit.thread.i, %if.end38.i, %if.else.i16.i
+  %retval.0.i = phi ptr [ null, %PyCurses_ConvertToCchar_t.argprom.exit.thread.i ], [ @_Py_NoneStruct, %if.end38.i ], [ null, %if.else.i16.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %wstr.i)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %wcval.i)
   br label %exit
@@ -3917,7 +3917,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString.argprom(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_addnstr_impl.exit, label %if.end.i
 
@@ -4099,7 +4099,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString.argprom(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_addstr_impl.exit, label %if.end.i
 
@@ -5243,15 +5243,15 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %self.val, null
-  br i1 %cmp.not.i, label %_curses_window_getbkgd_impl.exit, label %cond.true.i
+  br i1 %cmp.not.i, label %_curses_window_getbkgd_impl.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %_bkgd.i = getelementptr inbounds i8, ptr %self.val, i64 20
   %1 = load i32, ptr %_bkgd.i, align 4
   %2 = zext i32 %1 to i64
-  br label %_curses_window_getbkgd_impl.exit
+  br label %_curses_window_getbkgd_impl.argprom.exit
 
-_curses_window_getbkgd_impl.exit:                 ; preds = %entry, %cond.true.i
+_curses_window_getbkgd_impl.argprom.exit:         ; preds = %entry, %cond.true.i
   %cond.i = phi i64 [ %2, %cond.true.i ], [ 0, %entry ]
   %call2 = tail call ptr @PyLong_FromLong(i64 noundef %cond.i) #9
   ret ptr %call2
@@ -6106,7 +6106,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString.argprom(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_insnstr_impl.exit, label %if.end.i
 
@@ -6288,7 +6288,7 @@ sw.epilog:                                        ; preds = %sw.bb12, %sw.bb7, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %wstr.i)
   store ptr null, ptr %bytesobj.i, align 8
   store ptr null, ptr %wstr.i, align 8
-  %call.i = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
+  %call.i = call fastcc i32 @PyCurses_ConvertToString.argprom(ptr noundef %4, ptr noundef %bytesobj.i, ptr noundef %wstr.i)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %_curses_window_insstr_impl.exit, label %if.end.i
 
@@ -7922,7 +7922,7 @@ declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %bytes, ptr nocapture noundef nonnull writeonly %wstr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString.argprom(ptr noundef %obj, ptr nocapture noundef nonnull writeonly %bytes, ptr nocapture noundef nonnull writeonly %wstr) unnamed_addr #0 {
 entry:
   %str = alloca ptr, align 8
   %0 = getelementptr i8, ptr %obj, i64 8
@@ -8472,15 +8472,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_baudrate_impl.exit
+  br label %_curses_baudrate_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @baudrate() #9
   %conv.i = sext i32 %call.i to i64
   %call1.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_baudrate_impl.exit
+  br label %_curses_baudrate_impl.argprom.exit
 
-_curses_baudrate_impl.exit:                       ; preds = %if.then.i, %if.end.i
+_curses_baudrate_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -8494,19 +8494,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_beep_impl.exit
+  br label %_curses_beep_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @beep() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_beep_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_beep_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.275) #9
-  br label %_curses_beep_impl.exit
+  br label %_curses_beep_impl.argprom.exit
 
-_curses_beep_impl.exit:                           ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_beep_impl.argprom.exit:                   ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -8520,15 +8520,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_can_change_color_impl.exit
+  br label %_curses_can_change_color_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call zeroext i1 @can_change_color() #9
   %conv.i = zext i1 %call.i to i64
   %call1.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_can_change_color_impl.exit
+  br label %_curses_can_change_color_impl.argprom.exit
 
-_curses_can_change_color_impl.exit:               ; preds = %if.then.i, %if.end.i
+_curses_can_change_color_impl.argprom.exit:       ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -8656,7 +8656,7 @@ if.end:                                           ; preds = %if.end.i
 if.then.i:                                        ; preds = %if.end
   %7 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.353) #9
-  br label %_curses_color_content_impl.exit
+  br label %_curses_color_content_impl.argprom.exit
 
 if.end.i2:                                        ; preds = %if.end
   %.b1.i = load i1, ptr @initialisedcolors, align 4
@@ -8665,7 +8665,7 @@ if.end.i2:                                        ; preds = %if.end
 if.then2.i:                                       ; preds = %if.end.i2
   %8 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.356) #9
-  br label %_curses_color_content_impl.exit
+  br label %_curses_color_content_impl.argprom.exit
 
 if.end3.i:                                        ; preds = %if.end.i2
   %call.i = call i32 @extended_color_content(i32 noundef %3, ptr noundef nonnull %r.i, ptr noundef nonnull %g.i, ptr noundef nonnull %b.i) #9
@@ -8675,24 +8675,24 @@ if.end3.i:                                        ; preds = %if.end.i2
 if.then5.i:                                       ; preds = %if.end3.i
   %9 = load ptr, ptr @PyCursesError, align 8
   %call6.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.357) #9
-  br label %_curses_color_content_impl.exit
+  br label %_curses_color_content_impl.argprom.exit
 
 if.end7.i:                                        ; preds = %if.end3.i
   %10 = load i32, ptr %r.i, align 4
   %11 = load i32, ptr %g.i, align 4
   %12 = load i32, ptr %b.i, align 4
   %call8.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.358, i32 noundef %10, i32 noundef %11, i32 noundef %12) #9
-  br label %_curses_color_content_impl.exit
+  br label %_curses_color_content_impl.argprom.exit
 
-_curses_color_content_impl.exit:                  ; preds = %if.then.i, %if.then2.i, %if.then5.i, %if.end7.i
+_curses_color_content_impl.argprom.exit:          ; preds = %if.then.i, %if.then2.i, %if.then5.i, %if.end7.i
   %retval.0.i1 = phi ptr [ null, %if.then.i ], [ null, %if.then2.i ], [ null, %if.then5.i ], [ %call8.i, %if.end7.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %g.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   br label %exit
 
-exit:                                             ; preds = %color_allow_default_converter.exit.thread.i, %if.then1.i, %_curses_color_content_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i1, %_curses_color_content_impl.exit ], [ null, %if.then1.i ], [ null, %color_allow_default_converter.exit.thread.i ]
+exit:                                             ; preds = %color_allow_default_converter.exit.thread.i, %if.then1.i, %_curses_color_content_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i1, %_curses_color_content_impl.argprom.exit ], [ null, %if.then1.i ], [ null, %color_allow_default_converter.exit.thread.i ]
   ret ptr %return_value.0
 }
 
@@ -8834,19 +8834,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_def_prog_mode_impl.exit
+  br label %_curses_def_prog_mode_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @def_prog_mode() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_def_prog_mode_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_def_prog_mode_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.281) #9
-  br label %_curses_def_prog_mode_impl.exit
+  br label %_curses_def_prog_mode_impl.argprom.exit
 
-_curses_def_prog_mode_impl.exit:                  ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_def_prog_mode_impl.argprom.exit:          ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -8860,19 +8860,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_def_shell_mode_impl.exit
+  br label %_curses_def_shell_mode_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @def_shell_mode() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_def_shell_mode_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_def_shell_mode_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.282) #9
-  br label %_curses_def_shell_mode_impl.exit
+  br label %_curses_def_shell_mode_impl.argprom.exit
 
-_curses_def_shell_mode_impl.exit:                 ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_def_shell_mode_impl.argprom.exit:         ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -8941,19 +8941,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_doupdate_impl.exit
+  br label %_curses_doupdate_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @doupdate() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_doupdate_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_doupdate_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.284) #9
-  br label %_curses_doupdate_impl.exit
+  br label %_curses_doupdate_impl.argprom.exit
 
-_curses_doupdate_impl.exit:                       ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_doupdate_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -9030,19 +9030,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_endwin_impl.exit
+  br label %_curses_endwin_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @endwin() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_endwin_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_endwin_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.286) #9
-  br label %_curses_endwin_impl.exit
+  br label %_curses_endwin_impl.argprom.exit
 
-_curses_endwin_impl.exit:                         ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_endwin_impl.argprom.exit:                 ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -9058,15 +9058,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_erasechar_impl.exit
+  br label %_curses_erasechar_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call signext i8 @erasechar() #9
   store i8 %call.i, ptr %ch.i, align 1
   %call1.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %ch.i, i64 noundef 1) #9
-  br label %_curses_erasechar_impl.exit
+  br label %_curses_erasechar_impl.argprom.exit
 
-_curses_erasechar_impl.exit:                      ; preds = %if.then.i, %if.end.i
+_curses_erasechar_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i)
   ret ptr %retval.0.i
@@ -9088,19 +9088,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_flash_impl.exit
+  br label %_curses_flash_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @flash() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_flash_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_flash_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.289) #9
-  br label %_curses_flash_impl.exit
+  br label %_curses_flash_impl.argprom.exit
 
-_curses_flash_impl.exit:                          ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_flash_impl.argprom.exit:                  ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -9114,13 +9114,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_flushinp_impl.exit
+  br label %_curses_flushinp_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @flushinp() #9
-  br label %_curses_flushinp_impl.exit
+  br label %_curses_flushinp_impl.argprom.exit
 
-_curses_flushinp_impl.exit:                       ; preds = %if.then.i, %if.end.i
+_curses_flushinp_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -9136,7 +9136,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_getmouse_impl.exit
+  br label %_curses_getmouse_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = call i32 @getmouse(ptr noundef nonnull %event.i) #9
@@ -9146,7 +9146,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.359) #9
-  br label %_curses_getmouse_impl.exit
+  br label %_curses_getmouse_impl.argprom.exit
 
 if.end3.i:                                        ; preds = %if.end.i
   %2 = load i16, ptr %event.i, align 4
@@ -9161,9 +9161,9 @@ if.end3.i:                                        ; preds = %if.end.i
   %6 = load i32, ptr %bstate.i, align 4
   %conv4.i = zext i32 %6 to i64
   %call5.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.360, i32 noundef %conv.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %conv4.i) #9
-  br label %_curses_getmouse_impl.exit
+  br label %_curses_getmouse_impl.argprom.exit
 
-_curses_getmouse_impl.exit:                       ; preds = %if.then.i, %if.then2.i, %if.end3.i
+_curses_getmouse_impl.argprom.exit:               ; preds = %if.then.i, %if.then2.i, %if.end3.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.then2.i ], [ %call5.i, %if.end3.i ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %event.i)
   ret ptr %retval.0.i
@@ -9271,7 +9271,7 @@ if.end50:                                         ; preds = %if.end43
 if.then.i:                                        ; preds = %if.end50
   %10 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.353) #9
-  br label %_curses_ungetmouse_impl.exit
+  br label %_curses_ungetmouse_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end50
   store i16 %conv, ptr %event.i, align 4
@@ -9286,20 +9286,20 @@ if.end.i:                                         ; preds = %if.end50
   store i32 %conv.i15, ptr %bstate5.i, align 4
   %call.i = call i32 @ungetmouse(ptr noundef nonnull %event.i) #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_ungetmouse_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_ungetmouse_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %11 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %11, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.292) #9
-  br label %_curses_ungetmouse_impl.exit
+  br label %_curses_ungetmouse_impl.argprom.exit
 
-_curses_ungetmouse_impl.exit:                     ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_ungetmouse_impl.argprom.exit:             ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %event.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true39, %land.lhs.true30, %land.lhs.true21, %land.lhs.true4, %lor.lhs.false, %_curses_ungetmouse_impl.exit, %if.then48, %if.then12, %if.then9
-  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %if.then9 ], [ null, %if.then12 ], [ null, %land.lhs.true21 ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true39 ], [ %retval.0.i, %_curses_ungetmouse_impl.exit ], [ null, %if.then48 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true39, %land.lhs.true30, %land.lhs.true21, %land.lhs.true4, %lor.lhs.false, %_curses_ungetmouse_impl.argprom.exit, %if.then48, %if.then12, %if.then9
+  %return_value.0 = phi ptr [ null, %land.lhs.true4 ], [ null, %if.then9 ], [ null, %if.then12 ], [ null, %land.lhs.true21 ], [ null, %land.lhs.true30 ], [ null, %land.lhs.true39 ], [ %retval.0.i, %_curses_ungetmouse_impl.argprom.exit ], [ null, %if.then48 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -9312,7 +9312,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_getsyx_impl.exit
+  br label %_curses_getsyx_impl.argprom.exit
 
 do.body.i:                                        ; preds = %entry
   %1 = load ptr, ptr @newscr, align 8
@@ -9337,9 +9337,9 @@ do.end.i:                                         ; preds = %cond.true10.i, %con
   %x.0.i = phi i32 [ 0, %do.body.i ], [ -1, %cond.true.i ], [ %conv11.i, %cond.true10.i ]
   %y.0.i = phi i32 [ 0, %do.body.i ], [ -1, %cond.true.i ], [ %conv.i, %cond.true10.i ]
   %call.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.365, i32 noundef %y.0.i, i32 noundef %x.0.i) #9
-  br label %_curses_getsyx_impl.exit
+  br label %_curses_getsyx_impl.argprom.exit
 
-_curses_getsyx_impl.exit:                         ; preds = %if.then.i, %do.end.i
+_curses_getsyx_impl.argprom.exit:                 ; preds = %if.then.i, %do.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call.i, %do.end.i ]
   ret ptr %retval.0.i
 }
@@ -9525,15 +9525,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_has_colors_impl.exit
+  br label %_curses_has_colors_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call zeroext i1 @has_colors() #9
   %conv.i = zext i1 %call.i to i64
   %call1.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_has_colors_impl.exit
+  br label %_curses_has_colors_impl.argprom.exit
 
-_curses_has_colors_impl.exit:                     ; preds = %if.then.i, %if.end.i
+_curses_has_colors_impl.argprom.exit:             ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -9554,15 +9554,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_has_ic_impl.exit
+  br label %_curses_has_ic_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call zeroext i1 @has_ic() #9
   %conv.i = zext i1 %call.i to i64
   %call1.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_has_ic_impl.exit
+  br label %_curses_has_ic_impl.argprom.exit
 
-_curses_has_ic_impl.exit:                         ; preds = %if.then.i, %if.end.i
+_curses_has_ic_impl.argprom.exit:                 ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -9576,15 +9576,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_has_il_impl.exit
+  br label %_curses_has_il_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call zeroext i1 @has_il() #9
   %conv.i = zext i1 %call.i to i64
   %call1.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_has_il_impl.exit
+  br label %_curses_has_il_impl.argprom.exit
 
-_curses_has_il_impl.exit:                         ; preds = %if.then.i, %if.end.i
+_curses_has_il_impl.argprom.exit:                 ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -10097,7 +10097,7 @@ if.end.i183.i:                                    ; preds = %land.lhs.true.i.i, 
   %encoding.addr.1.i.i = phi ptr [ null, %if.then.i ], [ %spec.select.i.i, %land.lhs.true.i.i ]
   %call10.i.i = tail call ptr @_PyObject_New(ptr noundef nonnull @PyCursesWindow_Type) #9
   %cmp11.i.i = icmp eq ptr %call10.i.i, null
-  br i1 %cmp11.i.i, label %_curses_initscr_impl.exit, label %if.end14.i.i
+  br i1 %cmp11.i.i, label %_curses_initscr_impl.argprom.exit, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i183.i
   %cmp5.i.i = icmp eq ptr %encoding.addr.1.i.i, null
@@ -10108,7 +10108,7 @@ if.end14.i.i:                                     ; preds = %if.end.i183.i
   %encoding17.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
   store ptr %call16.i.i, ptr %encoding17.i.i, align 8
   %cmp19.i.i = icmp eq ptr %call16.i.i, null
-  br i1 %cmp19.i.i, label %if.then21.i.i, label %_curses_initscr_impl.exit
+  br i1 %cmp19.i.i, label %if.then21.i.i, label %_curses_initscr_impl.argprom.exit
 
 if.then21.i.i:                                    ; preds = %if.end14.i.i
   %3 = load i64, ptr %call10.i.i, align 8
@@ -10128,7 +10128,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 Py_DECREF.exit.i.i:                               ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then21.i.i
   %call22.i.i = tail call ptr @PyErr_NoMemory() #9
-  br label %_curses_initscr_impl.exit
+  br label %_curses_initscr_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @initscr() #9
@@ -10138,7 +10138,7 @@ if.end.i:                                         ; preds = %entry
 if.then3.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @catchall_NULL) #9
-  br label %_curses_initscr_impl.exit
+  br label %_curses_initscr_impl.argprom.exit
 
 if.end4.i:                                        ; preds = %if.end.i
   store i1 true, ptr @initialised_setupterm, align 4
@@ -11495,9 +11495,9 @@ Py_DECREF.exit.i203.i:                            ; preds = %if.then1.i.i208.i, 
 
 PyCursesWindow_New.exit209.i:                     ; preds = %if.end.i189.i
   store ptr %call16.i197.i, ptr @screen_encoding, align 8
-  br label %_curses_initscr_impl.exit
+  br label %_curses_initscr_impl.argprom.exit
 
-_curses_initscr_impl.exit:                        ; preds = %if.end.i183.i, %if.end14.i.i, %Py_DECREF.exit.i.i, %if.then3.i, %PyCursesWindow_New.exit209.i
+_curses_initscr_impl.argprom.exit:                ; preds = %if.end.i183.i, %if.end14.i.i, %Py_DECREF.exit.i.i, %if.then3.i, %PyCursesWindow_New.exit209.i
   %retval.0.i = phi ptr [ null, %if.then3.i ], [ %call10.i193.i, %PyCursesWindow_New.exit209.i ], [ null, %Py_DECREF.exit.i.i ], [ null, %if.end.i183.i ], [ %call10.i.i, %if.end14.i.i ]
   ret ptr %retval.0.i
 }
@@ -11543,15 +11543,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_isendwin_impl.exit
+  br label %_curses_isendwin_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call zeroext i1 @isendwin() #9
   %conv.i = zext i1 %call.i to i64
   %call1.i = tail call ptr @PyBool_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_isendwin_impl.exit
+  br label %_curses_isendwin_impl.argprom.exit
 
-_curses_isendwin_impl.exit:                       ; preds = %if.then.i, %if.end.i
+_curses_isendwin_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -11702,14 +11702,14 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_longname_impl.exit
+  br label %_curses_longname_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call ptr @longname() #9
   %call1.i = tail call ptr @PyBytes_FromString(ptr noundef %call.i) #9
-  br label %_curses_longname_impl.exit
+  br label %_curses_longname_impl.argprom.exit
 
-_curses_longname_impl.exit:                       ; preds = %if.then.i, %if.end.i
+_curses_longname_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -11827,7 +11827,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.353) #9
-  br label %_curses_mousemask_impl.exit
+  br label %_curses_mousemask_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.end
   %conv.i3 = trunc i64 %call2 to i32
@@ -11836,15 +11836,15 @@ if.end.i:                                         ; preds = %if.end
   %4 = load i32, ptr %oldmask.i, align 4
   %conv2.i = zext i32 %4 to i64
   %call3.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.424, i64 noundef %conv1.i, i64 noundef %conv2.i) #9
-  br label %_curses_mousemask_impl.exit
+  br label %_curses_mousemask_impl.argprom.exit
 
-_curses_mousemask_impl.exit:                      ; preds = %if.then.i, %if.end.i
+_curses_mousemask_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call3.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oldmask.i)
   br label %exit
 
-exit:                                             ; preds = %_curses_mousemask_impl.exit, %if.then
-  %return_value.0 = phi ptr [ %retval.0.i, %_curses_mousemask_impl.exit ], [ null, %if.then ]
+exit:                                             ; preds = %_curses_mousemask_impl.argprom.exit, %if.then
+  %return_value.0 = phi ptr [ %retval.0.i, %_curses_mousemask_impl.argprom.exit ], [ null, %if.then ]
   ret ptr %return_value.0
 }
 
@@ -11931,7 +11931,7 @@ land.lhs.true12:                                  ; preds = %if.end8
 
 exit.sink.split:                                  ; preds = %land.lhs.true12, %if.end8
   %call10.sink = phi i32 [ %call10, %if.end8 ], [ -1, %land.lhs.true12 ]
-  %call176 = tail call fastcc ptr @_curses_newpad_impl(i32 noundef %call2, i32 noundef %call10.sink)
+  %call176 = tail call fastcc ptr @_curses_newpad_impl.argprom(i32 noundef %call2, i32 noundef %call10.sink)
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true12, %land.lhs.true4, %lor.lhs.false
@@ -12118,19 +12118,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_nocbreak_impl.exit
+  br label %_curses_nocbreak_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @nocbreak() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_nocbreak_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_nocbreak_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.317) #9
-  br label %_curses_nocbreak_impl.exit
+  br label %_curses_nocbreak_impl.argprom.exit
 
-_curses_nocbreak_impl.exit:                       ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_nocbreak_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12144,19 +12144,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_noecho_impl.exit
+  br label %_curses_noecho_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @noecho() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_noecho_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_noecho_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.318) #9
-  br label %_curses_noecho_impl.exit
+  br label %_curses_noecho_impl.argprom.exit
 
-_curses_noecho_impl.exit:                         ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_noecho_impl.argprom.exit:                 ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12170,19 +12170,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_nonl_impl.exit
+  br label %_curses_nonl_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @nonl() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_nonl_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_nonl_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.319) #9
-  br label %_curses_nonl_impl.exit
+  br label %_curses_nonl_impl.argprom.exit
 
-_curses_nonl_impl.exit:                           ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_nonl_impl.argprom.exit:                   ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12196,13 +12196,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_noqiflush_impl.exit
+  br label %_curses_noqiflush_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   tail call void @noqiflush() #9
-  br label %_curses_noqiflush_impl.exit
+  br label %_curses_noqiflush_impl.argprom.exit
 
-_curses_noqiflush_impl.exit:                      ; preds = %if.then.i, %if.end.i
+_curses_noqiflush_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -12216,19 +12216,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_noraw_impl.exit
+  br label %_curses_noraw_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @noraw() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_noraw_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_noraw_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.321) #9
-  br label %_curses_noraw_impl.exit
+  br label %_curses_noraw_impl.argprom.exit
 
-_curses_noraw_impl.exit:                          ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_noraw_impl.argprom.exit:                  ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12287,7 +12287,7 @@ if.end:                                           ; preds = %if.else.i
 if.then.i:                                        ; preds = %if.end
   %3 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.353) #9
-  br label %_curses_pair_content_impl.exit
+  br label %_curses_pair_content_impl.argprom.exit
 
 if.end.i2:                                        ; preds = %if.end
   %.b2.i = load i1, ptr @initialisedcolors, align 4
@@ -12296,7 +12296,7 @@ if.end.i2:                                        ; preds = %if.end
 if.then2.i:                                       ; preds = %if.end.i2
   %4 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.356) #9
-  br label %_curses_pair_content_impl.exit
+  br label %_curses_pair_content_impl.argprom.exit
 
 if.end3.i:                                        ; preds = %if.end.i2
   %call.i3 = call i32 @extended_pair_content(i32 noundef %conv.i, ptr noundef nonnull %f.i, ptr noundef nonnull %b.i) #9
@@ -12312,27 +12312,27 @@ if.then7.i:                                       ; preds = %if.then5.i
   %6 = load ptr, ptr @PyExc_ValueError, align 8
   %sub.i = add i32 %5, -1
   %call8.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.375, i32 noundef %sub.i) #9
-  br label %_curses_pair_content_impl.exit
+  br label %_curses_pair_content_impl.argprom.exit
 
 if.else.i5:                                       ; preds = %if.then5.i
   %7 = load ptr, ptr @PyCursesError, align 8
   %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.428) #9
-  br label %_curses_pair_content_impl.exit
+  br label %_curses_pair_content_impl.argprom.exit
 
 if.end11.i4:                                      ; preds = %if.end3.i
   %8 = load i32, ptr %f.i, align 4
   %9 = load i32, ptr %b.i, align 4
   %call12.i = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.365, i32 noundef %8, i32 noundef %9) #9
-  br label %_curses_pair_content_impl.exit
+  br label %_curses_pair_content_impl.argprom.exit
 
-_curses_pair_content_impl.exit:                   ; preds = %if.then.i, %if.then2.i, %if.then7.i, %if.else.i5, %if.end11.i4
+_curses_pair_content_impl.argprom.exit:           ; preds = %if.then.i, %if.then2.i, %if.then7.i, %if.else.i5, %if.end11.i4
   %retval.0.i1 = phi ptr [ null, %if.then.i ], [ null, %if.then2.i ], [ %call12.i, %if.end11.i4 ], [ null, %if.else.i5 ], [ null, %if.then7.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %f.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   br label %exit
 
-exit:                                             ; preds = %pair_converter.exit.thread, %_curses_pair_content_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i1, %_curses_pair_content_impl.exit ], [ null, %pair_converter.exit.thread ]
+exit:                                             ; preds = %pair_converter.exit.thread, %_curses_pair_content_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i1, %_curses_pair_content_impl.argprom.exit ], [ null, %pair_converter.exit.thread ]
   ret ptr %return_value.0
 }
 
@@ -12547,19 +12547,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_reset_prog_mode_impl.exit
+  br label %_curses_reset_prog_mode_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @reset_prog_mode() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_reset_prog_mode_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_reset_prog_mode_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.327) #9
-  br label %_curses_reset_prog_mode_impl.exit
+  br label %_curses_reset_prog_mode_impl.argprom.exit
 
-_curses_reset_prog_mode_impl.exit:                ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_reset_prog_mode_impl.argprom.exit:        ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12573,19 +12573,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_reset_shell_mode_impl.exit
+  br label %_curses_reset_shell_mode_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @reset_shell_mode() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_reset_shell_mode_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_reset_shell_mode_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.328) #9
-  br label %_curses_reset_shell_mode_impl.exit
+  br label %_curses_reset_shell_mode_impl.argprom.exit
 
-_curses_reset_shell_mode_impl.exit:               ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_reset_shell_mode_impl.argprom.exit:       ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12599,19 +12599,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_resetty_impl.exit
+  br label %_curses_resetty_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @resetty() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_resetty_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_resetty_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.329) #9
-  br label %_curses_resetty_impl.exit
+  br label %_curses_resetty_impl.argprom.exit
 
-_curses_resetty_impl.exit:                        ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_resetty_impl.argprom.exit:                ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -12863,19 +12863,19 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_savetty_impl.exit
+  br label %_curses_savetty_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @savetty() #9
   %cmp.not.i.i = icmp eq i32 %call.i, -1
-  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_savetty_impl.exit
+  br i1 %cmp.not.i.i, label %if.else.i.i, label %_curses_savetty_impl.argprom.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @PyCursesError, align 8
   %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.332) #9
-  br label %_curses_savetty_impl.exit
+  br label %_curses_savetty_impl.argprom.exit
 
-_curses_savetty_impl.exit:                        ; preds = %if.then.i, %if.end.i, %if.else.i.i
+_curses_savetty_impl.argprom.exit:                ; preds = %if.then.i, %if.end.i, %if.else.i.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ @_Py_NoneStruct, %if.end.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0.i
 }
@@ -13171,12 +13171,12 @@ if.then.i:                                        ; preds = %land.lhs.true45, %i
 if.then3.i:                                       ; preds = %if.then.i
   %9 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.439) #9
-  br label %_curses_setupterm_impl.exit
+  br label %_curses_setupterm_impl.argprom.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %call4.i = call i32 @PyObject_AsFileDescriptor(ptr noundef nonnull %call.i) #9
   %cmp5.i = icmp eq i32 %call4.i, -1
-  br i1 %cmp5.i, label %_curses_setupterm_impl.exit, label %if.end8.i
+  br i1 %cmp5.i, label %_curses_setupterm_impl.argprom.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %skip_optional_pos, %if.end.i
   %term.038 = phi ptr [ %term.0.ph, %if.end.i ], [ %term.1, %skip_optional_pos ]
@@ -13197,19 +13197,19 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
   %switch.select6.i = select i1 %switch.selectcmp5.i, ptr @.str.441, ptr %switch.select.i
   %11 = load ptr, ptr @PyCursesError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull %switch.select6.i) #9
-  br label %_curses_setupterm_impl.exit
+  br label %_curses_setupterm_impl.argprom.exit
 
 if.end18.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   store i1 true, ptr @initialised_setupterm, align 4
-  br label %_curses_setupterm_impl.exit
+  br label %_curses_setupterm_impl.argprom.exit
 
-_curses_setupterm_impl.exit:                      ; preds = %if.then3.i, %if.end.i, %if.then11.i, %if.end18.i
+_curses_setupterm_impl.argprom.exit:              ; preds = %if.then3.i, %if.end.i, %if.then11.i, %if.end18.i
   %retval.0.i = phi ptr [ null, %if.then3.i ], [ @_Py_NoneStruct, %if.end18.i ], [ null, %if.then11.i ], [ null, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %err.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true45, %if.then24, %cond.end9, %_curses_setupterm_impl.exit, %if.else34, %if.then32
-  %return_value.0 = phi ptr [ null, %land.lhs.true45 ], [ %retval.0.i, %_curses_setupterm_impl.exit ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.else34 ], [ null, %cond.end9 ]
+exit:                                             ; preds = %land.lhs.true45, %if.then24, %cond.end9, %_curses_setupterm_impl.argprom.exit, %if.else34, %if.then32
+  %return_value.0 = phi ptr [ null, %land.lhs.true45 ], [ %retval.0.i, %_curses_setupterm_impl.argprom.exit ], [ null, %if.then24 ], [ null, %if.then32 ], [ null, %if.else34 ], [ null, %cond.end9 ]
   ret ptr %return_value.0
 }
 
@@ -13222,7 +13222,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_start_color_impl.exit
+  br label %_curses_start_color_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @start_color() #9
@@ -13235,7 +13235,7 @@ if.then2.i:                                       ; preds = %if.end.i
   %conv.i = sext i32 %1 to i64
   %call3.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #9
   %cmp4.i = icmp eq ptr %call3.i, null
-  br i1 %cmp4.i, label %_curses_start_color_impl.exit, label %if.end7.i
+  br i1 %cmp4.i, label %_curses_start_color_impl.argprom.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then2.i
   %2 = load ptr, ptr @ModDict, align 8
@@ -13247,17 +13247,17 @@ if.end7.i:                                        ; preds = %if.then2.i
   br i1 %cmp9.i, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %if.end7.i
-  br i1 %cmp.i52.not.i, label %if.end.i45.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i52.not.i, label %if.end.i45.i, label %_curses_start_color_impl.argprom.exit
 
 if.end.i45.i:                                     ; preds = %if.then11.i
   %dec.i46.i = add i64 %3, -1
   store i64 %dec.i46.i, ptr %call3.i, align 8
   %cmp.i47.i = icmp eq i64 %dec.i46.i, 0
-  br i1 %cmp.i47.i, label %if.then1.i48.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i47.i, label %if.then1.i48.i, label %_curses_start_color_impl.argprom.exit
 
 if.then1.i48.i:                                   ; preds = %if.end.i45.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call3.i) #9
-  br label %_curses_start_color_impl.exit
+  br label %_curses_start_color_impl.argprom.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
   br i1 %cmp.i52.not.i, label %if.end.i36.i, label %Py_DECREF.exit41.i
@@ -13277,7 +13277,7 @@ Py_DECREF.exit41.i:                               ; preds = %if.then1.i39.i, %if
   %conv13.i = sext i32 %5 to i64
   %call14.i = tail call ptr @PyLong_FromLong(i64 noundef %conv13.i) #9
   %cmp15.i = icmp eq ptr %call14.i, null
-  br i1 %cmp15.i, label %_curses_start_color_impl.exit, label %if.end18.i
+  br i1 %cmp15.i, label %_curses_start_color_impl.argprom.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %Py_DECREF.exit41.i
   %6 = load ptr, ptr @ModDict, align 8
@@ -13289,37 +13289,37 @@ if.end18.i:                                       ; preds = %Py_DECREF.exit41.i
   br i1 %cmp20.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %if.end18.i
-  br i1 %cmp.i59.not.i, label %if.end.i27.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i59.not.i, label %if.end.i27.i, label %_curses_start_color_impl.argprom.exit
 
 if.end.i27.i:                                     ; preds = %if.then22.i
   %dec.i28.i = add i64 %7, -1
   store i64 %dec.i28.i, ptr %call14.i, align 8
   %cmp.i29.i = icmp eq i64 %dec.i28.i, 0
-  br i1 %cmp.i29.i, label %if.then1.i30.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i29.i, label %if.then1.i30.i, label %_curses_start_color_impl.argprom.exit
 
 if.then1.i30.i:                                   ; preds = %if.end.i27.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call14.i) #9
-  br label %_curses_start_color_impl.exit
+  br label %_curses_start_color_impl.argprom.exit
 
 if.end23.i:                                       ; preds = %if.end18.i
-  br i1 %cmp.i59.not.i, label %if.end.i.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i59.not.i, label %if.end.i.i, label %_curses_start_color_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.end23.i
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %call14.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %_curses_start_color_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %_curses_start_color_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call14.i) #9
-  br label %_curses_start_color_impl.exit
+  br label %_curses_start_color_impl.argprom.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %9 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.445) #9
-  br label %_curses_start_color_impl.exit
+  br label %_curses_start_color_impl.argprom.exit
 
-_curses_start_color_impl.exit:                    ; preds = %if.then.i, %if.then2.i, %if.then11.i, %if.end.i45.i, %if.then1.i48.i, %Py_DECREF.exit41.i, %if.then22.i, %if.end.i27.i, %if.then1.i30.i, %if.end23.i, %if.end.i.i, %if.then1.i.i, %if.else.i
+_curses_start_color_impl.argprom.exit:            ; preds = %if.then.i, %if.then2.i, %if.then11.i, %if.end.i45.i, %if.then1.i48.i, %Py_DECREF.exit41.i, %if.then22.i, %if.end.i27.i, %if.then1.i30.i, %if.end23.i, %if.end.i.i, %if.then1.i.i, %if.else.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ null, %if.else.i ], [ null, %if.then2.i ], [ null, %if.then11.i ], [ null, %if.then1.i48.i ], [ null, %if.end.i45.i ], [ null, %Py_DECREF.exit41.i ], [ null, %if.then22.i ], [ null, %if.then1.i30.i ], [ null, %if.end.i27.i ], [ @_Py_NoneStruct, %if.end23.i ], [ @_Py_NoneStruct, %if.then1.i.i ], [ @_Py_NoneStruct, %if.end.i.i ]
   ret ptr %retval.0.i
 }
@@ -13333,15 +13333,15 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_termattrs_impl.exit
+  br label %_curses_termattrs_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call i32 @termattrs() #9
   %conv.i = zext i32 %call.i to i64
   %call1.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #9
-  br label %_curses_termattrs_impl.exit
+  br label %_curses_termattrs_impl.argprom.exit
 
-_curses_termattrs_impl.exit:                      ; preds = %if.then.i, %if.end.i
+_curses_termattrs_impl.argprom.exit:              ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -13355,14 +13355,14 @@ entry:
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.353) #9
-  br label %_curses_termname_impl.exit
+  br label %_curses_termname_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call ptr @termname() #9
   %call1.i = tail call ptr @PyBytes_FromString(ptr noundef %call.i) #9
-  br label %_curses_termname_impl.exit
+  br label %_curses_termname_impl.argprom.exit
 
-_curses_termname_impl.exit:                       ; preds = %if.then.i, %if.end.i
+_curses_termname_impl.argprom.exit:               ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %call1.i, %if.end.i ]
   ret ptr %retval.0.i
 }
@@ -13844,15 +13844,15 @@ if.end.i:                                         ; preds = %entry
 if.end3.i:                                        ; preds = %if.end.i
   %call.i = tail call i32 @use_default_colors() #9
   %cmp4.not.i = icmp eq i32 %call.i, -1
-  br i1 %cmp4.not.i, label %return.sink.split.i, label %_curses_use_default_colors_impl.exit
+  br i1 %cmp4.not.i, label %return.sink.split.i, label %_curses_use_default_colors_impl.argprom.exit
 
 return.sink.split.i:                              ; preds = %if.end3.i, %if.end.i, %entry
   %.str.453.sink.i = phi ptr [ @.str.353, %entry ], [ @.str.356, %if.end.i ], [ @.str.453, %if.end3.i ]
   %0 = load ptr, ptr @PyCursesError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull %.str.453.sink.i) #9
-  br label %_curses_use_default_colors_impl.exit
+  br label %_curses_use_default_colors_impl.argprom.exit
 
-_curses_use_default_colors_impl.exit:             ; preds = %if.end3.i, %return.sink.split.i
+_curses_use_default_colors_impl.argprom.exit:     ; preds = %if.end3.i, %return.sink.split.i
   %retval.0.i = phi ptr [ @_Py_NoneStruct, %if.end3.i ], [ null, %return.sink.split.i ]
   ret ptr %retval.0.i
 }
@@ -13945,7 +13945,7 @@ declare i32 @mousemask(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @napms(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_curses_newpad_impl(i32 noundef %nlines, i32 noundef %ncols) unnamed_addr #0 {
+define internal fastcc ptr @_curses_newpad_impl.argprom(i32 noundef %nlines, i32 noundef %ncols) unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @initialised, align 4
   br i1 %.b, label %if.end, label %if.then

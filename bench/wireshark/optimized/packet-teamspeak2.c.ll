@@ -425,7 +425,7 @@ ts2_get_conversation.exit:                        ; preds = %4, %12
   store i32 0, ptr %5, align 4
   %77 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 20) #4
   %78 = icmp slt i32 %77, 0
-  br i1 %78, label %ts2_add_checked_crc32.exit, label %79
+  br i1 %78, label %ts2_add_checked_crc32.argprom.exit, label %79
 
 79:                                               ; preds = %72
   %80 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 16) #4
@@ -434,9 +434,9 @@ ts2_get_conversation.exit:                        ; preds = %4, %12
   %83 = xor i32 %82, -1
   %84 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 20, i32 noundef %77, i32 noundef %83) #4
   %85 = call ptr @proto_tree_add_checksum(ptr noundef %54, ptr noundef %0, i32 noundef 16, i32 noundef %75, i32 noundef %76, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %84, i32 noundef -2147483648, i32 noundef 1) #4
-  br label %ts2_add_checked_crc32.exit
+  br label %ts2_add_checked_crc32.argprom.exit
 
-ts2_add_checked_crc32.exit:                       ; preds = %72, %79
+ts2_add_checked_crc32.argprom.exit:               ; preds = %72, %79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   switch i16 %6, label %135 [
     i16 4, label %117
@@ -444,12 +444,12 @@ ts2_add_checked_crc32.exit:                       ; preds = %72, %79
     i16 3, label %89
   ]
 
-86:                                               ; preds = %ts2_add_checked_crc32.exit
+86:                                               ; preds = %ts2_add_checked_crc32.argprom.exit
   %87 = load i32, ptr @hf_ts2_ackto, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %87, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #4
   br label %135
 
-89:                                               ; preds = %ts2_add_checked_crc32.exit
+89:                                               ; preds = %ts2_add_checked_crc32.argprom.exit
   %90 = load i32, ptr @hf_ts2_protocol_string, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %90, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
   %92 = load i32, ptr @hf_ts2_platform_string, align 4
@@ -484,7 +484,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %72, %79
   store ptr null, ptr %116, align 8
   br label %135
 
-117:                                              ; preds = %ts2_add_checked_crc32.exit
+117:                                              ; preds = %ts2_add_checked_crc32.argprom.exit
   %118 = load i32, ptr @hf_ts2_server_name, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %118, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #4
   %120 = load i32, ptr @hf_ts2_platform_string, align 4
@@ -507,7 +507,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %72, %79
   tail call fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, ptr noundef nonnull %.0.i)
   br label %135
 
-135:                                              ; preds = %36, %35, %50, %34, %65, %.thread, %134, %117, %89, %86, %ts2_add_checked_crc32.exit
+135:                                              ; preds = %36, %35, %50, %34, %65, %.thread, %134, %117, %89, %86, %ts2_add_checked_crc32.argprom.exit
   %136 = call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %136
 }
@@ -606,7 +606,7 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %5, align 4
   %48 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 24) #4
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %ts2_add_checked_crc32.exit, label %50
+  br i1 %49, label %ts2_add_checked_crc32.argprom.exit, label %50
 
 50:                                               ; preds = %38
   %51 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 20) #4
@@ -615,18 +615,18 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %54 = xor i32 %53, -1
   %55 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 24, i32 noundef %48, i32 noundef %54) #4
   %56 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %46, i32 noundef %47, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %55, i32 noundef -2147483648, i32 noundef 1) #4
-  br label %ts2_add_checked_crc32.exit
+  br label %ts2_add_checked_crc32.argprom.exit
 
-ts2_add_checked_crc32.exit:                       ; preds = %38, %50
+ts2_add_checked_crc32.argprom.exit:               ; preds = %38, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not99 = icmp eq ptr %41, null
   br i1 %.not99, label %.thread116, label %58
 
-.thread116:                                       ; preds = %ts2_add_checked_crc32.exit
+.thread116:                                       ; preds = %ts2_add_checked_crc32.argprom.exit
   %57 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
   br label %.critedge
 
-58:                                               ; preds = %ts2_add_checked_crc32.exit
+58:                                               ; preds = %ts2_add_checked_crc32.argprom.exit
   %59 = getelementptr inbounds i8, ptr %41, i64 8
   %60 = load i32, ptr %59, align 4
   %.not100 = icmp eq i32 %60, 0

@@ -397,7 +397,7 @@ entry:
   %args_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %args, i64 56
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_.i.i.i.i.i.i, i64 40, ptr nonnull @.str.3), !noalias !12
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i.i.i, null
-  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.exit", label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.argprom.exit", label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   %refs_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
@@ -425,16 +425,16 @@ _ZN9grpc_core13RefCountedPtrINS_23XdsChannelStackModifierEED2Ev.exit.i.i.i.i.i: 
 if.then.i3.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %4 = atomicrmw sub ptr %refs_.i.i.i.i.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i5.i.i.i.i.i = icmp eq i64 %4, 1
-  br i1 %cmp.i.i.i5.i.i.i.i.i, label %if.then.i.i6.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.exit"
+  br i1 %cmp.i.i.i5.i.i.i.i.i, label %if.then.i.i6.i.i.i.i.i, label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.argprom.exit"
 
 if.then.i.i6.i.i.i.i.i:                           ; preds = %if.then.i3.i.i.i.i.i
   %vtable.i.i.i7.i.i.i.i.i = load ptr, ptr %call.i.i.i.i.i.i.i, align 8
   %vfn.i.i.i8.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i7.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i8.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.i.i.i) #16
-  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.exit"
+  br label %"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.argprom.exit"
 
-"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.exit": ; preds = %entry, %if.then.i3.i.i.i.i.i, %if.then.i.i6.i.i.i.i.i
+"_ZN4absl12lts_2023080222internal_any_invocable7InvokeRIvRKZN9grpc_core31RegisterXdsChannelStackModifierEPNS3_17CoreConfiguration7BuilderEE3$_0JRNS3_19ChannelStackBuilderEEvEEvOT0_DpOT1_.argprom.exit": ; preds = %entry, %if.then.i3.i.i.i.i.i, %if.then.i.i6.i.i.i.i.i
   ret void
 }
 

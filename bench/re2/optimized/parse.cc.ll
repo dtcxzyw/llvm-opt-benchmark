@@ -6752,7 +6752,7 @@ init.check:                                       ; preds = %if.end
   br i1 %tobool.not, label %while.cond.preheader, label %init
 
 init:                                             ; preds = %init.check
-  %call1 = invoke fastcc noundef ptr @"_ZZN3re2L18IsValidCaptureNameEN4absl7debian211string_viewEENK3$_0clEv"()
+  %call1 = invoke fastcc noundef ptr @"_ZZN3re2L18IsValidCaptureNameEN4absl7debian211string_viewEENK3$_0clEv.argprom"()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -8720,7 +8720,7 @@ return:                                           ; preds = %entry, %invoke.cont
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN3re2L18IsValidCaptureNameEN4absl7debian211string_viewEENK3$_0clEv"() unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @"_ZZN3re2L18IsValidCaptureNameEN4absl7debian211string_viewEENK3$_0clEv.argprom"() unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ccb = alloca %"class.re2::CharClassBuilder", align 8
   call void @_ZN3re216CharClassBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ccb)

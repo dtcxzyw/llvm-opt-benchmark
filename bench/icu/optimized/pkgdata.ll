@@ -731,12 +731,12 @@ land.lhs.true8:                                   ; preds = %if.end
 
 if.then11:                                        ; preds = %land.lhs.true8
   %10 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 234), align 2
-  %call.i = tail call fastcc noundef signext i8 @_ZL14getPkgDataPathPKcaPcm(ptr noundef nonnull @.str.156, i8 noundef signext %10)
+  %call.i = tail call fastcc noundef signext i8 @_ZL14getPkgDataPathPKcaPcm.argprom.argelim(ptr noundef nonnull @.str.156, i8 noundef signext %10)
   %tobool.not.i = icmp eq i8 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %if.then11
-  %call1.i = tail call fastcc noundef signext i8 @_ZL14getPkgDataPathPKcaPcm(ptr noundef nonnull @.str.157, i8 noundef signext %10)
+  %call1.i = tail call fastcc noundef signext i8 @_ZL14getPkgDataPathPKcaPcm.argprom.argelim(ptr noundef nonnull @.str.157, i8 noundef signext %10)
   %tobool2.not.i = icmp eq i8 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end5.i
 
@@ -785,7 +785,7 @@ if.then18.i:                                      ; preds = %for.end.i
   br label %if.then14
 
 if.end21.i:                                       ; preds = %for.end.i
-  br i1 %tobool.not.i, label %_ZL18pkg_getPkgDataPathaP7UOption.exit, label %if.then23.i
+  br i1 %tobool.not.i, label %_ZL18pkg_getPkgDataPathaP7UOption.argprom.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end21.i
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf)
@@ -794,9 +794,9 @@ if.then23.i:                                      ; preds = %if.end21.i
   %strlen10.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf)
   %endptr11.i = getelementptr inbounds i8, ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 %strlen10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr11.i, ptr noundef nonnull align 1 dereferenceable(12) @.str.158, i64 12, i1 false)
-  br label %_ZL18pkg_getPkgDataPathaP7UOption.exit
+  br label %_ZL18pkg_getPkgDataPathaP7UOption.argprom.exit
 
-_ZL18pkg_getPkgDataPathaP7UOption.exit:           ; preds = %if.end21.i, %if.then23.i
+_ZL18pkg_getPkgDataPathaP7UOption.argprom.exit:   ; preds = %if.end21.i, %if.then23.i
   %call27.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf) #23
   %arrayidx28.i = getelementptr inbounds [512 x i8], ptr @_ZZL18pkg_getPkgDataPathaP7UOptionE3buf, i64 0, i64 %call27.i
   store i8 0, ptr %arrayidx28.i, align 1
@@ -812,7 +812,7 @@ if.then14:                                        ; preds = %if.then18.i, %if.th
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.3, ptr noundef %22) #22
   br label %return
 
-if.end18:                                         ; preds = %_ZL18pkg_getPkgDataPathaP7UOption.exit, %land.lhs.true8, %if.end
+if.end18:                                         ; preds = %_ZL18pkg_getPkgDataPathaP7UOption.argprom.exit, %land.lhs.true8, %if.end
   %23 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool19.not = icmp eq i8 %23, 0
   br i1 %tobool19.not, label %if.then20, label %if.end23
@@ -2012,7 +2012,7 @@ if.then27.i175.i:                                 ; preds = %call4.i.noexc.i.i
   br label %cleanup.i.i
 
 if.end32.i.i:                                     ; preds = %call4.i.noexc.i.i, %if.end.i168.i
-  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %tempObjectFile.i.i, ptr noundef null)
+  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca.argelim(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %tempObjectFile.i.i, ptr noundef null)
           to label %cleanup.i.i unwind label %lpad.i.i
 
 cleanup.i.i:                                      ; preds = %if.end32.i.i, %if.then27.i175.i, %if.then250.i
@@ -2257,7 +2257,7 @@ for.inc123.i.i:                                   ; preds = %if.then120.i.i, %if
   br i1 %exitcond.not.i211.i, label %if.then127.i.i, label %for.body.i191.i, !llvm.loop !25
 
 if.then127.i.i:                                   ; preds = %for.inc123.i.i, %for.cond.preheader.i190.i
-  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %call9.i.i, ptr noundef nonnull %call2.i187.i)
+  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca.argelim(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %call9.i.i, ptr noundef nonnull %call2.i187.i)
   br label %if.end129.i.i
 
 if.end129.i.i:                                    ; preds = %if.then127.i.i, %if.then113.i.i
@@ -2344,7 +2344,7 @@ if.then.i239.i:                                   ; preds = %land.lhs.true.i.i
   br label %_ZL23pkg_destroyOptMatchArchPc.exit.i
 
 _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %if.then.i239.i, %land.lhs.true.i.i, %_ZL22pkg_createOptMatchArchPc.exit.i
-  %call311.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %gencFilePath.i, ptr noundef null)
+  %call311.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca.argelim(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %gencFilePath.i, ptr noundef null)
   br label %if.end312.i
 
 if.end312.i:                                      ; preds = %_ZL23pkg_destroyOptMatchArchPc.exit.i, %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
@@ -2461,7 +2461,7 @@ if.end332.i:                                      ; preds = %if.else.i247.i, %no
   br i1 %cmp108.not.not.i, label %if.then334.i, label %if.end342.i
 
 if.then334.i:                                     ; preds = %if.end332.i
-  %call336.i = call fastcc noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef nonnull %targetDir.i)
+  %call336.i = call fastcc noundef i32 @_ZL18pkg_createSymLinksPKca.argelim(ptr noundef nonnull %targetDir.i)
   %cmp337.not.i = icmp eq i32 %call336.i, 0
   br i1 %cmp337.not.i, label %if.end342.i, label %if.then338.i
 
@@ -2646,7 +2646,7 @@ if.end:                                           ; preds = %entry, %normal_comm
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.end
-  %call6 = call fastcc noundef i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %installDir)
+  %call6 = call fastcc noundef i32 @_ZL18pkg_createSymLinksPKca.argelim(ptr noundef %installDir)
   br label %return
 
 return:                                           ; preds = %if.end, %if.else, %if.then
@@ -2664,7 +2664,7 @@ declare void @writeAssemblyCode(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @writeObjectCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir, i8 noundef signext %mode, ptr noundef nonnull %objectFile, ptr noundef %command) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca.argelim(ptr noundef nonnull %targetDir, i8 noundef signext %mode, ptr noundef nonnull %objectFile, ptr noundef %command) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %command, null
   %cmp1 = icmp eq i8 %mode, 115
@@ -2844,7 +2844,7 @@ return:                                           ; preds = %if.end90, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca(ptr noundef %targetDir) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_createSymLinksPKca.argelim(ptr noundef %targetDir) unnamed_addr #13 {
 entry:
   %cmd = alloca [2048 x i8], align 16
   %name1 = alloca [512 x i8], align 16
@@ -2960,7 +2960,7 @@ declare ptr @getLongPathname(ptr noundef) local_unnamed_addr #6
 declare signext i8 @uprv_pathIsAbsolute_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14getPkgDataPathPKcaPcm(ptr noundef %cmd, i8 noundef signext %verbose) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14getPkgDataPathPKcaPcm.argprom.argelim(ptr noundef %cmd, i8 noundef signext %verbose) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %cmdBuf = alloca %"class.icu_75::CharString", align 8
   %status = alloca i32, align 4

@@ -724,7 +724,7 @@ test_do_irp.exit:                                 ; preds = %9
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   %18 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef 0) #5
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
-  call fastcc void @decode_envelope(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %5, ptr noundef %6)
+  call fastcc void @decode_envelope.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %5, ptr noundef %6)
   %20 = icmp ult i32 %18, 493
   %21 = and i8 %19, 32
   %.not74 = icmp eq i8 %21, 0
@@ -875,7 +875,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_envelope(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc void @decode_envelope.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.298) #5
@@ -2215,7 +2215,7 @@ define internal i32 @dissect_do_irp_tcp_full_message(ptr noundef %0, ptr noundef
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %9 = load i32, ptr @ett_do_irp, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #5
-  call fastcc void @decode_envelope(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %5, ptr noundef %6)
+  call fastcc void @decode_envelope.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %5, ptr noundef %6)
   %11 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20) #5
   %12 = load i32, ptr %5, align 4
   %13 = tail call fastcc i32 @decode_header_body_credential(ptr noundef %11, ptr noundef %1, ptr noundef %10, i32 noundef %12)

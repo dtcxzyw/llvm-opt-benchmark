@@ -139,7 +139,7 @@ define ptr @Gia_SweeperStart(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %54, ptr %52, align 8
   %55 = shl nsw i32 %53, 1
   %.val.i = load ptr, ptr %34, align 8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val.i, i32 noundef 1)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val.i, i32 noundef 1)
   %56 = getelementptr i8, ptr %.val.i, i64 8
   %.val.i.i.i = load ptr, ptr %56, align 8
   store i32 %55, ptr %.val.i.i.i, align 4
@@ -1229,7 +1229,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %160 = xor i32 %150, %159
   %161 = and i32 %160, 1
   %162 = xor i32 %161, %158
-  tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %39, i32 noundef %162)
+  tail call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %39, i32 noundef %162)
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %.val102 = load i32, ptr %9, align 4
   %163 = sext i32 %.val102 to i64
@@ -1565,7 +1565,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCo(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCo.retelim(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
   %4 = load i64, ptr %3, align 4
   %5 = or i64 %4, 2147483648
@@ -2082,7 +2082,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %126
   store i32 %146, ptr %144, align 8
   %147 = shl nsw i32 %145, 1
   %.val89 = load ptr, ptr %138, align 8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val89, i32 noundef 1)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val89, i32 noundef 1)
   %148 = getelementptr i8, ptr %.val89, i64 8
   %.val.i.i = load ptr, ptr %148, align 8
   store i32 %147, ptr %.val.i.i, align 4
@@ -3002,7 +3002,7 @@ define internal fastcc void @Gia_ManCnfNodeAddToSolver(ptr nocapture noundef %0,
   %11 = getelementptr i8, ptr %0, i64 48
   %.val67 = load ptr, ptr %11, align 8
   %12 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val67, i32 noundef %12)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val67, i32 noundef %12)
   %13 = getelementptr i8, ptr %.val67, i64 8
   %.val.i.i = load ptr, ptr %13, align 8
   %14 = sext i32 %1 to i64
@@ -3093,7 +3093,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %65 = trunc i64 %.val3.i to i32
   %66 = and i32 %65, 536870911
   %67 = sub nsw i32 %64, %66
-  call fastcc void @Vec_IntPushUnique(ptr noundef %53, i32 noundef %67)
+  call fastcc void @Vec_IntPushUnique.argelim(ptr noundef %53, i32 noundef %67)
   %68 = load ptr, ptr %31, align 8
   %69 = load ptr, ptr %0, align 8
   %70 = load i64, ptr %47, align 4
@@ -3112,7 +3112,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %81 = trunc i64 %.val3.i72 to i32
   %82 = and i32 %81, 536870911
   %83 = sub nsw i32 %80, %82
-  call fastcc void @Vec_IntPushUnique(ptr noundef %68, i32 noundef %83)
+  call fastcc void @Vec_IntPushUnique.argelim(ptr noundef %68, i32 noundef %83)
   %84 = load ptr, ptr %31, align 8
   %85 = load ptr, ptr %0, align 8
   %86 = load i64, ptr %47, align 4
@@ -3131,7 +3131,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %97 = trunc nuw i64 %96 to i32
   %98 = and i32 %97, 536870911
   %99 = sub nsw i32 %95, %98
-  call fastcc void @Vec_IntPushUnique(ptr noundef %84, i32 noundef %99)
+  call fastcc void @Vec_IntPushUnique.argelim(ptr noundef %84, i32 noundef %99)
   %100 = load ptr, ptr %31, align 8
   %101 = load ptr, ptr %0, align 8
   %102 = load i64, ptr %47, align 4
@@ -3151,7 +3151,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %114 = trunc nuw i64 %113 to i32
   %115 = and i32 %114, 536870911
   %116 = sub nsw i32 %112, %115
-  call fastcc void @Vec_IntPushUnique(ptr noundef %100, i32 noundef %116)
+  call fastcc void @Vec_IntPushUnique.argelim(ptr noundef %100, i32 noundef %116)
   %117 = load ptr, ptr %31, align 8
   %118 = getelementptr i8, ptr %117, i64 4
   %.val6189 = load i32, ptr %118, align 4
@@ -3172,7 +3172,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
 126:                                              ; preds = %.lr.ph
   %.val16.i = load ptr, ptr %11, align 8
   %127 = add nsw i32 %123, 1
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val16.i, i32 noundef %127)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val16.i, i32 noundef %127)
   %128 = getelementptr i8, ptr %.val16.i, i64 8
   %.val.i.i.i = load ptr, ptr %128, align 8
   %129 = sext i32 %123 to i64
@@ -3195,7 +3195,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %141 = shl nsw i32 %136, 1
   %142 = or disjoint i32 %141, %140
   %.val.i = load ptr, ptr %11, align 8
-  call fastcc void @Vec_IntFillExtra(ptr noundef %.val.i, i32 noundef %127)
+  call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val.i, i32 noundef %127)
   %143 = getelementptr i8, ptr %.val.i, i64 8
   %.val.i.i17.i = load ptr, ptr %143, align 8
   %144 = getelementptr inbounds i32, ptr %.val.i.i17.i, i64 %129
@@ -4524,7 +4524,7 @@ define ptr @Gia_SweeperSweep(ptr noundef %0, ptr nocapture noundef readonly %1, 
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %6
-  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %15, i32 noundef 0)
+  call fastcc void @Gia_ManAppendCo.retelim(ptr noundef nonnull %15, i32 noundef 0)
   br label %22
 
 22:                                               ; preds = %21, %6
@@ -5286,7 +5286,7 @@ declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra.argelim(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -5389,7 +5389,7 @@ define internal fastcc void @Gia_ManObjAddToFrontier(ptr nocapture noundef %0, i
   %6 = getelementptr i8, ptr %0, i64 48
   %.val16 = load ptr, ptr %6, align 8
   %7 = add nsw i32 %1, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val16, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val16, i32 noundef %7)
   %8 = getelementptr i8, ptr %.val16, i64 8
   %.val.i.i = load ptr, ptr %8, align 8
   %9 = sext i32 %1 to i64
@@ -5413,7 +5413,7 @@ define internal fastcc void @Gia_ManObjAddToFrontier(ptr nocapture noundef %0, i
   %22 = shl nsw i32 %17, 1
   %23 = or disjoint i32 %22, %21
   %.val = load ptr, ptr %6, align 8
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val, i32 noundef %7)
+  tail call fastcc void @Vec_IntFillExtra.argelim(ptr noundef %.val, i32 noundef %7)
   %24 = getelementptr i8, ptr %.val, i64 8
   %.val.i.i17 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds i32, ptr %.val.i.i17, i64 %9
@@ -5507,7 +5507,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ObjIsMuxType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -5649,7 +5649,7 @@ define internal fastcc void @Gia_ManCollectSuper_rec(ptr nocapture noundef reado
   %20 = trunc i64 %19 to i32
   %21 = shl nsw i32 %20, 1
   %22 = or disjoint i32 %21, %.lcssa
-  tail call fastcc void @Vec_IntPushUnique(ptr noundef %2, i32 noundef %22)
+  tail call fastcc void @Vec_IntPushUnique.argelim(ptr noundef %2, i32 noundef %22)
   ret void
 
 tailrecurse:                                      ; preds = %.lr.ph32

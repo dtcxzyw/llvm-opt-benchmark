@@ -1884,14 +1884,14 @@ _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.end
 if.then.i:                                        ; preds = %_PyVectorcall_FunctionInline.exit.i, %if.end
   %and.i.i = and i64 %nargsf, 7
   %call2.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef nonnull %tstate, ptr noundef nonnull %0, ptr noundef %args, i64 noundef %and.i.i, ptr noundef null) #9
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
 if.end.i13:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i
   %call3.i = tail call ptr %ptr.0.copyload.i.i(ptr noundef nonnull %0, ptr noundef %args, i64 noundef %nargsf, ptr noundef null) #9
   %call4.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef nonnull %tstate, ptr noundef nonnull %0, ptr noundef %call3.i, ptr noundef null) #9
-  br label %_PyObject_VectorcallTstate.exit
+  br label %_PyObject_VectorcallTstate.argprom.exit
 
-_PyObject_VectorcallTstate.exit:                  ; preds = %if.then.i, %if.end.i13
+_PyObject_VectorcallTstate.argprom.exit:          ; preds = %if.then.i, %if.end.i13
   %retval.0.i = phi ptr [ %call2.i, %if.then.i ], [ %call4.i, %if.end.i13 ]
   %7 = load i32, ptr %tracing, align 4
   %dec = add i32 %7, -1
@@ -1900,7 +1900,7 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %if.then.i, %if.end.
   %cmp6 = icmp eq ptr %retval.0.i, null
   br i1 %cmp6, label %return, label %if.end8
 
-if.end8:                                          ; preds = %_PyObject_VectorcallTstate.exit
+if.end8:                                          ; preds = %_PyObject_VectorcallTstate.argprom.exit
   %8 = load i64, ptr %retval.0.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i11.not = icmp eq i64 %9, 0
@@ -1921,8 +1921,8 @@ Py_DECREF.exit:                                   ; preds = %if.end8, %if.then1.
   %conv = zext i1 %cmp9 to i32
   br label %return
 
-return:                                           ; preds = %_PyObject_VectorcallTstate.exit, %entry, %Py_DECREF.exit
-  %retval.0 = phi i32 [ %conv, %Py_DECREF.exit ], [ 0, %entry ], [ -1, %_PyObject_VectorcallTstate.exit ]
+return:                                           ; preds = %_PyObject_VectorcallTstate.argprom.exit, %entry, %Py_DECREF.exit
+  %retval.0 = phi i32 [ %conv, %Py_DECREF.exit ], [ 0, %entry ], [ -1, %_PyObject_VectorcallTstate.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -4806,28 +4806,28 @@ define internal fastcc range(i32 -1, 1) i32 @instrument_all_executing_code_objec
 entry:
   %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
-  br i1 %1, label %PyMutex_LockFlags.exit, label %if.then.i
+  br i1 %1, label %PyMutex_LockFlags.argprom.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
-  br label %PyMutex_LockFlags.exit
+  br label %PyMutex_LockFlags.argprom.exit
 
-PyMutex_LockFlags.exit:                           ; preds = %entry, %if.then.i
+PyMutex_LockFlags.argprom.exit:                   ; preds = %entry, %if.then.i
   %call = tail call ptr @PyInterpreterState_ThreadHead(ptr noundef %interp) #9
   %2 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
-  br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i10
+  br i1 %3, label %PyMutex_Unlock.argprom.exit, label %if.then.i10
 
-if.then.i10:                                      ; preds = %PyMutex_LockFlags.exit
+if.then.i10:                                      ; preds = %PyMutex_LockFlags.argprom.exit
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #9
-  br label %PyMutex_Unlock.exit
+  br label %PyMutex_Unlock.argprom.exit
 
-PyMutex_Unlock.exit:                              ; preds = %PyMutex_LockFlags.exit, %if.then.i10
+PyMutex_Unlock.argprom.exit:                      ; preds = %PyMutex_LockFlags.argprom.exit, %if.then.i10
   %tobool.not20 = icmp eq ptr %call, null
   br i1 %tobool.not20, label %return, label %while.body
 
-while.body:                                       ; preds = %PyMutex_Unlock.exit, %PyMutex_Unlock.exit15
-  %ts.021 = phi ptr [ %call14, %PyMutex_Unlock.exit15 ], [ %call, %PyMutex_Unlock.exit ]
+while.body:                                       ; preds = %PyMutex_Unlock.argprom.exit, %PyMutex_Unlock.argprom.exit15
+  %ts.021 = phi ptr [ %call14, %PyMutex_Unlock.argprom.exit15 ], [ %call, %PyMutex_Unlock.argprom.exit ]
   %current_frame = getelementptr inbounds i8, ptr %ts.021, i64 64
   %frame.017 = load ptr, ptr %current_frame, align 8
   %tobool4.not18 = icmp eq ptr %frame.017, null
@@ -4855,28 +4855,28 @@ if.end11:                                         ; preds = %if.then, %while.bod
 while.end:                                        ; preds = %if.end11, %while.body
   %5 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 0, i8 1 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
-  br i1 %6, label %PyMutex_LockFlags.exit13, label %if.then.i11
+  br i1 %6, label %PyMutex_LockFlags.argprom.exit13, label %if.then.i11
 
 if.then.i11:                                      ; preds = %while.end
   %call1.i12 = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i64 noundef -1, i32 noundef 0) #9
-  br label %PyMutex_LockFlags.exit13
+  br label %PyMutex_LockFlags.argprom.exit13
 
-PyMutex_LockFlags.exit13:                         ; preds = %while.end, %if.then.i11
+PyMutex_LockFlags.argprom.exit13:                 ; preds = %while.end, %if.then.i11
   %call14 = tail call ptr @PyThreadState_Next(ptr noundef nonnull %ts.021) #9
   %7 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
-  br i1 %8, label %PyMutex_Unlock.exit15, label %if.then.i14
+  br i1 %8, label %PyMutex_Unlock.argprom.exit15, label %if.then.i14
 
-if.then.i14:                                      ; preds = %PyMutex_LockFlags.exit13
+if.then.i14:                                      ; preds = %PyMutex_LockFlags.argprom.exit13
   tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 336)) #9
-  br label %PyMutex_Unlock.exit15
+  br label %PyMutex_Unlock.argprom.exit15
 
-PyMutex_Unlock.exit15:                            ; preds = %PyMutex_LockFlags.exit13, %if.then.i14
+PyMutex_Unlock.argprom.exit15:                    ; preds = %PyMutex_LockFlags.argprom.exit13, %if.then.i14
   %tobool.not = icmp eq ptr %call14, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !31
 
-return:                                           ; preds = %PyMutex_Unlock.exit15, %if.then, %PyMutex_Unlock.exit
-  %retval.0 = phi i32 [ 0, %PyMutex_Unlock.exit ], [ -1, %if.then ], [ 0, %PyMutex_Unlock.exit15 ]
+return:                                           ; preds = %PyMutex_Unlock.argprom.exit15, %if.then, %PyMutex_Unlock.argprom.exit
+  %retval.0 = phi i32 [ 0, %PyMutex_Unlock.argprom.exit ], [ -1, %if.then ], [ 0, %PyMutex_Unlock.argprom.exit15 ]
   ret i32 %retval.0
 }
 
@@ -5560,7 +5560,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
 if.end8.split:                                    ; preds = %if.end8
   %arrayidx177 = getelementptr i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx177, align 8
-  %call188 = tail call fastcc ptr @monitoring_register_callback_impl(i32 noundef %call2, i32 noundef %call10, ptr noundef %2)
+  %call188 = tail call fastcc ptr @monitoring_register_callback_impl.argprom(i32 noundef %call2, i32 noundef %call10, ptr noundef %2)
   br label %exit
 
 land.lhs.true12:                                  ; preds = %if.end8
@@ -5882,7 +5882,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp12, label %land.lhs.true13, label %if.end8.split
 
 if.end8.split:                                    ; preds = %if.end8
-  %call187 = tail call fastcc ptr @monitoring_set_local_events_impl(i32 noundef %call2, ptr noundef %1, i32 noundef %call11)
+  %call187 = tail call fastcc ptr @monitoring_set_local_events_impl.argprom(i32 noundef %call2, ptr noundef %1, i32 noundef %call11)
   br label %exit
 
 land.lhs.true13:                                  ; preds = %if.end8
@@ -5936,7 +5936,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr @PyExc_OverflowError, align 8
   %call3.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str) #9
-  br label %monitoring_restart_events_impl.exit
+  br label %monitoring_restart_events_impl.argprom.exit
 
 if.end.i:                                         ; preds = %entry
   %add.i = add nuw i32 %conv.i.i, 256
@@ -5964,9 +5964,9 @@ set_global_version.exit.i:                        ; preds = %_Py_atomic_compare_
   %call4.i = tail call fastcc i32 @instrument_all_executing_code_objects(ptr noundef nonnull %2)
   %tobool.not.i = icmp eq i32 %call4.i, 0
   %_Py_NoneStruct..i = select i1 %tobool.not.i, ptr @_Py_NoneStruct, ptr null
-  br label %monitoring_restart_events_impl.exit
+  br label %monitoring_restart_events_impl.argprom.exit
 
-monitoring_restart_events_impl.exit:              ; preds = %if.then.i, %set_global_version.exit.i
+monitoring_restart_events_impl.argprom.exit:      ; preds = %if.then.i, %set_global_version.exit.i
   %retval.0.i = phi ptr [ null, %if.then.i ], [ %_Py_NoneStruct..i, %set_global_version.exit.i ]
   ret ptr %retval.0.i
 }
@@ -5980,7 +5980,7 @@ entry:
   %2 = load ptr, ptr %interp.i.i, align 8
   %call1.i = tail call ptr @PyDict_New() #9
   %cmp.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i, label %monitoring__all_events_impl.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %monitoring__all_events_impl.argprom.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
   %monitors.i = getelementptr inbounds i8, ptr %2, i64 414944
@@ -6022,24 +6022,24 @@ if.then15.i:                                      ; preds = %Py_DECREF.exit25.i
   %7 = load i64, ptr %call1.i, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i30.not.i = icmp eq i64 %8, 0
-  br i1 %cmp.i30.not.i, label %if.end.i.i, label %monitoring__all_events_impl.exit
+  br i1 %cmp.i30.not.i, label %if.end.i.i, label %monitoring__all_events_impl.argprom.exit
 
 if.end.i.i:                                       ; preds = %if.then15.i
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %call1.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp.i.i, label %if.then1.i.i, label %monitoring__all_events_impl.exit
+  br i1 %cmp.i.i, label %if.then1.i.i, label %monitoring__all_events_impl.argprom.exit
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   tail call void @_Py_Dealloc(ptr noundef nonnull %call1.i) #9
-  br label %monitoring__all_events_impl.exit
+  br label %monitoring__all_events_impl.argprom.exit
 
 for.inc.i:                                        ; preds = %Py_DECREF.exit25.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %monitoring__all_events_impl.exit, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %monitoring__all_events_impl.argprom.exit, label %for.body.i, !llvm.loop !36
 
-monitoring__all_events_impl.exit:                 ; preds = %for.inc.i, %entry, %if.then15.i, %if.end.i.i, %if.then1.i.i
+monitoring__all_events_impl.argprom.exit:         ; preds = %for.inc.i, %entry, %if.then15.i, %if.end.i.i, %if.then1.i.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.then15.i ], [ null, %if.then1.i.i ], [ null, %if.end.i.i ], [ %call1.i, %for.inc.i ]
   ret ptr %retval.0.i
 }
@@ -6053,7 +6053,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #3
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @monitoring_register_callback_impl(i32 noundef %tool_id, i32 noundef %event, ptr noundef %func) unnamed_addr #1 {
+define internal fastcc ptr @monitoring_register_callback_impl.argprom(i32 noundef %tool_id, i32 noundef %event, ptr noundef %func) unnamed_addr #1 {
 entry:
   %or.cond.i = icmp ugt i32 %tool_id, 5
   br i1 %or.cond.i, label %check_valid_tool.exit, label %if.end
@@ -6137,7 +6137,7 @@ declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @monitoring_set_local_events_impl(i32 noundef %tool_id, ptr noundef %code, i32 noundef %event_set) unnamed_addr #1 {
+define internal fastcc ptr @monitoring_set_local_events_impl.argprom(i32 noundef %tool_id, ptr noundef %code, i32 noundef %event_set) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %code, i64 8
   %code.val = load ptr, ptr %0, align 8

@@ -310,33 +310,33 @@ define internal noundef i64 @strscan_initialize(i32 noundef %0, ptr noundef %1, 
 13:                                               ; preds = %3
   %.pr.i = load i64, ptr @strscan_initialize.rbimpl_id, align 8
   %.not1.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
+  br i1 %.not1.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %14 = call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 12) #7
   store i64 %14, ptr @strscan_initialize.rbimpl_id, align 8
   %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit.loopexit, !llvm.loop !6
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.argprom.exit.loopexit, !llvm.loop !6
 
-rbimpl_intern_const.exit.loopexit:                ; preds = %.lr.ph.i
+rbimpl_intern_const.argprom.exit.loopexit:        ; preds = %.lr.ph.i
   %.pre = load i64, ptr %5, align 8
-  br label %rbimpl_intern_const.exit
+  br label %rbimpl_intern_const.argprom.exit
 
-rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const.exit.loopexit, %13
-  %15 = phi i64 [ %11, %13 ], [ %.pre, %rbimpl_intern_const.exit.loopexit ]
-  %.lcssa.i = phi i64 [ %.pr.i, %13 ], [ %14, %rbimpl_intern_const.exit.loopexit ]
+rbimpl_intern_const.argprom.exit:                 ; preds = %rbimpl_intern_const.argprom.exit.loopexit, %13
+  %15 = phi i64 [ %11, %13 ], [ %.pre, %rbimpl_intern_const.argprom.exit.loopexit ]
+  %.lcssa.i = phi i64 [ %.pr.i, %13 ], [ %14, %rbimpl_intern_const.argprom.exit.loopexit ]
   store i64 %.lcssa.i, ptr %7, align 8
   %16 = call i32 @rb_get_kwargs(i64 noundef %15, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %6) #7
   %17 = load i64, ptr %6, align 8
   %18 = icmp eq i64 %17, 36
   br i1 %18, label %19, label %21
 
-19:                                               ; preds = %rbimpl_intern_const.exit
+19:                                               ; preds = %rbimpl_intern_const.argprom.exit
   %20 = getelementptr inbounds i8, ptr %8, i64 64
   store i8 0, ptr %20, align 8
   br label %28
 
-21:                                               ; preds = %rbimpl_intern_const.exit
+21:                                               ; preds = %rbimpl_intern_const.argprom.exit
   %22 = and i64 %17, -5
   %23 = icmp ne i64 %22, 0
   %24 = getelementptr inbounds i8, ptr %8, i64 64
@@ -2205,7 +2205,7 @@ RSTRING_PTR.exit.i:                               ; preds = %26, %25
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %26 ], [ %24, %25 ]
   %27 = tail call i64 @rb_str_new(ptr noundef %.sroa.2.0.i.i, i64 noundef 5) #7
   %28 = tail call i64 @rb_str_cat(i64 noundef %27, ptr noundef nonnull @.str.77, i64 noundef 3) #7
-  br label %inspect2.exit
+  br label %inspect2.argprom.exit
 
 29:                                               ; preds = %20
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit19.i, label %30
@@ -2217,9 +2217,9 @@ RSTRING_PTR.exit.i:                               ; preds = %26, %25
 RSTRING_PTR.exit19.i:                             ; preds = %30, %29
   %.sroa.2.0.i18.i = phi ptr [ %.sroa.2.0.copyload.i17.i, %30 ], [ %24, %29 ]
   %31 = tail call i64 @rb_str_new(ptr noundef %.sroa.2.0.i18.i, i64 noundef %14) #7
-  br label %inspect2.exit
+  br label %inspect2.argprom.exit
 
-inspect2.exit:                                    ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit19.i
+inspect2.argprom.exit:                            ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit19.i
   %.012.i = phi i64 [ %27, %RSTRING_PTR.exit.i ], [ %31, %RSTRING_PTR.exit19.i ]
   %32 = tail call i64 @rb_str_dump(i64 noundef %.012.i) #7
   %33 = tail call i64 @rb_obj_class(i64 noundef %0) #7
@@ -2277,7 +2277,7 @@ inspect1.exit:                                    ; preds = %47, %53
 
 63:                                               ; preds = %inspect1.exit
   %64 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.67, i64 noundef 0) #7
-  br label %inspect2.exit42
+  br label %inspect2.argprom.exit42
 
 65:                                               ; preds = %inspect1.exit
   %66 = sub nsw i64 %62, %.val26
@@ -2318,9 +2318,9 @@ RSTRING_PTR.exit19.i36:                           ; preds = %77, %76
 80:                                               ; preds = %RSTRING_PTR.exit19.i36, %RSTRING_PTR.exit.i40
   %.012.i38 = phi i64 [ %74, %RSTRING_PTR.exit.i40 ], [ %79, %RSTRING_PTR.exit19.i36 ]
   %81 = tail call i64 @rb_str_dump(i64 noundef %.012.i38) #7
-  br label %inspect2.exit42
+  br label %inspect2.argprom.exit42
 
-inspect2.exit42:                                  ; preds = %63, %80
+inspect2.argprom.exit42:                          ; preds = %63, %80
   %.0.i33 = phi i64 [ %64, %63 ], [ %81, %80 ]
   %82 = tail call i64 @rb_obj_class(i64 noundef %0) #7
   %83 = load i64, ptr %10, align 8
@@ -2331,8 +2331,8 @@ inspect2.exit42:                                  ; preds = %63, %80
   %88 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.76, i64 noundef %82, i64 noundef %83, i64 noundef %87, i64 noundef %59, i64 noundef %.0.i33) #7
   br label %89
 
-89:                                               ; preds = %inspect2.exit42, %inspect2.exit, %15, %6
-  %.0 = phi i64 [ %8, %6 ], [ %17, %15 ], [ %39, %inspect2.exit ], [ %88, %inspect2.exit42 ]
+89:                                               ; preds = %inspect2.argprom.exit42, %inspect2.argprom.exit, %15, %6
+  %.0 = phi i64 [ %8, %6 ], [ %17, %15 ], [ %39, %inspect2.argprom.exit ], [ %88, %inspect2.argprom.exit42 ]
   ret i64 %.0
 }
 

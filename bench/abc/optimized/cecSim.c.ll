@@ -289,13 +289,13 @@ define range(i32 0, 2) i32 @Cec_ManSVerify_rec(ptr noundef %0, i32 noundef %1) l
   %42 = and i64 %.val35, 536870911
   %43 = icmp eq i64 %42, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %43
-  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.exit.thread, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %Gia_ObjIsXor.argprom.exit.thread, label %Gia_ObjIsXor.argprom.exit
 
-Gia_ObjIsXor.exit.thread:                         ; preds = %23
+Gia_ObjIsXor.argprom.exit.thread:                 ; preds = %23
   %44 = and i32 %40, %31
   br label %53
 
-Gia_ObjIsXor.exit:                                ; preds = %23
+Gia_ObjIsXor.argprom.exit:                        ; preds = %23
   %45 = trunc i64 %.val35 to i32
   %46 = and i32 %45, 536870911
   %47 = lshr i64 %.val35, 32
@@ -308,8 +308,8 @@ Gia_ObjIsXor.exit:                                ; preds = %23
   %spec.select = select i1 %cond.fr, i32 %52, i32 %51
   br label %53
 
-53:                                               ; preds = %Gia_ObjIsXor.exit, %Gia_ObjIsXor.exit.thread
-  %54 = phi i32 [ %44, %Gia_ObjIsXor.exit.thread ], [ %spec.select, %Gia_ObjIsXor.exit ]
+53:                                               ; preds = %Gia_ObjIsXor.argprom.exit, %Gia_ObjIsXor.argprom.exit.thread
+  %54 = phi i32 [ %44, %Gia_ObjIsXor.argprom.exit.thread ], [ %spec.select, %Gia_ObjIsXor.argprom.exit ]
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 62
   %57 = and i64 %.val35, -4611686018427387905
@@ -1332,7 +1332,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %52 = getelementptr inbounds i8, ptr %.val25, i64 4
   %53 = load i32, ptr %52, align 4
   %.not.i.not.i.i = icmp slt i32 %1, %53
-  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.exit, label %54
+  br i1 %.not.i.not.i.i, label %Gia_ObjLevelId.argprom.exit, label %54
 
 54:                                               ; preds = %49
   %55 = load i32, ptr %.val25, align 8
@@ -1417,9 +1417,9 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 
 ._crit_edge.i.i.i:                                ; preds = %84, %Vec_IntGrow.exit.i.i.i
   store i32 %51, ptr %52, align 4
-  br label %Gia_ObjLevelId.exit
+  br label %Gia_ObjLevelId.argprom.exit
 
-Gia_ObjLevelId.exit:                              ; preds = %49, %._crit_edge.i.i.i
+Gia_ObjLevelId.argprom.exit:                      ; preds = %49, %._crit_edge.i.i.i
   %87 = getelementptr i8, ptr %.val25, i64 8
   %.val.i.i = load ptr, ptr %87, align 8
   %88 = getelementptr inbounds i32, ptr %.val.i.i, i64 %7
@@ -1431,7 +1431,7 @@ Gia_ObjLevelId.exit:                              ; preds = %49, %._crit_edge.i.
   %.not.i = icmp sgt i32 %93, %89
   br i1 %.not.i, label %116, label %94
 
-94:                                               ; preds = %Gia_ObjLevelId.exit
+94:                                               ; preds = %Gia_ObjLevelId.argprom.exit
   %95 = add nsw i32 %89, 1
   %96 = shl nsw i32 %93, 1
   %97 = tail call noundef i32 @llvm.smax.i32(i32 %96, i32 %95)
@@ -1473,7 +1473,7 @@ Vec_WecGrow.exit.i:                               ; preds = %108, %94
   store i32 %95, ptr %92, align 4
   br label %116
 
-116:                                              ; preds = %Vec_WecGrow.exit.i, %Gia_ObjLevelId.exit
+116:                                              ; preds = %Vec_WecGrow.exit.i, %Gia_ObjLevelId.argprom.exit
   %117 = getelementptr i8, ptr %91, i64 8
   %.val.i = load ptr, ptr %117, align 8
   %118 = sext i32 %89 to i64

@@ -542,7 +542,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
 54:                                               ; preds = %47, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12emplace_backIJEEERS3_DpOT_.exit
   %55 = load i32, ptr %7, align 8
   switch i32 %55, label %60 [
-    i32 21, label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+    i32 21, label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
     i32 26, label %56
     i32 27, label %57
     i32 33, label %58
@@ -550,21 +550,21 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
   ]
 
 56:                                               ; preds = %54
-  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
 
 57:                                               ; preds = %54
-  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
 
 58:                                               ; preds = %54
-  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
 
 59:                                               ; preds = %54
-  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
 
 60:                                               ; preds = %54
-  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+  br label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
 
-_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit: ; preds = %54, %56, %57, %58, %59, %60
+_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit: ; preds = %54, %56, %57, %58, %59, %60
   %.0.i27 = phi i64 [ 4294967296, %60 ], [ 4294967302, %59 ], [ 4294967300, %58 ], [ 4294967299, %57 ], [ 4294967301, %56 ], [ 4294967298, %54 ]
   %.val.i.i28 = load ptr, ptr %9, align 8
   %61 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
@@ -583,7 +583,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.not65 = select i1 %69, i1 %71, i1 false
   br i1 %.not65, label %.critedge, label %72
 
-72:                                               ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
+72:                                               ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit
   %.val.i.i30 = load ptr, ptr %9, align 8
   %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #9
   %74 = getelementptr inbounds %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val.i.i30, i64 %73
@@ -598,7 +598,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %79) #9
   br label %169
 
-.critedge:                                        ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit, %72
+.critedge:                                        ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.argprom.exit, %72
   %80 = load i32, ptr %7, align 8
   switch i32 %80, label %119 [
     i32 21, label %81

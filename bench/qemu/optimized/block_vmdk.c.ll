@@ -272,7 +272,7 @@ if.end12:                                         ; preds = %if.end8
   store ptr %call17, ptr %call15, align 8
   %4 = load i32, ptr %num_extents, align 4
   %cmp1913 = icmp sgt i32 %4, 0
-  br i1 %cmp1913, label %for.body.lr.ph, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %cmp1913, label %for.body.lr.ph, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 for.body.lr.ph:                                   ; preds = %if.end12
   %extents = getelementptr inbounds i8, ptr %2, i64 72
@@ -295,9 +295,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load i32, ptr %num_extents, align 4
   %11 = sext i32 %10 to i64
   %cmp19 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp19, label %for.body, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, !llvm.loop !5
+  br i1 %cmp19, label %for.body, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, !llvm.loop !5
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.body, %if.end12
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.body, %if.end12
   tail call void @bdrv_graph_rdunlock_main_loop() #15
   ret i32 0
 }
@@ -322,7 +322,7 @@ do.end:                                           ; preds = %entry
   %num_extents = getelementptr inbounds i8, ptr %1, i64 68
   %3 = load i32, ptr %num_extents, align 4
   %cmp8 = icmp sgt i32 %3, 0
-  br i1 %cmp8, label %for.body.lr.ph, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br i1 %cmp8, label %for.body.lr.ph, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 for.body.lr.ph:                                   ; preds = %do.end
   %extents = getelementptr inbounds i8, ptr %1, i64 72
@@ -352,9 +352,9 @@ for.inc:                                          ; preds = %for.body, %if.then3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = sext i32 %10 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %11
-  br i1 %cmp, label %for.body, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, !llvm.loop !7
+  br i1 %cmp, label %for.body, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, !llvm.loop !7
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc, %do.end
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %for.inc, %do.end
   %12 = load ptr, ptr %opaque1, align 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #15
@@ -386,14 +386,14 @@ entry:
   tail call void @bdrv_graph_rdlock_main_loop() #15
   %call1 = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.28, ptr noundef %bs, ptr noundef %errp) #15
   %cmp = icmp slt i32 %call1, 0
-  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end
+  br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call2 = tail call fastcc ptr @vmdk_read_desc(ptr noundef %1, i64 noundef 0, ptr noundef %errp)
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end4
+  br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call2.val = load i32, ptr %call2, align 1
@@ -405,7 +405,7 @@ if.end4:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end4, %if.end4
   %3 = load ptr, ptr %file, align 8
-  %call7 = tail call fastcc i32 @vmdk_open_sparse(ptr noundef nonnull %bs, ptr noundef %3, i32 noundef %flags, i32 %call2.val, ptr noundef %options, ptr noundef %errp)
+  %call7 = tail call fastcc i32 @vmdk_open_sparse.argprom(ptr noundef nonnull %bs, ptr noundef %3, i32 noundef %flags, i32 %call2.val, ptr noundef %options, ptr noundef %errp)
   %desc_offset = getelementptr inbounds i8, ptr %0, i64 48
   store i64 512, ptr %desc_offset, align 8
   br label %sw.epilog
@@ -418,7 +418,7 @@ sw.default:                                       ; preds = %if.end4
   store i32 %and, ptr %role, align 8
   %6 = load ptr, ptr %file, align 8
   %call10 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %6, ptr noundef nonnull @error_abort) #15
-  %call11 = tail call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef %call2, ptr noundef %options, ptr noundef %errp)
+  %call11 = tail call fastcc i32 @vmdk_open_desc_file.argelim(ptr noundef nonnull %bs, ptr noundef %call2, ptr noundef %options, ptr noundef %errp)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb
@@ -556,7 +556,7 @@ if.end26:                                         ; preds = %if.end7.i62
 
 if.end32:                                         ; preds = %if.end26
   call void @g_free(ptr noundef nonnull %call2) #15
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
 fail:                                             ; preds = %vmdk_read_cid.exit68.thread, %vmdk_read_cid.exit.thread, %vmdk_parent_open.exit.thread, %if.end26, %vmdk_parent_open.exit, %sw.epilog
   %ret.1 = phi i32 [ %ret.0, %sw.epilog ], [ %call1.i, %vmdk_parent_open.exit ], [ %call29, %if.end26 ], [ %ret.0.i.ph, %vmdk_parent_open.exit.thread ], [ %ret.0.i49.ph, %vmdk_read_cid.exit.thread ], [ %ret.0.i66.ph, %vmdk_read_cid.exit68.thread ]
@@ -566,9 +566,9 @@ fail:                                             ; preds = %vmdk_read_cid.exit6
   call void @g_free(ptr noundef %19) #15
   store ptr null, ptr %create_type, align 8
   call fastcc void @vmdk_free_extents(ptr noundef nonnull %bs)
-  br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
+  br label %glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit
 
-glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end, %entry, %fail, %if.end32
+glib_autoptr_cleanup_GraphLockableMainloop.argprom.exit: ; preds = %if.end, %entry, %fail, %if.end32
   %retval.0 = phi i32 [ %ret.1, %fail ], [ 0, %if.end32 ], [ %call1, %entry ], [ -22, %if.end ]
   call void @bdrv_graph_rdunlock_main_loop() #15
   ret i32 %retval.0
@@ -1832,7 +1832,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmdk_open_sparse(ptr noundef %bs, ptr noundef %file, i32 noundef %flags, i32 %buf.0.val, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vmdk_open_sparse.argprom(ptr noundef %bs, ptr noundef %file, i32 noundef %flags, i32 %buf.0.val, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %header.i6 = alloca %struct.VMDK4Header, align 4
   %extent.i7 = alloca ptr, align 8
@@ -1881,7 +1881,7 @@ if.end.i:                                         ; preds = %sw.bb
 
 if.end13.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr %extent.i, align 8
-  %call14.i = call fastcc i32 @vmdk_init_tables(ptr noundef %7, ptr noundef %errp)
+  %call14.i = call fastcc i32 @vmdk_init_tables.argprom(ptr noundef %7, ptr noundef %errp)
   %tobool.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool.not.i, label %vmdk_open_vmfs_sparse.exit, label %if.then15.i
 
@@ -1948,7 +1948,7 @@ if.then7.i:                                       ; preds = %if.then4.i
   br i1 %tobool9.not.i, label %vmdk_open_vmdk4.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then7.i
-  %call12.i = call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef %call8.i, ptr noundef %options, ptr noundef %errp)
+  %call12.i = call fastcc i32 @vmdk_open_desc_file.argelim(ptr noundef nonnull %bs, ptr noundef %call8.i, ptr noundef %options, ptr noundef %errp)
   call void @g_free(ptr noundef nonnull %call8.i) #15
   br label %vmdk_open_vmdk4.exit
 
@@ -2135,13 +2135,13 @@ if.end142.i:                                      ; preds = %if.then138.i, %if.e
   %48 = lshr i8 %47, 2
   %frombool155.i = and i8 %48, 1
   store i8 %frombool155.i, ptr %has_zero_grain.i, align 1
-  %call156.i = call fastcc i32 @vmdk_init_tables(ptr noundef nonnull %42, ptr noundef %errp)
+  %call156.i = call fastcc i32 @vmdk_init_tables.argprom(ptr noundef nonnull %42, ptr noundef %errp)
   %tobool157.not.i = icmp eq i32 %call156.i, 0
   br i1 %tobool157.not.i, label %vmdk_open_vmdk4.exit, label %if.then158.i
 
 if.then158.i:                                     ; preds = %if.end142.i
   %bs.val.i13 = load ptr, ptr %opaque.i, align 8
-  call fastcc void @vmdk_free_last_extent(ptr %bs.val.i13)
+  call fastcc void @vmdk_free_last_extent.argprom(ptr %bs.val.i13)
   br label %vmdk_open_vmdk4.exit
 
 vmdk_open_vmdk4.exit:                             ; preds = %if.then.i16, %if.then7.i, %if.end11.i, %if.then28.i, %if.then53.i, %if.then63.i, %if.then73.i, %if.then79.i, %if.then89.i, %if.then110.i, %if.end114.i, %if.end142.i, %if.then158.i
@@ -2163,7 +2163,7 @@ return:                                           ; preds = %sw.default, %vmdk_o
 declare i32 @bdrv_child_refresh_perms(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmdk_open_desc_file(ptr noundef %bs, ptr noundef nonnull %buf, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vmdk_open_desc_file.argelim(ptr noundef %bs, ptr noundef nonnull %buf, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %const_header.i = alloca %struct.VMDKSESparseConstHeader, align 8
   %volatile_header.i = alloca %struct.VMDKSESparseVolatileHeader, align 8
@@ -2552,7 +2552,7 @@ if.end129.i.thread:                               ; preds = %if.then123.i
 if.end129.i:                                      ; preds = %if.then123.i
   %26 = load i32, ptr %bs, align 8
   %call124.i.val = load i32, ptr %call124.i, align 1
-  %call128.i = call fastcc i32 @vmdk_open_sparse(ptr noundef nonnull %bs, ptr noundef nonnull %call99.i, i32 noundef %26, i32 %call124.i.val, ptr noundef %options, ptr noundef %errp)
+  %call128.i = call fastcc i32 @vmdk_open_sparse.argprom(ptr noundef nonnull %bs, ptr noundef nonnull %call99.i, i32 noundef %26, i32 %call124.i.val, ptr noundef %options, ptr noundef %errp)
   call void @g_free(ptr noundef nonnull %call124.i) #15
   %tobool130.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool130.not.i, label %if.end132.i, label %if.then131.i
@@ -2742,7 +2742,7 @@ if.end33.i36:                                     ; preds = %if.end23.i
   store i64 %52, ptr %sesparse_clusters_offset.i, align 8
   %entry_size.i = getelementptr inbounds i8, ptr %50, i64 32
   store i32 8, ptr %entry_size.i, align 8
-  %call34.i = call fastcc i32 @vmdk_init_tables(ptr noundef %50, ptr noundef %errp)
+  %call34.i = call fastcc i32 @vmdk_init_tables.argprom(ptr noundef %50, ptr noundef %errp)
   %tobool.not.i37 = icmp eq i32 %call34.i, 0
   br i1 %tobool.not.i37, label %if.end143.i, label %if.then35.i
 
@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.end36, %if.then6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables(ptr nocapture noundef %extent, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_init_tables.argprom(ptr nocapture noundef %extent, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %l1_size1 = getelementptr inbounds i8, ptr %extent, i64 96
   %0 = load i32, ptr %l1_size1, align 8
@@ -3222,7 +3222,7 @@ return:                                           ; preds = %entry, %fail_l1, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vmdk_free_last_extent(ptr nocapture %bs.24.val) unnamed_addr #0 {
+define internal fastcc void @vmdk_free_last_extent.argprom(ptr nocapture %bs.24.val) unnamed_addr #0 {
 entry:
   %num_extents = getelementptr inbounds i8, ptr %bs.24.val, i64 68
   %0 = load i32, ptr %num_extents, align 4

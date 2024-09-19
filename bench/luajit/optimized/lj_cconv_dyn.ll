@@ -47,7 +47,7 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
   %arrayidx.i25.i = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i24.i
   %1 = load i32, ptr %arrayidx.i25.i, align 8
   %shr.i = lshr i32 %1, 28
-  switch i32 %shr.i, label %cconv_childqual.exit [
+  switch i32 %shr.i, label %cconv_childqual.argprom.exit [
     i32 8, label %if.then.i
     i32 5, label %for.cond.i.backedge
   ]
@@ -66,7 +66,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %or.i = or i32 %3, %dqual.0.ph
   br label %for.cond.i.outer
 
-cconv_childqual.exit:                             ; preds = %for.cond.i
+cconv_childqual.argprom.exit:                     ; preds = %for.cond.i
   %and13.i = and i32 %1, 50331648
   %or14.i = or i32 %and13.i, %dqual.0.ph
   %4 = load i32, ptr %s.tr66, align 8
@@ -74,9 +74,9 @@ cconv_childqual.exit:                             ; preds = %for.cond.i
   %cmp1 = icmp eq i32 %shr.mask, 268435456
   br i1 %cmp1, label %if.end, label %for.cond.i26.outer
 
-for.cond.i26.outer:                               ; preds = %cconv_childqual.exit, %if.then4.i36
-  %squal.1.ph = phi i32 [ %or.i38, %if.then4.i36 ], [ 0, %cconv_childqual.exit ]
-  %and.i.sink.in.i27.ph = phi i32 [ %5, %if.then4.i36 ], [ %4, %cconv_childqual.exit ]
+for.cond.i26.outer:                               ; preds = %cconv_childqual.argprom.exit, %if.then4.i36
+  %squal.1.ph = phi i32 [ %or.i38, %if.then4.i36 ], [ 0, %cconv_childqual.argprom.exit ]
+  %and.i.sink.in.i27.ph = phi i32 [ %5, %if.then4.i36 ], [ %4, %cconv_childqual.argprom.exit ]
   br label %for.cond.i26
 
 for.cond.i26:                                     ; preds = %for.cond.i26.backedge, %for.cond.i26.outer
@@ -86,7 +86,7 @@ for.cond.i26:                                     ; preds = %for.cond.i26.backed
   %arrayidx.i25.i31 = getelementptr inbounds %struct.CType, ptr %0, i64 %idxprom.i24.i30
   %5 = load i32, ptr %arrayidx.i25.i31, align 8
   %shr.i32 = lshr i32 %5, 28
-  switch i32 %shr.i32, label %cconv_childqual.exit43 [
+  switch i32 %shr.i32, label %cconv_childqual.argprom.exit43 [
     i32 8, label %if.then.i34
     i32 5, label %for.cond.i26.backedge
   ]
@@ -105,15 +105,15 @@ if.then4.i36:                                     ; preds = %if.then.i34
   %or.i38 = or i32 %7, %squal.1.ph
   br label %for.cond.i26.outer
 
-cconv_childqual.exit43:                           ; preds = %for.cond.i26
+cconv_childqual.argprom.exit43:                   ; preds = %for.cond.i26
   %and13.i41 = and i32 %5, 50331648
   %or14.i42 = or i32 %and13.i41, %squal.1.ph
   br label %if.end
 
-if.end:                                           ; preds = %cconv_childqual.exit43, %cconv_childqual.exit
-  %8 = phi i32 [ %4, %cconv_childqual.exit ], [ %5, %cconv_childqual.exit43 ]
-  %squal.0 = phi i32 [ 0, %cconv_childqual.exit ], [ %or14.i42, %cconv_childqual.exit43 ]
-  %s.addr.0 = phi ptr [ %s.tr66, %cconv_childqual.exit ], [ %arrayidx.i25.i31, %cconv_childqual.exit43 ]
+if.end:                                           ; preds = %cconv_childqual.argprom.exit43, %cconv_childqual.argprom.exit
+  %8 = phi i32 [ %4, %cconv_childqual.argprom.exit ], [ %5, %cconv_childqual.argprom.exit43 ]
+  %squal.0 = phi i32 [ 0, %cconv_childqual.argprom.exit ], [ %or14.i42, %cconv_childqual.argprom.exit43 ]
+  %s.addr.0 = phi ptr [ %s.tr66, %cconv_childqual.argprom.exit ], [ %arrayidx.i25.i31, %cconv_childqual.argprom.exit43 ]
   %and4 = and i32 %flags.tr67, 4
   %tobool5.not = icmp eq i32 %and4, 0
   br i1 %tobool5.not, label %if.else, label %if.then6

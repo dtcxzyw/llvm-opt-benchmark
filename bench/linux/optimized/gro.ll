@@ -1295,7 +1295,7 @@ define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr 
   %223 = getelementptr i8, ptr %39, i64 88
   %.val = load i64, ptr %223, align 8
   %.val12 = load i64, ptr %37, align 8
-  %224 = tail call fastcc i32 @skb_metadata_dst_cmp(i64 %.val, i64 %.val12)
+  %224 = tail call fastcc i32 @skb_metadata_dst_cmp.argprom(i64 %.val, i64 %.val12)
   %225 = sext i32 %224 to i64
   %226 = or i64 %225, %222
   %227 = getelementptr inbounds i8, ptr %39, i64 104
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr 
 357:                                              ; preds = %353
   %358 = getelementptr i8, ptr %8, i64 8
   %.val13 = load ptr, ptr %358, align 8
-  tail call fastcc void @gro_flush_oldest(ptr noundef %0, ptr %.val13)
+  tail call fastcc void @gro_flush_oldest.argprom(ptr noundef %0, ptr %.val13)
   br label %361
 
 359:                                              ; preds = %353
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 0, 5) i32 @dev_gro_receive(ptr noundef %0, ptr 
   %435 = getelementptr inbounds i8, ptr %411, i64 48
   %.val14 = load i32, ptr %408, align 4
   %.val15 = load ptr, ptr %406, align 8
-  tail call fastcc void @skb_frag_unref(i32 %.val14, ptr %.val15)
+  tail call fastcc void @skb_frag_unref.argprom(i32 %.val14, ptr %.val15)
   %436 = getelementptr i8, ptr %411, i64 64
   %437 = getelementptr inbounds i8, ptr %411, i64 2
   %438 = load i8, ptr %437, align 2
@@ -1800,7 +1800,7 @@ thread-pre-split.thread:                          ; preds = %26, %1, %thread-pre
 80:                                               ; preds = %66
   %.val = load i32, ptr %13, align 4
   %.val3 = load ptr, ptr %6, align 8
-  tail call fastcc void @skb_frag_unref(i32 %.val, ptr %.val3)
+  tail call fastcc void @skb_frag_unref.argprom(i32 %.val, ptr %.val3)
   %81 = getelementptr i8, ptr %16, i64 64
   %82 = getelementptr inbounds i8, ptr %16, i64 2
   %83 = load i8, ptr %82, align 2
@@ -2218,7 +2218,7 @@ declare dso_local ptr @ipv6_gro_receive(ptr noundef, ptr noundef) #1
 declare dso_local ptr @inet_gro_receive(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gro_flush_oldest(ptr noundef %0, ptr %.8.val) unnamed_addr #0 align 16 {
+define internal fastcc void @gro_flush_oldest.argprom(ptr noundef %0, ptr %.8.val) unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %.8.val, null
   br i1 %2, label %3, label %4, !prof !12
 
@@ -2302,7 +2302,7 @@ define internal fastcc void @gro_try_pull_from_frag0(ptr nocapture noundef %0) u
   %41 = getelementptr inbounds i8, ptr %17, i64 48
   %.val = load i32, ptr %14, align 4
   %.val1 = load ptr, ptr %12, align 8
-  tail call fastcc void @skb_frag_unref(i32 %.val, ptr %.val1)
+  tail call fastcc void @skb_frag_unref.argprom(i32 %.val, ptr %.val1)
   %42 = getelementptr i8, ptr %17, i64 64
   %43 = getelementptr inbounds i8, ptr %17, i64 2
   %44 = load i8, ptr %43, align 2
@@ -2321,7 +2321,7 @@ define internal fastcc void @gro_try_pull_from_frag0(ptr nocapture noundef %0) u
 declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc i32 @skb_metadata_dst_cmp(i64 %.88.val, i64 %.88.val1) unnamed_addr #9 align 16 {
+define internal fastcc i32 @skb_metadata_dst_cmp.argprom(i64 %.88.val, i64 %.88.val1) unnamed_addr #9 align 16 {
   %1 = or i64 %.88.val1, %.88.val
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %38, label %3
@@ -2386,7 +2386,7 @@ define internal fastcc i32 @skb_metadata_dst_cmp(i64 %.88.val, i64 %.88.val1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_frag_unref(i32 %.188.val, ptr nocapture readonly %.192.val) unnamed_addr #10 align 16 {
+define internal fastcc void @skb_frag_unref.argprom(i32 %.188.val, ptr nocapture readonly %.192.val) unnamed_addr #10 align 16 {
   %1 = zext i32 %.188.val to i64
   %2 = getelementptr i8, ptr %.192.val, i64 %1
   %3 = load i8, ptr %2, align 8

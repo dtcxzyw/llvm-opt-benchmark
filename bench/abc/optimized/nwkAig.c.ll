@@ -1400,7 +1400,7 @@ Vec_IntPush.exit48.i:                             ; preds = %191, %Vec_IntGrow.e
 
 .preheader.i:                                     ; preds = %Vec_IntPush.exit55.i, %.preheader5.i
   %201 = icmp ult ptr %.029.lcssa.i, %99
-  br i1 %201, label %.lr.ph12.i, label %Vec_IntTwoSplit.exit
+  br i1 %201, label %.lr.ph12.i, label %Vec_IntTwoSplit.argprom.exit
 
 .lr.ph10.i:                                       ; preds = %.preheader5.i, %Vec_IntPush.exit55.i
   %.29.i = phi ptr [ %202, %Vec_IntPush.exit55.i ], [ %.0.lcssa.i, %.preheader5.i ]
@@ -1536,19 +1536,19 @@ Vec_IntPush.exit62.i:                             ; preds = %255, %Vec_IntGrow.e
   %260 = getelementptr inbounds i32, ptr %257, i64 %259
   store i32 %233, ptr %260, align 4
   %261 = icmp ult ptr %232, %99
-  br i1 %261, label %.lr.ph12.i, label %Vec_IntTwoSplit.exit, !llvm.loop !19
+  br i1 %261, label %.lr.ph12.i, label %Vec_IntTwoSplit.argprom.exit, !llvm.loop !19
 
-Vec_IntTwoSplit.exit:                             ; preds = %Vec_IntPush.exit62.i, %.preheader.i
+Vec_IntTwoSplit.argprom.exit:                     ; preds = %Vec_IntPush.exit62.i, %.preheader.i
   %.val80.pre = load i32, ptr %89, align 4
   br i1 %.not75, label %264, label %262
 
-262:                                              ; preds = %Vec_IntTwoSplit.exit
+262:                                              ; preds = %Vec_IntTwoSplit.argprom.exit
   %.val83 = load i32, ptr %81, align 4
   %.val81 = load i32, ptr %93, align 4
   %263 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.val83, i32 noundef %.val80.pre, i32 noundef %.val81)
   br label %264
 
-264:                                              ; preds = %262, %Vec_IntTwoSplit.exit
+264:                                              ; preds = %262, %Vec_IntTwoSplit.argprom.exit
   %265 = icmp sgt i32 %.val80.pre, 0
   br i1 %265, label %.lr.ph134, label %.critedge4
 

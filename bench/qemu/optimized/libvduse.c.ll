@@ -493,7 +493,7 @@ if.then48:                                        ; preds = %do.body
   %21 = load i32, ptr %len56, align 8
   %conv58 = zext i32 %21 to i64
   %vq.val = load ptr, ptr %dev2, align 8
-  %call59 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val, ptr noundef %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %20, i64 noundef %conv58)
+  %call59 = call fastcc zeroext i1 @vduse_queue_map_single_desc.argprom.argelim(ptr %vq.val, ptr noundef %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %20, i64 noundef %conv58)
   br i1 %call59, label %if.then48.if.end79_crit_edge, label %return
 
 if.then48.if.end79_crit_edge:                     ; preds = %if.then48
@@ -516,7 +516,7 @@ if.end65:                                         ; preds = %if.else
   %25 = load i32, ptr %len73, align 8
   %conv75 = zext i32 %25 to i64
   %vq.val31 = load ptr, ptr %dev2, align 8
-  %call76 = call fastcc zeroext i1 @vduse_queue_map_single_desc(ptr %vq.val31, ptr noundef %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %24, i64 noundef %conv75)
+  %call76 = call fastcc zeroext i1 @vduse_queue_map_single_desc.argprom.argelim(ptr %vq.val31, ptr noundef %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %24, i64 noundef %conv75)
   br i1 %call76, label %if.end65.if.end79_crit_edge, label %return
 
 if.end65.if.end79_crit_edge:                      ; preds = %if.end65
@@ -2198,7 +2198,7 @@ return:                                           ; preds = %vduse_iova_add_regi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr nocapture %vq.88.val, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc.argprom.argelim(ptr nocapture %vq.88.val, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #2 {
 entry:
   %len = alloca i64, align 8
   %0 = load i32, ptr %p_num_sg, align 4

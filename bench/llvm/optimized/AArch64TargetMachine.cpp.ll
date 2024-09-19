@@ -1461,7 +1461,7 @@ define dso_local void @_ZN4llvm20AArch64TargetMachineC2ERKNS_6TargetERKNS_6Tripl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %39) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #21
-  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit
+  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit
 
 40:                                               ; preds = %30
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21, !noalias !4
@@ -1479,7 +1479,7 @@ define dso_local void @_ZN4llvm20AArch64TargetMachineC2ERKNS_6TargetERKNS_6Tripl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %45) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21
-  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit
+  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit
 
 46:                                               ; preds = %12
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #21, !noalias !4
@@ -1497,7 +1497,7 @@ define dso_local void @_ZN4llvm20AArch64TargetMachineC2ERKNS_6TargetERKNS_6Tripl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %51) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #21
-  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit
+  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit
 
 52:                                               ; preds = %12
   %.str.111..str.112.i = select i1 %11, ptr @.str.111, ptr @.str.112
@@ -1528,9 +1528,9 @@ define dso_local void @_ZN4llvm20AArch64TargetMachineC2ERKNS_6TargetERKNS_6Tripl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit
+  br label %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit
 
-_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit: ; preds = %34, %40, %46, %52
+_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit: ; preds = %34, %40, %46, %52
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
@@ -1544,9 +1544,9 @@ _ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit: ; pr
   %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   %67 = getelementptr inbounds i8, ptr %2, i64 32
   %68 = icmp eq i64 %4, 0
-  br i1 %68, label %69, label %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit
+  br i1 %68, label %69, label %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit
 
-69:                                               ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit
+69:                                               ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit
   %70 = getelementptr inbounds i8, ptr %2, i64 36
   %.val24 = load i32, ptr %70, align 4
   %.val = load i32, ptr %67, align 8
@@ -1555,11 +1555,11 @@ _ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit: ; pr
   %73 = select i1 %71, i1 %72, i1 false
   %spec.select.i = select i1 %73, ptr @.str.118, ptr %3
   %spec.select2.i = select i1 %73, i64 9, i64 0
-  br label %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit
+  br label %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit
 
-_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit: ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit, %69
-  %.sroa.01.0.i = phi ptr [ %3, %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit ], [ %spec.select.i, %69 ]
-  %.sroa.3.0.i = phi i64 [ %4, %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.exit ], [ %spec.select2.i, %69 ]
+_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit: ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit, %69
+  %.sroa.01.0.i = phi ptr [ %3, %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit ], [ %spec.select.i, %69 ]
+  %.sroa.3.0.i = phi i64 [ %4, %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom.exit ], [ %spec.select2.i, %69 ]
   store ptr %.sroa.01.0.i, ptr %26, align 8
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %.sroa.3.0.i, ptr %74, align 8
@@ -1568,16 +1568,16 @@ _ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit: ; preds = %_ZL17compu
   %.sroa.0.0.extract.trunc.i = trunc i64 %7 to i32
   %76 = and i32 %.val25, -9
   %spec.select.i.i.i = icmp eq i32 %76, 1
-  br i1 %spec.select.i.i.i, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit, label %77
+  br i1 %spec.select.i.i.i, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit, label %77
 
-77:                                               ; preds = %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit
+77:                                               ; preds = %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit
   switch i32 %.val25, label %78 [
-    i32 26, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
-    i32 5, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
-    i32 27, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
-    i32 29, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
-    i32 30, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
-    i32 14, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
+    i32 26, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
+    i32 5, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
+    i32 27, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
+    i32 29, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
+    i32 30, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
+    i32 14, label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
   ]
 
 78:                                               ; preds = %77
@@ -1586,21 +1586,21 @@ _ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit: ; preds = %_ZL17compu
   %80 = icmp eq i32 %.sroa.0.0.extract.trunc.i, 2
   %or.cond.i = or i1 %.not2.i, %80
   %spec.select.i29 = select i1 %or.cond.i, i32 0, i32 %.sroa.0.0.extract.trunc.i
-  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
+  br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
 
-_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit: ; preds = %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit, %77, %77, %77, %77, %77, %77, %78
-  %.0.i = phi i32 [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.exit ], [ 1, %77 ], [ %spec.select.i29, %78 ]
+_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit: ; preds = %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit, %77, %77, %77, %77, %77, %77, %78
+  %.0.i = phi i32 [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %77 ], [ 1, %_ZL17computeDefaultCPURKN4llvm6TripleENS_9StringRefE.argprom.exit ], [ 1, %77 ], [ %spec.select.i29, %78 ]
   %.val27 = load i32, ptr %28, align 4
   %81 = and i64 %8, 4294967296
   %.not5.i = icmp eq i64 %81, 0
   br i1 %.not5.i, label %87, label %82
 
-82:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
+82:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
   %.sroa.0.0.extract.trunc.i30 = trunc i64 %8 to i32
   switch i32 %.sroa.0.0.extract.trunc.i30, label %83 [
-    i32 1, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+    i32 1, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
     i32 0, label %84
-    i32 4, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+    i32 4, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
   ]
 
 83:                                               ; preds = %82
@@ -1609,19 +1609,19 @@ _ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit: ;
 
 84:                                               ; preds = %82
   %85 = icmp eq i32 %.val27, 3
-  br i1 %85, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit, label %86
+  br i1 %85, label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit, label %86
 
 86:                                               ; preds = %84
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.120, i1 noundef zeroext true) #22
   unreachable
 
-87:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.exit
+87:                                               ; preds = %_ZL22getEffectiveRelocModelRKN4llvm6TripleESt8optionalINS_5Reloc5ModelEE.argprom.exit
   %88 = icmp ne i32 %.val25, 14
   %or.cond.not.i = and i1 %10, %88
   %spec.select.i32 = select i1 %or.cond.not.i, i32 4, i32 1
-  br label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+  br label %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
 
-_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit: ; preds = %82, %82, %84, %87
+_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit: ; preds = %82, %82, %84, %87
   %.0.i31 = phi i32 [ 0, %84 ], [ %.sroa.0.0.extract.trunc.i30, %82 ], [ %spec.select.i32, %87 ], [ %.sroa.0.0.extract.trunc.i30, %82 ]
   call void @_ZN4llvm17LLVMTargetMachineC2ERKNS_6TargetENS_9StringRefERKNS_6TripleES4_S4_RKNS_13TargetOptionsENS_5Reloc5ModelENS_9CodeModel5ModelENS_15CodeGenOptLevelE(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr %65, i64 %66, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %26, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(360) %6, i32 noundef %.0.i, i32 noundef %.0.i31, i32 noundef %9) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #21
@@ -1635,12 +1635,12 @@ _ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5Model
     i32 1, label %_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i
   ]
 
-_ZNSt10unique_ptrIN4llvm29AArch64_MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+_ZNSt10unique_ptrIN4llvm29AArch64_MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
   %91 = call noalias noundef nonnull dereferenceable(968) ptr @_Znwm(i64 noundef 968) #23, !noalias !16
   call void @_ZN4llvm29AArch64_MachoTargetObjectFileC1Ev(ptr noundef nonnull align 8 dereferenceable(968) %91) #21, !noalias !16
-  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
 
-_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
   %92 = call noalias noundef nonnull dereferenceable(984) ptr @_Znwm(i64 noundef 984) #23, !noalias !19
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 921
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(976) %92, i8 0, i64 976, i1 false), !noalias !19
@@ -1654,9 +1654,9 @@ _ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED
   store ptr null, ptr %97, align 8, !noalias !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %96, i8 0, i64 28, i1 false), !noalias !19
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm28AArch64_COFFTargetObjectFileE, i64 16), ptr %92, align 8, !noalias !19
-  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
 
-_ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.exit
+_ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZL28getEffectiveAArch64CodeModelRKN4llvm6TripleESt8optionalINS_9CodeModel5ModelEEb.argprom.exit
   %98 = call noalias noundef nonnull dereferenceable(1032) ptr @_Znwm(i64 noundef 1032) #23, !noalias !22
   call void @_ZN4llvm27TargetLoweringObjectFileELFC2Ev(ptr noundef nonnull align 8 dereferenceable(1026) %98) #21, !noalias !22
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN4llvm27AArch64_ELFTargetObjectFileE, i64 16), ptr %98, align 8, !noalias !22
@@ -1664,9 +1664,9 @@ _ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2
   store i16 12, ptr %99, align 8, !noalias !22
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 920
   store i8 1, ptr %100, align 8, !noalias !22
-  br label %_ZL10createTLOFRKN4llvm6TripleE.exit
+  br label %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
 
-_ZL10createTLOFRKN4llvm6TripleE.exit:             ; preds = %_ZNSt10unique_ptrIN4llvm29AArch64_MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i
+_ZL10createTLOFRKN4llvm6TripleE.argprom.exit:     ; preds = %_ZNSt10unique_ptrIN4llvm29AArch64_MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i
   %.sink.i = phi ptr [ %98, %_ZNSt10unique_ptrIN4llvm27AArch64_ELFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ], [ %92, %_ZNSt10unique_ptrIN4llvm28AArch64_COFFTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ], [ %91, %_ZNSt10unique_ptrIN4llvm29AArch64_MachoTargetObjectFileESt14default_deleteIS1_EED2Ev.exit.i ]
   store ptr %.sink.i, ptr %89, align 8, !alias.scope !13
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1240
@@ -1680,14 +1680,14 @@ _ZL10createTLOFRKN4llvm6TripleE.exit:             ; preds = %_ZNSt10unique_ptrIN
   %105 = icmp eq i32 %104, 5
   br i1 %105, label %106, label %110
 
-106:                                              ; preds = %_ZL10createTLOFRKN4llvm6TripleE.exit
+106:                                              ; preds = %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %108 = load i32, ptr %107, align 4
   %109 = or i32 %108, 1536
   store i32 %109, ptr %107, align 4
   br label %110
 
-110:                                              ; preds = %106, %_ZL10createTLOFRKN4llvm6TripleE.exit
+110:                                              ; preds = %106, %_ZL10createTLOFRKN4llvm6TripleE.argprom.exit
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 412
@@ -5677,43 +5677,43 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisM
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %13, ptr %7, align 8
-  br label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.i.i.i: ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pr.i.i.i = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.i.i.i
   %15 = load ptr, ptr %.pr.i.i.i, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %.pr.i.i.i) #21
-  br label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit"
+  br label %"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit"
 
-"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i.i.i.i
+"_ZSt10__invoke_rIvRZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0JRNS0_11PassManagerINS0_4LoopENS0_15AnalysisManagerIS7_JRNS0_27LoopStandardAnalysisResultsEEEEJSA_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.thread.i.i.i, %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_4LoopENS1_15AnalysisManagerIS4_JRNS1_27LoopStandardAnalysisResultsEEEEJS7_RNS1_10LPMUpdaterEEEESt14default_deleteISB_EESaISE_EE9push_backEOSE_.exit.i.i.i, %_ZNKSt14default_deleteIN4llvm6detail11PassConceptINS0_4LoopENS0_15AnalysisManagerIS3_JRNS0_27LoopStandardAnalysisResultsEEEEJS6_RNS0_10LPMUpdaterEEEEEclEPSA_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_4LoopENS0_15AnalysisManagerIS2_JRNS0_27LoopStandardAnalysisResultsEEEEJS5_RNS0_10LPMUpdaterEEEENS0_17OptimizationLevelEEZNS0_20AArch64TargetMachine28registerPassBuilderCallbacksERNS0_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #12 align 2 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
-    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit" [
+    i32 1, label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
     i32 0, label %4
   ]
 
 4:                                                ; preds = %3
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split": ; preds = %3, %4
+"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split": ; preds = %3, %4
   %.sink = phi ptr [ null, %4 ], [ %1, %3 ]
   store ptr %.sink, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split", %3
+"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit": ; preds = %"_ZNSt14_Function_base13_Base_managerIZN4llvm20AArch64TargetMachine28registerPassBuilderCallbacksERNS1_11PassBuilderEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.argprom.exit.sink.split", %3
   ret i1 false
 }
 
@@ -14266,8 +14266,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb: argument 0"}
-!6 = distinct !{!6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb"}
+!5 = distinct !{!5, !6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom: argument 0"}
+!6 = distinct !{!6, !"_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleERKNS_15MCTargetOptionsEb.argprom"}
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_: argument 0"}
 !9 = distinct !{!9, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_"}
@@ -14275,8 +14275,8 @@ attributes #25 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !12, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_: argument 0"}
 !12 = distinct !{!12, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZL10createTLOFRKN4llvm6TripleE: argument 0"}
-!15 = distinct !{!15, !"_ZL10createTLOFRKN4llvm6TripleE"}
+!14 = distinct !{!14, !15, !"_ZL10createTLOFRKN4llvm6TripleE.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZL10createTLOFRKN4llvm6TripleE.argprom"}
 !16 = !{!17, !14}
 !17 = distinct !{!17, !18, !"_ZSt11make_uniqueIN4llvm29AArch64_MachoTargetObjectFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !18 = distinct !{!18, !"_ZSt11make_uniqueIN4llvm29AArch64_MachoTargetObjectFileEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

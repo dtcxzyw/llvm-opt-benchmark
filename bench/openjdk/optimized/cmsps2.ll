@@ -283,7 +283,7 @@ WriteNamedColorCSA.exit.thread.i:                 ; preds = %50, %40
 85:                                               ; preds = %80
   %86 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %82) #9
   %87 = load ptr, ptr %86, align 8
-  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %87, ptr noundef %30)
+  call fastcc void @EmitCIEBasedA.retelim(ptr noundef %5, ptr noundef %87, ptr noundef %30)
   br label %WriteInputMatrixShaper.exit.thread.i
 
 88:                                               ; preds = %80
@@ -524,7 +524,7 @@ _cmsQuickSaturateWord.exit.i.i.i:                 ; preds = %187, %185, %179
 ExtractGray2Y.exit.i.i:                           ; preds = %197, %196
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  call fastcc void @EmitCIEBasedA(ptr noundef %5, ptr noundef %172, ptr noundef %27)
+  call fastcc void @EmitCIEBasedA.retelim(ptr noundef %5, ptr noundef %172, ptr noundef %27)
   call void @cmsFreeToneCurve(ptr noundef %172) #9
   br label %WriteInputLUT.exit.i
 
@@ -545,12 +545,12 @@ ExtractGray2Y.exit.i.i:                           ; preds = %197, %196
   %208 = load ptr, ptr %29, align 8
   %.val.i34.i = load ptr, ptr %208, align 8
   %209 = call i32 @cmsStageInputChannels(ptr noundef %.val.i34.i) #9
-  switch i32 %209, label %EmitCIEBasedDEF.exit.thread.i.i [
+  switch i32 %209, label %EmitCIEBasedDEF.argprom.exit.thread.i.i [
     i32 3, label %212
     i32 4, label %211
   ]
 
-EmitCIEBasedDEF.exit.thread.i.i:                  ; preds = %204
+EmitCIEBasedDEF.argprom.exit.thread.i.i:          ; preds = %204
   %210 = load ptr, ptr %29, align 8
   call void @cmsPipelineFree(ptr noundef %210) #9
   br label %WriteInputLUT.exit.thread.i
@@ -675,15 +675,15 @@ EmitNGamma.exit.i.i41.i:                          ; preds = %240, %.lr.ph.i.i.i3
   %277 = load double, ptr %276, align 8
   %278 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.42, double noundef %271, double noundef %274, double noundef %277) #9
   %279 = icmp ult i32 %3, 4
-  br i1 %279, label %switch.lookup, label %EmitCIEBasedDEF.exit.i.i
+  br i1 %279, label %switch.lookup, label %EmitCIEBasedDEF.argprom.exit.i.i
 
 switch.lookup:                                    ; preds = %250
   %280 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.cmsGetPostScriptColorResource.6, i64 0, i64 %280
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %EmitCIEBasedDEF.exit.i.i
+  br label %EmitCIEBasedDEF.argprom.exit.i.i
 
-EmitCIEBasedDEF.exit.i.i:                         ; preds = %250, %switch.lookup
+EmitCIEBasedDEF.argprom.exit.i.i:                 ; preds = %250, %switch.lookup
   %.0.i.i28.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.47, %250 ]
   %281 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i28.i.i) #9
   %282 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.63) #9
@@ -697,7 +697,7 @@ EmitCIEBasedDEF.exit.i.i:                         ; preds = %250, %switch.lookup
   call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %286, i32 noundef 9, ptr noundef nonnull @.str.54, i32 noundef %158) #9
   br label %WriteInputLUT.exit.thread.i
 
-WriteInputLUT.exit.thread.i:                      ; preds = %285, %EmitCIEBasedDEF.exit.thread.i.i, %199, %167
+WriteInputLUT.exit.thread.i:                      ; preds = %285, %EmitCIEBasedDEF.argprom.exit.thread.i.i, %199, %167
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
@@ -706,7 +706,7 @@ WriteInputLUT.exit.thread.i:                      ; preds = %285, %EmitCIEBasedD
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   br label %290
 
-WriteInputLUT.exit.i:                             ; preds = %EmitCIEBasedDEF.exit.i.i, %ExtractGray2Y.exit.i.i
+WriteInputLUT.exit.i:                             ; preds = %EmitCIEBasedDEF.argprom.exit.i.i, %ExtractGray2Y.exit.i.i
   call void @cmsDeleteTransform(ptr noundef nonnull %164) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
@@ -730,7 +730,7 @@ GenerateCSA.exit:                                 ; preds = %WriteNamedColorCSA.
   %.0.i = phi i32 [ %289, %287 ], [ 0, %290 ], [ %71, %.thread.i ], [ 0, %74 ], [ 0, %75 ], [ 0, %WriteNamedColorCSA.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  br label %GenerateCRD.exit
+  br label %GenerateCRD.argprom.exit
 
 291:                                              ; preds = %6
   %292 = and i32 %4, 16777216
@@ -800,7 +800,7 @@ RemoveCR.exit.i.i:                                ; preds = %309
   %.0.i17.i.i = phi ptr [ @RemoveCR.Buffer, %RemoveCR.exit.i.i ], [ %320, %319 ]
   %317 = load i8, ptr %.0.i17.i.i, align 1
   switch i8 %317, label %319 [
-    i8 0, label %EmitHeader.exit.i
+    i8 0, label %EmitHeader.argprom.exit.i
     i8 10, label %318
     i8 13, label %318
   ]
@@ -813,7 +813,7 @@ RemoveCR.exit.i.i:                                ; preds = %309
   %320 = getelementptr inbounds i8, ptr %.0.i17.i.i, i64 1
   br label %316, !llvm.loop !13
 
-EmitHeader.exit.i:                                ; preds = %316
+EmitHeader.argprom.exit.i:                        ; preds = %316
   %321 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.87, ptr noundef nonnull @RemoveCR.Buffer) #9
   %322 = call ptr @ctime(ptr noundef nonnull %19) #9
   %323 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %5, ptr noundef nonnull @.str.88, ptr noundef %322) #9
@@ -824,7 +824,7 @@ EmitHeader.exit.i:                                ; preds = %316
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %21)
   br label %326
 
-326:                                              ; preds = %EmitHeader.exit.i, %291
+326:                                              ; preds = %EmitHeader.argprom.exit.i, %291
   %327 = call i32 @cmsGetDeviceClass(ptr noundef %2) #9
   %328 = icmp eq i32 %327, 1852662636
   br i1 %328, label %329, label %371
@@ -948,7 +948,7 @@ WriteNamedColorCRD.exit.thread.i:                 ; preds = %338, %329
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  br label %GenerateCRD.exit
+  br label %GenerateCRD.argprom.exit
 
 WriteNamedColorCRD.exit.i:                        ; preds = %369, %._crit_edge.i.i
   call void @cmsDeleteTransform(ptr noundef nonnull %333) #9
@@ -1133,7 +1133,7 @@ WriteOutputLUT.exit.thread.i:                     ; preds = %396, %389, %371
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  br label %GenerateCRD.exit
+  br label %GenerateCRD.argprom.exit
 
 WriteOutputLUT.exit.i:                            ; preds = %467, %EmitIntent.exit.i.i
   %469 = load ptr, ptr %10, align 8
@@ -1158,9 +1158,9 @@ WriteOutputLUT.exit.i:                            ; preds = %467, %EmitIntent.ex
 474:                                              ; preds = %471, %470
   %475 = getelementptr inbounds i8, ptr %5, i64 16
   %476 = load i32, ptr %475, align 8
-  br label %GenerateCRD.exit
+  br label %GenerateCRD.argprom.exit
 
-GenerateCRD.exit:                                 ; preds = %474, %WriteOutputLUT.exit.thread.i, %WriteNamedColorCRD.exit.thread.i, %GenerateCSA.exit
+GenerateCRD.argprom.exit:                         ; preds = %474, %WriteOutputLUT.exit.thread.i, %WriteNamedColorCRD.exit.thread.i, %GenerateCSA.exit
   %.0 = phi i32 [ %.0.i, %GenerateCSA.exit ], [ %476, %474 ], [ 0, %WriteNamedColorCRD.exit.thread.i ], [ 0, %WriteOutputLUT.exit.thread.i ]
   ret i32 %.0
 }
@@ -1264,7 +1264,7 @@ declare i32 @cmsDetectBlackPoint(ptr noundef, ptr noundef, i32 noundef, i32 noun
 declare ptr @_cmsStageGetPtrToCurveSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @EmitCIEBasedA(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @EmitCIEBasedA.retelim(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.10) #9
   %5 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.11) #9
   %6 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.12) #9

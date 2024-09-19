@@ -1899,12 +1899,12 @@ define internal fastcc void @page_fault_oops(ptr noundef %0, i64 noundef %1, i64
   %135 = load i16, ptr %7, align 2
   %.val = load i16, ptr %6, align 2
   %.val1 = load i64, ptr %130, align 2
-  call fastcc void @show_ldttss(i16 %.val, i64 %.val1, ptr noundef nonnull @.str.28, i16 noundef zeroext %135)
+  call fastcc void @show_ldttss.argprom(i16 %.val, i64 %.val1, ptr noundef nonnull @.str.28, i16 noundef zeroext %135)
   %136 = call i64 asm sideeffect "str $0", "=r,~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !62
   %137 = trunc i64 %136 to i16
   %.val2 = load i16, ptr %6, align 2
   %.val3 = load i64, ptr %130, align 2
-  call fastcc void @show_ldttss(i16 %.val2, i64 %.val3, ptr noundef nonnull @.str.29, i16 noundef zeroext %137)
+  call fastcc void @show_ldttss.argprom(i16 %.val2, i64 %.val3, ptr noundef nonnull @.str.29, i16 noundef zeroext %137)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #14
@@ -2150,7 +2150,7 @@ declare dso_local zeroext i1 @oops_may_print() local_unnamed_addr #0
 declare dso_local ptr @lookup_address_in_pgd(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @show_ldttss(i16 %.0.val, i64 %.2.val, ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #13 align 16 {
+define internal fastcc void @show_ldttss.argprom(i16 %.0.val, i64 %.2.val, ptr noundef %0, i16 noundef zeroext %1) unnamed_addr #13 align 16 {
   %3 = alloca %struct.ldttss_desc, align 2
   %4 = zext i16 %1 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14

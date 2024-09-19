@@ -218,29 +218,29 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %.val155.fr.i = freeze i64 %.val157.i
   %28 = getelementptr inbounds i8, ptr %1, i64 24
   %.val158.i = load i64, ptr %28, align 8, !alias.scope !9, !noalias !6
-  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i"
+  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i"
 
-"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i": ; preds = %..loopexit_crit_edge.us.i, %.preheader254.i
+"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i": ; preds = %..loopexit_crit_edge.us.i, %.preheader254.i
   %.sroa.0112.0258.us.i = phi i64 [ 0, %.preheader254.i ], [ %32, %..loopexit_crit_edge.us.i ]
   %.sroa.06.0257.us.i = phi i64 [ 0, %.preheader254.i ], [ %.sroa.0.0.sroa.speculated.i.us.i, %..loopexit_crit_edge.us.i ]
   %invariant.gep.us.i = getelementptr double, ptr %26, i64 %.sroa.0112.0258.us.i
-  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i"
+  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i"
 
-"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i", %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i"
-  %.sroa.0114.0256.us.i = phi i64 [ 0, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i" ], [ %29, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i" ]
-  %.sroa.06.1255.us.i = phi i64 [ %.sroa.06.0257.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i" ], [ %.sroa.0.0.sroa.speculated.i.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i" ]
+"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i", %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i"
+  %.sroa.0114.0256.us.i = phi i64 [ 0, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i" ], [ %29, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i" ]
+  %.sroa.06.1255.us.i = phi i64 [ %.sroa.06.0257.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i" ], [ %.sroa.0.0.sroa.speculated.i.us.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i" ]
   %29 = add nuw i64 %.sroa.0114.0256.us.i, 1
   %30 = mul i64 %.sroa.0114.0256.us.i, %20
   %gep.us.i = getelementptr double, ptr %invariant.gep.us.i, i64 %30
-  %31 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
+  %31 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
   %.sroa.0.0.sroa.speculated.i.us.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.06.1255.us.i, i64 %31)
   %exitcond.not.i = icmp eq i64 %29, %22
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i"
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i"
 
-..loopexit_crit_edge.us.i:                        ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.us.i"
+..loopexit_crit_edge.us.i:                        ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.us.i"
   %32 = add nuw i64 %.sroa.0112.0258.us.i, 1
   %exitcond279.not.i = icmp eq i64 %32, %20
-  br i1 %exitcond279.not.i, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.exit206.lr.ph.us.i"
+  br i1 %exitcond279.not.i, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h0b90919bb44cb52bE.argprom.exit206.lr.ph.us.i"
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
   %33 = getelementptr inbounds i8, ptr %1, i64 32
@@ -260,9 +260,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i:
   %40 = getelementptr inbounds i8, ptr %.val152.i, i64 24
   %41 = load ptr, ptr %40, align 8, !invariant.load !4, !noalias !12, !nonnull !4
   %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.69, i64 noundef 1), !noalias !16
-  br i1 %42, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i
+  br i1 %42, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit170.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit170.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i
   %43 = add i64 %.sroa.0.0.sroa.speculated.i.us.i, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !12
   %44 = mul i64 %43, %22
@@ -306,7 +306,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i: ; preds = %_ZN4c
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !12
   br i1 %47, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %.split263.us.i
 
-.split263.us.i:                                   ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i
+.split263.us.i:                                   ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit170.i
   %.sroa.489.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   %48 = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.493.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 24
@@ -356,14 +356,14 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us
 
 .preheader.us.us.i:                               ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.us.i
   %invariant.gep.us267.us.i = getelementptr double, ptr %26, i64 %.sroa.0116.0.us.us.i
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us.us.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i: ; preds = %58, %.preheader.us.us.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us.us.us.i: ; preds = %58, %.preheader.us.us.i
   %.sroa.0118.0259.us.us.us.i = phi i64 [ 0, %.preheader.us.us.i ], [ %52, %58 ]
   %52 = add nuw i64 %.sroa.0118.0259.us.us.us.i, 1
   %53 = mul i64 %.sroa.0118.0259.us.us.us.i, %20
   %gep.us260.us.us.i = getelementptr double, ptr %invariant.gep.us267.us.i, i64 %53
-  %54 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us260.us.us.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
+  %54 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us260.us.us.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
   %55 = sub i64 %.sroa.0.0.sroa.speculated.i.us.i, %54
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !12
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %15, align 8, !noalias !12
@@ -388,9 +388,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i: ; preds
   store i64 1, ptr %.sroa.11235.0..sroa_idx.i, align 8, !noalias !12
   %56 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val152.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !noalias !25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !25
-  br i1 %56, label %.split.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i
+  br i1 %56, label %.split.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit204.us.us.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit204.us.us.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us.us.us.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !12
@@ -419,9 +419,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i: ; preds
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !12
   br i1 %57, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %58
 
-58:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i
+58:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit204.us.us.us.i
   %exitcond282.not.i = icmp eq i64 %52, %22
-  br i1 %exitcond282.not.i, label %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i
+  br i1 %exitcond282.not.i, label %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us.us.us.i
 
 ._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i: ; preds = %58
   %59 = call noundef zeroext i1 %41(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.82, i64 noundef 5), !noalias !31
@@ -437,12 +437,12 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us
   %61 = call noundef zeroext i1 %41(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.80, i64 noundef 5), !noalias !22
   br i1 %61, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %.preheader.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i: ; preds = %.preheader.us.i, %68
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us264.i: ; preds = %.preheader.us.i, %68
   %.sroa.0118.0259.us265.i = phi i64 [ 0, %.preheader.us.i ], [ %62, %68 ]
   %62 = add nuw i64 %.sroa.0118.0259.us265.i, 1
   %63 = mul i64 %.sroa.0118.0259.us265.i, %20
   %gep.us266.i = getelementptr double, ptr %invariant.gep.us267.i, i64 %63
-  %64 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us266.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
+  %64 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %gep.us266.i, i64 %.val155.fr.i, i64 %.val158.i), !noalias !12
   %65 = sub i64 %.sroa.0.0.sroa.speculated.i.us.i, %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !12
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %15, align 8, !noalias !12
@@ -467,9 +467,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i: ; preds = 
   store i64 1, ptr %.sroa.11235.0..sroa_idx.i, align 8, !noalias !12
   %66 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val152.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !noalias !25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !25
-  br i1 %66, label %.split.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i
+  br i1 %66, label %.split.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit196.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit196.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us264.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !12
@@ -486,13 +486,13 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !12
   br i1 %67, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit", label %68
 
-68:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i
+68:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit196.us.i
   %exitcond280.not.i = icmp eq i64 %62, %22
-  br i1 %exitcond280.not.i, label %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i
+  br i1 %exitcond280.not.i, label %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us264.i
 
 .preheader.us.i:                                  ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.i
   %invariant.gep.us267.i = getelementptr double, ptr %26, i64 %.sroa.0116.0.us.i
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us264.i
 
 ._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i: ; preds = %68
   %69 = call noundef zeroext i1 %41(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.82, i64 noundef 5), !noalias !31
@@ -535,7 +535,7 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i: ; preds = %_Z
   store ptr %9, ptr %74, align 8, !noalias !12
   %75 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 2, ptr %75, align 8, !noalias !12
-  %76 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %10), !noalias !12
+  %76 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %10), !noalias !12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !12
@@ -552,17 +552,17 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i: ; preds = %_Z
   store ptr inttoptr (i64 8 to ptr), ptr %80, align 8, !noalias !12
   %81 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 0, ptr %81, align 8, !noalias !12
-  %82 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %7), !noalias !12
+  %82 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %7), !noalias !12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !12
   br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit"
 
-.split.us.i:                                      ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us264.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit188.us.us.us.i
+.split.us.i:                                      ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us264.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit188.us.us.us.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !12
   br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit"
 
-"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i, %.split271.us.i, %77, %.split.us.i
-  %.sroa.0.0.shrunk.i = phi i1 [ %82, %77 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i ], [ true, %.split.us.i ], [ %37, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit170.i ], [ true, %.split271.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit204.us.us.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit196.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.i ]
+"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17hd3762af269b2b826E.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit196.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.us.i, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit204.us.us.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit170.i, %.split271.us.i, %77, %.split.us.i
+  %.sroa.0.0.shrunk.i = phi i1 [ %82, %77 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i159.i ], [ true, %.split.us.i ], [ %37, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit170.i ], [ true, %.split271.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit204.us.us.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us.us.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit196.us.i ], [ true, %._ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i177_crit_edge.split.us268.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i171.us.i ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11.i)
   ret i1 %.sroa.0.0.shrunk.i
 }
@@ -600,7 +600,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   %.val157.i = load i64, ptr %23, align 8, !range !11, !alias.scope !37, !noundef !4
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %.val158.i = load i64, ptr %24, align 8, !alias.scope !37
-  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i"
+  br label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i"
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; preds = %2
   %25 = getelementptr inbounds i8, ptr %1, i64 32
@@ -610,9 +610,9 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i: ; 
   %27 = getelementptr inbounds i8, ptr %.val154.i, i64 24
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !noalias !40, !nonnull !4
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 1 %.val153.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.67, i64 noundef 3), !noalias !40
-  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit"
+  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit"
 
-_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i: ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i"
+_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i: ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i"
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %.val151.i = load ptr, ptr %30, align 8, !alias.scope !37, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %1, i64 40
@@ -620,19 +620,19 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i:
   %32 = getelementptr inbounds i8, ptr %.val152.i, i64 24
   %33 = load ptr, ptr %32, align 8, !invariant.load !4, !noalias !37, !nonnull !4
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.69, i64 noundef 1), !noalias !43
-  br i1 %34, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i
+  br i1 %34, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit179.i
 
-"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i", %.preheader.i
-  %.sroa.0112.050.i = phi i64 [ 0, %.preheader.i ], [ %35, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i" ]
-  %.sroa.06.049.i = phi i64 [ 0, %.preheader.i ], [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i" ]
+"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i": ; preds = %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i", %.preheader.i
+  %.sroa.0112.050.i = phi i64 [ 0, %.preheader.i ], [ %35, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i" ]
+  %.sroa.06.049.i = phi i64 [ 0, %.preheader.i ], [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i" ]
   %35 = add nuw i64 %.sroa.0112.050.i, 1
   %36 = getelementptr double, ptr %.val, i64 %.sroa.0112.050.i
-  %37 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %36, i64 %.val157.i, i64 %.val158.i), !noalias !37
+  %37 = tail call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %36, i64 %.val157.i, i64 %.val158.i), !noalias !37
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.06.049.i, i64 %37)
   %exitcond.not.i = icmp eq i64 %35, %.val1
-  br i1 %exitcond.not.i, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.exit215.i"
+  br i1 %exitcond.not.i, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i, label %"_ZN8nalgebra4base3ops134_$LT$impl$u20$core..ops..index..Index$LT$$LP$usize$C$usize$RP$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$5index17h07a3c7818eef0299E.argprom.exit215.i"
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit179.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !37
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %17, align 8, !noalias !37
   %.sroa.474.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
@@ -671,9 +671,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i: ; preds = %_ZN4c
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !46
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !37
-  br i1 %39, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %40
+  br i1 %39, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %40
 
-40:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i
+40:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit179.i
   %.sroa.489.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
   %41 = getelementptr inbounds i8, ptr %15, i64 16
   %.sroa.493.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 24
@@ -713,16 +713,16 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i: ; preds = %_ZN4c
 .split.us.i:                                      ; preds = %40, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i
   %.sroa.0116.0.us.i = phi i64 [ %43, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i ], [ 0, %40 ]
   %exitcond61.not.i = icmp eq i64 %.sroa.0116.0.us.i, %.val1
-  br i1 %exitcond61.not.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i
+  br i1 %exitcond61.not.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i: ; preds = %.split.us.i
   %43 = add i64 %.sroa.0116.0.us.i, 1
   %44 = call noundef zeroext i1 %33(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.80, i64 noundef 5), !noalias !49
-  br i1 %44, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.us.i
+  br i1 %44, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.us.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.us.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i
   %45 = getelementptr double, ptr %.val, i64 %.sroa.0116.0.us.i
-  %46 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %45, i64 %.val157.i, i64 %.val158.i), !noalias !37
+  %46 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %45, i64 %.val157.i, i64 %.val158.i), !noalias !37
   %47 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !37
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %15, align 8, !noalias !37
@@ -746,9 +746,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.us.i: ; preds = %_Z
   store i64 1, ptr %.sroa.1129.0..sroa_idx.i, align 8, !noalias !37
   %48 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val152.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !52
-  br i1 %48, label %.split54.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i
+  br i1 %48, label %.split54.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit213.us.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.us.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit213.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.us.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !37
@@ -775,18 +775,18 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !55
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !37
-  br i1 %49, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i
+  br i1 %49, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i
 
-_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i
+_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit213.us.i
   %50 = call noundef zeroext i1 %33(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.82, i64 noundef 5), !noalias !58
-  br i1 %50, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %.split.us.i
+  br i1 %50, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %.split.us.i
 
 .split.i:                                         ; preds = %40, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i
   %.sroa.0116.0.i = phi i64 [ %53, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i ], [ 0, %40 ]
   %exitcond60.not.i = icmp eq i64 %.sroa.0116.0.i, %.val1
-  br i1 %exitcond60.not.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i
+  br i1 %exitcond60.not.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %.split.i, %.split.us.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit: ; preds = %.split.i, %.split.us.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !37
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %10, align 8, !noalias !37
   %.sroa.485.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
@@ -825,14 +825,14 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit: ; preds = %.split.i, 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !61
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !37
-  br i1 %52, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %55
+  br i1 %52, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %55
 
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i: ; preds = %.split.i
   %53 = add i64 %.sroa.0116.0.i, 1
   %54 = call noundef zeroext i1 %33(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.80, i64 noundef 5), !noalias !49
-  br i1 %54, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i
+  br i1 %54, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.i
 
-55:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit
+55:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !37
   store ptr @anon.c16ec26a086e09edb08393af91730684.70, ptr %8, align 8, !noalias !37
   %56 = getelementptr inbounds i8, ptr %8, i64 8
@@ -843,13 +843,13 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i:
   store ptr inttoptr (i64 8 to ptr), ptr %58, align 8, !noalias !37
   %59 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 0, ptr %59, align 8, !noalias !37
-  %60 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %8), !noalias !37
+  %60 = call fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom(ptr nonnull %.val151.i, ptr nonnull %.val152.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %8), !noalias !37
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !37
-  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit"
+  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit"
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.i: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i
   %61 = getelementptr double, ptr %.val, i64 %.sroa.0116.0.i
-  %62 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef readonly align 8 dereferenceable(8) %61, i64 %.val157.i, i64 %.val158.i), !noalias !37
+  %62 = call fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef readonly align 8 dereferenceable(8) %61, i64 %.val157.i, i64 %.val158.i), !noalias !37
   %63 = sub i64 %.sroa.0.0.sroa.speculated.i.i, %62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !37
   store ptr @anon.c16ec26a086e09edb08393af91730684.74, ptr %15, align 8, !noalias !37
@@ -873,9 +873,9 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i: ; preds = %_ZN4c
   store i64 1, ptr %.sroa.1129.0..sroa_idx.i, align 8, !noalias !37
   %64 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val152.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6), !noalias !52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !52
-  br i1 %64, label %.split54.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i
+  br i1 %64, label %.split54.us.i, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit205.i
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit205.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !37
@@ -890,19 +890,19 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i: ; preds = %_ZN4c
   %65 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val152.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5), !noalias !64
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !37
-  br i1 %65, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i
+  br i1 %65, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i
 
-.split54.us.i:                                    ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit197.us.i
+.split54.us.i:                                    ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit197.us.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !37
-  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit"
+  br label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit"
 
-_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i
+_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit205.i
   %66 = call noundef zeroext i1 %33(ptr noundef nonnull align 1 %.val151.i, ptr noalias noundef nonnull readonly align 1 @anon.c16ec26a086e09edb08393af91730684.82, i64 noundef 5), !noalias !58
-  br i1 %66, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit", label %.split.i
+  br i1 %66, label %"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit", label %.split.i
 
-"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit, %55, %.split54.us.i
-  %.sroa.0.0.shrunk.i = phi i1 [ %60, %55 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i ], [ true, %.split54.us.i ], [ %29, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit179.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit213.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit205.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i ]
+"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom.exit": ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit205.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit213.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit179.i, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit, %55, %.split54.us.i
+  %.sroa.0.0.shrunk.i = phi i1 [ %60, %55 ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i168.i ], [ true, %.split54.us.i ], [ %29, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit179.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.us.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit213.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.us.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i186.critedge.i ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom.exit205.i ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i180.i ]
   ret i1 %.sroa.0.0.shrunk.i
 }
 
@@ -951,7 +951,7 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E(ptr %.32.val, ptr %.40.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom(ptr %.32.val, ptr %.40.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit:
   %1 = alloca [48 x i8], align 8
   %2 = icmp ne ptr %.32.val, null
@@ -2451,7 +2451,7 @@ define hidden void @"_ZN8nalgebra6linalg5solve69_$LT$impl$u20$nalgebra..base..ma
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %.16.val, i64 %.24.val) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt9val_width17hcae4d48b7b9206c5E.argprom"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i64 %.16.val, i64 %.24.val) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [48 x i8], align 8
@@ -2759,59 +2759,59 @@ attributes #19 = { cold noreturn nounwind }
 !11 = !{i64 0, i64 2}
 !12 = !{!7, !10}
 !13 = !{!14, !7, !10}
-!14 = distinct !{!14, !15, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!15 = distinct !{!15, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!14 = distinct !{!14, !15, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!15 = distinct !{!15, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !16 = !{!17, !7, !10}
-!17 = distinct !{!17, !18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!18 = distinct !{!18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!17 = distinct !{!17, !18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!18 = distinct !{!18, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !19 = !{!20, !7, !10}
-!20 = distinct !{!20, !21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!21 = distinct !{!21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!20 = distinct !{!20, !21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!21 = distinct !{!21, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !22 = !{!23, !7, !10}
-!23 = distinct !{!23, !24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!24 = distinct !{!24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!23 = distinct !{!23, !24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!24 = distinct !{!24, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !25 = !{!26, !7, !10}
-!26 = distinct !{!26, !27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!27 = distinct !{!27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!26 = distinct !{!26, !27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!27 = distinct !{!27, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !28 = !{!29, !7, !10}
-!29 = distinct !{!29, !30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!30 = distinct !{!30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!29 = distinct !{!29, !30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!30 = distinct !{!30, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !31 = !{!32, !7, !10}
-!32 = distinct !{!32, !33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!33 = distinct !{!33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!32 = distinct !{!32, !33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!33 = distinct !{!33, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !34 = !{!35, !7, !10}
-!35 = distinct !{!35, !36, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!35 = distinct !{!35, !36, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!36 = distinct !{!36, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE: argument 0"}
-!39 = distinct !{!39, !"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE"}
+!38 = distinct !{!38, !39, !"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom: argument 0"}
+!39 = distinct !{!39, !"_ZN90_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he6cd07f6d640c05eE.argprom"}
 !40 = !{!41, !38}
-!41 = distinct !{!41, !42, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!42 = distinct !{!42, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!41 = distinct !{!41, !42, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!42 = distinct !{!42, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !43 = !{!44, !38}
-!44 = distinct !{!44, !45, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!45 = distinct !{!45, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!44 = distinct !{!44, !45, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!45 = distinct !{!45, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !46 = !{!47, !38}
-!47 = distinct !{!47, !48, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!48 = distinct !{!48, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!47 = distinct !{!47, !48, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!48 = distinct !{!48, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !49 = !{!50, !38}
-!50 = distinct !{!50, !51, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!51 = distinct !{!51, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!50 = distinct !{!50, !51, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!51 = distinct !{!51, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !52 = !{!53, !38}
-!53 = distinct !{!53, !54, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!54 = distinct !{!54, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!53 = distinct !{!53, !54, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!54 = distinct !{!54, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !55 = !{!56, !38}
-!56 = distinct !{!56, !57, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!57 = distinct !{!57, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!56 = distinct !{!56, !57, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!57 = distinct !{!57, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !58 = !{!59, !38}
-!59 = distinct !{!59, !60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!60 = distinct !{!60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!59 = distinct !{!59, !60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!60 = distinct !{!60, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !61 = !{!62, !38}
-!62 = distinct !{!62, !63, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!63 = distinct !{!63, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!62 = distinct !{!62, !63, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!63 = distinct !{!63, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !64 = !{!65, !38}
-!65 = distinct !{!65, !66, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E: argument 0"}
-!66 = distinct !{!66, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E"}
+!65 = distinct !{!65, !66, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom: argument 0"}
+!66 = distinct !{!66, !"_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.argprom"}
 !67 = !{!68}
 !68 = distinct !{!68, !69, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h3660adb498a929b7E.llvm.4752837998330011175: argument 0"}
 !69 = distinct !{!69, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h3660adb498a929b7E.llvm.4752837998330011175"}

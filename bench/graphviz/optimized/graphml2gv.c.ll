@@ -120,7 +120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %20 = load ptr, ptr @optarg, align 8
   %21 = tail call noalias ptr @fopen(ptr noundef %20, ptr noundef nonnull @.str.2)
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %openFile.exit.i
+  br i1 %22, label %23, label %openFile.argprom.exit.i
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr @stderr, align 8
@@ -129,11 +129,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call fastcc void @graphviz_exit(i32 noundef 1) #26
   unreachable
 
-openFile.exit.i:                                  ; preds = %18
+openFile.argprom.exit.i:                          ; preds = %18
   store ptr %21, ptr @outFile, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %openFile.exit.i, %13, %11
+.backedge:                                        ; preds = %openFile.argprom.exit.i, %13, %11
   br label %9
 
 26:                                               ; preds = %9
@@ -285,7 +285,7 @@ getFile.exit:                                     ; preds = %58
   br i1 %or.cond.i, label %nameOf.exit, label %94
 
 94:                                               ; preds = %.preheader
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef %5, ptr nonnull poison, ptr noundef nonnull %91, i32 noundef %.1)
+  call void (ptr, ptr, ...) @agxbprint.retelim(ptr noundef %5, ptr nonnull poison, ptr noundef nonnull %91, i32 noundef %.1)
   %.val.i.i.i.i = load i8, ptr %51, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
   br i1 %.not.i.i.i.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.i.i.thread
@@ -494,7 +494,7 @@ graphml_to_gv.exit:                               ; preds = %.lr.ph.i.i.i, %.loo
   call fastcc void @stack_reset(ptr noundef nonnull @Gstack)
   %.val = load ptr, ptr %5, align 8
   %.val16 = load i8, ptr %51, align 1
-  call fastcc void @agxbfree(ptr %.val, i8 %.val16)
+  call fastcc void @agxbfree.argprom(ptr %.val, i8 %.val16)
   call fastcc void @graphviz_exit(i32 noundef %.021) #26
   unreachable
 }
@@ -529,7 +529,7 @@ define internal fastcc void @stack_reset(ptr nocapture noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @agxbfree(ptr nocapture %.0.val, i8 %.31.val) unnamed_addr #5 {
+define internal fastcc void @agxbfree.argprom(ptr nocapture %.0.val, i8 %.31.val) unnamed_addr #5 {
   %1 = icmp eq i8 %.31.val, -1
   br i1 %1, label %2, label %3
 
@@ -1018,14 +1018,14 @@ get_xml_attr.exit105:                             ; preds = %.lr.ph.i100.tail
   %203 = load ptr, ptr @root, align 8
   %204 = tail call ptr @agattr(ptr noundef %203, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef null) #23
   %.not.i106 = icmp eq ptr %204, null
-  br i1 %.not.i106, label %205, label %setEdgeAttr.exit
+  br i1 %.not.i106, label %205, label %setEdgeAttr.argprom.exit
 
 205:                                              ; preds = %get_xml_attr.exit105
   %206 = load ptr, ptr @root, align 8
   %207 = tail call ptr @agattr(ptr noundef %206, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.16) #23
-  br label %setEdgeAttr.exit
+  br label %setEdgeAttr.argprom.exit
 
-setEdgeAttr.exit:                                 ; preds = %get_xml_attr.exit105, %205
+setEdgeAttr.argprom.exit:                         ; preds = %get_xml_attr.exit105, %205
   %.2.i = phi ptr [ %204, %get_xml_attr.exit105 ], [ %207, %205 ]
   %208 = tail call i32 @agxset(ptr noundef %198, ptr noundef %.2.i, ptr noundef %202) #23
   br label %get_xml_attr.exit83.thread
@@ -1035,7 +1035,7 @@ setEdgeAttr.exit:                                 ; preds = %get_xml_attr.exit10
   %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.31, ptr noundef %1) #24
   br label %get_xml_attr.exit83.thread
 
-get_xml_attr.exit83.thread:                       ; preds = %195, %107, %179, %91, %pushString.exit, %209, %setEdgeAttr.exit, %157, %pushString.exit84, %3
+get_xml_attr.exit83.thread:                       ; preds = %195, %107, %179, %91, %pushString.exit, %209, %setEdgeAttr.argprom.exit, %157, %pushString.exit84, %3
   ret void
 }
 
@@ -1280,7 +1280,7 @@ declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #11 {
+define internal void @agxbprint.retelim(ptr nocapture noundef nonnull %0, ptr nocapture readnone %1, ...) unnamed_addr #11 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -1293,7 +1293,7 @@ define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture 
 
 7:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
 8:                                                ; preds = %2
   %narrow.i = add nuw i32 %5, 1
@@ -1348,7 +1348,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.38, ptr noundef nonnull %4) #23
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %vagxbprint.exit
+  br i1 %32, label %33, label %vagxbprint.argprom.exit
 
 33:                                               ; preds = %agxbnext.exit.i
   %.val.i = load i8, ptr %10, align 1
@@ -1359,7 +1359,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %35 = trunc i32 %31 to i8
   %36 = add i8 %.val.i, %35
   store i8 %36, ptr %10, align 1
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
@@ -1367,9 +1367,9 @@ agxbnext.exit.i:                                  ; preds = %25, %22
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  br label %vagxbprint.exit
+  br label %vagxbprint.argprom.exit
 
-vagxbprint.exit:                                  ; preds = %7, %agxbnext.exit.i, %34, %37
+vagxbprint.argprom.exit:                          ; preds = %7, %agxbnext.exit.i, %34, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void

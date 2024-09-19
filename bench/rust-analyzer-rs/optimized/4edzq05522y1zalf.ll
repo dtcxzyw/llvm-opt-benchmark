@@ -368,7 +368,7 @@ define void @_ZN3mbe13syntax_bridge16doc_comment_text17hec2d038856f8115aE(ptr no
   %.val = load ptr, ptr %14, align 8, !nonnull !7, !noundef !7
   %.val.i = load i64, ptr %.val, align 8, !range !55, !noundef !7
   %switch.not.not.i = icmp eq i64 %.val.i, 0
-  br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit, label %15
+  br i1 %switch.not.not.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit, label %15
 
 15:                                               ; preds = %2
   %16 = getelementptr i8, ptr %.val, i64 8
@@ -376,15 +376,15 @@ define void @_ZN3mbe13syntax_bridge16doc_comment_text17hec2d038856f8115aE(ptr no
   %17 = getelementptr inbounds i8, ptr %.val5.i, i64 8
   %18 = load i64, ptr %17, align 8, !noundef !7
   %19 = getelementptr inbounds i8, ptr %.val5.i, i64 16
-  br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit
+  br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit
 
-_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit: ; preds = %2, %15
+_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit: ; preds = %2, %15
   %.sroa.3.0.i = phi i64 [ %18, %15 ], [ 0, %2 ]
   %.sroa.0.0.i = phi ptr [ %19, %15 ], [ @anon.943a3ed84a6e38d1c804328418f4af13.3, %2 ]
   %20 = icmp eq i64 %13, 0
   br i1 %20, label %30, label %21
 
-21:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit
+21:                                               ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit
   %.not.i.i = icmp ult i64 %13, %.sroa.3.0.i
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %22
 
@@ -404,8 +404,8 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit: ; preds = %2, %15
   tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, i64 noundef %13, i64 noundef %.sroa.3.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.943a3ed84a6e38d1c804328418f4af13.26) #17
   unreachable
 
-30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %22, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit
-  %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %24, %22 ], [ %.sroa.3.0.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.exit ]
+30:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %22, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit
+  %31 = phi i64 [ %28, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ], [ %24, %22 ], [ %.sroa.3.0.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.argprom.exit ]
   %32 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %13
   store ptr %32, ptr %11, align 8
   %33 = getelementptr inbounds i8, ptr %11, i64 8
@@ -814,7 +814,7 @@ define hidden void @_ZN3mbe15to_parser_input15to_parser_input17h40df232e5497df95
     i64 1, label %54
   ]
 
-.loopexit.loopexit:                               ; preds = %662, %653, %643, %634, %626, %617, %607, %599, %571, %562, %552, %544, %522, %513, %503, %495, %.noexc184, %478, %468, %459, %449, %441, %.noexc167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hafd4f9a844be1ad9E.exit.thread", %390, %381, %371, %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.exit", %359, %356, %354, %256, %247, %237, %229, %195, %186, %176, %168, %632, %577, %344, %.thread.thread
+.loopexit.loopexit:                               ; preds = %662, %653, %643, %634, %626, %617, %607, %599, %571, %562, %552, %544, %522, %513, %503, %495, %.noexc184, %478, %468, %459, %449, %441, %.noexc167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hafd4f9a844be1ad9E.exit.thread", %390, %381, %371, %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.argprom.exit", %359, %356, %354, %256, %247, %237, %229, %195, %186, %176, %168, %632, %577, %344, %.thread.thread
   %lpad.loopexit363 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1602,7 +1602,7 @@ _ZN6parser5input5Input9push_impl17he4623d7cc73ade4bE.exit133: ; preds = %"_ZN5al
   %362 = and i16 %351, 510
   %switch.i.i = icmp ne i16 %362, 116
   %or.cond.not.i = and i1 %.0.i143, %switch.i.i
-  br i1 %or.cond.not.i, label %select.unfold, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.exit"
+  br i1 %or.cond.not.i, label %select.unfold, label %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.argprom.exit"
 
 select.unfold:                                    ; preds = %361, %.noexc153, %.thread346
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
@@ -1627,11 +1627,11 @@ select.unfold:                                    ; preds = %361, %.noexc153, %.
   store ptr @anon.943a3ed84a6e38d1c804328418f4af13.44, ptr %10, align 8
   br label %.invoke
 
-"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.exit": ; preds = %361
+"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.argprom.exit": ; preds = %361
   %364 = invoke noundef i64 @_ZN6parser5input5Input3len17hb3d1b394b2ee5637E(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %20)
           to label %.noexc159 unwind label %.loopexit.loopexit
 
-.noexc159:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.exit"
+.noexc159:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17h7f4470119ed89ff4E.argprom.exit"
   %365 = and i64 %364, 63
   %366 = icmp eq i64 %365, 0
   br i1 %366, label %367, label %377

@@ -931,7 +931,7 @@ if.then455.i:                                     ; preds = %if.then453.i
   br label %sw.default
 
 if.end457.i:                                      ; preds = %if.then453.i
-  %call459.i = call fastcc i32 @ParseInt(ptr noundef nonnull %arrayidx432.i, i32 noundef 24, ptr noundef %lgwin)
+  %call459.i = call fastcc i32 @ParseInt.argelim(ptr noundef nonnull %arrayidx432.i, i32 noundef 24, ptr noundef %lgwin)
   %tobool460.not.i = icmp eq i32 %call459.i, 0
   br i1 %tobool460.not.i, label %if.then461.i, label %if.end463.i
 
@@ -967,7 +967,7 @@ if.then481.i:                                     ; preds = %if.then479.i
   br label %sw.default
 
 if.end483.i:                                      ; preds = %if.then479.i
-  %call485.i = call fastcc i32 @ParseInt(ptr noundef nonnull %arrayidx432.i, i32 noundef 30, ptr noundef %lgwin)
+  %call485.i = call fastcc i32 @ParseInt.argelim(ptr noundef nonnull %arrayidx432.i, i32 noundef 30, ptr noundef %lgwin)
   %tobool486.not.i = icmp eq i32 %call485.i, 0
   br i1 %tobool486.not.i, label %if.then487.i, label %if.end489.i
 
@@ -1021,7 +1021,7 @@ if.then517.i:                                     ; preds = %if.then515.i
   br label %sw.default
 
 if.end519.i:                                      ; preds = %if.then515.i
-  %call521.i = call fastcc i32 @ParseInt(ptr noundef nonnull %arrayidx432.i, i32 noundef 11, ptr noundef %context)
+  %call521.i = call fastcc i32 @ParseInt.argelim(ptr noundef nonnull %arrayidx432.i, i32 noundef 11, ptr noundef %context)
   %tobool522.not.i = icmp eq i32 %call521.i, 0
   br i1 %tobool522.not.i, label %if.then523.i, label %for.inc557.i
 
@@ -1951,7 +1951,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseInt(ptr nocapture noundef readonly %s, i32 noundef range(i32 11, 31) %high, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @ParseInt.argelim(ptr nocapture noundef readonly %s, i32 noundef range(i32 11, 31) %high, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #7 {
 entry:
   br label %for.body
 

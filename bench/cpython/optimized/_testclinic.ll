@@ -1441,33 +1441,33 @@ entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %arg.val, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %if.end.i, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end.i, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %arg.val, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.then, label %if.end
 
-if.then:                                          ; preds = %PyObject_TypeCheck.exit
+if.then:                                          ; preds = %PyObject_TypeCheck.argprom.exit
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.89, ptr noundef nonnull %arg) #9
   br label %exit
 
-if.end:                                           ; preds = %PyObject_TypeCheck.exit
+if.end:                                           ; preds = %PyObject_TypeCheck.argprom.exit
   %a.val.i.pr = load ptr, ptr %0, align 8
   %cmp.i.not.i.i = icmp eq ptr %a.val.i.pr, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %if.end.i, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %if.end
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %if.end
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %a.val.i.pr, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.then.i, label %if.end.i
 
-if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i
+if.then.i:                                        ; preds = %PyObject_TypeCheck.argprom.exit.i
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.90) #9
   br label %exit
 
-if.end.i:                                         ; preds = %entry, %PyObject_TypeCheck.exit.i, %if.end
+if.end.i:                                         ; preds = %entry, %PyObject_TypeCheck.argprom.exit.i, %if.end
   %call1.i = tail call ptr (i32, ...) @pack_arguments_newref(i32 noundef 1, ptr noundef nonnull %arg)
   br label %exit
 
@@ -1629,31 +1629,31 @@ PyBytes_AS_STRING.exit:                           ; preds = %PyBytes_GET_SIZE.ex
 
 if.else:                                          ; preds = %PyBytes_GET_SIZE.exit, %if.end4
   %cmp.i.not.i = icmp eq ptr %.val, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %if.else
+PyObject_TypeCheck.argprom.exit:                  ; preds = %if.else
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %.pre483 = load ptr, ptr %args, align 8
   br i1 %tobool3.i.not, label %if.else27, label %land.lhs.true19
 
-land.lhs.true19:                                  ; preds = %PyObject_TypeCheck.exit
+land.lhs.true19:                                  ; preds = %PyObject_TypeCheck.argprom.exit
   %.phi.trans.insert = getelementptr i8, ptr %.pre483, i64 8
   %op.val.i146.pre = load ptr, ptr %.phi.trans.insert, align 8
   %4 = getelementptr i8, ptr %.pre483, i64 8
   %cmp.i.not.i.i = icmp eq ptr %op.val.i146.pre, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.exit.i
+  br i1 %cmp.i.not.i.i, label %PyByteArray_GET_SIZE.exit, label %PyObject_TypeCheck.argprom.exit.i
 
-PyObject_TypeCheck.exit.i:                        ; preds = %land.lhs.true19
+PyObject_TypeCheck.argprom.exit.i:                ; preds = %land.lhs.true19
   %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val.i146.pre, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %cond.false.i154, label %cond.end.i147
 
-cond.false.i154:                                  ; preds = %PyObject_TypeCheck.exit.i
+cond.false.i154:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_GET_SIZE) #10
   unreachable
 
-cond.end.i147:                                    ; preds = %PyObject_TypeCheck.exit.i
+cond.end.i147:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i
   %.pr.i = load ptr, ptr %4, align 8
   %cmp.not.i.i148 = icmp eq ptr %.pr.i, @PyLong_Type
   br i1 %cmp.not.i.i148, label %cond.false.i.i153, label %cond.end.i.i149
@@ -1686,18 +1686,18 @@ if.then23:                                        ; preds = %PyByteArray_GET_SIZ
   %7 = getelementptr i8, ptr %.pre482, i64 8
   %op.val.i155 = load ptr, ptr %7, align 8
   %cmp.i.not.i.i156 = icmp eq ptr %op.val.i155, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i156, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.exit.i157
+  br i1 %cmp.i.not.i.i156, label %Py_SIZE.exit.i, label %PyObject_TypeCheck.argprom.exit.i157
 
-PyObject_TypeCheck.exit.i157:                     ; preds = %if.then23
+PyObject_TypeCheck.argprom.exit.i157:             ; preds = %if.then23
   %call2.i.i158 = tail call i32 @PyType_IsSubtype(ptr noundef %op.val.i155, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not.i159 = icmp eq i32 %call2.i.i158, 0
   br i1 %tobool3.i.not.i159, label %cond.false.i168, label %cond.end.i160
 
-cond.false.i168:                                  ; preds = %PyObject_TypeCheck.exit.i157
+cond.false.i168:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i157
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_AS_STRING) #10
   unreachable
 
-cond.end.i160:                                    ; preds = %PyObject_TypeCheck.exit.i157
+cond.end.i160:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i157
   %.pr.i161 = load ptr, ptr %7, align 8
   %cmp.not.i.i162 = icmp eq ptr %.pr.i161, @PyLong_Type
   br i1 %cmp.not.i.i162, label %cond.false.i.i167, label %cond.end.i.i163
@@ -1725,8 +1725,8 @@ if.then.i:                                        ; preds = %Py_SIZE.exit.i
   %9 = load ptr, ptr %ob_start.i, align 8
   br label %if.end30
 
-if.else27:                                        ; preds = %PyByteArray_GET_SIZE.exit, %PyObject_TypeCheck.exit
-  %10 = phi ptr [ %.pre482, %PyByteArray_GET_SIZE.exit ], [ %.pre483, %PyObject_TypeCheck.exit ]
+if.else27:                                        ; preds = %PyByteArray_GET_SIZE.exit, %PyObject_TypeCheck.argprom.exit
+  %10 = phi ptr [ %.pre482, %PyByteArray_GET_SIZE.exit ], [ %.pre483, %PyObject_TypeCheck.argprom.exit ]
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef %10) #9
   br label %exit
 
@@ -1775,31 +1775,31 @@ PyBytes_AS_STRING.exit191:                        ; preds = %PyBytes_GET_SIZE.ex
 
 if.else46:                                        ; preds = %PyBytes_GET_SIZE.exit184, %if.end33
   %cmp.i.not.i192 = icmp eq ptr %.val114, @PyByteArray_Type
-  br i1 %cmp.i.not.i192, label %PyByteArray_GET_SIZE.exit213, label %PyObject_TypeCheck.exit197
+  br i1 %cmp.i.not.i192, label %PyByteArray_GET_SIZE.exit213, label %PyObject_TypeCheck.argprom.exit197
 
-PyObject_TypeCheck.exit197:                       ; preds = %if.else46
+PyObject_TypeCheck.argprom.exit197:               ; preds = %if.else46
   %call2.i194 = tail call i32 @PyType_IsSubtype(ptr noundef %.val114, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i195.not = icmp eq i32 %call2.i194, 0
   %.pre487 = load ptr, ptr %arrayidx34, align 8
   br i1 %tobool3.i195.not, label %if.else58, label %land.lhs.true50
 
-land.lhs.true50:                                  ; preds = %PyObject_TypeCheck.exit197
+land.lhs.true50:                                  ; preds = %PyObject_TypeCheck.argprom.exit197
   %.phi.trans.insert484 = getelementptr i8, ptr %.pre487, i64 8
   %op.val.i198.pre = load ptr, ptr %.phi.trans.insert484, align 8
   %15 = getelementptr i8, ptr %.pre487, i64 8
   %cmp.i.not.i.i199 = icmp eq ptr %op.val.i198.pre, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i199, label %PyByteArray_GET_SIZE.exit213, label %PyObject_TypeCheck.exit.i200
+  br i1 %cmp.i.not.i.i199, label %PyByteArray_GET_SIZE.exit213, label %PyObject_TypeCheck.argprom.exit.i200
 
-PyObject_TypeCheck.exit.i200:                     ; preds = %land.lhs.true50
+PyObject_TypeCheck.argprom.exit.i200:             ; preds = %land.lhs.true50
   %call2.i.i201 = tail call i32 @PyType_IsSubtype(ptr noundef %op.val.i198.pre, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not.i202 = icmp eq i32 %call2.i.i201, 0
   br i1 %tobool3.i.not.i202, label %cond.false.i212, label %cond.end.i203
 
-cond.false.i212:                                  ; preds = %PyObject_TypeCheck.exit.i200
+cond.false.i212:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i200
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_GET_SIZE) #10
   unreachable
 
-cond.end.i203:                                    ; preds = %PyObject_TypeCheck.exit.i200
+cond.end.i203:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i200
   %.pr.i204 = load ptr, ptr %15, align 8
   %cmp.not.i.i205 = icmp eq ptr %.pr.i204, @PyLong_Type
   br i1 %cmp.not.i.i205, label %cond.false.i.i211, label %cond.end.i.i206
@@ -1832,18 +1832,18 @@ if.then54:                                        ; preds = %PyByteArray_GET_SIZ
   %18 = getelementptr i8, ptr %.pre486, i64 8
   %op.val.i214 = load ptr, ptr %18, align 8
   %cmp.i.not.i.i215 = icmp eq ptr %op.val.i214, @PyByteArray_Type
-  br i1 %cmp.i.not.i.i215, label %Py_SIZE.exit.i224, label %PyObject_TypeCheck.exit.i216
+  br i1 %cmp.i.not.i.i215, label %Py_SIZE.exit.i224, label %PyObject_TypeCheck.argprom.exit.i216
 
-PyObject_TypeCheck.exit.i216:                     ; preds = %if.then54
+PyObject_TypeCheck.argprom.exit.i216:             ; preds = %if.then54
   %call2.i.i217 = tail call i32 @PyType_IsSubtype(ptr noundef %op.val.i214, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not.i218 = icmp eq i32 %call2.i.i217, 0
   br i1 %tobool3.i.not.i218, label %cond.false.i232, label %cond.end.i219
 
-cond.false.i232:                                  ; preds = %PyObject_TypeCheck.exit.i216
+cond.false.i232:                                  ; preds = %PyObject_TypeCheck.argprom.exit.i216
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_AS_STRING) #10
   unreachable
 
-cond.end.i219:                                    ; preds = %PyObject_TypeCheck.exit.i216
+cond.end.i219:                                    ; preds = %PyObject_TypeCheck.argprom.exit.i216
   %.pr.i220 = load ptr, ptr %18, align 8
   %cmp.not.i.i221 = icmp eq ptr %.pr.i220, @PyLong_Type
   br i1 %cmp.not.i.i221, label %cond.false.i.i231, label %cond.end.i.i222
@@ -1871,8 +1871,8 @@ if.then.i227:                                     ; preds = %Py_SIZE.exit.i224
   %20 = load ptr, ptr %ob_start.i228, align 8
   br label %if.end61
 
-if.else58:                                        ; preds = %PyByteArray_GET_SIZE.exit213, %PyObject_TypeCheck.exit197
-  %21 = phi ptr [ %.pre486, %PyByteArray_GET_SIZE.exit213 ], [ %.pre487, %PyObject_TypeCheck.exit197 ]
+if.else58:                                        ; preds = %PyByteArray_GET_SIZE.exit213, %PyObject_TypeCheck.argprom.exit197
+  %21 = phi ptr [ %.pre486, %PyByteArray_GET_SIZE.exit213 ], [ %.pre487, %PyObject_TypeCheck.argprom.exit197 ]
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.94, ptr noundef %21) #9
   br label %exit
 
@@ -1921,19 +1921,19 @@ PyBytes_AS_STRING.exit256:                        ; preds = %PyBytes_GET_SIZE.ex
 
 if.else77:                                        ; preds = %PyBytes_GET_SIZE.exit249, %if.end64
   %cmp.i.not.i257 = icmp eq ptr %.val115, @PyByteArray_Type
-  br i1 %cmp.i.not.i257, label %land.lhs.true81, label %PyObject_TypeCheck.exit262
+  br i1 %cmp.i.not.i257, label %land.lhs.true81, label %PyObject_TypeCheck.argprom.exit262
 
-PyObject_TypeCheck.exit262:                       ; preds = %if.else77
+PyObject_TypeCheck.argprom.exit262:               ; preds = %if.else77
   %call2.i259 = tail call i32 @PyType_IsSubtype(ptr noundef %.val115, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i260.not = icmp eq i32 %call2.i259, 0
-  br i1 %tobool3.i260.not, label %if.else89, label %PyObject_TypeCheck.exit262.land.lhs.true81_crit_edge
+  br i1 %tobool3.i260.not, label %if.else89, label %PyObject_TypeCheck.argprom.exit262.land.lhs.true81_crit_edge
 
-PyObject_TypeCheck.exit262.land.lhs.true81_crit_edge: ; preds = %PyObject_TypeCheck.exit262
+PyObject_TypeCheck.argprom.exit262.land.lhs.true81_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit262
   %.pre = load ptr, ptr %arrayidx65, align 8
   br label %land.lhs.true81
 
-land.lhs.true81:                                  ; preds = %PyObject_TypeCheck.exit262.land.lhs.true81_crit_edge, %if.else77
-  %26 = phi ptr [ %.pre, %PyObject_TypeCheck.exit262.land.lhs.true81_crit_edge ], [ %22, %if.else77 ]
+land.lhs.true81:                                  ; preds = %PyObject_TypeCheck.argprom.exit262.land.lhs.true81_crit_edge, %if.else77
+  %26 = phi ptr [ %.pre, %PyObject_TypeCheck.argprom.exit262.land.lhs.true81_crit_edge ], [ %22, %if.else77 ]
   %call83 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %26)
   %cmp84 = icmp eq i64 %call83, 1
   br i1 %cmp84, label %if.then85, label %if.else89
@@ -1943,7 +1943,7 @@ if.then85:                                        ; preds = %land.lhs.true81
   %call87 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %27)
   br label %if.end92
 
-if.else89:                                        ; preds = %land.lhs.true81, %PyObject_TypeCheck.exit262
+if.else89:                                        ; preds = %land.lhs.true81, %PyObject_TypeCheck.argprom.exit262
   %28 = load ptr, ptr %arrayidx65, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.94, ptr noundef %28) #9
   br label %exit
@@ -1992,19 +1992,19 @@ if.else108:                                       ; preds = %land.lhs.true100, %
   %.val130 = phi ptr [ %.val116, %if.end95 ], [ %op.val.i266, %land.lhs.true100 ]
   %36 = phi ptr [ %29, %if.end95 ], [ %.pre488, %land.lhs.true100 ]
   %cmp.i.not.i273 = icmp eq ptr %.val130, @PyByteArray_Type
-  br i1 %cmp.i.not.i273, label %land.lhs.true112, label %PyObject_TypeCheck.exit278
+  br i1 %cmp.i.not.i273, label %land.lhs.true112, label %PyObject_TypeCheck.argprom.exit278
 
-PyObject_TypeCheck.exit278:                       ; preds = %if.else108
+PyObject_TypeCheck.argprom.exit278:               ; preds = %if.else108
   %call2.i275 = tail call i32 @PyType_IsSubtype(ptr noundef %.val130, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i276.not = icmp eq i32 %call2.i275, 0
-  br i1 %tobool3.i276.not, label %if.else120, label %PyObject_TypeCheck.exit278.land.lhs.true112_crit_edge
+  br i1 %tobool3.i276.not, label %if.else120, label %PyObject_TypeCheck.argprom.exit278.land.lhs.true112_crit_edge
 
-PyObject_TypeCheck.exit278.land.lhs.true112_crit_edge: ; preds = %PyObject_TypeCheck.exit278
+PyObject_TypeCheck.argprom.exit278.land.lhs.true112_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit278
   %.pre491 = load ptr, ptr %arrayidx96, align 8
   br label %land.lhs.true112
 
-land.lhs.true112:                                 ; preds = %PyObject_TypeCheck.exit278.land.lhs.true112_crit_edge, %if.else108
-  %37 = phi ptr [ %.pre491, %PyObject_TypeCheck.exit278.land.lhs.true112_crit_edge ], [ %36, %if.else108 ]
+land.lhs.true112:                                 ; preds = %PyObject_TypeCheck.argprom.exit278.land.lhs.true112_crit_edge, %if.else108
+  %37 = phi ptr [ %.pre491, %PyObject_TypeCheck.argprom.exit278.land.lhs.true112_crit_edge ], [ %36, %if.else108 ]
   %call114 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %37)
   %cmp115 = icmp eq i64 %call114, 1
   br i1 %cmp115, label %if.then116, label %if.else120
@@ -2014,7 +2014,7 @@ if.then116:                                       ; preds = %land.lhs.true112
   %call118 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %38)
   br label %if.end123
 
-if.else120:                                       ; preds = %land.lhs.true112, %PyObject_TypeCheck.exit278
+if.else120:                                       ; preds = %land.lhs.true112, %PyObject_TypeCheck.argprom.exit278
   %39 = load ptr, ptr %arrayidx96, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.94, ptr noundef %39) #9
   br label %exit
@@ -2063,19 +2063,19 @@ if.else139:                                       ; preds = %land.lhs.true131, %
   %.val131 = phi ptr [ %.val117, %if.end126 ], [ %op.val.i282, %land.lhs.true131 ]
   %47 = phi ptr [ %40, %if.end126 ], [ %.pre492, %land.lhs.true131 ]
   %cmp.i.not.i289 = icmp eq ptr %.val131, @PyByteArray_Type
-  br i1 %cmp.i.not.i289, label %land.lhs.true143, label %PyObject_TypeCheck.exit294
+  br i1 %cmp.i.not.i289, label %land.lhs.true143, label %PyObject_TypeCheck.argprom.exit294
 
-PyObject_TypeCheck.exit294:                       ; preds = %if.else139
+PyObject_TypeCheck.argprom.exit294:               ; preds = %if.else139
   %call2.i291 = tail call i32 @PyType_IsSubtype(ptr noundef %.val131, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i292.not = icmp eq i32 %call2.i291, 0
-  br i1 %tobool3.i292.not, label %if.else151, label %PyObject_TypeCheck.exit294.land.lhs.true143_crit_edge
+  br i1 %tobool3.i292.not, label %if.else151, label %PyObject_TypeCheck.argprom.exit294.land.lhs.true143_crit_edge
 
-PyObject_TypeCheck.exit294.land.lhs.true143_crit_edge: ; preds = %PyObject_TypeCheck.exit294
+PyObject_TypeCheck.argprom.exit294.land.lhs.true143_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit294
   %.pre495 = load ptr, ptr %arrayidx127, align 8
   br label %land.lhs.true143
 
-land.lhs.true143:                                 ; preds = %PyObject_TypeCheck.exit294.land.lhs.true143_crit_edge, %if.else139
-  %48 = phi ptr [ %.pre495, %PyObject_TypeCheck.exit294.land.lhs.true143_crit_edge ], [ %47, %if.else139 ]
+land.lhs.true143:                                 ; preds = %PyObject_TypeCheck.argprom.exit294.land.lhs.true143_crit_edge, %if.else139
+  %48 = phi ptr [ %.pre495, %PyObject_TypeCheck.argprom.exit294.land.lhs.true143_crit_edge ], [ %47, %if.else139 ]
   %call145 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %48)
   %cmp146 = icmp eq i64 %call145, 1
   br i1 %cmp146, label %if.then147, label %if.else151
@@ -2085,7 +2085,7 @@ if.then147:                                       ; preds = %land.lhs.true143
   %call149 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %49)
   br label %if.end154
 
-if.else151:                                       ; preds = %land.lhs.true143, %PyObject_TypeCheck.exit294
+if.else151:                                       ; preds = %land.lhs.true143, %PyObject_TypeCheck.argprom.exit294
   %50 = load ptr, ptr %arrayidx127, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.94, ptr noundef %50) #9
   br label %exit
@@ -2134,19 +2134,19 @@ if.else170:                                       ; preds = %land.lhs.true162, %
   %.val132 = phi ptr [ %.val118, %if.end157 ], [ %op.val.i298, %land.lhs.true162 ]
   %58 = phi ptr [ %51, %if.end157 ], [ %.pre496, %land.lhs.true162 ]
   %cmp.i.not.i305 = icmp eq ptr %.val132, @PyByteArray_Type
-  br i1 %cmp.i.not.i305, label %land.lhs.true174, label %PyObject_TypeCheck.exit310
+  br i1 %cmp.i.not.i305, label %land.lhs.true174, label %PyObject_TypeCheck.argprom.exit310
 
-PyObject_TypeCheck.exit310:                       ; preds = %if.else170
+PyObject_TypeCheck.argprom.exit310:               ; preds = %if.else170
   %call2.i307 = tail call i32 @PyType_IsSubtype(ptr noundef %.val132, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i308.not = icmp eq i32 %call2.i307, 0
-  br i1 %tobool3.i308.not, label %if.else182, label %PyObject_TypeCheck.exit310.land.lhs.true174_crit_edge
+  br i1 %tobool3.i308.not, label %if.else182, label %PyObject_TypeCheck.argprom.exit310.land.lhs.true174_crit_edge
 
-PyObject_TypeCheck.exit310.land.lhs.true174_crit_edge: ; preds = %PyObject_TypeCheck.exit310
+PyObject_TypeCheck.argprom.exit310.land.lhs.true174_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit310
   %.pre499 = load ptr, ptr %arrayidx158, align 8
   br label %land.lhs.true174
 
-land.lhs.true174:                                 ; preds = %PyObject_TypeCheck.exit310.land.lhs.true174_crit_edge, %if.else170
-  %59 = phi ptr [ %.pre499, %PyObject_TypeCheck.exit310.land.lhs.true174_crit_edge ], [ %58, %if.else170 ]
+land.lhs.true174:                                 ; preds = %PyObject_TypeCheck.argprom.exit310.land.lhs.true174_crit_edge, %if.else170
+  %59 = phi ptr [ %.pre499, %PyObject_TypeCheck.argprom.exit310.land.lhs.true174_crit_edge ], [ %58, %if.else170 ]
   %call176 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %59)
   %cmp177 = icmp eq i64 %call176, 1
   br i1 %cmp177, label %if.then178, label %if.else182
@@ -2156,7 +2156,7 @@ if.then178:                                       ; preds = %land.lhs.true174
   %call180 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %60)
   br label %if.end185
 
-if.else182:                                       ; preds = %land.lhs.true174, %PyObject_TypeCheck.exit310
+if.else182:                                       ; preds = %land.lhs.true174, %PyObject_TypeCheck.argprom.exit310
   %61 = load ptr, ptr %arrayidx158, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.94, ptr noundef %61) #9
   br label %exit
@@ -2205,19 +2205,19 @@ if.else201:                                       ; preds = %land.lhs.true193, %
   %.val133 = phi ptr [ %.val119, %if.end188 ], [ %op.val.i314, %land.lhs.true193 ]
   %69 = phi ptr [ %62, %if.end188 ], [ %.pre500, %land.lhs.true193 ]
   %cmp.i.not.i321 = icmp eq ptr %.val133, @PyByteArray_Type
-  br i1 %cmp.i.not.i321, label %land.lhs.true205, label %PyObject_TypeCheck.exit326
+  br i1 %cmp.i.not.i321, label %land.lhs.true205, label %PyObject_TypeCheck.argprom.exit326
 
-PyObject_TypeCheck.exit326:                       ; preds = %if.else201
+PyObject_TypeCheck.argprom.exit326:               ; preds = %if.else201
   %call2.i323 = tail call i32 @PyType_IsSubtype(ptr noundef %.val133, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i324.not = icmp eq i32 %call2.i323, 0
-  br i1 %tobool3.i324.not, label %if.else213, label %PyObject_TypeCheck.exit326.land.lhs.true205_crit_edge
+  br i1 %tobool3.i324.not, label %if.else213, label %PyObject_TypeCheck.argprom.exit326.land.lhs.true205_crit_edge
 
-PyObject_TypeCheck.exit326.land.lhs.true205_crit_edge: ; preds = %PyObject_TypeCheck.exit326
+PyObject_TypeCheck.argprom.exit326.land.lhs.true205_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit326
   %.pre503 = load ptr, ptr %arrayidx189, align 8
   br label %land.lhs.true205
 
-land.lhs.true205:                                 ; preds = %PyObject_TypeCheck.exit326.land.lhs.true205_crit_edge, %if.else201
-  %70 = phi ptr [ %.pre503, %PyObject_TypeCheck.exit326.land.lhs.true205_crit_edge ], [ %69, %if.else201 ]
+land.lhs.true205:                                 ; preds = %PyObject_TypeCheck.argprom.exit326.land.lhs.true205_crit_edge, %if.else201
+  %70 = phi ptr [ %.pre503, %PyObject_TypeCheck.argprom.exit326.land.lhs.true205_crit_edge ], [ %69, %if.else201 ]
   %call207 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %70)
   %cmp208 = icmp eq i64 %call207, 1
   br i1 %cmp208, label %if.then209, label %if.else213
@@ -2227,7 +2227,7 @@ if.then209:                                       ; preds = %land.lhs.true205
   %call211 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %71)
   br label %if.end216
 
-if.else213:                                       ; preds = %land.lhs.true205, %PyObject_TypeCheck.exit326
+if.else213:                                       ; preds = %land.lhs.true205, %PyObject_TypeCheck.argprom.exit326
   %72 = load ptr, ptr %arrayidx189, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.94, ptr noundef %72) #9
   br label %exit
@@ -2276,19 +2276,19 @@ if.else232:                                       ; preds = %land.lhs.true224, %
   %.val134 = phi ptr [ %.val120, %if.end219 ], [ %op.val.i330, %land.lhs.true224 ]
   %80 = phi ptr [ %73, %if.end219 ], [ %.pre504, %land.lhs.true224 ]
   %cmp.i.not.i337 = icmp eq ptr %.val134, @PyByteArray_Type
-  br i1 %cmp.i.not.i337, label %land.lhs.true236, label %PyObject_TypeCheck.exit342
+  br i1 %cmp.i.not.i337, label %land.lhs.true236, label %PyObject_TypeCheck.argprom.exit342
 
-PyObject_TypeCheck.exit342:                       ; preds = %if.else232
+PyObject_TypeCheck.argprom.exit342:               ; preds = %if.else232
   %call2.i339 = tail call i32 @PyType_IsSubtype(ptr noundef %.val134, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i340.not = icmp eq i32 %call2.i339, 0
-  br i1 %tobool3.i340.not, label %if.else244, label %PyObject_TypeCheck.exit342.land.lhs.true236_crit_edge
+  br i1 %tobool3.i340.not, label %if.else244, label %PyObject_TypeCheck.argprom.exit342.land.lhs.true236_crit_edge
 
-PyObject_TypeCheck.exit342.land.lhs.true236_crit_edge: ; preds = %PyObject_TypeCheck.exit342
+PyObject_TypeCheck.argprom.exit342.land.lhs.true236_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit342
   %.pre507 = load ptr, ptr %arrayidx220, align 8
   br label %land.lhs.true236
 
-land.lhs.true236:                                 ; preds = %PyObject_TypeCheck.exit342.land.lhs.true236_crit_edge, %if.else232
-  %81 = phi ptr [ %.pre507, %PyObject_TypeCheck.exit342.land.lhs.true236_crit_edge ], [ %80, %if.else232 ]
+land.lhs.true236:                                 ; preds = %PyObject_TypeCheck.argprom.exit342.land.lhs.true236_crit_edge, %if.else232
+  %81 = phi ptr [ %.pre507, %PyObject_TypeCheck.argprom.exit342.land.lhs.true236_crit_edge ], [ %80, %if.else232 ]
   %call238 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %81)
   %cmp239 = icmp eq i64 %call238, 1
   br i1 %cmp239, label %if.then240, label %if.else244
@@ -2298,7 +2298,7 @@ if.then240:                                       ; preds = %land.lhs.true236
   %call242 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %82)
   br label %if.end247
 
-if.else244:                                       ; preds = %land.lhs.true236, %PyObject_TypeCheck.exit342
+if.else244:                                       ; preds = %land.lhs.true236, %PyObject_TypeCheck.argprom.exit342
   %83 = load ptr, ptr %arrayidx220, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.94, ptr noundef %83) #9
   br label %exit
@@ -2347,19 +2347,19 @@ if.else263:                                       ; preds = %land.lhs.true255, %
   %.val135 = phi ptr [ %.val121, %if.end250 ], [ %op.val.i346, %land.lhs.true255 ]
   %91 = phi ptr [ %84, %if.end250 ], [ %.pre508, %land.lhs.true255 ]
   %cmp.i.not.i353 = icmp eq ptr %.val135, @PyByteArray_Type
-  br i1 %cmp.i.not.i353, label %land.lhs.true267, label %PyObject_TypeCheck.exit358
+  br i1 %cmp.i.not.i353, label %land.lhs.true267, label %PyObject_TypeCheck.argprom.exit358
 
-PyObject_TypeCheck.exit358:                       ; preds = %if.else263
+PyObject_TypeCheck.argprom.exit358:               ; preds = %if.else263
   %call2.i355 = tail call i32 @PyType_IsSubtype(ptr noundef %.val135, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i356.not = icmp eq i32 %call2.i355, 0
-  br i1 %tobool3.i356.not, label %if.else275, label %PyObject_TypeCheck.exit358.land.lhs.true267_crit_edge
+  br i1 %tobool3.i356.not, label %if.else275, label %PyObject_TypeCheck.argprom.exit358.land.lhs.true267_crit_edge
 
-PyObject_TypeCheck.exit358.land.lhs.true267_crit_edge: ; preds = %PyObject_TypeCheck.exit358
+PyObject_TypeCheck.argprom.exit358.land.lhs.true267_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit358
   %.pre511 = load ptr, ptr %arrayidx251, align 8
   br label %land.lhs.true267
 
-land.lhs.true267:                                 ; preds = %PyObject_TypeCheck.exit358.land.lhs.true267_crit_edge, %if.else263
-  %92 = phi ptr [ %.pre511, %PyObject_TypeCheck.exit358.land.lhs.true267_crit_edge ], [ %91, %if.else263 ]
+land.lhs.true267:                                 ; preds = %PyObject_TypeCheck.argprom.exit358.land.lhs.true267_crit_edge, %if.else263
+  %92 = phi ptr [ %.pre511, %PyObject_TypeCheck.argprom.exit358.land.lhs.true267_crit_edge ], [ %91, %if.else263 ]
   %call269 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %92)
   %cmp270 = icmp eq i64 %call269, 1
   br i1 %cmp270, label %if.then271, label %if.else275
@@ -2369,7 +2369,7 @@ if.then271:                                       ; preds = %land.lhs.true267
   %call273 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %93)
   br label %if.end278
 
-if.else275:                                       ; preds = %land.lhs.true267, %PyObject_TypeCheck.exit358
+if.else275:                                       ; preds = %land.lhs.true267, %PyObject_TypeCheck.argprom.exit358
   %94 = load ptr, ptr %arrayidx251, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.94, ptr noundef %94) #9
   br label %exit
@@ -2418,19 +2418,19 @@ if.else294:                                       ; preds = %land.lhs.true286, %
   %.val136 = phi ptr [ %.val122, %if.end281 ], [ %op.val.i362, %land.lhs.true286 ]
   %102 = phi ptr [ %95, %if.end281 ], [ %.pre512, %land.lhs.true286 ]
   %cmp.i.not.i369 = icmp eq ptr %.val136, @PyByteArray_Type
-  br i1 %cmp.i.not.i369, label %land.lhs.true298, label %PyObject_TypeCheck.exit374
+  br i1 %cmp.i.not.i369, label %land.lhs.true298, label %PyObject_TypeCheck.argprom.exit374
 
-PyObject_TypeCheck.exit374:                       ; preds = %if.else294
+PyObject_TypeCheck.argprom.exit374:               ; preds = %if.else294
   %call2.i371 = tail call i32 @PyType_IsSubtype(ptr noundef %.val136, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i372.not = icmp eq i32 %call2.i371, 0
-  br i1 %tobool3.i372.not, label %if.else306, label %PyObject_TypeCheck.exit374.land.lhs.true298_crit_edge
+  br i1 %tobool3.i372.not, label %if.else306, label %PyObject_TypeCheck.argprom.exit374.land.lhs.true298_crit_edge
 
-PyObject_TypeCheck.exit374.land.lhs.true298_crit_edge: ; preds = %PyObject_TypeCheck.exit374
+PyObject_TypeCheck.argprom.exit374.land.lhs.true298_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit374
   %.pre515 = load ptr, ptr %arrayidx282, align 8
   br label %land.lhs.true298
 
-land.lhs.true298:                                 ; preds = %PyObject_TypeCheck.exit374.land.lhs.true298_crit_edge, %if.else294
-  %103 = phi ptr [ %.pre515, %PyObject_TypeCheck.exit374.land.lhs.true298_crit_edge ], [ %102, %if.else294 ]
+land.lhs.true298:                                 ; preds = %PyObject_TypeCheck.argprom.exit374.land.lhs.true298_crit_edge, %if.else294
+  %103 = phi ptr [ %.pre515, %PyObject_TypeCheck.argprom.exit374.land.lhs.true298_crit_edge ], [ %102, %if.else294 ]
   %call300 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %103)
   %cmp301 = icmp eq i64 %call300, 1
   br i1 %cmp301, label %if.then302, label %if.else306
@@ -2440,7 +2440,7 @@ if.then302:                                       ; preds = %land.lhs.true298
   %call304 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %104)
   br label %if.end309
 
-if.else306:                                       ; preds = %land.lhs.true298, %PyObject_TypeCheck.exit374
+if.else306:                                       ; preds = %land.lhs.true298, %PyObject_TypeCheck.argprom.exit374
   %105 = load ptr, ptr %arrayidx282, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.94, ptr noundef %105) #9
   br label %exit
@@ -2489,19 +2489,19 @@ if.else325:                                       ; preds = %land.lhs.true317, %
   %.val137 = phi ptr [ %.val123, %if.end312 ], [ %op.val.i378, %land.lhs.true317 ]
   %113 = phi ptr [ %106, %if.end312 ], [ %.pre516, %land.lhs.true317 ]
   %cmp.i.not.i385 = icmp eq ptr %.val137, @PyByteArray_Type
-  br i1 %cmp.i.not.i385, label %land.lhs.true329, label %PyObject_TypeCheck.exit390
+  br i1 %cmp.i.not.i385, label %land.lhs.true329, label %PyObject_TypeCheck.argprom.exit390
 
-PyObject_TypeCheck.exit390:                       ; preds = %if.else325
+PyObject_TypeCheck.argprom.exit390:               ; preds = %if.else325
   %call2.i387 = tail call i32 @PyType_IsSubtype(ptr noundef %.val137, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i388.not = icmp eq i32 %call2.i387, 0
-  br i1 %tobool3.i388.not, label %if.else337, label %PyObject_TypeCheck.exit390.land.lhs.true329_crit_edge
+  br i1 %tobool3.i388.not, label %if.else337, label %PyObject_TypeCheck.argprom.exit390.land.lhs.true329_crit_edge
 
-PyObject_TypeCheck.exit390.land.lhs.true329_crit_edge: ; preds = %PyObject_TypeCheck.exit390
+PyObject_TypeCheck.argprom.exit390.land.lhs.true329_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit390
   %.pre519 = load ptr, ptr %arrayidx313, align 8
   br label %land.lhs.true329
 
-land.lhs.true329:                                 ; preds = %PyObject_TypeCheck.exit390.land.lhs.true329_crit_edge, %if.else325
-  %114 = phi ptr [ %.pre519, %PyObject_TypeCheck.exit390.land.lhs.true329_crit_edge ], [ %113, %if.else325 ]
+land.lhs.true329:                                 ; preds = %PyObject_TypeCheck.argprom.exit390.land.lhs.true329_crit_edge, %if.else325
+  %114 = phi ptr [ %.pre519, %PyObject_TypeCheck.argprom.exit390.land.lhs.true329_crit_edge ], [ %113, %if.else325 ]
   %call331 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %114)
   %cmp332 = icmp eq i64 %call331, 1
   br i1 %cmp332, label %if.then333, label %if.else337
@@ -2511,7 +2511,7 @@ if.then333:                                       ; preds = %land.lhs.true329
   %call335 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %115)
   br label %if.end340
 
-if.else337:                                       ; preds = %land.lhs.true329, %PyObject_TypeCheck.exit390
+if.else337:                                       ; preds = %land.lhs.true329, %PyObject_TypeCheck.argprom.exit390
   %116 = load ptr, ptr %arrayidx313, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.94, ptr noundef %116) #9
   br label %exit
@@ -2560,19 +2560,19 @@ if.else356:                                       ; preds = %land.lhs.true348, %
   %.val138 = phi ptr [ %.val124, %if.end343 ], [ %op.val.i394, %land.lhs.true348 ]
   %124 = phi ptr [ %117, %if.end343 ], [ %.pre520, %land.lhs.true348 ]
   %cmp.i.not.i401 = icmp eq ptr %.val138, @PyByteArray_Type
-  br i1 %cmp.i.not.i401, label %land.lhs.true360, label %PyObject_TypeCheck.exit406
+  br i1 %cmp.i.not.i401, label %land.lhs.true360, label %PyObject_TypeCheck.argprom.exit406
 
-PyObject_TypeCheck.exit406:                       ; preds = %if.else356
+PyObject_TypeCheck.argprom.exit406:               ; preds = %if.else356
   %call2.i403 = tail call i32 @PyType_IsSubtype(ptr noundef %.val138, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i404.not = icmp eq i32 %call2.i403, 0
-  br i1 %tobool3.i404.not, label %if.else368, label %PyObject_TypeCheck.exit406.land.lhs.true360_crit_edge
+  br i1 %tobool3.i404.not, label %if.else368, label %PyObject_TypeCheck.argprom.exit406.land.lhs.true360_crit_edge
 
-PyObject_TypeCheck.exit406.land.lhs.true360_crit_edge: ; preds = %PyObject_TypeCheck.exit406
+PyObject_TypeCheck.argprom.exit406.land.lhs.true360_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit406
   %.pre523 = load ptr, ptr %arrayidx344, align 8
   br label %land.lhs.true360
 
-land.lhs.true360:                                 ; preds = %PyObject_TypeCheck.exit406.land.lhs.true360_crit_edge, %if.else356
-  %125 = phi ptr [ %.pre523, %PyObject_TypeCheck.exit406.land.lhs.true360_crit_edge ], [ %124, %if.else356 ]
+land.lhs.true360:                                 ; preds = %PyObject_TypeCheck.argprom.exit406.land.lhs.true360_crit_edge, %if.else356
+  %125 = phi ptr [ %.pre523, %PyObject_TypeCheck.argprom.exit406.land.lhs.true360_crit_edge ], [ %124, %if.else356 ]
   %call362 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %125)
   %cmp363 = icmp eq i64 %call362, 1
   br i1 %cmp363, label %if.then364, label %if.else368
@@ -2582,7 +2582,7 @@ if.then364:                                       ; preds = %land.lhs.true360
   %call366 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %126)
   br label %if.end371
 
-if.else368:                                       ; preds = %land.lhs.true360, %PyObject_TypeCheck.exit406
+if.else368:                                       ; preds = %land.lhs.true360, %PyObject_TypeCheck.argprom.exit406
   %127 = load ptr, ptr %arrayidx344, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.94, ptr noundef %127) #9
   br label %exit
@@ -2631,19 +2631,19 @@ if.else387:                                       ; preds = %land.lhs.true379, %
   %.val139 = phi ptr [ %.val125, %if.end374 ], [ %op.val.i410, %land.lhs.true379 ]
   %135 = phi ptr [ %128, %if.end374 ], [ %.pre524, %land.lhs.true379 ]
   %cmp.i.not.i417 = icmp eq ptr %.val139, @PyByteArray_Type
-  br i1 %cmp.i.not.i417, label %land.lhs.true391, label %PyObject_TypeCheck.exit422
+  br i1 %cmp.i.not.i417, label %land.lhs.true391, label %PyObject_TypeCheck.argprom.exit422
 
-PyObject_TypeCheck.exit422:                       ; preds = %if.else387
+PyObject_TypeCheck.argprom.exit422:               ; preds = %if.else387
   %call2.i419 = tail call i32 @PyType_IsSubtype(ptr noundef %.val139, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i420.not = icmp eq i32 %call2.i419, 0
-  br i1 %tobool3.i420.not, label %if.else399, label %PyObject_TypeCheck.exit422.land.lhs.true391_crit_edge
+  br i1 %tobool3.i420.not, label %if.else399, label %PyObject_TypeCheck.argprom.exit422.land.lhs.true391_crit_edge
 
-PyObject_TypeCheck.exit422.land.lhs.true391_crit_edge: ; preds = %PyObject_TypeCheck.exit422
+PyObject_TypeCheck.argprom.exit422.land.lhs.true391_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit422
   %.pre527 = load ptr, ptr %arrayidx375, align 8
   br label %land.lhs.true391
 
-land.lhs.true391:                                 ; preds = %PyObject_TypeCheck.exit422.land.lhs.true391_crit_edge, %if.else387
-  %136 = phi ptr [ %.pre527, %PyObject_TypeCheck.exit422.land.lhs.true391_crit_edge ], [ %135, %if.else387 ]
+land.lhs.true391:                                 ; preds = %PyObject_TypeCheck.argprom.exit422.land.lhs.true391_crit_edge, %if.else387
+  %136 = phi ptr [ %.pre527, %PyObject_TypeCheck.argprom.exit422.land.lhs.true391_crit_edge ], [ %135, %if.else387 ]
   %call393 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %136)
   %cmp394 = icmp eq i64 %call393, 1
   br i1 %cmp394, label %if.then395, label %if.else399
@@ -2653,7 +2653,7 @@ if.then395:                                       ; preds = %land.lhs.true391
   %call397 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %137)
   br label %if.end402
 
-if.else399:                                       ; preds = %land.lhs.true391, %PyObject_TypeCheck.exit422
+if.else399:                                       ; preds = %land.lhs.true391, %PyObject_TypeCheck.argprom.exit422
   %138 = load ptr, ptr %arrayidx375, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.94, ptr noundef %138) #9
   br label %exit
@@ -2702,19 +2702,19 @@ if.else418:                                       ; preds = %land.lhs.true410, %
   %.val140 = phi ptr [ %.val126, %if.end405 ], [ %op.val.i426, %land.lhs.true410 ]
   %146 = phi ptr [ %139, %if.end405 ], [ %.pre528, %land.lhs.true410 ]
   %cmp.i.not.i433 = icmp eq ptr %.val140, @PyByteArray_Type
-  br i1 %cmp.i.not.i433, label %land.lhs.true422, label %PyObject_TypeCheck.exit438
+  br i1 %cmp.i.not.i433, label %land.lhs.true422, label %PyObject_TypeCheck.argprom.exit438
 
-PyObject_TypeCheck.exit438:                       ; preds = %if.else418
+PyObject_TypeCheck.argprom.exit438:               ; preds = %if.else418
   %call2.i435 = tail call i32 @PyType_IsSubtype(ptr noundef %.val140, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i436.not = icmp eq i32 %call2.i435, 0
-  br i1 %tobool3.i436.not, label %if.else430, label %PyObject_TypeCheck.exit438.land.lhs.true422_crit_edge
+  br i1 %tobool3.i436.not, label %if.else430, label %PyObject_TypeCheck.argprom.exit438.land.lhs.true422_crit_edge
 
-PyObject_TypeCheck.exit438.land.lhs.true422_crit_edge: ; preds = %PyObject_TypeCheck.exit438
+PyObject_TypeCheck.argprom.exit438.land.lhs.true422_crit_edge: ; preds = %PyObject_TypeCheck.argprom.exit438
   %.pre531 = load ptr, ptr %arrayidx406, align 8
   br label %land.lhs.true422
 
-land.lhs.true422:                                 ; preds = %PyObject_TypeCheck.exit438.land.lhs.true422_crit_edge, %if.else418
-  %147 = phi ptr [ %.pre531, %PyObject_TypeCheck.exit438.land.lhs.true422_crit_edge ], [ %146, %if.else418 ]
+land.lhs.true422:                                 ; preds = %PyObject_TypeCheck.argprom.exit438.land.lhs.true422_crit_edge, %if.else418
+  %147 = phi ptr [ %.pre531, %PyObject_TypeCheck.argprom.exit438.land.lhs.true422_crit_edge ], [ %146, %if.else418 ]
   %call424 = tail call fastcc i64 @PyByteArray_GET_SIZE(ptr noundef %147)
   %cmp425 = icmp eq i64 %call424, 1
   br i1 %cmp425, label %if.then426, label %if.else430
@@ -2724,7 +2724,7 @@ if.then426:                                       ; preds = %land.lhs.true422
   %call428 = tail call fastcc ptr @PyByteArray_AS_STRING(ptr noundef %148)
   br label %skip_optional.sink.split
 
-if.else430:                                       ; preds = %land.lhs.true422, %PyObject_TypeCheck.exit438
+if.else430:                                       ; preds = %land.lhs.true422, %PyObject_TypeCheck.argprom.exit438
   %149 = load ptr, ptr %arrayidx406, align 8
   tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.94, ptr noundef %149) #9
   br label %exit
@@ -2808,7 +2808,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond27.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp287.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp287.not.i, label %char_converter_impl.exit, label %for.body30.preheader.i
+  br i1 %cmp287.not.i, label %char_converter_impl.argprom.exit, label %for.body30.preheader.i
 
 for.body30.preheader.i:                           ; preds = %for.cond27.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -2840,7 +2840,7 @@ if.then1.i67.i:                                   ; preds = %if.end.i64.i
 for.inc.i:                                        ; preds = %if.then1.i67.i, %if.end.i64.i, %for.body30.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %char_converter_impl.exit, label %for.body30.i, !llvm.loop !4
+  br i1 %exitcond27.not.i, label %char_converter_impl.argprom.exit, label %for.body30.i, !llvm.loop !4
 
 for.inc33.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2874,7 +2874,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc46.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body43.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 14
-  br i1 %exitcond20.not.i, label %char_converter_impl.exit, label %for.body43.i, !llvm.loop !7
+  br i1 %exitcond20.not.i, label %char_converter_impl.argprom.exit, label %for.body43.i, !llvm.loop !7
 
 for.body54.i:                                     ; preds = %for.end35.i, %for.body54.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body54.i ], [ 0, %for.end35.i ]
@@ -2883,16 +2883,16 @@ for.body54.i:                                     ; preds = %for.end35.i, %for.b
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call36.i, i64 noundef %indvars.iv13.i, ptr noundef %158)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 14
-  br i1 %exitcond16.not.i, label %char_converter_impl.exit, label %for.body54.i, !llvm.loop !8
+  br i1 %exitcond16.not.i, label %char_converter_impl.argprom.exit, label %for.body54.i, !llvm.loop !8
 
-char_converter_impl.exit:                         ; preds = %for.body54.i, %for.inc46.i, %for.inc.i, %for.cond27.preheader.i
+char_converter_impl.argprom.exit:                 ; preds = %for.body54.i, %for.inc46.i, %for.inc.i, %for.cond27.preheader.i
   %retval.0.i443 = phi ptr [ null, %for.cond27.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc46.i ], [ %call36.i, %for.body54.i ]
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %lor.lhs.false, %char_converter_impl.exit, %if.else430, %if.else399, %if.else368, %if.else337, %if.else306, %if.else275, %if.else244, %if.else213, %if.else182, %if.else151, %if.else120, %if.else89, %if.else58, %if.else27
-  %return_value.0 = phi ptr [ %retval.0.i443, %char_converter_impl.exit ], [ null, %if.else430 ], [ null, %if.else399 ], [ null, %if.else368 ], [ null, %if.else337 ], [ null, %if.else306 ], [ null, %if.else275 ], [ null, %if.else244 ], [ null, %if.else213 ], [ null, %if.else182 ], [ null, %if.else151 ], [ null, %if.else120 ], [ null, %if.else89 ], [ null, %if.else58 ], [ null, %if.else27 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %lor.lhs.false, %char_converter_impl.argprom.exit, %if.else430, %if.else399, %if.else368, %if.else337, %if.else306, %if.else275, %if.else244, %if.else213, %if.else182, %if.else151, %if.else120, %if.else89, %if.else58, %if.else27
+  %return_value.0 = phi ptr [ %retval.0.i443, %char_converter_impl.argprom.exit ], [ null, %if.else430 ], [ null, %if.else399 ], [ null, %if.else368 ], [ null, %if.else337 ], [ null, %if.else306 ], [ null, %if.else275 ], [ null, %if.else244 ], [ null, %if.else213 ], [ null, %if.else182 ], [ null, %if.else151 ], [ null, %if.else120 ], [ null, %if.else89 ], [ null, %if.else58 ], [ null, %if.else27 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -3039,7 +3039,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp177.not.i, label %unsigned_char_converter_impl.exit, label %for.body19.preheader.i
+  br i1 %cmp177.not.i, label %unsigned_char_converter_impl.argprom.exit, label %for.body19.preheader.i
 
 for.body19.preheader.i:                           ; preds = %for.cond16.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -3071,7 +3071,7 @@ if.then1.i56.i:                                   ; preds = %if.end.i53.i
 for.inc.i:                                        ; preds = %if.then1.i56.i, %if.end.i53.i, %for.body19.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %unsigned_char_converter_impl.exit, label %for.body19.i, !llvm.loop !9
+  br i1 %exitcond27.not.i, label %unsigned_char_converter_impl.argprom.exit, label %for.body19.i, !llvm.loop !9
 
 for.inc22.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3105,7 +3105,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc35.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body32.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %unsigned_char_converter_impl.exit, label %for.body32.i, !llvm.loop !11
+  br i1 %exitcond20.not.i, label %unsigned_char_converter_impl.argprom.exit, label %for.body32.i, !llvm.loop !11
 
 for.body43.i:                                     ; preds = %for.end24.i, %for.body43.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body43.i ], [ 0, %for.end24.i ]
@@ -3114,16 +3114,16 @@ for.body43.i:                                     ; preds = %for.end24.i, %for.b
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call25.i, i64 noundef %indvars.iv13.i, ptr noundef %14)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %unsigned_char_converter_impl.exit, label %for.body43.i, !llvm.loop !12
+  br i1 %exitcond16.not.i, label %unsigned_char_converter_impl.argprom.exit, label %for.body43.i, !llvm.loop !12
 
-unsigned_char_converter_impl.exit:                ; preds = %for.body43.i, %for.inc35.i, %for.inc.i, %for.cond16.preheader.i
+unsigned_char_converter_impl.argprom.exit:        ; preds = %for.body43.i, %for.inc35.i, %for.inc.i, %for.cond16.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond16.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc35.i ], [ %call25.i, %for.body43.i ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true55, %land.lhs.true29, %land.lhs.true7, %lor.lhs.false, %unsigned_char_converter_impl.exit, %if.then40, %if.then36, %if.then15, %if.then12
-  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_char_converter_impl.exit ], [ null, %land.lhs.true7 ], [ null, %if.then12 ], [ null, %if.then15 ], [ null, %land.lhs.true29 ], [ null, %if.then36 ], [ null, %if.then40 ], [ null, %land.lhs.true55 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true55, %land.lhs.true29, %land.lhs.true7, %lor.lhs.false, %unsigned_char_converter_impl.argprom.exit, %if.then40, %if.then36, %if.then15, %if.then12
+  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_char_converter_impl.argprom.exit ], [ null, %land.lhs.true7 ], [ null, %if.then12 ], [ null, %if.then15 ], [ null, %land.lhs.true29 ], [ null, %if.then36 ], [ null, %if.then40 ], [ null, %land.lhs.true55 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -3363,7 +3363,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp207.not.i, label %unsigned_short_converter_impl.exit, label %for.body22.preheader.i
+  br i1 %cmp207.not.i, label %unsigned_short_converter_impl.argprom.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -3395,7 +3395,7 @@ if.then1.i59.i:                                   ; preds = %if.end.i56.i
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %unsigned_short_converter_impl.exit, label %for.body22.i, !llvm.loop !13
+  br i1 %exitcond27.not.i, label %unsigned_short_converter_impl.argprom.exit, label %for.body22.i, !llvm.loop !13
 
 for.inc25.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3429,7 +3429,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %unsigned_short_converter_impl.exit, label %for.body35.i, !llvm.loop !15
+  br i1 %exitcond20.not.i, label %unsigned_short_converter_impl.argprom.exit, label %for.body35.i, !llvm.loop !15
 
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
@@ -3438,16 +3438,16 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %12)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %unsigned_short_converter_impl.exit, label %for.body46.i, !llvm.loop !16
+  br i1 %exitcond16.not.i, label %unsigned_short_converter_impl.argprom.exit, label %for.body46.i, !llvm.loop !16
 
-unsigned_short_converter_impl.exit:               ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
+unsigned_short_converter_impl.argprom.exit:       ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond19.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc38.i ], [ %call28.i, %for.body46.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true25, %if.end11, %if.end4, %lor.lhs.false, %unsigned_short_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_short_converter_impl.exit ], [ null, %land.lhs.true25 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true25, %if.end11, %if.end4, %lor.lhs.false, %unsigned_short_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_short_converter_impl.argprom.exit ], [ null, %land.lhs.true25 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -3665,7 +3665,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp207.not.i, label %int_converter_impl.exit, label %for.body22.preheader.i
+  br i1 %cmp207.not.i, label %int_converter_impl.argprom.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -3697,7 +3697,7 @@ if.then1.i59.i:                                   ; preds = %if.end.i56.i
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %int_converter_impl.exit, label %for.body22.i, !llvm.loop !17
+  br i1 %exitcond27.not.i, label %int_converter_impl.argprom.exit, label %for.body22.i, !llvm.loop !17
 
 for.inc25.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3731,7 +3731,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %int_converter_impl.exit, label %for.body35.i, !llvm.loop !19
+  br i1 %exitcond20.not.i, label %int_converter_impl.argprom.exit, label %for.body35.i, !llvm.loop !19
 
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
@@ -3740,16 +3740,16 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %25)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %int_converter_impl.exit, label %for.body46.i, !llvm.loop !20
+  br i1 %exitcond16.not.i, label %int_converter_impl.argprom.exit, label %for.body46.i, !llvm.loop !20
 
-int_converter_impl.exit:                          ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
+int_converter_impl.argprom.exit:                  ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
   %retval.0.i18 = phi ptr [ null, %for.cond19.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc38.i ], [ %call28.i, %for.body46.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true18, %land.lhs.true7, %lor.lhs.false, %int_converter_impl.exit, %if.then36, %if.then30
-  %return_value.0 = phi ptr [ %retval.0.i18, %int_converter_impl.exit ], [ null, %land.lhs.true7 ], [ null, %land.lhs.true18 ], [ null, %if.then36 ], [ null, %if.then30 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true18, %land.lhs.true7, %lor.lhs.false, %int_converter_impl.argprom.exit, %if.then36, %if.then30
+  %return_value.0 = phi ptr [ %retval.0.i18, %int_converter_impl.argprom.exit ], [ null, %land.lhs.true7 ], [ null, %land.lhs.true18 ], [ null, %if.then36 ], [ null, %if.then30 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -3851,7 +3851,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond19.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp207.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp207.not.i, label %unsigned_int_converter_impl.exit, label %for.body22.preheader.i
+  br i1 %cmp207.not.i, label %unsigned_int_converter_impl.argprom.exit, label %for.body22.preheader.i
 
 for.body22.preheader.i:                           ; preds = %for.cond19.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -3883,7 +3883,7 @@ if.then1.i59.i:                                   ; preds = %if.end.i56.i
 for.inc.i:                                        ; preds = %if.then1.i59.i, %if.end.i56.i, %for.body22.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %unsigned_int_converter_impl.exit, label %for.body22.i, !llvm.loop !21
+  br i1 %exitcond27.not.i, label %unsigned_int_converter_impl.argprom.exit, label %for.body22.i, !llvm.loop !21
 
 for.inc25.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3917,7 +3917,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc38.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body35.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %unsigned_int_converter_impl.exit, label %for.body35.i, !llvm.loop !23
+  br i1 %exitcond20.not.i, label %unsigned_int_converter_impl.argprom.exit, label %for.body35.i, !llvm.loop !23
 
 for.body46.i:                                     ; preds = %for.end27.i, %for.body46.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body46.i ], [ 0, %for.end27.i ]
@@ -3926,16 +3926,16 @@ for.body46.i:                                     ; preds = %for.end27.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call28.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %unsigned_int_converter_impl.exit, label %for.body46.i, !llvm.loop !24
+  br i1 %exitcond16.not.i, label %unsigned_int_converter_impl.argprom.exit, label %for.body46.i, !llvm.loop !24
 
-unsigned_int_converter_impl.exit:                 ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
+unsigned_int_converter_impl.argprom.exit:         ; preds = %for.body46.i, %for.inc38.i, %for.inc.i, %for.cond19.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond19.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc38.i ], [ %call28.i, %for.body46.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %land.lhs.true24, %if.end11, %if.end4, %lor.lhs.false, %unsigned_int_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_int_converter_impl.exit ], [ null, %land.lhs.true24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %land.lhs.true24, %if.end11, %if.end4, %lor.lhs.false, %unsigned_int_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_int_converter_impl.argprom.exit ], [ null, %land.lhs.true24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -4160,7 +4160,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp177.not.i, label %unsigned_long_converter_impl.exit, label %for.body18.preheader.i
+  br i1 %cmp177.not.i, label %unsigned_long_converter_impl.argprom.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -4192,7 +4192,7 @@ if.then1.i52.i:                                   ; preds = %if.end.i49.i
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %unsigned_long_converter_impl.exit, label %for.body18.i, !llvm.loop !25
+  br i1 %exitcond27.not.i, label %unsigned_long_converter_impl.argprom.exit, label %for.body18.i, !llvm.loop !25
 
 for.inc21.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4226,7 +4226,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %unsigned_long_converter_impl.exit, label %for.body30.i, !llvm.loop !27
+  br i1 %exitcond20.not.i, label %unsigned_long_converter_impl.argprom.exit, label %for.body30.i, !llvm.loop !27
 
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
@@ -4235,16 +4235,16 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %unsigned_long_converter_impl.exit, label %for.body40.i, !llvm.loop !28
+  br i1 %exitcond16.not.i, label %unsigned_long_converter_impl.argprom.exit, label %for.body40.i, !llvm.loop !28
 
-unsigned_long_converter_impl.exit:                ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
+unsigned_long_converter_impl.argprom.exit:        ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond16.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc33.i ], [ %call24.i, %for.body40.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %if.end11, %if.end4, %lor.lhs.false, %unsigned_long_converter_impl.exit, %if.then24
-  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_long_converter_impl.exit ], [ null, %if.then24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end11, %if.end4, %lor.lhs.false, %unsigned_long_converter_impl.argprom.exit, %if.then24
+  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_long_converter_impl.argprom.exit ], [ null, %if.then24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -4469,7 +4469,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp177.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body18.preheader.i
+  br i1 %cmp177.not.i, label %unsigned_long_long_converter_impl.argprom.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -4501,7 +4501,7 @@ if.then1.i52.i:                                   ; preds = %if.end.i49.i
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body18.i, !llvm.loop !29
+  br i1 %exitcond27.not.i, label %unsigned_long_long_converter_impl.argprom.exit, label %for.body18.i, !llvm.loop !29
 
 for.inc21.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4535,7 +4535,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body30.i, !llvm.loop !31
+  br i1 %exitcond20.not.i, label %unsigned_long_long_converter_impl.argprom.exit, label %for.body30.i, !llvm.loop !31
 
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
@@ -4544,16 +4544,16 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %unsigned_long_long_converter_impl.exit, label %for.body40.i, !llvm.loop !32
+  br i1 %exitcond16.not.i, label %unsigned_long_long_converter_impl.argprom.exit, label %for.body40.i, !llvm.loop !32
 
-unsigned_long_long_converter_impl.exit:           ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
+unsigned_long_long_converter_impl.argprom.exit:   ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond16.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc33.i ], [ %call24.i, %for.body40.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %if.end11, %if.end4, %lor.lhs.false, %unsigned_long_long_converter_impl.exit, %if.then24
-  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_long_long_converter_impl.exit ], [ null, %if.then24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end11, %if.end4, %lor.lhs.false, %unsigned_long_long_converter_impl.argprom.exit, %if.then24
+  %return_value.0 = phi ptr [ %retval.0.i, %unsigned_long_long_converter_impl.argprom.exit ], [ null, %if.then24 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -4702,7 +4702,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp177.not.i, label %py_ssize_t_converter_impl.exit, label %for.body18.preheader.i
+  br i1 %cmp177.not.i, label %py_ssize_t_converter_impl.argprom.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -4734,7 +4734,7 @@ if.then1.i52.i:                                   ; preds = %if.end.i49.i
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %py_ssize_t_converter_impl.exit, label %for.body18.i, !llvm.loop !33
+  br i1 %exitcond27.not.i, label %py_ssize_t_converter_impl.argprom.exit, label %for.body18.i, !llvm.loop !33
 
 for.inc21.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4768,7 +4768,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %py_ssize_t_converter_impl.exit, label %for.body30.i, !llvm.loop !35
+  br i1 %exitcond20.not.i, label %py_ssize_t_converter_impl.argprom.exit, label %for.body30.i, !llvm.loop !35
 
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
@@ -4777,16 +4777,16 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %15)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %py_ssize_t_converter_impl.exit, label %for.body40.i, !llvm.loop !36
+  br i1 %exitcond16.not.i, label %py_ssize_t_converter_impl.argprom.exit, label %for.body40.i, !llvm.loop !36
 
-py_ssize_t_converter_impl.exit:                   ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
+py_ssize_t_converter_impl.argprom.exit:           ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond16.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc33.i ], [ %call24.i, %for.body40.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %if.end35, %land.lhs.true28, %land.lhs.true11, %lor.lhs.false, %py_ssize_t_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %py_ssize_t_converter_impl.exit ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true28 ], [ null, %if.end35 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end35, %land.lhs.true28, %land.lhs.true11, %lor.lhs.false, %py_ssize_t_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %py_ssize_t_converter_impl.argprom.exit ], [ null, %land.lhs.true11 ], [ null, %land.lhs.true28 ], [ null, %if.end35 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -4885,7 +4885,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %lor.lhs.false.i
   %cmp177.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %cmp177.not.i, label %slice_index_converter_impl.exit, label %for.body18.preheader.i
+  br i1 %cmp177.not.i, label %slice_index_converter_impl.argprom.exit, label %for.body18.preheader.i
 
 for.body18.preheader.i:                           ; preds = %for.cond16.preheader.i
   %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
@@ -4917,7 +4917,7 @@ if.then1.i52.i:                                   ; preds = %if.end.i49.i
 for.inc.i:                                        ; preds = %if.then1.i52.i, %if.end.i49.i, %for.body18.i
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %slice_index_converter_impl.exit, label %for.body18.i, !llvm.loop !37
+  br i1 %exitcond27.not.i, label %slice_index_converter_impl.argprom.exit, label %for.body18.i, !llvm.loop !37
 
 for.inc21.i:                                      ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4951,7 +4951,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc33.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body30.i
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
-  br i1 %exitcond20.not.i, label %slice_index_converter_impl.exit, label %for.body30.i, !llvm.loop !39
+  br i1 %exitcond20.not.i, label %slice_index_converter_impl.argprom.exit, label %for.body30.i, !llvm.loop !39
 
 for.body40.i:                                     ; preds = %for.end23.i, %for.body40.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.body40.i ], [ 0, %for.end23.i ]
@@ -4960,16 +4960,16 @@ for.body40.i:                                     ; preds = %for.end23.i, %for.b
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call24.i, i64 noundef %indvars.iv13.i, ptr noundef %13)
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 3
-  br i1 %exitcond16.not.i, label %slice_index_converter_impl.exit, label %for.body40.i, !llvm.loop !40
+  br i1 %exitcond16.not.i, label %slice_index_converter_impl.argprom.exit, label %for.body40.i, !llvm.loop !40
 
-slice_index_converter_impl.exit:                  ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
+slice_index_converter_impl.argprom.exit:          ; preds = %for.body40.i, %for.inc33.i, %for.inc.i, %for.cond16.preheader.i
   %retval.0.i = phi ptr [ null, %for.cond16.preheader.i ], [ null, %for.inc.i ], [ null, %for.inc33.i ], [ %call24.i, %for.body40.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %if.end19, %if.end11, %if.end4, %lor.lhs.false, %slice_index_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %slice_index_converter_impl.exit ], [ null, %if.end19 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
+exit:                                             ; preds = %if.end19, %if.end11, %if.end4, %lor.lhs.false, %slice_index_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %slice_index_converter_impl.argprom.exit ], [ null, %if.end19 ], [ null, %if.end11 ], [ null, %if.end4 ], [ null, %lor.lhs.false ]
   ret ptr %return_value.0
 }
 
@@ -5500,7 +5500,7 @@ cond.end.i:                                       ; preds = %if.end
 lor.lhs.false.i:                                  ; preds = %cond.end.i
   %call3.i = call ptr @PyErr_Occurred() #9
   %tobool4.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool4.not.i, label %cond.false6.i, label %str_converter_impl.exit
+  br i1 %tobool4.not.i, label %cond.false6.i, label %str_converter_impl.argprom.exit
 
 cond.false6.i:                                    ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.77, i32 noundef 529, ptr noundef nonnull @__PRETTY_FUNCTION__.str_converter_impl) #10
@@ -5551,7 +5551,7 @@ for.body.i:                                       ; preds = %if.end33.i, %for.bo
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %str_converter_impl.exit, label %for.body.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %str_converter_impl.argprom.exit, label %for.body.i, !llvm.loop !41
 
 for.body48.preheader.i:                           ; preds = %if.end33.i, %lor.lhs.false25.i, %lor.lhs.false11.i
   %i.0.ph.i = phi i64 [ 2, %lor.lhs.false25.i ], [ 1, %lor.lhs.false11.i ], [ 3, %if.end33.i ]
@@ -5579,15 +5579,15 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc51.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body48.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %i.0.ph.i
-  br i1 %exitcond10.not.i, label %str_converter_impl.exit, label %for.body48.i, !llvm.loop !42
+  br i1 %exitcond10.not.i, label %str_converter_impl.argprom.exit, label %for.body48.i, !llvm.loop !42
 
-str_converter_impl.exit:                          ; preds = %for.body.i, %for.inc51.i, %lor.lhs.false.i
+str_converter_impl.argprom.exit:                  ; preds = %for.body.i, %for.inc51.i, %lor.lhs.false.i
   %retval.0.i = phi ptr [ null, %lor.lhs.false.i ], [ null, %for.inc51.i ], [ %call37.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   br label %exit
 
-exit:                                             ; preds = %entry, %str_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %str_converter_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %str_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %str_converter_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -5629,7 +5629,7 @@ cond.end.i:                                       ; preds = %if.end
 lor.lhs.false.i:                                  ; preds = %cond.end.i
   %call3.i = call ptr @PyErr_Occurred() #9
   %tobool4.not.i = icmp eq ptr %call3.i, null
-  br i1 %tobool4.not.i, label %cond.false6.i, label %str_converter_encoding_impl.exit
+  br i1 %tobool4.not.i, label %cond.false6.i, label %str_converter_encoding_impl.argprom.exit
 
 cond.false6.i:                                    ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.77, i32 noundef 587, ptr noundef nonnull @__PRETTY_FUNCTION__.str_converter_encoding_impl) #10
@@ -5680,7 +5680,7 @@ for.body.i:                                       ; preds = %if.end33.i, %for.bo
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call37.i, i64 noundef %indvars.iv.i, ptr noundef %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %str_converter_encoding_impl.exit, label %for.body.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %str_converter_encoding_impl.argprom.exit, label %for.body.i, !llvm.loop !43
 
 for.body48.preheader.i:                           ; preds = %if.end33.i, %lor.lhs.false25.i, %lor.lhs.false11.i
   %i.0.ph.i = phi i64 [ 2, %lor.lhs.false25.i ], [ 1, %lor.lhs.false11.i ], [ 3, %if.end33.i ]
@@ -5708,9 +5708,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 for.inc51.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body48.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %i.0.ph.i
-  br i1 %exitcond10.not.i, label %str_converter_encoding_impl.exit, label %for.body48.i, !llvm.loop !44
+  br i1 %exitcond10.not.i, label %str_converter_encoding_impl.argprom.exit, label %for.body48.i, !llvm.loop !44
 
-str_converter_encoding_impl.exit:                 ; preds = %for.body.i, %for.inc51.i, %lor.lhs.false.i
+str_converter_encoding_impl.argprom.exit:         ; preds = %for.body.i, %for.inc51.i, %lor.lhs.false.i
   %retval.0.i = phi ptr [ null, %lor.lhs.false.i ], [ null, %for.inc51.i ], [ %call37.i, %for.body.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   %8 = load ptr, ptr %a, align 8
@@ -5721,8 +5721,8 @@ str_converter_encoding_impl.exit:                 ; preds = %for.body.i, %for.in
   call void @PyMem_Free(ptr noundef %10) #9
   br label %exit
 
-exit:                                             ; preds = %entry, %str_converter_encoding_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %str_converter_encoding_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %str_converter_encoding_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %str_converter_encoding_impl.argprom.exit ], [ null, %entry ]
   ret ptr %return_value.0
 }
 
@@ -5797,7 +5797,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i, %if.the
   br i1 %tobool8.not.i, label %cond.false10.i, label %for.cond15.preheader.i
 
 for.cond15.preheader.i:                           ; preds = %lor.lhs.false.i
-  br i1 %cmp.i, label %py_buffer_converter_impl.exit, label %for.body17.i
+  br i1 %cmp.i, label %py_buffer_converter_impl.argprom.exit, label %for.body17.i
 
 cond.false10.i:                                   ; preds = %lor.lhs.false.i
   call void @__assert_fail(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.77, i32 noundef 652, ptr noundef nonnull @__PRETTY_FUNCTION__.py_buffer_converter_impl) #10
@@ -5808,17 +5808,17 @@ for.body17.i:                                     ; preds = %for.cond15.preheade
   %4 = load i64, ptr %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0., align 8
   %5 = and i64 %4, 2147483648
   %cmp.i55.not.i = icmp eq i64 %5, 0
-  br i1 %cmp.i55.not.i, label %if.end.i48.i, label %py_buffer_converter_impl.exit
+  br i1 %cmp.i55.not.i, label %if.end.i48.i, label %py_buffer_converter_impl.argprom.exit
 
 if.end.i48.i:                                     ; preds = %for.body17.i
   %dec.i49.i = add i64 %4, -1
   store i64 %dec.i49.i, ptr %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0., align 8
   %cmp.i50.i = icmp eq i64 %dec.i49.i, 0
-  br i1 %cmp.i50.i, label %if.then1.i51.i, label %py_buffer_converter_impl.exit
+  br i1 %cmp.i50.i, label %if.then1.i51.i, label %py_buffer_converter_impl.argprom.exit
 
 if.then1.i51.i:                                   ; preds = %if.end.i48.i
   call void @_Py_Dealloc(ptr noundef nonnull %out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.out.i.sroa.0.0.) #9
-  br label %py_buffer_converter_impl.exit
+  br label %py_buffer_converter_impl.argprom.exit
 
 for.inc20.i:                                      ; preds = %if.end.i20.i
   store ptr %call.i.i, ptr %indvars.iv.i.sroa.phi, align 8
@@ -5849,23 +5849,23 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc32.i
 
 for.inc32.i:                                      ; preds = %if.then1.i.i, %if.end.i.i, %for.body29.i
-  br i1 %cmp28.i, label %for.body29.i, label %py_buffer_converter_impl.exit, !llvm.loop !46
+  br i1 %cmp28.i, label %for.body29.i, label %py_buffer_converter_impl.argprom.exit, !llvm.loop !46
 
 for.body39.i:                                     ; preds = %for.end22.i
   %out.i.sroa.0.0.out.i.sroa.0.0. = load ptr, ptr %out.i.sroa.0, align 16
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call23.i, i64 noundef 0, ptr noundef %out.i.sroa.0.0.out.i.sroa.0.0.)
   %out.i.sroa.8.0.out.i.sroa.8.0. = load ptr, ptr %out.i.sroa.8, align 8
   call fastcc void @PyTuple_SET_ITEM(ptr noundef %call23.i, i64 noundef 1, ptr noundef %out.i.sroa.8.0.out.i.sroa.8.0.)
-  br label %py_buffer_converter_impl.exit
+  br label %py_buffer_converter_impl.argprom.exit
 
-py_buffer_converter_impl.exit:                    ; preds = %for.inc32.i, %for.body39.i, %for.cond15.preheader.i, %for.body17.i, %if.end.i48.i, %if.then1.i51.i
+py_buffer_converter_impl.argprom.exit:            ; preds = %for.inc32.i, %for.body39.i, %for.cond15.preheader.i, %for.body17.i, %if.end.i48.i, %if.then1.i51.i
   %retval.0.i = phi ptr [ null, %if.end.i48.i ], [ null, %if.then1.i51.i ], [ null, %for.body17.i ], [ null, %for.cond15.preheader.i ], [ %call23.i, %for.body39.i ], [ null, %for.inc32.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i.sroa.8)
   br label %exit
 
-exit:                                             ; preds = %entry, %py_buffer_converter_impl.exit
-  %return_value.0 = phi ptr [ %retval.0.i, %py_buffer_converter_impl.exit ], [ null, %entry ]
+exit:                                             ; preds = %entry, %py_buffer_converter_impl.argprom.exit
+  %return_value.0 = phi ptr [ %retval.0.i, %py_buffer_converter_impl.argprom.exit ], [ null, %entry ]
   %obj = getelementptr inbounds i8, ptr %a, i64 8
   %9 = load ptr, ptr %obj, align 8
   %tobool2.not = icmp eq ptr %9, null
@@ -9135,18 +9135,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %Py_SIZE.exit, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %Py_SIZE.exit, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %cond.false, label %cond.end
 
-cond.false:                                       ; preds = %PyObject_TypeCheck.exit
+cond.false:                                       ; preds = %PyObject_TypeCheck.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_GET_SIZE) #10
   unreachable
 
-cond.end:                                         ; preds = %PyObject_TypeCheck.exit
+cond.end:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %.pr = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %.pr, @PyLong_Type
   br i1 %cmp.not.i, label %cond.false.i, label %cond.end.i
@@ -9175,18 +9175,18 @@ entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %op.val, @PyByteArray_Type
-  br i1 %cmp.i.not.i, label %Py_SIZE.exit, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %Py_SIZE.exit, label %PyObject_TypeCheck.argprom.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %entry
+PyObject_TypeCheck.argprom.exit:                  ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyByteArray_Type) #9
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %cond.false, label %cond.end
 
-cond.false:                                       ; preds = %PyObject_TypeCheck.exit
+cond.false:                                       ; preds = %PyObject_TypeCheck.argprom.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111, i32 noundef 22, ptr noundef nonnull @__PRETTY_FUNCTION__.PyByteArray_AS_STRING) #10
   unreachable
 
-cond.end:                                         ; preds = %PyObject_TypeCheck.exit
+cond.end:                                         ; preds = %PyObject_TypeCheck.argprom.exit
   %.pr = load ptr, ptr %0, align 8
   %cmp.not.i = icmp eq ptr %.pr, @PyLong_Type
   br i1 %cmp.not.i, label %cond.false.i, label %cond.end.i

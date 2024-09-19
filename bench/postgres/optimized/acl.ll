@@ -2585,7 +2585,7 @@ define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr nocapture noundef 
 
 8:                                                ; preds = %4, %2
   store ptr null, ptr %1, align 8
-  br label %qunique.exit
+  br label %qunique.argprom.exit
 
 9:                                                ; preds = %4
   tail call fastcc void @check_acl(ptr noundef nonnull %0)
@@ -2662,7 +2662,7 @@ define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr nocapture noundef 
   tail call void @pg_qsort(ptr noundef %14, i64 noundef %48, i64 noundef 4, ptr noundef nonnull @oid_cmp) #15
   store ptr %14, ptr %1, align 8
   %49 = icmp ult i32 %.028.lcssa, 2
-  br i1 %49, label %qunique.exit, label %.preheader.i
+  br i1 %49, label %qunique.argprom.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge, %61
   %.02.i = phi i64 [ %.1.i, %61 ], [ 0, %._crit_edge ]
@@ -2696,9 +2696,9 @@ define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr nocapture noundef 
 63:                                               ; preds = %61
   %64 = trunc i64 %.1.i to i32
   %65 = add i32 %64, 1
-  br label %qunique.exit
+  br label %qunique.argprom.exit
 
-qunique.exit:                                     ; preds = %63, %._crit_edge, %8
+qunique.argprom.exit:                             ; preds = %63, %._crit_edge, %8
   %.0 = phi i32 [ 0, %8 ], [ %65, %63 ], [ %.028.lcssa, %._crit_edge ]
   ret i32 %.0
 }

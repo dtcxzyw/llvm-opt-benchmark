@@ -73,17 +73,17 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
   %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
-  br i1 %cmp5.not.i, label %freeSafe.exit, label %if.then10.i
+  br i1 %cmp5.not.i, label %freeSafe.argprom.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %4) #9
-  br label %freeSafe.exit
+  br label %freeSafe.argprom.exit
 
-freeSafe.exit:                                    ; preds = %for.end.i, %if.then10.i
+freeSafe.argprom.exit:                            ; preds = %for.end.i, %if.then10.i
   tail call void @wolfSSL_Free(ptr noundef nonnull %0) #9
   br label %if.end5
 
-if.end5:                                          ; preds = %freeSafe.exit, %if.end
+if.end5:                                          ; preds = %freeSafe.argprom.exit, %if.end
   %signData = getelementptr inbounds i8, ptr %pkcs12, i64 16
   %5 = load ptr, ptr %signData, align 8
   %cmp6.not = icmp eq ptr %5, null
@@ -126,7 +126,7 @@ if.end35:                                         ; preds = %entry, %if.then34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeSafe(ptr noundef nonnull %safe) unnamed_addr #0 {
+define internal fastcc void @freeSafe.argprom(ptr noundef nonnull %safe) unnamed_addr #0 {
 entry:
   %numCI = getelementptr inbounds i8, ptr %safe, i64 20
   %0 = load i32, ptr %numCI, align 4
@@ -194,7 +194,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef readonly %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %psw, i32 noundef %pswSz, ptr noundef %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac.argelim(ptr noundef readonly %pkcs12, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %psw, i32 noundef %pswSz, ptr noundef %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit, label %if.end10.i
 
@@ -325,13 +325,13 @@ for.end.i:                                        ; preds = %for.inc.i, %do.end
   %data.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
-  br i1 %cmp5.not.i, label %freeSafe.exit, label %if.then10.i
+  br i1 %cmp5.not.i, label %freeSafe.argprom.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
   call void @wolfSSL_Free(ptr noundef nonnull %4) #9
-  br label %freeSafe.exit
+  br label %freeSafe.argprom.exit
 
-freeSafe.exit:                                    ; preds = %for.end.i, %if.then10.i
+freeSafe.argprom.exit:                            ; preds = %for.end.i, %if.then10.i
   call void @wolfSSL_Free(ptr noundef nonnull %call) #9
   br label %return
 
@@ -364,13 +364,13 @@ for.end.i66:                                      ; preds = %for.inc.i70, %if.th
   %data.i67 = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %data.i67, align 8
   %cmp5.not.i68 = icmp eq ptr %9, null
-  br i1 %cmp5.not.i68, label %freeSafe.exit75, label %if.then10.i69
+  br i1 %cmp5.not.i68, label %freeSafe.argprom.exit75, label %if.then10.i69
 
 if.then10.i69:                                    ; preds = %for.end.i66
   call void @wolfSSL_Free(ptr noundef nonnull %9) #9
-  br label %freeSafe.exit75
+  br label %freeSafe.argprom.exit75
 
-freeSafe.exit75:                                  ; preds = %for.end.i66, %if.then10.i69
+freeSafe.argprom.exit75:                          ; preds = %for.end.i66, %if.then10.i69
   call void @wolfSSL_Free(ptr noundef nonnull %call) #9
   br label %return
 
@@ -400,13 +400,13 @@ for.end.i78:                                      ; preds = %for.inc.i82, %do.en
   %data.i79 = getelementptr inbounds i8, ptr %call, i64 8
   %14 = load ptr, ptr %data.i79, align 8
   %cmp5.not.i80 = icmp eq ptr %14, null
-  br i1 %cmp5.not.i80, label %freeSafe.exit87, label %if.then10.i81
+  br i1 %cmp5.not.i80, label %freeSafe.argprom.exit87, label %if.then10.i81
 
 if.then10.i81:                                    ; preds = %for.end.i78
   call void @wolfSSL_Free(ptr noundef nonnull %14) #9
-  br label %freeSafe.exit87
+  br label %freeSafe.argprom.exit87
 
-freeSafe.exit87:                                  ; preds = %for.end.i78, %if.then10.i81
+freeSafe.argprom.exit87:                          ; preds = %for.end.i78, %if.then10.i81
   call void @wolfSSL_Free(ptr noundef nonnull %call) #9
   br label %return
 
@@ -436,13 +436,13 @@ for.end.i90:                                      ; preds = %for.inc.i94, %if.th
   %data.i91 = getelementptr inbounds i8, ptr %call, i64 8
   %18 = load ptr, ptr %data.i91, align 8
   %cmp5.not.i92 = icmp eq ptr %18, null
-  br i1 %cmp5.not.i92, label %freeSafe.exit99, label %if.then10.i93
+  br i1 %cmp5.not.i92, label %freeSafe.argprom.exit99, label %if.then10.i93
 
 if.then10.i93:                                    ; preds = %for.end.i90
   call void @wolfSSL_Free(ptr noundef nonnull %18) #9
-  br label %freeSafe.exit99
+  br label %freeSafe.argprom.exit99
 
-freeSafe.exit99:                                  ; preds = %for.end.i90, %if.then10.i93
+freeSafe.argprom.exit99:                          ; preds = %for.end.i90, %if.then10.i93
   call void @wolfSSL_Free(ptr noundef nonnull %call) #9
   br label %return
 
@@ -457,7 +457,7 @@ do.end29:                                         ; preds = %if.end24
   br i1 %cmp31, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %do.end29
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end35:                                         ; preds = %do.end29
@@ -466,7 +466,7 @@ if.end35:                                         ; preds = %do.end29
   br i1 %cmp37.not, label %if.end43, label %do.end41
 
 do.end41:                                         ; preds = %if.end35
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end43:                                         ; preds = %if.end35
@@ -475,7 +475,7 @@ if.end43:                                         ; preds = %if.end35
   br i1 %cmp45, label %if.then47, label %sw.epilog
 
 if.then47:                                        ; preds = %if.end43
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 sw.epilog:                                        ; preds = %if.end24, %if.end43
@@ -490,7 +490,7 @@ sw.epilog:                                        ; preds = %if.end24, %if.end43
   br i1 %cmp54, label %if.then56, label %if.end58
 
 if.then56:                                        ; preds = %sw.epilog
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end58:                                         ; preds = %sw.epilog
@@ -511,7 +511,7 @@ if.end58:                                         ; preds = %sw.epilog
   br i1 %cmp64, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %if.end58
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end68:                                         ; preds = %if.end58
@@ -534,7 +534,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp72, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %while.body
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end76:                                         ; preds = %while.body
@@ -544,7 +544,7 @@ if.end76:                                         ; preds = %while.body
   br i1 %cmp77, label %if.then79, label %if.end81
 
 if.then79:                                        ; preds = %if.end76
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end81:                                         ; preds = %if.end76
@@ -555,7 +555,7 @@ if.end81:                                         ; preds = %if.end76
   br i1 %cmp83, label %do.end87, label %if.end89
 
 do.end87:                                         ; preds = %if.end81
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end89:                                         ; preds = %if.end81
@@ -564,7 +564,7 @@ if.end89:                                         ; preds = %if.end81
   br i1 %cmp92, label %if.then94, label %if.end96
 
 if.then94:                                        ; preds = %if.end89
-  call fastcc void @freeSafe(ptr noundef %call)
+  call fastcc void @freeSafe.argprom(ptr noundef %call)
   br label %return
 
 if.end96:                                         ; preds = %if.end89
@@ -602,8 +602,8 @@ while.end:                                        ; preds = %if.end96, %if.end68
   store i32 %add107, ptr %idx, align 4
   br label %return
 
-return:                                           ; preds = %entry, %while.end, %if.then94, %do.end87, %if.then79, %if.then74, %if.then66, %if.then56, %if.then47, %do.end41, %if.then33, %freeSafe.exit99, %freeSafe.exit87, %freeSafe.exit75, %freeSafe.exit
-  %retval.0 = phi i32 [ -140, %freeSafe.exit ], [ -140, %freeSafe.exit75 ], [ -140, %freeSafe.exit87 ], [ -140, %freeSafe.exit99 ], [ -140, %if.then33 ], [ -140, %do.end41 ], [ -140, %if.then47 ], [ -125, %if.then56 ], [ -140, %if.then66 ], [ %call71, %if.then74 ], [ -140, %if.then79 ], [ %call82, %do.end87 ], [ -125, %if.then94 ], [ %ret.0.lcssa, %while.end ], [ -125, %entry ]
+return:                                           ; preds = %entry, %while.end, %if.then94, %do.end87, %if.then79, %if.then74, %if.then66, %if.then56, %if.then47, %do.end41, %if.then33, %freeSafe.argprom.exit99, %freeSafe.argprom.exit87, %freeSafe.argprom.exit75, %freeSafe.argprom.exit
+  %retval.0 = phi i32 [ -140, %freeSafe.argprom.exit ], [ -140, %freeSafe.argprom.exit75 ], [ -140, %freeSafe.argprom.exit87 ], [ -140, %freeSafe.argprom.exit99 ], [ -140, %if.then33 ], [ -140, %do.end41 ], [ -140, %if.then47 ], [ -125, %if.then56 ], [ -140, %if.then66 ], [ %call71, %if.then74 ], [ -140, %if.then79 ], [ %call82, %do.end87 ], [ -125, %if.then94 ], [ %ret.0.lcssa, %while.end ], [ -125, %entry ]
   ret i32 %retval.0
 }
 
@@ -1214,7 +1214,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %cmp5.i, label %wc_PKCS12_verify.exit.thread, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call.i = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef readonly %pkcs12, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef %digest.i)
+  %call.i = call fastcc i32 @wc_PKCS12_create_mac.argelim(ptr noundef readonly %pkcs12, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull readonly %psw, i32 noundef %conv, ptr noundef %digest.i)
   %cmp8.i = icmp slt i32 %call.i, 0
   br i1 %cmp8.i, label %wc_PKCS12_verify.exit.thread, label %wc_PKCS12_verify.exit
 
@@ -1700,7 +1700,7 @@ for.end:                                          ; preds = %if.end417, %for.con
 
 if.then423:                                       ; preds = %for.end
   %85 = load ptr, ptr %pkcs12, align 8
-  call fastcc void @freeDecCertList(ptr noundef %certList, ptr noundef nonnull %pkey, ptr noundef %pkeySz, ptr noundef %cert, ptr noundef %certSz, ptr noundef %85)
+  call fastcc void @freeDecCertList.retelim(ptr noundef %certList, ptr noundef nonnull %pkey, ptr noundef %pkeySz, ptr noundef %cert, ptr noundef %certSz, ptr noundef %85)
   br label %if.end430
 
 if.end430:                                        ; preds = %if.then423, %for.end
@@ -1800,7 +1800,7 @@ declare i32 @ToTraditional_ex(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare i32 @ToTraditionalEnc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeDecCertList(ptr nocapture noundef nonnull %list, ptr nocapture noundef readonly %pkey, ptr nocapture noundef readonly %pkeySz, ptr nocapture noundef nonnull writeonly %cert, ptr nocapture noundef writeonly %certSz, ptr noundef %heap) unnamed_addr #0 {
+define internal fastcc void @freeDecCertList.retelim(ptr nocapture noundef nonnull %list, ptr nocapture noundef readonly %pkey, ptr nocapture noundef readonly %pkeySz, ptr nocapture noundef nonnull writeonly %cert, ptr nocapture noundef writeonly %certSz, ptr noundef %heap) unnamed_addr #0 {
 entry:
   %DeCert = alloca [1 x %struct.DecodedCert], align 16
   %current.015 = load ptr, ptr %list, align 8
@@ -2031,7 +2031,7 @@ if.then47.i:                                      ; preds = %if.end39.i
 
 if.end49.i:                                       ; preds = %if.end39.i
   %pkcs12.val50.i = load ptr, ptr %call.i, align 8
-  %call50.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val50.i, ptr noundef %rng, ptr noundef nonnull %call41.i, ptr noundef %keyCiSz, ptr noundef nonnull %call8.i, i32 noundef %add28.i, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
+  %call50.i = call fastcc i32 @wc_PKCS12_encrypt_content.argprom(ptr %pkcs12.val50.i, ptr noundef %rng, ptr noundef nonnull %call41.i, ptr noundef %keyCiSz, ptr noundef nonnull %call8.i, i32 noundef %add28.i, i32 noundef %nidKey, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
   call void @wolfSSL_Free(ptr noundef nonnull %call8.i) #9
   %cmp55.i = icmp slt i32 %call50.i, 0
   br i1 %cmp55.i, label %if.then60.i, label %if.end22
@@ -2087,7 +2087,7 @@ if.end12.i:                                       ; preds = %if.end11.i, %switch
 if.end20.i:                                       ; preds = %if.end12.i
   store i32 %certBufSz.0.i, ptr %sz.i, align 4
   %add.ptr.i61 = getelementptr inbounds i8, ptr %call14.i, i64 6
-  %call22.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr.i61, ptr noundef %sz.i, ptr noundef readonly %cert, i32 noundef %certSz)
+  %call22.i = call fastcc i32 @wc_PKCS12_create_cert_bag.argprom(ptr noundef nonnull %add.ptr.i61, ptr noundef %sz.i, ptr noundef readonly %cert, i32 noundef %certSz)
   %cmp23.i = icmp slt i32 %call22.i, 0
   br i1 %cmp23.i, label %if.then26.sink.split, label %if.end28.i
 
@@ -2108,7 +2108,7 @@ while.body37.i:                                   ; preds = %if.end51.i, %while.
   %9 = load ptr, ptr %current33.073.i, align 8
   %bufferSz42.i = getelementptr inbounds i8, ptr %current33.073.i, i64 8
   %10 = load i32, ptr %bufferSz42.i, align 8
-  %call43.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr40.i, ptr noundef %sz.i, ptr noundef %9, i32 noundef %10)
+  %call43.i = call fastcc i32 @wc_PKCS12_create_cert_bag.argprom(ptr noundef nonnull %add.ptr40.i, ptr noundef %sz.i, ptr noundef %9, i32 noundef %10)
   %cmp44.i = icmp slt i32 %call43.i, 0
   br i1 %cmp44.i, label %if.then26.sink.split, label %if.end51.i
 
@@ -2132,7 +2132,7 @@ if.end55.i:                                       ; preds = %if.end55.loopexit.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr59.i, ptr nonnull align 1 %add.ptr.i61, i64 %conv62.i, i1 false)
   %add64.i = add i32 %call57.i, %idx.0.i
   %pkcs12.val.i = load ptr, ptr %call.i, align 8
-  %call65.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val.i, ptr noundef %rng, ptr noundef null, ptr noundef %certCiSz, ptr noundef null, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
+  %call65.i = call fastcc i32 @wc_PKCS12_encrypt_content.argprom(ptr %pkcs12.val.i, ptr noundef %rng, ptr noundef null, ptr noundef %certCiSz, ptr noundef null, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
   %cmp66.not.i = icmp eq i32 %call65.i, -202
   br i1 %cmp66.not.i, label %if.end75.i, label %if.then26.sink.split
 
@@ -2145,7 +2145,7 @@ if.end75.i:                                       ; preds = %if.end55.i
 
 if.end85.i:                                       ; preds = %if.end75.i
   %pkcs12.val63.i = load ptr, ptr %call.i, align 8
-  %call86.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val63.i, ptr noundef %rng, ptr noundef nonnull %call77.i, ptr noundef %certCiSz, ptr noundef nonnull %call14.i, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
+  %call86.i = call fastcc i32 @wc_PKCS12_encrypt_content.argprom(ptr %pkcs12.val63.i, ptr noundef %rng, ptr noundef nonnull %call77.i, ptr noundef %certCiSz, ptr noundef nonnull %call14.i, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
   call void @wolfSSL_Free(ptr noundef nonnull %call14.i) #9
   %cmp91.i = icmp slt i32 %call86.i, 0
   br i1 %cmp91.i, label %if.then26.sink.split, label %if.end29
@@ -2203,7 +2203,7 @@ if.end20.i77:                                     ; preds = %if.end8.i
   %conv29.i = zext nneg i32 %call50.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr28.i, ptr nonnull readonly align 1 %call41.i, i64 %conv29.i, i1 false)
   %pkcs12.val37.i = load ptr, ptr %call.i, align 8
-  %call30.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.val37.i, ptr noundef %rng, ptr noundef nonnull %call4.i, ptr noundef %safeDataSz.i, ptr noundef nonnull %call11.i, i32 noundef %add2.i, i32 noundef 0, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
+  %call30.i = call fastcc i32 @wc_PKCS12_encrypt_content.argprom(ptr %pkcs12.val37.i, ptr noundef %rng, ptr noundef nonnull %call4.i, ptr noundef %safeDataSz.i, ptr noundef nonnull %call11.i, i32 noundef %add2.i, i32 noundef 0, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef 651)
   call void @wolfSSL_Free(ptr noundef nonnull %call11.i) #9
   %cmp36.i = icmp slt i32 %call30.i, 0
   br i1 %cmp36.i, label %do.end42.critedge.sink.split, label %if.end46.i
@@ -2294,7 +2294,7 @@ if.end70:                                         ; preds = %if.end61
   %18 = load ptr, ptr %data, align 8
   %dataSz = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load i32, ptr %dataSz, align 8
-  %call72 = call fastcc i32 @wc_PKCS12_create_mac(ptr noundef %call.i, ptr noundef %18, i32 noundef %19, ptr noundef %pass, i32 noundef %passSz, ptr noundef %digest)
+  %call72 = call fastcc i32 @wc_PKCS12_create_mac.argelim(ptr noundef %call.i, ptr noundef %18, i32 noundef %19, ptr noundef %pass, i32 noundef %passSz, ptr noundef %digest)
   %cmp73 = icmp slt i32 %call72, 0
   br i1 %cmp73, label %if.then74, label %if.end80
 
@@ -2358,7 +2358,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @wc_RNG_GenerateBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_create_mac(ptr nocapture noundef nonnull readonly %pkcs12, ptr noundef %data, i32 noundef %dataSz, ptr nocapture noundef readonly %psw, i32 noundef %pswSz, ptr noundef nonnull %out) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_create_mac.argelim(ptr nocapture noundef nonnull readonly %pkcs12, ptr noundef %data, i32 noundef %dataSz, ptr nocapture noundef readonly %psw, i32 noundef %pswSz, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %hmac = alloca %struct.Hmac, align 16
   %unicodePasswd = alloca [256 x i8], align 16
@@ -2530,7 +2530,7 @@ declare void @FreeDecodedCert(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_encrypt_content(ptr %pkcs12.0.val, ptr noundef nonnull %rng, ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr noundef %content, i32 noundef %contentSz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %iter, i32 noundef range(i32 651, 657) %type) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_encrypt_content.argprom(ptr %pkcs12.0.val, ptr noundef nonnull %rng, ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr noundef %content, i32 noundef %contentSz, i32 noundef range(i32 -1, 4) %vAlgo, ptr noundef %pass, i32 noundef %passSz, i32 noundef %iter, i32 noundef range(i32 651, 657) %type) unnamed_addr #0 {
 entry:
   %encSz = alloca i32, align 4
   %seq = alloca [6 x i8], align 1
@@ -2847,7 +2847,7 @@ declare i32 @SetExplicit(i8 noundef zeroext, i32 noundef, ptr noundef) local_unn
 declare i32 @EncryptContent(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr nocapture noundef readonly %cert, i32 noundef %certSz) unnamed_addr #0 {
+define internal fastcc i32 @wc_PKCS12_create_cert_bag.argprom(ptr noundef %out, ptr nocapture noundef nonnull %outSz, ptr nocapture noundef readonly %cert, i32 noundef %certSz) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %out, null
   br i1 %cmp, label %if.then, label %if.end

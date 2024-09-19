@@ -20017,7 +20017,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 51:                                               ; preds = %46
   %52 = load ptr, ptr %0, align 8, !alias.scope !93
   invoke void @_ZN3nix8readFullEiPcm(i32 noundef %50, ptr noundef %52, i64 noundef %.val4)
-          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit" unwind label %53
+          to label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit" unwind label %53
 
 53:                                               ; preds = %51, %46
   %54 = landingpad { ptr, i32 }
@@ -20030,7 +20030,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #28
   resume { ptr, i32 } %.pn.i.i.i
 
-"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %51
+"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom.exit": ; preds = %51
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !92
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !92
@@ -20039,7 +20039,7 @@ _ZN3nix8SysErrorC2IJA16_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmEZN3nix16RemoteFSAccessor5fetchERKNS7_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
+  switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit" [
     i32 0, label %4
     i32 1, label %5
     i32 3, label %10
@@ -20048,12 +20048,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 
 4:                                                ; preds = %3
   store ptr @"_ZTIZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEE3$_0", ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 5:                                                ; preds = %3
   %.val = load ptr, ptr %1, align 8
   store ptr %.val, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
@@ -20069,12 +20069,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFNSt7__cxx1112basi
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i": ; preds = %6
   store ptr %7, ptr %0, align 8
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
 10:                                               ; preds = %3
   %.val7.i = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %.val7.i, null
-  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit", label %12
+  br i1 %11, label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit", label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %.val7.i, align 8
@@ -20096,9 +20096,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 "_ZZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEEN3$_0D2Ev.exit.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.val7.i) #28
   tail call void @_ZdlPv(ptr noundef nonnull %.val7.i) #29
-  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
+  br label %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit"
 
-"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit": ; preds = %3, %"_ZZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEEN3$_0D2Ev.exit.i.i", %10, %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
+"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.argprom.exit": ; preds = %3, %"_ZZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEEN3$_0D2Ev.exit.i.i", %10, %"_ZNSt14_Function_base13_Base_managerIZN3nix16RemoteFSAccessor5fetchERKNS1_9CanonPathEE3$_0E15_M_init_functorIRKS6_EEvRSt9_Any_dataOT_.exit.i", %5, %4
   ret i1 false
 }
 
@@ -21524,11 +21524,11 @@ attributes #35 = { nounwind willreturn memory(none) }
 !81 = distinct !{!81, !5}
 !82 = distinct !{!82, !5}
 !83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_: argument 0"}
-!85 = distinct !{!85, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_"}
+!84 = distinct !{!84, !85, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom: argument 0"}
+!85 = distinct !{!85, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.argprom"}
 !86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!88 = distinct !{!88, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEET_St14__invoke_otherOT0_DpOT1_"}
+!87 = distinct !{!87, !88, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEET_St14__invoke_otherOT0_DpOT1_.argprom: argument 0"}
+!88 = distinct !{!88, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZN3nix16RemoteFSAccessor5fetchERKNS6_9CanonPathEE3$_0JmmEET_St14__invoke_otherOT0_DpOT1_.argprom"}
 !89 = !{!90}
 !90 = distinct !{!90, !91, !"_ZZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEENK3$_0clB5cxx11Emm: argument 0"}
 !91 = distinct !{!91, !"_ZZN3nix16RemoteFSAccessor5fetchERKNS_9CanonPathEENK3$_0clB5cxx11Emm"}

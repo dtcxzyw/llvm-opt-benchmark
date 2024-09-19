@@ -88,11 +88,11 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %create_rel_filename_map.exit, %5
-  %.062.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %.061.ph = phi i1 [ %.061, %create_rel_filename_map.exit ], [ true, %5 ]
-  %.060.ph = phi i64 [ %93, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %.0.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
+.outer:                                           ; preds = %create_rel_filename_map.argprom.exit, %5
+  %.062.ph = phi i32 [ %91, %create_rel_filename_map.argprom.exit ], [ 0, %5 ]
+  %.061.ph = phi i1 [ %.061, %create_rel_filename_map.argprom.exit ], [ true, %5 ]
+  %.060.ph = phi i64 [ %93, %create_rel_filename_map.argprom.exit ], [ 0, %5 ]
+  %.0.ph = phi i32 [ %92, %create_rel_filename_map.argprom.exit ], [ 0, %5 ]
   %sext = shl i64 %.060.ph, 32
   %15 = ashr exact i64 %sext, 32
   br label %.outer73
@@ -244,14 +244,14 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 
 78:                                               ; preds = %72
   store ptr %4, ptr %77, align 8
-  br label %create_rel_filename_map.exit
+  br label %create_rel_filename_map.argprom.exit
 
 79:                                               ; preds = %72
   store ptr %75, ptr %77, align 8
   %80 = load ptr, ptr getelementptr inbounds (i8, ptr @new_cluster, i64 256), align 8
-  br label %create_rel_filename_map.exit
+  br label %create_rel_filename_map.argprom.exit
 
-create_rel_filename_map.exit:                     ; preds = %78, %79
+create_rel_filename_map.argprom.exit:             ; preds = %78, %79
   %.sink1.i = phi ptr [ @.str.5, %78 ], [ %80, %79 ]
   %81 = getelementptr inbounds i8, ptr %65, i64 24
   store ptr %.sink1.i, ptr %81, align 8

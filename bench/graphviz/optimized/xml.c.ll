@@ -201,7 +201,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
 ._crit_edge.i.thread:                             ; preds = %61, %._crit_edge.i
   %68 = load ptr, ptr @stderr, align 8
   %69 = call i64 @fwrite(ptr nonnull @.str.9, i64 45, i64 1, ptr %68) #6
-  call fastcc void @graphviz_exit() #7
+  call fastcc void @graphviz_exit.argelim() #7
   unreachable
 
 70:                                               ; preds = %._crit_edge.i
@@ -289,7 +289,7 @@ xml_core.exit:                                    ; preds = %53, %52, %50, %47, 
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #1 {
+define internal fastcc void @graphviz_exit.argelim() unnamed_addr #1 {
   tail call void @exit(i32 noundef 1) #9
   unreachable
 }

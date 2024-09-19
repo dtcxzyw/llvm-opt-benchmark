@@ -975,17 +975,17 @@ vu_get_features_exec.exit.i:                      ; preds = %if.then.i.i, %sw.bb
 sw.bb22.i:                                        ; preds = %if.end20.i
   %10 = getelementptr inbounds i8, ptr %vmsg, i64 12
   %vmsg.val.i = load i64, ptr %10, align 4
-  call fastcc void @vu_set_features_exec(ptr noundef nonnull %dev, i64 %vmsg.val.i)
+  call fastcc void @vu_set_features_exec.argprom.retelim(ptr noundef nonnull %dev, i64 %vmsg.val.i)
   br label %vu_process_message.exit
 
 sw.bb24.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_protocol_features_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_protocol_features_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %if.end6.thread
 
 sw.bb26.i:                                        ; preds = %if.end20.i
   %11 = getelementptr inbounds i8, ptr %vmsg, i64 12
   %vmsg.val72.i = load i64, ptr %11, align 4
-  call fastcc void @vu_set_protocol_features_exec(ptr noundef nonnull %dev, i64 %vmsg.val72.i)
+  call fastcc void @vu_set_protocol_features_exec.argprom.retelim(ptr noundef nonnull %dev, i64 %vmsg.val72.i)
   br label %vu_process_message.exit
 
 sw.bb30.i:                                        ; preds = %if.end20.i
@@ -1010,15 +1010,15 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %vu_process_message.exit
 
 sw.bb32.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_mem_table_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_mem_table_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb34.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_log_base_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_log_base_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %if.end6.thread
 
 sw.bb36.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_log_fd_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_log_fd_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb38.i:                                        ; preds = %if.end20.i
@@ -1034,7 +1034,7 @@ sw.bb38.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb40.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_addr_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_addr_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb42.i:                                        ; preds = %if.end20.i
@@ -1054,11 +1054,11 @@ sw.bb42.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb44.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_vring_base_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_vring_base_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %if.end6.thread
 
 sw.bb46.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_kick_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_kick_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb48.i:                                        ; preds = %if.end20.i
@@ -1066,7 +1066,7 @@ sw.bb48.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb50.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_vring_err_exec(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_vring_err_exec.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb52.i:                                        ; preds = %if.end20.i
@@ -1105,7 +1105,7 @@ if.end.i:                                         ; preds = %sw.bb54.i
   br label %vu_process_message.exit
 
 sw.bb56.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_backend_req_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_backend_req_fd.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb58.i:                                        ; preds = %if.end20.i
@@ -1129,7 +1129,7 @@ if.then5.i.i:                                     ; preds = %if.then.i83.i, %sw.
   br label %if.end6.thread
 
 sw.bb60.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_config(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_config.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb62.i:                                        ; preds = %if.end20.i
@@ -1137,7 +1137,7 @@ sw.bb62.i:                                        ; preds = %if.end20.i
   unreachable
 
 sw.bb63.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_postcopy_advise(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_postcopy_advise.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %if.end6.thread
 
 sw.bb65.i:                                        ; preds = %if.end20.i
@@ -1188,17 +1188,17 @@ vu_set_postcopy_end.exit.i:                       ; preds = %if.then.i94.i, %sw.
   br label %if.end6.thread
 
 sw.bb69.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_get_inflight_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_get_inflight_fd.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %if.end6.thread
 
 sw.bb71.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_set_inflight_fd(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_set_inflight_fd.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb73.i:                                        ; preds = %if.end20.i
   %36 = getelementptr inbounds i8, ptr %vmsg, i64 12
   %vmsg.val78.i = load i32, ptr %36, align 4
-  call fastcc void @vu_handle_vring_kick(ptr noundef nonnull %dev, i32 %vmsg.val78.i)
+  call fastcc void @vu_handle_vring_kick.argprom.retelim(ptr noundef nonnull %dev, i32 %vmsg.val78.i)
   br label %vu_process_message.exit
 
 sw.bb75.i:                                        ; preds = %if.end20.i
@@ -1215,7 +1215,7 @@ sw.bb77.i:                                        ; preds = %if.end20.i
   br label %vu_process_message.exit
 
 sw.bb79.i:                                        ; preds = %if.end20.i
-  call fastcc void @vu_rem_mem_reg(ptr noundef nonnull %dev, ptr noundef %vmsg)
+  call fastcc void @vu_rem_mem_reg.retelim(ptr noundef nonnull %dev, ptr noundef %vmsg)
   br label %vu_process_message.exit
 
 sw.bb81.i:                                        ; preds = %if.end20.i
@@ -2353,7 +2353,7 @@ if.then21:                                        ; preds = %land.rhs
   %vq.val = load i32, ptr %vq, align 8
   %5 = getelementptr i8, ptr %vq, i64 8
   %vq.val29 = load ptr, ptr %5, align 8
-  %call = tail call fastcc ptr @vu_queue_map_desc(ptr noundef nonnull %dev, i32 %vq.val, ptr %vq.val29, i32 noundef %conv25, i64 noundef %sz)
+  %call = tail call fastcc ptr @vu_queue_map_desc.argprom(ptr noundef nonnull %dev, i32 %vq.val, ptr %vq.val29, i32 noundef %conv25, i64 noundef %sz)
   %6 = load i16, ptr %resubmit_num, align 8
   %tobool27.not = icmp eq i16 %6, 0
   br i1 %tobool27.not, label %if.then28, label %return
@@ -2438,7 +2438,7 @@ if.end48:                                         ; preds = %if.end.i35, %if.the
   %vq.val30 = phi i32 [ %vq.val30.pre, %if.end.i35 ], [ %12, %if.then46 ], [ %12, %if.end44 ]
   %18 = getelementptr i8, ptr %vq, i64 8
   %vq.val31 = load ptr, ptr %18, align 8
-  %call49 = tail call fastcc ptr @vu_queue_map_desc(ptr noundef nonnull %dev, i32 %vq.val30, ptr %vq.val31, i32 noundef %conv.i, i64 noundef %sz)
+  %call49 = tail call fastcc ptr @vu_queue_map_desc.argprom(ptr noundef nonnull %dev, i32 %vq.val30, ptr %vq.val31, i32 noundef %conv.i, i64 noundef %sz)
   %tobool50.not = icmp eq ptr %call49, null
   br i1 %tobool50.not, label %return, label %if.end52
 
@@ -2479,7 +2479,7 @@ return:                                           ; preds = %if.end5.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %dev, i32 %vq.0.val, ptr nocapture readonly %vq.8.val, i32 noundef %idx, i64 noundef %sz) unnamed_addr #2 {
+define internal fastcc noundef ptr @vu_queue_map_desc.argprom(ptr noundef %dev, i32 %vq.0.val, ptr nocapture readonly %vq.8.val, i32 noundef %idx, i64 noundef %sz) unnamed_addr #2 {
 entry:
   %out_num = alloca i32, align 4
   %in_num = alloca i32, align 4
@@ -2658,7 +2658,7 @@ if.then45:                                        ; preds = %do.body
   %len53 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38, i32 1
   %26 = load i32, ptr %len53, align 8
   %conv55 = zext i32 %26 to i64
-  %call56 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr noundef %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %25, i64 noundef %conv55)
+  %call56 = call fastcc zeroext i1 @virtqueue_map_desc.argelim(ptr noundef %dev, ptr noundef %in_num, ptr noundef %add.ptr, i32 noundef %sub, i64 noundef %25, i64 noundef %conv55)
   br i1 %call56, label %if.then45.if.end75_crit_edge, label %return
 
 if.then45.if.end75_crit_edge:                     ; preds = %if.then45
@@ -2675,7 +2675,7 @@ if.end61:                                         ; preds = %if.else
   %len69 = getelementptr %struct.vring_desc, ptr %desc.0, i64 %idxprom38, i32 1
   %28 = load i32, ptr %len69, align 8
   %conv71 = zext i32 %28 to i64
-  %call72 = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr noundef %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %27, i64 noundef %conv71)
+  %call72 = call fastcc zeroext i1 @virtqueue_map_desc.argelim(ptr noundef %dev, ptr noundef %out_num, ptr noundef nonnull %iov, i32 noundef 1024, i64 noundef %27, i64 noundef %conv71)
   br i1 %call72, label %if.end61.if.end75_crit_edge, label %return
 
 if.end61.if.end75_crit_edge:                      ; preds = %if.end61
@@ -2858,7 +2858,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.then9.i:                                       ; preds = %if.then.i
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.47)
-  br label %vu_log_queue_fill.exit
+  br label %vu_log_queue_fill.argprom.exit
 
 if.end.i:                                         ; preds = %if.then.i
   %arrayidx11.i = getelementptr %struct.vring_desc, ptr %vq.val10, i64 %idxprom.i
@@ -2993,7 +2993,7 @@ if.end34.i:                                       ; preds = %vu_gpa_to_va.exit.i
 
 if.then36.i:                                      ; preds = %for.inc.i.i, %if.then5.i.i.i, %for.inc.i.i.i, %if.end34.i, %if.then27.i, %for.cond.preheader.i.i, %if.end.i
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.49)
-  br label %vu_log_queue_fill.exit
+  br label %vu_log_queue_fill.argprom.exit
 
 if.end38.i:                                       ; preds = %if.end6.i.i, %if.end34.i, %if.end
   %i.0.i = phi i32 [ %elem.val, %if.end ], [ 0, %if.end34.i ], [ 0, %if.end6.i.i ]
@@ -3011,7 +3011,7 @@ do.body.i:                                        ; preds = %if.end.i.i, %if.end
 
 if.then41.i:                                      ; preds = %do.body.i
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.48)
-  br label %vu_log_queue_fill.exit
+  br label %vu_log_queue_fill.argprom.exit
 
 if.end42.i:                                       ; preds = %do.body.i
   %idxprom43.i = zext i32 %i.1.i to i64
@@ -3035,7 +3035,7 @@ if.then50.i:                                      ; preds = %if.end42.i
 do.cond.i:                                        ; preds = %if.then50.i, %if.end42.i
   %len.addr.1.i = phi i32 [ %sub.i, %if.then50.i ], [ %len.addr.0.i, %if.end42.i ]
   %cmp65.not.i = icmp eq i32 %len.addr.1.i, 0
-  br i1 %cmp65.not.i, label %vu_log_queue_fill.exit, label %land.rhs67.i
+  br i1 %cmp65.not.i, label %vu_log_queue_fill.argprom.exit, label %land.rhs67.i
 
 land.rhs67.i:                                     ; preds = %do.cond.i
   %idxprom.i.i = sext i32 %i.1.i to i64
@@ -3044,7 +3044,7 @@ land.rhs67.i:                                     ; preds = %do.cond.i
   %28 = load i16, ptr %flags.i.i, align 4
   %29 = and i16 %28, 1
   %tobool.not.i33.i = icmp eq i16 %29, 0
-  br i1 %tobool.not.i33.i, label %vu_log_queue_fill.exit, label %if.end.i.i
+  br i1 %tobool.not.i33.i, label %vu_log_queue_fill.argprom.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs67.i
   %next3.i.i = getelementptr inbounds i8, ptr %arrayidx.i32.i, i64 14
@@ -3057,9 +3057,9 @@ if.end.i.i:                                       ; preds = %land.rhs67.i
 
 if.then7.i.i:                                     ; preds = %if.end.i.i
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.100, i32 noundef %conv5.i.i)
-  br label %vu_log_queue_fill.exit
+  br label %vu_log_queue_fill.argprom.exit
 
-vu_log_queue_fill.exit:                           ; preds = %do.cond.i, %land.rhs67.i, %if.then9.i, %if.then36.i, %if.then41.i, %if.then7.i.i
+vu_log_queue_fill.argprom.exit:                   ; preds = %do.cond.i, %land.rhs67.i, %if.then9.i, %if.then36.i, %if.then41.i, %if.then7.i.i
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %desc_buf.i)
   %used_idx = getelementptr inbounds i8, ptr %vq, i64 84
   %31 = load i16, ptr %used_idx, align 4
@@ -3086,7 +3086,7 @@ vu_log_queue_fill.exit:                           ; preds = %do.cond.i, %land.rh
   tail call fastcc void @vu_log_write(ptr noundef %dev, i64 noundef %add.i, i64 noundef 8)
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false, %vu_log_queue_fill.exit
+return:                                           ; preds = %entry, %lor.lhs.false, %vu_log_queue_fill.argprom.exit
   ret void
 }
 
@@ -3150,27 +3150,27 @@ entry:
   %dev.val = load i64, ptr %1, align 8
   %and.i.i.i = and i64 %dev.val, 4096
   %tobool.i.i.not.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.i.not.i, label %vu_queue_inflight_pre_put.exit, label %if.end.i
+  br i1 %tobool.i.i.not.i, label %vu_queue_inflight_pre_put.argprom.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %inflight.i = getelementptr inbounds i8, ptr %vq, i64 48
   %2 = load ptr, ptr %inflight.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %vu_queue_inflight_pre_put.exit, label %if.end5.i
+  br i1 %tobool.not.i, label %vu_queue_inflight_pre_put.argprom.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
   %conv6.i = trunc i32 %0 to i16
   %last_batch_head.i = getelementptr inbounds i8, ptr %2, i64 12
   store i16 %conv6.i, ptr %last_batch_head.i, align 4
-  br label %vu_queue_inflight_pre_put.exit
+  br label %vu_queue_inflight_pre_put.argprom.exit
 
-vu_queue_inflight_pre_put.exit:                   ; preds = %entry, %if.end.i, %if.end5.i
+vu_queue_inflight_pre_put.argprom.exit:           ; preds = %entry, %if.end.i, %if.end5.i
   %broken.i = getelementptr inbounds i8, ptr %dev, i64 1408
   %3 = load i8, ptr %broken.i, align 8
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %vu_queue_flush.exit, label %lor.lhs.false.i
 
-lor.lhs.false.i:                                  ; preds = %vu_queue_inflight_pre_put.exit
+lor.lhs.false.i:                                  ; preds = %vu_queue_inflight_pre_put.argprom.exit
   %avail.i = getelementptr inbounds i8, ptr %vq, i64 16
   %4 = load ptr, ptr %avail.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
@@ -3206,18 +3206,18 @@ if.then31.i:                                      ; preds = %if.end.i10
   store i8 0, ptr %signalled_used_valid.i, align 8
   br label %vu_queue_flush.exit
 
-vu_queue_flush.exit:                              ; preds = %vu_queue_inflight_pre_put.exit, %lor.lhs.false.i, %if.end.i10, %if.then31.i
+vu_queue_flush.exit:                              ; preds = %vu_queue_inflight_pre_put.argprom.exit, %lor.lhs.false.i, %if.end.i10, %if.then31.i
   %10 = load i32, ptr %elem, align 8
   %dev.val9 = load i64, ptr %1, align 8
   %and.i.i.i11 = and i64 %dev.val9, 4096
   %tobool.i.i.not.i12 = icmp eq i64 %and.i.i.i11, 0
-  br i1 %tobool.i.i.not.i12, label %vu_queue_inflight_post_put.exit, label %if.end.i13
+  br i1 %tobool.i.i.not.i12, label %vu_queue_inflight_post_put.argprom.exit, label %if.end.i13
 
 if.end.i13:                                       ; preds = %vu_queue_flush.exit
   %inflight.i14 = getelementptr inbounds i8, ptr %vq, i64 48
   %11 = load ptr, ptr %inflight.i14, align 8
   %tobool.not.i15 = icmp eq ptr %11, null
-  br i1 %tobool.not.i15, label %vu_queue_inflight_post_put.exit, label %if.end5.i16
+  br i1 %tobool.not.i15, label %vu_queue_inflight_post_put.argprom.exit, label %if.end5.i16
 
 if.end5.i16:                                      ; preds = %if.end.i13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
@@ -3232,9 +3232,9 @@ if.end5.i16:                                      ; preds = %if.end.i13
   %14 = load ptr, ptr %inflight.i14, align 8
   %used_idx9.i = getelementptr inbounds i8, ptr %14, i64 14
   store i16 %13, ptr %used_idx9.i, align 2
-  br label %vu_queue_inflight_post_put.exit
+  br label %vu_queue_inflight_post_put.argprom.exit
 
-vu_queue_inflight_post_put.exit:                  ; preds = %vu_queue_flush.exit, %if.end.i13, %if.end5.i16
+vu_queue_inflight_post_put.argprom.exit:          ; preds = %vu_queue_flush.exit, %if.end.i13, %if.end5.i16
   ret void
 }
 
@@ -3260,7 +3260,7 @@ declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_features_exec(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
+define internal fastcc void @vu_set_features_exec.argprom.retelim(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
 entry:
   %features = getelementptr inbounds i8, ptr %dev, i64 1392
   store i64 %vmsg.12.val, ptr %features, align 8
@@ -3316,7 +3316,7 @@ return:                                           ; preds = %if.end3, %if.then5,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_protocol_features_exec(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_protocol_features_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
 entry:
   %api_struct.i = alloca %struct.uffdio_api, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %api_struct.i)
@@ -3384,7 +3384,7 @@ if.end13:                                         ; preds = %if.then8, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_protocol_features_exec(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
+define internal fastcc void @vu_set_protocol_features_exec.argprom.retelim(ptr noundef %dev, i64 %vmsg.12.val) unnamed_addr #2 {
 entry:
   %protocol_features = getelementptr inbounds i8, ptr %dev, i64 1400
   store i64 %vmsg.12.val, ptr %protocol_features, align 8
@@ -3416,7 +3416,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_mem_table_exec(ptr noundef %dev, ptr noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_mem_table_exec.retelim(ptr noundef %dev, ptr noundef nonnull %vmsg) unnamed_addr #2 {
 entry:
   %reg_struct.i.i = alloca %struct.uffdio_register, align 8
   %m.i = alloca %struct.VhostUserMemory, align 8
@@ -3793,7 +3793,7 @@ return:                                           ; preds = %for.inc67, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_log_base_exec(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_log_base_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
 entry:
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
   %0 = load i32, ptr %fd_num, align 1
@@ -3851,7 +3851,7 @@ return:                                           ; preds = %if.end14, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_log_fd_exec(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_log_fd_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
   %0 = load i32, ptr %fd_num, align 1
@@ -3883,7 +3883,7 @@ return:                                           ; preds = %if.end4, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_vring_addr_exec(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_vring_addr_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %addr.sroa.4 = alloca { i64, i64, i64 }, align 8
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
@@ -3953,7 +3953,7 @@ return:                                           ; preds = %if.end, %if.then32,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_vring_base_exec(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_vring_base_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
   %0 = load i32, ptr %payload, align 1
@@ -4021,7 +4021,7 @@ if.end41:                                         ; preds = %if.then27, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_vring_kick_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
   %0 = load i64, ptr %payload, align 1
@@ -4206,7 +4206,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end4
   %shadow_avail_idx.i = getelementptr inbounds i8, ptr %arrayidx57, i64 82
   store i16 %conv59.i, ptr %shadow_avail_idx.i, align 2
   %tobool61.not.i = icmp eq i32 %36, 0
-  br i1 %tobool61.not.i, label %vu_check_queue_inflights.exit, label %if.then62.i
+  br i1 %tobool61.not.i, label %vu_check_queue_inflights.argprom.exit, label %if.then62.i
 
 if.then62.i:                                      ; preds = %for.end.i
   %conv64.i = zext i32 %36 to i64
@@ -4282,20 +4282,20 @@ if.end114.i:                                      ; preds = %if.then110.i, %for.
   %53 = load i64, ptr %counter117.i, align 8
   %add118.i = add i64 %53, 1
   store i64 %add118.i, ptr %counter.i, align 8
-  br label %vu_check_queue_inflights.exit
+  br label %vu_check_queue_inflights.argprom.exit
 
-vu_check_queue_inflights.exit:                    ; preds = %for.end.i, %if.end114.i
+vu_check_queue_inflights.argprom.exit:            ; preds = %for.end.i, %if.end114.i
   %kick_fd.i = getelementptr inbounds i8, ptr %arrayidx57, i64 108
   %54 = load i32, ptr %kick_fd.i, align 4
   %call121.i = tail call i32 @eventfd_write(i32 noundef %54, i64 noundef 1) #21
   %tobool122.not.i.not = icmp eq i32 %call121.i, 0
   br i1 %tobool122.not.i.not, label %return, label %if.then60
 
-if.then60:                                        ; preds = %if.then62.i, %if.end.i, %vu_check_queue_inflights.exit
+if.then60:                                        ; preds = %if.then62.i, %if.end.i, %vu_check_queue_inflights.argprom.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.76, i32 noundef %conv)
   br label %return
 
-return:                                           ; preds = %if.end54, %if.then16.i, %vu_check_queue_inflights.exit, %if.then60, %entry
+return:                                           ; preds = %if.end54, %if.then16.i, %vu_check_queue_inflights.argprom.exit, %if.then60, %entry
   ret void
 }
 
@@ -4360,7 +4360,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_vring_err_exec(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_vring_err_exec.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %payload = getelementptr inbounds i8, ptr %vmsg, i64 12
   %0 = load i64, ptr %payload, align 1
@@ -4405,7 +4405,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_backend_req_fd(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_backend_req_fd.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
   %0 = load i32, ptr %fd_num, align 1
@@ -4437,7 +4437,7 @@ return:                                           ; preds = %if.end5, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_config(ptr noundef %dev, ptr noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_config.retelim(ptr noundef %dev, ptr noundef nonnull %vmsg) unnamed_addr #2 {
 entry:
   %iface = getelementptr inbounds i8, ptr %dev, i64 1448
   %0 = load ptr, ptr %iface, align 8
@@ -4470,7 +4470,7 @@ if.end8:                                          ; preds = %if.then, %if.then7,
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_postcopy_advise(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_postcopy_advise.retelim(ptr noundef %dev, ptr nocapture noundef nonnull writeonly %vmsg) unnamed_addr #2 {
 entry:
   %api_struct = alloca %struct.uffdio_api, align 8
   %call = tail call i64 (i64, ...) @syscall(i64 noundef 323, i32 noundef 526336) #21
@@ -4518,7 +4518,7 @@ out:                                              ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_get_inflight_fd(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_get_inflight_fd.retelim(ptr noundef %dev, ptr nocapture noundef nonnull %vmsg) unnamed_addr #2 {
 entry:
   %size = getelementptr inbounds i8, ptr %vmsg, i64 8
   %0 = load i32, ptr %size, align 1
@@ -4595,7 +4595,7 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_set_inflight_fd(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_set_inflight_fd.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
   %0 = load i32, ptr %fd_num, align 1
@@ -4692,7 +4692,7 @@ return:                                           ; preds = %for.body, %if.end38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_handle_vring_kick(ptr noundef %dev, i32 %vmsg.12.val) unnamed_addr #2 {
+define internal fastcc void @vu_handle_vring_kick.argprom.retelim(ptr noundef %dev, i32 %vmsg.12.val) unnamed_addr #2 {
 entry:
   %max_queues = getelementptr inbounds i8, ptr %dev, i64 1410
   %0 = load i16, ptr %max_queues, align 2
@@ -4903,7 +4903,7 @@ return:                                           ; preds = %do.end91, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vu_rem_mem_reg(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
+define internal fastcc void @vu_rem_mem_reg.retelim(ptr noundef %dev, ptr nocapture noundef nonnull readonly %vmsg) unnamed_addr #2 {
 entry:
   %region = getelementptr inbounds i8, ptr %vmsg, i64 20
   %m.sroa.0.0.copyload = load i64, ptr %region, align 1
@@ -5390,7 +5390,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i32 @vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %dev, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @virtqueue_map_desc.argelim(ptr noundef %dev, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %p_num_sg, align 4
   %cmp.not = icmp ugt i32 %0, %max_num_sg

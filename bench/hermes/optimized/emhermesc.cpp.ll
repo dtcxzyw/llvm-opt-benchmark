@@ -880,7 +880,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  tail call fastcc void @_ZL19getPropertiesHelperB5cxx11v()
+  tail call fastcc void @_ZL19getPropertiesHelperB5cxx11v.argprom()
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZZ19hermesGetPropertiesE5propsB5cxx11, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ19hermesGetPropertiesE5propsB5cxx11) #15
   br label %init.end
@@ -894,7 +894,7 @@ init.end:                                         ; preds = %init, %init.check, 
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19getPropertiesHelperB5cxx11v() unnamed_addr #0 {
+define internal fastcc void @_ZL19getPropertiesHelperB5cxx11v.argprom() unnamed_addr #0 {
 _ZN4llvh11raw_ostreamlsEPKc.exit:
   %json = alloca %"class.std::__cxx11::basic_string", align 8
   %OS = alloca %"class.llvh::raw_string_ostream", align 8

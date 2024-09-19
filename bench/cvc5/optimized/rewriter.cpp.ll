@@ -13535,7 +13535,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %1)
+  %call2 = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %1)
   %3 = load ptr, ptr %node, align 8
   store ptr %3, ptr %agg.tmp3, align 8
   %bf.load.i.i4 = load i64, ptr %3, align 8
@@ -14586,7 +14586,7 @@ if.then13.i4.i751:                                ; preds = %if.else.i.i748
 
 invoke.cont183:                                   ; preds = %if.else.i.i748, %if.then.i5.i753, %if.else, %if.then13.i4.i751
   %117 = load ptr, ptr %cached, align 8
-  %call189 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %117)
+  %call189 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %117)
           to label %invoke.cont188 unwind label %lpad187
 
 invoke.cont188:                                   ; preds = %invoke.cont183
@@ -15030,7 +15030,7 @@ if.then13.i.i.i948:                               ; preds = %if.else.i.i.i
 
 invoke.cont279:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i949, %if.then13.i.i.i948
   store ptr %169, ptr %agg.tmp281, align 8
-  %call289 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr nonnull %169)
+  %call289 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr nonnull %169)
           to label %invoke.cont288 unwind label %lpad287
 
 invoke.cont288:                                   ; preds = %invoke.cont279
@@ -15186,7 +15186,7 @@ if.then13.i4.i1010:                               ; preds = %if.else.i.i1007
 
 invoke.cont308:                                   ; preds = %if.else.i.i1007, %if.then.i5.i1012, %invoke.cont305, %if.then13.i4.i1010
   %185 = load ptr, ptr %add.ptr.i.i, align 8
-  %call315 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %185)
+  %call315 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %185)
           to label %invoke.cont314 unwind label %lpad313
 
 invoke.cont314:                                   ; preds = %invoke.cont308
@@ -16379,7 +16379,7 @@ if.then13.i4.i1925:                               ; preds = %if.else.i.i1922
 
 invoke.cont568:                                   ; preds = %if.else.i.i1922, %if.then.i5.i1927, %if.else566, %if.then13.i4.i1925
   %315 = load ptr, ptr %cached, align 8
-  %call574 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %315)
+  %call574 = invoke fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %315)
           to label %invoke.cont573 unwind label %lpad572
 
 invoke.cont573:                                   ; preds = %invoke.cont568
@@ -16521,7 +16521,7 @@ ehcleanup601:                                     ; preds = %lpad9, %lpad.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr nocapture readonly %node.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr nocapture readonly %node.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -16829,7 +16829,7 @@ entry:
   %agg.tmp14 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %agg.tmp17 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %node, align 8
-  %call = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %0)
+  %call = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %0)
   br i1 %isExtEq, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -17180,7 +17180,7 @@ define hidden void @_ZN4cvc58internal6theory8Rewriter18rewriteEqualityExtENS0_12
 entry:
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %node, align 8
-  %call = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE(ptr %0)
+  %call = tail call fastcc noundef i32 @_ZN4cvc58internal6theoryL8theoryOfENS0_12NodeTemplateILb0EEE.argprom(ptr %0)
   %d_theoryRewriters = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = zext i32 %call to i64
   %arrayidx = getelementptr inbounds [14 x ptr], ptr %d_theoryRewriters, i64 0, i64 %idxprom

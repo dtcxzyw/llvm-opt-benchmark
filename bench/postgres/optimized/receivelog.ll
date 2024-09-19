@@ -482,7 +482,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
 
 202:                                              ; preds = %190
   store i64 %.073.i, ptr @lastFlushPosition, align 8
-  %203 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.073.i, i64 noundef %182)
+  %203 = call fastcc zeroext i1 @sendFeedback.argelim(ptr noundef %0, i64 noundef %.073.i, i64 noundef %182)
   br i1 %203, label %204, label %HandleCopyStream.exit.thread
 
 204:                                              ; preds = %202, %185, %181
@@ -500,7 +500,7 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br i1 %209, label %210, label %thread-pre-split315.i
 
 210:                                              ; preds = %208
-  %211 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.073.i, i64 noundef %182)
+  %211 = call fastcc zeroext i1 @sendFeedback.argelim(ptr noundef %0, i64 noundef %.073.i, i64 noundef %182)
   br i1 %211, label %thread-pre-split315.i, label %HandleCopyStream.exit.thread
 
 thread-pre-split315.i:                            ; preds = %210, %208, %204
@@ -812,7 +812,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
 
 329:                                              ; preds = %328, %311, %310
   %330 = call i64 @feGetCurrentTimestamp() #11
-  %331 = call fastcc zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %.1.i.ph1095, i64 noundef %330)
+  %331 = call fastcc zeroext i1 @sendFeedback.argelim(ptr noundef %0, i64 noundef %.1.i.ph1095, i64 noundef %330)
   br i1 %331, label %ProcessKeepaliveMsg.exit.thread.i.outer, label %HandleCopyStream.exit.thread, !llvm.loop !5
 
 332:                                              ; preds = %301
@@ -1348,7 +1348,7 @@ declare i64 @feGetCurrentTimestamp() local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sendFeedback.argelim(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [34 x i8], align 16
   store i8 114, ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %4, i64 1

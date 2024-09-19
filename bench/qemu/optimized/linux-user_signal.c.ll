@@ -1189,13 +1189,13 @@ sw.bb:                                            ; preds = %if.then
   %arrayidx.i.i = getelementptr i8, ptr %puc, i64 200
   %9 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i = icmp eq i64 %9, 14
-  br i1 %cmp.i.i, label %host_signal_write.exit.i, label %host_signal_write.exit.thread.i
+  br i1 %cmp.i.i, label %host_signal_write.argprom.exit.i, label %host_signal_write.argprom.exit.thread.i
 
-host_signal_write.exit.thread.i:                  ; preds = %sw.bb
+host_signal_write.argprom.exit.thread.i:          ; preds = %sw.bb
   %call518.i = call i32 @adjust_signal_pc(ptr noundef nonnull %pc.i, i1 noundef zeroext false) #16
   br label %if.end.i
 
-host_signal_write.exit.i:                         ; preds = %sw.bb
+host_signal_write.argprom.exit.i:                 ; preds = %sw.bb
   %arrayidx3.i.i = getelementptr i8, ptr %puc, i64 192
   %10 = load i64, ptr %arrayidx3.i.i, align 8
   %and.i.i = and i64 %10, 2
@@ -1204,7 +1204,7 @@ host_signal_write.exit.i:                         ; preds = %sw.bb
   %brmerge.not.i = select i1 %tobool.i.i, i1 %cmp.not.not22.i, i1 false
   br i1 %brmerge.not.i, label %land.lhs.true8.i, label %if.end.i
 
-land.lhs.true8.i:                                 ; preds = %host_signal_write.exit.i
+land.lhs.true8.i:                                 ; preds = %host_signal_write.argprom.exit.i
   %11 = load i32, ptr %si_code, align 8
   %cmp9.i = icmp eq i32 %11, 2
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end.i
@@ -1215,8 +1215,8 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true8.i
   %call12.i = call zeroext i1 @handle_sigsegv_accerr_write(ptr noundef nonnull %1, ptr noundef nonnull %uc_sigmask.i.i, i64 noundef %12, i64 noundef %sub.i) #16
   br i1 %call12.i, label %host_sigsegv_handler.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %land.lhs.true10.i, %land.lhs.true8.i, %host_signal_write.exit.i, %host_signal_write.exit.thread.i
-  %call521.i = phi i32 [ %call518.i, %host_signal_write.exit.thread.i ], [ %call5.i, %host_signal_write.exit.i ], [ %call5.i, %land.lhs.true10.i ], [ %call5.i, %land.lhs.true8.i ]
+if.end.i:                                         ; preds = %land.lhs.true10.i, %land.lhs.true8.i, %host_signal_write.argprom.exit.i, %host_signal_write.argprom.exit.thread.i
+  %call521.i = phi i32 [ %call518.i, %host_signal_write.argprom.exit.thread.i ], [ %call5.i, %host_signal_write.argprom.exit.i ], [ %call5.i, %land.lhs.true10.i ], [ %call5.i, %land.lhs.true8.i ]
   %cmp13.not.i = icmp eq i32 %call521.i, 2
   br i1 %cmp13.not.i, label %if.end18.i, label %land.lhs.true14.i
 
@@ -1270,16 +1270,16 @@ sw.bb1:                                           ; preds = %if.then
   %arrayidx.i.i25 = getelementptr i8, ptr %puc, i64 200
   %19 = load i64, ptr %arrayidx.i.i25, align 8
   %cmp.i.i26 = icmp eq i64 %19, 14
-  br i1 %cmp.i.i26, label %land.rhs.i.i, label %host_signal_write.exit.i27
+  br i1 %cmp.i.i26, label %land.rhs.i.i, label %host_signal_write.argprom.exit.i27
 
 land.rhs.i.i:                                     ; preds = %sw.bb1
   %arrayidx3.i.i33 = getelementptr i8, ptr %puc, i64 192
   %20 = load i64, ptr %arrayidx3.i.i33, align 8
   %and.i.i34 = and i64 %20, 2
   %tobool.i.i35 = icmp ne i64 %and.i.i34, 0
-  br label %host_signal_write.exit.i27
+  br label %host_signal_write.argprom.exit.i27
 
-host_signal_write.exit.i27:                       ; preds = %land.rhs.i.i, %sw.bb1
+host_signal_write.argprom.exit.i27:               ; preds = %land.rhs.i.i, %sw.bb1
   %21 = phi i1 [ false, %sw.bb1 ], [ %tobool.i.i35, %land.rhs.i.i ]
   %call2.i = call i32 @adjust_signal_pc(ptr noundef nonnull %pc.i23, i1 noundef zeroext %21) #16
   %22 = load i64, ptr %pc.i23, align 8
@@ -1289,11 +1289,11 @@ host_signal_write.exit.i27:                       ; preds = %land.rhs.i.i, %sw.b
   %call3.i = call zeroext i1 @in_code_gen_buffer(ptr noundef %24) #16
   br i1 %call3.i, label %if.end.i29, label %if.then.i
 
-if.then.i:                                        ; preds = %host_signal_write.exit.i27
+if.then.i:                                        ; preds = %host_signal_write.argprom.exit.i27
   call fastcc void @die_from_signal(ptr noundef nonnull readonly %info) #18
   unreachable
 
-if.end.i29:                                       ; preds = %host_signal_write.exit.i27
+if.end.i29:                                       ; preds = %host_signal_write.argprom.exit.i27
   %25 = load i32, ptr %si_code, align 8
   %cmp.i = icmp eq i32 %25, 1
   br i1 %cmp.i, label %if.then4.i, label %if.end.i37.thread

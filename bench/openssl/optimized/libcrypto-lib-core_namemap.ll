@@ -278,22 +278,22 @@ if.end6:                                          ; preds = %if.end3
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.addr.0.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.not.i, label %namemap_name2num.exit, label %cond.true.i
+  br i1 %cmp.not.i, label %namemap_name2num.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end6
   %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %2 = load i32, ptr %number2.i, align 8
-  br label %namemap_name2num.exit
+  br label %namemap_name2num.argprom.exit
 
-namemap_name2num.exit:                            ; preds = %if.end6, %cond.true.i
+namemap_name2num.argprom.exit:                    ; preds = %if.end6, %cond.true.i
   %cond.i = phi i32 [ %2, %cond.true.i ], [ 0, %if.end6 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   %3 = load ptr, ptr %lock, align 8
   %call9 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #7
   br label %return
 
-return:                                           ; preds = %if.end3, %if.end, %namemap_name2num.exit
-  %retval.0 = phi i32 [ %cond.i, %namemap_name2num.exit ], [ 0, %if.end ], [ 0, %if.end3 ]
+return:                                           ; preds = %if.end3, %if.end, %namemap_name2num.argprom.exit
+  %retval.0 = phi i32 [ %cond.i, %namemap_name2num.argprom.exit ], [ 0, %if.end ], [ 0, %if.end3 ]
   ret i32 %retval.0
 }
 
@@ -425,22 +425,22 @@ if.end6.i:                                        ; preds = %if.end3.i
   store i32 0, ptr %number.i.i, align 8
   %call.i.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.addr.0.val.i, ptr noundef nonnull %namenum_tmpl.i.i) #7
   %cmp.not.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp.not.i.i, label %namemap_name2num.exit.i, label %cond.true.i.i
+  br i1 %cmp.not.i.i, label %namemap_name2num.argprom.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end6.i
   %number2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %2 = load i32, ptr %number2.i.i, align 8
-  br label %namemap_name2num.exit.i
+  br label %namemap_name2num.argprom.exit.i
 
-namemap_name2num.exit.i:                          ; preds = %cond.true.i.i, %if.end6.i
+namemap_name2num.argprom.exit.i:                  ; preds = %cond.true.i.i, %if.end6.i
   %cond.i.i = phi i32 [ %2, %cond.true.i.i ], [ 0, %if.end6.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i.i)
   %3 = load ptr, ptr %lock.i, align 8
   %call9.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %3) #7
   br label %ossl_namemap_name2num.exit
 
-ossl_namemap_name2num.exit:                       ; preds = %if.end.i, %if.end3.i, %namemap_name2num.exit.i
-  %retval.0.i = phi i32 [ %cond.i.i, %namemap_name2num.exit.i ], [ 0, %if.end.i ], [ 0, %if.end3.i ]
+ossl_namemap_name2num.exit:                       ; preds = %if.end.i, %if.end3.i, %namemap_name2num.argprom.exit.i
+  %retval.0.i = phi i32 [ %cond.i.i, %namemap_name2num.argprom.exit.i ], [ 0, %if.end.i ], [ 0, %if.end3.i ]
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 215) #7
   br label %return
 
@@ -545,20 +545,20 @@ entry:
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.not.i, label %namemap_name2num.exit.thread, label %namemap_name2num.exit
+  br i1 %cmp.not.i, label %namemap_name2num.argprom.exit.thread, label %namemap_name2num.argprom.exit
 
-namemap_name2num.exit.thread:                     ; preds = %entry
+namemap_name2num.argprom.exit.thread:             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   br label %if.end
 
-namemap_name2num.exit:                            ; preds = %entry
+namemap_name2num.argprom.exit:                    ; preds = %entry
   %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load i32, ptr %number2.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   %cmp.not = icmp eq i32 %1, 0
   br i1 %cmp.not, label %if.end, label %return
 
-if.end:                                           ; preds = %namemap_name2num.exit.thread, %namemap_name2num.exit
+if.end:                                           ; preds = %namemap_name2num.argprom.exit.thread, %namemap_name2num.argprom.exit
   %call1 = call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 257) #7
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return, label %if.end4
@@ -604,8 +604,8 @@ namenum_free.exit:                                ; preds = %cond.end.namenum_fr
   call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 59) #7
   br label %return
 
-return:                                           ; preds = %if.end, %namemap_name2num.exit, %namenum_free.exit, %if.end17
-  %retval.0 = phi i32 [ 0, %namenum_free.exit ], [ %5, %if.end17 ], [ %1, %namemap_name2num.exit ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %namemap_name2num.argprom.exit, %namenum_free.exit, %if.end17
+  %retval.0 = phi i32 [ 0, %namenum_free.exit ], [ %5, %if.end17 ], [ %1, %namemap_name2num.argprom.exit ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -686,20 +686,20 @@ if.end27:                                         ; preds = %if.end22.thread, %i
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp.not.i, label %namemap_name2num.exit, label %cond.true.i
+  br i1 %cmp.not.i, label %namemap_name2num.argprom.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end27
   %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %4 = load i32, ptr %number2.i, align 8
-  br label %namemap_name2num.exit
+  br label %namemap_name2num.argprom.exit
 
-namemap_name2num.exit:                            ; preds = %if.end27, %cond.true.i
+namemap_name2num.argprom.exit:                    ; preds = %if.end27, %cond.true.i
   %cond.i = phi i32 [ %4, %cond.true.i ], [ 0, %if.end27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   %cmp29 = icmp eq i32 %number.addr.042, 0
   br i1 %cmp29, label %for.inc, label %if.else32
 
-if.else32:                                        ; preds = %namemap_name2num.exit
+if.else32:                                        ; preds = %namemap_name2num.argprom.exit
   %cmp33.not = icmp eq i32 %cond.i, 0
   %cmp35.not = icmp eq i32 %cond.i, %number.addr.042
   %or.cond = select i1 %cmp33.not, i1 true, i1 %cmp35.not
@@ -711,8 +711,8 @@ if.then37:                                        ; preds = %if.else32
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 118, ptr noundef nonnull @.str.1, ptr noundef nonnull %p.041, i32 noundef %cond.i, ptr noundef %names) #7
   br label %end
 
-for.inc:                                          ; preds = %namemap_name2num.exit, %if.else32
-  %number.addr.2 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
+for.inc:                                          ; preds = %namemap_name2num.argprom.exit, %if.else32
+  %number.addr.2 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.argprom.exit ]
   %5 = load i8, ptr %q.060, align 1
   %cmp14.not = icmp eq i8 %5, 0
   br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !7

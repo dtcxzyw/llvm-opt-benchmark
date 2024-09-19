@@ -1513,30 +1513,30 @@ _ZL16getContourCenterPK9rcContourPKfffPf.exit:    ; preds = %.lr.ph.i, %.prehead
   %63 = getelementptr inbounds i8, ptr %24, i64 28
   br label %64
 
-64:                                               ; preds = %.lr.ph, %_ZL18findContourFromSetRK12rcContourSett.exit.thread
-  %65 = phi i32 [ %26, %.lr.ph ], [ %121, %_ZL18findContourFromSetRK12rcContourSett.exit.thread ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL18findContourFromSetRK12rcContourSett.exit.thread ]
+64:                                               ; preds = %.lr.ph, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread
+  %65 = phi i32 [ %26, %.lr.ph ], [ %121, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread ]
   %66 = load ptr, ptr %24, align 8
   %.idx = shl nsw i64 %indvars.iv, 4
   %67 = getelementptr inbounds i8, ptr %66, i64 %.idx
   %68 = getelementptr inbounds i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %_ZL18findContourFromSetRK12rcContourSett.exit.thread, label %71
+  br i1 %70, label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread, label %71
 
 71:                                               ; preds = %64
   %72 = and i32 %69, 65535
   %73 = load i16, ptr %63, align 4
   %74 = zext i16 %73 to i32
   %75 = icmp ult i32 %72, %74
-  br i1 %75, label %_ZL18findContourFromSetRK12rcContourSett.exit.thread, label %76
+  br i1 %75, label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread, label %76
 
 76:                                               ; preds = %71
   %77 = trunc i32 %69 to i16
   %.val = load ptr, ptr %1, align 8
   %.val53 = load i32, ptr %14, align 8
   %78 = icmp sgt i32 %.val53, 0
-  br i1 %78, label %.lr.ph.preheader.i, label %_ZL18findContourFromSetRK12rcContourSett.exit.thread
+  br i1 %78, label %.lr.ph.preheader.i, label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %76
   %wide.trip.count.i = zext nneg i32 %.val53 to i64
@@ -1545,7 +1545,7 @@ _ZL16getContourCenterPK9rcContourPKfffPf.exit:    ; preds = %.lr.ph.i, %.prehead
 79:                                               ; preds = %.lr.ph.i55
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL18findContourFromSetRK12rcContourSett.exit.thread, label %.lr.ph.i55, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread, label %.lr.ph.i55, !llvm.loop !30
 
 .lr.ph.i55:                                       ; preds = %79, %.lr.ph.preheader.i
   %indvars.iv.i56 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i57, %79 ]
@@ -1553,15 +1553,15 @@ _ZL16getContourCenterPK9rcContourPKfffPf.exit:    ; preds = %.lr.ph.i, %.prehead
   %81 = getelementptr inbounds i8, ptr %80, i64 28
   %82 = load i16, ptr %81, align 4
   %83 = icmp eq i16 %82, %77
-  br i1 %83, label %_ZL18findContourFromSetRK12rcContourSett.exit, label %79
+  br i1 %83, label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit, label %79
 
-_ZL18findContourFromSetRK12rcContourSett.exit:    ; preds = %.lr.ph.i55
+_ZL18findContourFromSetRK12rcContourSett.argprom.exit: ; preds = %.lr.ph.i55
   %84 = getelementptr inbounds i8, ptr %80, i64 8
   %85 = load i32, ptr %84, align 8
   %.not.i58 = icmp eq i32 %85, 0
   br i1 %.not.i58, label %_ZL16getContourCenterPK9rcContourPKfffPf.exit66, label %.preheader.i59
 
-.preheader.i59:                                   ; preds = %_ZL18findContourFromSetRK12rcContourSett.exit
+.preheader.i59:                                   ; preds = %_ZL18findContourFromSetRK12rcContourSett.argprom.exit
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph.i62.preheader, label %._crit_edge.i60
 
@@ -1612,22 +1612,22 @@ _ZL18findContourFromSetRK12rcContourSett.exit:    ; preds = %.lr.ph.i55
   %120 = fadd float %113, %119
   br label %_ZL16getContourCenterPK9rcContourPKfffPf.exit66
 
-_ZL16getContourCenterPK9rcContourPKfffPf.exit66:  ; preds = %_ZL18findContourFromSetRK12rcContourSett.exit, %._crit_edge.i60
-  %.sroa.10.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.exit ], [ %120, %._crit_edge.i60 ]
-  %.sroa.5.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.exit ], [ %118, %._crit_edge.i60 ]
-  %.sroa.0.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.exit ], [ %115, %._crit_edge.i60 ]
+_ZL16getContourCenterPK9rcContourPKfffPf.exit66:  ; preds = %_ZL18findContourFromSetRK12rcContourSett.argprom.exit, %._crit_edge.i60
+  %.sroa.10.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit ], [ %120, %._crit_edge.i60 ]
+  %.sroa.5.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit ], [ %118, %._crit_edge.i60 ]
+  %.sroa.0.0 = phi float [ 0.000000e+00, %_ZL18findContourFromSetRK12rcContourSett.argprom.exit ], [ %115, %._crit_edge.i60 ]
   tail call void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef nonnull %0, float noundef %56, float noundef %59, float noundef %61, float noundef %.sroa.0.0, float noundef %.sroa.5.0, float noundef %.sroa.10.0, float noundef 2.500000e-01, float noundef 0x3FE3333340000000, float noundef 0x3FE3333340000000, i32 noundef -1006632960)
   %.pre119 = load i32, ptr %25, align 8
-  br label %_ZL18findContourFromSetRK12rcContourSett.exit.thread
+  br label %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread
 
-_ZL18findContourFromSetRK12rcContourSett.exit.thread: ; preds = %79, %76, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66, %64, %71
+_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread: ; preds = %79, %76, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66, %64, %71
   %121 = phi i32 [ %65, %76 ], [ %.pre119, %_ZL16getContourCenterPK9rcContourPKfffPf.exit66 ], [ %65, %64 ], [ %65, %71 ], [ %65, %79 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
   br i1 %123, label %64, label %._crit_edge.loopexit, !llvm.loop !31
 
-._crit_edge.loopexit:                             ; preds = %_ZL18findContourFromSetRK12rcContourSett.exit.thread
+._crit_edge.loopexit:                             ; preds = %_ZL18findContourFromSetRK12rcContourSett.argprom.exit.thread
   %.pre120 = load i32, ptr %14, align 8
   br label %._crit_edge
 

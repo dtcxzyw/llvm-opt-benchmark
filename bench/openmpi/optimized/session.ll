@@ -64,7 +64,7 @@ define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext
 
 24:                                               ; preds = %23, %18
   %.not22.i = icmp eq ptr %20, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %25
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %25
 
 25:                                               ; preds = %24
   %26 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %20, ptr noundef null) #6
@@ -79,7 +79,7 @@ define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %33 = phi ptr [ %35, %.lr.ph.i.i ], [ %32, %25 ]
@@ -88,9 +88,9 @@ define dso_local noundef i32 @psched_alloc_fn(ptr noundef %0, i8 noundef zeroext
   %34 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %25
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %24, %25
   %36 = getelementptr inbounds i8, ptr %20, i64 272
   %37 = getelementptr inbounds i8, ptr %0, i64 256
   %38 = load i32, ptr %37, align 4
@@ -109,7 +109,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %67
 
-46:                                               ; preds = %pmix_obj_new_tma.exit
+46:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %47 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #6
   %48 = load i64, ptr %7, align 8
   %49 = sitofp i64 %48 to double
@@ -139,7 +139,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %55, ptr noundef nonnull @.str.1, ptr noundef %62, double noundef %54, ptr noundef nonnull %spec.select, ptr noundef %66, ptr noundef nonnull @.str.3, i32 noundef 36) #6
   br label %67
 
-67:                                               ; preds = %46, %56, %61, %pmix_obj_new_tma.exit
+67:                                               ; preds = %46, %56, %61, %pmix_obj_new_tma.argprom.exit
   tail call void @psched_activate_sched_state(ptr noundef nonnull %20, i32 noundef 1) #6
   ret i32 0
 }
@@ -192,7 +192,7 @@ define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef
 
 24:                                               ; preds = %23, %18
   %.not22.i = icmp eq ptr %20, null
-  br i1 %.not22.i, label %pmix_obj_new_tma.exit, label %25
+  br i1 %.not22.i, label %pmix_obj_new_tma.argprom.exit, label %25
 
 25:                                               ; preds = %24
   %26 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %20, ptr noundef null) #6
@@ -207,7 +207,7 @@ define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @psched_req_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
-  br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %33 = phi ptr [ %35, %.lr.ph.i.i ], [ %32, %25 ]
@@ -216,9 +216,9 @@ define dso_local noundef i32 @psched_session_ctrl_fn(ptr noundef %0, i32 noundef
   %34 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %pmix_obj_new_tma.argprom.exit, label %.lr.ph.i.i, !llvm.loop !5
 
-pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %25
+pmix_obj_new_tma.argprom.exit:                    ; preds = %.lr.ph.i.i, %24, %25
   %36 = getelementptr inbounds i8, ptr %20, i64 272
   %37 = getelementptr inbounds i8, ptr %0, i64 256
   %38 = load i32, ptr %37, align 4
@@ -237,7 +237,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %67
 
-46:                                               ; preds = %pmix_obj_new_tma.exit
+46:                                               ; preds = %pmix_obj_new_tma.argprom.exit
   %47 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #6
   %48 = load i64, ptr %7, align 8
   %49 = sitofp i64 %48 to double
@@ -267,7 +267,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %24, %2
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %55, ptr noundef nonnull @.str.1, ptr noundef %62, double noundef %54, ptr noundef nonnull %spec.select, ptr noundef %66, ptr noundef nonnull @.str.3, i32 noundef 61) #6
   br label %67
 
-67:                                               ; preds = %46, %56, %61, %pmix_obj_new_tma.exit
+67:                                               ; preds = %46, %56, %61, %pmix_obj_new_tma.argprom.exit
   tail call void @psched_activate_sched_state(ptr noundef nonnull %20, i32 noundef 30) #6
   ret i32 0
 }

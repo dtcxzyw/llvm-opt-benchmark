@@ -4538,35 +4538,35 @@ default.unreachable32:                            ; preds = %1
   %69 = add nuw i64 %63, 1
   store i64 %69, ptr %42, align 8, !alias.scope !393, !noalias !377
   %70 = icmp eq i64 %66, 0
-  br i1 %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.exit.i.i", label %.backedge.i
+  br i1 %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.argprom.exit.i.i", label %.backedge.i
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.exit.i.i": ; preds = %61
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.argprom.exit.i.i": ; preds = %61
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19), !noalias !382
   %71 = icmp ne ptr %68, null
   call void @llvm.assume(i1 %71)
   %72 = load i64, ptr %68, align 8, !noalias !382, !noundef !9
   %73 = trunc i64 %72 to i32
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.exit.i
+  br i1 %74, label %75, label %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.argprom.exit.i
 
-75:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.exit.i.i"
+75:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.argprom.exit.i.i"
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.88003080372ff52b23e46096790674a6.175, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.88003080372ff52b23e46096790674a6.176) #28
           to label %.noexc22.i unwind label %.loopexit.split-lp.i, !noalias !382
 
 .noexc22.i:                                       ; preds = %75
   unreachable
 
-_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.exit.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.exit.i.i"
+_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.argprom.exit.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h149853aacf20da31E.argprom.exit.i.i"
   store i32 %73, ptr %19, align 4, !noalias !382
   %76 = and i32 %73, 1
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %79, label %78
 
-78:                                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.exit.i
+78:                                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.argprom.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19), !noalias !382
   br label %.backedge.i
 
-79:                                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.exit.i
+79:                                               ; preds = %_ZN16wasmtime_runtime2gc10gc_runtime6GcRoot3get17h5db31ede315c0f49E.argprom.exit.i
   %80 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !382
   %81 = icmp ult i64 %80, 6
   call void @llvm.assume(i1 %81)
@@ -6977,8 +6977,8 @@ attributes #31 = { cold noreturn nounwind }
 !441 = distinct !{!441, !439, !"_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap5sweep17ha0064095a8edc10bE: argument 1"}
 !442 = !{!441}
 !443 = !{!444}
-!444 = distinct !{!444, !445, !"_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap15iter_bump_chunk17h8645fd86a642c7c6E: argument 0"}
-!445 = distinct !{!445, !"_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap15iter_bump_chunk17h8645fd86a642c7c6E"}
+!444 = distinct !{!444, !445, !"_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap15iter_bump_chunk17h8645fd86a642c7c6E.argprom: argument 0"}
+!445 = distinct !{!445, !"_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap15iter_bump_chunk17h8645fd86a642c7c6E.argprom"}
 !446 = !{!447}
 !447 = distinct !{!447, !448, !"_ZN16wasmtime_runtime2gc7enabled3drc17VMGcRefTableAlloc16force_allocation17h324b69c5821e5393E: argument 0"}
 !448 = distinct !{!448, !"_ZN16wasmtime_runtime2gc7enabled3drc17VMGcRefTableAlloc16force_allocation17h324b69c5821e5393E"}

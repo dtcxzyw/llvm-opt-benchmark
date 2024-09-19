@@ -23,7 +23,7 @@ $_ZNK5clang18DesignatedInitExpr7getInitEv = comdat any
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 @switch.table._ZNK5clang4Expr14ClassifyLValueERNS_10ASTContextE = private unnamed_addr constant [12 x i32] [i32 0, i32 4, i32 1, i32 4, i32 2, i32 3, i32 6, i32 7, i32 8, i32 9, i32 5, i32 4], align 4
 @switch.table._ZNK5clang4Expr18isModifiableLvalueERNS_10ASTContextEPNS_14SourceLocationE = private unnamed_addr constant [10 x i32] [i32 0, i32 6, i32 1, i32 6, i32 11, i32 7, i32 8, i32 9, i32 10, i32 6], align 4
-@switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 11, i32 11, i32 11, i32 0], align 4
+@switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE.argprom = private unnamed_addr constant [6 x i32] [i32 0, i32 0, i32 11, i32 11, i32 11, i32 0], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i32 0, 1048576) i32 @_ZNK5clang4Expr12ClassifyImplERNS_10ASTContextEPNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
@@ -85,10 +85,10 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
 .critedge:                                        ; preds = %23, %9, %31, %_ZNK5clang8QualType13hasQualifiersEv.exit, %_ZNK5clang4Type10isVoidTypeEv.exit, %3
   %.011 = phi i32 [ %4, %3 ], [ %4, %_ZNK5clang8QualType13hasQualifiersEv.exit ], [ %33, %31 ], [ %4, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ 2, %9 ], [ %4, %23 ]
   %.not13 = icmp eq ptr %2, null
-  br i1 %.not13, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %34
+  br i1 %.not13, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %34
 
 34:                                               ; preds = %.critedge
-  switch i32 %.011, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit [
+  switch i32 %.011, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit [
     i32 11, label %35
     i32 0, label %49
   ]
@@ -98,7 +98,7 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %37 = load i8, ptr %36, align 8
   %38 = add i8 %37, -89
   %spec.select.i.i.i.i.i.i.i.i.i18 = icmp ult i8 %38, -9
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i18, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %39
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i18, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -108,12 +108,12 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %44 = load i16, ptr %43, align 1
   %45 = and i16 %44, 3
   %46 = icmp eq i16 %45, 1
-  br i1 %46, label %47, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  br i1 %46, label %47, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit
 
 47:                                               ; preds = %39
   %48 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #7
   store i32 %48, ptr %2, align 4
-  br label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  br label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit
 
 49:                                               ; preds = %34
   br i1 %.not, label %.critedge.i, label %50
@@ -133,7 +133,7 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %60 = load i8, ptr %59, align 16
   %61 = add i8 %60, -25
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %61, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %.critedge.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %50, %49
   %62 = load i8, ptr %0, align 8
@@ -151,7 +151,7 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0.copyload.i.i.i.i30.i = load i64, ptr %67, align 8
   %68 = icmp ult i64 %.0.copyload.i.i.i.i30.i, 8
-  br i1 %68, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %69
+  br i1 %68, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %69
 
 69:                                               ; preds = %66, %63, %.critedge.i
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -163,7 +163,7 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %75 = or i64 %74, %.sroa.0.0.copyload.i31.i
   %76 = and i64 %75, 1
   %.not16.i = icmp eq i64 %76, 0
-  br i1 %.not16.i, label %77, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  br i1 %.not16.i, label %77, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -182,7 +182,7 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
   %.sroa.0.0.copyload.i.i.i.i15 = load i64, ptr %82, align 8
   %83 = and i64 %.sroa.0.0.copyload.i.i.i.i15, 2199023255040
   %84 = icmp eq i64 %83, 1536
-  br i1 %84, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %.critedge2.i
+  br i1 %84, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i, %77
   %85 = load ptr, ptr %.pre18.i, align 16
@@ -196,11 +196,11 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
   %92 = zext i8 %91 to i32
   %.off.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %92, -2
   %switch.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i.i.i, 5
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %93
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %93
 
 93:                                               ; preds = %.critedge2.i
   %94 = tail call noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(ptr noundef nonnull align 16 dereferenceable(24) %85, ptr noundef null) #8
-  br i1 %94, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %95
+  br i1 %94, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %95
 
 95:                                               ; preds = %93
   %.not.i.i.i.i.i = icmp ult i64 %74, 16
@@ -215,12 +215,12 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
 
 _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i: ; preds = %96
   %101 = tail call noundef zeroext i1 @_ZNK5clang10RecordType14hasConstFieldsEv(ptr noundef nonnull align 16 dereferenceable(32) %97) #8
-  br i1 %101, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i
+  br i1 %101, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit, label %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i
 
 _ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i: ; preds = %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i, %96, %95
-  br label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  br label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit
 
-_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit: ; preds = %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i, %93, %.critedge2.i, %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i, %69, %66, %50, %47, %39, %35, %34, %.critedge
+_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.argprom.exit: ; preds = %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i, %93, %.critedge2.i, %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i, %69, %66, %50, %47, %39, %35, %34, %.critedge
   %.0 = phi i32 [ 0, %.critedge ], [ 262144, %47 ], [ 65536, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i ], [ 131072, %34 ], [ 196608, %50 ], [ 327680, %66 ], [ 393216, %69 ], [ 524288, %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i ], [ 589824, %.critedge2.i ], [ 655360, %93 ], [ 458752, %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.i ], [ 131072, %35 ], [ 131072, %39 ]
   %.sroa.019.0.insert.ext = and i32 %.011, 65535
   %.sroa.019.0.insert.insert = or disjoint i32 %.0, %.sroa.019.0.insert.ext
@@ -523,7 +523,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 101:                                              ; preds = %88
-  %102 = tail call fastcc noundef i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE(ptr %4, ptr noundef %93)
+  %102 = tail call fastcc noundef i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE.argprom(ptr %4, ptr noundef %93)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 103:                                              ; preds = %tailrecurse
@@ -575,7 +575,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %127 = and i16 %126, 3
   %128 = zext nneg i16 %127 to i32
   %.val144 = load i64, ptr %4, align 8
-  %129 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.val144, ptr noundef nonnull %.tr183, i32 noundef %128)
+  %129 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE.argprom(i64 %.val144, ptr noundef nonnull %.tr183, i32 noundef %128)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 130:                                              ; preds = %tailrecurse
@@ -584,7 +584,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %133 = and i16 %132, 3
   %134 = zext nneg i16 %133 to i32
   %.val145 = load i64, ptr %4, align 8
-  %135 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.val145, ptr noundef nonnull %.tr183, i32 noundef %134)
+  %135 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE.argprom(i64 %.val145, ptr noundef nonnull %.tr183, i32 noundef %134)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 136:                                              ; preds = %tailrecurse
@@ -593,7 +593,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %139 = and i16 %138, 3
   %140 = zext nneg i16 %139 to i32
   %.val146 = load i64, ptr %4, align 8
-  %141 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.val146, ptr noundef nonnull %.tr183, i32 noundef %140)
+  %141 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE.argprom(i64 %.val146, ptr noundef nonnull %.tr183, i32 noundef %140)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 142:                                              ; preds = %tailrecurse
@@ -634,7 +634,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %165 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr183, ptr noundef nonnull align 8 dereferenceable(23096) %0) #8
   %.val148 = load ptr, ptr %3, align 8
   %.val148.val = load i64, ptr %.val148, align 8
-  %166 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.val148.val, i64 %165)
+  %166 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.val148.val, i64 %165)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 167:                                              ; preds = %tailrecurse
@@ -694,7 +694,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %200 = getelementptr inbounds nuw i8, ptr %.tr183, i64 24
   %201 = load ptr, ptr %200, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %201, align 8
-  %202 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %197, i64 %.sroa.0.0.copyload.i.i)
+  %202 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %197, i64 %.sroa.0.0.copyload.i.i)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 203:                                              ; preds = %tailrecurse
@@ -704,7 +704,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %206 = inttoptr i64 %205 to ptr
   %.sroa.0.0.copyload.i.i161 = load i64, ptr %206, align 8
   %.val150.val = load i64, ptr %4, align 8
-  %207 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.val150.val, i64 %.sroa.0.0.copyload.i.i161)
+  %207 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.val150.val, i64 %.sroa.0.0.copyload.i.i161)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 208:                                              ; preds = %tailrecurse
@@ -751,7 +751,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 80
   %.sroa.0.0.copyload.i164 = load i64, ptr %234, align 8
   %.val151.val = load i64, ptr %4, align 8
-  %235 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.val151.val, i64 %.sroa.0.0.copyload.i164)
+  %235 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.val151.val, i64 %.sroa.0.0.copyload.i164)
   %236 = icmp eq i32 %235, 11
   %237 = select i1 %236, i32 10, i32 %235
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
@@ -760,7 +760,7 @@ tailrecurse.backedge:                             ; preds = %41, %44, %51, %66, 
   %239 = getelementptr inbounds nuw i8, ptr %.tr183, i64 8
   %.sroa.0.0.copyload.i165 = load i64, ptr %239, align 8
   %.val152.val = load i64, ptr %4, align 8
-  %240 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.val152.val, i64 %.sroa.0.0.copyload.i165)
+  %240 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.val152.val, i64 %.sroa.0.0.copyload.i165)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 241:                                              ; preds = %tailrecurse
@@ -794,7 +794,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit: ; preds = %254
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %.sroa.0.0.copyload.i167 = load i64, ptr %257, align 8
   %.val153.val = load i64, ptr %4, align 8
-  %258 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.val153.val, i64 %.sroa.0.0.copyload.i167)
+  %258 = tail call fastcc noundef i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.val153.val, i64 %.sroa.0.0.copyload.i167)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 259:                                              ; preds = %tailrecurse
@@ -819,7 +819,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ExprEKNS1_4StmtEEEDaPT0_.exit: ; preds = %254
 
 273:                                              ; preds = %268
   %.val147 = load i64, ptr %4, align 8
-  %274 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.val147, ptr noundef nonnull %.tr183, i32 noundef 0)
+  %274 = tail call fastcc noundef i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE.argprom(i64 %.val147, ptr noundef nonnull %.tr183, i32 noundef 0)
   br label %_ZNK5clang14PredefinedExpr15getFunctionNameEv.exit.thread
 
 275:                                              ; preds = %268
@@ -1130,7 +1130,7 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.thread: ; preds = %_ZNK5clang18A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE(ptr nocapture readonly %.2112.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE.argprom(ptr nocapture readonly %.2112.val, ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 124
@@ -1204,7 +1204,7 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_14MSPropertyDeclEJNS1_20FunctionTemplateD
 
 switch.lookup:                                    ; preds = %13
   %37 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZL12ClassifyDeclRN5clang10ASTContextEPKNS_4DeclE.argprom, i64 0, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14MSPropertyDeclEJNS1_20FunctionTemplateDeclEEPKNS1_4DeclEEEbRKT2_.exit.thread6
 
@@ -1367,7 +1367,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %54, %60
 declare noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE(i64 %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL21ClassifyExprValueKindRKN5clang11LangOptionsEPKNS_4ExprENS_13ExprValueKindE.argprom(i64 %.0.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
   switch i32 %1, label %19 [
     i32 0, label %3
     i32 1, label %20
@@ -1515,7 +1515,7 @@ _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit21.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 12) i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE(i64 %.2112.val.0.val, i64 %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 12) i32 @_ZL15ClassifyUnnamedRN5clang10ASTContextENS_8QualTypeE.argprom.argprom(i64 %.2112.val.0.val, i64 %0) unnamed_addr #0 {
   %2 = and i64 %.2112.val.0.val, 2048
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %52, label %3

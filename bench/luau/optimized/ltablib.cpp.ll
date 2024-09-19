@@ -381,7 +381,7 @@ define internal noundef i32 @_ZL7tinsertP9lua_State(ptr noundef %0) #0 {
 
 9:                                                ; preds = %6
   %10 = add nuw nsw i32 %7, 1
-  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %2, i32 noundef %10)
+  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii.argelim(ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %2, i32 noundef %10)
   br label %12
 
 11:                                               ; preds = %1
@@ -407,7 +407,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL7tremoveP9lua_State(ptr noundef 
 5:                                                ; preds = %1
   %6 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %3)
   %7 = add nuw nsw i32 %3, 1
-  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %2, i32 noundef %3)
+  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii.argelim(ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %2, i32 noundef %3)
   tail call void @_Z11lua_pushnilP9lua_State(ptr noundef %0)
   tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %2)
   br label %8
@@ -566,7 +566,7 @@ define internal noundef i32 @_ZL5tmoveP9lua_State(ptr noundef %0) #0 {
   br label %36
 
 36:                                               ; preds = %35, %32, %28, %26
-  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  tail call fastcc void @_ZL12moveelementsP9lua_Stateiiiii.argelim(ptr noundef nonnull %0, i32 noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   br label %37
 
 37:                                               ; preds = %36, %1
@@ -852,7 +852,7 @@ declare void @_Z14lua_pushnumberP9lua_Stated(ptr noundef, double noundef) local_
 declare noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i32 noundef range(i32 1, 6) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii.argelim(ptr noundef %0, i32 noundef range(i32 1, 6) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8

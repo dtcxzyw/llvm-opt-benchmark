@@ -5641,7 +5641,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 3063:                                             ; preds = %3062
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %182)
-          to label %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.exit unwind label %2852
+          to label %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.argprom.exit unwind label %2852
 
 3064:                                             ; preds = %.thread.i3080, %.thread6.i, %.thread13.i, %.thread24.i, %.thread35.i, %.thread46.i, %.thread57.i, %3066, %.thread63.i, %.thread74.i, %.thread85.i, %3059, %3050, %3047, %3042, %3031, %3024, %3014, %3009, %2991, %2982, %2979, %2970, %2966, %2957, %2944, %2936, %2926, %2913, %2905, %2898, %2885, %2880, %2864, %2861, %2856, %2851
   %3065 = landingpad { ptr, i32 }
@@ -5703,7 +5703,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   invoke void @"_ZN4core3ptr83drop_in_place$LT$cranelift_codegen_meta..cdsl..instructions..InstructionBuilder$GT$17h968e33b2ab45e6c5E"(ptr nonnull align 8 %190) #7
           to label %2885 unwind label %3064
 
-_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.exit: ; preds = %3063
+_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.argprom.exit: ; preds = %3063
   call void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %200)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %115)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %116)
@@ -5915,12 +5915,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %114) #7
           to label %common.resume unwind label %3315
 
-3069:                                             ; preds = %3314, %3179, %3178, %3177, %3176, %3175, %3174, %3173, %3148, %3147, %3122, %3121, %3096, %3095, %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.exit
+3069:                                             ; preds = %3314, %3179, %3178, %3177, %3176, %3175, %3174, %3173, %3148, %3147, %3122, %3121, %3096, %3095, %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.argprom.exit
   %3070 = landingpad { ptr, i32 }
           cleanup
   br label %3068
 
-3071:                                             ; preds = %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.exit
+3071:                                             ; preds = %_ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a4e0c37de33c3E.argprom.exit
   %3072 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 272, i64 8)
           to label %3074 unwind label %.thread4.i3084
 
@@ -6952,7 +6952,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3314:                                             ; preds = %3313
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %77)
-          to label %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.exit unwind label %3069
+          to label %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.argprom.exit unwind label %3069
 
 3315:                                             ; preds = %.thread.i3086, %.thread7.i, %.thread18.i, %.thread29.i, %.thread40.i, %.thread51.i, %.thread62.i, %.thread73.i, %.thread84.i, %.thread95.i, %.thread106.i, %.thread117.i, %.thread128.i, %.thread139.i, %.thread150.i, %.thread161.i, %.thread172.i, %.thread183.i, %3309, %3300, %3293, %3283, %3274, %3267, %3257, %3248, %3241, %3231, %3222, %3215, %3205, %3196, %3189, %3182, %3169, %3160, %3153, %3143, %3134, %3127, %3117, %3108, %3101, %3091, %3082, %3075, %3068
   %3316 = landingpad { ptr, i32 }
@@ -7050,7 +7050,7 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   invoke void @"_ZN4core3ptr83drop_in_place$LT$cranelift_codegen_meta..cdsl..instructions..InstructionBuilder$GT$17h968e33b2ab45e6c5E"(ptr nonnull align 8 %107) #7
           to label %3068 unwind label %3315
 
-_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.exit: ; preds = %3314
+_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.argprom.exit: ; preds = %3314
   call void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %114)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
@@ -7176,12 +7176,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   invoke void @"_ZN4core3ptr67drop_in_place$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$17hb0b69769f2015152E"(ptr nonnull align 8 %2477) #7
           to label %common.resume unwind label %8361
 
-3323:                                             ; preds = %8359, %3328, %3325, %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.exit
+3323:                                             ; preds = %8359, %3328, %3325, %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.argprom.exit
   %3324 = landingpad { ptr, i32 }
           cleanup
   br label %3322
 
-3325:                                             ; preds = %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.exit
+3325:                                             ; preds = %_ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa879bb26299cfE.argprom.exit
   %3326 = extractvalue { i1, i8 } %3321, 0
   %3327 = extractvalue { i1, i8 } %3321, 1
   invoke void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..LaneType$GT$$GT$4from17h99ffb43714b49f97E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %2474, i1 zeroext %3326, i8 %3327)

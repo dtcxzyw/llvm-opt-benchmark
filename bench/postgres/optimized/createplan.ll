@@ -7238,7 +7238,7 @@ list_length.exit:                                 ; preds = %._crit_edge146
 
 list_length.exit.thread.i:                        ; preds = %54
   %60 = tail call ptr @palloc0(i64 noundef 0) #12
-  br label %remap_groupColIdx.exit
+  br label %remap_groupColIdx.argprom.exit
 
 .lr.ph.i:                                         ; preds = %54
   %61 = getelementptr inbounds i8, ptr %59, i64 4
@@ -7249,7 +7249,7 @@ list_length.exit.thread.i:                        ; preds = %54
   %66 = getelementptr inbounds i8, ptr %59, i64 16
   %67 = load i32, ptr %61, align 4
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph8.i, label %remap_groupColIdx.exit
+  br i1 %68, label %.lr.ph8.i, label %remap_groupColIdx.argprom.exit
 
 .lr.ph8.i:                                        ; preds = %.lr.ph.i, %.lr.ph8.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph8.i ], [ 0, %.lr.ph.i ]
@@ -7267,16 +7267,16 @@ list_length.exit.thread.i:                        ; preds = %54
   %78 = load i32, ptr %61, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next.i, %79
-  br i1 %80, label %.lr.ph8.i, label %remap_groupColIdx.exit
+  br i1 %80, label %.lr.ph8.i, label %remap_groupColIdx.argprom.exit
 
-remap_groupColIdx.exit:                           ; preds = %.lr.ph8.i, %list_length.exit.thread.i, %.lr.ph.i
+remap_groupColIdx.argprom.exit:                   ; preds = %.lr.ph8.i, %list_length.exit.thread.i, %.lr.ph.i
   %81 = phi ptr [ %60, %list_length.exit.thread.i ], [ %65, %.lr.ph.i ], [ %65, %.lr.ph8.i ]
   %82 = getelementptr inbounds i8, ptr %57, i64 41
   %83 = load i8, ptr %82, align 1
   %84 = trunc i8 %83 to i1
   br i1 %84, label %._crit_edge162, label %85
 
-85:                                               ; preds = %remap_groupColIdx.exit
+85:                                               ; preds = %remap_groupColIdx.argprom.exit
   %86 = trunc i8 %.089151 to i1
   br i1 %86, label %._crit_edge162, label %87
 
@@ -7382,9 +7382,9 @@ make_sort_from_groupcols.exit:                    ; preds = %list_length.exit.i,
   %.pre = load i8, ptr %82, align 1
   br label %._crit_edge162
 
-._crit_edge162:                                   ; preds = %make_sort_from_groupcols.exit, %85, %remap_groupColIdx.exit
-  %143 = phi i8 [ %83, %remap_groupColIdx.exit ], [ %83, %85 ], [ %.pre, %make_sort_from_groupcols.exit ]
-  %.088 = phi ptr [ null, %remap_groupColIdx.exit ], [ null, %85 ], [ %132, %make_sort_from_groupcols.exit ]
+._crit_edge162:                                   ; preds = %make_sort_from_groupcols.exit, %85, %remap_groupColIdx.argprom.exit
+  %143 = phi i8 [ %83, %remap_groupColIdx.argprom.exit ], [ %83, %85 ], [ %.pre, %make_sort_from_groupcols.exit ]
+  %.088 = phi ptr [ null, %remap_groupColIdx.argprom.exit ], [ null, %85 ], [ %132, %make_sort_from_groupcols.exit ]
   %144 = trunc i8 %143 to i1
   %spec.select101 = select i1 %144, i8 %.089151, i8 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %57, i64 16
@@ -7481,7 +7481,7 @@ list_length.exit.thread:                          ; preds = %list_length.exit.th
 
 list_length.exit.thread.i119:                     ; preds = %list_length.exit.thread
   %188 = tail call ptr @palloc0(i64 noundef 0) #12
-  br label %remap_groupColIdx.exit120
+  br label %remap_groupColIdx.argprom.exit120
 
 .lr.ph.i115:                                      ; preds = %list_length.exit.thread
   %189 = getelementptr inbounds i8, ptr %187, i64 4
@@ -7492,7 +7492,7 @@ list_length.exit.thread.i119:                     ; preds = %list_length.exit.th
   %194 = getelementptr inbounds i8, ptr %187, i64 16
   %195 = load i32, ptr %189, align 4
   %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph8.i116, label %remap_groupColIdx.exit120
+  br i1 %196, label %.lr.ph8.i116, label %remap_groupColIdx.argprom.exit120
 
 .lr.ph8.i116:                                     ; preds = %.lr.ph.i115, %.lr.ph8.i116
   %indvars.iv.i117 = phi i64 [ %indvars.iv.next.i118, %.lr.ph8.i116 ], [ 0, %.lr.ph.i115 ]
@@ -7510,9 +7510,9 @@ list_length.exit.thread.i119:                     ; preds = %list_length.exit.th
   %206 = load i32, ptr %189, align 4
   %207 = sext i32 %206 to i64
   %208 = icmp slt i64 %indvars.iv.next.i118, %207
-  br i1 %208, label %.lr.ph8.i116, label %remap_groupColIdx.exit120
+  br i1 %208, label %.lr.ph8.i116, label %remap_groupColIdx.argprom.exit120
 
-remap_groupColIdx.exit120:                        ; preds = %.lr.ph8.i116, %list_length.exit.thread.i119, %.lr.ph.i115
+remap_groupColIdx.argprom.exit120:                ; preds = %.lr.ph8.i116, %list_length.exit.thread.i119, %.lr.ph.i115
   %209 = phi ptr [ %188, %list_length.exit.thread.i119 ], [ %193, %.lr.ph.i115 ], [ %193, %.lr.ph8.i116 ]
   %210 = getelementptr inbounds i8, ptr %185, i64 16
   %211 = load ptr, ptr %210, align 8
@@ -7522,13 +7522,13 @@ remap_groupColIdx.exit120:                        ; preds = %.lr.ph8.i116, %list
   %.not.i121 = icmp eq ptr %213, null
   br i1 %.not.i121, label %list_length.exit122, label %214
 
-214:                                              ; preds = %remap_groupColIdx.exit120
+214:                                              ; preds = %remap_groupColIdx.argprom.exit120
   %215 = getelementptr inbounds i8, ptr %213, i64 4
   %216 = load i32, ptr %215, align 4
   br label %list_length.exit122
 
-list_length.exit122:                              ; preds = %remap_groupColIdx.exit120, %214
-  %217 = phi i32 [ %216, %214 ], [ 0, %remap_groupColIdx.exit120 ]
+list_length.exit122:                              ; preds = %remap_groupColIdx.argprom.exit120, %214
+  %217 = phi i32 [ %216, %214 ], [ 0, %remap_groupColIdx.argprom.exit120 ]
   %218 = tail call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
   %219 = getelementptr inbounds i8, ptr %1, i64 96
   %220 = load ptr, ptr %219, align 8
@@ -8038,13 +8038,13 @@ define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr no
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds i8, ptr %7, i64 4
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %fix_indexqual_references.exit, label %.lr.ph27.i
+  br i1 %.not.i, label %fix_indexqual_references.argprom.exit, label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %5
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph, label %fix_indexqual_references.exit
+  br i1 %21, label %.lr.ph, label %fix_indexqual_references.argprom.exit
 
 .lr.ph:                                           ; preds = %.lr.ph27.i, %._crit_edge.i
   %22 = phi i32 [ %48, %._crit_edge.i ], [ %20, %.lr.ph27.i ]
@@ -8100,18 +8100,18 @@ define internal fastcc noundef ptr @create_indexscan_plan(ptr noundef %0, ptr no
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i134, 1
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next37.i, %49
-  br i1 %50, label %.lr.ph, label %fix_indexqual_references.exit.loopexit
+  br i1 %50, label %.lr.ph, label %fix_indexqual_references.argprom.exit.loopexit
 
-fix_indexqual_references.exit.loopexit:           ; preds = %._crit_edge.i
+fix_indexqual_references.argprom.exit.loopexit:   ; preds = %._crit_edge.i
   %.pre172 = load ptr, ptr %14, align 8
   %.pre173 = load ptr, ptr %8, align 8
-  br label %fix_indexqual_references.exit
+  br label %fix_indexqual_references.argprom.exit
 
-fix_indexqual_references.exit:                    ; preds = %fix_indexqual_references.exit.loopexit, %.lr.ph27.i, %5
-  %51 = phi ptr [ %9, %5 ], [ %9, %.lr.ph27.i ], [ %.pre173, %fix_indexqual_references.exit.loopexit ]
-  %52 = phi ptr [ %15, %5 ], [ %15, %.lr.ph27.i ], [ %.pre172, %fix_indexqual_references.exit.loopexit ]
-  %.029.lcssa.i = phi ptr [ null, %5 ], [ null, %.lr.ph27.i ], [ %.130.lcssa.i, %fix_indexqual_references.exit.loopexit ]
-  %.0.lcssa.i = phi ptr [ null, %5 ], [ null, %.lr.ph27.i ], [ %.1.lcssa.i, %fix_indexqual_references.exit.loopexit ]
+fix_indexqual_references.argprom.exit:            ; preds = %fix_indexqual_references.argprom.exit.loopexit, %.lr.ph27.i, %5
+  %51 = phi ptr [ %9, %5 ], [ %9, %.lr.ph27.i ], [ %.pre173, %fix_indexqual_references.argprom.exit.loopexit ]
+  %52 = phi ptr [ %15, %5 ], [ %15, %.lr.ph27.i ], [ %.pre172, %fix_indexqual_references.argprom.exit.loopexit ]
+  %.029.lcssa.i = phi ptr [ null, %5 ], [ null, %.lr.ph27.i ], [ %.130.lcssa.i, %fix_indexqual_references.argprom.exit.loopexit ]
+  %.0.lcssa.i = phi ptr [ null, %5 ], [ null, %.lr.ph27.i ], [ %.1.lcssa.i, %fix_indexqual_references.argprom.exit.loopexit ]
   %53 = getelementptr inbounds i8, ptr %1, i64 96
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 4
@@ -8123,9 +8123,9 @@ fix_indexqual_references.exit:                    ; preds = %fix_indexqual_refer
   %brmerge.i = select i1 %.not25.i, i1 true, i1 %.not.i113
   br i1 %brmerge.i, label %fix_indexorderby_references.exit, label %.split.split.i
 
-.split.split.i:                                   ; preds = %fix_indexqual_references.exit, %76
-  %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i115, %76 ], [ 0, %fix_indexqual_references.exit ]
-  %.0.i = phi ptr [ %80, %76 ], [ null, %fix_indexqual_references.exit ]
+.split.split.i:                                   ; preds = %fix_indexqual_references.argprom.exit, %76
+  %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i115, %76 ], [ 0, %fix_indexqual_references.argprom.exit ]
+  %.0.i = phi ptr [ %80, %76 ], [ null, %fix_indexqual_references.argprom.exit ]
   %59 = load i32, ptr %56, align 4
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.i114, %60
@@ -8159,8 +8159,8 @@ fix_indexqual_references.exit:                    ; preds = %fix_indexqual_refer
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i114, 1
   br label %.split.split.i, !llvm.loop !13
 
-fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_indexqual_references.exit
-  %.us-phi.i = phi ptr [ null, %fix_indexqual_references.exit ], [ %.0.i, %70 ], [ %.0.i, %65 ]
+fix_indexorderby_references.exit:                 ; preds = %65, %70, %fix_indexqual_references.argprom.exit
+  %.us-phi.i = phi ptr [ null, %fix_indexqual_references.argprom.exit ], [ %.0.i, %70 ], [ %.0.i, %65 ]
   %81 = getelementptr inbounds i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph140

@@ -463,7 +463,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   call void @llvm.assume(i1 true) [ "align"(ptr %162, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i53.i = load i16, ptr %162, align 1
   %163 = icmp sgt i16 %.0.copyload.i.i.i.i.i.i.i.i53.i, -1
-  br i1 %163, label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, label %164
+  br i1 %163, label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i, label %164
 
 164:                                              ; preds = %161
   %165 = and i16 %.0.copyload.i.i.i.i.i.i.i.i53.i, 32767
@@ -471,9 +471,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
   %167 = getelementptr inbounds [11 x i32], ptr @__const._ZL23getEncodedIntegerLengthN4llvm8ArrayRefIhEE.Sizes, i64 0, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = add i32 %168, 6
-  br label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
+  br label %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i
 
-_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %164, %161
+_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i: ; preds = %164, %161
   %.0.i.i54.i = phi i32 [ %169, %164 ], [ 6, %161 ]
   %170 = zext i32 %.0.i.i54.i to i64
   %171 = getelementptr inbounds i8, ptr %.sroa.0.0112.i, i64 %170
@@ -724,13 +724,13 @@ _ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codevi
   %297 = add i64 %296, 1
   %298 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.not.i.i.i.i85.i = icmp ugt i64 %297, %298
-  br i1 %.not.i.i.i.i85.i, label %299, label %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
+  br i1 %.not.i.i.i.i85.i, label %299, label %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i
 
 299:                                              ; preds = %295
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %140, i64 noundef %297, i64 noundef 12) #13
-  br label %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
+  br label %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i
 
-_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %299, %295
+_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i: ; preds = %299, %295
   %300 = add i32 %.0113.i, 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %300 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
@@ -750,13 +750,13 @@ _ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiRefere
   %308 = add i64 %307, 1
   %309 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %.not.i.i.i.i88.i = icmp ugt i64 %308, %309
-  br i1 %.not.i.i.i.i88.i, label %310, label %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
+  br i1 %.not.i.i.i.i88.i, label %310, label %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i
 
 310:                                              ; preds = %306
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %140, i64 noundef %308, i64 noundef 12) #13
-  br label %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
+  br label %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i
 
-_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %310, %306
+_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i: ; preds = %310, %306
   %311 = add i32 %.0113.i, 4
   %.sroa.22.0.insert.ext.i90.i = zext i32 %311 to i64
   %.sroa.22.0.insert.shift.i91.i = shl nuw i64 %.sroa.22.0.insert.ext.i90.i, 32
@@ -771,8 +771,8 @@ _ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codevie
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %316) #13
   br label %_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i
 
-_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %155, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i
-  %.051.i = phi i32 [ 8, %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ 8, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %294, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %265, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %250, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %235, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %215, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %200, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %175, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %160, %155 ], [ 10, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i ]
+_ZL15handleBaseClassN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i: ; preds = %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i, %155, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i
+  %.051.i = phi i32 [ 8, %_ZL22handleListContinuationN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i ], [ 8, %_ZL11handleVFPtrN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i ], [ %294, %_ZL22handleVirtualBaseClassN4llvm8ArrayRefIhEEjbRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %265, %_ZL22handleStaticDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %250, %_ZL16handleNestedTypeN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %235, %_ZL15handleOneMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %215, %_ZL22handleOverloadedMethodN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %200, %_ZL16handleDataMemberN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit.i ], [ %175, %_ZL16handleEnumeratorN4llvm8ArrayRefIhEEjRNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.argprom.exit.i ], [ %160, %155 ], [ 10, %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.exit.i.i ]
   %317 = zext i32 %.051.i to i64
   %318 = sub i64 %.sroa.15.0111.i, %317
   %319 = getelementptr inbounds i8, ptr %.sroa.0.0112.i, i64 %317
@@ -1382,12 +1382,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %2, %6
   %.0.i = phi i16 [ %.0.copyload.i.i.i.i, %6 ], [ 0, %2 ]
   %8 = getelementptr inbounds i8, ptr %.pre, i64 4
-  %9 = tail call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %8, i16 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  %9 = tail call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE.argelim(ptr nonnull %8, i16 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret i1 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE.argelim(ptr %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   switch i16 %1, label %71 [
     i16 4423, label %4
     i16 4422, label %4
@@ -1579,7 +1579,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
-  %6 = tail call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %5, i16 noundef zeroext %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %6 = tail call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE.argelim(ptr nonnull %5, i16 noundef zeroext %.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret i1 %6
 }
 
@@ -1592,7 +1592,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
   call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %7, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %8 = call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE.argelim(ptr nonnull %7, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3

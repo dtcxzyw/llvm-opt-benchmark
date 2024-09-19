@@ -579,7 +579,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i71
   %dec.i.i.i.i = add i32 %33, -1
   store i32 %dec.i.i.i.i, ptr %depth.i.i.i.i, align 4
   %cmp2.not.i.i.i.i = icmp eq i32 %dec.i.i.i.i, 0
-  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %cmp2.not.i.i.i.i, label %while.end.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
@@ -588,14 +588,14 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %34 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %34 to i1
-  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
   call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
-  br label %glib_autoptr_cleanup_RCUReadAuto.exit
+  br label %glib_autoptr_cleanup_RCUReadAuto.argprom.exit
 
-glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
+glib_autoptr_cleanup_RCUReadAuto.argprom.exit:    ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
   ret i32 %ret.1
 }
 
@@ -732,13 +732,13 @@ vhost_dev_has_iommu.exit.i:                       ; preds = %if.then.i.i
 
 if.then.i113:                                     ; preds = %vhost_dev_has_iommu.exit.i, %if.then.i.i, %if.end37
   %call1.i114 = call ptr @cpu_physical_memory_map(i64 noundef %call8, ptr noundef nonnull %l, i1 noundef zeroext false) #19
-  br label %vhost_memory_map.exit
+  br label %vhost_memory_map.argprom.exit
 
 if.else.i116:                                     ; preds = %vhost_dev_has_iommu.exit.i
   %11 = inttoptr i64 %call8 to ptr
-  br label %vhost_memory_map.exit
+  br label %vhost_memory_map.argprom.exit
 
-vhost_memory_map.exit:                            ; preds = %if.then.i113, %if.else.i116
+vhost_memory_map.argprom.exit:                    ; preds = %if.then.i113, %if.else.i116
   %retval.0.i115 = phi ptr [ %11, %if.else.i116 ], [ %call1.i114, %if.then.i113 ]
   %desc = getelementptr inbounds i8, ptr %vq, i64 8
   store ptr %retval.0.i115, ptr %desc, align 8
@@ -748,7 +748,7 @@ vhost_memory_map.exit:                            ; preds = %if.then.i113, %if.e
   %or.cond = select i1 %tobool41.not, i1 %cmp42.not, i1 false
   br i1 %or.cond, label %if.end45, label %return
 
-if.end45:                                         ; preds = %vhost_memory_map.exit
+if.end45:                                         ; preds = %vhost_memory_map.argprom.exit
   %call46 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   store i64 %call46, ptr %l, align 8
   %conv47 = trunc i64 %call46 to i32
@@ -774,13 +774,13 @@ vhost_dev_has_iommu.exit.i123:                    ; preds = %if.then.i.i118
 
 if.then.i120:                                     ; preds = %vhost_dev_has_iommu.exit.i123, %if.then.i.i118, %if.end45
   %call1.i121 = call ptr @cpu_physical_memory_map(i64 noundef %call48, ptr noundef nonnull %l, i1 noundef zeroext false) #19
-  br label %vhost_memory_map.exit128
+  br label %vhost_memory_map.argprom.exit128
 
 if.else.i127:                                     ; preds = %vhost_dev_has_iommu.exit.i123
   %14 = inttoptr i64 %call48 to ptr
-  br label %vhost_memory_map.exit128
+  br label %vhost_memory_map.argprom.exit128
 
-vhost_memory_map.exit128:                         ; preds = %if.then.i120, %if.else.i127
+vhost_memory_map.argprom.exit128:                 ; preds = %if.then.i120, %if.else.i127
   %retval.0.i122 = phi ptr [ %14, %if.else.i127 ], [ %call1.i121, %if.then.i120 ]
   %avail = getelementptr inbounds i8, ptr %vq, i64 16
   store ptr %retval.0.i122, ptr %avail, align 8
@@ -790,7 +790,7 @@ vhost_memory_map.exit128:                         ; preds = %if.then.i120, %if.e
   %or.cond94 = select i1 %tobool51.not, i1 %cmp53.not, i1 false
   br i1 %or.cond94, label %if.end56, label %fail_alloc_avail
 
-if.end56:                                         ; preds = %vhost_memory_map.exit128
+if.end56:                                         ; preds = %vhost_memory_map.argprom.exit128
   %call57 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   store i64 %call57, ptr %l, align 8
   %conv58 = trunc i64 %call57 to i32
@@ -800,7 +800,7 @@ if.end56:                                         ; preds = %vhost_memory_map.ex
   %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
   store i64 %call59, ptr %used_phys, align 8
   %dev.val97 = load ptr, ptr %dev, align 8
-  %call60 = call fastcc ptr @vhost_memory_map(ptr %dev.val97, i64 noundef %call59, ptr noundef %l, i1 noundef zeroext true)
+  %call60 = call fastcc ptr @vhost_memory_map.argprom(ptr %dev.val97, i64 noundef %call59, ptr noundef %l, i1 noundef zeroext true)
   %used = getelementptr inbounds i8, ptr %vq, i64 24
   store ptr %call60, ptr %used, align 8
   %tobool62.not = icmp ne ptr %call60, null
@@ -877,7 +877,7 @@ fail_alloc:                                       ; preds = %do.body81, %if.then
   %25 = load ptr, ptr %used, align 8
   %call109 = call i64 @virtio_queue_get_used_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val98 = load ptr, ptr %dev, align 8
-  call fastcc void @vhost_memory_unmap(ptr %dev.val98, ptr noundef %25, i64 noundef %call109, i32 noundef 0, i64 noundef 0)
+  call fastcc void @vhost_memory_unmap.argprom(ptr %dev.val98, ptr noundef %25, i64 noundef %call109, i32 noundef 0, i64 noundef 0)
   br label %fail_alloc_used
 
 fail_alloc_used:                                  ; preds = %if.end56, %fail_alloc
@@ -885,11 +885,11 @@ fail_alloc_used:                                  ; preds = %if.end56, %fail_all
   %26 = load ptr, ptr %avail, align 8
   %call111 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val99 = load ptr, ptr %dev, align 8
-  call fastcc void @vhost_memory_unmap(ptr %dev.val99, ptr noundef %26, i64 noundef %call111, i32 noundef 0, i64 noundef 0)
+  call fastcc void @vhost_memory_unmap.argprom(ptr %dev.val99, ptr noundef %26, i64 noundef %call111, i32 noundef 0, i64 noundef 0)
   br label %fail_alloc_avail
 
-fail_alloc_avail:                                 ; preds = %vhost_memory_map.exit128, %fail_alloc_used
-  %r.1 = phi i32 [ %r.2, %fail_alloc_used ], [ -12, %vhost_memory_map.exit128 ]
+fail_alloc_avail:                                 ; preds = %vhost_memory_map.argprom.exit128, %fail_alloc_used
+  %r.1 = phi i32 [ %r.2, %fail_alloc_used ], [ -12, %vhost_memory_map.argprom.exit128 ]
   %27 = load ptr, ptr %desc, align 8
   %call113 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
   %dev.val100 = load ptr, ptr %dev, align 8
@@ -911,8 +911,8 @@ if.then.i132:                                     ; preds = %vhost_dev_has_iommu
   call void @cpu_physical_memory_unmap(ptr noundef %27, i64 noundef %call113, i1 noundef zeroext false, i64 noundef 0) #19
   br label %return
 
-return:                                           ; preds = %if.then.i132, %vhost_dev_has_iommu.exit.i134, %vhost_virtqueue_set_vring_endian_legacy.exit.thread, %vhost_memory_map.exit, %if.end90, %land.lhs.true, %land.lhs.true95, %if.then100, %vhost_virtqueue_set_vring_endian_legacy.exit, %entry, %do.body24, %do.body
-  %retval.0 = phi i32 [ %call13, %do.body ], [ %call21, %do.body24 ], [ 0, %entry ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit ], [ 0, %if.then100 ], [ 0, %land.lhs.true95 ], [ 0, %land.lhs.true ], [ 0, %if.end90 ], [ -12, %vhost_memory_map.exit ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit.thread ], [ %r.1, %vhost_dev_has_iommu.exit.i134 ], [ %r.1, %if.then.i132 ]
+return:                                           ; preds = %if.then.i132, %vhost_dev_has_iommu.exit.i134, %vhost_virtqueue_set_vring_endian_legacy.exit.thread, %vhost_memory_map.argprom.exit, %if.end90, %land.lhs.true, %land.lhs.true95, %if.then100, %vhost_virtqueue_set_vring_endian_legacy.exit, %entry, %do.body24, %do.body
+  %retval.0 = phi i32 [ %call13, %do.body ], [ %call21, %do.body24 ], [ 0, %entry ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit ], [ 0, %if.then100 ], [ 0, %land.lhs.true95 ], [ 0, %land.lhs.true ], [ 0, %if.end90 ], [ -12, %vhost_memory_map.argprom.exit ], [ %call.i110, %vhost_virtqueue_set_vring_endian_legacy.exit.thread ], [ %r.1, %vhost_dev_has_iommu.exit.i134 ], [ %r.1, %if.then.i132 ]
   ret i32 %retval.0
 }
 
@@ -932,7 +932,7 @@ declare i32 @virtio_queue_get_last_avail_idx(ptr noundef, i32 noundef) local_unn
 declare i64 @virtio_queue_get_desc_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vhost_memory_map(ptr %dev.0.val, i64 noundef %addr, ptr noundef nonnull %plen, i1 noundef zeroext %is_write) unnamed_addr #0 {
+define internal fastcc ptr @vhost_memory_map.argprom(ptr %dev.0.val, i64 noundef %addr, ptr noundef nonnull %plen, i1 noundef zeroext %is_write) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev.0.val, null
   br i1 %tobool.not.i, label %if.then, label %if.then.i
@@ -1113,7 +1113,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
 declare zeroext i16 @virtio_queue_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vhost_memory_unmap(ptr %dev.0.val, ptr noundef %buffer, i64 noundef %len, i32 noundef range(i32 0, 2) %is_write, i64 noundef %access_len) unnamed_addr #0 {
+define internal fastcc void @vhost_memory_unmap.argprom(ptr %dev.0.val, ptr noundef %buffer, i64 noundef %len, i32 noundef range(i32 0, 2) %is_write, i64 noundef %access_len) unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %dev.0.val, null
   br i1 %tobool.not.i, label %if.then, label %if.then.i
@@ -1230,13 +1230,13 @@ vhost_dev_has_iommu.exit.i:                       ; preds = %if.then.i.i
   %.val.i.i = load i64, ptr %10, align 8
   %and.i.i.i.i = and i64 %.val.i.i, 8589934592
   %tobool.i.i.i.not.i = icmp eq i64 %and.i.i.i.i, 0
-  br i1 %tobool.i.i.i.not.i, label %if.then.i48, label %vhost_memory_unmap.exit
+  br i1 %tobool.i.i.i.not.i, label %if.then.i48, label %vhost_memory_unmap.argprom.exit
 
 if.then.i48:                                      ; preds = %vhost_dev_has_iommu.exit.i, %if.then.i.i, %if.end14
   call void @cpu_physical_memory_unmap(ptr noundef %9, i64 noundef %call15, i1 noundef zeroext true, i64 noundef %call16) #19
-  br label %vhost_memory_unmap.exit
+  br label %vhost_memory_unmap.argprom.exit
 
-vhost_memory_unmap.exit:                          ; preds = %vhost_dev_has_iommu.exit.i, %if.then.i48
+vhost_memory_unmap.argprom.exit:                  ; preds = %vhost_dev_has_iommu.exit.i, %if.then.i48
   %avail = getelementptr inbounds i8, ptr %vq, i64 16
   %11 = load ptr, ptr %avail, align 8
   %call17 = call i64 @virtio_queue_get_avail_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
@@ -1245,7 +1245,7 @@ vhost_memory_unmap.exit:                          ; preds = %vhost_dev_has_iommu
   %tobool.not.i.i50 = icmp eq ptr %dev.val38, null
   br i1 %tobool.not.i.i50, label %if.then.i53, label %if.then.i.i51
 
-if.then.i.i51:                                    ; preds = %vhost_memory_unmap.exit
+if.then.i.i51:                                    ; preds = %vhost_memory_unmap.argprom.exit
   %call.i.i52 = call zeroext i1 @virtio_bus_device_iommu_enabled(ptr noundef nonnull %dev.val38) #19
   br i1 %call.i.i52, label %vhost_dev_has_iommu.exit.i55, label %if.then.i53
 
@@ -1254,13 +1254,13 @@ vhost_dev_has_iommu.exit.i55:                     ; preds = %if.then.i.i51
   %.val.i.i56 = load i64, ptr %12, align 8
   %and.i.i.i.i57 = and i64 %.val.i.i56, 8589934592
   %tobool.i.i.i.not.i58 = icmp eq i64 %and.i.i.i.i57, 0
-  br i1 %tobool.i.i.i.not.i58, label %if.then.i53, label %vhost_memory_unmap.exit59
+  br i1 %tobool.i.i.i.not.i58, label %if.then.i53, label %vhost_memory_unmap.argprom.exit59
 
-if.then.i53:                                      ; preds = %vhost_dev_has_iommu.exit.i55, %if.then.i.i51, %vhost_memory_unmap.exit
+if.then.i53:                                      ; preds = %vhost_dev_has_iommu.exit.i55, %if.then.i.i51, %vhost_memory_unmap.argprom.exit
   call void @cpu_physical_memory_unmap(ptr noundef %11, i64 noundef %call17, i1 noundef zeroext false, i64 noundef %call18) #19
-  br label %vhost_memory_unmap.exit59
+  br label %vhost_memory_unmap.argprom.exit59
 
-vhost_memory_unmap.exit59:                        ; preds = %vhost_dev_has_iommu.exit.i55, %if.then.i53
+vhost_memory_unmap.argprom.exit59:                ; preds = %vhost_dev_has_iommu.exit.i55, %if.then.i53
   %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %13 = load ptr, ptr %desc, align 8
   %call19 = call i64 @virtio_queue_get_desc_size(ptr noundef nonnull %vdev, i32 noundef %idx) #19
@@ -1269,7 +1269,7 @@ vhost_memory_unmap.exit59:                        ; preds = %vhost_dev_has_iommu
   %tobool.not.i.i60 = icmp eq ptr %dev.val, null
   br i1 %tobool.not.i.i60, label %if.then.i63, label %if.then.i.i61
 
-if.then.i.i61:                                    ; preds = %vhost_memory_unmap.exit59
+if.then.i.i61:                                    ; preds = %vhost_memory_unmap.argprom.exit59
   %call.i.i62 = call zeroext i1 @virtio_bus_device_iommu_enabled(ptr noundef nonnull %dev.val) #19
   br i1 %call.i.i62, label %vhost_dev_has_iommu.exit.i65, label %if.then.i63
 
@@ -1280,7 +1280,7 @@ vhost_dev_has_iommu.exit.i65:                     ; preds = %if.then.i.i61
   %tobool.i.i.i.not.i68 = icmp eq i64 %and.i.i.i.i67, 0
   br i1 %tobool.i.i.i.not.i68, label %if.then.i63, label %return
 
-if.then.i63:                                      ; preds = %vhost_dev_has_iommu.exit.i65, %if.then.i.i61, %vhost_memory_unmap.exit59
+if.then.i63:                                      ; preds = %vhost_dev_has_iommu.exit.i65, %if.then.i.i61, %vhost_memory_unmap.argprom.exit59
   call void @cpu_physical_memory_unmap(ptr noundef %13, i64 noundef %call19, i1 noundef zeroext false, i64 noundef %call20) #19
   br label %return
 
@@ -2764,7 +2764,7 @@ entry:
 define internal void @vhost_log_sync(ptr nocapture noundef readonly %listener, ptr nocapture noundef readonly %section) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %listener, i64 -8
-  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef %add.ptr, ptr noundef %section, i64 noundef -1)
+  tail call fastcc void @vhost_sync_dirty_bitmap.argelim(ptr noundef %add.ptr, ptr noundef %section, i64 noundef -1)
   ret void
 }
 
@@ -4465,7 +4465,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %4 = load ptr, ptr %mem_sections.i, align 8
   %arrayidx.i = getelementptr %struct.MemoryRegionSection, ptr %4, i64 %indvars.iv.i
-  tail call fastcc void @vhost_sync_dirty_bitmap(ptr noundef nonnull readonly %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
+  tail call fastcc void @vhost_sync_dirty_bitmap.argelim(ptr noundef nonnull readonly %dev, ptr noundef %arrayidx.i, i64 noundef %sub)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i32, ptr %n_mem_sections.i, align 8
   %6 = sext i32 %5 to i64
@@ -4976,13 +4976,13 @@ if.end45:                                         ; preds = %if.then, %vhost_che
   %transfer_buf.036 = phi ptr [ %transfer_buf.0, %if.then43 ], [ %transfer_buf.0, %fail ], [ null, %if.then ], [ %call12, %vhost_check_device_state.exit ]
   %g_err.val = load ptr, ptr %g_err, align 8
   %tobool.not.i.i = icmp eq ptr %g_err.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end45
   call void @g_error_free(ptr noundef nonnull %g_err.val) #19
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
-glib_autoptr_cleanup_GError.exit:                 ; preds = %if.end45, %if.then.i.i
+glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %if.end45, %if.then.i.i
   call void @g_free(ptr noundef %transfer_buf.036) #19
   ret i32 %ret.037
 }
@@ -5187,13 +5187,13 @@ if.end70:                                         ; preds = %if.then, %if.end60,
   %transfer_buf.043 = phi ptr [ %transfer_buf.0, %if.then68 ], [ %transfer_buf.0, %fail ], [ null, %if.then ], [ %transfer_buf.1.lcssa, %if.end60 ]
   %g_err.val = load ptr, ptr %g_err, align 8
   %tobool.not.i.i = icmp eq ptr %g_err.val, null
-  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.exit, label %if.then.i.i
+  br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GError.argprom.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end70
   call void @g_error_free(ptr noundef nonnull %g_err.val) #19
-  br label %glib_autoptr_cleanup_GError.exit
+  br label %glib_autoptr_cleanup_GError.argprom.exit
 
-glib_autoptr_cleanup_GError.exit:                 ; preds = %if.end70, %if.then.i.i
+glib_autoptr_cleanup_GError.argprom.exit:         ; preds = %if.end70, %if.then.i.i
   call void @g_free(ptr noundef %transfer_buf.043) #19
   ret i32 %ret.044
 }
@@ -5362,7 +5362,7 @@ declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare void @memory_region_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vhost_sync_dirty_bitmap(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %section, i64 noundef %last) unnamed_addr #0 {
+define internal fastcc void @vhost_sync_dirty_bitmap.argelim(ptr nocapture noundef readonly %dev, ptr nocapture noundef readonly %section, i64 noundef %last) unnamed_addr #0 {
 entry:
   %tmp29 = alloca %struct.IOMMUTLBEntry, align 8
   %log_enabled = getelementptr inbounds i8, ptr %dev, i64 505

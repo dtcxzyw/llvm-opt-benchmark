@@ -910,9 +910,9 @@ if.end12:                                         ; preds = %land.lhs.true
   %9 = getelementptr i8, ptr %self, i64 72
   %self.val = load i32, ptr %9, align 8
   %cmp.not.i = icmp eq i32 %self.val, 1
-  br i1 %cmp.not.i, label %is_writable.exit.thread, label %if.end16
+  br i1 %cmp.not.i, label %is_writable.argprom.exit.thread, label %if.end16
 
-is_writable.exit.thread:                          ; preds = %if.end12
+is_writable.argprom.exit.thread:                  ; preds = %if.end12
   %10 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.85) #8
   br label %return
@@ -925,8 +925,8 @@ if.end16:                                         ; preds = %if.end12
   store i8 %11, ptr %arrayidx19, align 1
   br label %return
 
-return:                                           ; preds = %is_writable.exit.thread, %if.end16, %if.then11, %if.then6, %if.then3, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ -1, %if.then6 ], [ 0, %if.end16 ], [ -1, %if.then11 ], [ -1, %is_writable.exit.thread ]
+return:                                           ; preds = %is_writable.argprom.exit.thread, %if.end16, %if.then11, %if.then6, %if.then3, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then3 ], [ -1, %if.then6 ], [ 0, %if.end16 ], [ -1, %if.then11 ], [ -1, %is_writable.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1113,9 +1113,9 @@ do.end:                                           ; preds = %entry
   %2 = getelementptr i8, ptr %self, i64 72
   %self.val = load i32, ptr %2, align 8
   %cmp.not.i = icmp eq i32 %self.val, 1
-  br i1 %cmp.not.i, label %is_writable.exit.thread, label %if.end2
+  br i1 %cmp.not.i, label %is_writable.argprom.exit.thread, label %if.end2
 
-is_writable.exit.thread:                          ; preds = %do.end
+is_writable.argprom.exit.thread:                  ; preds = %do.end
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.85) #8
   br label %return
@@ -1317,8 +1317,8 @@ if.else95:                                        ; preds = %if.else
   tail call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.111) #8
   br label %return
 
-return:                                           ; preds = %is_writable.exit.thread, %if.end59, %if.then48, %land.lhs.true29, %land.lhs.true, %if.else95, %if.end94, %if.then73, %if.then67, %if.then58, %do.end44, %if.then42, %if.then37, %if.then25, %if.then21, %if.then18, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then18 ], [ -1, %if.then21 ], [ -1, %if.then37 ], [ -1, %if.then42 ], [ 0, %do.end44 ], [ -1, %if.then25 ], [ -1, %if.then58 ], [ -1, %if.then67 ], [ -1, %if.then73 ], [ 0, %if.end94 ], [ -1, %if.else95 ], [ -1, %land.lhs.true ], [ -1, %land.lhs.true29 ], [ -1, %if.then48 ], [ -1, %if.end59 ], [ -1, %is_writable.exit.thread ]
+return:                                           ; preds = %is_writable.argprom.exit.thread, %if.end59, %if.then48, %land.lhs.true29, %land.lhs.true, %if.else95, %if.end94, %if.then73, %if.then67, %if.then58, %do.end44, %if.then42, %if.then37, %if.then25, %if.then21, %if.then18, %if.then
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then18 ], [ -1, %if.then21 ], [ -1, %if.then37 ], [ -1, %if.then42 ], [ 0, %do.end44 ], [ -1, %if.then25 ], [ -1, %if.then58 ], [ -1, %if.then67 ], [ -1, %if.then73 ], [ 0, %if.end94 ], [ -1, %if.else95 ], [ -1, %land.lhs.true ], [ -1, %land.lhs.true29 ], [ -1, %if.then48 ], [ -1, %if.end59 ], [ -1, %is_writable.argprom.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -1655,9 +1655,9 @@ lor.lhs.false:                                    ; preds = %do.end
   %2 = getelementptr i8, ptr %self, i64 72
   %self.val = load i32, ptr %2, align 8
   %cmp.not.i = icmp eq i32 %self.val, 1
-  br i1 %cmp.not.i, label %is_writable.exit.thread, label %if.else
+  br i1 %cmp.not.i, label %is_writable.argprom.exit.thread, label %if.else
 
-is_writable.exit.thread:                          ; preds = %lor.lhs.false
+is_writable.argprom.exit.thread:                  ; preds = %lor.lhs.false
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.85) #8
   br label %return
@@ -1704,8 +1704,8 @@ bounds:                                           ; preds = %if.end10, %if.else
   call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.84) #8
   br label %return
 
-return:                                           ; preds = %is_writable.exit.thread, %do.end, %bounds, %do.end23, %if.then21, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %bounds ], [ null, %if.then21 ], [ @_Py_NoneStruct, %do.end23 ], [ null, %do.end ], [ null, %is_writable.exit.thread ]
+return:                                           ; preds = %is_writable.argprom.exit.thread, %do.end, %bounds, %do.end23, %if.then21, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %bounds ], [ null, %if.then21 ], [ @_Py_NoneStruct, %do.end23 ], [ null, %do.end ], [ null, %is_writable.argprom.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -2218,9 +2218,9 @@ if.end2:                                          ; preds = %do.end
   %2 = getelementptr i8, ptr %self, i64 72
   %self.val = load i32, ptr %2, align 8
   %cmp.not.i = icmp eq i32 %self.val, 1
-  br i1 %cmp.not.i, label %is_writable.exit.thread, label %do.body7
+  br i1 %cmp.not.i, label %is_writable.argprom.exit.thread, label %do.body7
 
-is_writable.exit.thread:                          ; preds = %if.end2
+is_writable.argprom.exit.thread:                  ; preds = %if.end2
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %call.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.85) #8
   br label %return
@@ -2256,8 +2256,8 @@ if.else:                                          ; preds = %do.end12
   call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.99) #8
   br label %return
 
-return:                                           ; preds = %is_writable.exit.thread, %do.end, %if.else, %if.then14, %if.then10, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ @_Py_NoneStruct, %if.then14 ], [ null, %if.else ], [ null, %do.end ], [ null, %is_writable.exit.thread ]
+return:                                           ; preds = %is_writable.argprom.exit.thread, %do.end, %if.else, %if.then14, %if.then10, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ @_Py_NoneStruct, %if.then14 ], [ null, %if.else ], [ null, %do.end ], [ null, %is_writable.argprom.exit.thread ]
   ret ptr %retval.0
 }
 

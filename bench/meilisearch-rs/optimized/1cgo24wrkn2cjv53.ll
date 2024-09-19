@@ -4283,9 +4283,9 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader", label %27
+  br i1 %7, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.preheader", label %27
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader": ; preds = %4
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.preheader": ; preds = %4
   %8 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
   %9 = extractvalue { i64, i32 } %8, 0
   %10 = extractvalue { i64, i32 } %8, 1
@@ -4296,17 +4296,17 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %13 = icmp uge i32 %10, %.val1443
   %14 = icmp sge i64 %9, %.val1342
   %.sroa.0.0.i44 = select i1 %12, i1 %13, i1 %14
-  br i1 %.sroa.0.0.i44, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %.lr.ph
+  br i1 %.sroa.0.0.i44, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge", label %.lr.ph
 
-.lr.ph:                                           ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader"
+.lr.ph:                                           ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.preheader"
   %15 = icmp eq i32 %3, 1000000000
-  br i1 %15, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+  br i1 %15, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit24"
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
-  %.val1446.us = phi i32 [ %.val14.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %.val1443, %.lr.ph ]
-  %.val1345.us = phi i64 [ %.val13.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %.val1342, %.lr.ph ]
-  %16 = phi i32 [ %23, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %10, %.lr.ph ]
-  %17 = phi i64 [ %22, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us" ], [ %9, %.lr.ph ]
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us"
+  %.val1446.us = phi i32 [ %.val14.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us" ], [ %.val1443, %.lr.ph ]
+  %.val1345.us = phi i64 [ %.val13.us, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us" ], [ %.val1342, %.lr.ph ]
+  %16 = phi i32 [ %23, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us" ], [ %10, %.lr.ph ]
+  %17 = phi i64 [ %22, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us" ], [ %9, %.lr.ph ]
   %18 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.val1345.us, i32 noundef %.val1446.us, i64 noundef %17, i32 noundef %16)
   %19 = extractvalue { i64, i32 } %18, 0
   %20 = extractvalue { i64, i32 } %18, 1
@@ -4320,36 +4320,36 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %25 = icmp uge i32 %23, %.val14.us
   %26 = icmp sge i64 %22, %.val13.us
   %.sroa.0.0.i.us = select i1 %24, i1 %25, i1 %26
-  br i1 %.sroa.0.0.i.us, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us"
+  br i1 %.sroa.0.0.i.us, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us"
 
 27:                                               ; preds = %4
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 %2, i32 noundef %3)
   store i8 0, ptr %0, align 8
   br label %39
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
-  %.val1446 = phi i32 [ %.val14, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %.val1443, %.lr.ph ]
-  %.val1345 = phi i64 [ %.val13, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %.val1342, %.lr.ph ]
-  %28 = phi i32 [ %49, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %10, %.lr.ph ]
-  %29 = phi i64 [ %48, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26" ], [ %9, %.lr.ph ]
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit24": ; preds = %.lr.ph, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26"
+  %.val1446 = phi i32 [ %.val14, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26" ], [ %.val1443, %.lr.ph ]
+  %.val1345 = phi i64 [ %.val13, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26" ], [ %.val1342, %.lr.ph ]
+  %28 = phi i32 [ %49, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26" ], [ %10, %.lr.ph ]
+  %29 = phi i64 [ %48, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26" ], [ %9, %.lr.ph ]
   %30 = icmp eq i64 %29, %2
   %31 = icmp uge i32 %28, %3
   %32 = icmp sge i64 %29, %2
   %.sroa.0.0.i23 = select i1 %30, i1 %31, i1 %32
-  br i1 %.sroa.0.0.i23, label %53, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26"
+  br i1 %.sroa.0.0.i23, label %53, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26"
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.us", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit.preheader"
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.us", %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit.preheader"
   %33 = atomicrmw xchg ptr %5, i8 1 seq_cst, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %38
 
-35:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge"
+35:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge"
   %36 = load i64, ptr %1, align 8, !noundef !4
   %37 = load i32, ptr %11, align 8, !range !1533, !noundef !4
   store i64 %36, ptr %0, align 8
   br label %39
 
-38:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge"
+38:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge"
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 undef, i32 noundef 1000000000)
   tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.695ce54c0493ea6bfa978dacabdf8173.5.llvm.5336188084572713014, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.13) #46
   unreachable
@@ -4360,7 +4360,7 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   store i32 %.sink, ptr %40, align 8
   ret void
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit26": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit26": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit24"
   %41 = icmp eq i64 %2, %.val1345
   %42 = icmp ult i32 %3, %.val1446
   %43 = icmp slt i64 %2, %.val1345
@@ -4380,9 +4380,9 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %51 = icmp uge i32 %49, %.val14
   %52 = icmp sge i64 %48, %.val13
   %.sroa.0.0.i = select i1 %50, i1 %51, i1 %52
-  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit._crit_edge", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit24"
 
-53:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit24"
+53:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit24"
   store i8 0, ptr %0, align 8
   br label %39
 }
@@ -4417,7 +4417,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %10, i32 noundef %11, i64 noundef %21, i32 noundef %22)
   %23 = load i64, ptr %5, align 8, !range !204, !noundef !4
   %trunc.us = trunc nuw i64 %23 to i1
-  br i1 %trunc.us, label %24, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+  br i1 %trunc.us, label %24, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit25"
 
 24:                                               ; preds = %.split.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -4434,13 +4434,13 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %32 = icmp ult i32 %3, %27
   %33 = icmp slt i64 %2, %26
   %.sroa.0.0.i62 = select i1 %31, i1 %32, i1 %33
-  br i1 %.sroa.0.0.i62, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23", label %.lr.ph
+  br i1 %.sroa.0.0.i62, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit23", label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit"
-  %34 = phi i32 [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %30, %.split ]
-  %35 = phi i64 [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %29, %.split ]
-  %36 = phi i32 [ %61, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %27, %.split ]
-  %37 = phi i64 [ %60, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ], [ %26, %.split ]
+.lr.ph:                                           ; preds = %.split, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit"
+  %34 = phi i32 [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ], [ %30, %.split ]
+  %35 = phi i64 [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ], [ %29, %.split ]
+  %36 = phi i32 [ %61, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ], [ %27, %.split ]
+  %37 = phi i64 [ %60, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ], [ %26, %.split ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %38 = icmp eq i64 %37, %35
   %39 = icmp ugt i32 %36, %34
@@ -4456,22 +4456,22 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %37, i32 noundef %36, i64 noundef %44, i32 noundef %45)
   %46 = load i64, ptr %5, align 8, !range !204, !noundef !4
   %trunc = trunc nuw i64 %46 to i1
-  br i1 %trunc, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+  br i1 %trunc, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit", label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit25"
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit", %.split
-  %.lcssa51 = phi i64 [ %29, %.split ], [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ]
-  %.lcssa = phi i32 [ %30, %.split ], [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit" ]
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit23": ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit", %.split
+  %.lcssa51 = phi i64 [ %29, %.split ], [ %63, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ]
+  %.lcssa = phi i32 [ %30, %.split ], [ %64, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit" ]
   %47 = icmp eq i64 %.lcssa51, %2
   %48 = icmp ult i32 %.lcssa, %3
   %49 = icmp slt i64 %.lcssa51, %2
   %.sroa.0.0.i22 = select i1 %47, i1 %48, i1 %49
   br i1 %.sroa.0.0.i22, label %51, label %50
 
-50:                                               ; preds = %51, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
+50:                                               ; preds = %51, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit23"
   store i8 0, ptr %0, align 8
   br label %55
 
-51:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23"
+51:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit23"
   %52 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %2, i32 noundef %3, i64 noundef %.lcssa51, i32 noundef %.lcssa)
   %53 = extractvalue { i64, i32 } %52, 0
   %54 = extractvalue { i64, i32 } %52, 1
@@ -4484,7 +4484,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   store i32 %.us-phi59.sink, ptr %56, align 8
   ret void
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25": ; preds = %.lr.ph, %.split.us
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit25": ; preds = %.lr.ph, %.split.us
   %.us-phi = phi i1 [ %15, %.split.us ], [ %38, %.lr.ph ]
   %.us-phi58 = phi i64 [ %10, %.split.us ], [ %37, %.lr.ph ]
   %.us-phi59 = phi i32 [ %11, %.split.us ], [ %36, %.lr.ph ]
@@ -4496,7 +4496,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %.sroa.0.0.i24 = select i1 %.us-phi, i1 %57, i1 %58
   br i1 %.sroa.0.0.i24, label %69, label %68
 
-"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit": ; preds = %.lr.ph
+"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit": ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %59 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
   %60 = extractvalue { i64, i32 } %59, 0
@@ -4508,13 +4508,13 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %66 = icmp ult i32 %3, %61
   %67 = icmp slt i64 %2, %60
   %.sroa.0.0.i = select i1 %65, i1 %66, i1 %67
-  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit23", label %.lr.ph
+  br i1 %.sroa.0.0.i, label %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit23", label %.lr.ph
 
-68:                                               ; preds = %69, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+68:                                               ; preds = %69, %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit25"
   store i64 %.us-phi58, ptr %0, align 8
   br label %55
 
-69:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.exit25"
+69:                                               ; preds = %"_ZN76_$LT$std..sys..pal..unix..time..Instant$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h96a2dfed202961d0E.argprom.exit25"
   %70 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.us-phi58, i32 noundef %.us-phi59, i64 noundef %.us-phi60, i32 noundef %.us-phi61)
   %71 = extractvalue { i64, i32 } %70, 0
   %72 = extractvalue { i64, i32 } %70, 1
@@ -5064,7 +5064,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1630
   br label %107
 
-109:                                              ; preds = %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i", %107, %80, %.thread85.i
+109:                                              ; preds = %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom.exit.i", %107, %80, %.thread85.i
   invoke void @"_ZN4core3ptr50drop_in_place$LT$index_scheduler..error..Error$GT$17h47cf5cbe501874d1E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(216) %16)
           to label %52 unwind label %132, !noalias !1630
 
@@ -5095,14 +5095,14 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 .noexc62.i:                                       ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h55e30184f78f508aE.exit.i"
   %110 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h708e825f79ee033fE monotonic, align 1, !noalias !1644
   %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i"
+  br i1 %111, label %112, label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom.exit.i"
 
 112:                                              ; preds = %.noexc62.i
   %113 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h766d3673b2199da0E monotonic, align 8, !noalias !1644
   %114 = icmp ult i64 %113, 6
   call void @llvm.assume(i1 %114)
   %switch.i.i = icmp eq i64 %113, 0
-  br i1 %switch.i.i, label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i", label %115
+  br i1 %switch.i.i, label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom.exit.i", label %115
 
 115:                                              ; preds = %112
   %116 = load ptr, ptr @"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hb7d7892aa10a7cb6E", align 8, !noalias !1644, !nonnull !4, !align !86, !noundef !4
@@ -5140,9 +5140,9 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 128:                                              ; preds = %.noexc65.i, %.noexc64.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1644
-  br label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i"
+  br label %"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom.exit.i"
 
-"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.exit.i": ; preds = %128, %112, %.noexc62.i
+"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom.exit.i": ; preds = %128, %112, %.noexc62.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !1630
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !1630
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !1630
@@ -7099,11 +7099,11 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %12 = icmp ult i64 %11, -9223372036854775807
   tail call void @llvm.assume(i1 %12)
   %13 = icmp eq i64 %9, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i"
+  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i": ; preds = %6
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %9, i64 noundef %11) #45
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit"
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7113,16 +7113,16 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
   %19 = icmp ult i64 %18, -9223372036854775807
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i64 %16, 0
-  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit5", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i4"
+  br i1 %20, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit5", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i4"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i4": ; preds = %14
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %16, i64 noundef %18) #45
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit5"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit5"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit5": ; preds = %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i4"
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit5": ; preds = %14, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i4"
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i", %6
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i", %6
   resume { ptr, i32 } %7
 }
 
@@ -8196,7 +8196,7 @@ define hidden void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$brotli
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E"(ptr nonnull %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.argprom"(ptr nonnull %.0.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr104drop_in_place$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$17h2bac77f14e4379c6E"(ptr noalias noundef nonnull align 8 dereferenceable(512) %.0.val)
           to label %1 unwind label %2
 
@@ -26544,9 +26544,9 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
   switch i64 %9, label %10 [
     i64 0, label %16
     i64 1, label %26
-    i64 2, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
-    i64 3, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
-    i64 4, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+    i64 2, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
+    i64 3, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
+    i64 4, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
     i64 5, label %37
     i64 6, label %42
     i64 7, label %44
@@ -26572,7 +26572,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit": ; preds = %10, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8627
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 16:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8631
@@ -26595,7 +26595,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit": ; preds = %16, %20, %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !8631
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -26619,9 +26619,9 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit2": ; preds = %26, %31, %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !8640
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i", %46, %44, %42, %"_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17h9b369cc3c31678bfE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit", %1, %1, %1
+"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i", %46, %44, %42, %"_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17h9b369cc3c31678bfE.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit2", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit", %1, %1, %1
   ret void
 
 37:                                               ; preds = %1
@@ -26640,23 +26640,23 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
 
 "_ZN4core3ptr38drop_in_place$LT$csv..error..Error$GT$17h9b369cc3c31678bfE.exit": ; preds = %37
   tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef 88, i64 noundef 8) #45, !noalias !8659
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 42:                                               ; preds = %1
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17ha4440cbfe3fe213eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 44:                                               ; preds = %1
   %45 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$serde_json..error..ErrorImpl$GT$$GT$17ha4440cbfe3fe213eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(8) %45)
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 46:                                               ; preds = %1
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load i64, ptr %47, align 8, !range !267, !noundef !4
   %cond.i = icmp eq i64 %.val, 0
-  br i1 %cond.i, label %48, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br i1 %cond.i, label %48, label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %0, i64 16
@@ -26674,7 +26674,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$milli..documents..Error$GT$1
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i": ; preds = %51, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !8662
-  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.exit"
+  br label %"_ZN4core3ptr41drop_in_place$LT$grenad..error..Error$GT$17h233c19ce490698b8E.argprom.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -30681,9 +30681,9 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
   %narrow = select i1 %7, i8 %6, i8 4
   switch i8 %narrow, label %8 [
     i8 0, label %14
-    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+    i8 1, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
     i8 4, label %21
   ]
 
@@ -30706,13 +30706,13 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit": ; preds = %8, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !10424
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %15, align 8, !noundef !4
   %16 = icmp eq ptr %.val, null
-  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit", label %17
+  br i1 %16, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit", label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !10428
@@ -30728,19 +30728,19 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i": ; preds = %19, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !10428
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit", %1, %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit": ; preds = %28, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i.i", %21, %21, %21, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i", %14, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit", %1, %1, %1
   ret void
 
 21:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10438)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10441)
   switch i8 %5, label %22 [
-    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+    i8 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
     i8 1, label %28
-    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
-    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+    i8 2, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
+    i8 3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
   ]
 
 22:                                               ; preds = %21
@@ -30762,7 +30762,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdde326e0d62cd696E.exit.i.i": ; preds = %26, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !10453
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds i8, ptr %0, i64 8
@@ -30777,7 +30777,7 @@ define internal fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_http..error..
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i64, ptr %36, align 8, !alias.scope !10463, !noundef !4
   tail call void %32(ptr noalias noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %35, i64 noundef %37)
-  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.exit"
+  br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h26ecf5d6c2c3b554E.argprom.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31473,7 +31473,7 @@ define hidden void @"_ZN4core3ptr62drop_in_place$LT$meilisearch_types..tasks..Ki
     i64 11, label %132
   ]
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.llvm.5336188084572713014.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i21", %191, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i19", %174, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", %137, %"_ZN4core3ptr51drop_in_place$LT$roaring..bitmap..RoaringBitmap$GT$17h04bb76aa1bdcd533E.exit24", %"_ZN4core3ptr51drop_in_place$LT$roaring..bitmap..RoaringBitmap$GT$17h04bb76aa1bdcd533E.exit", %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.exit", %161, %156, %132, %108, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit7", %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.llvm.5336188084572713014.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i21", %191, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i19", %174, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit.i", %137, %"_ZN4core3ptr51drop_in_place$LT$roaring..bitmap..RoaringBitmap$GT$17h04bb76aa1bdcd533E.exit24", %"_ZN4core3ptr51drop_in_place$LT$roaring..bitmap..RoaringBitmap$GT$17h04bb76aa1bdcd533E.exit", %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.argprom.exit", %161, %156, %132, %108, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit10", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3912e219446a661dE.exit7", %1
   ret void
 
 21:                                               ; preds = %1
@@ -31796,7 +31796,7 @@ common.resume:                                    ; preds = %236, %214, %134, %1
           cleanup
   %165 = getelementptr inbounds i8, ptr %0, i64 32
   %.val2 = load ptr, ptr %165, align 8, !noundef !4
-  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E"(ptr %.val2) #47
+  invoke fastcc void @"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.argprom"(ptr %.val2) #47
           to label %common.resume unwind label %151
 
 166:                                              ; preds = %73, %69, %.noexc8
@@ -31804,7 +31804,7 @@ common.resume:                                    ; preds = %236, %214, %134, %1
   %167 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %167, align 8, !noundef !4
   invoke void @"_ZN4core3ptr104drop_in_place$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$17h2bac77f14e4379c6E"(ptr noalias noundef align 8 dereferenceable(512) %.val)
-          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.exit" unwind label %168
+          to label %"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.argprom.exit" unwind label %168
 
 168:                                              ; preds = %166
   %169 = landingpad { ptr, i32 }
@@ -31814,7 +31814,7 @@ common.resume:                                    ; preds = %236, %214, %134, %1
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 512, i64 noundef 8) #45
   br label %common.resume
 
-"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.exit": ; preds = %166
+"_ZN4core3ptr129drop_in_place$LT$alloc..boxed..Box$LT$meilisearch_types..settings..Settings$LT$meilisearch_types..settings..Unchecked$GT$$GT$$GT$17h8eb58384911b5bd1E.argprom.exit": ; preds = %166
   tail call void @__rust_dealloc(ptr noundef nonnull %.val, i64 noundef 512, i64 noundef 8) #45
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hede804bb89b8297dE.llvm.5336188084572713014.exit"
 
@@ -32033,11 +32033,11 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$meilisearch_auth..error..Aut
   %17 = icmp ult i64 %16, -9223372036854775807
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i64 %14, 0
-  br i1 %18, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i.i"
+  br i1 %18, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i.i": ; preds = %11
   tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %14, i64 noundef %16) #45, !noalias !10843
-  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit.i"
+  br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit.i"
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds i8, ptr %9, i64 8
@@ -32053,7 +32053,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$meilisearch_auth..error..Aut
   tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef %21, i64 noundef %23) #45, !noalias !10843
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h5e27498844b15b03E.llvm.5336188084572713014.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i.i", %11
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h57cc7c9253cd0148E.argprom.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.5336188084572713014.exit.i.i", %11
   resume { ptr, i32 } %12
 
 26:                                               ; preds = %1
@@ -40784,13 +40784,13 @@ _ZN5tokio4sync4mpsc4list7channel17hf14b709380c17055E.exit: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
   %19 = atomicrmw add ptr %11, i64 1 monotonic, align 8
   %20 = icmp slt i64 %19, 0
-  br i1 %20, label %21, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7bef7d938e041620E.exit"
+  br i1 %20, label %21, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7bef7d938e041620E.argprom.exit"
 
 21:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha8f44ac5308b7746E.exit"
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7bef7d938e041620E.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha8f44ac5308b7746E.exit"
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7bef7d938e041620E.argprom.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha8f44ac5308b7746E.exit"
   %22 = insertvalue { ptr, ptr } poison, ptr %11, 0
   %23 = insertvalue { ptr, ptr } %22, ptr %11, 1
   ret { ptr, ptr } %23
@@ -41259,13 +41259,13 @@ define hidden { ptr, ptr } @_ZN5tokio4sync7oneshot7channel17h614b7a34b579e7a2E(p
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %13 = atomicrmw add ptr %5, i64 1 monotonic, align 8
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %15, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha7cce6309a2e8e25E.exit"
+  br i1 %14, label %15, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha7cce6309a2e8e25E.argprom.exit"
 
 15:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha6c0a7e99a8fbdabE.exit"
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha7cce6309a2e8e25E.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha6c0a7e99a8fbdabE.exit"
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha7cce6309a2e8e25E.argprom.exit": ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha6c0a7e99a8fbdabE.exit"
   %16 = insertvalue { ptr, ptr } poison, ptr %5, 0
   %17 = insertvalue { ptr, ptr } %16, ptr %5, 1
   ret { ptr, ptr } %17
@@ -130253,7 +130253,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37134
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37134
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.exit unwind label %21, !noalias !37142
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom.exit unwind label %21, !noalias !37142
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130289,7 +130289,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$30_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3064ee8792071550E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37127
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37127
@@ -130298,7 +130298,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -130318,7 +130318,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -130394,7 +130394,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37155
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37155
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.exit unwind label %21, !noalias !37163
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom.exit unwind label %21, !noalias !37163
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130430,7 +130430,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr123drop_in_place$LT$meilisearch..routes..api_key..delete_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28cb7f0d544a8c9aE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6)
           to label %common.resume unwind label %25, !noalias !37148
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6), !noalias !37148
@@ -130439,7 +130439,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -130459,7 +130459,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -130537,7 +130537,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37176
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37176
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.exit unwind label %21, !noalias !37184
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom.exit unwind label %21, !noalias !37184
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130573,7 +130573,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd00ab15a5b6a06b7E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37169
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37169
@@ -130582,7 +130582,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -130602,7 +130602,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -130680,7 +130680,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37197
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37197
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.exit unwind label %21, !noalias !37205
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom.exit unwind label %21, !noalias !37205
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130716,7 +130716,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$31_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h74ac7e2cfff041fdE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37190
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37190
@@ -130725,7 +130725,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -130745,7 +130745,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -130823,7 +130823,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %14, ptr noundef nonnull align 128 dereferenceable(128) %5, i64 128, i1 false), !noalias !37218
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5), !noalias !37218
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.exit unwind label %21, !noalias !37226
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom.exit unwind label %21, !noalias !37226
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130854,7 +130854,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr431drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$$LT$actix_http..encoding..decoder..Decoder$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h16c3ec38c77dc1c0E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6) #47
           to label %common.resume unwind label %25, !noalias !37211
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !37211
@@ -130863,7 +130863,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ec
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -130883,7 +130883,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ec
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -130961,7 +130961,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37234
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37234
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.exit unwind label %21, !noalias !37242
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom.exit unwind label %21, !noalias !37242
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -130997,7 +130997,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..pagination..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b76681bd7581163E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37227
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37227
@@ -131006,7 +131006,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131026,7 +131026,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131104,7 +131104,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37255
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37255
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.exit unwind label %21, !noalias !37263
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom.exit unwind label %21, !noalias !37263
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131140,7 +131140,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$18_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb7bf8d7697c4d767E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37248
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37248
@@ -131149,7 +131149,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131169,7 +131169,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131247,7 +131247,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37276
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37276
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.exit unwind label %21, !noalias !37284
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom.exit unwind label %21, !noalias !37284
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131283,7 +131283,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$4_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8be84a3eed035e46E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37269
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37269
@@ -131292,7 +131292,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131312,7 +131312,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131390,7 +131390,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37297
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37297
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.exit unwind label %21, !noalias !37305
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom.exit unwind label %21, !noalias !37305
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131426,7 +131426,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$32_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h533c51ffa442463eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37290
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37290
@@ -131435,7 +131435,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131455,7 +131455,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131536,7 +131536,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %14, ptr noundef nonnull align 128 dereferenceable(1024) %5, i64 1024, i1 false), !noalias !37318
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5), !noalias !37318
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.exit unwind label %21, !noalias !37326
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom.exit unwind label %21, !noalias !37326
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131567,7 +131567,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr217drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..multi_search..multi_search_with_post..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h766c64e1ae917f43E"(ptr noalias noundef nonnull align 8 dereferenceable(912) %6) #47
           to label %common.resume unwind label %25, !noalias !37311
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 912, ptr nonnull %6), !noalias !37311
@@ -131576,7 +131576,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131596,7 +131596,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -131677,7 +131677,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1152) %14, ptr noundef nonnull align 128 dereferenceable(1152) %5, i64 1152, i1 false), !noalias !37334
   call void @llvm.lifetime.end.p0(i64 1152, ptr nonnull %5), !noalias !37334
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.exit unwind label %21, !noalias !37342
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom.exit unwind label %21, !noalias !37342
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131713,7 +131713,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr129drop_in_place$LT$meilisearch..routes..indexes..facet_search..search..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24acbe0094f083cdE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(960) %6)
           to label %common.resume unwind label %25, !noalias !37327
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 960, ptr nonnull %6), !noalias !37327
@@ -131722,7 +131722,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131742,7 +131742,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131820,7 +131820,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37355
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37355
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.exit unwind label %21, !noalias !37363
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom.exit unwind label %21, !noalias !37363
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131856,7 +131856,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$11_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9273dfcc6df3dc18E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37348
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37348
@@ -131865,7 +131865,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182e
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -131885,7 +131885,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182e
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -131963,7 +131963,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37376
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37376
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.exit unwind label %21, !noalias !37384
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom.exit unwind label %21, !noalias !37384
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -131999,7 +131999,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr148drop_in_place$LT$meilisearch..routes..indexes..settings..filterable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h237f98be756258b7E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37369
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37369
@@ -132008,7 +132008,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132028,7 +132028,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132106,7 +132106,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37397
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37397
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.exit unwind label %21, !noalias !37405
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom.exit unwind label %21, !noalias !37405
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132142,7 +132142,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$15_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h488ac5765cc87f48E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37390
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37390
@@ -132151,7 +132151,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132171,7 +132171,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132249,7 +132249,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37418
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37418
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.exit unwind label %21, !noalias !37426
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom.exit unwind label %21, !noalias !37426
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132285,7 +132285,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr146drop_in_place$LT$meilisearch..routes..indexes..settings..sortable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0a323ea5c47b71c9E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37411
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37411
@@ -132294,7 +132294,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0c
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132314,7 +132314,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0c
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132392,7 +132392,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37439
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37439
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.exit unwind label %21, !noalias !37447
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom.exit unwind label %21, !noalias !37447
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132428,7 +132428,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr136drop_in_place$LT$meilisearch..routes..indexes..settings..embedders..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1089ac7740024179E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37432
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37432
@@ -132437,7 +132437,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132457,7 +132457,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132535,7 +132535,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37460
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37460
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.exit unwind label %21, !noalias !37468
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom.exit unwind label %21, !noalias !37468
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132571,7 +132571,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$17_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7238e33dceb323e5E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37453
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37453
@@ -132580,7 +132580,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132600,7 +132600,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132681,7 +132681,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %14, ptr noundef nonnull align 128 dereferenceable(1024) %5, i64 1024, i1 false), !noalias !37481
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5), !noalias !37481
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.exit unwind label %21, !noalias !37489
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom.exit unwind label %21, !noalias !37489
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132712,7 +132712,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr190drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..search..search_with_url_query..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha704e3e1099d955aE"(ptr noalias noundef nonnull align 8 dereferenceable(912) %6) #47
           to label %common.resume unwind label %25, !noalias !37474
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 912, ptr nonnull %6), !noalias !37474
@@ -132721,7 +132721,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132741,7 +132741,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -132819,7 +132819,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37497
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37497
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.exit unwind label %21, !noalias !37505
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom.exit unwind label %21, !noalias !37505
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132855,7 +132855,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr125drop_in_place$LT$meilisearch..routes..snapshot..create_snapshot..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfc90711a74ac397eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37490
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37490
@@ -132864,7 +132864,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -132884,7 +132884,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -132962,7 +132962,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37518
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37518
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.exit unwind label %21, !noalias !37526
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom.exit unwind label %21, !noalias !37526
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -132998,7 +132998,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$28_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha331a1bc0bcc4069E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37511
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37511
@@ -133007,7 +133007,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133027,7 +133027,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133105,7 +133105,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37539
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37539
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.exit unwind label %21, !noalias !37547
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom.exit unwind label %21, !noalias !37547
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133141,7 +133141,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h00f078d7f0da6204E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37532
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37532
@@ -133150,7 +133150,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133170,7 +133170,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133248,7 +133248,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37560
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37560
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.exit unwind label %21, !noalias !37568
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom.exit unwind label %21, !noalias !37568
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133284,7 +133284,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr146drop_in_place$LT$meilisearch..routes..indexes..settings..sortable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ddb5b52aa809e00E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37553
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37553
@@ -133293,7 +133293,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133313,7 +133313,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133391,7 +133391,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37581
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37581
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.exit unwind label %21, !noalias !37589
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom.exit unwind label %21, !noalias !37589
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133427,7 +133427,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr146drop_in_place$LT$meilisearch..routes..indexes..settings..proximity_precision..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9d1d9c1ecdb78df9E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37574
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37574
@@ -133436,7 +133436,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133456,7 +133456,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133534,7 +133534,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37602
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37602
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.exit unwind label %21, !noalias !37610
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom.exit unwind label %21, !noalias !37610
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133570,7 +133570,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr148drop_in_place$LT$meilisearch..routes..indexes..settings..filterable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h92c0664b48978b5fE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37595
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37595
@@ -133579,7 +133579,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824d
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133599,7 +133599,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824d
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133677,7 +133677,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37623
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37623
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.exit unwind label %21, !noalias !37631
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom.exit unwind label %21, !noalias !37631
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133713,7 +133713,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$3_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h046a5b751877f099E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37616
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37616
@@ -133722,7 +133722,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133742,7 +133742,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133820,7 +133820,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37644
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37644
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.exit unwind label %21, !noalias !37652
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom.exit unwind label %21, !noalias !37652
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -133856,7 +133856,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr126drop_in_place$LT$meilisearch..routes..swap_indexes..swap_indexes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6778be39f537ab0eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37637
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37637
@@ -133865,7 +133865,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7c
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -133885,7 +133885,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7c
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -133968,7 +133968,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5), !noalias !37665
   call void @llvm.lifetime.end.p0(i64 63, ptr nonnull %.sroa.47.i.i.i)
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.exit unwind label %21, !noalias !37673
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom.exit unwind label %21, !noalias !37673
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134004,7 +134004,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..documents..document_addition..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4a99aebe8237e64cE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37658
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37658
@@ -134013,7 +134013,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2a
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134033,7 +134033,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2a
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134114,7 +134114,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(1024) %14, ptr noundef nonnull align 128 dereferenceable(1024) %5, i64 1024, i1 false), !noalias !37686
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5), !noalias !37686
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.exit unwind label %21, !noalias !37694
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom.exit unwind label %21, !noalias !37694
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134145,7 +134145,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr185drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..search..search_with_post..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5b67bdf1cb395989E"(ptr noalias noundef nonnull align 8 dereferenceable(912) %6) #47
           to label %common.resume unwind label %25, !noalias !37679
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 912, ptr nonnull %6), !noalias !37679
@@ -134154,7 +134154,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134174,7 +134174,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -134252,7 +134252,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(768) %14, ptr noundef nonnull align 128 dereferenceable(768) %5, i64 768, i1 false), !noalias !37702
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %5), !noalias !37702
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.exit unwind label %21, !noalias !37710
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom.exit unwind label %21, !noalias !37710
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134288,7 +134288,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr125drop_in_place$LT$meilisearch..routes..indexes..similar..similar..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc2ec268d54404495E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(616) %6)
           to label %common.resume unwind label %25, !noalias !37695
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %6), !noalias !37695
@@ -134297,7 +134297,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134317,7 +134317,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134395,7 +134395,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37723
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37723
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.exit unwind label %21, !noalias !37731
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom.exit unwind label %21, !noalias !37731
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134431,7 +134431,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..pagination..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hde5e007a8c6b50f1E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37716
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37716
@@ -134440,7 +134440,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206d
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134460,7 +134460,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206d
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134538,7 +134538,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37744
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37744
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.exit unwind label %21, !noalias !37752
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom.exit unwind label %21, !noalias !37752
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134574,7 +134574,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr145drop_in_place$LT$meilisearch..routes..indexes..settings..distinct_attribute..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc25458e078b5858bE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37737
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37737
@@ -134583,7 +134583,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134603,7 +134603,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134681,7 +134681,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37765
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37765
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.exit unwind label %21, !noalias !37773
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom.exit unwind label %21, !noalias !37773
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134717,7 +134717,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr148drop_in_place$LT$meilisearch..routes..indexes..settings..searchable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha1cdfa4051ce339aE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37758
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37758
@@ -134726,7 +134726,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134746,7 +134746,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134824,7 +134824,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37786
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37786
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.exit unwind label %21, !noalias !37794
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom.exit unwind label %21, !noalias !37794
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -134860,7 +134860,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr119drop_in_place$LT$meilisearch..routes..tasks..delete_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h58bb95d65eed2991E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37779
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37779
@@ -134869,7 +134869,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9ba
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -134889,7 +134889,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9ba
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -134967,7 +134967,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37807
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37807
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.exit unwind label %21, !noalias !37815
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom.exit unwind label %21, !noalias !37815
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135003,7 +135003,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$13_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0938c3edb45fcb91E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37800
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37800
@@ -135012,7 +135012,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135032,7 +135032,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135110,7 +135110,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37828
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37828
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.exit unwind label %21, !noalias !37836
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom.exit unwind label %21, !noalias !37836
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135146,7 +135146,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$33_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hffb8e9e783d85c65E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37821
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37821
@@ -135155,7 +135155,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135175,7 +135175,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135253,7 +135253,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37849
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37849
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.exit unwind label %21, !noalias !37857
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom.exit unwind label %21, !noalias !37857
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135289,7 +135289,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr147drop_in_place$LT$meilisearch..routes..indexes..settings..non_separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4b82ab42289b9343E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37842
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37842
@@ -135298,7 +135298,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135318,7 +135318,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135396,7 +135396,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37870
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37870
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.exit unwind label %21, !noalias !37878
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom.exit unwind label %21, !noalias !37878
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135432,7 +135432,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr117drop_in_place$LT$meilisearch..routes..dump..create_dump..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha133f57f5a319f22E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37863
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37863
@@ -135441,7 +135441,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135461,7 +135461,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135539,7 +135539,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37891
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37891
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.exit unwind label %21, !noalias !37899
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom.exit unwind label %21, !noalias !37899
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135575,7 +135575,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$27_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hffbccb272b07c5a0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37884
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37884
@@ -135584,7 +135584,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135604,7 +135604,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135682,7 +135682,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37912
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37912
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.exit unwind label %21, !noalias !37920
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom.exit unwind label %21, !noalias !37920
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135718,7 +135718,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h72925d69ac80ec54E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37905
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37905
@@ -135727,7 +135727,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14af
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135747,7 +135747,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14af
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135825,7 +135825,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37933
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37933
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.exit unwind label %21, !noalias !37941
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom.exit unwind label %21, !noalias !37941
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -135861,7 +135861,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr145drop_in_place$LT$meilisearch..routes..indexes..settings..distinct_attribute..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc3feaaef605efee8E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37926
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37926
@@ -135870,7 +135870,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -135890,7 +135890,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -135968,7 +135968,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37954
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37954
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.exit unwind label %21, !noalias !37962
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom.exit unwind label %21, !noalias !37962
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136004,7 +136004,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr120drop_in_place$LT$meilisearch..routes..api_key..get_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1b58b6b35eb82f23E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6)
           to label %common.resume unwind label %25, !noalias !37947
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6), !noalias !37947
@@ -136013,7 +136013,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136033,7 +136033,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136111,7 +136111,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !37975
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !37975
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.exit unwind label %21, !noalias !37983
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom.exit unwind label %21, !noalias !37983
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136147,7 +136147,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$8_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc7db03fc73eacff1E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !37968
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !37968
@@ -136156,7 +136156,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24ba
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136176,7 +136176,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24ba
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136254,7 +136254,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !37996
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !37996
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.exit unwind label %21, !noalias !38004
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom.exit unwind label %21, !noalias !38004
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136290,7 +136290,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr121drop_in_place$LT$meilisearch..routes..indexes..delete_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd54bcd249167c43eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !37989
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !37989
@@ -136299,7 +136299,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3a
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136319,7 +136319,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3a
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136397,7 +136397,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38017
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38017
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.exit unwind label %21, !noalias !38025
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom.exit unwind label %21, !noalias !38025
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136433,7 +136433,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$22_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbc08c76edc302033E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38010
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38010
@@ -136442,7 +136442,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136462,7 +136462,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136540,7 +136540,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38038
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38038
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.exit unwind label %21, !noalias !38046
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom.exit unwind label %21, !noalias !38046
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136576,7 +136576,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr135drop_in_place$LT$meilisearch..routes..indexes..settings..faceting..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h041e121b497d0443E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38031
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38031
@@ -136585,7 +136585,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1ea
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136605,7 +136605,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1ea
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136683,7 +136683,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38059
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38059
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.exit unwind label %21, !noalias !38067
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom.exit unwind label %21, !noalias !38067
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136719,7 +136719,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr140drop_in_place$LT$meilisearch..routes..indexes..settings..ranking_rules..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha7778d012dee944bE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38052
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38052
@@ -136728,7 +136728,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3dd
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136748,7 +136748,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3dd
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136826,7 +136826,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38080
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38080
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.exit unwind label %21, !noalias !38088
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom.exit unwind label %21, !noalias !38088
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -136862,7 +136862,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr147drop_in_place$LT$meilisearch..routes..indexes..settings..non_separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6b5a873409178b2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38073
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38073
@@ -136871,7 +136871,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ec
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -136891,7 +136891,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ec
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -136969,7 +136969,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38101
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38101
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.exit unwind label %21, !noalias !38109
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom.exit unwind label %21, !noalias !38109
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137005,7 +137005,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..stop_words..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha6a2cfde3c2b15bcE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38094
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38094
@@ -137014,7 +137014,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137034,7 +137034,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137112,7 +137112,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38122
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38122
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.exit unwind label %21, !noalias !38130
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom.exit unwind label %21, !noalias !38130
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137148,7 +137148,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr135drop_in_place$LT$meilisearch..routes..indexes..settings..faceting..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd75b521cfa197ddbE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38115
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38115
@@ -137157,7 +137157,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137177,7 +137177,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137255,7 +137255,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38143
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38143
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.exit unwind label %21, !noalias !38151
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom.exit unwind label %21, !noalias !38151
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137291,7 +137291,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr139drop_in_place$LT$meilisearch..routes..indexes..documents..clear_all_documents..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h288abdb964636e4dE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38136
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38136
@@ -137300,7 +137300,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137320,7 +137320,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137396,7 +137396,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %14, ptr noundef nonnull align 128 dereferenceable(384) %5, i64 384, i1 false), !noalias !38164
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5), !noalias !38164
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.exit unwind label %21, !noalias !38172
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom.exit unwind label %21, !noalias !38172
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137432,7 +137432,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr122drop_in_place$LT$meilisearch..routes..api_key..patch_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h394b38ea3c904f56E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(200) %6)
           to label %common.resume unwind label %25, !noalias !38157
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6), !noalias !38157
@@ -137441,7 +137441,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137461,7 +137461,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137539,7 +137539,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38185
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38185
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.exit unwind label %21, !noalias !38193
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom.exit unwind label %21, !noalias !38193
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137575,7 +137575,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$1_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h36b6273a6624eef7E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38178
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38178
@@ -137584,7 +137584,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72f
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137604,7 +137604,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72f
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137680,7 +137680,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38206
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38206
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.exit unwind label %21, !noalias !38214
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom.exit unwind label %21, !noalias !38214
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137711,7 +137711,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr174drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..list_api_keys..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcff70e8eade601bbE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %6) #47
           to label %common.resume unwind label %25, !noalias !38199
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6), !noalias !38199
@@ -137720,7 +137720,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86de
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137740,7 +137740,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86de
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -137818,7 +137818,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38222
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38222
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.exit unwind label %21, !noalias !38230
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom.exit unwind label %21, !noalias !38230
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137854,7 +137854,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h080535bd2d43d870E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38215
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38215
@@ -137863,7 +137863,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -137883,7 +137883,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -137961,7 +137961,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38243
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38243
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.exit unwind label %21, !noalias !38251
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom.exit unwind label %21, !noalias !38251
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -137997,7 +137997,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr135drop_in_place$LT$meilisearch..routes..indexes..documents..delete_document..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8cdec1fafa09ad10E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38236
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38236
@@ -138006,7 +138006,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138026,7 +138026,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138104,7 +138104,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38264
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38264
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.exit unwind label %21, !noalias !38272
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom.exit unwind label %21, !noalias !38272
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138140,7 +138140,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$9_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ccc0a595e623160E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38257
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38257
@@ -138149,7 +138149,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138169,7 +138169,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138247,7 +138247,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38285
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38285
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.exit unwind label %21, !noalias !38293
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom.exit unwind label %21, !noalias !38293
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138283,7 +138283,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr143drop_in_place$LT$meilisearch..routes..indexes..settings..separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc4d9bbed21d23d86E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38278
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38278
@@ -138292,7 +138292,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138312,7 +138312,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138390,7 +138390,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38306
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38306
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.exit unwind label %21, !noalias !38314
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom.exit unwind label %21, !noalias !38314
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138426,7 +138426,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr141drop_in_place$LT$meilisearch..routes..indexes..settings..typo_tolerance..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcde413dd0caa2d85E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38299
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38299
@@ -138435,7 +138435,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138455,7 +138455,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138533,7 +138533,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38327
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38327
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.exit unwind label %21, !noalias !38335
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom.exit unwind label %21, !noalias !38335
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138569,7 +138569,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$26_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbf3d50781d44a1ceE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38320
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38320
@@ -138578,7 +138578,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fc
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138598,7 +138598,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fc
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138676,7 +138676,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38348
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38348
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.exit unwind label %21, !noalias !38356
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom.exit unwind label %21, !noalias !38356
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138712,7 +138712,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$14_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17he69780c4e1818e05E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38341
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38341
@@ -138721,7 +138721,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274b
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138741,7 +138741,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274b
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138819,7 +138819,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38369
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38369
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.exit unwind label %21, !noalias !38377
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom.exit unwind label %21, !noalias !38377
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138855,7 +138855,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr142drop_in_place$LT$meilisearch..routes..indexes..documents..delete_documents_batch..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb4d95d95c12d7d64E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38362
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38362
@@ -138864,7 +138864,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -138884,7 +138884,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -138962,7 +138962,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38390
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38390
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.exit unwind label %21, !noalias !38398
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom.exit unwind label %21, !noalias !38398
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -138998,7 +138998,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr147drop_in_place$LT$meilisearch..routes..indexes..settings..displayed_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfe67d0e079439f0cE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38383
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38383
@@ -139007,7 +139007,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139027,7 +139027,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139105,7 +139105,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38411
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38411
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.exit unwind label %21, !noalias !38419
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom.exit unwind label %21, !noalias !38419
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139141,7 +139141,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr293drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$29_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h190ec7c5d6db9f5dE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38404
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38404
@@ -139150,7 +139150,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90c
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139170,7 +139170,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90c
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139248,7 +139248,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38432
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38432
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.exit unwind label %21, !noalias !38440
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom.exit unwind label %21, !noalias !38440
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139284,7 +139284,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr135drop_in_place$LT$meilisearch..routes..indexes..settings..synonyms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha0f567b397aaf3aeE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38425
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38425
@@ -139293,7 +139293,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139313,7 +139313,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139391,7 +139391,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38453
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38453
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.exit unwind label %21, !noalias !38461
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom.exit unwind label %21, !noalias !38461
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139427,7 +139427,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..dictionary..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9e55aacbba3fa64eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38446
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38446
@@ -139436,7 +139436,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139456,7 +139456,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139534,7 +139534,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38474
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38474
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.exit unwind label %21, !noalias !38482
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom.exit unwind label %21, !noalias !38482
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139570,7 +139570,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..stop_words..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5af243c7414ea05cE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38467
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38467
@@ -139579,7 +139579,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139599,7 +139599,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139677,7 +139677,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38495
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38495
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.exit unwind label %21, !noalias !38503
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom.exit unwind label %21, !noalias !38503
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139713,7 +139713,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr136drop_in_place$LT$meilisearch..routes..indexes..settings..embedders..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae606d6475fc5d25E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38488
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38488
@@ -139722,7 +139722,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139742,7 +139742,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139820,7 +139820,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38516
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38516
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.exit unwind label %21, !noalias !38524
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom.exit unwind label %21, !noalias !38524
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139856,7 +139856,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr119drop_in_place$LT$meilisearch..routes..tasks..cancel_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1e5a8c22202a1225E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38509
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38509
@@ -139865,7 +139865,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -139885,7 +139885,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -139963,7 +139963,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38537
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38537
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.exit unwind label %21, !noalias !38545
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom.exit unwind label %21, !noalias !38545
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -139999,7 +139999,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr135drop_in_place$LT$meilisearch..routes..indexes..settings..synonyms..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbbcbfdacfb2b450bE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38530
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38530
@@ -140008,7 +140008,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709c
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140028,7 +140028,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709c
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140106,7 +140106,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38558
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38558
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.exit unwind label %21, !noalias !38566
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom.exit unwind label %21, !noalias !38566
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140142,7 +140142,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr129drop_in_place$LT$meilisearch..routes..indexes..settings..update_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e4d25bb1137d346E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38551
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38551
@@ -140151,7 +140151,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140171,7 +140171,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140249,7 +140249,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38579
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38579
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.exit unwind label %21, !noalias !38587
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom.exit unwind label %21, !noalias !38587
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140285,7 +140285,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr143drop_in_place$LT$meilisearch..routes..indexes..settings..search_cutoff_ms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf351de162553e8c6E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38572
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38572
@@ -140294,7 +140294,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75b
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140314,7 +140314,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75b
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140392,7 +140392,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38600
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38600
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.exit unwind label %21, !noalias !38608
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom.exit unwind label %21, !noalias !38608
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140428,7 +140428,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr140drop_in_place$LT$meilisearch..routes..indexes..settings..ranking_rules..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h679d70615d5cb3dbE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38593
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38593
@@ -140437,7 +140437,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140457,7 +140457,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140535,7 +140535,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38621
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38621
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.exit unwind label %21, !noalias !38629
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom.exit unwind label %21, !noalias !38629
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140571,7 +140571,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr146drop_in_place$LT$meilisearch..routes..indexes..documents..delete_documents_by_filter..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h524b67271383f65cE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38614
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38614
@@ -140580,7 +140580,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140600,7 +140600,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140678,7 +140678,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38642
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38642
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.exit unwind label %21, !noalias !38650
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom.exit unwind label %21, !noalias !38650
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140714,7 +140714,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr129drop_in_place$LT$meilisearch..routes..indexes..settings..delete_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h49acbd6180e266c2E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38635
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38635
@@ -140723,7 +140723,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140743,7 +140743,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140821,7 +140821,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38663
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38663
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.exit unwind label %21, !noalias !38671
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom.exit unwind label %21, !noalias !38671
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -140857,7 +140857,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr143drop_in_place$LT$meilisearch..routes..indexes..settings..separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8b9ea143e99e5b42E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38656
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38656
@@ -140866,7 +140866,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -140886,7 +140886,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -140964,7 +140964,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38684
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38684
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.exit unwind label %21, !noalias !38692
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom.exit unwind label %21, !noalias !38692
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141000,7 +141000,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$7_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h40a9328a9dd9afd7E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38677
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38677
@@ -141009,7 +141009,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820ade
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141029,7 +141029,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820ade
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141107,7 +141107,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38705
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38705
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.exit unwind label %21, !noalias !38713
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom.exit unwind label %21, !noalias !38713
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141143,7 +141143,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr147drop_in_place$LT$meilisearch..routes..indexes..settings..displayed_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h91082e5145906043E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38698
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38698
@@ -141152,7 +141152,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141172,7 +141172,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141250,7 +141250,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38726
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38726
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.exit unwind label %21, !noalias !38734
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom.exit unwind label %21, !noalias !38734
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141286,7 +141286,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr291drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$5_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd4b0cec9afe76d16E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38719
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38719
@@ -141295,7 +141295,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aa
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141315,7 +141315,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aa
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141393,7 +141393,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38747
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38747
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.exit unwind label %21, !noalias !38755
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom.exit unwind label %21, !noalias !38755
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141429,7 +141429,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr121drop_in_place$LT$meilisearch..routes..indexes..create_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9b6e59ffa95937bdE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38740
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38740
@@ -141438,7 +141438,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141458,7 +141458,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141536,7 +141536,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(256) %14, ptr noundef nonnull align 128 dereferenceable(256) %5, i64 256, i1 false), !noalias !38768
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5), !noalias !38768
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.exit unwind label %21, !noalias !38776
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom.exit unwind label %21, !noalias !38776
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141572,7 +141572,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr292drop_in_place$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$10_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb13acfea1b4ee8bfE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(56) %6)
           to label %common.resume unwind label %25, !noalias !38761
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !38761
@@ -141581,7 +141581,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141601,7 +141601,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141679,7 +141679,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38789
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38789
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.exit unwind label %21, !noalias !38797
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom.exit unwind label %21, !noalias !38797
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141715,7 +141715,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr137drop_in_place$LT$meilisearch..routes..indexes..settings..dictionary..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h65f79d541947a8b0E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38782
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38782
@@ -141724,7 +141724,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141744,7 +141744,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141822,7 +141822,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38810
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38810
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.exit unwind label %21, !noalias !38818
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom.exit unwind label %21, !noalias !38818
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -141858,7 +141858,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr141drop_in_place$LT$meilisearch..routes..indexes..settings..typo_tolerance..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h93e4052d3e78cc86E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38803
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38803
@@ -141867,7 +141867,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -141887,7 +141887,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -141965,7 +141965,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38831
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38831
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.exit unwind label %21, !noalias !38839
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom.exit unwind label %21, !noalias !38839
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142001,7 +142001,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr148drop_in_place$LT$meilisearch..routes..indexes..settings..searchable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h23d5050908390cdcE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38824
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38824
@@ -142010,7 +142010,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142030,7 +142030,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -142108,7 +142108,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38852
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38852
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.exit unwind label %21, !noalias !38860
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom.exit unwind label %21, !noalias !38860
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142144,7 +142144,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr121drop_in_place$LT$meilisearch..routes..indexes..update_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hbce3d7f7141c8cbeE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38845
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38845
@@ -142153,7 +142153,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142173,7 +142173,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -142251,7 +142251,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38873
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38873
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.exit unwind label %21, !noalias !38881
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom.exit unwind label %21, !noalias !38881
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142287,7 +142287,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr146drop_in_place$LT$meilisearch..routes..indexes..settings..proximity_precision..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8158af8087cb754eE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38866
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38866
@@ -142296,7 +142296,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142316,7 +142316,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -142392,7 +142392,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %14, ptr noundef nonnull align 128 dereferenceable(384) %5, i64 384, i1 false), !noalias !38894
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5), !noalias !38894
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.exit unwind label %21, !noalias !38902
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom.exit unwind label %21, !noalias !38902
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142428,7 +142428,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr123drop_in_place$LT$meilisearch..routes..api_key..create_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h247ec5247bcc189fE.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(256) %6)
           to label %common.resume unwind label %25, !noalias !38887
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6), !noalias !38887
@@ -142437,7 +142437,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142457,7 +142457,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -142535,7 +142535,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38915
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38915
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.exit unwind label %21, !noalias !38923
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom.exit unwind label %21, !noalias !38923
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142566,7 +142566,7 @@ common.resume:                                    ; preds = %45, %.noexc, %15, %
   invoke void @"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..document_addition..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd6680c940036187cE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %6) #47
           to label %common.resume unwind label %25, !noalias !38908
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom.exit: ; preds = %19
   %29 = extractvalue { i64, ptr } %20, 0
   %30 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6), !noalias !38908
@@ -142575,7 +142575,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2e
   %or.cond.not = select i1 %trunc, i1 %31, i1 false
   br i1 %or.cond.not, label %32, label %37
 
-32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.exit
+32:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %30, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142595,7 +142595,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2e
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %40 unwind label %38
 
-37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.exit
+37:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom.exit
   ret ptr %14
 
 38:                                               ; preds = %32
@@ -142673,7 +142673,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool7Spawner14spaw
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(512) %14, ptr noundef nonnull align 128 dereferenceable(512) %5, i64 512, i1 false), !noalias !38931
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5), !noalias !38931
   %20 = invoke { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17hb1b7d32614607b7bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.exit unwind label %21, !noalias !38939
+          to label %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom.exit unwind label %21, !noalias !38939
 
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
@@ -142709,7 +142709,7 @@ common.resume:                                    ; preds = %48, %.noexc, %15, %
   invoke void @"_ZN4core3ptr143drop_in_place$LT$meilisearch..routes..indexes..settings..search_cutoff_ms..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9032c60d156834f5E.llvm.4616129397091597767"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6)
           to label %common.resume unwind label %25, !noalias !38924
 
-_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.exit: ; preds = %19
+_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom.exit: ; preds = %19
   %32 = extractvalue { i64, ptr } %20, 0
   %33 = extractvalue { i64, ptr } %20, 1
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %6), !noalias !38924
@@ -142718,7 +142718,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1
   %or.cond.not = select i1 %trunc, i1 %34, i1 false
   br i1 %or.cond.not, label %35, label %40
 
-35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.exit
+35:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %33, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -142738,7 +142738,7 @@ _ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
           to label %43 unwind label %41
 
-40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.exit
+40:                                               ; preds = %_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom.exit
   ret ptr %14
 
 41:                                               ; preds = %35
@@ -144050,7 +144050,7 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
   %3 = alloca [2 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1, !noundef !4
-  switch i8 %5, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit" [
+  switch i8 %5, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit" [
     i8 0, label %6
     i8 1, label %7
   ]
@@ -144066,9 +144066,9 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
   %8 = trunc nuw i8 %.val.i to i1
   %9 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %8, i8 %.val8.i)
   %10 = zext i1 %9 to i8
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit": ; preds = %2, %7
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit": ; preds = %2, %7
   %.sroa.0.0.i = phi i8 [ %10, %7 ], [ 2, %2 ]
   %11 = icmp eq i8 %.sroa.0.0.i, 2
   %12 = trunc i8 %.sroa.0.0.i to i1
@@ -144082,7 +144082,7 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
     i8 3, label %._crit_edge.i
   ]
 
-._crit_edge.i:                                    ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+._crit_edge.i:                                    ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 144
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !39090, !noalias !39095
   %.phi.trans.insert13.i = getelementptr inbounds i8, ptr %0, i64 152
@@ -144092,10 +144092,10 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
   %.pre17.i = load i64, ptr %.pre16.i, align 8, !noalias !39098
   br label %25
 
-default.unreachable:                              ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+default.unreachable:                              ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
   unreachable
 
-15:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+15:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
   %16 = load ptr, ptr %4, align 8, !noalias !39087, !nonnull !4, !align !86, !noundef !4
   %17 = getelementptr inbounds i8, ptr %0, i64 120
   %18 = load ptr, ptr %17, align 8, !noalias !39087, !nonnull !4, !align !86, !noundef !4
@@ -144111,11 +144111,11 @@ default.unreachable:                              ; preds = %"_ZN3std6thread5loc
   store ptr %19, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !39087
   br label %25
 
-23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+23:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17hc58cbb670ca18f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.52) #46, !noalias !39087
   unreachable
 
-24:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit"
+24:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit"
   tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17hed37460786e569beE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.52) #46, !noalias !39087
   unreachable
 
@@ -144151,41 +144151,41 @@ common.resume:                                    ; preds = %55, %53, %30
 
 35:                                               ; preds = %"_ZN5tokio4sync4mpsc9unbounded26UnboundedReceiver$LT$T$GT$9recv_many28_$u7b$$u7b$closure$u7d$$u7d$17h55e909e7bf6b669fE.exit"
   %36 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1, !noundef !4
-  switch i8 %36, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread" [
+  switch i8 %36, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread" [
     i8 0, label %37
-    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24"
+    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24"
   ]
 
 37:                                               ; preds = %35
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17hb96a20c3e8dcd99cE(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17hdd6e1b81e5faa33fE)
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24": ; preds = %35, %37
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24": ; preds = %35, %37
   %.val.i21 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13084, !noundef !4
   %.val8.i22 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
   %38 = trunc nuw i8 %.val.i21 to i1
   %39 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %38, i8 %.val8.i22)
   %.sroa.05.0.not = xor i1 %.sroa.05.0, true
   %brmerge = or i1 %39, %.sroa.05.0.not
-  br i1 %brmerge, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread", label %44
+  br i1 %brmerge, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread", label %44
 
-40:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27", %33
-  %.sroa.5.0 = phi i64 [ undef, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread" ], [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27" ], [ %34, %33 ]
-  %.sroa.0.0 = phi i64 [ %., %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread" ], [ %..i, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27" ], [ 0, %33 ]
+40:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27", %33
+  %.sroa.5.0 = phi i64 [ undef, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread" ], [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27" ], [ %34, %33 ]
+  %.sroa.0.0 = phi i64 [ %., %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread" ], [ %..i, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27" ], [ 0, %33 ]
   %41 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %42 = insertvalue { i64, i64 } %41, i64 %.sroa.5.0, 1
   ret { i64, i64 } %42
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24.thread": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24", %35
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24.thread": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24", %35
   %43 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17hbc3c9c83f9b97e79E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %. = select i1 %43, i64 2, i64 1
   br label %40
 
-44:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit24"
+44:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.argprom.exit24"
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3), !noalias !39101
   %45 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1, !noundef !4
-  switch i8 %45, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit" [
+  switch i8 %45, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.argprom.exit" [
     i8 0, label %46
     i8 1, label %47
   ]
@@ -144199,9 +144199,9 @@ common.resume:                                    ; preds = %55, %53, %30
   %48 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13084, !noundef !4
   %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.argprom.exit"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit": ; preds = %44, %47
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.argprom.exit": ; preds = %44, %47
   %.sroa.3.0.i = phi i8 [ %49, %47 ], [ undef, %44 ]
   %50 = phi i8 [ %48, %47 ], [ 2, %44 ]
   store i8 %50, ptr %3, align 1, !noalias !39101
@@ -144210,7 +144210,7 @@ common.resume:                                    ; preds = %55, %53, %30
   %52 = invoke noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17hbc3c9c83f9b97e79E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit unwind label %53
 
-53:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit"
+53:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.argprom.exit"
   %54 = landingpad { ptr, i32 }
           cleanup
   %.not.i = icmp eq i8 %50, 2
@@ -144226,7 +144226,7 @@ common.resume:                                    ; preds = %55, %53, %30
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #48
   unreachable
 
-_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit"
+_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.argprom.exit"
   %..i = select i1 %52, i64 2, i64 1
   %.not.i26 = icmp eq i8 %50, 2
   br i1 %.not.i26, label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit27", label %58
@@ -154786,8 +154786,8 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !1642 = !{!1640, !1637, !1634, !1631}
 !1643 = !{i64 0, i64 12}
 !1644 = !{!1645, !1631}
-!1645 = distinct !{!1645, !1646, !"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E: argument 0"}
-!1646 = distinct !{!1646, !"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E"}
+!1645 = distinct !{!1645, !1646, !"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom: argument 0"}
+!1646 = distinct !{!1646, !"_ZN11meilisearch17setup_meilisearch28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h238401c0e2eb6d03E.argprom"}
 !1647 = !{!1648, !1650, !1652}
 !1648 = distinct !{!1648, !1649, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767: argument 0"}
 !1649 = distinct !{!1649, !"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$meilisearch_types..error..ResponseError$GT$$GT$17h6975cc1bb9952e8aE.llvm.4616129397091597767"}
@@ -154882,8 +154882,8 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !1738 = !{!1739, !1741}
 !1739 = distinct !{!1739, !1740, !"_ZN11meilisearch14configure_data28_$u7b$$u7b$closure$u7d$$u7d$17hba09e859afc8e35eE.llvm.5336188084572713014: argument 0"}
 !1740 = distinct !{!1740, !"_ZN11meilisearch14configure_data28_$u7b$$u7b$closure$u7d$$u7d$17hba09e859afc8e35eE.llvm.5336188084572713014"}
-!1741 = distinct !{!1741, !1742, !"_ZN4core3ops8function6FnOnce9call_once17h6e28c59b8b25df0dE: argument 0"}
-!1742 = distinct !{!1742, !"_ZN4core3ops8function6FnOnce9call_once17h6e28c59b8b25df0dE"}
+!1741 = distinct !{!1741, !1742, !"_ZN4core3ops8function6FnOnce9call_once17h6e28c59b8b25df0dE.argprom: argument 0"}
+!1742 = distinct !{!1742, !"_ZN4core3ops8function6FnOnce9call_once17h6e28c59b8b25df0dE.argprom"}
 !1743 = !{!1744}
 !1744 = distinct !{!1744, !1745, !"_ZN115_$LT$meilisearch..error..PayloadError$u20$as$u20$core..convert..From$LT$actix_web..error..QueryPayloadError$GT$$GT$4from17ha71fb844342ab766E: argument 0"}
 !1745 = distinct !{!1745, !"_ZN115_$LT$meilisearch..error..PayloadError$u20$as$u20$core..convert..From$LT$actix_web..error..QueryPayloadError$GT$$GT$4from17ha71fb844342ab766E"}
@@ -190269,11 +190269,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37125 = distinct !{!37125, !37126, !"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h2328a757e33784f6E: argument 0"}
 !37126 = distinct !{!37126, !"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h2328a757e33784f6E"}
 !37127 = !{!37128, !37130, !37131, !37132}
-!37128 = distinct !{!37128, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E: argument 0"}
-!37129 = distinct !{!37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E"}
-!37130 = distinct !{!37130, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E: argument 1"}
-!37131 = distinct !{!37131, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E: argument 2"}
-!37132 = distinct !{!37132, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E: argument 3"}
+!37128 = distinct !{!37128, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom: argument 0"}
+!37129 = distinct !{!37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom"}
+!37130 = distinct !{!37130, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom: argument 1"}
+!37131 = distinct !{!37131, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom: argument 2"}
+!37132 = distinct !{!37132, !37129, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h73bf4348973de224E.argprom: argument 3"}
 !37133 = !{!37128, !37130, !37132}
 !37134 = !{!37135, !37137, !37128, !37130, !37131, !37132}
 !37135 = distinct !{!37135, !37136, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h05f761f42262b7d6E: argument 0"}
@@ -190290,11 +190290,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37146 = distinct !{!37146, !37147, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$30_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d6fa81f748625ddE: argument 0"}
 !37147 = distinct !{!37147, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$30_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1d6fa81f748625ddE"}
 !37148 = !{!37149, !37151, !37152, !37153}
-!37149 = distinct !{!37149, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E: argument 0"}
-!37150 = distinct !{!37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E"}
-!37151 = distinct !{!37151, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E: argument 1"}
-!37152 = distinct !{!37152, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E: argument 2"}
-!37153 = distinct !{!37153, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E: argument 3"}
+!37149 = distinct !{!37149, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom: argument 0"}
+!37150 = distinct !{!37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom"}
+!37151 = distinct !{!37151, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom: argument 1"}
+!37152 = distinct !{!37152, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom: argument 2"}
+!37153 = distinct !{!37153, !37150, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d7796baa7dac902E.argprom: argument 3"}
 !37154 = !{!37149, !37151, !37153}
 !37155 = !{!37156, !37158, !37149, !37151, !37152, !37153}
 !37156 = distinct !{!37156, !37157, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he40357f9d63d25a4E: argument 0"}
@@ -190311,11 +190311,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37167 = distinct !{!37167, !37168, !"_ZN4core3ptr175drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..delete_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2daff3eab427aeefE: argument 0"}
 !37168 = distinct !{!37168, !"_ZN4core3ptr175drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..delete_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2daff3eab427aeefE"}
 !37169 = !{!37170, !37172, !37173, !37174}
-!37170 = distinct !{!37170, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E: argument 0"}
-!37171 = distinct !{!37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E"}
-!37172 = distinct !{!37172, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E: argument 1"}
-!37173 = distinct !{!37173, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E: argument 2"}
-!37174 = distinct !{!37174, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E: argument 3"}
+!37170 = distinct !{!37170, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom: argument 0"}
+!37171 = distinct !{!37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom"}
+!37172 = distinct !{!37172, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom: argument 1"}
+!37173 = distinct !{!37173, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom: argument 2"}
+!37174 = distinct !{!37174, !37171, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70816903024a0e45E.argprom: argument 3"}
 !37175 = !{!37170, !37172, !37174}
 !37176 = !{!37177, !37179, !37170, !37172, !37173, !37174}
 !37177 = distinct !{!37177, !37178, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17ha89f240b408cd539E: argument 0"}
@@ -190332,11 +190332,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37188 = distinct !{!37188, !37189, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9bfa1860e099bed1E: argument 0"}
 !37189 = distinct !{!37189, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9bfa1860e099bed1E"}
 !37190 = !{!37191, !37193, !37194, !37195}
-!37191 = distinct !{!37191, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E: argument 0"}
-!37192 = distinct !{!37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E"}
-!37193 = distinct !{!37193, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E: argument 1"}
-!37194 = distinct !{!37194, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E: argument 2"}
-!37195 = distinct !{!37195, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E: argument 3"}
+!37191 = distinct !{!37191, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom: argument 0"}
+!37192 = distinct !{!37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom"}
+!37193 = distinct !{!37193, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom: argument 1"}
+!37194 = distinct !{!37194, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom: argument 2"}
+!37195 = distinct !{!37195, !37192, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h29dca51edf2816e5E.argprom: argument 3"}
 !37196 = !{!37191, !37193, !37195}
 !37197 = !{!37198, !37200, !37191, !37193, !37194, !37195}
 !37198 = distinct !{!37198, !37199, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hfeb37570605271a7E: argument 0"}
@@ -190353,11 +190353,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37209 = distinct !{!37209, !37210, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$31_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h888abdab4c237eb6E: argument 0"}
 !37210 = distinct !{!37210, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$31_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h888abdab4c237eb6E"}
 !37211 = !{!37212, !37214, !37215, !37216}
-!37212 = distinct !{!37212, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE: argument 0"}
-!37213 = distinct !{!37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE"}
-!37214 = distinct !{!37214, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE: argument 1"}
-!37215 = distinct !{!37215, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE: argument 2"}
-!37216 = distinct !{!37216, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE: argument 3"}
+!37212 = distinct !{!37212, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom: argument 0"}
+!37213 = distinct !{!37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom"}
+!37214 = distinct !{!37214, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom: argument 1"}
+!37215 = distinct !{!37215, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom: argument 2"}
+!37216 = distinct !{!37216, !37213, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd2377982c018f4ecE.argprom: argument 3"}
 !37217 = !{!37212, !37214, !37216}
 !37218 = !{!37219, !37221, !37212, !37214, !37215, !37216}
 !37219 = distinct !{!37219, !37220, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h4ecc79812d59b4acE: argument 0"}
@@ -190369,11 +190369,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37225 = distinct !{!37225, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h79ffde042ccbe0edE.llvm.8666068179502612882"}
 !37226 = !{!37212, !37215}
 !37227 = !{!37228, !37230, !37231, !37232}
-!37228 = distinct !{!37228, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E: argument 0"}
-!37229 = distinct !{!37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E"}
-!37230 = distinct !{!37230, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E: argument 1"}
-!37231 = distinct !{!37231, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E: argument 2"}
-!37232 = distinct !{!37232, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E: argument 3"}
+!37228 = distinct !{!37228, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom: argument 0"}
+!37229 = distinct !{!37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom"}
+!37230 = distinct !{!37230, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom: argument 1"}
+!37231 = distinct !{!37231, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom: argument 2"}
+!37232 = distinct !{!37232, !37229, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0b2537114aba95c1E.argprom: argument 3"}
 !37233 = !{!37228, !37230, !37232}
 !37234 = !{!37235, !37237, !37228, !37230, !37231, !37232}
 !37235 = distinct !{!37235, !37236, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h8d63f472bc716521E: argument 0"}
@@ -190390,11 +190390,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37246 = distinct !{!37246, !37247, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..pagination..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7c3ad1c48c58001aE: argument 0"}
 !37247 = distinct !{!37247, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..pagination..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7c3ad1c48c58001aE"}
 !37248 = !{!37249, !37251, !37252, !37253}
-!37249 = distinct !{!37249, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E: argument 0"}
-!37250 = distinct !{!37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E"}
-!37251 = distinct !{!37251, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E: argument 1"}
-!37252 = distinct !{!37252, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E: argument 2"}
-!37253 = distinct !{!37253, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E: argument 3"}
+!37249 = distinct !{!37249, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom: argument 0"}
+!37250 = distinct !{!37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom"}
+!37251 = distinct !{!37251, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom: argument 1"}
+!37252 = distinct !{!37252, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom: argument 2"}
+!37253 = distinct !{!37253, !37250, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd1686f73d34eef50E.argprom: argument 3"}
 !37254 = !{!37249, !37251, !37253}
 !37255 = !{!37256, !37258, !37249, !37251, !37252, !37253}
 !37256 = distinct !{!37256, !37257, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h3daa7332a662e2f5E: argument 0"}
@@ -190411,11 +190411,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37267 = distinct !{!37267, !37268, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$18_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hab2ac004e88d8e04E: argument 0"}
 !37268 = distinct !{!37268, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$18_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hab2ac004e88d8e04E"}
 !37269 = !{!37270, !37272, !37273, !37274}
-!37270 = distinct !{!37270, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE: argument 0"}
-!37271 = distinct !{!37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE"}
-!37272 = distinct !{!37272, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE: argument 1"}
-!37273 = distinct !{!37273, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE: argument 2"}
-!37274 = distinct !{!37274, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE: argument 3"}
+!37270 = distinct !{!37270, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom: argument 0"}
+!37271 = distinct !{!37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom"}
+!37272 = distinct !{!37272, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom: argument 1"}
+!37273 = distinct !{!37273, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom: argument 2"}
+!37274 = distinct !{!37274, !37271, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf5371746a7db4a7fE.argprom: argument 3"}
 !37275 = !{!37270, !37272, !37274}
 !37276 = !{!37277, !37279, !37270, !37272, !37273, !37274}
 !37277 = distinct !{!37277, !37278, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hc4b7bea44135f1ecE: argument 0"}
@@ -190432,11 +190432,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37288 = distinct !{!37288, !37289, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$4_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8673510020644254E: argument 0"}
 !37289 = distinct !{!37289, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$4_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8673510020644254E"}
 !37290 = !{!37291, !37293, !37294, !37295}
-!37291 = distinct !{!37291, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E: argument 0"}
-!37292 = distinct !{!37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E"}
-!37293 = distinct !{!37293, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E: argument 1"}
-!37294 = distinct !{!37294, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E: argument 2"}
-!37295 = distinct !{!37295, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E: argument 3"}
+!37291 = distinct !{!37291, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom: argument 0"}
+!37292 = distinct !{!37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom"}
+!37293 = distinct !{!37293, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom: argument 1"}
+!37294 = distinct !{!37294, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom: argument 2"}
+!37295 = distinct !{!37295, !37292, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h03a12fa85d469580E.argprom: argument 3"}
 !37296 = !{!37291, !37293, !37295}
 !37297 = !{!37298, !37300, !37291, !37293, !37294, !37295}
 !37298 = distinct !{!37298, !37299, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9861c9267eef725eE: argument 0"}
@@ -190453,11 +190453,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37309 = distinct !{!37309, !37310, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$32_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbe5d245440f033d2E: argument 0"}
 !37310 = distinct !{!37310, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$32_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hbe5d245440f033d2E"}
 !37311 = !{!37312, !37314, !37315, !37316}
-!37312 = distinct !{!37312, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E: argument 0"}
-!37313 = distinct !{!37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E"}
-!37314 = distinct !{!37314, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E: argument 1"}
-!37315 = distinct !{!37315, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E: argument 2"}
-!37316 = distinct !{!37316, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E: argument 3"}
+!37312 = distinct !{!37312, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom: argument 0"}
+!37313 = distinct !{!37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom"}
+!37314 = distinct !{!37314, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom: argument 1"}
+!37315 = distinct !{!37315, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom: argument 2"}
+!37316 = distinct !{!37316, !37313, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf70ff80fb78da2a5E.argprom: argument 3"}
 !37317 = !{!37312, !37314, !37316}
 !37318 = !{!37319, !37321, !37312, !37314, !37315, !37316}
 !37319 = distinct !{!37319, !37320, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h71added44fb01eb2E: argument 0"}
@@ -190469,11 +190469,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37325 = distinct !{!37325, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4d4813892562bc5aE.llvm.8666068179502612882"}
 !37326 = !{!37312, !37315}
 !37327 = !{!37328, !37330, !37331, !37332}
-!37328 = distinct !{!37328, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E: argument 0"}
-!37329 = distinct !{!37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E"}
-!37330 = distinct !{!37330, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E: argument 1"}
-!37331 = distinct !{!37331, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E: argument 2"}
-!37332 = distinct !{!37332, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E: argument 3"}
+!37328 = distinct !{!37328, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom: argument 0"}
+!37329 = distinct !{!37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom"}
+!37330 = distinct !{!37330, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom: argument 1"}
+!37331 = distinct !{!37331, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom: argument 2"}
+!37332 = distinct !{!37332, !37329, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hde7651eb39919e90E.argprom: argument 3"}
 !37333 = !{!37328, !37330, !37332}
 !37334 = !{!37335, !37337, !37328, !37330, !37331, !37332}
 !37335 = distinct !{!37335, !37336, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hefc6bae7edd305abE: argument 0"}
@@ -190490,11 +190490,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37346 = distinct !{!37346, !37347, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..facet_search..search..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h810277faca3043deE: argument 0"}
 !37347 = distinct !{!37347, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..facet_search..search..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h810277faca3043deE"}
 !37348 = !{!37349, !37351, !37352, !37353}
-!37349 = distinct !{!37349, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE: argument 0"}
-!37350 = distinct !{!37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE"}
-!37351 = distinct !{!37351, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE: argument 1"}
-!37352 = distinct !{!37352, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE: argument 2"}
-!37353 = distinct !{!37353, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE: argument 3"}
+!37349 = distinct !{!37349, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom: argument 0"}
+!37350 = distinct !{!37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom"}
+!37351 = distinct !{!37351, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom: argument 1"}
+!37352 = distinct !{!37352, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom: argument 2"}
+!37353 = distinct !{!37353, !37350, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd8996c4adb98182eE.argprom: argument 3"}
 !37354 = !{!37349, !37351, !37353}
 !37355 = !{!37356, !37358, !37349, !37351, !37352, !37353}
 !37356 = distinct !{!37356, !37357, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h454cc37f82ae2dd6E: argument 0"}
@@ -190511,11 +190511,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37367 = distinct !{!37367, !37368, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$11_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdcd0ad8101e85baeE: argument 0"}
 !37368 = distinct !{!37368, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$11_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdcd0ad8101e85baeE"}
 !37369 = !{!37370, !37372, !37373, !37374}
-!37370 = distinct !{!37370, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E: argument 0"}
-!37371 = distinct !{!37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E"}
-!37372 = distinct !{!37372, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E: argument 1"}
-!37373 = distinct !{!37373, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E: argument 2"}
-!37374 = distinct !{!37374, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E: argument 3"}
+!37370 = distinct !{!37370, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom: argument 0"}
+!37371 = distinct !{!37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom"}
+!37372 = distinct !{!37372, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom: argument 1"}
+!37373 = distinct !{!37373, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom: argument 2"}
+!37374 = distinct !{!37374, !37371, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7979c8880d31c269E.argprom: argument 3"}
 !37375 = !{!37370, !37372, !37374}
 !37376 = !{!37377, !37379, !37370, !37372, !37373, !37374}
 !37377 = distinct !{!37377, !37378, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h5e292aa46098a356E: argument 0"}
@@ -190532,11 +190532,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37388 = distinct !{!37388, !37389, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..filterable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e2bc58581feac2fE: argument 0"}
 !37389 = distinct !{!37389, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..filterable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e2bc58581feac2fE"}
 !37390 = !{!37391, !37393, !37394, !37395}
-!37391 = distinct !{!37391, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E: argument 0"}
-!37392 = distinct !{!37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E"}
-!37393 = distinct !{!37393, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E: argument 1"}
-!37394 = distinct !{!37394, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E: argument 2"}
-!37395 = distinct !{!37395, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E: argument 3"}
+!37391 = distinct !{!37391, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom: argument 0"}
+!37392 = distinct !{!37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom"}
+!37393 = distinct !{!37393, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom: argument 1"}
+!37394 = distinct !{!37394, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom: argument 2"}
+!37395 = distinct !{!37395, !37392, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4b19aed3db21cdc0E.argprom: argument 3"}
 !37396 = !{!37391, !37393, !37395}
 !37397 = !{!37398, !37400, !37391, !37393, !37394, !37395}
 !37398 = distinct !{!37398, !37399, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he9da2dab02a4f13fE: argument 0"}
@@ -190553,11 +190553,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37409 = distinct !{!37409, !37410, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$15_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0142a872c6a7b954E: argument 0"}
 !37410 = distinct !{!37410, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$15_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0142a872c6a7b954E"}
 !37411 = !{!37412, !37414, !37415, !37416}
-!37412 = distinct !{!37412, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE: argument 0"}
-!37413 = distinct !{!37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE"}
-!37414 = distinct !{!37414, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE: argument 1"}
-!37415 = distinct !{!37415, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE: argument 2"}
-!37416 = distinct !{!37416, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE: argument 3"}
+!37412 = distinct !{!37412, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom: argument 0"}
+!37413 = distinct !{!37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom"}
+!37414 = distinct !{!37414, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom: argument 1"}
+!37415 = distinct !{!37415, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom: argument 2"}
+!37416 = distinct !{!37416, !37413, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h130c07685abd6d0cE.argprom: argument 3"}
 !37417 = !{!37412, !37414, !37416}
 !37418 = !{!37419, !37421, !37412, !37414, !37415, !37416}
 !37419 = distinct !{!37419, !37420, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h2b324d3b405a06b1E: argument 0"}
@@ -190574,11 +190574,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37430 = distinct !{!37430, !37431, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..sortable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92125546c739e080E: argument 0"}
 !37431 = distinct !{!37431, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..sortable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h92125546c739e080E"}
 !37432 = !{!37433, !37435, !37436, !37437}
-!37433 = distinct !{!37433, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E: argument 0"}
-!37434 = distinct !{!37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E"}
-!37435 = distinct !{!37435, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E: argument 1"}
-!37436 = distinct !{!37436, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E: argument 2"}
-!37437 = distinct !{!37437, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E: argument 3"}
+!37433 = distinct !{!37433, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom: argument 0"}
+!37434 = distinct !{!37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom"}
+!37435 = distinct !{!37435, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom: argument 1"}
+!37436 = distinct !{!37436, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom: argument 2"}
+!37437 = distinct !{!37437, !37434, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h93cb2daf03ab51e8E.argprom: argument 3"}
 !37438 = !{!37433, !37435, !37437}
 !37439 = !{!37440, !37442, !37433, !37435, !37436, !37437}
 !37440 = distinct !{!37440, !37441, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h85fffc2314b6444dE: argument 0"}
@@ -190595,11 +190595,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37451 = distinct !{!37451, !37452, !"_ZN4core3ptr188drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..embedders..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9c2e66cd913c60edE: argument 0"}
 !37452 = distinct !{!37452, !"_ZN4core3ptr188drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..embedders..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9c2e66cd913c60edE"}
 !37453 = !{!37454, !37456, !37457, !37458}
-!37454 = distinct !{!37454, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E: argument 0"}
-!37455 = distinct !{!37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E"}
-!37456 = distinct !{!37456, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E: argument 1"}
-!37457 = distinct !{!37457, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E: argument 2"}
-!37458 = distinct !{!37458, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E: argument 3"}
+!37454 = distinct !{!37454, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom: argument 0"}
+!37455 = distinct !{!37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom"}
+!37456 = distinct !{!37456, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom: argument 1"}
+!37457 = distinct !{!37457, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom: argument 2"}
+!37458 = distinct !{!37458, !37455, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f544e20b9d450a9E.argprom: argument 3"}
 !37459 = !{!37454, !37456, !37458}
 !37460 = !{!37461, !37463, !37454, !37456, !37457, !37458}
 !37461 = distinct !{!37461, !37462, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hd6c932150d162680E: argument 0"}
@@ -190616,11 +190616,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37472 = distinct !{!37472, !37473, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$17_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h13f63fe06e13be1dE: argument 0"}
 !37473 = distinct !{!37473, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$17_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h13f63fe06e13be1dE"}
 !37474 = !{!37475, !37477, !37478, !37479}
-!37475 = distinct !{!37475, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E: argument 0"}
-!37476 = distinct !{!37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E"}
-!37477 = distinct !{!37477, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E: argument 1"}
-!37478 = distinct !{!37478, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E: argument 2"}
-!37479 = distinct !{!37479, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E: argument 3"}
+!37475 = distinct !{!37475, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom: argument 0"}
+!37476 = distinct !{!37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom"}
+!37477 = distinct !{!37477, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom: argument 1"}
+!37478 = distinct !{!37478, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom: argument 2"}
+!37479 = distinct !{!37479, !37476, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h69b2d30a0014d8d4E.argprom: argument 3"}
 !37480 = !{!37475, !37477, !37479}
 !37481 = !{!37482, !37484, !37475, !37477, !37478, !37479}
 !37482 = distinct !{!37482, !37483, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h619b4bddf439eeb4E: argument 0"}
@@ -190632,11 +190632,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37488 = distinct !{!37488, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hfc5c5d88e4e05a8eE.llvm.8666068179502612882"}
 !37489 = !{!37475, !37478}
 !37490 = !{!37491, !37493, !37494, !37495}
-!37491 = distinct !{!37491, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE: argument 0"}
-!37492 = distinct !{!37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE"}
-!37493 = distinct !{!37493, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE: argument 1"}
-!37494 = distinct !{!37494, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE: argument 2"}
-!37495 = distinct !{!37495, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE: argument 3"}
+!37491 = distinct !{!37491, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom: argument 0"}
+!37492 = distinct !{!37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom"}
+!37493 = distinct !{!37493, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom: argument 1"}
+!37494 = distinct !{!37494, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom: argument 2"}
+!37495 = distinct !{!37495, !37492, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h81e0272f4024c97fE.argprom: argument 3"}
 !37496 = !{!37491, !37493, !37495}
 !37497 = !{!37498, !37500, !37491, !37493, !37494, !37495}
 !37498 = distinct !{!37498, !37499, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hfca6e58e3740c305E: argument 0"}
@@ -190653,11 +190653,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37509 = distinct !{!37509, !37510, !"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..snapshot..create_snapshot..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h22aa72007a22b28aE: argument 0"}
 !37510 = distinct !{!37510, !"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..snapshot..create_snapshot..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h22aa72007a22b28aE"}
 !37511 = !{!37512, !37514, !37515, !37516}
-!37512 = distinct !{!37512, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E: argument 0"}
-!37513 = distinct !{!37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E"}
-!37514 = distinct !{!37514, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E: argument 1"}
-!37515 = distinct !{!37515, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E: argument 2"}
-!37516 = distinct !{!37516, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E: argument 3"}
+!37512 = distinct !{!37512, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom: argument 0"}
+!37513 = distinct !{!37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom"}
+!37514 = distinct !{!37514, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom: argument 1"}
+!37515 = distinct !{!37515, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom: argument 2"}
+!37516 = distinct !{!37516, !37513, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h138f2ed516aef331E.argprom: argument 3"}
 !37517 = !{!37512, !37514, !37516}
 !37518 = !{!37519, !37521, !37512, !37514, !37515, !37516}
 !37519 = distinct !{!37519, !37520, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9bfb3f9a8544d2e9E: argument 0"}
@@ -190674,11 +190674,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37530 = distinct !{!37530, !37531, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$28_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h56c80b213b412798E: argument 0"}
 !37531 = distinct !{!37531, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$28_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h56c80b213b412798E"}
 !37532 = !{!37533, !37535, !37536, !37537}
-!37533 = distinct !{!37533, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E: argument 0"}
-!37534 = distinct !{!37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E"}
-!37535 = distinct !{!37535, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E: argument 1"}
-!37536 = distinct !{!37536, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E: argument 2"}
-!37537 = distinct !{!37537, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E: argument 3"}
+!37533 = distinct !{!37533, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom: argument 0"}
+!37534 = distinct !{!37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom"}
+!37535 = distinct !{!37535, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom: argument 1"}
+!37536 = distinct !{!37536, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom: argument 2"}
+!37537 = distinct !{!37537, !37534, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hd50bcc751b80faf1E.argprom: argument 3"}
 !37538 = !{!37533, !37535, !37537}
 !37539 = !{!37540, !37542, !37533, !37535, !37536, !37537}
 !37540 = distinct !{!37540, !37541, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h82aaa6998d5faa2fE: argument 0"}
@@ -190695,11 +190695,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37551 = distinct !{!37551, !37552, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hde6cffa90f6413adE: argument 0"}
 !37552 = distinct !{!37552, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hde6cffa90f6413adE"}
 !37553 = !{!37554, !37556, !37557, !37558}
-!37554 = distinct !{!37554, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E: argument 0"}
-!37555 = distinct !{!37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E"}
-!37556 = distinct !{!37556, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E: argument 1"}
-!37557 = distinct !{!37557, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E: argument 2"}
-!37558 = distinct !{!37558, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E: argument 3"}
+!37554 = distinct !{!37554, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom: argument 0"}
+!37555 = distinct !{!37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom"}
+!37556 = distinct !{!37556, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom: argument 1"}
+!37557 = distinct !{!37557, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom: argument 2"}
+!37558 = distinct !{!37558, !37555, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hacaf8f450e43cdd1E.argprom: argument 3"}
 !37559 = !{!37554, !37556, !37558}
 !37560 = !{!37561, !37563, !37554, !37556, !37557, !37558}
 !37561 = distinct !{!37561, !37562, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9f438e8719075a56E: argument 0"}
@@ -190716,11 +190716,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37572 = distinct !{!37572, !37573, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..sortable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4097112c48e0bdadE: argument 0"}
 !37573 = distinct !{!37573, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..sortable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4097112c48e0bdadE"}
 !37574 = !{!37575, !37577, !37578, !37579}
-!37575 = distinct !{!37575, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E: argument 0"}
-!37576 = distinct !{!37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E"}
-!37577 = distinct !{!37577, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E: argument 1"}
-!37578 = distinct !{!37578, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E: argument 2"}
-!37579 = distinct !{!37579, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E: argument 3"}
+!37575 = distinct !{!37575, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom: argument 0"}
+!37576 = distinct !{!37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom"}
+!37577 = distinct !{!37577, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom: argument 1"}
+!37578 = distinct !{!37578, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom: argument 2"}
+!37579 = distinct !{!37579, !37576, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfa46a9b1a24daa80E.argprom: argument 3"}
 !37580 = !{!37575, !37577, !37579}
 !37581 = !{!37582, !37584, !37575, !37577, !37578, !37579}
 !37582 = distinct !{!37582, !37583, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h240f797aa831c3ceE: argument 0"}
@@ -190737,11 +190737,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37593 = distinct !{!37593, !37594, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..proximity_precision..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd0e8f607d631f5bE: argument 0"}
 !37594 = distinct !{!37594, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..proximity_precision..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcd0e8f607d631f5bE"}
 !37595 = !{!37596, !37598, !37599, !37600}
-!37596 = distinct !{!37596, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE: argument 0"}
-!37597 = distinct !{!37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE"}
-!37598 = distinct !{!37598, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE: argument 1"}
-!37599 = distinct !{!37599, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE: argument 2"}
-!37600 = distinct !{!37600, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE: argument 3"}
+!37596 = distinct !{!37596, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom: argument 0"}
+!37597 = distinct !{!37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom"}
+!37598 = distinct !{!37598, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom: argument 1"}
+!37599 = distinct !{!37599, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom: argument 2"}
+!37600 = distinct !{!37600, !37597, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h72056b751921824dE.argprom: argument 3"}
 !37601 = !{!37596, !37598, !37600}
 !37602 = !{!37603, !37605, !37596, !37598, !37599, !37600}
 !37603 = distinct !{!37603, !37604, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h2305f96a7c7290b7E: argument 0"}
@@ -190758,11 +190758,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37614 = distinct !{!37614, !37615, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..filterable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd100ebe4c6a6eda6E: argument 0"}
 !37615 = distinct !{!37615, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..filterable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hd100ebe4c6a6eda6E"}
 !37616 = !{!37617, !37619, !37620, !37621}
-!37617 = distinct !{!37617, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E: argument 0"}
-!37618 = distinct !{!37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E"}
-!37619 = distinct !{!37619, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E: argument 1"}
-!37620 = distinct !{!37620, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E: argument 2"}
-!37621 = distinct !{!37621, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E: argument 3"}
+!37617 = distinct !{!37617, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom: argument 0"}
+!37618 = distinct !{!37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom"}
+!37619 = distinct !{!37619, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom: argument 1"}
+!37620 = distinct !{!37620, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom: argument 2"}
+!37621 = distinct !{!37621, !37618, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h86578f3be9bb1cf8E.argprom: argument 3"}
 !37622 = !{!37617, !37619, !37621}
 !37623 = !{!37624, !37626, !37617, !37619, !37620, !37621}
 !37624 = distinct !{!37624, !37625, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hbfd52418b8dbdd54E: argument 0"}
@@ -190779,11 +190779,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37635 = distinct !{!37635, !37636, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$3_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2b99d3db7b43fb88E: argument 0"}
 !37636 = distinct !{!37636, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$3_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2b99d3db7b43fb88E"}
 !37637 = !{!37638, !37640, !37641, !37642}
-!37638 = distinct !{!37638, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE: argument 0"}
-!37639 = distinct !{!37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE"}
-!37640 = distinct !{!37640, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE: argument 1"}
-!37641 = distinct !{!37641, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE: argument 2"}
-!37642 = distinct !{!37642, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE: argument 3"}
+!37638 = distinct !{!37638, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom: argument 0"}
+!37639 = distinct !{!37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom"}
+!37640 = distinct !{!37640, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom: argument 1"}
+!37641 = distinct !{!37641, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom: argument 2"}
+!37642 = distinct !{!37642, !37639, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4e3ae8045c5cf7cE.argprom: argument 3"}
 !37643 = !{!37638, !37640, !37642}
 !37644 = !{!37645, !37647, !37638, !37640, !37641, !37642}
 !37645 = distinct !{!37645, !37646, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hae2fbb4d92f1fa38E: argument 0"}
@@ -190800,11 +190800,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37656 = distinct !{!37656, !37657, !"_ZN4core3ptr178drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..swap_indexes..swap_indexes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdf693cf45f35f99eE: argument 0"}
 !37657 = distinct !{!37657, !"_ZN4core3ptr178drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..swap_indexes..swap_indexes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdf693cf45f35f99eE"}
 !37658 = !{!37659, !37661, !37662, !37663}
-!37659 = distinct !{!37659, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE: argument 0"}
-!37660 = distinct !{!37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE"}
-!37661 = distinct !{!37661, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE: argument 1"}
-!37662 = distinct !{!37662, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE: argument 2"}
-!37663 = distinct !{!37663, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE: argument 3"}
+!37659 = distinct !{!37659, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom: argument 0"}
+!37660 = distinct !{!37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom"}
+!37661 = distinct !{!37661, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom: argument 1"}
+!37662 = distinct !{!37662, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom: argument 2"}
+!37663 = distinct !{!37663, !37660, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hceb5676086285b2aE.argprom: argument 3"}
 !37664 = !{!37659, !37661, !37663}
 !37665 = !{!37666, !37668, !37659, !37661, !37662, !37663}
 !37666 = distinct !{!37666, !37667, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h1e0c9ad6c4588545E: argument 0"}
@@ -190821,11 +190821,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37677 = distinct !{!37677, !37678, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..document_addition..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1cb7c867817ff303E: argument 0"}
 !37678 = distinct !{!37678, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..document_addition..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1cb7c867817ff303E"}
 !37679 = !{!37680, !37682, !37683, !37684}
-!37680 = distinct !{!37680, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E: argument 0"}
-!37681 = distinct !{!37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E"}
-!37682 = distinct !{!37682, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E: argument 1"}
-!37683 = distinct !{!37683, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E: argument 2"}
-!37684 = distinct !{!37684, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E: argument 3"}
+!37680 = distinct !{!37680, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom: argument 0"}
+!37681 = distinct !{!37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom"}
+!37682 = distinct !{!37682, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom: argument 1"}
+!37683 = distinct !{!37683, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom: argument 2"}
+!37684 = distinct !{!37684, !37681, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17heabf3c55481ae448E.argprom: argument 3"}
 !37685 = !{!37680, !37682, !37684}
 !37686 = !{!37687, !37689, !37680, !37682, !37683, !37684}
 !37687 = distinct !{!37687, !37688, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h76efcb025577e153E: argument 0"}
@@ -190837,11 +190837,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37693 = distinct !{!37693, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hcaa191fe56e739b4E.llvm.8666068179502612882"}
 !37694 = !{!37680, !37683}
 !37695 = !{!37696, !37698, !37699, !37700}
-!37696 = distinct !{!37696, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE: argument 0"}
-!37697 = distinct !{!37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE"}
-!37698 = distinct !{!37698, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE: argument 1"}
-!37699 = distinct !{!37699, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE: argument 2"}
-!37700 = distinct !{!37700, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE: argument 3"}
+!37696 = distinct !{!37696, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom: argument 0"}
+!37697 = distinct !{!37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom"}
+!37698 = distinct !{!37698, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom: argument 1"}
+!37699 = distinct !{!37699, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom: argument 2"}
+!37700 = distinct !{!37700, !37697, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac68940353fb9a8fE.argprom: argument 3"}
 !37701 = !{!37696, !37698, !37700}
 !37702 = !{!37703, !37705, !37696, !37698, !37699, !37700}
 !37703 = distinct !{!37703, !37704, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hcfedf701508a8625E: argument 0"}
@@ -190858,11 +190858,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37714 = distinct !{!37714, !37715, !"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..similar..similar..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2391fba994c0a9ceE: argument 0"}
 !37715 = distinct !{!37715, !"_ZN4core3ptr177drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..similar..similar..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2391fba994c0a9ceE"}
 !37716 = !{!37717, !37719, !37720, !37721}
-!37717 = distinct !{!37717, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE: argument 0"}
-!37718 = distinct !{!37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE"}
-!37719 = distinct !{!37719, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE: argument 1"}
-!37720 = distinct !{!37720, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE: argument 2"}
-!37721 = distinct !{!37721, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE: argument 3"}
+!37717 = distinct !{!37717, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom: argument 0"}
+!37718 = distinct !{!37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom"}
+!37719 = distinct !{!37719, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom: argument 1"}
+!37720 = distinct !{!37720, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom: argument 2"}
+!37721 = distinct !{!37721, !37718, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h44293be9ae94206dE.argprom: argument 3"}
 !37722 = !{!37717, !37719, !37721}
 !37723 = !{!37724, !37726, !37717, !37719, !37720, !37721}
 !37724 = distinct !{!37724, !37725, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h11154e71e9e78867E: argument 0"}
@@ -190879,11 +190879,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37735 = distinct !{!37735, !37736, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..pagination..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hab0e1cdfe2379347E: argument 0"}
 !37736 = distinct !{!37736, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..pagination..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hab0e1cdfe2379347E"}
 !37737 = !{!37738, !37740, !37741, !37742}
-!37738 = distinct !{!37738, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E: argument 0"}
-!37739 = distinct !{!37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E"}
-!37740 = distinct !{!37740, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E: argument 1"}
-!37741 = distinct !{!37741, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E: argument 2"}
-!37742 = distinct !{!37742, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E: argument 3"}
+!37738 = distinct !{!37738, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom: argument 0"}
+!37739 = distinct !{!37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom"}
+!37740 = distinct !{!37740, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom: argument 1"}
+!37741 = distinct !{!37741, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom: argument 2"}
+!37742 = distinct !{!37742, !37739, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbeb7f6fdf038d4e6E.argprom: argument 3"}
 !37743 = !{!37738, !37740, !37742}
 !37744 = !{!37745, !37747, !37738, !37740, !37741, !37742}
 !37745 = distinct !{!37745, !37746, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h686f6f5e938210d1E: argument 0"}
@@ -190900,11 +190900,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37756 = distinct !{!37756, !37757, !"_ZN4core3ptr197drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..distinct_attribute..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0a6a414dbd5ee8dfE: argument 0"}
 !37757 = distinct !{!37757, !"_ZN4core3ptr197drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..distinct_attribute..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0a6a414dbd5ee8dfE"}
 !37758 = !{!37759, !37761, !37762, !37763}
-!37759 = distinct !{!37759, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E: argument 0"}
-!37760 = distinct !{!37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E"}
-!37761 = distinct !{!37761, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E: argument 1"}
-!37762 = distinct !{!37762, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E: argument 2"}
-!37763 = distinct !{!37763, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E: argument 3"}
+!37759 = distinct !{!37759, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom: argument 0"}
+!37760 = distinct !{!37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom"}
+!37761 = distinct !{!37761, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom: argument 1"}
+!37762 = distinct !{!37762, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom: argument 2"}
+!37763 = distinct !{!37763, !37760, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4fd71fb45b1bcc02E.argprom: argument 3"}
 !37764 = !{!37759, !37761, !37763}
 !37765 = !{!37766, !37768, !37759, !37761, !37762, !37763}
 !37766 = distinct !{!37766, !37767, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h161a62ffb7ce968cE: argument 0"}
@@ -190921,11 +190921,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37777 = distinct !{!37777, !37778, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..searchable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hba1cf3f7f8ffef29E: argument 0"}
 !37778 = distinct !{!37778, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..searchable_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hba1cf3f7f8ffef29E"}
 !37779 = !{!37780, !37782, !37783, !37784}
-!37780 = distinct !{!37780, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE: argument 0"}
-!37781 = distinct !{!37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE"}
-!37782 = distinct !{!37782, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE: argument 1"}
-!37783 = distinct !{!37783, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE: argument 2"}
-!37784 = distinct !{!37784, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE: argument 3"}
+!37780 = distinct !{!37780, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom: argument 0"}
+!37781 = distinct !{!37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom"}
+!37782 = distinct !{!37782, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom: argument 1"}
+!37783 = distinct !{!37783, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom: argument 2"}
+!37784 = distinct !{!37784, !37781, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hfcf369ea6c3ab9baE.argprom: argument 3"}
 !37785 = !{!37780, !37782, !37784}
 !37786 = !{!37787, !37789, !37780, !37782, !37783, !37784}
 !37787 = distinct !{!37787, !37788, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0b5975f05f750e6dE: argument 0"}
@@ -190942,11 +190942,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37798 = distinct !{!37798, !37799, !"_ZN4core3ptr171drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..tasks..delete_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hed8d4c669c50542dE: argument 0"}
 !37799 = distinct !{!37799, !"_ZN4core3ptr171drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..tasks..delete_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hed8d4c669c50542dE"}
 !37800 = !{!37801, !37803, !37804, !37805}
-!37801 = distinct !{!37801, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E: argument 0"}
-!37802 = distinct !{!37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E"}
-!37803 = distinct !{!37803, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E: argument 1"}
-!37804 = distinct !{!37804, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E: argument 2"}
-!37805 = distinct !{!37805, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E: argument 3"}
+!37801 = distinct !{!37801, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom: argument 0"}
+!37802 = distinct !{!37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom"}
+!37803 = distinct !{!37803, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom: argument 1"}
+!37804 = distinct !{!37804, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom: argument 2"}
+!37805 = distinct !{!37805, !37802, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3b21191439682c10E.argprom: argument 3"}
 !37806 = !{!37801, !37803, !37805}
 !37807 = !{!37808, !37810, !37801, !37803, !37804, !37805}
 !37808 = distinct !{!37808, !37809, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hdcdc0c978b029efaE: argument 0"}
@@ -190963,11 +190963,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37819 = distinct !{!37819, !37820, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$13_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17habd2f11cbbda9165E: argument 0"}
 !37820 = distinct !{!37820, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$13_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17habd2f11cbbda9165E"}
 !37821 = !{!37822, !37824, !37825, !37826}
-!37822 = distinct !{!37822, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E: argument 0"}
-!37823 = distinct !{!37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E"}
-!37824 = distinct !{!37824, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E: argument 1"}
-!37825 = distinct !{!37825, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E: argument 2"}
-!37826 = distinct !{!37826, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E: argument 3"}
+!37822 = distinct !{!37822, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom: argument 0"}
+!37823 = distinct !{!37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom"}
+!37824 = distinct !{!37824, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom: argument 1"}
+!37825 = distinct !{!37825, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom: argument 2"}
+!37826 = distinct !{!37826, !37823, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h1dd4a4136776c7c4E.argprom: argument 3"}
 !37827 = !{!37822, !37824, !37826}
 !37828 = !{!37829, !37831, !37822, !37824, !37825, !37826}
 !37829 = distinct !{!37829, !37830, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0d3e6e8c221d472eE: argument 0"}
@@ -190984,11 +190984,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37840 = distinct !{!37840, !37841, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$33_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1b01c2852aed70b2E: argument 0"}
 !37841 = distinct !{!37841, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$33_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1b01c2852aed70b2E"}
 !37842 = !{!37843, !37845, !37846, !37847}
-!37843 = distinct !{!37843, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE: argument 0"}
-!37844 = distinct !{!37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE"}
-!37845 = distinct !{!37845, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE: argument 1"}
-!37846 = distinct !{!37846, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE: argument 2"}
-!37847 = distinct !{!37847, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE: argument 3"}
+!37843 = distinct !{!37843, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom: argument 0"}
+!37844 = distinct !{!37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom"}
+!37845 = distinct !{!37845, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom: argument 1"}
+!37846 = distinct !{!37846, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom: argument 2"}
+!37847 = distinct !{!37847, !37844, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e25940abad79c7fE.argprom: argument 3"}
 !37848 = !{!37843, !37845, !37847}
 !37849 = !{!37850, !37852, !37843, !37845, !37846, !37847}
 !37850 = distinct !{!37850, !37851, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h15562c7c5d8bfdfaE: argument 0"}
@@ -191005,11 +191005,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37861 = distinct !{!37861, !37862, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..non_separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he302a1c30e7b7241E: argument 0"}
 !37862 = distinct !{!37862, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..non_separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he302a1c30e7b7241E"}
 !37863 = !{!37864, !37866, !37867, !37868}
-!37864 = distinct !{!37864, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E: argument 0"}
-!37865 = distinct !{!37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E"}
-!37866 = distinct !{!37866, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E: argument 1"}
-!37867 = distinct !{!37867, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E: argument 2"}
-!37868 = distinct !{!37868, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E: argument 3"}
+!37864 = distinct !{!37864, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom: argument 0"}
+!37865 = distinct !{!37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom"}
+!37866 = distinct !{!37866, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom: argument 1"}
+!37867 = distinct !{!37867, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom: argument 2"}
+!37868 = distinct !{!37868, !37865, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3749de2479748b15E.argprom: argument 3"}
 !37869 = !{!37864, !37866, !37868}
 !37870 = !{!37871, !37873, !37864, !37866, !37867, !37868}
 !37871 = distinct !{!37871, !37872, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hb6939b70b8c032a2E: argument 0"}
@@ -191026,11 +191026,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37882 = distinct !{!37882, !37883, !"_ZN4core3ptr169drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..dump..create_dump..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdbad9ac4952fb891E: argument 0"}
 !37883 = distinct !{!37883, !"_ZN4core3ptr169drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..dump..create_dump..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdbad9ac4952fb891E"}
 !37884 = !{!37885, !37887, !37888, !37889}
-!37885 = distinct !{!37885, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE: argument 0"}
-!37886 = distinct !{!37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE"}
-!37887 = distinct !{!37887, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE: argument 1"}
-!37888 = distinct !{!37888, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE: argument 2"}
-!37889 = distinct !{!37889, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE: argument 3"}
+!37885 = distinct !{!37885, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom: argument 0"}
+!37886 = distinct !{!37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom"}
+!37887 = distinct !{!37887, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom: argument 1"}
+!37888 = distinct !{!37888, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom: argument 2"}
+!37889 = distinct !{!37889, !37886, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb335f20267502d4fE.argprom: argument 3"}
 !37890 = !{!37885, !37887, !37889}
 !37891 = !{!37892, !37894, !37885, !37887, !37888, !37889}
 !37892 = distinct !{!37892, !37893, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hc21a9ad977bafda8E: argument 0"}
@@ -191047,11 +191047,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37903 = distinct !{!37903, !37904, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$27_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he37fa7c12d25d1abE: argument 0"}
 !37904 = distinct !{!37904, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$27_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he37fa7c12d25d1abE"}
 !37905 = !{!37906, !37908, !37909, !37910}
-!37906 = distinct !{!37906, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE: argument 0"}
-!37907 = distinct !{!37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE"}
-!37908 = distinct !{!37908, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE: argument 1"}
-!37909 = distinct !{!37909, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE: argument 2"}
-!37910 = distinct !{!37910, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE: argument 3"}
+!37906 = distinct !{!37906, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom: argument 0"}
+!37907 = distinct !{!37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom"}
+!37908 = distinct !{!37908, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom: argument 1"}
+!37909 = distinct !{!37909, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom: argument 2"}
+!37910 = distinct !{!37910, !37907, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h76cd0c24bb2a14afE.argprom: argument 3"}
 !37911 = !{!37906, !37908, !37910}
 !37912 = !{!37913, !37915, !37906, !37908, !37909, !37910}
 !37913 = distinct !{!37913, !37914, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17he1a94ed99940024fE: argument 0"}
@@ -191068,11 +191068,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37924 = distinct !{!37924, !37925, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6c60c409313b7869E: argument 0"}
 !37925 = distinct !{!37925, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$24_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6c60c409313b7869E"}
 !37926 = !{!37927, !37929, !37930, !37931}
-!37927 = distinct !{!37927, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E: argument 0"}
-!37928 = distinct !{!37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E"}
-!37929 = distinct !{!37929, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E: argument 1"}
-!37930 = distinct !{!37930, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E: argument 2"}
-!37931 = distinct !{!37931, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E: argument 3"}
+!37927 = distinct !{!37927, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom: argument 0"}
+!37928 = distinct !{!37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom"}
+!37929 = distinct !{!37929, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom: argument 1"}
+!37930 = distinct !{!37930, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom: argument 2"}
+!37931 = distinct !{!37931, !37928, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0400405bc26de346E.argprom: argument 3"}
 !37932 = !{!37927, !37929, !37931}
 !37933 = !{!37934, !37936, !37927, !37929, !37930, !37931}
 !37934 = distinct !{!37934, !37935, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hf4023896e0765e1bE: argument 0"}
@@ -191089,11 +191089,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37945 = distinct !{!37945, !37946, !"_ZN4core3ptr197drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..distinct_attribute..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdda6006231e4bbc0E: argument 0"}
 !37946 = distinct !{!37946, !"_ZN4core3ptr197drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..distinct_attribute..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdda6006231e4bbc0E"}
 !37947 = !{!37948, !37950, !37951, !37952}
-!37948 = distinct !{!37948, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E: argument 0"}
-!37949 = distinct !{!37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E"}
-!37950 = distinct !{!37950, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E: argument 1"}
-!37951 = distinct !{!37951, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E: argument 2"}
-!37952 = distinct !{!37952, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E: argument 3"}
+!37948 = distinct !{!37948, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom: argument 0"}
+!37949 = distinct !{!37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom"}
+!37950 = distinct !{!37950, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom: argument 1"}
+!37951 = distinct !{!37951, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom: argument 2"}
+!37952 = distinct !{!37952, !37949, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6df76506e8a25609E.argprom: argument 3"}
 !37953 = !{!37948, !37950, !37952}
 !37954 = !{!37955, !37957, !37948, !37950, !37951, !37952}
 !37955 = distinct !{!37955, !37956, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h1dc800a859e7120aE: argument 0"}
@@ -191110,11 +191110,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37966 = distinct !{!37966, !37967, !"_ZN4core3ptr172drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..get_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6de23e09c8d6e979E: argument 0"}
 !37967 = distinct !{!37967, !"_ZN4core3ptr172drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..get_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h6de23e09c8d6e979E"}
 !37968 = !{!37969, !37971, !37972, !37973}
-!37969 = distinct !{!37969, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE: argument 0"}
-!37970 = distinct !{!37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE"}
-!37971 = distinct !{!37971, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE: argument 1"}
-!37972 = distinct !{!37972, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE: argument 2"}
-!37973 = distinct !{!37973, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE: argument 3"}
+!37969 = distinct !{!37969, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom: argument 0"}
+!37970 = distinct !{!37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom"}
+!37971 = distinct !{!37971, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom: argument 1"}
+!37972 = distinct !{!37972, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom: argument 2"}
+!37973 = distinct !{!37973, !37970, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h041ec049a41e24baE.argprom: argument 3"}
 !37974 = !{!37969, !37971, !37973}
 !37975 = !{!37976, !37978, !37969, !37971, !37972, !37973}
 !37976 = distinct !{!37976, !37977, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h75ab8fe5dd86b4faE: argument 0"}
@@ -191131,11 +191131,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !37987 = distinct !{!37987, !37988, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$8_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h691111995f41ed5fE: argument 0"}
 !37988 = distinct !{!37988, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$8_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h691111995f41ed5fE"}
 !37989 = !{!37990, !37992, !37993, !37994}
-!37990 = distinct !{!37990, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE: argument 0"}
-!37991 = distinct !{!37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE"}
-!37992 = distinct !{!37992, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE: argument 1"}
-!37993 = distinct !{!37993, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE: argument 2"}
-!37994 = distinct !{!37994, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE: argument 3"}
+!37990 = distinct !{!37990, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom: argument 0"}
+!37991 = distinct !{!37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom"}
+!37992 = distinct !{!37992, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom: argument 1"}
+!37993 = distinct !{!37993, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom: argument 2"}
+!37994 = distinct !{!37994, !37991, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2102302403abac3aE.argprom: argument 3"}
 !37995 = !{!37990, !37992, !37994}
 !37996 = !{!37997, !37999, !37990, !37992, !37993, !37994}
 !37997 = distinct !{!37997, !37998, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h09fd6233c44890e1E: argument 0"}
@@ -191152,11 +191152,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38008 = distinct !{!38008, !38009, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..delete_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h421e5fc8ab70b38cE: argument 0"}
 !38009 = distinct !{!38009, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..delete_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h421e5fc8ab70b38cE"}
 !38010 = !{!38011, !38013, !38014, !38015}
-!38011 = distinct !{!38011, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E: argument 0"}
-!38012 = distinct !{!38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E"}
-!38013 = distinct !{!38013, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E: argument 1"}
-!38014 = distinct !{!38014, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E: argument 2"}
-!38015 = distinct !{!38015, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E: argument 3"}
+!38011 = distinct !{!38011, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom: argument 0"}
+!38012 = distinct !{!38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom"}
+!38013 = distinct !{!38013, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom: argument 1"}
+!38014 = distinct !{!38014, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom: argument 2"}
+!38015 = distinct !{!38015, !38012, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0efd330422793e13E.argprom: argument 3"}
 !38016 = !{!38011, !38013, !38015}
 !38017 = !{!38018, !38020, !38011, !38013, !38014, !38015}
 !38018 = distinct !{!38018, !38019, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h2b870454cc4be613E: argument 0"}
@@ -191173,11 +191173,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38029 = distinct !{!38029, !38030, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$22_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb852bfab3c66e291E: argument 0"}
 !38030 = distinct !{!38030, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$22_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb852bfab3c66e291E"}
 !38031 = !{!38032, !38034, !38035, !38036}
-!38032 = distinct !{!38032, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE: argument 0"}
-!38033 = distinct !{!38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE"}
-!38034 = distinct !{!38034, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE: argument 1"}
-!38035 = distinct !{!38035, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE: argument 2"}
-!38036 = distinct !{!38036, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE: argument 3"}
+!38032 = distinct !{!38032, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom: argument 0"}
+!38033 = distinct !{!38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom"}
+!38034 = distinct !{!38034, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom: argument 1"}
+!38035 = distinct !{!38035, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom: argument 2"}
+!38036 = distinct !{!38036, !38033, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h958aa1e084ead1eaE.argprom: argument 3"}
 !38037 = !{!38032, !38034, !38036}
 !38038 = !{!38039, !38041, !38032, !38034, !38035, !38036}
 !38039 = distinct !{!38039, !38040, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h4a789e2ec8874564E: argument 0"}
@@ -191194,11 +191194,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38050 = distinct !{!38050, !38051, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..faceting..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hef61cbba71b13e08E: argument 0"}
 !38051 = distinct !{!38051, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..faceting..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hef61cbba71b13e08E"}
 !38052 = !{!38053, !38055, !38056, !38057}
-!38053 = distinct !{!38053, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE: argument 0"}
-!38054 = distinct !{!38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE"}
-!38055 = distinct !{!38055, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE: argument 1"}
-!38056 = distinct !{!38056, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE: argument 2"}
-!38057 = distinct !{!38057, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE: argument 3"}
+!38053 = distinct !{!38053, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom: argument 0"}
+!38054 = distinct !{!38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom"}
+!38055 = distinct !{!38055, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom: argument 1"}
+!38056 = distinct !{!38056, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom: argument 2"}
+!38057 = distinct !{!38057, !38054, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h70238b9626e1b3ddE.argprom: argument 3"}
 !38058 = !{!38053, !38055, !38057}
 !38059 = !{!38060, !38062, !38053, !38055, !38056, !38057}
 !38060 = distinct !{!38060, !38061, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hd35a34a3603775ecE: argument 0"}
@@ -191215,11 +191215,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38071 = distinct !{!38071, !38072, !"_ZN4core3ptr192drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..ranking_rules..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h45340657dceba6aeE: argument 0"}
 !38072 = distinct !{!38072, !"_ZN4core3ptr192drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..ranking_rules..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h45340657dceba6aeE"}
 !38073 = !{!38074, !38076, !38077, !38078}
-!38074 = distinct !{!38074, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE: argument 0"}
-!38075 = distinct !{!38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE"}
-!38076 = distinct !{!38076, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE: argument 1"}
-!38077 = distinct !{!38077, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE: argument 2"}
-!38078 = distinct !{!38078, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE: argument 3"}
+!38074 = distinct !{!38074, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom: argument 0"}
+!38075 = distinct !{!38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom"}
+!38076 = distinct !{!38076, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom: argument 1"}
+!38077 = distinct !{!38077, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom: argument 2"}
+!38078 = distinct !{!38078, !38075, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hefd505792fb449ecE.argprom: argument 3"}
 !38079 = !{!38074, !38076, !38078}
 !38080 = !{!38081, !38083, !38074, !38076, !38077, !38078}
 !38081 = distinct !{!38081, !38082, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hde0f9e65c811a960E: argument 0"}
@@ -191236,11 +191236,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38092 = distinct !{!38092, !38093, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..non_separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2391e3bc87c51c24E: argument 0"}
 !38093 = distinct !{!38093, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..non_separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2391e3bc87c51c24E"}
 !38094 = !{!38095, !38097, !38098, !38099}
-!38095 = distinct !{!38095, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E: argument 0"}
-!38096 = distinct !{!38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E"}
-!38097 = distinct !{!38097, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E: argument 1"}
-!38098 = distinct !{!38098, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E: argument 2"}
-!38099 = distinct !{!38099, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E: argument 3"}
+!38095 = distinct !{!38095, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom: argument 0"}
+!38096 = distinct !{!38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom"}
+!38097 = distinct !{!38097, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom: argument 1"}
+!38098 = distinct !{!38098, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom: argument 2"}
+!38099 = distinct !{!38099, !38096, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h46807582ea463079E.argprom: argument 3"}
 !38100 = !{!38095, !38097, !38099}
 !38101 = !{!38102, !38104, !38095, !38097, !38098, !38099}
 !38102 = distinct !{!38102, !38103, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0e86a1cd30e988c0E: argument 0"}
@@ -191257,11 +191257,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38113 = distinct !{!38113, !38114, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..stop_words..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcac706495ae8cdccE: argument 0"}
 !38114 = distinct !{!38114, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..stop_words..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcac706495ae8cdccE"}
 !38115 = !{!38116, !38118, !38119, !38120}
-!38116 = distinct !{!38116, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E: argument 0"}
-!38117 = distinct !{!38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E"}
-!38118 = distinct !{!38118, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E: argument 1"}
-!38119 = distinct !{!38119, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E: argument 2"}
-!38120 = distinct !{!38120, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E: argument 3"}
+!38116 = distinct !{!38116, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom: argument 0"}
+!38117 = distinct !{!38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom"}
+!38118 = distinct !{!38118, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom: argument 1"}
+!38119 = distinct !{!38119, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom: argument 2"}
+!38120 = distinct !{!38120, !38117, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h3d86f13edf424a80E.argprom: argument 3"}
 !38121 = !{!38116, !38118, !38120}
 !38122 = !{!38123, !38125, !38116, !38118, !38119, !38120}
 !38123 = distinct !{!38123, !38124, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h5a4de9f2978515c6E: argument 0"}
@@ -191278,11 +191278,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38134 = distinct !{!38134, !38135, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..faceting..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0bd429a5528b1e31E: argument 0"}
 !38135 = distinct !{!38135, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..faceting..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0bd429a5528b1e31E"}
 !38136 = !{!38137, !38139, !38140, !38141}
-!38137 = distinct !{!38137, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E: argument 0"}
-!38138 = distinct !{!38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E"}
-!38139 = distinct !{!38139, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E: argument 1"}
-!38140 = distinct !{!38140, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E: argument 2"}
-!38141 = distinct !{!38141, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E: argument 3"}
+!38137 = distinct !{!38137, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom: argument 0"}
+!38138 = distinct !{!38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom"}
+!38139 = distinct !{!38139, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom: argument 1"}
+!38140 = distinct !{!38140, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom: argument 2"}
+!38141 = distinct !{!38141, !38138, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h92826ff1ce7a5893E.argprom: argument 3"}
 !38142 = !{!38137, !38139, !38141}
 !38143 = !{!38144, !38146, !38137, !38139, !38140, !38141}
 !38144 = distinct !{!38144, !38145, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hf4b1f24d0b200c23E: argument 0"}
@@ -191299,11 +191299,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38155 = distinct !{!38155, !38156, !"_ZN4core3ptr191drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..clear_all_documents..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5b3850d6b99ffc81E: argument 0"}
 !38156 = distinct !{!38156, !"_ZN4core3ptr191drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..clear_all_documents..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5b3850d6b99ffc81E"}
 !38157 = !{!38158, !38160, !38161, !38162}
-!38158 = distinct !{!38158, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E: argument 0"}
-!38159 = distinct !{!38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E"}
-!38160 = distinct !{!38160, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E: argument 1"}
-!38161 = distinct !{!38161, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E: argument 2"}
-!38162 = distinct !{!38162, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E: argument 3"}
+!38158 = distinct !{!38158, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom: argument 0"}
+!38159 = distinct !{!38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom"}
+!38160 = distinct !{!38160, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom: argument 1"}
+!38161 = distinct !{!38161, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom: argument 2"}
+!38162 = distinct !{!38162, !38159, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h054722cecf1ce161E.argprom: argument 3"}
 !38163 = !{!38158, !38160, !38162}
 !38164 = !{!38165, !38167, !38158, !38160, !38161, !38162}
 !38165 = distinct !{!38165, !38166, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h4b264a6722ba214fE: argument 0"}
@@ -191320,11 +191320,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38176 = distinct !{!38176, !38177, !"_ZN4core3ptr174drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..patch_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h528212ac28d4a832E: argument 0"}
 !38177 = distinct !{!38177, !"_ZN4core3ptr174drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..patch_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h528212ac28d4a832E"}
 !38178 = !{!38179, !38181, !38182, !38183}
-!38179 = distinct !{!38179, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE: argument 0"}
-!38180 = distinct !{!38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE"}
-!38181 = distinct !{!38181, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE: argument 1"}
-!38182 = distinct !{!38182, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE: argument 2"}
-!38183 = distinct !{!38183, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE: argument 3"}
+!38179 = distinct !{!38179, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom: argument 0"}
+!38180 = distinct !{!38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom"}
+!38181 = distinct !{!38181, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom: argument 1"}
+!38182 = distinct !{!38182, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom: argument 2"}
+!38183 = distinct !{!38183, !38180, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h9e5b5cf7463ca72fE.argprom: argument 3"}
 !38184 = !{!38179, !38181, !38183}
 !38185 = !{!38186, !38188, !38179, !38181, !38182, !38183}
 !38186 = distinct !{!38186, !38187, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hde5c06fc87e911faE: argument 0"}
@@ -191341,11 +191341,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38197 = distinct !{!38197, !38198, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$1_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc389fa4c222fd67aE: argument 0"}
 !38198 = distinct !{!38198, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$1_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc389fa4c222fd67aE"}
 !38199 = !{!38200, !38202, !38203, !38204}
-!38200 = distinct !{!38200, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE: argument 0"}
-!38201 = distinct !{!38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE"}
-!38202 = distinct !{!38202, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE: argument 1"}
-!38203 = distinct !{!38203, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE: argument 2"}
-!38204 = distinct !{!38204, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE: argument 3"}
+!38200 = distinct !{!38200, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom: argument 0"}
+!38201 = distinct !{!38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom"}
+!38202 = distinct !{!38202, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom: argument 1"}
+!38203 = distinct !{!38203, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom: argument 2"}
+!38204 = distinct !{!38204, !38201, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc6e8cabe542f86deE.argprom: argument 3"}
 !38205 = !{!38200, !38202, !38204}
 !38206 = !{!38207, !38209, !38200, !38202, !38203, !38204}
 !38207 = distinct !{!38207, !38208, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h19b0d24ed8af09b0E: argument 0"}
@@ -191357,11 +191357,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38213 = distinct !{!38213, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h475309d88e624381E.llvm.8666068179502612882"}
 !38214 = !{!38200, !38203}
 !38215 = !{!38216, !38218, !38219, !38220}
-!38216 = distinct !{!38216, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E: argument 0"}
-!38217 = distinct !{!38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E"}
-!38218 = distinct !{!38218, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E: argument 1"}
-!38219 = distinct !{!38219, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E: argument 2"}
-!38220 = distinct !{!38220, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E: argument 3"}
+!38216 = distinct !{!38216, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom: argument 0"}
+!38217 = distinct !{!38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom"}
+!38218 = distinct !{!38218, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom: argument 1"}
+!38219 = distinct !{!38219, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom: argument 2"}
+!38220 = distinct !{!38220, !38217, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc83cfe4bab953e36E.argprom: argument 3"}
 !38221 = !{!38216, !38218, !38220}
 !38222 = !{!38223, !38225, !38216, !38218, !38219, !38220}
 !38223 = distinct !{!38223, !38224, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h4f935e3eefd45abfE: argument 0"}
@@ -191378,11 +191378,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38234 = distinct !{!38234, !38235, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7bf489aa1f5461f9E: argument 0"}
 !38235 = distinct !{!38235, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$20_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7bf489aa1f5461f9E"}
 !38236 = !{!38237, !38239, !38240, !38241}
-!38237 = distinct !{!38237, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E: argument 0"}
-!38238 = distinct !{!38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E"}
-!38239 = distinct !{!38239, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E: argument 1"}
-!38240 = distinct !{!38240, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E: argument 2"}
-!38241 = distinct !{!38241, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E: argument 3"}
+!38237 = distinct !{!38237, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom: argument 0"}
+!38238 = distinct !{!38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom"}
+!38239 = distinct !{!38239, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom: argument 1"}
+!38240 = distinct !{!38240, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom: argument 2"}
+!38241 = distinct !{!38241, !38238, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h234eac0fc3de1aa0E.argprom: argument 3"}
 !38242 = !{!38237, !38239, !38241}
 !38243 = !{!38244, !38246, !38237, !38239, !38240, !38241}
 !38244 = distinct !{!38244, !38245, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h72614ee355e5eda3E: argument 0"}
@@ -191399,11 +191399,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38255 = distinct !{!38255, !38256, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_document..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha8a3814aee50ea0cE: argument 0"}
 !38256 = distinct !{!38256, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_document..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha8a3814aee50ea0cE"}
 !38257 = !{!38258, !38260, !38261, !38262}
-!38258 = distinct !{!38258, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E: argument 0"}
-!38259 = distinct !{!38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E"}
-!38260 = distinct !{!38260, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E: argument 1"}
-!38261 = distinct !{!38261, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E: argument 2"}
-!38262 = distinct !{!38262, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E: argument 3"}
+!38258 = distinct !{!38258, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom: argument 0"}
+!38259 = distinct !{!38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom"}
+!38260 = distinct !{!38260, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom: argument 1"}
+!38261 = distinct !{!38261, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom: argument 2"}
+!38262 = distinct !{!38262, !38259, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he1fac30a3cc01fd9E.argprom: argument 3"}
 !38263 = !{!38258, !38260, !38262}
 !38264 = !{!38265, !38267, !38258, !38260, !38261, !38262}
 !38265 = distinct !{!38265, !38266, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h54b99d325cebb876E: argument 0"}
@@ -191420,11 +191420,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38276 = distinct !{!38276, !38277, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$9_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9b6210e787ea5a54E: argument 0"}
 !38277 = distinct !{!38277, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$9_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9b6210e787ea5a54E"}
 !38278 = !{!38279, !38281, !38282, !38283}
-!38279 = distinct !{!38279, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E: argument 0"}
-!38280 = distinct !{!38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E"}
-!38281 = distinct !{!38281, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E: argument 1"}
-!38282 = distinct !{!38282, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E: argument 2"}
-!38283 = distinct !{!38283, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E: argument 3"}
+!38279 = distinct !{!38279, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom: argument 0"}
+!38280 = distinct !{!38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom"}
+!38281 = distinct !{!38281, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom: argument 1"}
+!38282 = distinct !{!38282, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom: argument 2"}
+!38283 = distinct !{!38283, !38280, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hbdb14ac73a55cfa1E.argprom: argument 3"}
 !38284 = !{!38279, !38281, !38283}
 !38285 = !{!38286, !38288, !38279, !38281, !38282, !38283}
 !38286 = distinct !{!38286, !38287, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h3c461a15e105f786E: argument 0"}
@@ -191441,11 +191441,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38297 = distinct !{!38297, !38298, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h52f56ec8a5639e3dE: argument 0"}
 !38298 = distinct !{!38298, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..separator_tokens..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h52f56ec8a5639e3dE"}
 !38299 = !{!38300, !38302, !38303, !38304}
-!38300 = distinct !{!38300, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E: argument 0"}
-!38301 = distinct !{!38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E"}
-!38302 = distinct !{!38302, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E: argument 1"}
-!38303 = distinct !{!38303, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E: argument 2"}
-!38304 = distinct !{!38304, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E: argument 3"}
+!38300 = distinct !{!38300, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom: argument 0"}
+!38301 = distinct !{!38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom"}
+!38302 = distinct !{!38302, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom: argument 1"}
+!38303 = distinct !{!38303, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom: argument 2"}
+!38304 = distinct !{!38304, !38301, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h6b0a667c002b0a98E.argprom: argument 3"}
 !38305 = !{!38300, !38302, !38304}
 !38306 = !{!38307, !38309, !38300, !38302, !38303, !38304}
 !38307 = distinct !{!38307, !38308, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0e9b5637ae8bc998E: argument 0"}
@@ -191462,11 +191462,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38318 = distinct !{!38318, !38319, !"_ZN4core3ptr193drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..typo_tolerance..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcea8a1856d48dbaE: argument 0"}
 !38319 = distinct !{!38319, !"_ZN4core3ptr193drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..typo_tolerance..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfcea8a1856d48dbaE"}
 !38320 = !{!38321, !38323, !38324, !38325}
-!38321 = distinct !{!38321, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE: argument 0"}
-!38322 = distinct !{!38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE"}
-!38323 = distinct !{!38323, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE: argument 1"}
-!38324 = distinct !{!38324, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE: argument 2"}
-!38325 = distinct !{!38325, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE: argument 3"}
+!38321 = distinct !{!38321, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom: argument 0"}
+!38322 = distinct !{!38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom"}
+!38323 = distinct !{!38323, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom: argument 1"}
+!38324 = distinct !{!38324, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom: argument 2"}
+!38325 = distinct !{!38325, !38322, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h84ca4b7be6cf24fcE.argprom: argument 3"}
 !38326 = !{!38321, !38323, !38325}
 !38327 = !{!38328, !38330, !38321, !38323, !38324, !38325}
 !38328 = distinct !{!38328, !38329, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hcc1c076ddf34844cE: argument 0"}
@@ -191483,11 +191483,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38339 = distinct !{!38339, !38340, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$26_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1bec411c58f3f3eaE: argument 0"}
 !38340 = distinct !{!38340, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$26_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1bec411c58f3f3eaE"}
 !38341 = !{!38342, !38344, !38345, !38346}
-!38342 = distinct !{!38342, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE: argument 0"}
-!38343 = distinct !{!38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE"}
-!38344 = distinct !{!38344, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE: argument 1"}
-!38345 = distinct !{!38345, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE: argument 2"}
-!38346 = distinct !{!38346, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE: argument 3"}
+!38342 = distinct !{!38342, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom: argument 0"}
+!38343 = distinct !{!38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom"}
+!38344 = distinct !{!38344, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom: argument 1"}
+!38345 = distinct !{!38345, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom: argument 2"}
+!38346 = distinct !{!38346, !38343, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hed86da58c1a6274bE.argprom: argument 3"}
 !38347 = !{!38342, !38344, !38346}
 !38348 = !{!38349, !38351, !38342, !38344, !38345, !38346}
 !38349 = distinct !{!38349, !38350, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h1f3d58310bdb2167E: argument 0"}
@@ -191504,11 +191504,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38360 = distinct !{!38360, !38361, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$14_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0624fc51ebfdb2bdE: argument 0"}
 !38361 = distinct !{!38361, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$14_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0624fc51ebfdb2bdE"}
 !38362 = !{!38363, !38365, !38366, !38367}
-!38363 = distinct !{!38363, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E: argument 0"}
-!38364 = distinct !{!38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E"}
-!38365 = distinct !{!38365, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E: argument 1"}
-!38366 = distinct !{!38366, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E: argument 2"}
-!38367 = distinct !{!38367, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E: argument 3"}
+!38363 = distinct !{!38363, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom: argument 0"}
+!38364 = distinct !{!38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom"}
+!38365 = distinct !{!38365, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom: argument 1"}
+!38366 = distinct !{!38366, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom: argument 2"}
+!38367 = distinct !{!38367, !38364, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1a6246f21fbd5f4E.argprom: argument 3"}
 !38368 = !{!38363, !38365, !38367}
 !38369 = !{!38370, !38372, !38363, !38365, !38366, !38367}
 !38370 = distinct !{!38370, !38371, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h6eb6774fdf088298E: argument 0"}
@@ -191525,11 +191525,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38381 = distinct !{!38381, !38382, !"_ZN4core3ptr194drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_documents_batch..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h660c814cbc7ae5d3E: argument 0"}
 !38382 = distinct !{!38382, !"_ZN4core3ptr194drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_documents_batch..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h660c814cbc7ae5d3E"}
 !38383 = !{!38384, !38386, !38387, !38388}
-!38384 = distinct !{!38384, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E: argument 0"}
-!38385 = distinct !{!38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E"}
-!38386 = distinct !{!38386, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E: argument 1"}
-!38387 = distinct !{!38387, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E: argument 2"}
-!38388 = distinct !{!38388, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E: argument 3"}
+!38384 = distinct !{!38384, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom: argument 0"}
+!38385 = distinct !{!38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom"}
+!38386 = distinct !{!38386, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom: argument 1"}
+!38387 = distinct !{!38387, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom: argument 2"}
+!38388 = distinct !{!38388, !38385, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f3735bd6c245ae1E.argprom: argument 3"}
 !38389 = !{!38384, !38386, !38388}
 !38390 = !{!38391, !38393, !38384, !38386, !38387, !38388}
 !38391 = distinct !{!38391, !38392, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h936af7c7c3917d0bE: argument 0"}
@@ -191546,11 +191546,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38402 = distinct !{!38402, !38403, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..displayed_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8705349f055b712aE: argument 0"}
 !38403 = distinct !{!38403, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..displayed_attributes..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8705349f055b712aE"}
 !38404 = !{!38405, !38407, !38408, !38409}
-!38405 = distinct !{!38405, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE: argument 0"}
-!38406 = distinct !{!38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE"}
-!38407 = distinct !{!38407, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE: argument 1"}
-!38408 = distinct !{!38408, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE: argument 2"}
-!38409 = distinct !{!38409, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE: argument 3"}
+!38405 = distinct !{!38405, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom: argument 0"}
+!38406 = distinct !{!38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom"}
+!38407 = distinct !{!38407, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom: argument 1"}
+!38408 = distinct !{!38408, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom: argument 2"}
+!38409 = distinct !{!38409, !38406, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hb5f0504e9fecd90cE.argprom: argument 3"}
 !38410 = !{!38405, !38407, !38409}
 !38411 = !{!38412, !38414, !38405, !38407, !38408, !38409}
 !38412 = distinct !{!38412, !38413, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h676808289adb5665E: argument 0"}
@@ -191567,11 +191567,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38423 = distinct !{!38423, !38424, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$29_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7bea440fca4de108E: argument 0"}
 !38424 = distinct !{!38424, !"_ZN4core3ptr345drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$29_u8$GT$$C$actix_web..data..Data$LT$meilisearch_auth..AuthController$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7bea440fca4de108E"}
 !38425 = !{!38426, !38428, !38429, !38430}
-!38426 = distinct !{!38426, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E: argument 0"}
-!38427 = distinct !{!38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E"}
-!38428 = distinct !{!38428, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E: argument 1"}
-!38429 = distinct !{!38429, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E: argument 2"}
-!38430 = distinct !{!38430, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E: argument 3"}
+!38426 = distinct !{!38426, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom: argument 0"}
+!38427 = distinct !{!38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom"}
+!38428 = distinct !{!38428, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom: argument 1"}
+!38429 = distinct !{!38429, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom: argument 2"}
+!38430 = distinct !{!38430, !38427, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h081f28c0a9edf913E.argprom: argument 3"}
 !38431 = !{!38426, !38428, !38430}
 !38432 = !{!38433, !38435, !38426, !38428, !38429, !38430}
 !38433 = distinct !{!38433, !38434, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hb22d329075075b1aE: argument 0"}
@@ -191588,11 +191588,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38444 = distinct !{!38444, !38445, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..synonyms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha92923b101d60027E: argument 0"}
 !38445 = distinct !{!38445, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..synonyms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha92923b101d60027E"}
 !38446 = !{!38447, !38449, !38450, !38451}
-!38447 = distinct !{!38447, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E: argument 0"}
-!38448 = distinct !{!38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E"}
-!38449 = distinct !{!38449, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E: argument 1"}
-!38450 = distinct !{!38450, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E: argument 2"}
-!38451 = distinct !{!38451, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E: argument 3"}
+!38447 = distinct !{!38447, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom: argument 0"}
+!38448 = distinct !{!38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom"}
+!38449 = distinct !{!38449, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom: argument 1"}
+!38450 = distinct !{!38450, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom: argument 2"}
+!38451 = distinct !{!38451, !38448, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h7b1d9cabc32740f3E.argprom: argument 3"}
 !38452 = !{!38447, !38449, !38451}
 !38453 = !{!38454, !38456, !38447, !38449, !38450, !38451}
 !38454 = distinct !{!38454, !38455, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17ha2d0d3590a432edcE: argument 0"}
@@ -191609,11 +191609,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38465 = distinct !{!38465, !38466, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..dictionary..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46f47c8fe67d7f29E: argument 0"}
 !38466 = distinct !{!38466, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..dictionary..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h46f47c8fe67d7f29E"}
 !38467 = !{!38468, !38470, !38471, !38472}
-!38468 = distinct !{!38468, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E: argument 0"}
-!38469 = distinct !{!38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E"}
-!38470 = distinct !{!38470, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E: argument 1"}
-!38471 = distinct !{!38471, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E: argument 2"}
-!38472 = distinct !{!38472, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E: argument 3"}
+!38468 = distinct !{!38468, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom: argument 0"}
+!38469 = distinct !{!38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom"}
+!38470 = distinct !{!38470, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom: argument 1"}
+!38471 = distinct !{!38471, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom: argument 2"}
+!38472 = distinct !{!38472, !38469, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hac6a188c845e4ca0E.argprom: argument 3"}
 !38473 = !{!38468, !38470, !38472}
 !38474 = !{!38475, !38477, !38468, !38470, !38471, !38472}
 !38475 = distinct !{!38475, !38476, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hecf123cf507cefc2E: argument 0"}
@@ -191630,11 +191630,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38486 = distinct !{!38486, !38487, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..stop_words..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h08a462133a7132a8E: argument 0"}
 !38487 = distinct !{!38487, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..stop_words..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h08a462133a7132a8E"}
 !38488 = !{!38489, !38491, !38492, !38493}
-!38489 = distinct !{!38489, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E: argument 0"}
-!38490 = distinct !{!38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E"}
-!38491 = distinct !{!38491, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E: argument 1"}
-!38492 = distinct !{!38492, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E: argument 2"}
-!38493 = distinct !{!38493, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E: argument 3"}
+!38489 = distinct !{!38489, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom: argument 0"}
+!38490 = distinct !{!38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom"}
+!38491 = distinct !{!38491, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom: argument 1"}
+!38492 = distinct !{!38492, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom: argument 2"}
+!38493 = distinct !{!38493, !38490, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5f24228eee582005E.argprom: argument 3"}
 !38494 = !{!38489, !38491, !38493}
 !38495 = !{!38496, !38498, !38489, !38491, !38492, !38493}
 !38496 = distinct !{!38496, !38497, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h877c3b5859c7b17aE: argument 0"}
@@ -191651,11 +191651,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38507 = distinct !{!38507, !38508, !"_ZN4core3ptr188drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..embedders..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h268e86d48f29bcacE: argument 0"}
 !38508 = distinct !{!38508, !"_ZN4core3ptr188drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..embedders..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h268e86d48f29bcacE"}
 !38509 = !{!38510, !38512, !38513, !38514}
-!38510 = distinct !{!38510, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E: argument 0"}
-!38511 = distinct !{!38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E"}
-!38512 = distinct !{!38512, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E: argument 1"}
-!38513 = distinct !{!38513, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E: argument 2"}
-!38514 = distinct !{!38514, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E: argument 3"}
+!38510 = distinct !{!38510, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom: argument 0"}
+!38511 = distinct !{!38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom"}
+!38512 = distinct !{!38512, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom: argument 1"}
+!38513 = distinct !{!38513, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom: argument 2"}
+!38514 = distinct !{!38514, !38511, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h4e084a66ef7c3250E.argprom: argument 3"}
 !38515 = !{!38510, !38512, !38514}
 !38516 = !{!38517, !38519, !38510, !38512, !38513, !38514}
 !38517 = distinct !{!38517, !38518, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17ha5a28abd23de2abaE: argument 0"}
@@ -191672,11 +191672,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38528 = distinct !{!38528, !38529, !"_ZN4core3ptr171drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..tasks..cancel_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfc677cee1c32da45E: argument 0"}
 !38529 = distinct !{!38529, !"_ZN4core3ptr171drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..tasks..cancel_tasks..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfc677cee1c32da45E"}
 !38530 = !{!38531, !38533, !38534, !38535}
-!38531 = distinct !{!38531, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE: argument 0"}
-!38532 = distinct !{!38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE"}
-!38533 = distinct !{!38533, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE: argument 1"}
-!38534 = distinct !{!38534, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE: argument 2"}
-!38535 = distinct !{!38535, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE: argument 3"}
+!38531 = distinct !{!38531, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom: argument 0"}
+!38532 = distinct !{!38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom"}
+!38533 = distinct !{!38533, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom: argument 1"}
+!38534 = distinct !{!38534, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom: argument 2"}
+!38535 = distinct !{!38535, !38532, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf4c73bab5bd3709cE.argprom: argument 3"}
 !38536 = !{!38531, !38533, !38535}
 !38537 = !{!38538, !38540, !38531, !38533, !38534, !38535}
 !38538 = distinct !{!38538, !38539, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9226f258bd65aee0E: argument 0"}
@@ -191693,11 +191693,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38549 = distinct !{!38549, !38550, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..synonyms..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h982743696cb37aacE: argument 0"}
 !38550 = distinct !{!38550, !"_ZN4core3ptr187drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..synonyms..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h982743696cb37aacE"}
 !38551 = !{!38552, !38554, !38555, !38556}
-!38552 = distinct !{!38552, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E: argument 0"}
-!38553 = distinct !{!38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E"}
-!38554 = distinct !{!38554, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E: argument 1"}
-!38555 = distinct !{!38555, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E: argument 2"}
-!38556 = distinct !{!38556, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E: argument 3"}
+!38552 = distinct !{!38552, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom: argument 0"}
+!38553 = distinct !{!38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom"}
+!38554 = distinct !{!38554, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom: argument 1"}
+!38555 = distinct !{!38555, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom: argument 2"}
+!38556 = distinct !{!38556, !38553, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h420c539192bf0232E.argprom: argument 3"}
 !38557 = !{!38552, !38554, !38556}
 !38558 = !{!38559, !38561, !38552, !38554, !38555, !38556}
 !38559 = distinct !{!38559, !38560, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h73b7cac512d3e591E: argument 0"}
@@ -191714,11 +191714,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38570 = distinct !{!38570, !38571, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..update_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb8c6fa1adf417fE: argument 0"}
 !38571 = distinct !{!38571, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..update_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hebb8c6fa1adf417fE"}
 !38572 = !{!38573, !38575, !38576, !38577}
-!38573 = distinct !{!38573, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE: argument 0"}
-!38574 = distinct !{!38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE"}
-!38575 = distinct !{!38575, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE: argument 1"}
-!38576 = distinct !{!38576, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE: argument 2"}
-!38577 = distinct !{!38577, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE: argument 3"}
+!38573 = distinct !{!38573, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom: argument 0"}
+!38574 = distinct !{!38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom"}
+!38575 = distinct !{!38575, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom: argument 1"}
+!38576 = distinct !{!38576, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom: argument 2"}
+!38577 = distinct !{!38577, !38574, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h2b3c1cb51c45a75bE.argprom: argument 3"}
 !38578 = !{!38573, !38575, !38577}
 !38579 = !{!38580, !38582, !38573, !38575, !38576, !38577}
 !38580 = distinct !{!38580, !38581, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0fef762acb8cd505E: argument 0"}
@@ -191735,11 +191735,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38591 = distinct !{!38591, !38592, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..search_cutoff_ms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h71874d669685457cE: argument 0"}
 !38592 = distinct !{!38592, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..search_cutoff_ms..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h71874d669685457cE"}
 !38593 = !{!38594, !38596, !38597, !38598}
-!38594 = distinct !{!38594, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E: argument 0"}
-!38595 = distinct !{!38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E"}
-!38596 = distinct !{!38596, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E: argument 1"}
-!38597 = distinct !{!38597, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E: argument 2"}
-!38598 = distinct !{!38598, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E: argument 3"}
+!38594 = distinct !{!38594, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom: argument 0"}
+!38595 = distinct !{!38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom"}
+!38596 = distinct !{!38596, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom: argument 1"}
+!38597 = distinct !{!38597, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom: argument 2"}
+!38598 = distinct !{!38598, !38595, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he0dafc3bc3fb0623E.argprom: argument 3"}
 !38599 = !{!38594, !38596, !38598}
 !38600 = !{!38601, !38603, !38594, !38596, !38597, !38598}
 !38601 = distinct !{!38601, !38602, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h7b1b10a4c442dc5aE: argument 0"}
@@ -191756,11 +191756,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38612 = distinct !{!38612, !38613, !"_ZN4core3ptr192drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..ranking_rules..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb5714e8c4f7c5368E: argument 0"}
 !38613 = distinct !{!38613, !"_ZN4core3ptr192drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..ranking_rules..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb5714e8c4f7c5368E"}
 !38614 = !{!38615, !38617, !38618, !38619}
-!38615 = distinct !{!38615, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E: argument 0"}
-!38616 = distinct !{!38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E"}
-!38617 = distinct !{!38617, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E: argument 1"}
-!38618 = distinct !{!38618, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E: argument 2"}
-!38619 = distinct !{!38619, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E: argument 3"}
+!38615 = distinct !{!38615, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom: argument 0"}
+!38616 = distinct !{!38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom"}
+!38617 = distinct !{!38617, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom: argument 1"}
+!38618 = distinct !{!38618, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom: argument 2"}
+!38619 = distinct !{!38619, !38616, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc658462aebeb6eb4E.argprom: argument 3"}
 !38620 = !{!38615, !38617, !38619}
 !38621 = !{!38622, !38624, !38615, !38617, !38618, !38619}
 !38622 = distinct !{!38622, !38623, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h83c603540a042f7eE: argument 0"}
@@ -191777,11 +191777,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38633 = distinct !{!38633, !38634, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_documents_by_filter..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0bdd95e443d8753eE: argument 0"}
 !38634 = distinct !{!38634, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..documents..delete_documents_by_filter..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0bdd95e443d8753eE"}
 !38635 = !{!38636, !38638, !38639, !38640}
-!38636 = distinct !{!38636, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E: argument 0"}
-!38637 = distinct !{!38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E"}
-!38638 = distinct !{!38638, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E: argument 1"}
-!38639 = distinct !{!38639, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E: argument 2"}
-!38640 = distinct !{!38640, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E: argument 3"}
+!38636 = distinct !{!38636, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom: argument 0"}
+!38637 = distinct !{!38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom"}
+!38638 = distinct !{!38638, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom: argument 1"}
+!38639 = distinct !{!38639, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom: argument 2"}
+!38640 = distinct !{!38640, !38637, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17he7236698393134c6E.argprom: argument 3"}
 !38641 = !{!38636, !38638, !38640}
 !38642 = !{!38643, !38645, !38636, !38638, !38639, !38640}
 !38643 = distinct !{!38643, !38644, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hdb5a15664846ee58E: argument 0"}
@@ -191798,11 +191798,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38654 = distinct !{!38654, !38655, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..delete_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc91449b582c34a21E: argument 0"}
 !38655 = distinct !{!38655, !"_ZN4core3ptr181drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..delete_all..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc91449b582c34a21E"}
 !38656 = !{!38657, !38659, !38660, !38661}
-!38657 = distinct !{!38657, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E: argument 0"}
-!38658 = distinct !{!38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E"}
-!38659 = distinct !{!38659, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E: argument 1"}
-!38660 = distinct !{!38660, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E: argument 2"}
-!38661 = distinct !{!38661, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E: argument 3"}
+!38657 = distinct !{!38657, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom: argument 0"}
+!38658 = distinct !{!38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom"}
+!38659 = distinct !{!38659, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom: argument 1"}
+!38660 = distinct !{!38660, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom: argument 2"}
+!38661 = distinct !{!38661, !38658, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0f563243cbaa7870E.argprom: argument 3"}
 !38662 = !{!38657, !38659, !38661}
 !38663 = !{!38664, !38666, !38657, !38659, !38660, !38661}
 !38664 = distinct !{!38664, !38665, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h9485f8b7ea1cb191E: argument 0"}
@@ -191819,11 +191819,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38675 = distinct !{!38675, !38676, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h851ab6b86d30eea8E: argument 0"}
 !38676 = distinct !{!38676, !"_ZN4core3ptr195drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..separator_tokens..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h851ab6b86d30eea8E"}
 !38677 = !{!38678, !38680, !38681, !38682}
-!38678 = distinct !{!38678, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE: argument 0"}
-!38679 = distinct !{!38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE"}
-!38680 = distinct !{!38680, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE: argument 1"}
-!38681 = distinct !{!38681, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE: argument 2"}
-!38682 = distinct !{!38682, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE: argument 3"}
+!38678 = distinct !{!38678, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom: argument 0"}
+!38679 = distinct !{!38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom"}
+!38680 = distinct !{!38680, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom: argument 1"}
+!38681 = distinct !{!38681, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom: argument 2"}
+!38682 = distinct !{!38682, !38679, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17ha2d38abf34820adeE.argprom: argument 3"}
 !38683 = !{!38678, !38680, !38682}
 !38684 = !{!38685, !38687, !38678, !38680, !38681, !38682}
 !38685 = distinct !{!38685, !38686, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h943e10cf784c261dE: argument 0"}
@@ -191840,11 +191840,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38696 = distinct !{!38696, !38697, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$7_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1e85c4c6fd4a55e2E: argument 0"}
 !38697 = distinct !{!38697, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$7_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1e85c4c6fd4a55e2E"}
 !38698 = !{!38699, !38701, !38702, !38703}
-!38699 = distinct !{!38699, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E: argument 0"}
-!38700 = distinct !{!38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E"}
-!38701 = distinct !{!38701, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E: argument 1"}
-!38702 = distinct !{!38702, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E: argument 2"}
-!38703 = distinct !{!38703, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E: argument 3"}
+!38699 = distinct !{!38699, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom: argument 0"}
+!38700 = distinct !{!38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom"}
+!38701 = distinct !{!38701, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom: argument 1"}
+!38702 = distinct !{!38702, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom: argument 2"}
+!38703 = distinct !{!38703, !38700, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h54b662b97ac3d820E.argprom: argument 3"}
 !38704 = !{!38699, !38701, !38703}
 !38705 = !{!38706, !38708, !38699, !38701, !38702, !38703}
 !38706 = distinct !{!38706, !38707, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h26b81c9e3cdd641bE: argument 0"}
@@ -191861,11 +191861,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38717 = distinct !{!38717, !38718, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..displayed_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9ee2c2f46cee50acE: argument 0"}
 !38718 = distinct !{!38718, !"_ZN4core3ptr199drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..displayed_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9ee2c2f46cee50acE"}
 !38719 = !{!38720, !38722, !38723, !38724}
-!38720 = distinct !{!38720, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE: argument 0"}
-!38721 = distinct !{!38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE"}
-!38722 = distinct !{!38722, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE: argument 1"}
-!38723 = distinct !{!38723, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE: argument 2"}
-!38724 = distinct !{!38724, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE: argument 3"}
+!38720 = distinct !{!38720, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom: argument 0"}
+!38721 = distinct !{!38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom"}
+!38722 = distinct !{!38722, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom: argument 1"}
+!38723 = distinct !{!38723, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom: argument 2"}
+!38724 = distinct !{!38724, !38721, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hf27c92115734f2aaE.argprom: argument 3"}
 !38725 = !{!38720, !38722, !38724}
 !38726 = !{!38727, !38729, !38720, !38722, !38723, !38724}
 !38727 = distinct !{!38727, !38728, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hb7ed9b187a351576E: argument 0"}
@@ -191882,11 +191882,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38738 = distinct !{!38738, !38739, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$5_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h73fe0e260b882bb3E: argument 0"}
 !38739 = distinct !{!38739, !"_ZN4core3ptr343drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$5_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h73fe0e260b882bb3E"}
 !38740 = !{!38741, !38743, !38744, !38745}
-!38741 = distinct !{!38741, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E: argument 0"}
-!38742 = distinct !{!38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E"}
-!38743 = distinct !{!38743, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E: argument 1"}
-!38744 = distinct !{!38744, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E: argument 2"}
-!38745 = distinct !{!38745, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E: argument 3"}
+!38741 = distinct !{!38741, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom: argument 0"}
+!38742 = distinct !{!38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom"}
+!38743 = distinct !{!38743, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom: argument 1"}
+!38744 = distinct !{!38744, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom: argument 2"}
+!38745 = distinct !{!38745, !38742, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h67fbf91c504c8680E.argprom: argument 3"}
 !38746 = !{!38741, !38743, !38745}
 !38747 = !{!38748, !38750, !38741, !38743, !38744, !38745}
 !38748 = distinct !{!38748, !38749, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h0568aeb6562e72aaE: argument 0"}
@@ -191903,11 +191903,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38759 = distinct !{!38759, !38760, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..create_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8a9812d94f9beb72E: argument 0"}
 !38760 = distinct !{!38760, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..create_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h8a9812d94f9beb72E"}
 !38761 = !{!38762, !38764, !38765, !38766}
-!38762 = distinct !{!38762, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E: argument 0"}
-!38763 = distinct !{!38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E"}
-!38764 = distinct !{!38764, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E: argument 1"}
-!38765 = distinct !{!38765, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E: argument 2"}
-!38766 = distinct !{!38766, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E: argument 3"}
+!38762 = distinct !{!38762, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom: argument 0"}
+!38763 = distinct !{!38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom"}
+!38764 = distinct !{!38764, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom: argument 1"}
+!38765 = distinct !{!38765, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom: argument 2"}
+!38766 = distinct !{!38766, !38763, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5706b6a909e54153E.argprom: argument 3"}
 !38767 = !{!38762, !38764, !38766}
 !38768 = !{!38769, !38771, !38762, !38764, !38765, !38766}
 !38769 = distinct !{!38769, !38770, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h507368ced7d29d83E: argument 0"}
@@ -191924,11 +191924,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38780 = distinct !{!38780, !38781, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$10_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h16d8e198ceaab48fE: argument 0"}
 !38781 = distinct !{!38781, !"_ZN4core3ptr344drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..extractors..authentication..GuardedData$LT$meilisearch..extractors..authentication..policies..ActionPolicy$LT$10_u8$GT$$C$actix_web..data..Data$LT$index_scheduler..IndexScheduler$GT$$GT$..authenticate..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h16d8e198ceaab48fE"}
 !38782 = !{!38783, !38785, !38786, !38787}
-!38783 = distinct !{!38783, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E: argument 0"}
-!38784 = distinct !{!38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E"}
-!38785 = distinct !{!38785, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E: argument 1"}
-!38786 = distinct !{!38786, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E: argument 2"}
-!38787 = distinct !{!38787, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E: argument 3"}
+!38783 = distinct !{!38783, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom: argument 0"}
+!38784 = distinct !{!38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom"}
+!38785 = distinct !{!38785, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom: argument 1"}
+!38786 = distinct !{!38786, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom: argument 2"}
+!38787 = distinct !{!38787, !38784, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h960e2b9bce1bf487E.argprom: argument 3"}
 !38788 = !{!38783, !38785, !38787}
 !38789 = !{!38790, !38792, !38783, !38785, !38786, !38787}
 !38790 = distinct !{!38790, !38791, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17ha5a3c4cd5436752fE: argument 0"}
@@ -191945,11 +191945,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38801 = distinct !{!38801, !38802, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..dictionary..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha81ee6fe607ee3f3E: argument 0"}
 !38802 = distinct !{!38802, !"_ZN4core3ptr189drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..dictionary..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha81ee6fe607ee3f3E"}
 !38803 = !{!38804, !38806, !38807, !38808}
-!38804 = distinct !{!38804, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E: argument 0"}
-!38805 = distinct !{!38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E"}
-!38806 = distinct !{!38806, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E: argument 1"}
-!38807 = distinct !{!38807, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E: argument 2"}
-!38808 = distinct !{!38808, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E: argument 3"}
+!38804 = distinct !{!38804, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom: argument 0"}
+!38805 = distinct !{!38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom"}
+!38806 = distinct !{!38806, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom: argument 1"}
+!38807 = distinct !{!38807, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom: argument 2"}
+!38808 = distinct !{!38808, !38805, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcbec3d96661bcc23E.argprom: argument 3"}
 !38809 = !{!38804, !38806, !38808}
 !38810 = !{!38811, !38813, !38804, !38806, !38807, !38808}
 !38811 = distinct !{!38811, !38812, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hdc11ee76b896722bE: argument 0"}
@@ -191966,11 +191966,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38822 = distinct !{!38822, !38823, !"_ZN4core3ptr193drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..typo_tolerance..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb460f02198ae25b1E: argument 0"}
 !38823 = distinct !{!38823, !"_ZN4core3ptr193drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..typo_tolerance..update..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hb460f02198ae25b1E"}
 !38824 = !{!38825, !38827, !38828, !38829}
-!38825 = distinct !{!38825, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E: argument 0"}
-!38826 = distinct !{!38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E"}
-!38827 = distinct !{!38827, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E: argument 1"}
-!38828 = distinct !{!38828, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E: argument 2"}
-!38829 = distinct !{!38829, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E: argument 3"}
+!38825 = distinct !{!38825, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom: argument 0"}
+!38826 = distinct !{!38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom"}
+!38827 = distinct !{!38827, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom: argument 1"}
+!38828 = distinct !{!38828, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom: argument 2"}
+!38829 = distinct !{!38829, !38826, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h5ae314e9d06e15e0E.argprom: argument 3"}
 !38830 = !{!38825, !38827, !38829}
 !38831 = !{!38832, !38834, !38825, !38827, !38828, !38829}
 !38832 = distinct !{!38832, !38833, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hf37c81fcd22f5b9cE: argument 0"}
@@ -191987,11 +191987,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38843 = distinct !{!38843, !38844, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..searchable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1fa6f5dc02c1ab59E: argument 0"}
 !38844 = distinct !{!38844, !"_ZN4core3ptr200drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..searchable_attributes..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1fa6f5dc02c1ab59E"}
 !38845 = !{!38846, !38848, !38849, !38850}
-!38846 = distinct !{!38846, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E: argument 0"}
-!38847 = distinct !{!38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E"}
-!38848 = distinct !{!38848, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E: argument 1"}
-!38849 = distinct !{!38849, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E: argument 2"}
-!38850 = distinct !{!38850, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E: argument 3"}
+!38846 = distinct !{!38846, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom: argument 0"}
+!38847 = distinct !{!38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom"}
+!38848 = distinct !{!38848, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom: argument 1"}
+!38849 = distinct !{!38849, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom: argument 2"}
+!38850 = distinct !{!38850, !38847, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h366537a58d03cf36E.argprom: argument 3"}
 !38851 = !{!38846, !38848, !38850}
 !38852 = !{!38853, !38855, !38846, !38848, !38849, !38850}
 !38853 = distinct !{!38853, !38854, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h77094236e37c0eebE: argument 0"}
@@ -192008,11 +192008,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38864 = distinct !{!38864, !38865, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..update_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfb9fc43f65088db7E: argument 0"}
 !38865 = distinct !{!38865, !"_ZN4core3ptr173drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..update_index..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hfb9fc43f65088db7E"}
 !38866 = !{!38867, !38869, !38870, !38871}
-!38867 = distinct !{!38867, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E: argument 0"}
-!38868 = distinct !{!38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E"}
-!38869 = distinct !{!38869, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E: argument 1"}
-!38870 = distinct !{!38870, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E: argument 2"}
-!38871 = distinct !{!38871, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E: argument 3"}
+!38867 = distinct !{!38867, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom: argument 0"}
+!38868 = distinct !{!38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom"}
+!38869 = distinct !{!38869, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom: argument 1"}
+!38870 = distinct !{!38870, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom: argument 2"}
+!38871 = distinct !{!38871, !38868, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hcb4aadb35f398b49E.argprom: argument 3"}
 !38872 = !{!38867, !38869, !38871}
 !38873 = !{!38874, !38876, !38867, !38869, !38870, !38871}
 !38874 = distinct !{!38874, !38875, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17hc747d9b480d41d03E: argument 0"}
@@ -192029,11 +192029,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38885 = distinct !{!38885, !38886, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..proximity_precision..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h938a4b85b1e2e2f2E: argument 0"}
 !38886 = distinct !{!38886, !"_ZN4core3ptr198drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..indexes..settings..proximity_precision..delete..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h938a4b85b1e2e2f2E"}
 !38887 = !{!38888, !38890, !38891, !38892}
-!38888 = distinct !{!38888, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E: argument 0"}
-!38889 = distinct !{!38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E"}
-!38890 = distinct !{!38890, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E: argument 1"}
-!38891 = distinct !{!38891, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E: argument 2"}
-!38892 = distinct !{!38892, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E: argument 3"}
+!38888 = distinct !{!38888, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom: argument 0"}
+!38889 = distinct !{!38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom"}
+!38890 = distinct !{!38890, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom: argument 1"}
+!38891 = distinct !{!38891, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom: argument 2"}
+!38892 = distinct !{!38892, !38889, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17hc1387a0c9e4bceb4E.argprom: argument 3"}
 !38893 = !{!38888, !38890, !38892}
 !38894 = !{!38895, !38897, !38888, !38890, !38891, !38892}
 !38895 = distinct !{!38895, !38896, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h78e0d37268520288E: argument 0"}
@@ -192050,11 +192050,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38906 = distinct !{!38906, !38907, !"_ZN4core3ptr175drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..create_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he2c629162954a8aeE: argument 0"}
 !38907 = distinct !{!38907, !"_ZN4core3ptr175drop_in_place$LT$tokio..runtime..blocking..task..BlockingTask$LT$meilisearch..routes..api_key..create_api_key..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he2c629162954a8aeE"}
 !38908 = !{!38909, !38911, !38912, !38913}
-!38909 = distinct !{!38909, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE: argument 0"}
-!38910 = distinct !{!38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE"}
-!38911 = distinct !{!38911, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE: argument 1"}
-!38912 = distinct !{!38912, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE: argument 2"}
-!38913 = distinct !{!38913, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE: argument 3"}
+!38909 = distinct !{!38909, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom: argument 0"}
+!38910 = distinct !{!38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom"}
+!38911 = distinct !{!38911, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom: argument 1"}
+!38912 = distinct !{!38912, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom: argument 2"}
+!38913 = distinct !{!38913, !38910, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h35c479cf4b45fc2eE.argprom: argument 3"}
 !38914 = !{!38909, !38911, !38913}
 !38915 = !{!38916, !38918, !38909, !38911, !38912, !38913}
 !38916 = distinct !{!38916, !38917, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h905c10e397c93852E: argument 0"}
@@ -192066,11 +192066,11 @@ attributes #49 = { "function-inline-cost-multiplier"="2" }
 !38922 = distinct !{!38922, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbb63de532acb38afE.llvm.8666068179502612882"}
 !38923 = !{!38909, !38912}
 !38924 = !{!38925, !38927, !38928, !38929}
-!38925 = distinct !{!38925, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E: argument 0"}
-!38926 = distinct !{!38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E"}
-!38927 = distinct !{!38927, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E: argument 1"}
-!38928 = distinct !{!38928, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E: argument 2"}
-!38929 = distinct !{!38929, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E: argument 3"}
+!38925 = distinct !{!38925, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom: argument 0"}
+!38926 = distinct !{!38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom"}
+!38927 = distinct !{!38927, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom: argument 1"}
+!38928 = distinct !{!38928, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom: argument 2"}
+!38929 = distinct !{!38929, !38926, !"_ZN5tokio7runtime8blocking4pool7Spawner20spawn_blocking_inner17h0136e45b4e9cf1c1E.argprom: argument 3"}
 !38930 = !{!38925, !38927, !38929}
 !38931 = !{!38932, !38934, !38925, !38927, !38928, !38929}
 !38932 = distinct !{!38932, !38933, !"_ZN5tokio7runtime4task4core17Cell$LT$T$C$S$GT$3new17h8055394b44463acbE: argument 0"}

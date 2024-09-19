@@ -142,7 +142,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
   %or.cond = select i1 %.not38, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph, label %.critedge.thread
 
-23:                                               ; preds = %readFieldValue.exit
+23:                                               ; preds = %readFieldValue.argprom.exit
   %24 = add nuw nsw i32 %.03151, 1
   %exitcond.not = icmp eq i32 %24, %8
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !6
@@ -276,7 +276,7 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %35,
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 2
   %.not200.i = icmp eq i32 %60, 0
-  br i1 %.not200.i, label %readFieldValue.exit, label %.sink.split.i
+  br i1 %.not200.i, label %readFieldValue.argprom.exit, label %.sink.split.i
 
 61:                                               ; preds = %isReferenceTag.exit.i
   %62 = call signext i8 @inStream_readByte(ptr noundef %0) #3
@@ -452,15 +452,15 @@ isReferenceTag.exit.i:                            ; preds = %switch.lookup, %35,
   %152 = load i32, ptr %151, align 8
   %153 = and i32 %152, 2
   %.not195.i = icmp eq i32 %153, 0
-  br i1 %.not195.i, label %readFieldValue.exit, label %.sink.split.i
+  br i1 %.not195.i, label %readFieldValue.argprom.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %149, %53
   %.sink.i = phi i32 [ 79, %53 ], [ 126, %149 ]
   call void @log_message_begin(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %.sink.i) #3
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.17) #3
-  br label %readFieldValue.exit
+  br label %readFieldValue.argprom.exit
 
-readFieldValue.exit:                              ; preds = %53, %149, %.sink.split.i
+readFieldValue.argprom.exit:                      ; preds = %53, %149, %.sink.split.i
   %154 = load ptr, ptr %4, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 120
   %156 = load ptr, ptr %155, align 8
@@ -470,8 +470,8 @@ readFieldValue.exit:                              ; preds = %53, %149, %.sink.sp
   call void @jvmtiDeallocate(ptr noundef %158) #3
   br i1 %.not196.i, label %23, label %.critedge.thread47
 
-.critedge.thread47:                               ; preds = %readFieldValue.exit, %29
-  %.03250 = phi i32 [ %30, %29 ], [ 184, %readFieldValue.exit ]
+.critedge.thread47:                               ; preds = %readFieldValue.argprom.exit, %29
+  %.03250 = phi i32 [ %30, %29 ], [ 184, %readFieldValue.argprom.exit ]
   %159 = call zeroext i16 @map2jdwpError(i32 noundef %.03250) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %159) #3
   br label %.critedge.thread

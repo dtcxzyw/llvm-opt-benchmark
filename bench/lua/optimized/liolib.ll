@@ -182,7 +182,7 @@ getiofile.exit:                                   ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @io_input(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @g_iofile(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19)
+  tail call fastcc void @g_iofile.retelim(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @.str.19)
   ret i32 1
 }
 
@@ -308,7 +308,7 @@ cond.end:                                         ; preds = %lor.end, %cond.true
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @io_output(ptr noundef %L) #0 {
 entry:
-  tail call fastcc void @g_iofile(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.34)
+  tail call fastcc void @g_iofile.retelim(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.34)
   ret i32 1
 }
 
@@ -481,7 +481,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @lua_touserdata(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @g_iofile(ptr noundef %L, ptr noundef %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
+define internal fastcc void @g_iofile.retelim(ptr noundef %L, ptr noundef %f, ptr nocapture noundef readonly %mode) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef 1) #10
   %cmp = icmp slt i32 %call, 1

@@ -567,7 +567,7 @@ _ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperC2ESt8weak_pt
   store ptr %frontend_.val, ptr %frontend_.i.i.i.i, align 8, !noalias !17
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i, align 8, !noalias !17
-  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
+  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i
 
 if.then.i.i.i3.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i25
   %24 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i11, i32 1 acq_rel, align 4, !noalias !17
@@ -592,30 +592,30 @@ if.else.i.i.i.i.i8.i.i.i:                         ; preds = %if.then.i.i.i3.i.i.
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i13: ; preds = %if.else.i.i.i.i.i8.i.i.i, %if.then.i.i.i.i.i5.i.i.i
   %retval.i.0.i.i.i.i.i.i.i14 = phi i32 [ %26, %if.then.i.i.i.i.i5.i.i.i ], [ %27, %if.else.i.i.i.i.i8.i.i.i ]
   %cmp.i.i.i.i.i.i.i15 = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i14, 1
-  br i1 %cmp.i.i.i.i.i.i.i15, label %if.then.i.i.i.i7.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
+  br i1 %cmp.i.i.i.i.i.i.i15, label %if.then.i.i.i.i7.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i
 
 if.then.i.i.i.i7.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i13
   %vtable.i.i.i.i.i.i.i23 = load ptr, ptr %frontend_.val2, align 8, !noalias !17
   %vfn.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i23, i64 24
   %28 = load ptr, ptr %vfn.i.i.i.i.i.i.i24, align 8, !noalias !17
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %frontend_.val2) #13, !noalias !17
-  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
+  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i
 
-_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i: ; preds = %if.then.i.i.i.i7.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i13, %_ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperC2ESt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i.i.i
+_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i: ; preds = %if.then.i.i.i.i7.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i13, %_ZN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperC2ESt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i.i.i
   %29 = load ptr, ptr %frontend_wrapper_.i.i, align 8, !noalias !14
   store ptr %call.i.i.i, ptr %frontend_wrapper_.i.i, align 8, !noalias !14
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i.i.i.i.i: ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
+_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i.i.i.i.i: ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i
   %vtable.i.i.i.i.i2.i.i = load ptr, ptr %29, align 8, !noalias !14
   %vfn.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i2.i.i, i64 8
   %30 = load ptr, ptr %vfn.i.i.i.i.i3.i.i, align 8, !noalias !14
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(24) %29) #13, !noalias !14
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i
 
-_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i.i.i.i.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i
-  br i1 %cmp.not.i.i.i.i6, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %if.then.i.i.i4.i
+_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i.i.i.i.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit.i.i
+  br i1 %cmp.not.i.i.i.i6, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %if.then.i.i.i4.i
 
 if.then.i.i.i4.i:                                 ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i
   %_M_weak_count.i.i.i.i5.i = getelementptr inbounds i8, ptr %frontend_.val2, i64 12
@@ -636,30 +636,30 @@ if.else.i.i.i.i.i8.i:                             ; preds = %if.then.i.i.i4.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i17: ; preds = %if.else.i.i.i.i.i8.i, %if.then.i.i.i.i.i6.i
   %retval.i.0.i.i.i.i.i18 = phi i32 [ %32, %if.then.i.i.i.i.i6.i ], [ %33, %if.else.i.i.i.i.i8.i ]
   %cmp.i.i.i.i.i19 = icmp eq i32 %retval.i.0.i.i.i.i.i18, 1
-  br i1 %cmp.i.i.i.i.i19, label %if.then.i.i.i.i.i20, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  br i1 %cmp.i.i.i.i.i19, label %if.then.i.i.i.i.i20, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
 
 if.then.i.i.i.i.i20:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i17
   %vtable.i.i.i.i.i21 = load ptr, ptr %frontend_.val2, align 8, !noalias !14
   %vfn.i.i.i.i.i22 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i21, i64 24
   %34 = load ptr, ptr %vfn.i.i.i.i.i22, align 8, !noalias !14
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(16) %frontend_.val2) #13, !noalias !14
-  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
 
-_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i17, %if.then.i.i.i.i.i20
+_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestC2EiSt8weak_ptrINS1_11NodeTracing8FrontendEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i17, %if.then.i.i.i.i.i20
   store ptr %call.i, ptr %agg.tmp, align 8
   %call11 = call noundef zeroext i1 @_ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull %agg.tmp) #13
   %35 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %35, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i: ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i: ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
   %vtable.i.i = load ptr, ptr %35, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %36 = load ptr, ptr %vfn.i.i, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %35) #13
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestESt14default_deleteIS4_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
   store ptr null, ptr %agg.tmp, align 8
   call void @_ZN4node9inspector8protocol11NodeTracing10Dispatcher4wireEPNS1_14UberDispatcherEPNS2_7BackendE(ptr noundef nonnull %dispatcher, ptr noundef nonnull %this) #13
   ret void
@@ -806,7 +806,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i: ; preds =
   store ptr %main_thread_.val, ptr %main_thread_.i.i, align 8, !noalias !22
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 408
   store ptr %main_thread_.val5, ptr %_M_refcount.i.i.i.i, align 8, !noalias !22
-  br i1 %cmp.not.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %if.then.i.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %main_thread_.val5, i64 8
@@ -857,7 +857,7 @@ if.else.i.i.i.i.i7.i:                             ; preds = %if.end.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i7.i, %if.then.i.i.i.i.i5.i
   %retval.i.0.i.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i5.i ], [ %24, %if.else.i.i.i.i.i7.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %main_thread_.val5, align 8, !noalias !22
@@ -882,29 +882,29 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i8.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %main_thread_.val5, align 8, !noalias !22
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8, !noalias !22
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %main_thread_.val5) #13, !noalias !22
-  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  br label %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
 
-_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
+_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   store ptr %call.i13, ptr %agg.tmp, align 8
   call void @_ZN4node7tracing5Agent9AddClientERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESt10unique_ptrINS0_16AsyncTraceWriterESt14default_deleteISG_EENS1_22UseDefaultCategoryModeE(ptr nonnull sret(%"class.node::tracing::AgentWriterHandle") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(1312) %12, ptr noundef nonnull align 8 dereferenceable(48) %categories_set, ptr noundef nonnull %agg.tmp, i32 noundef 1) #13
   %30 = load ptr, ptr %trace_writer_, align 8
   %cmp.not.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i, label %_ZN4node7tracing17AgentWriterHandleD2Ev.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+if.then.i.i:                                      ; preds = %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %31 = load i32, ptr %id_.i.i, align 8
   call void @_ZN4node7tracing5Agent10DisconnectEi(ptr noundef nonnull align 8 dereferenceable(1312) %30, i32 noundef %31) #13
   br label %_ZN4node7tracing17AgentWriterHandleD2Ev.exit
 
-_ZN4node7tracing17AgentWriterHandleD2Ev.exit:     ; preds = %if.then.i.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+_ZN4node7tracing17AgentWriterHandleD2Ev.exit:     ; preds = %if.then.i.i, %_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom.exit
   %32 = load ptr, ptr %ref.tmp21, align 8
   store ptr %32, ptr %trace_writer_, align 8
   %id_.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
@@ -1712,16 +1712,16 @@ entry:
   %frontend_wrapper_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %frontend_wrapper_, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i
+  br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i: ; preds = %entry
+_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i
+_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i
   store ptr null, ptr %frontend_wrapper_, align 8
   ret void
 }
@@ -1733,16 +1733,16 @@ entry:
   %frontend_wrapper_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %frontend_wrapper_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestD2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i
+  br i1 %cmp.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestD2Ev.exit, label %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i
 
-_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i: ; preds = %entry
+_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #13
   br label %_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestD2Ev.exit
 
-_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.exit.i.i
+_ZN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestD2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEEclEPS4_.argprom.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
 }
@@ -2530,8 +2530,8 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!6 = distinct !{!6, !7, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!7 = distinct !{!7, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestEJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !8 = !{!9, !11}
 !9 = distinct !{!9, !10, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_: %agg.result"}
 !10 = distinct !{!10, !"_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_"}
@@ -2539,16 +2539,16 @@ attributes #17 = { noreturn nounwind }
 !12 = distinct !{!12, !"_ZSt11make_sharedIN4node9inspector8protocol11NodeTracing8FrontendEJPNS2_15FrontendChannelEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !13 = !{!11}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!16 = distinct !{!16, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!15 = distinct !{!15, !16, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!16 = distinct !{!16, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestEJRiRSt10shared_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !17 = !{!18, !15}
-!18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!19 = distinct !{!19, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!18 = distinct !{!18, !19, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!19 = distinct !{!19, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperEJRSt8weak_ptrINS2_11NodeTracing8FrontendEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
 !22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!24 = distinct !{!24, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!23 = distinct !{!23, !24, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!24 = distinct !{!24, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterEJRiRSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !25 = !{!26}
 !26 = distinct !{!26, !27, !"_ZN4node9inspector8protocol9ArrayBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6createEv: %agg.result"}
 !27 = distinct !{!27, !"_ZN4node9inspector8protocol9ArrayBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6createEv"}
@@ -2556,8 +2556,8 @@ attributes #17 = { noreturn nounwind }
 !29 = distinct !{!29, !21}
 !30 = distinct !{!30, !21}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestEJRiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!33 = distinct !{!33, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestEJRiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!32 = distinct !{!32, !33, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestEJRiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom: %agg.result"}
+!33 = distinct !{!33, !"_ZSt11make_uniqueIN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestEJRiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.argprom"}
 !34 = !{!35}
 !35 = distinct !{!35, !36, !"_ZNKSt8weak_ptrIN4node9inspector8protocol11NodeTracing8FrontendEE4lockEv: %agg.result"}
 !36 = distinct !{!36, !"_ZNKSt8weak_ptrIN4node9inspector8protocol11NodeTracing8FrontendEE4lockEv"}

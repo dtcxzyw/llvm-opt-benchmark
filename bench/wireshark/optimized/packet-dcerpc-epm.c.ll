@@ -467,7 +467,7 @@ define internal i32 @epm_dissect_tower(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i8 16, ptr %7, align 1
   %.not.i = icmp eq i32 %.val, 0
-  br i1 %.not.i, label %19, label %epm_dissect_tower_data.exit
+  br i1 %.not.i, label %19, label %epm_dissect_tower_data.argprom.exit
 
 19:                                               ; preds = %14
   %20 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %18) #5
@@ -476,7 +476,7 @@ define internal i32 @epm_dissect_tower(ptr noundef %0, i32 noundef %1, ptr nound
   %23 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef %22) #5
   %24 = add i32 %18, 2
   %.not4.i = icmp eq i16 %20, 0
-  br i1 %.not4.i, label %epm_dissect_tower_data.exit, label %.lr.ph.i
+  br i1 %.not4.i, label %epm_dissect_tower_data.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19
   %25 = getelementptr inbounds i8, ptr %2, i64 408
@@ -709,9 +709,9 @@ define internal i32 @epm_dissect_tower(ptr noundef %0, i32 noundef %1, ptr nound
   %180 = sub i32 %178, %.01332.i
   call void @proto_item_set_len(ptr noundef %179, i32 noundef %180) #5
   %exitcond.not.i = icmp eq i32 %39, %22
-  br i1 %exitcond.not.i, label %epm_dissect_tower_data.exit, label %37, !llvm.loop !4
+  br i1 %exitcond.not.i, label %epm_dissect_tower_data.argprom.exit, label %37, !llvm.loop !4
 
-epm_dissect_tower_data.exit:                      ; preds = %175, %14, %19
+epm_dissect_tower_data.argprom.exit:              ; preds = %175, %14, %19
   %.0.i = phi i32 [ %18, %14 ], [ %24, %19 ], [ %178, %175 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -719,8 +719,8 @@ epm_dissect_tower_data.exit:                      ; preds = %175, %14, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %181
 
-181:                                              ; preds = %6, %epm_dissect_tower_data.exit
-  %.0 = phi i32 [ %.0.i, %epm_dissect_tower_data.exit ], [ %1, %6 ]
+181:                                              ; preds = %6, %epm_dissect_tower_data.argprom.exit
+  %.0 = phi i32 [ %.0.i, %epm_dissect_tower_data.argprom.exit ], [ %1, %6 ]
   ret i32 %.0
 }
 

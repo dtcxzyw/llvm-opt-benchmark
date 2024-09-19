@@ -3180,7 +3180,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115ScheduleDAGFast19ReleasePredeces
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne ptr %8, %16
   %or.cond.i = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond.i, label %22, label %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit
+  br i1 %or.cond.i, label %22, label %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 248
@@ -3205,9 +3205,9 @@ _ZN12_GLOBAL__N_117FastPriorityQueue4pushEPN4llvm5SUnitE.exit.i: ; preds = %29, 
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %34 = add i64 %33, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %34) #18
-  br label %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit
+  br label %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
 
-_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit: ; preds = %14, %_ZN12_GLOBAL__N_117FastPriorityQueue4pushEPN4llvm5SUnitE.exit.i
+_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit: ; preds = %14, %_ZN12_GLOBAL__N_117FastPriorityQueue4pushEPN4llvm5SUnitE.exit.i
   %.0.copyload.i.i.i.i.i = load i64, ptr %.017, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i, 6
   %36 = icmp eq i64 %35, 0
@@ -3217,7 +3217,7 @@ _ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit: 
   %40 = select i1 %36, i1 %39, i1 false
   br i1 %40, label %41, label %58
 
-41:                                               ; preds = %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit
+41:                                               ; preds = %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit
   %42 = zext i32 %38 to i64
   %43 = load ptr, ptr %11, align 8
   %44 = getelementptr inbounds ptr, ptr %43, i64 %42
@@ -3243,7 +3243,7 @@ _ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit: 
   store i32 %2, ptr %57, align 4
   br label %58
 
-58:                                               ; preds = %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.exit, %46, %41
+58:                                               ; preds = %_ZN12_GLOBAL__N_115ScheduleDAGFast11ReleasePredEPN4llvm5SUnitEPNS1_4SDepE.argprom.exit, %46, %41
   %59 = getelementptr inbounds i8, ptr %.017, i64 16
   %.not = icmp eq ptr %59, %7
   br i1 %.not, label %._crit_edge, label %14

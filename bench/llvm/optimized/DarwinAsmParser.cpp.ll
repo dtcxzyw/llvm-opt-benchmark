@@ -687,7 +687,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %17, align 8
   %19 = load ptr, ptr %10, align 8
   %20 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %19, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 21:                                               ; preds = %4
   %22 = load ptr, ptr %10, align 8
@@ -735,7 +735,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i:     ; preds = %_ZNK4llvm8MCSymbol9
   store i8 3, ptr %43, align 8
   %45 = load ptr, ptr %10, align 8
   %46 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %45, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread2.i:    ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.i, %35
   %47 = load ptr, ptr %10, align 8
@@ -757,7 +757,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread2.i:    ; preds = %_ZNK4llvm8MCSymbol9
   store i8 3, ptr %57, align 8
   %59 = load ptr, ptr %10, align 8
   %60 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 61:                                               ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread2.i
   %62 = load ptr, ptr %10, align 8
@@ -765,9 +765,9 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread2.i:    ; preds = %_ZNK4llvm8MCSymbol9
   %64 = getelementptr inbounds i8, ptr %63, i64 184
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef nonnull align 8 dereferenceable(40) ptr %65(ptr noundef nonnull align 8 dereferenceable(34) %62) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %16, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i, %56, %61
+_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveAltEntryEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %16, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i, %56, %61
   %.0.i = phi i1 [ %20, %16 ], [ %46, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i ], [ false, %61 ], [ %60, %56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -850,7 +850,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %18, align 8
   %20 = load ptr, ptr %11, align 8
   %21 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr %11, align 8
@@ -888,7 +888,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %44, align 8
   %46 = load ptr, ptr %11, align 8
   %47 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %46, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 48:                                               ; preds = %22
   %49 = load ptr, ptr %11, align 8
@@ -901,7 +901,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %56 = getelementptr inbounds i8, ptr %55, i64 256
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  br i1 %58, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit, label %59
+  br i1 %58, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %59
 
 59:                                               ; preds = %48
   %60 = load ptr, ptr %11, align 8
@@ -923,7 +923,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %69, align 8
   %71 = load ptr, ptr %11, align 8
   %72 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %71, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 73:                                               ; preds = %59
   %74 = load ptr, ptr %11, align 8
@@ -942,9 +942,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %87 = getelementptr inbounds i8, ptr %86, i64 304
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(288) %83, ptr noundef %34, i32 noundef %85) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %17, %43, %48, %68, %73
+_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveDescEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %17, %43, %48, %68, %73
   %.0.i = phi i1 [ %21, %17 ], [ %47, %43 ], [ %72, %68 ], [ false, %73 ], [ true, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -999,7 +999,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %25, align 8
   %27 = load ptr, ptr %12, align 8
   %28 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 29:                                               ; preds = %4, %4, %4, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1018,7 +1018,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %36, align 8
   %38 = load ptr, ptr %12, align 8
   %39 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 40:                                               ; preds = %29
   %41 = load ptr, ptr %12, align 8
@@ -1051,7 +1051,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %57, align 8
   %59 = load ptr, ptr %12, align 8
   %60 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 61:                                               ; preds = %40
   %62 = load ptr, ptr %12, align 8
@@ -1080,7 +1080,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i64 %76, ptr %77, align 8, !alias.scope !4
   %78 = load ptr, ptr %12, align 8
   %79 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %78, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 80:                                               ; preds = %61
   %81 = load ptr, ptr %12, align 8
@@ -1102,7 +1102,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %90, align 8
   %92 = load ptr, ptr %12, align 8
   %93 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %92, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 94:                                               ; preds = %80
   %95 = load ptr, ptr %12, align 8
@@ -1110,9 +1110,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %97 = getelementptr inbounds i8, ptr %96, i64 184
   %98 = load ptr, ptr %97, align 8
   %99 = call noundef nonnull align 8 dereferenceable(40) ptr %98(ptr noundef nonnull align 8 dereferenceable(34) %95) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %24, %35, %56, %71, %89, %94
+_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveIndirectSymbolEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %24, %35, %56, %71, %89, %94
   %.0.i = phi i1 [ %28, %24 ], [ %39, %35 ], [ %60, %56 ], [ %93, %89 ], [ false, %94 ], [ %79, %71 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -1201,7 +1201,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %50 = call noundef nonnull align 8 dereferenceable(40) ptr %49(ptr noundef nonnull align 8 dereferenceable(34) %46) #15
   %51 = load ptr, ptr %12, align 8
   %52 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser15parseExpressionERPKNS_6MCExprE(ptr noundef nonnull align 8 dereferenceable(34) %51, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  br i1 %52, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.exit, label %53
+  br i1 %52, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %53
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %12, align 8
@@ -1240,9 +1240,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %.sink.i, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %73, ptr noundef nonnull align 8 dereferenceable(34) %.sink2.i, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %45, %.sink.split.i
+_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveLsymEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %45, %.sink.split.i
   %.0.i = phi i1 [ true, %45 ], [ %74, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -1280,7 +1280,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -1297,9 +1297,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %32 = getelementptr inbounds i8, ptr %31, i64 216
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(288) %30, i32 noundef 1) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser35parseDirectiveSubsectionsViaSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i
@@ -1419,12 +1419,12 @@ _ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDumpOrLoadEN4llvm9StringRefENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_21parseDirectiveSectionES5_S6_EEEEbPS0_S5_S6_(ptr nocapture noundef nonnull readonly %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #0 align 2 {
-  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %5 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE.argprom.argelim(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE.argprom.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -1945,8 +1945,8 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %20, %_ZNK4llvm10MCS
   store i32 %.sroa.3.0.i8.i.i, ptr %.sroa.2.0..sroa_idx12.i.i, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIS1_IPNS_9MCSectionEjES4_ELb1EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %26 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE(ptr noundef nonnull readonly align 8 dereferenceable(32) %0)
-  br i1 %26, label %27, label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit
+  %26 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser21parseDirectiveSectionEN4llvm9StringRefENS1_5SMLocE.argprom.argelim(ptr noundef nonnull readonly align 8 dereferenceable(32) %0)
+  br i1 %26, label %27, label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 27:                                               ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i
   %28 = load ptr, ptr %6, align 8
@@ -1955,9 +1955,9 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %20, %_ZNK4llvm10MCS
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef nonnull align 8 dereferenceable(288) ptr %31(ptr noundef nonnull align 8 dereferenceable(34) %28) #15
   %33 = call noundef zeroext i1 @_ZN4llvm10MCStreamer10popSectionEv(ptr noundef nonnull align 8 dereferenceable(288) %32) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, %27
+_ZN12_GLOBAL__N_115DarwinAsmParser25parseDirectivePushSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, %27
   ret i1 %26
 }
 
@@ -2030,7 +2030,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(288) ptr %10(ptr noundef nonnull align 8 dereferenceable(34) %7) #15
   %12 = tail call noundef zeroext i1 @_ZN4llvm10MCStreamer10popSectionEv(ptr noundef nonnull align 8 dereferenceable(288) %11) #15
-  br i1 %12, label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.exit, label %13
+  br i1 %12, label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2040,9 +2040,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %14, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %4, %13
+_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectivePopSectionEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %4, %13
   %.0.i = phi i1 [ %17, %13 ], [ false, %4 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i
@@ -2079,7 +2079,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.thread.i: ; preds = %_ZNK4llvm1
   store i8 3, ptr %18, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 22:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %16, i64 -8
@@ -2093,9 +2093,9 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.thread.i: ; preds = %_ZNK4llvm1
   %29 = getelementptr inbounds i8, ptr %28, i64 168
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(288) %27, ptr noundef nonnull %.sroa.0.0.copyload.i.i, i32 noundef %.sroa.3.0.copyload.i.i) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.thread.i, %22
+_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectivePreviousEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.thread.i, %22
   %.0.i = phi i1 [ false, %22 ], [ %21, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i
@@ -2150,7 +2150,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %32, align 8
   %34 = load ptr, ptr %15, align 8
   %35 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 36:                                               ; preds = %4
   %37 = load ptr, ptr %15, align 8
@@ -2171,7 +2171,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %46, align 8
   %48 = load ptr, ptr %15, align 8
   %49 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %48, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 50:                                               ; preds = %36
   %51 = load ptr, ptr %15, align 8
@@ -2193,7 +2193,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %61, align 8
   %63 = load ptr, ptr %15, align 8
   %64 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %63, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 65:                                               ; preds = %50
   %66 = load ptr, ptr %15, align 8
@@ -2279,7 +2279,7 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.i: 
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(96) %76) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.thread.i: ; preds = %_ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i.i.i.i.i.i, %78, %65
   %.013.i = phi ptr [ %72, %65 ], [ %76, %78 ], [ %76, %_ZNKSt14default_deleteIN4llvm14raw_fd_ostreamEEclEPS1_.exit.i.i.i.i.i.i ]
@@ -2399,9 +2399,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit70.i:             ; preds = %171, %169
   %182 = call noundef nonnull align 8 dereferenceable(2432) ptr %181(ptr noundef nonnull align 8 dereferenceable(34) %178) #15
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 1504
   store i8 1, ptr %183, align 8
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %31, %45, %60, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.i, %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
+_ZN12_GLOBAL__N_115DarwinAsmParser29parseDirectiveSecureLogUniqueEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %31, %45, %60, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.i, %_ZN4llvm11raw_ostreamlsEPKc.exit70.i
   %.0.i = phi i1 [ %35, %31 ], [ %49, %45 ], [ %64, %60 ], [ false, %_ZN4llvm11raw_ostreamlsEPKc.exit70.i ], [ %106, %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -2455,7 +2455,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -2470,9 +2470,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %30 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %29(ptr noundef nonnull align 8 dereferenceable(34) %26) #15
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1504
   store i8 0, ptr %31, align 8
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser28parseDirectiveSecureLogResetEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i
@@ -2523,7 +2523,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %28, align 8
   %30 = load ptr, ptr %15, align 8
   %31 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %15, align 8
@@ -2561,7 +2561,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %54, align 8
   %56 = load ptr, ptr %15, align 8
   %57 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %56, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 58:                                               ; preds = %32
   %59 = load ptr, ptr %15, align 8
@@ -2580,7 +2580,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %72 = getelementptr inbounds i8, ptr %71, i64 256
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(34) %70, ptr noundef nonnull align 8 dereferenceable(8) %9) #15
-  br i1 %74, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit, label %75
+  br i1 %74, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %75
 
 75:                                               ; preds = %58
   store i64 0, ptr %10, align 8
@@ -2612,7 +2612,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %99 = getelementptr inbounds i8, ptr %98, i64 256
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(34) %97, ptr noundef nonnull align 8 dereferenceable(8) %10) #15
-  br i1 %101, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit, label %102
+  br i1 %101, label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %102
 
 102:                                              ; preds = %85, %75
   %.sroa.015.0.i = phi ptr [ %96, %85 ], [ null, %75 ]
@@ -2635,7 +2635,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %112, align 8
   %114 = load ptr, ptr %15, align 8
   %115 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %114, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 116:                                              ; preds = %102
   %117 = load ptr, ptr %15, align 8
@@ -2655,7 +2655,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %125, align 8
   %127 = load ptr, ptr %15, align 8
   %128 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %127, ptr %69, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 129:                                              ; preds = %116
   %130 = load i64, ptr %10, align 8
@@ -2670,7 +2670,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %133, align 8
   %135 = load ptr, ptr %15, align 8
   %136 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %135, ptr %.sroa.015.0.i, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 137:                                              ; preds = %129
   %138 = call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb(ptr noundef nonnull align 8 dereferenceable(32) %44, i1 noundef zeroext true)
@@ -2684,7 +2684,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %140, align 8
   %142 = load ptr, ptr %15, align 8
   %143 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %142, ptr %21, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 144:                                              ; preds = %137
   %145 = load ptr, ptr %15, align 8
@@ -2705,9 +2705,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %160 = getelementptr inbounds i8, ptr %159, i64 488
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull align 8 dereferenceable(288) %149, ptr noundef %155, ptr noundef nonnull %44, i64 noundef %156, i8 %158) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %27, %53, %58, %85, %111, %124, %132, %139, %144
+_ZN12_GLOBAL__N_115DarwinAsmParser18parseDirectiveTBSSEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %27, %53, %58, %85, %111, %124, %132, %139, %144
   %.0.i = phi i1 [ %31, %27 ], [ %57, %53 ], [ %115, %111 ], [ %128, %124 ], [ %136, %132 ], [ false, %144 ], [ %143, %139 ], [ true, %58 ], [ true, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -2776,7 +2776,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %28, align 8
   %30 = load ptr, ptr %21, align 8
   %31 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %30, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %21, align 8
@@ -2798,7 +2798,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %42, align 8
   %44 = load ptr, ptr %21, align 8
   %45 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 46:                                               ; preds = %32
   %47 = load ptr, ptr %21, align 8
@@ -2828,7 +2828,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %64, align 8
   %66 = load ptr, ptr %21, align 8
   %67 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %66, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 68:                                               ; preds = %46
   %69 = load ptr, ptr %21, align 8
@@ -2864,7 +2864,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %91 = getelementptr inbounds i8, ptr %90, i64 480
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(288) %83, ptr noundef %89, ptr noundef null, i64 noundef 0, i8 0, ptr %57) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 93:                                               ; preds = %68
   %94 = getelementptr inbounds i8, ptr %79, i64 40
@@ -2884,7 +2884,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %101, align 8
   %103 = load ptr, ptr %21, align 8
   %104 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %103, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 105:                                              ; preds = %93
   %106 = load ptr, ptr %21, align 8
@@ -2914,7 +2914,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %123, align 8
   %125 = load ptr, ptr %21, align 8
   %126 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %125, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 127:                                              ; preds = %105
   %128 = load ptr, ptr %21, align 8
@@ -2952,7 +2952,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %149, align 8
   %151 = load ptr, ptr %21, align 8
   %152 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %151, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 153:                                              ; preds = %127
   %154 = load ptr, ptr %21, align 8
@@ -2971,7 +2971,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %167 = getelementptr inbounds i8, ptr %166, i64 256
   %168 = load ptr, ptr %167, align 8
   %169 = call noundef zeroext i1 %168(ptr noundef nonnull align 8 dereferenceable(34) %165, ptr noundef nonnull align 8 dereferenceable(8) %15) #15
-  br i1 %169, label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit, label %170
+  br i1 %169, label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %170
 
 170:                                              ; preds = %153
   store i64 0, ptr %16, align 8
@@ -3003,7 +3003,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %194 = getelementptr inbounds i8, ptr %193, i64 256
   %195 = load ptr, ptr %194, align 8
   %196 = call noundef zeroext i1 %195(ptr noundef nonnull align 8 dereferenceable(34) %192, ptr noundef nonnull align 8 dereferenceable(8) %16) #15
-  br i1 %196, label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit, label %197
+  br i1 %196, label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %197
 
 197:                                              ; preds = %180, %170
   %.sroa.012.0.i = phi ptr [ %191, %180 ], [ null, %170 ]
@@ -3026,7 +3026,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %207, align 8
   %209 = load ptr, ptr %21, align 8
   %210 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %209, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 211:                                              ; preds = %197
   %212 = load ptr, ptr %21, align 8
@@ -3046,7 +3046,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %220, align 8
   %222 = load ptr, ptr %21, align 8
   %223 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %222, ptr %164, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 224:                                              ; preds = %211
   %225 = load i64, ptr %16, align 8
@@ -3061,7 +3061,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %228, align 8
   %230 = load ptr, ptr %21, align 8
   %231 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %230, ptr %.sroa.012.0.i, ptr noundef nonnull align 8 dereferenceable(34) %19, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 232:                                              ; preds = %224
   %233 = call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isUndefinedEb(ptr noundef nonnull align 8 dereferenceable(32) %139, i1 noundef zeroext true)
@@ -3075,7 +3075,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %235, align 8
   %237 = load ptr, ptr %21, align 8
   %238 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %237, ptr %116, ptr noundef nonnull align 8 dereferenceable(34) %20, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 239:                                              ; preds = %232
   %240 = load ptr, ptr %21, align 8
@@ -3102,9 +3102,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %255 = getelementptr inbounds i8, ptr %254, i64 480
   %256 = load ptr, ptr %255, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(288) %244, ptr noundef %250, ptr noundef nonnull %139, i64 noundef %251, i8 %253, ptr %57) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %27, %41, %63, %80, %100, %122, %148, %153, %180, %206, %219, %227, %234, %239
+_ZN12_GLOBAL__N_115DarwinAsmParser22parseDirectiveZerofillEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %27, %41, %63, %80, %100, %122, %148, %153, %180, %206, %219, %227, %234, %239
   %.0.i = phi i1 [ %31, %27 ], [ %45, %41 ], [ %67, %63 ], [ false, %80 ], [ %104, %100 ], [ %126, %122 ], [ %152, %148 ], [ %210, %206 ], [ %223, %219 ], [ %231, %227 ], [ false, %239 ], [ %238, %234 ], [ true, %153 ], [ true, %180 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -3160,7 +3160,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %30 = getelementptr inbounds i8, ptr %29, i64 232
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(288) %28, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 32:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -3182,7 +3182,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %42, align 8
   %44 = load ptr, ptr %8, align 8
   %45 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr noundef nonnull align 8 dereferenceable(34) %6, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 46:                                               ; preds = %32
   %.sroa.01.0.copyload.i = load ptr, ptr %5, align 8
@@ -3224,7 +3224,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.i: ; preds = %_ZN4ll
   %61 = getelementptr inbounds i8, ptr %60, i64 232
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(288) %59, i32 noundef %.sroa.8.2.i) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.thread.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i20.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %46
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -3234,9 +3234,9 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.thread.i: ; preds = 
   store i8 3, ptr %63, align 8
   %65 = load ptr, ptr %8, align 8
   %66 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %65, ptr %35, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %18, %41, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.i, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.thread.i
+_ZN12_GLOBAL__N_115DarwinAsmParser24parseDirectiveDataRegionEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %18, %41, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.i, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.thread.i
   %.0.i = phi i1 [ false, %18 ], [ %45, %41 ], [ %66, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.thread.i ], [ false, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit23.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
@@ -3272,7 +3272,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3289,9 +3289,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %32 = getelementptr inbounds i8, ptr %31, i64 232
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(288) %30, i32 noundef 4) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser27parseDirectiveDataRegionEndEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i
@@ -3321,7 +3321,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3344,9 +3344,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3448,7 +3448,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3471,9 +3471,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3503,7 +3503,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3526,9 +3526,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveConstDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3558,7 +3558,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3581,9 +3581,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveConstructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3613,7 +3613,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3636,9 +3636,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser28parseSectionDirectiveCStringEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3668,7 +3668,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3691,9 +3691,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3723,7 +3723,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3746,9 +3746,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveDestructorEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3778,7 +3778,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3801,9 +3801,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveDyldEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3833,7 +3833,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3856,9 +3856,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit0EN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -3888,7 +3888,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -3911,9 +3911,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveFVMLibInit1EN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4088,13 +4088,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit47.i:              ; preds = %44
 _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i, %86
   %91 = load ptr, ptr %5, align 8
   %92 = icmp eq ptr %91, %11
-  br i1 %92, label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.exit, label %93
+  br i1 %92, label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.argprom.exit, label %93
 
 93:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i
   call void @free(ptr noundef %91) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, %93
+_ZN12_GLOBAL__N_115DarwinAsmParser26parseDirectiveLinkerOptionEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE13destroy_rangeEPS6_S8_.exit.i.i, %93
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -4281,7 +4281,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4304,9 +4304,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCCatClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4336,7 +4336,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4359,9 +4359,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser36parseSectionDirectiveObjCCatInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4391,7 +4391,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4414,9 +4414,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCCategoryEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4446,7 +4446,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4469,9 +4469,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser30parseSectionDirectiveObjCClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4501,7 +4501,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4524,9 +4524,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCClassNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4556,7 +4556,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4579,9 +4579,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCClassVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4611,7 +4611,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4634,9 +4634,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCClsMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4672,7 +4672,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4695,9 +4695,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCInstMethEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4727,7 +4727,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4750,9 +4750,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCInstanceVarsEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4788,7 +4788,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4811,9 +4811,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectiveObjCMetaClassEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4843,7 +4843,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4866,9 +4866,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarNamesEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4898,7 +4898,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4921,9 +4921,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCMethVarTypesEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -4953,7 +4953,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -4976,9 +4976,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveObjCModuleInfoEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5008,7 +5008,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5031,9 +5031,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser33parseSectionDirectiveObjCProtocolEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5063,7 +5063,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5086,9 +5086,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCSelectorStrsEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5118,7 +5118,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5141,9 +5141,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser37parseSectionDirectiveObjCStringObjectEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5173,7 +5173,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5196,9 +5196,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveObjCSymbolsEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5228,7 +5228,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5251,9 +5251,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser34parseSectionDirectivePICSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5283,7 +5283,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5306,9 +5306,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser32parseSectionDirectiveStaticConstEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5338,7 +5338,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5361,9 +5361,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveStaticDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5393,7 +5393,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5416,9 +5416,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser31parseSectionDirectiveSymbolStubEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5448,7 +5448,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5471,9 +5471,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser26parseSectionDirectiveTDataEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5503,7 +5503,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5526,9 +5526,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser25parseSectionDirectiveTextEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5558,7 +5558,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5581,9 +5581,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser35parseSectionDirectiveThreadInitFuncEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i
@@ -5613,7 +5613,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   store i8 3, ptr %16, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull align 8 dereferenceable(34) %5, ptr null, ptr null) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
@@ -5636,9 +5636,9 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %38 = getelementptr inbounds i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(288) %30, ptr noundef %36, i32 noundef 0) #15
-  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.exit
+  br label %_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.argprom.exit
 
-_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.exit: ; preds = %15, %20
+_ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveTLVEN4llvm9StringRefENS1_5SMLocE.argprom.exit: ; preds = %15, %20
   %.0.i.i = phi i1 [ %19, %15 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret i1 %.0.i.i

@@ -40507,7 +40507,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.2624.sink)
   %139 = tail call fastcc i64 @Abc_Clock()
   %140 = sub nsw i64 %139, %115
-  tail call fastcc void @Abc_PrintTime(i64 noundef %140)
+  tail call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %140)
   br label %146
 
 .loopexit.sink.split:                             ; preds = %44, %35, %26, %17, %8
@@ -41531,7 +41531,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.2624.sink)
   %65 = tail call fastcc i64 @Abc_Clock()
   %66 = sub nsw i64 %65, %50
-  tail call fastcc void @Abc_PrintTime(i64 noundef %66)
+  tail call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %66)
   br label %70
 
 .loopexit.sink.split:                             ; preds = %16, %25, %7
@@ -41815,7 +41815,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandProve(ptr noundef %0, i32 nounde
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.2624.sink)
   %119 = call fastcc i64 @Abc_Clock()
   %120 = sub nsw i64 %119, %98
-  call fastcc void @Abc_PrintTime(i64 noundef %120)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %120)
   %121 = load ptr, ptr %4, align 8
   call void @Abc_FrameReplaceCurrentNetwork(ptr noundef nonnull %0, ptr noundef %121) #28
   br label %138
@@ -42162,7 +42162,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
   %.085120 = phi i32 [ %.1154, %126 ], [ -1, %.thread123 ], [ -1, %130 ]
   %133 = call fastcc i64 @Abc_Clock()
   %134 = sub nsw i64 %133, %102
-  call fastcc void @Abc_PrintTime(i64 noundef %134)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %134)
   %135 = load ptr, ptr %5, align 8
   call void @Abc_FrameReplaceCurrentNetwork(ptr noundef nonnull %0, ptr noundef %135) #28
   br i1 %109, label %136, label %146
@@ -54417,7 +54417,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr nocapture nounde
   %68 = getelementptr inbounds i8, ptr %26, i64 856
   tail call fastcc void @Vec_WrdFreeP(ptr noundef nonnull %68)
   %69 = load ptr, ptr %63, align 8
-  %70 = tail call fastcc ptr @Vec_WrdReadHex(ptr noundef %69)
+  %70 = tail call fastcc ptr @Vec_WrdReadHex.argprom.argelim(ptr noundef %69)
   %71 = load ptr, ptr %25, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 856
   store ptr %70, ptr %72, align 8
@@ -54459,7 +54459,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr nocapture nounde
   %92 = getelementptr inbounds i8, ptr %26, i64 848
   tail call fastcc void @Vec_WrdFreeP(ptr noundef nonnull %92)
   %93 = load ptr, ptr %63, align 8
-  %94 = tail call fastcc ptr @Vec_WrdReadHex(ptr noundef %93)
+  %94 = tail call fastcc ptr @Vec_WrdReadHex.argprom.argelim(ptr noundef %93)
   %95 = load ptr, ptr %25, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 848
   store ptr %94, ptr %96, align 8
@@ -54638,7 +54638,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   %43 = add nsw i32 %.val115.val, 63
   %44 = sdiv i32 %43, 64
   %45 = mul nsw i32 %42, %44
-  tail call fastcc void @Vec_WrdFillExtra(ptr noundef nonnull %36, i32 noundef %45)
+  tail call fastcc void @Vec_WrdFillExtra.argelim(ptr noundef nonnull %36, i32 noundef %45)
   %46 = load ptr, ptr %15, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 856
   %48 = load ptr, ptr %47, align 8
@@ -54667,11 +54667,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   br i1 %.not98, label %65, label %64
 
 64:                                               ; preds = %41
-  tail call fastcc void @Vec_WrdDumpBool(ptr noundef %58, ptr noundef %50, i32 noundef %63, i32 noundef %.val110.val)
+  tail call fastcc void @Vec_WrdDumpBool.argelim(ptr noundef %58, ptr noundef %50, i32 noundef %63, i32 noundef %.val110.val)
   br label %66
 
 65:                                               ; preds = %41
-  tail call fastcc void @Vec_WrdDumpHex(ptr noundef %58, ptr noundef %50, i32 noundef %63)
+  tail call fastcc void @Vec_WrdDumpHex.argelim(ptr noundef %58, ptr noundef %50, i32 noundef %63)
   br label %66
 
 66:                                               ; preds = %65, %64
@@ -54689,11 +54689,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   br i1 %.not97, label %74, label %73
 
 73:                                               ; preds = %71
-  tail call fastcc void @Vec_WrdDumpBool(ptr noundef %72, ptr noundef nonnull %36, i32 noundef %40, i32 noundef %.val115.val)
+  tail call fastcc void @Vec_WrdDumpBool.argelim(ptr noundef %72, ptr noundef nonnull %36, i32 noundef %40, i32 noundef %.val115.val)
   br label %121
 
 74:                                               ; preds = %71
-  tail call fastcc void @Vec_WrdDumpHex(ptr noundef %72, ptr noundef nonnull %36, i32 noundef %40)
+  tail call fastcc void @Vec_WrdDumpHex.argelim(ptr noundef %72, ptr noundef nonnull %36, i32 noundef %40)
   br label %121
 
 75:                                               ; preds = %33
@@ -54713,7 +54713,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   %84 = add nsw i32 %.val108.val, 63
   %85 = sdiv i32 %84, 64
   %86 = mul nsw i32 %83, %85
-  tail call fastcc void @Vec_WrdFillExtra(ptr noundef nonnull %77, i32 noundef %86)
+  tail call fastcc void @Vec_WrdFillExtra.argelim(ptr noundef nonnull %77, i32 noundef %86)
   %87 = load ptr, ptr %15, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 848
   %89 = load ptr, ptr %88, align 8
@@ -54742,11 +54742,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   br i1 %.not95, label %106, label %105
 
 105:                                              ; preds = %82
-  tail call fastcc void @Vec_WrdDumpBool(ptr noundef %99, ptr noundef %91, i32 noundef %104, i32 noundef %.val103.val)
+  tail call fastcc void @Vec_WrdDumpBool.argelim(ptr noundef %99, ptr noundef %91, i32 noundef %104, i32 noundef %.val103.val)
   br label %107
 
 106:                                              ; preds = %82
-  tail call fastcc void @Vec_WrdDumpHex(ptr noundef %99, ptr noundef %91, i32 noundef %104)
+  tail call fastcc void @Vec_WrdDumpHex.argelim(ptr noundef %99, ptr noundef %91, i32 noundef %104)
   br label %107
 
 107:                                              ; preds = %106, %105
@@ -54764,11 +54764,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
   br i1 %.not94, label %115, label %114
 
 114:                                              ; preds = %112
-  tail call fastcc void @Vec_WrdDumpBool(ptr noundef %113, ptr noundef nonnull %77, i32 noundef %81, i32 noundef %.val108.val)
+  tail call fastcc void @Vec_WrdDumpBool.argelim(ptr noundef %113, ptr noundef nonnull %77, i32 noundef %81, i32 noundef %.val108.val)
   br label %121
 
 115:                                              ; preds = %112
-  tail call fastcc void @Vec_WrdDumpHex(ptr noundef %113, ptr noundef nonnull %77, i32 noundef %81)
+  tail call fastcc void @Vec_WrdDumpHex.argelim(ptr noundef %113, ptr noundef nonnull %77, i32 noundef %81)
   br label %121
 
 116:                                              ; preds = %4
@@ -61775,7 +61775,7 @@ Abc_Clock.exit:                                   ; preds = %82, %85
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %switch.select364)
   %97 = call fastcc i64 @Abc_Clock()
   %98 = sub nsw i64 %97, %93
-  call fastcc void @Abc_PrintTime(i64 noundef %98)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %98)
   br label %Abc_FrameReplaceCex.exit
 
 99:                                               ; preds = %91
@@ -61844,7 +61844,7 @@ Abc_Clock.exit:                                   ; preds = %82, %85
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.3696, i32 noundef %129)
   %130 = call fastcc i64 @Abc_Clock()
   %131 = add i64 %130, %.0.i.neg
-  call fastcc void @Abc_PrintTime(i64 noundef %131)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %131)
   br label %132
 
 132:                                              ; preds = %128, %121
@@ -62132,8 +62132,8 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
 
 .lr.ph292:                                        ; preds = %240, %.lr.ph292
   %.0168291 = phi i32 [ %245, %.lr.ph292 ], [ %.val245.val, %240 ]
-  call fastcc void @Gia_ManAppendCi(ptr noundef %241)
-  call fastcc void @Gia_ManAppendCi(ptr noundef %242)
+  call fastcc void @Gia_ManAppendCi.argelim(ptr noundef %241)
+  call fastcc void @Gia_ManAppendCi.argelim(ptr noundef %242)
   %245 = add i32 %.0168291, 1
   %exitcond327.not = icmp eq i32 %245, 6
   br i1 %exitcond327.not, label %._crit_edge, label %.lr.ph292, !llvm.loop !384
@@ -62216,7 +62216,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %switch.select368)
   %277 = call fastcc i64 @Abc_Clock()
   %278 = sub nsw i64 %277, %274
-  call fastcc void @Abc_PrintTime(i64 noundef %278)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %278)
   br label %318
 
 .critedge242:                                     ; preds = %267
@@ -62245,7 +62245,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.3693..str.3695)
   %294 = call fastcc i64 @Abc_Clock()
   %295 = sub nsw i64 %294, %280
-  call fastcc void @Abc_PrintTime(i64 noundef %295)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %295)
   call void @Gia_ManStop(ptr noundef nonnull %283) #28
   br label %318
 
@@ -62275,7 +62275,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %171, %Vec_PtrFreeDa
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.3693..str.3695369)
   %312 = call fastcc i64 @Abc_Clock()
   %313 = sub nsw i64 %312, %298
-  call fastcc void @Abc_PrintTime(i64 noundef %313)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %313)
   call void @Gia_ManStop(ptr noundef nonnull %301) #28
   br label %318
 
@@ -62664,7 +62664,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.3693..str.3695)
   %130 = call fastcc i64 @Abc_Clock()
   %131 = sub nsw i64 %130, %116
-  call fastcc void @Abc_PrintTime(i64 noundef %131)
+  call fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %131)
   call void @Gia_ManStop(ptr noundef nonnull %119) #28
   br label %136
 
@@ -87074,7 +87074,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #0 {
+define internal fastcc void @Abc_PrintTime.argprom.argelim(i64 noundef %0) unnamed_addr #0 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1128, ptr noundef nonnull @.str.1122)
   %2 = sitofp i64 %0 to double
   %3 = fdiv double %2, 1.000000e+06
@@ -88334,7 +88334,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
 declare ptr @Gia_ManSimPatSimOut(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdReadHex(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @Vec_WrdReadHex.argprom.argelim(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.1116)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -88614,7 +88614,7 @@ Vec_WrdAlloc.exit:                                ; preds = %1, %4
 declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_WrdFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_WrdFillExtra.argelim(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -88711,7 +88711,7 @@ Vec_WrdGrow.exit:                                 ; preds = %Vec_WrdGrow.exit.si
 declare void @Extra_BitMatrixTransposeP(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc void @Vec_WrdDumpBool.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val20 = load i32, ptr %5, align 4
   %6 = sdiv i32 %.val20, %2
@@ -88785,7 +88785,7 @@ Vec_WrdDumpBoolOne.exit:                          ; preds = %.lr.ph, %Vec_WrdDum
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc void @Vec_WrdDumpHex.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val19 = load i32, ptr %4, align 4
   %5 = sdiv i32 %.val19, %2
@@ -89137,7 +89137,7 @@ declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare ptr @Gia_ManDemiterToDual(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi.argelim(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28

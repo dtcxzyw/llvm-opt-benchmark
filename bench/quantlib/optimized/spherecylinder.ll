@@ -669,13 +669,13 @@ _ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_.exit: ; preds 
   %neg.i.i.i = fmul double %sub.i.i.i, %16
   %17 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %neg.i.i.i)
   %cmp.i.i.i = fcmp ult double %17, 0.000000e+00
-  br i1 %cmp.i.i.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i", label %cond.true.i.i.i
+  br i1 %cmp.i.i.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i", label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_.exit
   %call.i.i.i = tail call double @sqrt(double noundef %17) #22, !tbaa !25
-  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i"
+  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i"
 
-"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i": ; preds = %cond.true.i.i.i, %_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_.exit
+"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i": ; preds = %cond.true.i.i.i, %_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_.exit
   %cond.i.i.i = phi double [ %call.i.i.i, %cond.true.i.i.i ], [ 0.000000e+00, %_ZNK8QuantLib23SphereCylinderOptimizer16findByProjectionERdS1_S1_.exit ]
   %18 = fneg double %x.0.i
   %neg8.i.i.i = fmul double %x.0.i, %18
@@ -691,9 +691,9 @@ cond.true.i.i.i:                                  ; preds = %_ZNK8QuantLib23Sphe
   %cmp72.i = fcmp ogt double %sub61.i, %tolerance
   %cmp83.i = icmp ne i64 %maxIterations, 0
   %23 = and i1 %cmp83.i, %cmp72.i
-  br i1 %23, label %while.body.preheader.i, label %"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.exit"
+  br i1 %23, label %while.body.preheader.i, label %"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.argprom.exit"
 
-while.body.preheader.i:                           ; preds = %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i"
+while.body.preheader.i:                           ; preds = %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i"
   %sub17.i.i.i = fsub double %call10.i.i.i, %21
   %mul.i.i.i = fmul double %sub17.i.i.i, %sub17.i.i.i
   %sub14.i.i.i = fsub double %cond.i.i.i, %2
@@ -722,13 +722,13 @@ if.then12.i:                                      ; preds = %while.body.i
   %neg.i.i39.i = fmul double %sub.i.i38.i, %28
   %29 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %neg.i.i39.i)
   %cmp.i.i40.i = fcmp ult double %29, 0.000000e+00
-  br i1 %cmp.i.i40.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i", label %cond.true.i.i41.i
+  br i1 %cmp.i.i40.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i", label %cond.true.i.i41.i
 
 cond.true.i.i41.i:                                ; preds = %if.then12.i
   %call.i.i42.i = tail call double @sqrt(double noundef %29) #22, !tbaa !25
-  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i"
+  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i"
 
-"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i": ; preds = %cond.true.i.i41.i, %if.then12.i
+"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i": ; preds = %cond.true.i.i41.i, %if.then12.i
   %cond.i.i43.i = phi double [ %call.i.i42.i, %cond.true.i.i41.i ], [ 0.000000e+00, %if.then12.i ]
   %30 = fneg double %27
   %neg8.i.i44.i = fmul double %27, %30
@@ -758,13 +758,13 @@ if.else20.i:                                      ; preds = %while.body.i
   %neg.i.i59.i = fmul double %sub.i.i58.i, %37
   %38 = tail call double @llvm.fmuladd.f64(double %4, double %4, double %neg.i.i59.i)
   %cmp.i.i60.i = fcmp ult double %38, 0.000000e+00
-  br i1 %cmp.i.i60.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i", label %cond.true.i.i61.i
+  br i1 %cmp.i.i60.i, label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i", label %cond.true.i.i61.i
 
 cond.true.i.i61.i:                                ; preds = %if.else20.i
   %call.i.i62.i = tail call double @sqrt(double noundef %38) #22, !tbaa !25
-  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i"
+  br label %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i"
 
-"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i": ; preds = %cond.true.i.i61.i, %if.else20.i
+"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i": ; preds = %cond.true.i.i61.i, %if.else20.i
   %cond.i.i63.i = phi double [ %call.i.i62.i, %cond.true.i.i61.i ], [ 0.000000e+00, %if.else20.i ]
   %39 = fneg double %36
   %neg8.i.i64.i = fmul double %36, %39
@@ -786,20 +786,20 @@ cond.true.i.i61.i:                                ; preds = %if.else20.i
   %x.1.low.addr.0.i = select i1 %cmp27.i, double %x.16.i, double %low.addr.08.i
   br label %if.end31.i
 
-if.end31.i:                                       ; preds = %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i", %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i"
-  %midValue.2.i = phi double [ %call16.midValue.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i" ], [ %call26.midValue.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i" ]
-  %x.3.i = phi double [ %.x.1.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i" ], [ %.x.133.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i" ]
-  %high.addr.2.i = phi double [ %x.1.high.addr.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i" ], [ %high.addr.0..i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i" ]
-  %low.addr.2.i = phi double [ %low.addr.0..i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit55.i" ], [ %x.1.low.addr.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit75.i" ]
+if.end31.i:                                       ; preds = %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i", %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i"
+  %midValue.2.i = phi double [ %call16.midValue.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i" ], [ %call26.midValue.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i" ]
+  %x.3.i = phi double [ %.x.1.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i" ], [ %.x.133.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i" ]
+  %high.addr.2.i = phi double [ %x.1.high.addr.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i" ], [ %high.addr.0..i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i" ]
+  %low.addr.2.i = phi double [ %low.addr.0..i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit55.i" ], [ %x.1.low.addr.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit75.i" ]
   %inc.i = add nuw i64 %iterations.04.i, 1
   %sub6.i = fsub double %high.addr.2.i, %low.addr.2.i
   %cmp7.i = fcmp ogt double %sub6.i, %tolerance
   %cmp8.i = icmp ult i64 %inc.i, %maxIterations
   %45 = select i1 %cmp7.i, i1 %cmp8.i, i1 false
-  br i1 %45, label %while.body.i, label %"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.exit", !llvm.loop !36
+  br i1 %45, label %while.body.i, label %"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.argprom.exit", !llvm.loop !36
 
-"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.exit": ; preds = %if.end31.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i"
-  %x.1.lcssa.i = phi double [ %x.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.exit.i" ], [ %x.3.i, %if.end31.i ]
+"_ZN8QuantLib12_GLOBAL__N_113BrentMinimizeIZNKS_23SphereCylinderOptimizer11findClosestEmdRdS3_S3_E3$_0EEdddddmRKT_.argprom.exit": ; preds = %if.end31.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i"
+  %x.1.lcssa.i = phi double [ %x.0.i, %"_ZZNK8QuantLib23SphereCylinderOptimizer11findClosestEmdRdS1_S1_ENK3$_0clEd.argprom.exit.i" ], [ %x.3.i, %if.end31.i ]
   store double %x.1.lcssa.i, ptr %y1, align 8, !tbaa !27
   %46 = load double, ptr %s_.i, align 8, !tbaa !9
   %47 = load double, ptr %alpha_.i, align 8, !tbaa !10

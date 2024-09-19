@@ -15,11 +15,11 @@ entry:
   %rlim.i.i.i.i = alloca %struct.rlimit, align 8
   %0 = load atomic volatile i64, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission acquire, align 8
   %tobool.not.i.i = icmp ult i64 %0, 2
-  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit
+  br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.argprom.exit
 
 land.lhs.true.i.i:                                ; preds = %entry
   %call3.i.i = tail call noundef zeroext i1 @_ZN4base8internal17NeedsLazyInstanceEPl(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission)
-  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit
+  br i1 %call3.i.i, label %if.then.i.i, label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.argprom.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rlim.i.i.i.i)
@@ -39,9 +39,9 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
 _ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rlim.i.i.i.i)
   call void @_ZN4base8internal20CompleteLazyInstanceEPllPvPFvS2_E(ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 noundef ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, i64 8) to i64), ptr noundef nonnull @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission, ptr noundef nonnull @_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE6OnExitEPv)
-  br label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit
+  br label %_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.argprom.exit
 
-_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.exit: ; preds = %entry, %land.lhs.true.i.i, %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
+_ZN4base12LazyInstanceINS_12_GLOBAL__N_122CheckForNicePermissionENS_25DefaultLazyInstanceTraitsIS2_EEE3GetEv.argprom.exit: ; preds = %entry, %land.lhs.true.i.i, %_ZN4base25DefaultLazyInstanceTraitsINS_12_GLOBAL__N_122CheckForNicePermissionEE3NewEPv.exit.i.i
   %2 = load atomic volatile i64, ptr @_ZZN4base7Process22CanBackgroundProcessesEvE25check_for_nice_permission monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i8, ptr %3, align 1

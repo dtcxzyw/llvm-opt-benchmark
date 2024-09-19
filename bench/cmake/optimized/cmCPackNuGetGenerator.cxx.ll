@@ -1165,22 +1165,22 @@ common.resume.i:                                  ; preds = %248, %235
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentEC2IKS5_S6_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit.i: ; preds = %.noexc118
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.exit.i" unwind label %244
+          to label %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.argprom.exit.i" unwind label %244
 
-"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.exit.i": ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentEC2IKS5_S6_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit.i
+"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.argprom.exit.i": ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentEC2IKS5_S6_TnNSt9enable_ifIXaaclsr6_PCCFPIT_T0_EE18_ConstructiblePairISB_SC_EEclsr6_PCCFPISB_SC_EE26_ImplicitlyConvertiblePairISB_SC_EEEbE4typeELb1EEERKS_ISB_SC_E.exit.i
   %237 = load ptr, ptr %231, align 8
   %238 = load ptr, ptr %221, align 8
   %.not.i.i.i.i115 = icmp eq ptr %237, %238
   br i1 %.not.i.i.i.i115, label %242, label %239
 
-239:                                              ; preds = %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.exit.i"
+239:                                              ; preds = %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.argprom.exit.i"
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %237, ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   %240 = load ptr, ptr %231, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 32
   store ptr %241, ptr %231, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i116
 
-242:                                              ; preds = %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.exit.i"
+242:                                              ; preds = %"_ZZN21cmCPackNuGetGenerator28SetupGroupComponentVariablesEbENK3$_1clERKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentE.argprom.exit.i"
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr %237, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i116 unwind label %246
 

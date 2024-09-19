@@ -4507,7 +4507,7 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
 33:                                               ; preds = %30, %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
-  call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %7)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %7)
   %34 = load ptr, ptr @global_mad_vendor_class, align 8
   %35 = getelementptr inbounds i8, ptr %7, i64 1
   %36 = load i8, ptr %35, align 1
@@ -4565,7 +4565,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %42, %.sink.split.i
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %6)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %6)
   %63 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %64 = icmp eq i32 %63, 0
   %65 = getelementptr inbounds i8, ptr %6, i64 4
@@ -4599,7 +4599,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %62, %68
 
 80:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %9, ptr noundef %5)
   %81 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %82 = icmp eq i32 %81, 0
   %83 = getelementptr inbounds i8, ptr %5, i64 4
@@ -4753,7 +4753,7 @@ declare i32 @value_is_in_range(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
   %6 = alloca i32, align 4
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr @hf_opa_sm_lid, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef 0) #6
@@ -4822,7 +4822,7 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %
 define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
   %6 = alloca i32, align 4
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr @hf_opa_sm_dr, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef 0) #6
@@ -4915,7 +4915,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %9 = getelementptr inbounds i8, ptr %1, i64 360
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @proto_is_frame_protocol(ptr noundef %10, ptr noundef nonnull @.str.2248) #6
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7)
   %12 = call fastcc i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %8)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %13
@@ -5054,9 +5054,9 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %cond = icmp eq i8 %.val.i, 1
   br label %102
 
-102:                                              ; preds = %parse_NodeDescription.exit, %.lr.ph.split.split.preheader
-  %103 = phi i32 [ %1103, %parse_NodeDescription.exit ], [ %.pre, %.lr.ph.split.split.preheader ]
-  %.064139 = phi i32 [ %1104, %parse_NodeDescription.exit ], [ 0, %.lr.ph.split.split.preheader ]
+102:                                              ; preds = %parse_NodeDescription.argprom.exit, %.lr.ph.split.split.preheader
+  %103 = phi i32 [ %1103, %parse_NodeDescription.argprom.exit ], [ %.pre, %.lr.ph.split.split.preheader ]
+  %.064139 = phi i32 [ %1104, %parse_NodeDescription.argprom.exit ], [ 0, %.lr.ph.split.split.preheader ]
   %104 = tail call ptr @val_to_str_const(i32 noundef %100, ptr noundef nonnull @SUBA_Attributes, ptr noundef nonnull @.str.2339) #6
   %105 = load i32, ptr @ett_rmpp_sa_record, align 4
   %106 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %.0, i32 noundef %103, i32 noundef %97, i32 noundef %105, ptr noundef null, ptr noundef nonnull @.str.2340, ptr noundef %104, i32 noundef %.064139) #6
@@ -5066,7 +5066,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %108 = load i32, ptr %98, align 4
   %109 = icmp ult i32 %108, 21
   %or.cond.i = and i1 %101, %109
-  br i1 %or.cond.i, label %parse_NodeDescription.exit, label %110
+  br i1 %or.cond.i, label %parse_NodeDescription.argprom.exit, label %110
 
 110:                                              ; preds = %102
   %111 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
@@ -5075,7 +5075,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %112 = load i32, ptr %99, align 4
   %.not152.i = icmp ne i32 %112, 1
   %or.cond128.not = select i1 %brmerge.not.i, i1 %.not152.i, i1 false
-  br i1 %or.cond128.not, label %parse_NodeDescription.exit, label %113
+  br i1 %or.cond128.not, label %parse_NodeDescription.argprom.exit, label %113
 
 113:                                              ; preds = %110
   %.not.i.i = icmp eq ptr %106, null
@@ -5371,28 +5371,28 @@ parse_RID.exit.i:                                 ; preds = %282, %113
   ]
 
 283:                                              ; preds = %parse_RID.exit.i
-  %284 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %284 = call fastcc i32 @parse_ClassPortInfo.argprom(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 285:                                              ; preds = %parse_RID.exit.i
   %286 = call fastcc i32 @parse_NoticesAndTraps(ptr noundef %106, ptr noundef %.0, ptr noundef %6)
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 287:                                              ; preds = %parse_RID.exit.i
-  call fastcc void @parse_InformInfo(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  call fastcc void @parse_InformInfo.argprom.retelim(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 288:                                              ; preds = %parse_RID.exit.i
   %289 = load i32, ptr @hf_opa_reserved32, align 4
   %290 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %289, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %291 = add i32 %.val.i75, 4
-  %292 = call fastcc i32 @parse_NodeInfo(ptr noundef %106, ptr noundef %.0, i32 %291, ptr noundef readonly %7)
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %293
+  %292 = call fastcc i32 @parse_NodeInfo.argprom(ptr noundef %106, ptr noundef %.0, i32 %291, ptr noundef readonly %7)
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %293
 
 293:                                              ; preds = %288
   switch i8 %.val.i, label %294 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 294:                                              ; preds = %293
@@ -5402,7 +5402,7 @@ parse_RID.exit.i:                                 ; preds = %282, %113
   %298 = tail call ptr @proto_item_add_subtree(ptr noundef %296, i32 noundef %297) #6
   %299 = load i32, ptr @hf_opa_NodeDescription_NodeString, align 4
   %300 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %.0, i32 noundef %292, i32 noundef 64, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 301:                                              ; preds = %parse_RID.exit.i
   %302 = load i32, ptr @hf_opa_reserved16, align 4
@@ -5437,85 +5437,85 @@ parse_RID.exit.i:                                 ; preds = %282, %113
   %326 = add i32 %309, 16
   %327 = add nuw nsw i32 %.01.i, 1
   %exitcond.not.i119 = icmp eq i32 %327, 8
-  br i1 %exitcond.not.i119, label %parse_PortInfoRecord.exit, label %308, !llvm.loop !6
+  br i1 %exitcond.not.i119, label %parse_PortInfoRecord.argprom.exit, label %308, !llvm.loop !6
 
-parse_PortInfoRecord.exit:                        ; preds = %308
+parse_PortInfoRecord.argprom.exit:                ; preds = %308
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 328:                                              ; preds = %parse_RID.exit.i
   %329 = load i32, ptr @hf_opa_reserved16, align 4
   %330 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %329, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %331 = add i32 %.val.i75, 2
-  %332 = call fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %106, ptr noundef %.0, i32 %331, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %332 = call fastcc i32 @parse_SLtoSCMappingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %331, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 333:                                              ; preds = %parse_RID.exit.i
   %334 = load i32, ptr @hf_opa_reserved16, align 4
   %335 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %334, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %336 = add i32 %.val.i75, 2
-  %337 = call fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %106, ptr noundef %.0, i32 %336, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %337 = call fastcc i32 @parse_SCtoSCMappingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %336, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 338:                                              ; preds = %parse_RID.exit.i
   %339 = load i32, ptr @hf_opa_reserved16, align 4
   %340 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %339, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %341 = add i32 %.val.i75, 2
-  %342 = call fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %106, ptr noundef %.0, i32 %341, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %342 = call fastcc i32 @parse_SCtoSLMappingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %341, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 343:                                              ; preds = %parse_RID.exit.i, %parse_RID.exit.i, %parse_RID.exit.i
   %344 = load i32, ptr @hf_opa_reserved24, align 4
   %345 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %344, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 3, i32 noundef 0) #6
   %346 = add i32 %.val.i75, 3
-  %347 = call fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %106, ptr noundef %.0, i32 %346, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %347 = call fastcc i32 @parse_SCtoVLxMappingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %346, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 348:                                              ; preds = %parse_RID.exit.i
   %349 = load i32, ptr @hf_opa_reserved32, align 4
   %350 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %349, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %351 = add i32 %.val.i75, 4
-  %352 = call fastcc i32 @parse_SwitchInfo(ptr noundef %106, ptr noundef %.0, i32 %351, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %352 = call fastcc i32 @parse_SwitchInfo.argprom(ptr noundef %106, ptr noundef %.0, i32 %351, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 353:                                              ; preds = %parse_RID.exit.i
-  %354 = call fastcc i32 @parse_LinearForwardingTable(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %354 = call fastcc i32 @parse_LinearForwardingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 355:                                              ; preds = %parse_RID.exit.i
-  %356 = call fastcc i32 @parse_MulticastForwardingTable(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %356 = call fastcc i32 @parse_MulticastForwardingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 357:                                              ; preds = %parse_RID.exit.i
   %358 = load i32, ptr @hf_opa_reserved16, align 4
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %358, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %360 = add i32 %.val.i75, 2
-  %361 = call fastcc i32 @parse_VLArbitrationTable(ptr noundef %106, ptr noundef %.0, i32 %360, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %361 = call fastcc i32 @parse_VLArbitrationTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %360, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 362:                                              ; preds = %parse_RID.exit.i
   %363 = load i32, ptr @hf_opa_reserved32, align 4
   %364 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %363, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %365 = add i32 %.val.i75, 4
-  %366 = call fastcc i32 @parse_SMInfo(ptr noundef %106, ptr noundef %.0, i32 %365, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %366 = call fastcc i32 @parse_SMInfo.argprom(ptr noundef %106, ptr noundef %.0, i32 %365, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 367:                                              ; preds = %parse_RID.exit.i
   %368 = load i32, ptr @hf_opa_reserved8, align 4
   %369 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %368, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 1, i32 noundef 0) #6
   %370 = add i32 %.val.i75, 1
-  %371 = call fastcc i32 @parse_P_KeyTable(ptr noundef %106, ptr noundef %.0, i32 %370, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %371 = call fastcc i32 @parse_P_KeyTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %370, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 372:                                              ; preds = %parse_RID.exit.i
   %373 = load i32, ptr @hf_opa_reserved16, align 4
   %374 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %373, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %375 = add i32 %.val.i75, 2
-  call fastcc void @parse_InformInfo(ptr noundef %106, ptr noundef %.0, i32 %375, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  call fastcc void @parse_InformInfo.argprom.retelim(ptr noundef %106, ptr noundef %.0, i32 %375, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 376:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %377
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %377
 
 377:                                              ; preds = %376
   %378 = load i32, ptr @hf_opa_LinkRecord, align 4
@@ -5530,10 +5530,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %387 = add i32 %.val.i75, 3
   %388 = load i32, ptr @hf_opa_LinkRecord_ToLID, align 4
   %389 = tail call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %388, ptr noundef %.0, i32 noundef %387, i32 noundef 4, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 390:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %391
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %391
 
 391:                                              ; preds = %390
   %392 = load i32, ptr @hf_opa_ServiceRecord, align 4
@@ -5567,10 +5567,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %417 = load i32, ptr @hf_opa_ServiceRecord_ServiceData, align 4
   %418 = tail call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %417, ptr noundef %.0, i32 noundef %416, i32 noundef 16, i32 noundef 0) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %418, ptr noundef nonnull @.str.2397) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 419:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %420
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %420
 
 420:                                              ; preds = %419
   %421 = load i32, ptr @hf_opa_PathRecord, align 4
@@ -5644,10 +5644,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %489 = add i32 %.val.i75, 60
   %490 = load i32, ptr @hf_opa_reserved32, align 4
   %491 = tail call ptr @proto_tree_add_item(ptr noundef %424, i32 noundef %490, ptr noundef %.0, i32 noundef %489, i32 noundef 4, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 492:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %493
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %493
 
 493:                                              ; preds = %492
   %494 = load i32, ptr @hf_opa_MCMemberRecord, align 4
@@ -5709,10 +5709,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %550 = add i32 %.val.i75, 20
   %551 = load i32, ptr @hf_opa_MCMemberRecord_MLID, align 4
   %552 = tail call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %551, ptr noundef %.0, i32 noundef %550, i32 noundef 4, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 553:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %554
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %554
 
 554:                                              ; preds = %553
   %555 = load i32, ptr @hf_opa_TraceRecord, align 4
@@ -5748,10 +5748,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %585 = add i32 %.val.i75, 32
   %586 = load i32, ptr @hf_opa_TraceRecord_ExitPortID, align 4
   %587 = tail call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %586, ptr noundef %.0, i32 noundef %585, i32 noundef 8, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 588:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %589
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %589
 
 589:                                              ; preds = %588
   %590 = add i32 %.val.i75, 14
@@ -5847,7 +5847,7 @@ parse_PortInfoRecord.exit:                        ; preds = %308
 .preheader.i104:                                  ; preds = %.lr.ph.i101, %589
   %.0139.lcssa.i = phi i32 [ %675, %589 ], [ %678, %.lr.ph.i101 ]
   %.not8.i105 = icmp eq i8 %593, 0
-  br i1 %.not8.i105, label %parse_NodeDescription.exit, label %.lr.ph5.i106
+  br i1 %.not8.i105, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i106
 
 .lr.ph.i101:                                      ; preds = %589, %.lr.ph.i101
   %.02.i102 = phi i32 [ %679, %.lr.ph.i101 ], [ 0, %589 ]
@@ -5869,10 +5869,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %681, ptr noundef nonnull @.str.2399, i32 noundef %.14.i107) #6
   %683 = add nuw nsw i32 %.14.i107, 1
   %exitcond10.not.i108 = icmp eq i32 %683, %596
-  br i1 %exitcond10.not.i108, label %parse_NodeDescription.exit, label %.lr.ph5.i106, !llvm.loop !8
+  br i1 %exitcond10.not.i108, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i106, !llvm.loop !8
 
 684:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %685
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %685
 
 685:                                              ; preds = %684
   %686 = add i32 %.val.i75, 14
@@ -5971,7 +5971,7 @@ parse_PortInfoRecord.exit:                        ; preds = %308
 .preheader.i94:                                   ; preds = %.lr.ph.i91, %685
   %.0143.lcssa.i = phi i32 [ %774, %685 ], [ %777, %.lr.ph.i91 ]
   %.not8.i95 = icmp eq i16 %689, 0
-  br i1 %.not8.i95, label %parse_NodeDescription.exit, label %.lr.ph5.i96
+  br i1 %.not8.i95, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i96
 
 .lr.ph.i91:                                       ; preds = %685, %.lr.ph.i91
   %.02.i92 = phi i32 [ %778, %.lr.ph.i91 ], [ 0, %685 ]
@@ -5993,10 +5993,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %780, ptr noundef nonnull @.str.2399, i32 noundef %.14.i97) #6
   %782 = add nuw nsw i32 %.14.i97, 1
   %exitcond10.not.i98 = icmp eq i32 %782, %692
-  br i1 %exitcond10.not.i98, label %parse_NodeDescription.exit, label %.lr.ph5.i96, !llvm.loop !10
+  br i1 %exitcond10.not.i98, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i96, !llvm.loop !10
 
 783:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %784
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %784
 
 784:                                              ; preds = %783
   %785 = add i32 %.val.i75, 14
@@ -6094,7 +6094,7 @@ parse_PortInfoRecord.exit:                        ; preds = %308
 .preheader.i:                                     ; preds = %.lr.ph.i, %784
   %.0142.lcssa.i = phi i32 [ %873, %784 ], [ %876, %.lr.ph.i ]
   %.not8.i = icmp eq i16 %788, 0
-  br i1 %.not8.i, label %parse_NodeDescription.exit, label %.lr.ph5.i
+  br i1 %.not8.i, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i
 
 .lr.ph.i:                                         ; preds = %784, %.lr.ph.i
   %.02.i = phi i32 [ %877, %.lr.ph.i ], [ 0, %784 ]
@@ -6116,10 +6116,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %879, ptr noundef nonnull @.str.2399, i32 noundef %.14.i) #6
   %881 = add nuw nsw i32 %.14.i, 1
   %exitcond10.not.i = icmp eq i32 %881, %791
-  br i1 %exitcond10.not.i, label %parse_NodeDescription.exit, label %.lr.ph5.i, !llvm.loop !12
+  br i1 %exitcond10.not.i, label %parse_NodeDescription.argprom.exit, label %.lr.ph5.i, !llvm.loop !12
 
 882:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %883
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %883
 
 883:                                              ; preds = %882
   %884 = load i32, ptr @hf_opa_ServiceAssociationRecord_ServiceKey, align 4
@@ -6127,14 +6127,14 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %886 = add i32 %.val.i75, 16
   %887 = load i32, ptr @hf_opa_ServiceAssociationRecord_ServiceName, align 4
   %888 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %106, i32 noundef %887, ptr noundef %.0, i32 noundef %886, i32 noundef 64, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 889:                                              ; preds = %parse_RID.exit.i
-  %890 = call fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %890 = call fastcc i32 @parse_PortGroupForwardingTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %.val.i75, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 891:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %892
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %892
 
 892:                                              ; preds = %891
   %893 = load i32, ptr @hf_opa_CableInfoRecord, align 4
@@ -6159,10 +6159,10 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %912 = add i32 %.val.i75, 8
   %913 = load i32, ptr @hf_opa_CableInfoRecord_Data, align 4
   %914 = tail call ptr @proto_tree_add_item(ptr noundef %896, i32 noundef %913, ptr noundef %.0, i32 noundef %912, i32 noundef 64, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 915:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %916
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %916
 
 916:                                              ; preds = %915
   %917 = load i32, ptr @hf_opa_VFInfoRecord, align 4
@@ -6231,22 +6231,22 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %980 = add i32 %.val.i75, 104
   %981 = load i32, ptr @hf_opa_VFInfoRecord_reserved7, align 4
   %982 = tail call ptr @proto_tree_add_item(ptr noundef %920, i32 noundef %981, ptr noundef %.0, i32 noundef %980, i32 noundef 24, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 983:                                              ; preds = %parse_RID.exit.i
   %984 = load i32, ptr @hf_opa_reserved16, align 4
   %985 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %984, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %986 = add i32 %.val.i75, 2
-  %987 = call fastcc i32 @parse_PortGroupTable(ptr noundef %106, ptr noundef %.0, i32 %986, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %987 = call fastcc i32 @parse_PortGroupTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %986, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 988:                                              ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %989
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %989
 
 989:                                              ; preds = %988
   switch i8 %.val.i, label %990 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 990:                                              ; preds = %989
@@ -6271,7 +6271,7 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %1009 = add i32 %.val.i75, 24
   %.not.i.i80 = icmp eq ptr %994, null
   %or.cond129 = or i1 %cond, %.not.i.i80
-  br i1 %or.cond129, label %parse_NodeDescription.exit.i, label %1010
+  br i1 %or.cond129, label %parse_NodeDescription.argprom.exit.i, label %1010
 
 1010:                                             ; preds = %990
   %1011 = load i32, ptr @hf_opa_NodeDescription, align 4
@@ -6281,11 +6281,11 @@ parse_PortInfoRecord.exit:                        ; preds = %308
   %1015 = load i32, ptr @hf_opa_NodeDescription_NodeString, align 4
   %1016 = tail call ptr @proto_tree_add_item(ptr noundef %1014, i32 noundef %1015, ptr noundef %.0, i32 noundef %1009, i32 noundef 64, i32 noundef 0) #6
   %1017 = add i32 %.val.i75, 88
-  br label %parse_NodeDescription.exit.i
+  br label %parse_NodeDescription.argprom.exit.i
 
-parse_NodeDescription.exit.i:                     ; preds = %1010, %990
+parse_NodeDescription.argprom.exit.i:             ; preds = %1010, %990
   %.0.i.i81 = phi i32 [ %1017, %1010 ], [ %1009, %990 ]
-  %1018 = call fastcc i32 @parse_NodeInfo(ptr noundef %994, ptr noundef %.0, i32 %.0.i.i81, ptr noundef readonly %7)
+  %1018 = call fastcc i32 @parse_NodeInfo.argprom(ptr noundef %994, ptr noundef %.0, i32 %.0.i.i81, ptr noundef readonly %7)
   %1019 = load i32, ptr @hf_opa_QuarantinedNodeRecord_QuarantineReasons, align 4
   %1020 = tail call ptr @proto_tree_add_item(ptr noundef %994, i32 noundef %1019, ptr noundef %.0, i32 noundef %1018, i32 noundef 4, i32 noundef 0) #6
   %1021 = add i32 %1018, 4
@@ -6297,57 +6297,57 @@ parse_NodeDescription.exit.i:                     ; preds = %1010, %990
   %1027 = add i32 %1018, 76
   %1028 = load i32, ptr @hf_opa_QuarantinedNodeRecord_ExpectedPortGUID, align 4
   %1029 = tail call ptr @proto_tree_add_item(ptr noundef %994, i32 noundef %1028, ptr noundef %.0, i32 noundef %1027, i32 noundef 8, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 1030:                                             ; preds = %parse_RID.exit.i
   %1031 = load i32, ptr @hf_opa_reserved32, align 4
   %1032 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1031, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %1033 = add i32 %.val.i75, 4
-  %1034 = call fastcc i32 @parse_CongestionInfo(ptr noundef %106, ptr noundef %.0, i32 %1033, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1034 = call fastcc i32 @parse_CongestionInfo.argprom(ptr noundef %106, ptr noundef %.0, i32 %1033, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1035:                                             ; preds = %parse_RID.exit.i
   %1036 = load i32, ptr @hf_opa_reserved32, align 4
   %1037 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1036, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %1038 = add i32 %.val.i75, 4
-  %1039 = call fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %106, ptr noundef %.0, i32 %1038, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1039 = call fastcc i32 @parse_SwitchCongestionSetting.argprom(ptr noundef %106, ptr noundef %.0, i32 %1038, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1040:                                             ; preds = %parse_RID.exit.i
   %1041 = load i32, ptr @hf_opa_reserved24, align 4
   %1042 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1041, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 3, i32 noundef 0) #6
   %1043 = add i32 %.val.i75, 3
-  %1044 = call fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %106, ptr noundef %.0, i32 %1043, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1044 = call fastcc i32 @parse_SwitchPortCongestionSetting.argprom(ptr noundef %106, ptr noundef %.0, i32 %1043, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1045:                                             ; preds = %parse_RID.exit.i
   %1046 = load i32, ptr @hf_opa_reserved32, align 4
   %1047 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1046, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 4, i32 noundef 0) #6
   %1048 = add i32 %.val.i75, 4
-  %1049 = call fastcc i32 @parse_HFICongestionSetting(ptr noundef %106, ptr noundef %.0, i32 %1048, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1049 = call fastcc i32 @parse_HFICongestionSetting.argprom(ptr noundef %106, ptr noundef %.0, i32 %1048, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1050:                                             ; preds = %parse_RID.exit.i
   %1051 = load i32, ptr @hf_opa_reserved16, align 4
   %1052 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1051, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 2, i32 noundef 0) #6
   %1053 = add i32 %.val.i75, 2
-  %1054 = call fastcc i32 @parse_HFICongestionControlTable(ptr noundef %106, ptr noundef %.0, i32 %1053, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1054 = call fastcc i32 @parse_HFICongestionControlTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %1053, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1055:                                             ; preds = %parse_RID.exit.i
   %1056 = load i32, ptr @hf_opa_reserved24, align 4
   %1057 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %1056, ptr noundef %.0, i32 noundef %.val.i75, i32 noundef 3, i32 noundef 0) #6
   %1058 = add i32 %.val.i75, 3
-  %1059 = call fastcc i32 @parse_BufferControlTable(ptr noundef %106, ptr noundef %.0, i32 %1058, ptr noundef readonly %7)
-  br label %parse_NodeDescription.exit
+  %1059 = call fastcc i32 @parse_BufferControlTable.argprom(ptr noundef %106, ptr noundef %.0, i32 %1058, ptr noundef readonly %7)
+  br label %parse_NodeDescription.argprom.exit
 
 1060:                                             ; preds = %parse_RID.exit.i
-  br i1 %.not.i.i, label %parse_NodeDescription.exit, label %1061
+  br i1 %.not.i.i, label %parse_NodeDescription.argprom.exit, label %1061
 
 1061:                                             ; preds = %1060
   switch i8 %.val.i, label %1062 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 1062:                                             ; preds = %1061
@@ -6387,7 +6387,7 @@ parse_NodeDescription.exit.i:                     ; preds = %1010, %990
   %1096 = add i32 %.val.i75, 40
   %1097 = load i32, ptr @hf_opa_FabricInfoRecord_Reserved, align 4
   %1098 = tail call ptr @proto_tree_add_item(ptr noundef %1066, i32 noundef %1097, ptr noundef %.0, i32 noundef %1096, i32 noundef 92, i32 noundef 0) #6
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 1099:                                             ; preds = %parse_RID.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -6396,7 +6396,7 @@ parse_NodeDescription.exit.i:                     ; preds = %1010, %990
   %1102 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0, i32 noundef %1101) #6
   br label %.loopexit.sink.split
 
-parse_NodeDescription.exit:                       ; preds = %.lr.ph5.i, %.lr.ph5.i96, %.lr.ph5.i106, %283, %285, %287, %parse_PortInfoRecord.exit, %328, %333, %338, %343, %348, %353, %355, %357, %362, %367, %372, %889, %983, %1030, %1035, %1040, %1045, %1050, %1055, %288, %293, %293, %294, %376, %377, %390, %391, %419, %420, %492, %493, %553, %554, %588, %.preheader.i104, %684, %.preheader.i94, %783, %.preheader.i, %882, %883, %891, %892, %915, %916, %988, %989, %989, %parse_NodeDescription.exit.i, %1060, %1061, %1061, %1062, %110, %102
+parse_NodeDescription.argprom.exit:               ; preds = %.lr.ph5.i, %.lr.ph5.i96, %.lr.ph5.i106, %283, %285, %287, %parse_PortInfoRecord.argprom.exit, %328, %333, %338, %343, %348, %353, %355, %357, %362, %367, %372, %889, %983, %1030, %1035, %1040, %1045, %1050, %1055, %288, %293, %293, %294, %376, %377, %390, %391, %419, %420, %492, %493, %553, %554, %588, %.preheader.i104, %684, %.preheader.i94, %783, %.preheader.i, %882, %883, %891, %892, %915, %916, %988, %989, %989, %parse_NodeDescription.argprom.exit.i, %1060, %1061, %1061, %1062, %110, %102
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %1103 = add i32 %103, %97
   store i32 %1103, ptr %3, align 4
@@ -6411,7 +6411,7 @@ parse_NodeDescription.exit:                       ; preds = %.lr.ph5.i, %.lr.ph5
   store i32 %1106, ptr %3, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %parse_NodeDescription.exit, %.loopexit.sink.split, %89, %92, %81, %4
+.loopexit:                                        ; preds = %parse_NodeDescription.argprom.exit, %.loopexit.sink.split, %89, %92, %81, %4
   ret void
 }
 
@@ -6423,7 +6423,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   %8 = getelementptr inbounds i8, ptr %1, i64 360
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @proto_is_frame_protocol(ptr noundef %9, ptr noundef nonnull @.str.2248) #6
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %11 = call fastcc i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %6)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %99, label %12
@@ -6570,7 +6570,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %6 = load i32, ptr @hf_opa_pm, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef 0) #6
@@ -6618,7 +6618,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 32:                                               ; preds = %31
-  %33 = call fastcc i32 @parse_ClassPortInfo(ptr noundef %10, ptr noundef %2, i32 %26, ptr noundef readonly %5)
+  %33 = call fastcc i32 @parse_ClassPortInfo.argprom(ptr noundef %10, ptr noundef %2, i32 %26, ptr noundef readonly %5)
   br label %parse_PM_Attribute.exit
 
 34:                                               ; preds = %31
@@ -6852,7 +6852,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %213 = tail call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %212) #6
   %214 = load i32, ptr @hf_opa_ClearPortStatus_PortSelectMask, align 4
   %215 = tail call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %214, ptr noundef %2, i32 noundef %26, i32 noundef 32, i32 noundef 0) #6
-  %216 = tail call fastcc ptr @opa_format_port_select_mask(ptr noundef %2, i32 noundef %26)
+  %216 = tail call fastcc ptr @opa_format_port_select_mask.argprom(ptr noundef %2, i32 noundef %26)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef nonnull @.str.2456, ptr noundef %216) #6
   %217 = add i32 %26, 32
   %218 = load i32, ptr @hf_opa_ClearPortStatus_CounterSelectMask, align 4
@@ -6917,7 +6917,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %248 = tail call ptr @proto_item_add_subtree(ptr noundef %.0204.i.i, i32 noundef %247) #6
   %249 = load i32, ptr @hf_opa_DataPortCounters_PortSelectMask, align 4
   %250 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %2, i32 noundef %26, i32 noundef 32, i32 noundef 0) #6
-  %251 = tail call fastcc ptr @opa_format_port_select_mask(ptr noundef %2, i32 noundef %26)
+  %251 = tail call fastcc ptr @opa_format_port_select_mask.argprom(ptr noundef %2, i32 noundef %26)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef nonnull @.str.2456, ptr noundef %251) #6
   %252 = load i32, ptr @hf_opa_DataPortCounters_VLSelectMask, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %252, ptr noundef %2, i32 noundef %227, i32 noundef 4, i32 noundef 0) #6
@@ -7125,7 +7125,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %403 = tail call ptr @proto_item_add_subtree(ptr noundef %.0137.i.i, i32 noundef %402) #6
   %404 = load i32, ptr @hf_opa_ErrorPortCounters_PortSelectMask, align 4
   %405 = tail call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %404, ptr noundef %2, i32 noundef %26, i32 noundef 32, i32 noundef 0) #6
-  %406 = tail call fastcc ptr @opa_format_port_select_mask(ptr noundef %2, i32 noundef %26)
+  %406 = tail call fastcc ptr @opa_format_port_select_mask.argprom(ptr noundef %2, i32 noundef %26)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %405, ptr noundef nonnull @.str.2456, ptr noundef %406) #6
   %407 = load i32, ptr @hf_opa_ErrorPortCounters_VLSelectMask, align 4
   %408 = tail call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %407, ptr noundef %2, i32 noundef %382, i32 noundef 4, i32 noundef 0) #6
@@ -7246,7 +7246,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %490 = tail call ptr @proto_item_add_subtree(ptr noundef %488, i32 noundef %489) #6
   %491 = load i32, ptr @hf_opa_ErrorPortInfo_PortSelectMask, align 4
   %492 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %491, ptr noundef %2, i32 noundef %26, i32 noundef 32, i32 noundef 0) #6
-  %493 = tail call fastcc ptr @opa_format_port_select_mask(ptr noundef %2, i32 noundef %26)
+  %493 = tail call fastcc ptr @opa_format_port_select_mask.argprom(ptr noundef %2, i32 noundef %26)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.2456, ptr noundef %493) #6
   %494 = add i32 %26, 32
   %495 = icmp eq i8 %.val, 1
@@ -7509,7 +7509,7 @@ parse_PM_Attribute.exit:                          ; preds = %676, %._crit_edge15
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
-  call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
+  call fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %6 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %7 = icmp eq i32 %6, 0
   %8 = getelementptr inbounds i8, ptr %5, i64 4
@@ -7553,7 +7553,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @parse_MAD_Common.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr @hf_opa_mad, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef 24, i32 noundef 0) #6
@@ -7666,7 +7666,7 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %86 = tail call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %85) #6
   %87 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %86, ptr %87, align 4
-  %88 = tail call fastcc i32 @parse_MAD_AttributeModifier(ptr noundef %10, ptr noundef %2, i32 %85, ptr noundef %4)
+  %88 = tail call fastcc i32 @parse_MAD_AttributeModifier.argprom(ptr noundef %10, ptr noundef %2, i32 %85, ptr noundef %4)
   store i32 %88, ptr %3, align 4
   ret void
 }
@@ -7820,7 +7820,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @parse_MAD_AttributeModifier.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_opa_attribute_modifier, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %.0.val, i32 noundef 4, i32 noundef 0) #6
   %6 = load i32, ptr @ett_mad_attributemod, align 4
@@ -8094,7 +8094,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_SUBM_Attribute(ptr noundef %0,
   %55 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %54) #6
   store i32 %55, ptr %12, align 4
   store i16 %40, ptr %7, align 8
-  %56 = tail call fastcc i32 @parse_MAD_AttributeModifier(ptr noundef %37, ptr noundef %1, i32 %54, ptr noundef %3)
+  %56 = tail call fastcc i32 @parse_MAD_AttributeModifier.argprom(ptr noundef %37, ptr noundef %1, i32 %54, ptr noundef %3)
   store i32 %56, ptr %5, align 4
   br i1 %24, label %57, label %60
 
@@ -8174,24 +8174,24 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
 
 9:                                                ; preds = %8
   %.val = load i32, ptr %2, align 4
-  %10 = tail call fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, i32 %.val, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %10 = tail call fastcc i32 @parse_ClassPortInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.val, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 11:                                               ; preds = %8
   %12 = tail call fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 13:                                               ; preds = %8
   %.val119 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %parse_NodeDescription.exit, label %14
+  br i1 %.not.i, label %parse_NodeDescription.argprom.exit, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %3, i64 3
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %17 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 17:                                               ; preds = %14
@@ -8202,63 +8202,63 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %22 = load i32, ptr @hf_opa_NodeDescription_NodeString, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %1, i32 noundef %.val119, i32 noundef 64, i32 noundef 0) #6
   %24 = add i32 %.val119, 64
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 25:                                               ; preds = %8
   %.val120 = load i32, ptr %2, align 4
-  %26 = tail call fastcc i32 @parse_NodeInfo(ptr noundef %0, ptr noundef %1, i32 %.val120, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %26 = tail call fastcc i32 @parse_NodeInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.val120, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 27:                                               ; preds = %8
   %.val121 = load i32, ptr %2, align 4
-  %28 = tail call fastcc i32 @parse_SwitchInfo(ptr noundef %0, ptr noundef %1, i32 %.val121, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %28 = tail call fastcc i32 @parse_SwitchInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.val121, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 29:                                               ; preds = %8
   %30 = tail call fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  br label %parse_NodeDescription.argprom.exit
 
 31:                                               ; preds = %8
   %.val122 = load i32, ptr %2, align 4
-  %32 = tail call fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32 %.val122, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %32 = tail call fastcc i32 @parse_P_KeyTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val122, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 33:                                               ; preds = %8
   %.val123 = load i32, ptr %2, align 4
-  %34 = tail call fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef %1, i32 %.val123, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %34 = tail call fastcc i32 @parse_SLtoSCMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val123, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 35:                                               ; preds = %8
   %.val124 = load i32, ptr %2, align 4
-  %36 = tail call fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef %1, i32 %.val124, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %36 = tail call fastcc i32 @parse_VLArbitrationTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val124, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 37:                                               ; preds = %8
   %.val125 = load i32, ptr %2, align 4
-  %38 = tail call fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.val125, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %38 = tail call fastcc i32 @parse_LinearForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val125, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 39:                                               ; preds = %8
   %.val126 = load i32, ptr %2, align 4
-  %40 = tail call fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.val126, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %40 = tail call fastcc i32 @parse_MulticastForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val126, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 41:                                               ; preds = %8
   %.val127 = load i32, ptr %2, align 4
-  %42 = tail call fastcc i32 @parse_SMInfo(ptr noundef %0, ptr noundef %1, i32 %.val127, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %42 = tail call fastcc i32 @parse_SMInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.val127, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 43:                                               ; preds = %8
   %.val128 = load i32, ptr %2, align 4
   %.not.i144 = icmp eq ptr %0, null
-  br i1 %.not.i144, label %parse_NodeDescription.exit, label %44
+  br i1 %.not.i144, label %parse_NodeDescription.argprom.exit, label %44
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %3, i64 3
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %47 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 47:                                               ; preds = %44
@@ -8273,7 +8273,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #6
   %57 = add nuw nsw i32 %51, %50
   %.not3.i = icmp ult i32 %49, 16777216
-  br i1 %.not3.i, label %parse_NodeDescription.exit, label %.lr.ph.i
+  br i1 %.not3.i, label %parse_NodeDescription.argprom.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i
   %.0322.i = phi i32 [ %65, %.lr.ph.i ], [ %.val128, %47 ]
@@ -8290,19 +8290,19 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %65 = add i32 %.0322.i, 8
   %66 = add nuw nsw i32 %.0331.i, 1
   %67 = icmp ult i32 %66, %57
-  br i1 %67, label %.lr.ph.i, label %parse_NodeDescription.exit, !llvm.loop !25
+  br i1 %67, label %.lr.ph.i, label %parse_NodeDescription.argprom.exit, !llvm.loop !25
 
 68:                                               ; preds = %8
   %.val129 = load i32, ptr %2, align 4
   %.not.i146 = icmp eq ptr %0, null
-  br i1 %.not.i146, label %parse_NodeDescription.exit, label %69
+  br i1 %.not.i146, label %parse_NodeDescription.argprom.exit, label %69
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds i8, ptr %3, i64 3
   %71 = load i8, ptr %70, align 1
   switch i8 %71, label %72 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 72:                                               ; preds = %69
@@ -8333,34 +8333,34 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %91 = add i32 %.0302.i, 1
   %92 = add nuw nsw i32 %.0311.i, 1
   %exitcond.not.i = icmp eq i32 %.0311.i, %79
-  br i1 %exitcond.not.i, label %parse_NodeDescription.exit, label %87, !llvm.loop !26
+  br i1 %exitcond.not.i, label %parse_NodeDescription.argprom.exit, label %87, !llvm.loop !26
 
 93:                                               ; preds = %8
   %.val130 = load i32, ptr %2, align 4
-  %94 = tail call fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef %1, i32 %.val130, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %94 = tail call fastcc i32 @parse_SCtoSCMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val130, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 95:                                               ; preds = %8
   %.val131 = load i32, ptr %2, align 4
-  %96 = tail call fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef %1, i32 %.val131, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %96 = tail call fastcc i32 @parse_SCtoSLMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val131, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 97:                                               ; preds = %8, %8, %8
   %.val132 = load i32, ptr %2, align 4
-  %98 = tail call fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr noundef %1, i32 %.val132, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %98 = tail call fastcc i32 @parse_SCtoVLxMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val132, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 99:                                               ; preds = %8
   %.val133 = load i32, ptr %2, align 4
   %.not.i148 = icmp eq ptr %0, null
-  br i1 %.not.i148, label %parse_NodeDescription.exit, label %100
+  br i1 %.not.i148, label %parse_NodeDescription.argprom.exit, label %100
 
 100:                                              ; preds = %99
   %101 = getelementptr inbounds i8, ptr %3, i64 3
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %103 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 103:                                              ; preds = %100
@@ -8370,7 +8370,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %107 = and i32 %105, 255
   %108 = add nuw nsw i32 %107, %106
   %.not3.i150 = icmp ult i32 %105, 16777216
-  br i1 %.not3.i150, label %parse_NodeDescription.exit, label %.lr.ph.i151
+  br i1 %.not3.i150, label %parse_NodeDescription.argprom.exit, label %.lr.ph.i151
 
 .lr.ph.i151:                                      ; preds = %103, %.lr.ph.i151
   %.0312.i = phi i32 [ %119, %.lr.ph.i151 ], [ %.val133, %103 ]
@@ -8390,39 +8390,39 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %119 = add i32 %.0312.i, 8
   %120 = add nuw nsw i32 %.0321.i, 1
   %121 = icmp ult i32 %120, %108
-  br i1 %121, label %.lr.ph.i151, label %parse_NodeDescription.exit, !llvm.loop !27
+  br i1 %121, label %.lr.ph.i151, label %parse_NodeDescription.argprom.exit, !llvm.loop !27
 
 122:                                              ; preds = %8
   %.val134 = load i32, ptr %2, align 4
-  %123 = tail call fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.val134, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %123 = tail call fastcc i32 @parse_PortGroupForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val134, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 124:                                              ; preds = %8
   %.val135 = load i32, ptr %2, align 4
-  %125 = tail call fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1, i32 %.val135, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %125 = tail call fastcc i32 @parse_PortGroupTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val135, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 126:                                              ; preds = %8
   %.val136 = load i32, ptr %2, align 4
-  %127 = tail call fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef %1, i32 %.val136, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %127 = tail call fastcc i32 @parse_BufferControlTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val136, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 128:                                              ; preds = %8
   %.val137 = load i32, ptr %2, align 4
-  %129 = tail call fastcc i32 @parse_CongestionInfo(ptr noundef %0, ptr noundef %1, i32 %.val137, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %129 = tail call fastcc i32 @parse_CongestionInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.val137, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 130:                                              ; preds = %8
   %.val138 = load i32, ptr %2, align 4
   %.not.i152 = icmp eq ptr %0, null
-  br i1 %.not.i152, label %parse_NodeDescription.exit, label %131
+  br i1 %.not.i152, label %parse_NodeDescription.argprom.exit, label %131
 
 131:                                              ; preds = %130
   %132 = getelementptr inbounds i8, ptr %3, i64 3
   %133 = load i8, ptr %132, align 1
   switch i8 %133, label %134 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 134:                                              ; preds = %131
@@ -8471,29 +8471,29 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %173 = add i32 %.0601.i, 16
   %174 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i153 = icmp eq i32 %174, 96
-  br i1 %exitcond.not.i153, label %parse_NodeDescription.exit, label %154, !llvm.loop !28
+  br i1 %exitcond.not.i153, label %parse_NodeDescription.argprom.exit, label %154, !llvm.loop !28
 
 175:                                              ; preds = %8
   %.val139 = load i32, ptr %2, align 4
-  %176 = tail call fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.val139, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %176 = tail call fastcc i32 @parse_SwitchCongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.val139, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 177:                                              ; preds = %8
   %.val140 = load i32, ptr %2, align 4
-  %178 = tail call fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.val140, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %178 = tail call fastcc i32 @parse_SwitchPortCongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.val140, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 179:                                              ; preds = %8
   %.val141 = load i32, ptr %2, align 4
   %.not.i154 = icmp eq ptr %0, null
-  br i1 %.not.i154, label %parse_NodeDescription.exit, label %180
+  br i1 %.not.i154, label %parse_NodeDescription.argprom.exit, label %180
 
 180:                                              ; preds = %179
   %181 = getelementptr inbounds i8, ptr %3, i64 3
   %182 = load i8, ptr %181, align 1
   switch i8 %182, label %183 [
-    i8 1, label %parse_NodeDescription.exit
-    i8 18, label %parse_NodeDescription.exit
+    i8 1, label %parse_NodeDescription.argprom.exit
+    i8 18, label %parse_NodeDescription.argprom.exit
   ]
 
 183:                                              ; preds = %180
@@ -8545,25 +8545,25 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   %225 = add i32 %.0641.i, 16
   %226 = add nuw nsw i32 %.02.i155, 1
   %exitcond.not.i156 = icmp eq i32 %226, 96
-  br i1 %exitcond.not.i156, label %parse_NodeDescription.exit, label %203, !llvm.loop !29
+  br i1 %exitcond.not.i156, label %parse_NodeDescription.argprom.exit, label %203, !llvm.loop !29
 
 227:                                              ; preds = %8
   %.val142 = load i32, ptr %2, align 4
-  %228 = tail call fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.val142, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %228 = tail call fastcc i32 @parse_HFICongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.val142, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
 229:                                              ; preds = %8
   %.val143 = load i32, ptr %2, align 4
-  %230 = tail call fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr noundef %1, i32 %.val143, ptr noundef %3)
-  br label %parse_NodeDescription.exit
+  %230 = tail call fastcc i32 @parse_HFICongestionControlTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.val143, ptr noundef %3)
+  br label %parse_NodeDescription.argprom.exit
 
-parse_NodeDescription.exit:                       ; preds = %203, %154, %.lr.ph.i151, %87, %.lr.ph.i, %180, %180, %179, %131, %131, %130, %103, %100, %100, %99, %69, %69, %68, %47, %44, %44, %43, %17, %14, %14, %13, %229, %227, %177, %175, %128, %126, %124, %122, %97, %95, %93, %41, %39, %37, %35, %33, %31, %29, %27, %25, %11, %9
+parse_NodeDescription.argprom.exit:               ; preds = %203, %154, %.lr.ph.i151, %87, %.lr.ph.i, %180, %180, %179, %131, %131, %130, %103, %100, %100, %99, %69, %69, %68, %47, %44, %44, %43, %17, %14, %14, %13, %229, %227, %177, %175, %128, %126, %124, %122, %97, %95, %93, %41, %39, %37, %35, %33, %31, %29, %27, %25, %11, %9
   %.0 = phi i32 [ %230, %229 ], [ %228, %227 ], [ %178, %177 ], [ %176, %175 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %98, %97 ], [ %96, %95 ], [ %94, %93 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %12, %11 ], [ %10, %9 ], [ %24, %17 ], [ %.val119, %14 ], [ %.val119, %14 ], [ %.val119, %13 ], [ %.val128, %44 ], [ %.val128, %44 ], [ %.val128, %43 ], [ %.val128, %47 ], [ %.val129, %69 ], [ %.val129, %69 ], [ %.val129, %68 ], [ %.val133, %100 ], [ %.val133, %100 ], [ %.val133, %99 ], [ %.val133, %103 ], [ %.val138, %131 ], [ %.val138, %131 ], [ %.val138, %130 ], [ %.val141, %180 ], [ %.val141, %180 ], [ %.val141, %179 ], [ %65, %.lr.ph.i ], [ %91, %87 ], [ %119, %.lr.ph.i151 ], [ %173, %154 ], [ %225, %203 ]
   store i32 %.0, ptr %2, align 4
   br label %231
 
-231:                                              ; preds = %8, %5, %parse_NodeDescription.exit
-  %.0118 = phi i32 [ 1, %parse_NodeDescription.exit ], [ 1, %5 ], [ 0, %8 ]
+231:                                              ; preds = %8, %5, %parse_NodeDescription.argprom.exit
+  %.0118 = phi i32 [ 1, %parse_NodeDescription.argprom.exit ], [ 1, %5 ], [ 0, %8 ]
   ret i32 %.0118
 }
 
@@ -8572,7 +8572,7 @@ declare i32 @tvb_get_bits(ptr noundef, i32 noundef, i32 noundef, i32 noundef) lo
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_ClassPortInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %92, label %4
 
@@ -8731,7 +8731,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
 
 39:                                               ; preds = %9
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %parse_NoticeDataDetails.exit, label %40
+  br i1 %.not.i, label %parse_NoticeDataDetails.argprom.exit, label %40
 
 40:                                               ; preds = %39
   %41 = load i32, ptr @hf_opa_Trap, align 4
@@ -8739,7 +8739,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %43 = load i32, ptr @ett_datadetails, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.2296, i32 noundef %12) #6
-  switch i16 %8, label %parse_NoticeDataDetails.exit [
+  switch i16 %8, label %parse_NoticeDataDetails.argprom.exit [
     i16 64, label %45
     i16 65, label %45
     i16 66, label %45
@@ -8760,12 +8760,12 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
 45:                                               ; preds = %40, %40, %40, %40
   %46 = load i32, ptr @hf_opa_Trap_GID, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %46, ptr noundef %1, i32 noundef %38, i32 noundef 16, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 48:                                               ; preds = %40, %40
   %49 = load i32, ptr @hf_opa_Trap_LID, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %49, ptr noundef %1, i32 noundef %38, i32 noundef 4, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 51:                                               ; preds = %40, %40, %40
   %52 = load i32, ptr @hf_opa_Trap_LID, align 4
@@ -8773,7 +8773,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %54 = add i32 %4, 36
   %55 = load i32, ptr @hf_opa_Trap_PORTNO, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %55, ptr noundef %1, i32 noundef %54, i32 noundef 1, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 57:                                               ; preds = %40
   %58 = load i32, ptr @hf_opa_Trap_LID, align 4
@@ -8801,7 +8801,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %79, ptr noundef %1, i32 noundef %72, i32 noundef 1, i32 noundef 0) #6
   %81 = load i32, ptr @hf_opa_Trap_NodeDescriptionChange, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %81, ptr noundef %1, i32 noundef %72, i32 noundef 1, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 83:                                               ; preds = %40
   %84 = load i32, ptr @hf_opa_Trap_SystemImageGUID, align 4
@@ -8809,7 +8809,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %86 = add i32 %4, 40
   %87 = load i32, ptr @hf_opa_Trap_LID, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %87, ptr noundef %1, i32 noundef %86, i32 noundef 4, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 89:                                               ; preds = %40
   %90 = load i32, ptr @hf_opa_Trap_LID, align 4
@@ -8839,7 +8839,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %114 = add i32 %4, 56
   %115 = load i32, ptr @hf_opa_Trap_DRNoticeReturnPath, align 4
   %116 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %115, ptr noundef %1, i32 noundef %114, i32 noundef 30, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 117:                                              ; preds = %40, %40
   %118 = load i32, ptr @hf_opa_Trap_LID, align 4
@@ -8876,7 +8876,7 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %149 = add i32 %4, 85
   %150 = load i32, ptr @hf_opa_Trap_QP, align 4
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %150, ptr noundef %1, i32 noundef %149, i32 noundef 3, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
 152:                                              ; preds = %40
   %153 = load i32, ptr @hf_opa_Trap_DataValid, align 4
@@ -8917,15 +8917,15 @@ define internal fastcc i32 @parse_NoticesAndTraps(ptr noundef %0, ptr noundef %1
   %188 = add i32 %4, 87
   %189 = load i32, ptr @hf_opa_reserved8, align 4
   %190 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %189, ptr noundef %1, i32 noundef %188, i32 noundef 1, i32 noundef 0) #6
-  br label %parse_NoticeDataDetails.exit
+  br label %parse_NoticeDataDetails.argprom.exit
 
-parse_NoticeDataDetails.exit:                     ; preds = %39, %40, %45, %48, %51, %57, %83, %89, %117, %152
+parse_NoticeDataDetails.argprom.exit:             ; preds = %39, %40, %45, %48, %51, %57, %83, %89, %117, %152
   %191 = add i32 %4, 96
   %192 = tail call i32 @tvb_bytes_exist(ptr noundef %1, i32 noundef %191, i32 noundef 8) #6
   %.not42 = icmp eq i32 %192, 0
   br i1 %.not42, label %198, label %193
 
-193:                                              ; preds = %parse_NoticeDataDetails.exit
+193:                                              ; preds = %parse_NoticeDataDetails.argprom.exit
   %194 = load i32, ptr @hf_opa_Notice_ClassDataDetails, align 4
   %195 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %194, ptr noundef %1, i32 noundef %191, i32 noundef -1, i32 noundef 0) #6
   br label %198
@@ -8934,13 +8934,13 @@ parse_NoticeDataDetails.exit:                     ; preds = %39, %40, %45, %48, 
   %197 = add i32 %4, 96
   br label %198
 
-198:                                              ; preds = %._crit_edge, %196, %193, %parse_NoticeDataDetails.exit
-  %.0 = phi i32 [ %.0.pre, %._crit_edge ], [ %191, %parse_NoticeDataDetails.exit ], [ %191, %193 ], [ %197, %196 ]
+198:                                              ; preds = %._crit_edge, %196, %193, %parse_NoticeDataDetails.argprom.exit
+  %.0 = phi i32 [ %.0.pre, %._crit_edge ], [ %191, %parse_NoticeDataDetails.argprom.exit ], [ %191, %193 ], [ %197, %196 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_NodeInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_NodeInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %51, label %4
 
@@ -9004,7 +9004,7 @@ define internal fastcc i32 @parse_NodeInfo(ptr noundef %0, ptr noundef %1, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SwitchInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SwitchInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %101, label %4
 
@@ -9598,7 +9598,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_P_KeyTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -9673,7 +9673,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SLtoSCMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -9712,7 +9712,7 @@ define internal fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_VLArbitrationTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit2, label %4
 
@@ -9840,7 +9840,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_LinearForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -9911,7 +9911,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_MulticastForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -9987,7 +9987,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SMInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SMInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %4
 
@@ -10033,7 +10033,7 @@ define internal fastcc i32 @parse_SMInfo(ptr noundef %0, ptr noundef %1, i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SCtoSCMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10149,7 +10149,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SCtoSLMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10188,7 +10188,7 @@ define internal fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SCtoVLxMappingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10269,7 +10269,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_PortGroupForwardingTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10340,7 +10340,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_PortGroupTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10417,7 +10417,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_BufferControlTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10500,7 +10500,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_CongestionInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_CongestionInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %4
 
@@ -10534,7 +10534,7 @@ define internal fastcc i32 @parse_CongestionInfo(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SwitchCongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %4
 
@@ -10590,7 +10590,7 @@ define internal fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_SwitchPortCongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10663,7 +10663,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_HFICongestionSetting.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10722,7 +10722,7 @@ define internal fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parse_HFICongestionControlTable.argprom(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -10813,7 +10813,7 @@ declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_InformInfo(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc void @parse_InformInfo.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 %.0.val, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %51, label %4
 
@@ -10913,7 +10913,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   ]
 
 13:                                               ; preds = %6
-  %14 = tail call fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, i32 %10, ptr noundef %3)
+  %14 = tail call fastcc i32 @parse_ClassPortInfo.argprom(ptr noundef %0, ptr noundef %1, i32 %10, ptr noundef %3)
   br label %parse_GetGroupList.exit
 
 15:                                               ; preds = %6
@@ -11056,7 +11056,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %1, i32 noundef %.0422437.i, i32 noundef 64, i32 noundef 0) #6
   %92 = add i32 %.0422437.i, 64
   %.not.i303.i = icmp eq ptr %89, null
-  br i1 %.not.i303.i, label %parse_Image.exit305.i, label %93
+  br i1 %.not.i303.i, label %parse_Image.argprom.exit305.i, label %93
 
 93:                                               ; preds = %.lr.ph.i83
   %94 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -11068,9 +11068,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   %100 = load i32, ptr @hf_opa_reserved32, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %89, i32 noundef %100, ptr noundef %1, i32 noundef %99, i32 noundef 4, i32 noundef 0) #6
   %102 = add i32 %.0422437.i, 80
-  br label %parse_Image.exit305.i
+  br label %parse_Image.argprom.exit305.i
 
-parse_Image.exit305.i:                            ; preds = %93, %.lr.ph.i83
+parse_Image.argprom.exit305.i:                    ; preds = %93, %.lr.ph.i83
   %.0.i304.i = phi i32 [ %102, %93 ], [ %92, %.lr.ph.i83 ]
   %103 = load i32, ptr @hf_opa_GetGroupInfo_numInternalPorts, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %103, ptr noundef %1, i32 noundef %.0.i304.i, i32 noundef 4, i32 noundef 0) #6
@@ -11102,9 +11102,9 @@ parse_Image.exit305.i:                            ; preds = %93, %.lr.ph.i83
   %130 = tail call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %129) #6
   br label %131
 
-131:                                              ; preds = %131, %parse_Image.exit305.i
-  %.0295428.i = phi i32 [ 0, %parse_Image.exit305.i ], [ %137, %131 ]
-  %.1423427.i = phi i32 [ %128, %parse_Image.exit305.i ], [ %136, %131 ]
+131:                                              ; preds = %131, %parse_Image.argprom.exit305.i
+  %.0295428.i = phi i32 [ 0, %parse_Image.argprom.exit305.i ], [ %137, %131 ]
+  %.1423427.i = phi i32 [ %128, %parse_Image.argprom.exit305.i ], [ %136, %131 ]
   %132 = load i32, ptr @hf_opa_GetGroupInfo_BWBuckets, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %132, ptr noundef %1, i32 noundef %.1423427.i, i32 noundef 4, i32 noundef 0) #6
   %134 = mul nuw nsw i32 %.0295428.i, 10
@@ -11512,16 +11512,16 @@ parse_Image.exit305.i:                            ; preds = %93, %.lr.ph.i83
   %.not73.i = icmp eq i32 %416, 0
   br i1 %.not73.i, label %parse_GetGroupConfig.exit, label %.lr.ph.i86
 
-.lr.ph.i86:                                       ; preds = %449, %parse_Image.exit59.i
-  %.04972.i = phi i32 [ %492, %parse_Image.exit59.i ], [ 0, %449 ]
-  %457 = phi i32 [ %491, %parse_Image.exit59.i ], [ %10, %449 ]
+.lr.ph.i86:                                       ; preds = %449, %parse_Image.argprom.exit59.i
+  %.04972.i = phi i32 [ %492, %parse_Image.argprom.exit59.i ], [ 0, %449 ]
+  %457 = phi i32 [ %491, %parse_Image.argprom.exit59.i ], [ %10, %449 ]
   %458 = load i16, ptr %409, align 8
   %459 = zext i16 %458 to i32
   %460 = shl nuw nsw i32 %459, 3
   %461 = load i32, ptr @ett_getgroupconfigport, align 4
   %462 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %456, ptr noundef %1, i32 noundef %457, i32 noundef %460, i32 noundef %461, ptr noundef nonnull %9, ptr noundef nonnull @.str.2303, i32 noundef %.04972.i) #6
   %.not.i57.i = icmp eq ptr %462, null
-  br i1 %.not.i57.i, label %parse_Image.exit59.i, label %463
+  br i1 %.not.i57.i, label %parse_Image.argprom.exit59.i, label %463
 
 463:                                              ; preds = %.lr.ph.i86
   %464 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -11533,9 +11533,9 @@ parse_Image.exit305.i:                            ; preds = %93, %.lr.ph.i83
   %470 = load i32, ptr @hf_opa_reserved32, align 4
   %471 = call ptr @proto_tree_add_item(ptr noundef nonnull %462, i32 noundef %470, ptr noundef %1, i32 noundef %469, i32 noundef 4, i32 noundef 0) #6
   %472 = add i32 %457, 16
-  br label %parse_Image.exit59.i
+  br label %parse_Image.argprom.exit59.i
 
-parse_Image.exit59.i:                             ; preds = %463, %.lr.ph.i86
+parse_Image.argprom.exit59.i:                     ; preds = %463, %.lr.ph.i86
   %.0.i58.i = phi i32 [ %472, %463 ], [ %457, %.lr.ph.i86 ]
   %473 = load i32, ptr @hf_opa_GetGroupConfig_Port_NodeGUID, align 4
   %474 = call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %473, ptr noundef %1, i32 noundef %.0.i58.i, i32 noundef 8, i32 noundef 0) #6
@@ -11561,8 +11561,8 @@ parse_Image.exit59.i:                             ; preds = %463, %.lr.ph.i86
   %exitcond.not.i87 = icmp eq i32 %492, %416
   br i1 %exitcond.not.i87, label %parse_GetGroupConfig.exit, label %.lr.ph.i86, !llvm.loop !65
 
-parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.i, %429, %439, %449, %415, %423, %426
-  %.0.in.i.sroa.speculated = phi i32 [ %10, %423 ], [ %10, %415 ], [ %10, %426 ], [ %448, %439 ], [ %438, %429 ], [ %10, %449 ], [ %491, %parse_Image.exit59.i ]
+parse_GetGroupConfig.exit:                        ; preds = %parse_Image.argprom.exit59.i, %429, %439, %449, %415, %423, %426
+  %.0.in.i.sroa.speculated = phi i32 [ %10, %423 ], [ %10, %415 ], [ %10, %426 ], [ %448, %439 ], [ %438, %429 ], [ %10, %449 ], [ %491, %parse_Image.argprom.exit59.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %parse_GetGroupList.exit
 
@@ -11598,7 +11598,7 @@ parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.
   %518 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %517, ptr noundef %1, i32 noundef %516, i32 noundef 8, i32 noundef 0) #6
   %519 = add i32 %10, 24
   %.not.i.i91 = icmp eq ptr %502, null
-  br i1 %.not.i.i91, label %parse_Image.exit.i, label %520
+  br i1 %.not.i.i91, label %parse_Image.argprom.exit.i, label %520
 
 520:                                              ; preds = %494
   %521 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -11610,9 +11610,9 @@ parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.
   %527 = load i32, ptr @hf_opa_reserved32, align 4
   %528 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %502, i32 noundef %527, ptr noundef %1, i32 noundef %526, i32 noundef 4, i32 noundef 0) #6
   %529 = add i32 %10, 40
-  br label %parse_Image.exit.i
+  br label %parse_Image.argprom.exit.i
 
-parse_Image.exit.i:                               ; preds = %520, %494
+parse_Image.argprom.exit.i:                       ; preds = %520, %494
   %.0.i.i = phi i32 [ %529, %520 ], [ %519, %494 ]
   %530 = getelementptr inbounds i8, ptr %3, i64 3
   %531 = load i8, ptr %530, align 1
@@ -11621,7 +11621,7 @@ parse_Image.exit.i:                               ; preds = %520, %494
     i8 -110, label %532
   ]
 
-532:                                              ; preds = %parse_Image.exit.i, %parse_Image.exit.i
+532:                                              ; preds = %parse_Image.argprom.exit.i, %parse_Image.argprom.exit.i
   %533 = load i32, ptr @hf_opa_GetPortCounters_PortXmitData, align 4
   %534 = tail call ptr @proto_tree_add_item(ptr noundef %502, i32 noundef %533, ptr noundef %1, i32 noundef %.0.i.i, i32 noundef 8, i32 noundef 0) #6
   %535 = add i32 %.0.i.i, 8
@@ -11718,7 +11718,7 @@ parse_Image.exit.i:                               ; preds = %520, %494
   %626 = add i32 %.0.i.i, 208
   br label %parse_GetGroupList.exit
 
-627:                                              ; preds = %parse_Image.exit.i
+627:                                              ; preds = %parse_Image.argprom.exit.i
   %628 = add i32 %.0.i.i, 208
   br label %parse_GetGroupList.exit
 
@@ -12003,7 +12003,7 @@ parse_Image.exit.i:                               ; preds = %520, %494
   %850 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %849, ptr noundef %1, i32 noundef %10, i32 noundef 64, i32 noundef 0) #6
   %851 = add i32 %10, 64
   %.not.i.i114 = icmp eq ptr %848, null
-  br i1 %.not.i.i114, label %parse_Image.exit.i115, label %852
+  br i1 %.not.i.i114, label %parse_Image.argprom.exit.i115, label %852
 
 852:                                              ; preds = %842
   %853 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12015,9 +12015,9 @@ parse_Image.exit.i:                               ; preds = %520, %494
   %859 = load i32, ptr @hf_opa_reserved32, align 4
   %860 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %848, i32 noundef %859, ptr noundef %1, i32 noundef %858, i32 noundef 4, i32 noundef 0) #6
   %861 = add i32 %10, 80
-  br label %parse_Image.exit.i115
+  br label %parse_Image.argprom.exit.i115
 
-parse_Image.exit.i115:                            ; preds = %852, %842
+parse_Image.argprom.exit.i115:                    ; preds = %852, %842
   %.0.i.i116 = phi i32 [ %861, %852 ], [ %851, %842 ]
   %862 = load i32, ptr @hf_opa_GetFocusPorts_select, align 4
   %863 = tail call ptr @proto_tree_add_item(ptr noundef %848, i32 noundef %862, ptr noundef %1, i32 noundef %.0.i.i116, i32 noundef 4, i32 noundef 0) #6
@@ -12041,16 +12041,16 @@ parse_Image.exit.i115:                            ; preds = %852, %842
   %.not111.i = icmp eq i32 %829, 0
   br i1 %.not111.i, label %parse_GetFocusPorts.exit, label %.lr.ph.i108
 
-.lr.ph.i108:                                      ; preds = %871, %parse_Image.exit84.i
-  %.074110.i = phi i32 [ %943, %parse_Image.exit84.i ], [ 0, %871 ]
-  %879 = phi i32 [ %942, %parse_Image.exit84.i ], [ %10, %871 ]
+.lr.ph.i108:                                      ; preds = %871, %parse_Image.argprom.exit84.i
+  %.074110.i = phi i32 [ %943, %parse_Image.argprom.exit84.i ], [ 0, %871 ]
+  %879 = phi i32 [ %942, %parse_Image.argprom.exit84.i ], [ %10, %871 ]
   %880 = load i16, ptr %822, align 8
   %881 = zext i16 %880 to i32
   %882 = shl nuw nsw i32 %881, 3
   %883 = load i32, ptr @ett_getfocusportsport, align 4
   %884 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %878, ptr noundef %1, i32 noundef %879, i32 noundef %882, i32 noundef %883, ptr noundef nonnull %8, ptr noundef nonnull @.str.2303, i32 noundef %.074110.i) #6
   %.not.i82.i = icmp eq ptr %884, null
-  br i1 %.not.i82.i, label %parse_Image.exit84.i, label %885
+  br i1 %.not.i82.i, label %parse_Image.argprom.exit84.i, label %885
 
 885:                                              ; preds = %.lr.ph.i108
   %886 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12062,9 +12062,9 @@ parse_Image.exit.i115:                            ; preds = %852, %842
   %892 = load i32, ptr @hf_opa_reserved32, align 4
   %893 = call ptr @proto_tree_add_item(ptr noundef nonnull %884, i32 noundef %892, ptr noundef %1, i32 noundef %891, i32 noundef 4, i32 noundef 0) #6
   %894 = add i32 %879, 16
-  br label %parse_Image.exit84.i
+  br label %parse_Image.argprom.exit84.i
 
-parse_Image.exit84.i:                             ; preds = %885, %.lr.ph.i108
+parse_Image.argprom.exit84.i:                     ; preds = %885, %.lr.ph.i108
   %.0.i83.i = phi i32 [ %894, %885 ], [ %879, %.lr.ph.i108 ]
   %895 = load ptr, ptr %8, align 8
   %896 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0.i83.i) #6
@@ -12119,8 +12119,8 @@ parse_Image.exit84.i:                             ; preds = %885, %.lr.ph.i108
   %exitcond.not.i109 = icmp eq i32 %943, %829
   br i1 %exitcond.not.i109, label %parse_GetFocusPorts.exit, label %.lr.ph.i108, !llvm.loop !66
 
-parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit84.i, %parse_Image.exit.i115, %871, %828, %836, %839
-  %.0.in.i112.sroa.speculated = phi i32 [ %10, %836 ], [ %10, %828 ], [ %10, %839 ], [ %870, %parse_Image.exit.i115 ], [ %10, %871 ], [ %942, %parse_Image.exit84.i ]
+parse_GetFocusPorts.exit:                         ; preds = %parse_Image.argprom.exit84.i, %parse_Image.argprom.exit.i115, %871, %828, %836, %839
+  %.0.in.i112.sroa.speculated = phi i32 [ %10, %836 ], [ %10, %828 ], [ %10, %839 ], [ %870, %parse_Image.argprom.exit.i115 ], [ %10, %871 ], [ %942, %parse_Image.argprom.exit84.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %parse_GetGroupList.exit
 
@@ -12134,7 +12134,7 @@ parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit84.
   %948 = load i32, ptr @ett_getimageinfo, align 4
   %949 = tail call ptr @proto_item_add_subtree(ptr noundef %947, i32 noundef %948) #6
   %.not.i.i118 = icmp eq ptr %949, null
-  br i1 %.not.i.i118, label %parse_Image.exit.i119, label %950
+  br i1 %.not.i.i118, label %parse_Image.argprom.exit.i119, label %950
 
 950:                                              ; preds = %945
   %951 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12146,9 +12146,9 @@ parse_GetFocusPorts.exit:                         ; preds = %parse_Image.exit84.
   %957 = load i32, ptr @hf_opa_reserved32, align 4
   %958 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %949, i32 noundef %957, ptr noundef %1, i32 noundef %956, i32 noundef 4, i32 noundef 0) #6
   %959 = add i32 %10, 16
-  br label %parse_Image.exit.i119
+  br label %parse_Image.argprom.exit.i119
 
-parse_Image.exit.i119:                            ; preds = %950, %945
+parse_Image.argprom.exit.i119:                    ; preds = %950, %945
   %.0.i.i120 = phi i32 [ %959, %950 ], [ %10, %945 ]
   %960 = load i32, ptr @hf_opa_GetImageInfo_sweepStart, align 4
   %961 = tail call ptr @proto_tree_add_item(ptr noundef %949, i32 noundef %960, ptr noundef %1, i32 noundef %.0.i.i120, i32 noundef 8, i32 noundef 18) #6
@@ -12219,7 +12219,7 @@ parse_Image.exit.i119:                            ; preds = %950, %945
   %1025 = load i32, ptr @ett_getimageinfosm, align 4
   br i1 %or.cond.not.i, label %1048, label %1026
 
-1026:                                             ; preds = %parse_Image.exit.i119
+1026:                                             ; preds = %parse_Image.argprom.exit.i119
   %1027 = tail call ptr @proto_tree_add_subtree(ptr noundef %949, ptr noundef %1, i32 noundef %1024, i32 noundef 80, i32 noundef %1025, ptr noundef null, ptr noundef nonnull @.str.2442) #6
   %1028 = load i32, ptr @hf_opa_GetImageInfo_lid, align 4
   %1029 = tail call ptr @proto_tree_add_item(ptr noundef %1027, i32 noundef %1028, ptr noundef %1, i32 noundef %1024, i32 noundef 4, i32 noundef 0) #6
@@ -12243,7 +12243,7 @@ parse_Image.exit.i119:                            ; preds = %950, %945
   %1047 = add i32 %.0.i.i120, 216
   br label %parse_GetGroupList.exit
 
-1048:                                             ; preds = %parse_Image.exit.i119
+1048:                                             ; preds = %parse_Image.argprom.exit.i119
   %1049 = tail call ptr @proto_tree_add_subtree(ptr noundef %949, ptr noundef %1, i32 noundef %1024, i32 noundef 80, i32 noundef %1025, ptr noundef null, ptr noundef nonnull @.str.2443) #6
   %1050 = add i32 %.0.i.i120, 216
   br label %parse_GetGroupList.exit
@@ -12258,7 +12258,7 @@ parse_Image.exit.i119:                            ; preds = %950, %945
   %1055 = load i32, ptr @ett_movefreezeframeold, align 4
   %1056 = tail call ptr @proto_item_add_subtree(ptr noundef %1054, i32 noundef %1055) #6
   %.not.i.i123 = icmp eq ptr %1056, null
-  br i1 %.not.i.i123, label %parse_Image.exit.i124, label %1057
+  br i1 %.not.i.i123, label %parse_Image.argprom.exit.i124, label %1057
 
 1057:                                             ; preds = %1052
   %1058 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12270,9 +12270,9 @@ parse_Image.exit.i119:                            ; preds = %950, %945
   %1064 = load i32, ptr @hf_opa_reserved32, align 4
   %1065 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1056, i32 noundef %1064, ptr noundef %1, i32 noundef %1063, i32 noundef 4, i32 noundef 0) #6
   %1066 = add i32 %10, 16
-  br label %parse_Image.exit.i124
+  br label %parse_Image.argprom.exit.i124
 
-parse_Image.exit.i124:                            ; preds = %1057, %1052
+parse_Image.argprom.exit.i124:                    ; preds = %1057, %1052
   %.0.i.i125 = phi i32 [ %1066, %1057 ], [ %10, %1052 ]
   %1067 = load i32, ptr @hf_opa_MoveFreezeFrame_new, align 4
   %1068 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %1067, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 16, i32 noundef 0) #6
@@ -12281,7 +12281,7 @@ parse_Image.exit.i124:                            ; preds = %1057, %1052
   %.not.i16.i = icmp eq ptr %1070, null
   br i1 %.not.i16.i, label %parse_GetGroupList.exit, label %1071
 
-1071:                                             ; preds = %parse_Image.exit.i124
+1071:                                             ; preds = %parse_Image.argprom.exit.i124
   %1072 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
   %1073 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1070, i32 noundef %1072, ptr noundef %1, i32 noundef %.0.i.i125, i32 noundef 8, i32 noundef 0) #6
   %1074 = add i32 %.0.i.i125, 8
@@ -12445,7 +12445,7 @@ parse_Image.exit.i124:                            ; preds = %1057, %1052
   %1167 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1166, ptr noundef %1, i32 noundef %1165, i32 noundef 8, i32 noundef 0) #6
   %1168 = add i32 %.0221228.i, 72
   %.not.i161.i = icmp eq ptr %1162, null
-  br i1 %.not.i161.i, label %parse_Image.exit163.i, label %1169
+  br i1 %.not.i161.i, label %parse_Image.argprom.exit163.i, label %1169
 
 1169:                                             ; preds = %.lr.ph.i141
   %1170 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12457,9 +12457,9 @@ parse_Image.exit.i124:                            ; preds = %1057, %1052
   %1176 = load i32, ptr @hf_opa_reserved32, align 4
   %1177 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1162, i32 noundef %1176, ptr noundef %1, i32 noundef %1175, i32 noundef 4, i32 noundef 0) #6
   %1178 = add i32 %.0221228.i, 88
-  br label %parse_Image.exit163.i
+  br label %parse_Image.argprom.exit163.i
 
-parse_Image.exit163.i:                            ; preds = %1169, %.lr.ph.i141
+parse_Image.argprom.exit163.i:                    ; preds = %1169, %.lr.ph.i141
   %.0.i162.i = phi i32 [ %1178, %1169 ], [ %1168, %.lr.ph.i141 ]
   %1179 = load i32, ptr @hf_opa_GetVFInfo_numPorts, align 4
   %1180 = tail call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1179, ptr noundef %1, i32 noundef %.0.i162.i, i32 noundef 4, i32 noundef 0) #6
@@ -12488,9 +12488,9 @@ parse_Image.exit163.i:                            ; preds = %1169, %.lr.ph.i141
   %1203 = tail call ptr @proto_item_add_subtree(ptr noundef %1200, i32 noundef %1202) #6
   br label %1204
 
-1204:                                             ; preds = %1204, %parse_Image.exit163.i
-  %.1225.i = phi i32 [ 0, %parse_Image.exit163.i ], [ %1210, %1204 ]
-  %.1222224.i = phi i32 [ %1201, %parse_Image.exit163.i ], [ %1209, %1204 ]
+1204:                                             ; preds = %1204, %parse_Image.argprom.exit163.i
+  %.1225.i = phi i32 [ 0, %parse_Image.argprom.exit163.i ], [ %1210, %1204 ]
+  %.1222224.i = phi i32 [ %1201, %parse_Image.argprom.exit163.i ], [ %1209, %1204 ]
   %1205 = load i32, ptr @hf_opa_GetVFInfo_BWBuckets, align 4
   %1206 = tail call ptr @proto_tree_add_item(ptr noundef %1203, i32 noundef %1205, ptr noundef %1, i32 noundef %.1222224.i, i32 noundef 4, i32 noundef 0) #6
   %1207 = mul nuw nsw i32 %.1225.i, 10
@@ -12698,16 +12698,16 @@ parse_Image.exit163.i:                            ; preds = %1169, %.lr.ph.i141
   %.not74.i = icmp eq i32 %1317, 0
   br i1 %.not74.i, label %parse_GetVFConfig.exit, label %.lr.ph.i146
 
-.lr.ph.i146:                                      ; preds = %1351, %parse_Image.exit60.i
-  %.05073.i = phi i32 [ %1394, %parse_Image.exit60.i ], [ 0, %1351 ]
-  %1359 = phi i32 [ %1393, %parse_Image.exit60.i ], [ %10, %1351 ]
+.lr.ph.i146:                                      ; preds = %1351, %parse_Image.argprom.exit60.i
+  %.05073.i = phi i32 [ %1394, %parse_Image.argprom.exit60.i ], [ 0, %1351 ]
+  %1359 = phi i32 [ %1393, %parse_Image.argprom.exit60.i ], [ %10, %1351 ]
   %1360 = load i16, ptr %1310, align 8
   %1361 = zext i16 %1360 to i32
   %1362 = shl nuw nsw i32 %1361, 3
   %1363 = load i32, ptr @ett_getvfconfigport, align 4
   %1364 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1358, ptr noundef %1, i32 noundef %1359, i32 noundef %1362, i32 noundef %1363, ptr noundef nonnull %7, ptr noundef nonnull @.str.2303, i32 noundef %.05073.i) #6
   %.not.i58.i = icmp eq ptr %1364, null
-  br i1 %.not.i58.i, label %parse_Image.exit60.i, label %1365
+  br i1 %.not.i58.i, label %parse_Image.argprom.exit60.i, label %1365
 
 1365:                                             ; preds = %.lr.ph.i146
   %1366 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12719,9 +12719,9 @@ parse_Image.exit163.i:                            ; preds = %1169, %.lr.ph.i141
   %1372 = load i32, ptr @hf_opa_reserved32, align 4
   %1373 = call ptr @proto_tree_add_item(ptr noundef nonnull %1364, i32 noundef %1372, ptr noundef %1, i32 noundef %1371, i32 noundef 4, i32 noundef 0) #6
   %1374 = add i32 %1359, 16
-  br label %parse_Image.exit60.i
+  br label %parse_Image.argprom.exit60.i
 
-parse_Image.exit60.i:                             ; preds = %1365, %.lr.ph.i146
+parse_Image.argprom.exit60.i:                     ; preds = %1365, %.lr.ph.i146
   %.0.i59.i = phi i32 [ %1374, %1365 ], [ %1359, %.lr.ph.i146 ]
   %1375 = load i32, ptr @hf_opa_GetVFConfig_Port_NodeGUID, align 4
   %1376 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1375, ptr noundef %1, i32 noundef %.0.i59.i, i32 noundef 8, i32 noundef 0) #6
@@ -12747,8 +12747,8 @@ parse_Image.exit60.i:                             ; preds = %1365, %.lr.ph.i146
   %exitcond.not.i147 = icmp eq i32 %1394, %1317
   br i1 %exitcond.not.i147, label %parse_GetVFConfig.exit, label %.lr.ph.i146, !llvm.loop !71
 
-parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.i, %1330, %1341, %1351, %1316, %1324, %1327
-  %.0.in.i150.sroa.speculated = phi i32 [ %10, %1324 ], [ %10, %1316 ], [ %10, %1327 ], [ %1350, %1341 ], [ %1340, %1330 ], [ %10, %1351 ], [ %1393, %parse_Image.exit60.i ]
+parse_GetVFConfig.exit:                           ; preds = %parse_Image.argprom.exit60.i, %1330, %1341, %1351, %1316, %1324, %1327
+  %.0.in.i150.sroa.speculated = phi i32 [ %10, %1324 ], [ %10, %1316 ], [ %10, %1327 ], [ %1350, %1341 ], [ %1340, %1330 ], [ %10, %1351 ], [ %1393, %parse_Image.argprom.exit60.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %parse_GetGroupList.exit
 
@@ -12786,7 +12786,7 @@ parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.
   %1423 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1422, ptr noundef %1, i32 noundef %1421, i32 noundef 8, i32 noundef 0) #6
   %1424 = add i32 %10, 96
   %.not.i.i154 = icmp eq ptr %1400, null
-  br i1 %.not.i.i154, label %parse_Image.exit.i155, label %1425
+  br i1 %.not.i.i154, label %parse_Image.argprom.exit.i155, label %1425
 
 1425:                                             ; preds = %1396
   %1426 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12798,9 +12798,9 @@ parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.
   %1432 = load i32, ptr @hf_opa_reserved32, align 4
   %1433 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1400, i32 noundef %1432, ptr noundef %1, i32 noundef %1431, i32 noundef 4, i32 noundef 0) #6
   %1434 = add i32 %10, 112
-  br label %parse_Image.exit.i155
+  br label %parse_Image.argprom.exit.i155
 
-parse_Image.exit.i155:                            ; preds = %1425, %1396
+parse_Image.argprom.exit.i155:                    ; preds = %1425, %1396
   %.0.i.i156 = phi i32 [ %1434, %1425 ], [ %1424, %1396 ]
   %1435 = getelementptr inbounds i8, ptr %3, i64 3
   %1436 = load i8, ptr %1435, align 1
@@ -12809,7 +12809,7 @@ parse_Image.exit.i155:                            ; preds = %1425, %1396
     i8 -110, label %1437
   ]
 
-1437:                                             ; preds = %parse_Image.exit.i155, %parse_Image.exit.i155
+1437:                                             ; preds = %parse_Image.argprom.exit.i155, %parse_Image.argprom.exit.i155
   %1438 = load i32, ptr @hf_opa_GetVFPortCounters_PortVFXmitData, align 4
   %1439 = tail call ptr @proto_tree_add_item(ptr noundef %1400, i32 noundef %1438, ptr noundef %1, i32 noundef %.0.i.i156, i32 noundef 8, i32 noundef 0) #6
   %1440 = add i32 %.0.i.i156, 8
@@ -12854,7 +12854,7 @@ parse_Image.exit.i155:                            ; preds = %1425, %1396
   %1479 = add i32 %.0.i.i156, 112
   br label %parse_GetGroupList.exit
 
-1480:                                             ; preds = %parse_Image.exit.i155
+1480:                                             ; preds = %parse_Image.argprom.exit.i155
   %1481 = add i32 %.0.i.i156, 112
   br label %parse_GetGroupList.exit
 
@@ -12948,7 +12948,7 @@ parse_Image.exit.i155:                            ; preds = %1425, %1396
   %1541 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1540, ptr noundef %1, i32 noundef %1539, i32 noundef 8, i32 noundef 0) #6
   %1542 = add i32 %10, 72
   %.not.i.i167 = icmp eq ptr %1536, null
-  br i1 %.not.i.i167, label %parse_Image.exit.i168, label %1543
+  br i1 %.not.i.i167, label %parse_Image.argprom.exit.i168, label %1543
 
 1543:                                             ; preds = %1532
   %1544 = load i32, ptr @hf_opa_ImageID_imageNumber, align 4
@@ -12960,9 +12960,9 @@ parse_Image.exit.i155:                            ; preds = %1425, %1396
   %1550 = load i32, ptr @hf_opa_reserved32, align 4
   %1551 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1536, i32 noundef %1550, ptr noundef %1, i32 noundef %1549, i32 noundef 4, i32 noundef 0) #6
   %1552 = add i32 %10, 88
-  br label %parse_Image.exit.i168
+  br label %parse_Image.argprom.exit.i168
 
-parse_Image.exit.i168:                            ; preds = %1543, %1532
+parse_Image.argprom.exit.i168:                    ; preds = %1543, %1532
   %.0.i.i169 = phi i32 [ %1552, %1543 ], [ %1542, %1532 ]
   %1553 = load i32, ptr @hf_opa_GetVFFocusPorts_select, align 4
   %1554 = tail call ptr @proto_tree_add_item(ptr noundef %1536, i32 noundef %1553, ptr noundef %1, i32 noundef %.0.i.i169, i32 noundef 4, i32 noundef 0) #6
@@ -13045,8 +13045,8 @@ parse_Image.exit.i168:                            ; preds = %1543, %1532
   %exitcond.not.i162 = icmp eq i32 %1623, %1519
   br i1 %exitcond.not.i162, label %parse_GetGroupList.exit, label %.lr.ph.i161, !llvm.loop !72
 
-parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1298, %.lr.ph.i132, %387, %.lr.ph.i, %1529, %1526, %1518, %1562, %parse_Image.exit.i168, %1483, %1482, %1480, %1437, %1395, %1144, %1131, %.preheader.i140, %1124, %1116, %1097, %1094, %1091, %1089, %1071, %parse_Image.exit.i124, %1051, %1048, %1026, %944, %810, %809, %799, %798, %788, %787, %665, %664, %655, %654, %630, %629, %627, %532, %493, %74, %64, %.preheader.i, %58, %50, %31, %28, %25, %23, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %13
-  %.0231 = phi i32 [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %.0.in.i112.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %14, %13 ], [ %10, %31 ], [ %10, %28 ], [ %10, %25 ], [ %10, %23 ], [ %83, %74 ], [ %73, %64 ], [ %10, %.preheader.i ], [ %10, %58 ], [ %10, %50 ], [ %10, %493 ], [ %628, %627 ], [ %626, %532 ], [ %653, %630 ], [ %10, %629 ], [ %663, %655 ], [ %10, %654 ], [ %786, %665 ], [ %10, %664 ], [ %797, %788 ], [ %10, %787 ], [ %808, %799 ], [ %10, %798 ], [ %819, %810 ], [ %10, %809 ], [ %10, %944 ], [ %1050, %1048 ], [ %1047, %1026 ], [ %10, %1051 ], [ %1080, %1071 ], [ %.0.i.i125, %parse_Image.exit.i124 ], [ %10, %1097 ], [ %10, %1094 ], [ %10, %1091 ], [ %10, %1089 ], [ %1153, %1144 ], [ %1143, %1131 ], [ %10, %.preheader.i140 ], [ %10, %1124 ], [ %10, %1116 ], [ %10, %1395 ], [ %1481, %1480 ], [ %1479, %1437 ], [ %1509, %1483 ], [ %10, %1482 ], [ %10, %1526 ], [ %10, %1518 ], [ %10, %1529 ], [ %1561, %parse_Image.exit.i168 ], [ %10, %1562 ], [ %40, %.lr.ph.i ], [ %405, %387 ], [ %1106, %.lr.ph.i132 ], [ %1307, %1298 ], [ %1622, %.lr.ph.i161 ]
+parse_GetGroupList.exit:                          ; preds = %.lr.ph.i161, %1298, %.lr.ph.i132, %387, %.lr.ph.i, %1529, %1526, %1518, %1562, %parse_Image.argprom.exit.i168, %1483, %1482, %1480, %1437, %1395, %1144, %1131, %.preheader.i140, %1124, %1116, %1097, %1094, %1091, %1089, %1071, %parse_Image.argprom.exit.i124, %1051, %1048, %1026, %944, %810, %809, %799, %798, %788, %787, %665, %664, %655, %654, %630, %629, %627, %532, %493, %74, %64, %.preheader.i, %58, %50, %31, %28, %25, %23, %parse_GetVFConfig.exit, %parse_GetFocusPorts.exit, %parse_GetGroupConfig.exit, %13
+  %.0231 = phi i32 [ %.0.in.i150.sroa.speculated, %parse_GetVFConfig.exit ], [ %.0.in.i112.sroa.speculated, %parse_GetFocusPorts.exit ], [ %.0.in.i.sroa.speculated, %parse_GetGroupConfig.exit ], [ %14, %13 ], [ %10, %31 ], [ %10, %28 ], [ %10, %25 ], [ %10, %23 ], [ %83, %74 ], [ %73, %64 ], [ %10, %.preheader.i ], [ %10, %58 ], [ %10, %50 ], [ %10, %493 ], [ %628, %627 ], [ %626, %532 ], [ %653, %630 ], [ %10, %629 ], [ %663, %655 ], [ %10, %654 ], [ %786, %665 ], [ %10, %664 ], [ %797, %788 ], [ %10, %787 ], [ %808, %799 ], [ %10, %798 ], [ %819, %810 ], [ %10, %809 ], [ %10, %944 ], [ %1050, %1048 ], [ %1047, %1026 ], [ %10, %1051 ], [ %1080, %1071 ], [ %.0.i.i125, %parse_Image.argprom.exit.i124 ], [ %10, %1097 ], [ %10, %1094 ], [ %10, %1091 ], [ %10, %1089 ], [ %1153, %1144 ], [ %1143, %1131 ], [ %10, %.preheader.i140 ], [ %10, %1124 ], [ %10, %1116 ], [ %10, %1395 ], [ %1481, %1480 ], [ %1479, %1437 ], [ %1509, %1483 ], [ %10, %1482 ], [ %10, %1526 ], [ %10, %1518 ], [ %10, %1529 ], [ %1561, %parse_Image.argprom.exit.i168 ], [ %10, %1562 ], [ %40, %.lr.ph.i ], [ %405, %387 ], [ %1106, %.lr.ph.i132 ], [ %1307, %1298 ], [ %1622, %.lr.ph.i161 ]
   store i32 %.0231, ptr %2, align 4
   br label %1624
 
@@ -13062,7 +13062,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @opa_format_port_select_mask.argprom(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x i64], align 16
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 32) #6
   %.not = icmp eq i32 %4, 0

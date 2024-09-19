@@ -526,7 +526,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
   %66 = call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #14
   %67 = getelementptr inbounds i8, ptr %66, i64 48
   store i32 0, ptr %67, align 8
-  call fastcc void @kpartition_build_level_topology(ptr noundef %66, ptr noundef nonnull %9, i32 noundef %14, i32 noundef 0, ptr noundef %0, ptr noundef %53, ptr noundef %3, i32 noundef %4)
+  call fastcc void @kpartition_build_level_topology.argprom(ptr noundef %66, ptr noundef nonnull %9, i32 noundef %14, i32 noundef 0, ptr noundef %0, ptr noundef %53, ptr noundef %3, i32 noundef %4)
   %68 = load i32, ptr @verbose_level, align 4
   %69 = icmp sgt i32 %68, 4
   br i1 %69, label %70, label %71
@@ -555,7 +555,7 @@ declare hidden void @tm_complete_obj_weight(ptr noundef, i32 noundef, i32 nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kpartition_build_level_topology(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #2 {
+define internal fastcc void @kpartition_build_level_topology.argprom(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #2 {
   %9 = load ptr, ptr %4, align 8
   %10 = sext i32 %3 to i64
   %11 = getelementptr inbounds i32, ptr %9, i64 %10
@@ -1101,7 +1101,7 @@ split_constraints.exit:                           ; preds = %226, %211, %225
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds i8, ptr %239, i64 8
   %242 = load i32, ptr %241, align 8
-  tail call fastcc void @kpartition_build_level_topology(ptr noundef %232, ptr noundef %236, i32 noundef %89, i32 noundef %195, ptr noundef nonnull %4, ptr noundef %238, ptr noundef %240, i32 noundef %242)
+  tail call fastcc void @kpartition_build_level_topology.argprom(ptr noundef %232, ptr noundef %236, i32 noundef %89, i32 noundef %195, ptr noundef nonnull %4, ptr noundef %238, ptr noundef %240, i32 noundef %242)
   %243 = getelementptr inbounds i8, ptr %232, i64 16
   store ptr %0, ptr %243, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1

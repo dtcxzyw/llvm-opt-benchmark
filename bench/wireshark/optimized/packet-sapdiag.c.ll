@@ -1585,7 +1585,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1200 = private unnamed_addr constant [12 x i8] c"Accelerator\00", align 1
 @.str.1201 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
 @.str.1202 = private unnamed_addr constant [11 x i8] c"sapni.port\00", align 1
-@switch.table.dissect_sapdiag_payload = private unnamed_addr constant [20 x ptr] [ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_graph_vals, ptr @sapdiag_item_appl_ixos_vals, ptr @sapdiag_item_appl_st_user_vals, ptr @sapdiag_item_appl_dynn_vals, ptr @sapdiag_item_appl_st_r3info_vals, ptr @sapdiag_item_appl_popu_vals, ptr @sapdiag_item_appl_rfc_tr_vals, ptr @sapdiag_item_appl_dynt_vals, ptr @sapdiag_item_appl_container_vals, ptr @sapdiag_item_appl_mnuentry_vals, ptr @sapdiag_item_appl_varinfo_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_control_vals, ptr @sapdiag_item_appl_ui_event_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_acc_list_vals, ptr @sapdiag_item_appl_rcui_vals, ptr @sapdiag_item_appl_gui_packet_vals], align 8
+@switch.table.dissect_sapdiag_payload.argprom = private unnamed_addr constant [20 x ptr] [ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_graph_vals, ptr @sapdiag_item_appl_ixos_vals, ptr @sapdiag_item_appl_st_user_vals, ptr @sapdiag_item_appl_dynn_vals, ptr @sapdiag_item_appl_st_r3info_vals, ptr @sapdiag_item_appl_popu_vals, ptr @sapdiag_item_appl_rfc_tr_vals, ptr @sapdiag_item_appl_dynt_vals, ptr @sapdiag_item_appl_container_vals, ptr @sapdiag_item_appl_mnuentry_vals, ptr @sapdiag_item_appl_varinfo_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_control_vals, ptr @sapdiag_item_appl_ui_event_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_script_vals, ptr @sapdiag_item_appl_acc_list_vals, ptr @sapdiag_item_appl_rcui_vals, ptr @sapdiag_item_appl_gui_packet_vals], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_sapdiag() local_unnamed_addr #0 {
@@ -1893,7 +1893,7 @@ check_sapdiag_compression.exit.i:                 ; preds = %215
   br label %dissect_sapdiag_snc_frame.exit
 
 218:                                              ; preds = %215, %212, %202
-  tail call fastcc void @dissect_sapdiag_payload(ptr noundef nonnull %201, ptr noundef nonnull %1, ptr noundef %206, i32 noundef 0)
+  tail call fastcc void @dissect_sapdiag_payload.argprom(ptr noundef nonnull %201, ptr noundef nonnull %1, ptr noundef %206, i32 noundef 0)
   br label %dissect_sapdiag_snc_frame.exit
 
 .thread:                                          ; preds = %188, %192, %194
@@ -1906,7 +1906,7 @@ check_sapdiag_compression.exit.i:                 ; preds = %215
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %222, ptr noundef %0, i32 noundef %174, i32 noundef -1, i32 noundef 0) #2
   %224 = load i32, ptr @ett_sapdiag, align 4
   %225 = tail call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224) #2
-  tail call fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %225, i32 noundef %174)
+  tail call fastcc void @dissect_sapdiag_payload.argprom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %225, i32 noundef %174)
   br label %dissect_sapdiag_snc_frame.exit
 
 dissect_sapdiag_snc_frame.exit:                   ; preds = %218, %check_sapdiag_compression.exit.i, %200, %197, %178, %221, %.thread, %191, %123, %117
@@ -2022,7 +2022,7 @@ define internal fastcc void @dissect_sapdiag_compressed_payload(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 209) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sapdiag_payload.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 209) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %3) #2
   %.not21 = icmp eq i32 %5, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
@@ -2118,7 +2118,7 @@ switch.hole_check:                                ; preds = %29
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %38 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.dissect_sapdiag_payload, i64 0, i64 %38
+  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.dissect_sapdiag_payload.argprom, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = zext i8 %36 to i32
   %40 = tail call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.837) #2
@@ -2191,7 +2191,7 @@ get_appl_string.exit:                             ; preds = %.get_appl_string.ex
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef %.2, i32 noundef %.298, i32 noundef 0) #2
   %68 = load i32, ptr @ett_sapdiag, align 4
   %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #2
-  tail call fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %69, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01026, i8 noundef zeroext %.01018, i32 noundef %.298)
+  tail call fastcc void @dissect_sapdiag_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %69, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01026, i8 noundef zeroext %.01018, i32 noundef %.298)
   %70 = add i32 %.298, %.2
   br label %71
 
@@ -2236,7 +2236,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, -2147483648) %8) unnamed_addr #0 {
+define internal fastcc void @dissect_sapdiag_item.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef range(i32 0, -2147483648) %8) unnamed_addr #0 {
   %10 = zext i8 %5 to i32
   switch i8 %5, label %174 [
     i8 1, label %11
@@ -3061,16 +3061,16 @@ check_length.exit1725:                            ; preds = %251, %252
 
 check_length.exit1728:                            ; preds = %712, %713
   %715 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %715, i32 noundef %4, ptr noundef nonnull @.str.1038)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %715, i32 noundef %4, ptr noundef nonnull @.str.1038)
   %716 = add i32 %4, 4
   %717 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %717, i32 noundef %716, ptr noundef nonnull @.str.1039)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %717, i32 noundef %716, ptr noundef nonnull @.str.1039)
   %718 = add i32 %4, 8
   %719 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %719, i32 noundef %718, ptr noundef nonnull @.str.1040)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %719, i32 noundef %718, ptr noundef nonnull @.str.1040)
   %720 = add i32 %4, 12
   %721 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %721, i32 noundef %720, ptr noundef nonnull @.str.1041)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %721, i32 noundef %720, ptr noundef nonnull @.str.1041)
   br label %.critedge133
 
 722:                                              ; preds = %710
@@ -3088,7 +3088,7 @@ check_length.exit1728:                            ; preds = %712, %713
 
 check_length.exit1731:                            ; preds = %724, %725
   %727 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %727, i32 noundef %4, ptr noundef nonnull @.str.1042)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %727, i32 noundef %4, ptr noundef nonnull @.str.1042)
   br label %.critedge133
 
 728:                                              ; preds = %722
@@ -3106,7 +3106,7 @@ check_length.exit1731:                            ; preds = %724, %725
 
 check_length.exit1734:                            ; preds = %730, %731
   %733 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %733, i32 noundef %4, ptr noundef nonnull @.str.1044)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %733, i32 noundef %4, ptr noundef nonnull @.str.1044)
   br label %.critedge133
 
 734:                                              ; preds = %728
@@ -3124,7 +3124,7 @@ check_length.exit1734:                            ; preds = %730, %731
 
 check_length.exit1737:                            ; preds = %736, %737
   %739 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %739, i32 noundef %4, ptr noundef nonnull @.str.1045)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %739, i32 noundef %4, ptr noundef nonnull @.str.1045)
   br label %.critedge133
 
 740:                                              ; preds = %734
@@ -3142,10 +3142,10 @@ check_length.exit1737:                            ; preds = %736, %737
 
 check_length.exit1740:                            ; preds = %742, %743
   %745 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %745, i32 noundef %4, ptr noundef nonnull @.str.1017)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %745, i32 noundef %4, ptr noundef nonnull @.str.1017)
   %746 = add i32 %4, 1
   %747 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %747, i32 noundef %746, ptr noundef nonnull @.str.1047)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %747, i32 noundef %746, ptr noundef nonnull @.str.1047)
   br label %.critedge133
 
 748:                                              ; preds = %740
@@ -3163,7 +3163,7 @@ check_length.exit1740:                            ; preds = %742, %743
   %752 = load i32, ptr @hf_sapdiag_item_value, align 4
   %753 = getelementptr i8, ptr %1, i64 408
   %.val = load ptr, ptr %753, align 8
-  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3, i32 noundef %752, i32 noundef %4, i32 noundef 2, ptr noundef nonnull @.str.1048, i32 noundef 1)
+  tail call fastcc void @add_item_value_string.argprom(ptr noundef %0, ptr %.val, ptr noundef %2, ptr noundef %3, i32 noundef %752, i32 noundef %4, i32 noundef 2, ptr noundef nonnull @.str.1048, i32 noundef 1)
   br label %.critedge133
 
 754:                                              ; preds = %750
@@ -3172,7 +3172,7 @@ check_length.exit1740:                            ; preds = %742, %743
 
 check_length.exit1743:                            ; preds = %750, %754
   %756 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %756, i32 noundef %4, ptr noundef nonnull @.str.1048)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %756, i32 noundef %4, ptr noundef nonnull @.str.1048)
   br label %.critedge133
 
 757:                                              ; preds = %748
@@ -3190,10 +3190,10 @@ check_length.exit1743:                            ; preds = %750, %754
 
 check_length.exit1746:                            ; preds = %759, %760
   %762 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %762, i32 noundef %4, ptr noundef nonnull @.str.1050)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %762, i32 noundef %4, ptr noundef nonnull @.str.1050)
   %763 = add i32 %4, 4
   %764 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %764, i32 noundef %763, ptr noundef nonnull @.str.1050)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %764, i32 noundef %763, ptr noundef nonnull @.str.1050)
   br label %.critedge133
 
 765:                                              ; preds = %757
@@ -3211,7 +3211,7 @@ check_length.exit1746:                            ; preds = %759, %760
 
 check_length.exit1749:                            ; preds = %767, %768
   %770 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %770, i32 noundef %4, ptr noundef nonnull @.str.1051)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %770, i32 noundef %4, ptr noundef nonnull @.str.1051)
   br label %.critedge133
 
 771:                                              ; preds = %765
@@ -3229,7 +3229,7 @@ check_length.exit1749:                            ; preds = %767, %768
 
 check_length.exit1752:                            ; preds = %773, %774
   %776 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %776, i32 noundef %4, ptr noundef nonnull @.str.1052)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %776, i32 noundef %4, ptr noundef nonnull @.str.1052)
   br label %.critedge133
 
 777:                                              ; preds = %771
@@ -3247,7 +3247,7 @@ check_length.exit1752:                            ; preds = %773, %774
 
 check_length.exit1755:                            ; preds = %779, %780
   %782 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %782, i32 noundef %4, ptr noundef nonnull @.str.1053)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %782, i32 noundef %4, ptr noundef nonnull @.str.1053)
   br label %.critedge133
 
 783:                                              ; preds = %777
@@ -3265,7 +3265,7 @@ check_length.exit1755:                            ; preds = %779, %780
 
 check_length.exit1758:                            ; preds = %785, %786
   %788 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %788, i32 noundef %4, ptr noundef nonnull @.str.1054)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %788, i32 noundef %4, ptr noundef nonnull @.str.1054)
   br label %.critedge133
 
 789:                                              ; preds = %783
@@ -3277,7 +3277,7 @@ check_length.exit1758:                            ; preds = %785, %786
   %792 = add i32 %8, %4
   %793 = add i32 %4, 1
   %794 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %795 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %794, i32 noundef %793, ptr noundef nonnull @.str.1055)
+  %795 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %794, i32 noundef %793, ptr noundef nonnull @.str.1055)
   %796 = add i32 %795, %793
   %797 = icmp ult i32 %796, %792
   br i1 %797, label %.lr.ph25, label %.critedge
@@ -3290,7 +3290,7 @@ check_length.exit1758:                            ; preds = %785, %786
 
 799:                                              ; preds = %.lr.ph25
   %800 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %801 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %800, i32 noundef %.024, ptr noundef nonnull @.str.1056)
+  %801 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %800, i32 noundef %.024, ptr noundef nonnull @.str.1056)
   %802 = add i32 %801, %.024
   %803 = icmp ult i32 %802, %792
   br i1 %803, label %.lr.ph25, label %.critedge, !llvm.loop !6
@@ -3312,10 +3312,10 @@ check_length.exit1758:                            ; preds = %785, %786
 809:                                              ; preds = %807
   %810 = add i32 %4, 1
   %811 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %811, i32 noundef %810, ptr noundef nonnull @.str.1055)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %811, i32 noundef %810, ptr noundef nonnull @.str.1055)
   %812 = add i32 %4, 3
   %813 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %814 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %813, i32 noundef %812, ptr noundef nonnull @.str.1058)
+  %814 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %813, i32 noundef %812, ptr noundef nonnull @.str.1058)
   %815 = load i32, ptr @global_sapdiag_highlight_items, align 4
   %.not1680 = icmp eq i32 %815, 0
   br i1 %.not1680, label %.critedge133, label %816
@@ -3338,7 +3338,7 @@ check_length.exit1758:                            ; preds = %785, %786
 
 check_length.exit1761:                            ; preds = %819, %820
   %822 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %822, i32 noundef %4, ptr noundef nonnull @.str.1059)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %822, i32 noundef %4, ptr noundef nonnull @.str.1059)
   br label %.critedge133
 
 823:                                              ; preds = %818
@@ -3356,7 +3356,7 @@ check_length.exit1761:                            ; preds = %819, %820
 
 check_length.exit1764:                            ; preds = %825, %826
   %828 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %828, i32 noundef %4, ptr noundef nonnull @.str.1060)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %828, i32 noundef %4, ptr noundef nonnull @.str.1060)
   %829 = load i32, ptr @global_sapdiag_highlight_items, align 4
   %.not1679 = icmp eq i32 %829, 0
   br i1 %.not1679, label %.critedge133, label %830
@@ -3379,7 +3379,7 @@ check_length.exit1764:                            ; preds = %825, %826
 
 check_length.exit1767:                            ; preds = %833, %834
   %836 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %836, i32 noundef %4, ptr noundef nonnull @.str.1061)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %836, i32 noundef %4, ptr noundef nonnull @.str.1061)
   br label %.critedge133
 
 837:                                              ; preds = %832
@@ -3401,7 +3401,7 @@ check_length.exit1770.thread:                     ; preds = %839
 
 check_length.exit1770:                            ; preds = %839
   %845 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %845, i32 noundef %4, ptr noundef nonnull @.str.1063)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %845, i32 noundef %4, ptr noundef nonnull @.str.1063)
   %.not167719 = icmp eq i8 %840, 0
   br i1 %.not167719, label %.critedge133, label %.lr.ph22.preheader
 
@@ -3420,9 +3420,9 @@ check_length.exit1770:                            ; preds = %839
 849:                                              ; preds = %.lr.ph22
   %850 = add i32 %.121, 16
   %851 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %851, i32 noundef %.121)
+  tail call fastcc void @add_item_value_hexstring.argprom.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %851, i32 noundef %.121)
   %852 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %852, i32 noundef %850, ptr noundef nonnull @.str.1065)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %852, i32 noundef %850, ptr noundef nonnull @.str.1065)
   %853 = add i8 %.0166420, -1
   %.not1677 = icmp eq i8 %853, 0
   br i1 %.not1677, label %.critedge133, label %.lr.ph22, !llvm.loop !7
@@ -3442,7 +3442,7 @@ check_length.exit1770:                            ; preds = %839
 
 check_length.exit1773:                            ; preds = %856, %857
   %859 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %859, i32 noundef %4, ptr noundef nonnull @.str.1066)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %859, i32 noundef %4, ptr noundef nonnull @.str.1066)
   br label %.critedge133
 
 860:                                              ; preds = %854
@@ -3452,16 +3452,16 @@ check_length.exit1773:                            ; preds = %856, %857
 
 862:                                              ; preds = %860
   %863 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %863, i32 noundef %4, ptr noundef nonnull @.str.1067)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %863, i32 noundef %4, ptr noundef nonnull @.str.1067)
   %864 = add i32 %4, 4
   %865 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %865, i32 noundef %864, ptr noundef nonnull @.str.1068)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %865, i32 noundef %864, ptr noundef nonnull @.str.1068)
   %866 = add i32 %4, 5
   %867 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %868 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %867, i32 noundef %866, ptr noundef nonnull @.str.1069)
+  %868 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %867, i32 noundef %866, ptr noundef nonnull @.str.1069)
   %869 = add i32 %868, %866
   %870 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %871 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %870, i32 noundef %869, ptr noundef nonnull @.str.1070)
+  %871 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %870, i32 noundef %869, ptr noundef nonnull @.str.1070)
   br label %.critedge133
 
 872:                                              ; preds = %860
@@ -3471,16 +3471,16 @@ check_length.exit1773:                            ; preds = %856, %857
 
 874:                                              ; preds = %872
   %875 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %875, i32 noundef %4, ptr noundef nonnull @.str.1067)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %875, i32 noundef %4, ptr noundef nonnull @.str.1067)
   %876 = add i32 %4, 4
   %877 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %877, i32 noundef %876, ptr noundef nonnull @.str.1068)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %877, i32 noundef %876, ptr noundef nonnull @.str.1068)
   %878 = add i32 %4, 5
   %879 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %880 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %879, i32 noundef %878, ptr noundef nonnull @.str.1069)
+  %880 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %879, i32 noundef %878, ptr noundef nonnull @.str.1069)
   %881 = add i32 %880, %878
   %882 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %883 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %882, i32 noundef %881, ptr noundef nonnull @.str.1070)
+  %883 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %882, i32 noundef %881, ptr noundef nonnull @.str.1070)
   br label %.critedge133
 
 884:                                              ; preds = %872
@@ -3490,13 +3490,13 @@ check_length.exit1773:                            ; preds = %856, %857
 
 886:                                              ; preds = %884
   %887 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %888 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %887, i32 noundef %4, ptr noundef nonnull @.str.1071)
+  %888 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %887, i32 noundef %4, ptr noundef nonnull @.str.1071)
   %889 = add i32 %888, %4
   %890 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %891 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %890, i32 noundef %889, ptr noundef nonnull @.str.1072)
+  %891 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %890, i32 noundef %889, ptr noundef nonnull @.str.1072)
   %892 = add i32 %891, %889
   %893 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %894 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %893, i32 noundef %892, ptr noundef nonnull @.str.1073)
+  %894 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %893, i32 noundef %892, ptr noundef nonnull @.str.1073)
   br label %.critedge133
 
 895:                                              ; preds = %884
@@ -3508,19 +3508,19 @@ check_length.exit1773:                            ; preds = %856, %857
 897:                                              ; preds = %895
   %898 = add i32 %8, %4
   %899 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %899, i32 noundef %4, ptr noundef nonnull @.str.1074)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %899, i32 noundef %4, ptr noundef nonnull @.str.1074)
   %900 = add i32 %4, 1
   %901 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %901, i32 noundef %900, ptr noundef nonnull @.str.1075)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %901, i32 noundef %900, ptr noundef nonnull @.str.1075)
   %902 = add i32 %4, 3
   %903 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %903, i32 noundef %902, ptr noundef nonnull @.str.1076)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %903, i32 noundef %902, ptr noundef nonnull @.str.1076)
   %904 = add i32 %4, 5
   %905 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %905, i32 noundef %904, ptr noundef nonnull @.str.1077)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %905, i32 noundef %904, ptr noundef nonnull @.str.1077)
   %906 = add i32 %4, 7
   %907 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %907, i32 noundef %906, ptr noundef nonnull @.str.1078)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %907, i32 noundef %906, ptr noundef nonnull @.str.1078)
   %908 = add i32 %4, 9
   %909 = add nsw i32 %8, -40
   %910 = icmp ult i32 %909, -31
@@ -3542,7 +3542,7 @@ check_length.exit1773:                            ; preds = %856, %857
 
 916:                                              ; preds = %.lr.ph17
   %917 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %917, i32 noundef %.216, ptr noundef nonnull @.str.1080)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %917, i32 noundef %.216, ptr noundef nonnull @.str.1080)
   %918 = add i32 %.216, 1
   %exitcond.not = icmp eq i32 %918, %898
   br i1 %exitcond.not, label %.critedge133, label %.lr.ph17, !llvm.loop !8
@@ -3563,19 +3563,19 @@ check_length.exit1773:                            ; preds = %856, %857
 
 check_length.exit1776:                            ; preds = %921, %922
   %924 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %924, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %924, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %925 = add i32 %4, 1
   %926 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %926, i32 noundef %925, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %926, i32 noundef %925, ptr noundef nonnull @.str.1083)
   %927 = add i32 %4, 3
   %928 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %928, i32 noundef %927, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %928, i32 noundef %927, ptr noundef nonnull @.str.1084)
   %929 = add i32 %4, 5
   %930 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %930, i32 noundef %929, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %930, i32 noundef %929, ptr noundef nonnull @.str.1085)
   %931 = add i32 %4, 7
   %932 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %932, i32 noundef %931, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %932, i32 noundef %931, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 933:                                              ; preds = %919
@@ -3592,19 +3592,19 @@ check_length.exit1776:                            ; preds = %921, %922
 
 check_length.exit1779:                            ; preds = %934, %935
   %937 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %937, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %937, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %938 = add i32 %4, 1
   %939 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %939, i32 noundef %938, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %939, i32 noundef %938, ptr noundef nonnull @.str.1083)
   %940 = add i32 %4, 3
   %941 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %941, i32 noundef %940, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %941, i32 noundef %940, ptr noundef nonnull @.str.1084)
   %942 = add i32 %4, 5
   %943 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %943, i32 noundef %942, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %943, i32 noundef %942, ptr noundef nonnull @.str.1085)
   %944 = add i32 %4, 7
   %945 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %945, i32 noundef %944, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %945, i32 noundef %944, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 946:                                              ; preds = %933
@@ -3622,19 +3622,19 @@ check_length.exit1779:                            ; preds = %934, %935
 
 check_length.exit1782:                            ; preds = %948, %949
   %951 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %951, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %951, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %952 = add i32 %4, 1
   %953 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %953, i32 noundef %952, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %953, i32 noundef %952, ptr noundef nonnull @.str.1083)
   %954 = add i32 %4, 3
   %955 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %955, i32 noundef %954, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %955, i32 noundef %954, ptr noundef nonnull @.str.1084)
   %956 = add i32 %4, 5
   %957 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %957, i32 noundef %956, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %957, i32 noundef %956, ptr noundef nonnull @.str.1085)
   %958 = add i32 %4, 7
   %959 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %959, i32 noundef %958, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %959, i32 noundef %958, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 960:                                              ; preds = %946
@@ -3643,13 +3643,13 @@ check_length.exit1782:                            ; preds = %948, %949
 
 961:                                              ; preds = %960
   %962 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %963 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %962, i32 noundef %4, ptr noundef nonnull @.str.1089)
+  %963 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %962, i32 noundef %4, ptr noundef nonnull @.str.1089)
   %964 = add i32 %963, %4
   %965 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %966 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %965, i32 noundef %964, ptr noundef nonnull @.str.1090)
+  %966 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %965, i32 noundef %964, ptr noundef nonnull @.str.1090)
   %967 = add i32 %966, %964
   %968 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %969 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %968, i32 noundef %967, ptr noundef nonnull @.str.1091)
+  %969 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %968, i32 noundef %967, ptr noundef nonnull @.str.1091)
   br label %.critedge133
 
 970:                                              ; preds = %960
@@ -3667,19 +3667,19 @@ check_length.exit1782:                            ; preds = %948, %949
 
 check_length.exit1785:                            ; preds = %972, %973
   %975 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %975, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %975, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %976 = add i32 %4, 1
   %977 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %977, i32 noundef %976, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %977, i32 noundef %976, ptr noundef nonnull @.str.1083)
   %978 = add i32 %4, 3
   %979 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %979, i32 noundef %978, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %979, i32 noundef %978, ptr noundef nonnull @.str.1084)
   %980 = add i32 %4, 5
   %981 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %981, i32 noundef %980, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %981, i32 noundef %980, ptr noundef nonnull @.str.1085)
   %982 = add i32 %4, 7
   %983 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %983, i32 noundef %982, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %983, i32 noundef %982, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 984:                                              ; preds = %970
@@ -3697,19 +3697,19 @@ check_length.exit1785:                            ; preds = %972, %973
 
 check_length.exit1788:                            ; preds = %986, %987
   %989 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %989, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %989, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %990 = add i32 %4, 1
   %991 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %991, i32 noundef %990, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %991, i32 noundef %990, ptr noundef nonnull @.str.1083)
   %992 = add i32 %4, 3
   %993 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %993, i32 noundef %992, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %993, i32 noundef %992, ptr noundef nonnull @.str.1084)
   %994 = add i32 %4, 5
   %995 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %995, i32 noundef %994, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %995, i32 noundef %994, ptr noundef nonnull @.str.1085)
   %996 = add i32 %4, 7
   %997 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %997, i32 noundef %996, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %997, i32 noundef %996, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 998:                                              ; preds = %984
@@ -3726,19 +3726,19 @@ check_length.exit1788:                            ; preds = %986, %987
 
 check_length.exit1791:                            ; preds = %999, %1000
   %1002 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1002, i32 noundef %4, ptr noundef nonnull @.str.1082)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1002, i32 noundef %4, ptr noundef nonnull @.str.1082)
   %1003 = add i32 %4, 1
   %1004 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1004, i32 noundef %1003, ptr noundef nonnull @.str.1083)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1004, i32 noundef %1003, ptr noundef nonnull @.str.1083)
   %1005 = add i32 %4, 3
   %1006 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1006, i32 noundef %1005, ptr noundef nonnull @.str.1084)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1006, i32 noundef %1005, ptr noundef nonnull @.str.1084)
   %1007 = add i32 %4, 5
   %1008 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1008, i32 noundef %1007, ptr noundef nonnull @.str.1085)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1008, i32 noundef %1007, ptr noundef nonnull @.str.1085)
   %1009 = add i32 %4, 7
   %1010 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1010, i32 noundef %1009, ptr noundef nonnull @.str.1086)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1010, i32 noundef %1009, ptr noundef nonnull @.str.1086)
   br label %.critedge133
 
 1011:                                             ; preds = %998
@@ -3750,16 +3750,16 @@ check_length.exit1791:                            ; preds = %999, %1000
 
 1014:                                             ; preds = %1011
   %1015 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1016 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1015, i32 noundef %4, ptr noundef nonnull @.str.1095)
+  %1016 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1015, i32 noundef %4, ptr noundef nonnull @.str.1095)
   %1017 = add i32 %1016, %4
   %1018 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1019 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1018, i32 noundef %1017, ptr noundef nonnull @.str.1095)
+  %1019 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1018, i32 noundef %1017, ptr noundef nonnull @.str.1095)
   %1020 = add i32 %1019, %1017
   %1021 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1022 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1021, i32 noundef %1020, ptr noundef nonnull @.str.1095)
+  %1022 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1021, i32 noundef %1020, ptr noundef nonnull @.str.1095)
   %1023 = add i32 %1022, %1020
   %1024 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %1025 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1024, i32 noundef %1023, ptr noundef nonnull @.str.1095)
+  %1025 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1024, i32 noundef %1023, ptr noundef nonnull @.str.1095)
   br label %.critedge133
 
 1026:                                             ; preds = %1011
@@ -3776,22 +3776,22 @@ check_length.exit1791:                            ; preds = %999, %1000
 
 check_length.exit1794:                            ; preds = %1027, %1028
   %1030 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1030, i32 noundef %4, ptr noundef nonnull @.str.1097)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1030, i32 noundef %4, ptr noundef nonnull @.str.1097)
   %1031 = add i32 %4, 4
   %1032 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1032, i32 noundef %1031, ptr noundef nonnull @.str.1098)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1032, i32 noundef %1031, ptr noundef nonnull @.str.1098)
   %1033 = add i32 %4, 8
   %1034 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1034, i32 noundef %1033, ptr noundef nonnull @.str.1099)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1034, i32 noundef %1033, ptr noundef nonnull @.str.1099)
   %1035 = add i32 %4, 12
   %1036 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1036, i32 noundef %1035, ptr noundef nonnull @.str.1100)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1036, i32 noundef %1035, ptr noundef nonnull @.str.1100)
   %1037 = add i32 %4, 16
   %1038 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1038, i32 noundef %1037, ptr noundef nonnull @.str.1101)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1038, i32 noundef %1037, ptr noundef nonnull @.str.1101)
   %1039 = add i32 %4, 20
   %1040 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1040, i32 noundef %1039, ptr noundef nonnull @.str.1102)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1040, i32 noundef %1039, ptr noundef nonnull @.str.1102)
   br label %.critedge133
 
 1041:                                             ; preds = %1026
@@ -3808,31 +3808,31 @@ check_length.exit1794:                            ; preds = %1027, %1028
 
 check_length.exit1797:                            ; preds = %1042, %1043
   %1045 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1045, i32 noundef %4, ptr noundef nonnull @.str.1097)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1045, i32 noundef %4, ptr noundef nonnull @.str.1097)
   %1046 = add i32 %4, 4
   %1047 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1047, i32 noundef %1046, ptr noundef nonnull @.str.1098)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1047, i32 noundef %1046, ptr noundef nonnull @.str.1098)
   %1048 = add i32 %4, 8
   %1049 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1049, i32 noundef %1048, ptr noundef nonnull @.str.1099)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1049, i32 noundef %1048, ptr noundef nonnull @.str.1099)
   %1050 = add i32 %4, 12
   %1051 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1051, i32 noundef %1050, ptr noundef nonnull @.str.1100)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1051, i32 noundef %1050, ptr noundef nonnull @.str.1100)
   %1052 = add i32 %4, 16
   %1053 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1053, i32 noundef %1052, ptr noundef nonnull @.str.1101)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1053, i32 noundef %1052, ptr noundef nonnull @.str.1101)
   %1054 = add i32 %4, 20
   %1055 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1055, i32 noundef %1054, ptr noundef nonnull @.str.1102)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1055, i32 noundef %1054, ptr noundef nonnull @.str.1102)
   %1056 = add i32 %4, 24
   %1057 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1057, i32 noundef %1056, ptr noundef nonnull @.str.1104)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1057, i32 noundef %1056, ptr noundef nonnull @.str.1104)
   %1058 = add i32 %4, 28
   %1059 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1059, i32 noundef %1058, ptr noundef nonnull @.str.1105)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1059, i32 noundef %1058, ptr noundef nonnull @.str.1105)
   %1060 = add i32 %4, 32
   %1061 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1061, i32 noundef %1060, ptr noundef nonnull @.str.1106)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1061, i32 noundef %1060, ptr noundef nonnull @.str.1106)
   br label %.critedge133
 
 1062:                                             ; preds = %1041
@@ -3850,16 +3850,16 @@ check_length.exit1797:                            ; preds = %1042, %1043
 
 check_length.exit1800:                            ; preds = %1064, %1065
   %1067 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1067, i32 noundef %4, ptr noundef nonnull @.str.1038)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1067, i32 noundef %4, ptr noundef nonnull @.str.1038)
   %1068 = add i32 %4, 4
   %1069 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1069, i32 noundef %1068, ptr noundef nonnull @.str.1039)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1069, i32 noundef %1068, ptr noundef nonnull @.str.1039)
   %1070 = add i32 %4, 8
   %1071 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1071, i32 noundef %1070, ptr noundef nonnull @.str.1040)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1071, i32 noundef %1070, ptr noundef nonnull @.str.1040)
   %1072 = add i32 %4, 12
   %1073 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1073, i32 noundef %1072, ptr noundef nonnull @.str.1041)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1073, i32 noundef %1072, ptr noundef nonnull @.str.1041)
   br label %.critedge133
 
 1074:                                             ; preds = %1062
@@ -3876,16 +3876,16 @@ check_length.exit1800:                            ; preds = %1064, %1065
 
 check_length.exit1803:                            ; preds = %1075, %1076
   %1078 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1078, i32 noundef %4, ptr noundef nonnull @.str.1038)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1078, i32 noundef %4, ptr noundef nonnull @.str.1038)
   %1079 = add i32 %4, 4
   %1080 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1080, i32 noundef %1079, ptr noundef nonnull @.str.1039)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1080, i32 noundef %1079, ptr noundef nonnull @.str.1039)
   %1081 = add i32 %4, 8
   %1082 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1082, i32 noundef %1081, ptr noundef nonnull @.str.1040)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1082, i32 noundef %1081, ptr noundef nonnull @.str.1040)
   %1083 = add i32 %4, 12
   %1084 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1084, i32 noundef %1083, ptr noundef nonnull @.str.1041)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1084, i32 noundef %1083, ptr noundef nonnull @.str.1041)
   br label %.critedge133
 
 1085:                                             ; preds = %1074
@@ -3903,7 +3903,7 @@ check_length.exit1803:                            ; preds = %1075, %1076
 
 check_length.exit1806:                            ; preds = %1087, %1088
   %1090 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1090, i32 noundef %4, ptr noundef nonnull @.str.1109)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1090, i32 noundef %4, ptr noundef nonnull @.str.1109)
   br label %.critedge133
 
 1091:                                             ; preds = %1085
@@ -3920,13 +3920,13 @@ check_length.exit1806:                            ; preds = %1087, %1088
 
 check_length.exit1809:                            ; preds = %1092, %1093
   %1095 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1095, i32 noundef %4, ptr noundef nonnull @.str.1111)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1095, i32 noundef %4, ptr noundef nonnull @.str.1111)
   %1096 = add i32 %4, 1
   %1097 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1097, i32 noundef %1096, ptr noundef nonnull @.str.1112)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1097, i32 noundef %1096, ptr noundef nonnull @.str.1112)
   %1098 = add i32 %4, 3
   %1099 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1099, i32 noundef %1098, ptr noundef nonnull @.str.1113)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1099, i32 noundef %1098, ptr noundef nonnull @.str.1113)
   br label %.critedge133
 
 1100:                                             ; preds = %1091
@@ -3944,10 +3944,10 @@ check_length.exit1809:                            ; preds = %1092, %1093
 
 check_length.exit1812:                            ; preds = %1102, %1103
   %1105 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1105, i32 noundef %4, ptr noundef nonnull @.str.1038)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1105, i32 noundef %4, ptr noundef nonnull @.str.1038)
   %1106 = add i32 %4, 4
   %1107 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1107, i32 noundef %1106, ptr noundef nonnull @.str.1039)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1107, i32 noundef %1106, ptr noundef nonnull @.str.1039)
   br label %.critedge133
 
 1108:                                             ; preds = %1100
@@ -3962,46 +3962,46 @@ check_length.exit1812:                            ; preds = %1102, %1103
 
 1112:                                             ; preds = %1110, %1108
   %1113 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1113, i32 noundef %4, ptr noundef nonnull @.str.1115)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1113, i32 noundef %4, ptr noundef nonnull @.str.1115)
   %1114 = add i32 %4, 2
   %1115 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1115, i32 noundef %1114, ptr noundef nonnull @.str.1116)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1115, i32 noundef %1114, ptr noundef nonnull @.str.1116)
   %1116 = add i32 %4, 4
   %1117 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1117, i32 noundef %1116, ptr noundef nonnull @.str.1117)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1117, i32 noundef %1116, ptr noundef nonnull @.str.1117)
   %1118 = add i32 %4, 5
   %1119 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1119, i32 noundef %1118, ptr noundef nonnull @.str.1118)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1119, i32 noundef %1118, ptr noundef nonnull @.str.1118)
   %1120 = add i32 %4, 6
   %1121 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1121, i32 noundef %1120, ptr noundef nonnull @.str.1119)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1121, i32 noundef %1120, ptr noundef nonnull @.str.1119)
   %1122 = add i32 %4, 7
   %1123 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1123, i32 noundef %1122, ptr noundef nonnull @.str.1120)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1123, i32 noundef %1122, ptr noundef nonnull @.str.1120)
   %1124 = add i32 %4, 8
   %1125 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1125, i32 noundef %1124, ptr noundef nonnull @.str.1121)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1125, i32 noundef %1124, ptr noundef nonnull @.str.1121)
   %1126 = add i32 %4, 9
   %1127 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1127, i32 noundef %1126, ptr noundef nonnull @.str.1122)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1127, i32 noundef %1126, ptr noundef nonnull @.str.1122)
   %1128 = add i32 %4, 10
   %1129 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1129, i32 noundef %1128, ptr noundef nonnull @.str.1123)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1129, i32 noundef %1128, ptr noundef nonnull @.str.1123)
   %1130 = add i32 %4, 11
   %1131 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1131, i32 noundef %1130, ptr noundef nonnull @.str.1124)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1131, i32 noundef %1130, ptr noundef nonnull @.str.1124)
   %1132 = add i32 %4, 12
   %1133 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1133, i32 noundef %1132, ptr noundef nonnull @.str.1125)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1133, i32 noundef %1132, ptr noundef nonnull @.str.1125)
   %1134 = add i32 %4, 14
   %1135 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1135, i32 noundef %1134, ptr noundef nonnull @.str.1126)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1135, i32 noundef %1134, ptr noundef nonnull @.str.1126)
   %1136 = add i32 %4, 16
   %1137 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1137, i32 noundef %1136, ptr noundef nonnull @.str.1127)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1137, i32 noundef %1136, ptr noundef nonnull @.str.1127)
   %1138 = add i32 %4, 17
   %1139 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1139, i32 noundef %1138, ptr noundef nonnull @.str.1128)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1139, i32 noundef %1138, ptr noundef nonnull @.str.1128)
   %1140 = load i32, ptr @global_sapdiag_highlight_items, align 4
   %.not1674 = icmp eq i32 %1140, 0
   br i1 %.not1674, label %.critedge133, label %1141
@@ -4036,7 +4036,7 @@ check_length.exit1812:                            ; preds = %1102, %1103
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.1129, i32 noundef %1154) #2
   %1155 = add i32 %.314, 2
   %1156 = load i32, ptr @hf_sapdiag_item_control_properties_value, align 4
-  %1157 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1156, i32 noundef %1155, ptr noundef nonnull @.str.1130)
+  %1157 = tail call fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %1156, i32 noundef %1155, ptr noundef nonnull @.str.1130)
   %1158 = add i32 %1157, %1155
   %1159 = icmp ult i32 %1158, %1146
   br i1 %1159, label %.lr.ph, label %.critedge133, !llvm.loop !9
@@ -4059,16 +4059,16 @@ check_length.exit1812:                            ; preds = %1102, %1103
 
 1165:                                             ; preds = %1163
   %1166 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1166, i32 noundef %4, ptr noundef nonnull @.str.1131)
+  tail call fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1166, i32 noundef %4, ptr noundef nonnull @.str.1131)
   %1167 = add i32 %4, 1
   %1168 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1168, i32 noundef %1167, ptr noundef nonnull @.str.1132)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1168, i32 noundef %1167, ptr noundef nonnull @.str.1132)
   %1169 = add i32 %4, 5
   %1170 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1170, i32 noundef %1169, ptr noundef nonnull @.str.1133)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1170, i32 noundef %1169, ptr noundef nonnull @.str.1133)
   %1171 = add i32 %4, 9
   %1172 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1172, i32 noundef %1171, ptr noundef nonnull @.str.1134)
+  tail call fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1172, i32 noundef %1171, ptr noundef nonnull @.str.1134)
   br label %.critedge133
 
 1173:                                             ; preds = %1163
@@ -4127,7 +4127,7 @@ check_length.exit1812:                            ; preds = %1102, %1103
   %1203 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1204 = getelementptr i8, ptr %1, i64 408
   %.val1706 = load ptr, ptr %1204, align 8
-  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1706, ptr noundef %2, ptr noundef %3, i32 noundef %1203, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 1)
+  tail call fastcc void @add_item_value_string.argprom(ptr noundef %0, ptr %.val1706, ptr noundef %2, ptr noundef %3, i32 noundef %1203, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 1)
   br label %.critedge133
 
 1205:                                             ; preds = %1193
@@ -4143,7 +4143,7 @@ check_length.exit1812:                            ; preds = %1102, %1103
   %1210 = load i32, ptr @hf_sapdiag_item_value, align 4
   %1211 = getelementptr i8, ptr %1, i64 408
   %.val1707 = load ptr, ptr %1211, align 8
-  tail call fastcc void @add_item_value_string(ptr noundef %0, ptr %.val1707, ptr noundef %2, ptr noundef %3, i32 noundef %1210, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 0)
+  tail call fastcc void @add_item_value_string.argprom(ptr noundef %0, ptr %.val1707, ptr noundef %2, ptr noundef %3, i32 noundef %1210, i32 noundef %4, i32 noundef %8, ptr noundef nonnull @.str.61, i32 noundef 0)
   br label %.critedge133
 
 1212:                                             ; preds = %1207
@@ -4177,7 +4177,7 @@ check_length.exit1812:                            ; preds = %1102, %1103
 
 check_length.exit1815:                            ; preds = %1219, %1220
   %1222 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1222, i32 noundef %4, ptr noundef nonnull @.str.1135)
+  tail call fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1222, i32 noundef %4, ptr noundef nonnull @.str.1135)
   br label %.critedge133
 
 1223:                                             ; preds = %1217
@@ -4194,7 +4194,7 @@ check_length.exit1815:                            ; preds = %1219, %1220
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_item_value_uint8.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #2
   %8 = zext i8 %7 to i32
   %9 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 1, ptr noundef nonnull @.str.1138, ptr noundef %5, i32 noundef %8) #2
@@ -4206,7 +4206,7 @@ define internal fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_item_value_uint32.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %4) #2
   %8 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull @.str.1138, ptr noundef %5, i32 noundef %7) #2
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %4) #2
@@ -4216,7 +4216,7 @@ define internal fastcc void @add_item_value_uint32(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_item_value_uint16.retelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4) #2
   %8 = zext i16 %7 to i32
   %9 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 2, ptr noundef nonnull @.str.1138, ptr noundef %5, i32 noundef %8) #2
@@ -4228,7 +4228,7 @@ define internal fastcc void @add_item_value_uint16(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_string(ptr noundef %0, ptr %.408.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
+define internal fastcc void @add_item_value_string.argprom(ptr noundef %0, ptr %.408.val, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, -2147483648) %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %.408.val, ptr noundef %0, i32 noundef %4, i32 noundef %5, i32 noundef 0) #2
   %10 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.1140, ptr noundef %6, ptr noundef %9) #2
   %.not = icmp eq i32 %7, 0
@@ -4243,7 +4243,7 @@ define internal fastcc void @add_item_value_string(ptr noundef %0, ptr %.408.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @add_item_value_stringz.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %5) #2
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
@@ -4255,7 +4255,7 @@ define internal fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_item_value_hexstring(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_item_value_hexstring.argprom.argelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_bytes_to_str(ptr noundef %8, ptr noundef %0, i32 noundef %5, i32 noundef 16) #2

@@ -1063,7 +1063,7 @@ if.then.i.i:                                      ; preds = %entry
   %called.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_18RayMajorantSegmentEJRKbEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %called.i.i.i.i)
-          to label %"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i.i.i
+          to label %"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.argprom.exit" unwind label %lpad.i.i.i.i.i
 
 common.resume.i.i:                                ; preds = %lpad.i.i.i3.i.i, %lpad.i.i.i.i.i
   %common.resume.op.i.i = phi { ptr, i32 } [ %1, %lpad.i.i.i.i.i ], [ %2, %lpad.i.i.i3.i.i ]
@@ -1096,14 +1096,14 @@ if.else.i.i:                                      ; preds = %entry
   %grid.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #29
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_RKNS_15SampledSpectrumES3_S3_S3_S3_S3_S3_RKiS8_S8_S8_S8_S8_S8_S8_S8_RKPKNS_12MajorantGridEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %tMin.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %tMax.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %nextCrossingT.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx3.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx5.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %deltaT.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx8.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx10.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %step.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx13.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx15.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %voxelLimit.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx18.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx20.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %voxel.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx23.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx25.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %grid.i.i.i.i)
-          to label %"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.exit" unwind label %lpad.i.i.i3.i.i
+          to label %"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.argprom.exit" unwind label %lpad.i.i.i3.i.i
 
 lpad.i.i.i3.i.i:                                  ; preds = %if.else.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i.i
 
-"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.exit": ; preds = %if.then.i.i, %if.else.i.i
+"_ZNK4pbrt13TaggedPointerIJNS_27HomogeneousMajorantIteratorENS_19DDAMajorantIteratorEEE11DispatchCPUIRZNKS_19RayMajorantIterator8ToStringB5cxx11EvE3$_0EEDcOT_.argprom.exit": ; preds = %if.then.i.i, %if.else.i.i
   ret void
 }
 
@@ -1590,7 +1590,7 @@ entry:
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb3.i.i
     i32 3, label %sw.bb5.i.i
-    i32 4, label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit"
+    i32 4, label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit"
   ]
 
 sw.bb.i.i:                                        ; preds = %entry
@@ -1601,7 +1601,7 @@ sw.bb.i.i:                                        ; preds = %entry
   %add.ptr.i.idx.i.i.i.i.i = shl nsw i64 %ptr.val9.i.i, 2
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.val.i.i, i64 %add.ptr.i.idx.i.i.i.i.i
   %or.cond.i.i.i.i.i.i.i = icmp ult i64 %ptr.val9.i.i, 2
-  br i1 %or.cond.i.i.i.i.i.i.i, label %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.exit.i.i", label %while.body.preheader.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i.i.i, label %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.argprom.exit.i.i", label %while.body.preheader.i.i.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i.i.i:               ; preds = %sw.bb.i.i
   %incdec.ptr8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.val.i.i, i64 4
@@ -1618,19 +1618,19 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
   %spec.select.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %incdec.ptr11.i.i.i.i.i.i.i, ptr %__result.010.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr11.i.i.i.i.i.i.i, i64 4
   %cmp1.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
-  br i1 %cmp1.not.i.i.i.i.i.i.i, label %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.exit.i.i", label %while.body.i.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %cmp1.not.i.i.i.i.i.i.i, label %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.argprom.exit.i.i", label %while.body.i.i.i.i.i.i.i, !llvm.loop !6
 
-"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.exit.i.i": ; preds = %while.body.i.i.i.i.i.i.i, %sw.bb.i.i
+"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.argprom.exit.i.i": ; preds = %while.body.i.i.i.i.i.i.i, %sw.bb.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %ptr.val.i.i, %sw.bb.i.i ], [ %spec.select.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i ]
   %6 = load float, ptr %retval.0.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i = fcmp ogt float %6, 0.000000e+00
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb3.i.i:                                       ; preds = %entry
   %7 = getelementptr i8, ptr %0, i64 432
   %ptr.val10.i.i = load i8, ptr %7, align 8
   %tobool.i.i.i.i = trunc i8 %ptr.val10.i.i to i1
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit"
 
 sw.bb5.i.i:                                       ; preds = %entry
   %8 = getelementptr i8, ptr %0, i64 200
@@ -1640,7 +1640,7 @@ sw.bb5.i.i:                                       ; preds = %entry
   %tobool.i.i.i.i.i = trunc i8 %ptr.val11.i.i to i1
   %cmp.i.i15.i.i = fcmp ogt float %ptr.val12.i.i, 0.000000e+00
   %10 = select i1 %tobool.i.i.i.i.i, i1 %cmp.i.i15.i.i, i1 false
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit"
 
 sw.default.i.i:                                   ; preds = %entry
   %11 = getelementptr i8, ptr %0, i64 384
@@ -1650,10 +1650,10 @@ sw.default.i.i:                                   ; preds = %entry
   %tobool.not.i.i.i.i = icmp ne ptr %ptr.val13.i.i, null
   %cmp.i.i16.i.i = fcmp ogt float %ptr.val14.i.i, 0.000000e+00
   %13 = select i1 %tobool.not.i.i.i.i, i1 %cmp.i.i16.i.i, i1 false
-  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit"
+  br label %"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit"
 
-"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.exit": ; preds = %entry, %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.exit.i.i", %sw.bb3.i.i, %sw.bb5.i.i, %sw.default.i.i
-  %retval.0.i.i = phi i1 [ %13, %sw.default.i.i ], [ %10, %sw.bb5.i.i ], [ %tobool.i.i.i.i, %sw.bb3.i.i ], [ %cmp.i.i.i.i, %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.exit.i.i" ], [ false, %entry ]
+"_ZNK4pbrt13TaggedPointerIJNS_17HomogeneousMediumENS_10GridMediumENS_13RGBGridMediumENS_11CloudMediumENS_13NanoVDBMediumEEE11DispatchCPUIRZNKS_6Medium10IsEmissiveEvE3$_0EEDcOT_.argprom.exit": ; preds = %entry, %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.argprom.exit.i.i", %sw.bb3.i.i, %sw.bb5.i.i, %sw.default.i.i
+  %retval.0.i.i = phi i1 [ %13, %sw.default.i.i ], [ %10, %sw.bb5.i.i ], [ %tobool.i.i.i.i, %sw.bb3.i.i ], [ %cmp.i.i.i.i, %"_ZZNK4pbrt6Medium10IsEmissiveEvENK3$_0clIPKNS_17HomogeneousMediumEEEDaT_.argprom.exit.i.i" ], [ false, %entry ]
   ret i1 %retval.0.i.i
 }
 
@@ -5527,7 +5527,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26.i: ; preds = %if.end.i.i5.i.i
   %cmp.i.i.i33.i = fcmp oge float %div.i.i.i32.i, 3.600000e+02
   %cmp5.i.i.i34.i = fcmp ole float %div.i.i.i32.i, 8.300000e+02
   %or.cond.i.i.i35.i = and i1 %cmp.i.i.i33.i, %cmp5.i.i.i34.i
-  br i1 %or.cond.i.i.i35.i, label %if.then.i.i.i39.i, label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60.i"
+  br i1 %or.cond.i.i.i35.i, label %if.then.i.i.i39.i, label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60.i"
 
 if.then.i.i.i39.i:                                ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26.i
   %33 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32.i, float %s.sroa.0.4.vec.extract.i9.i, float %s.sroa.3.8.vec.extract.i8.i)
@@ -5554,16 +5554,16 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47.i: ; preds = %if.end.i.i19.i.
   %retval.0.i.i26.i.i.i48.i = phi float [ %conv.i.i29.i.i.i53.i, %if.then.i.i27.i.i.i51.i ], [ %add3.i.i25.i.i.i46.i, %if.end.i.i19.i.i.i40.i ]
   %cmp.i31.i.i.i49.i = fcmp olt float %.sroa.speculated34.i.i.i29.i, %retval.0.i.i26.i.i.i48.i
   %.sroa.speculated.i.i.i50.i = select i1 %cmp.i31.i.i.i49.i, float %retval.0.i.i26.i.i.i48.i, float %.sroa.speculated34.i.i.i29.i
-  br label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60.i"
+  br label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60.i"
 
-"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60.i": ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26.i
+"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60.i": ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26.i
   %result.0.i.i.i36.i = phi float [ %.sroa.speculated.i.i.i50.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47.i ], [ %.sroa.speculated34.i.i.i29.i, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26.i ]
   %s.sroa.0.0.vec.extract.i37.i = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 0
   %mul.i.i38.i = fmul float %s.sroa.0.0.vec.extract.i37.i, %result.0.i.i.i36.i
   br label %"_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNS_13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalIS2_EESE_fNSD_INS0_INS_21RGBIlluminantSpectrumEEEEEfNSC_3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDaRKNS_6Point3IiEET_.exit"
 
-"_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNS_13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalIS2_EESE_fNSD_INS0_INS_21RGBIlluminantSpectrumEEEEEfNSC_3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDaRKNS_6Point3IiEET_.exit": ; preds = %for.body84, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60.i"
-  %retval.0.i = phi float [ %mul.i.i38.i, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60.i" ], [ 0.000000e+00, %for.body84 ]
+"_ZNK4pbrt11SampledGridINS_20RGBUnboundedSpectrumEE6LookupIZNS_13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalIS2_EESE_fNSD_INS0_INS_21RGBIlluminantSpectrumEEEEEfNSC_3pmr21polymorphic_allocatorISt4byteEEE3$_0EEDaRKNS_6Point3IiEET_.exit": ; preds = %for.body84, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60.i"
+  %retval.0.i = phi float [ %mul.i.i38.i, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60.i" ], [ 0.000000e+00, %for.body84 ]
   %cmp.i = fcmp olt float %maxValue.266, %retval.0.i
   %.sroa.speculated = select i1 %cmp.i, float %retval.0.i, float %maxValue.266
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -23604,7 +23604,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26: ; preds = %if.end.i.i5.i.i.i
   %cmp.i.i.i33 = fcmp oge float %div.i.i.i32, 3.600000e+02
   %cmp5.i.i.i34 = fcmp ole float %div.i.i.i32, 8.300000e+02
   %or.cond.i.i.i35 = and i1 %cmp.i.i.i33, %cmp5.i.i.i34
-  br i1 %or.cond.i.i.i35, label %if.then.i.i.i39, label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60"
+  br i1 %or.cond.i.i.i35, label %if.then.i.i.i39, label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60"
 
 if.then.i.i.i39:                                  ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26
   %13 = tail call noundef float @llvm.fma.f32(float %div.i.i.i32, float %s.sroa.0.4.vec.extract.i9, float %s.sroa.3.8.vec.extract.i8)
@@ -23631,16 +23631,16 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47: ; preds = %if.end.i.i19.i.i.
   %retval.0.i.i26.i.i.i48 = phi float [ %conv.i.i29.i.i.i53, %if.then.i.i27.i.i.i51 ], [ %add3.i.i25.i.i.i46, %if.end.i.i19.i.i.i40 ]
   %cmp.i31.i.i.i49 = fcmp olt float %.sroa.speculated34.i.i.i29, %retval.0.i.i26.i.i.i48
   %.sroa.speculated.i.i.i50 = select i1 %cmp.i31.i.i.i49, float %retval.0.i.i26.i.i.i48, float %.sroa.speculated34.i.i.i29
-  br label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60"
+  br label %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60"
 
-"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60": ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47
+"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60": ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47
   %result.0.i.i.i36 = phi float [ %.sroa.speculated.i.i.i50, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit30.i.i.i47 ], [ %.sroa.speculated34.i.i.i29, %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit16.i.i.i26 ]
   %s.sroa.0.0.vec.extract.i37 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload, i64 0
   %mul.i.i38 = fmul float %s.sroa.0.0.vec.extract.i37, %result.0.i.i.i36
   br label %return
 
-return:                                           ; preds = %entry, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60"
-  %retval.0 = phi float [ %mul.i.i38, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.exit60" ], [ 0.000000e+00, %entry ]
+return:                                           ; preds = %entry, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60"
+  %retval.0 = phi float [ %mul.i.i38, %"_ZZN4pbrt13RGBGridMediumC1ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEEENK3$_0clESB_.argprom.exit60" ], [ 0.000000e+00, %entry ]
   ret float %retval.0
 }
 
@@ -24752,7 +24752,7 @@ do.end.i.i.i:                                     ; preds = %entry
   %mNode.i.i.i.i.i = getelementptr inbounds i8, ptr %accessor.i.i.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mNode.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !59
   %cmp147.not29.i.i.i = icmp sgt i32 %.sroa.speculated5.i.i.i, %.sroa.speculated2.i.i.i
-  br i1 %cmp147.not29.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.cond148.preheader.lr.ph.i.i.i
+  br i1 %cmp147.not29.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %for.cond148.preheader.lr.ph.i.i.i
 
 for.cond148.preheader.lr.ph.i.i.i:                ; preds = %do.end.i.i.i
   %cmp149.not25.i.i.i = icmp sgt i32 %.sroa.speculated11.i.i.i, %.sroa.speculated8.i.i.i
@@ -24760,7 +24760,7 @@ for.cond148.preheader.lr.ph.i.i.i:                ; preds = %do.end.i.i.i
   %arrayinit.element2.i112.i.i.i = getelementptr inbounds i8, ptr %ref.tmp155.i.i.i, i64 8
   %cmp152.not22.i.i.i = icmp sgt i32 %.sroa.speculated17.i.i.i, %.sroa.speculated14.i.i.i
   %or.cond.i.i.i = select i1 %cmp149.not25.i.i.i, i1 true, i1 %cmp152.not22.i.i.i
-  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.cond148.preheader.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %for.cond148.preheader.i.i.i
 
 for.cond148.preheader.i.i.i:                      ; preds = %for.cond148.preheader.lr.ph.i.i.i, %for.cond148.for.inc161_crit_edge.split.i.i.i
   %nz.031.i.i.i = phi i32 [ %inc162.i.i.i, %for.cond148.for.inc161_crit_edge.split.i.i.i ], [ %.sroa.speculated5.i.i.i, %for.cond148.preheader.lr.ph.i.i.i ]
@@ -24793,9 +24793,9 @@ for.cond151.for.inc158_crit_edge.i.i.i:           ; preds = %for.body153.i.i.i
 for.cond148.for.inc161_crit_edge.split.i.i.i:     ; preds = %for.cond151.for.inc158_crit_edge.i.i.i
   %inc162.i.i.i = add i32 %nz.031.i.i.i, 1
   %exitcond45.not.i.i.i = icmp eq i32 %nz.031.i.i.i, %.sroa.speculated2.i.i.i
-  br i1 %exitcond45.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit", label %for.cond148.preheader.i.i.i, !llvm.loop !64
+  br i1 %exitcond45.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit", label %for.cond148.preheader.i.i.i, !llvm.loop !64
 
-"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit": ; preds = %for.cond148.for.inc161_crit_edge.split.i.i.i, %do.end.i.i.i, %for.cond148.preheader.lr.ph.i.i.i
+"_ZSt10__invoke_rIvRZN4pbrt13NanoVDBMediumC1ERKNS0_9TransformENS0_8SpectrumES5_ffN7nanovdb10GridHandleINS0_13NanoVDBBufferEEES9_fffN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.argprom.exit": ; preds = %for.cond148.for.inc161_crit_edge.split.i.i.i, %do.end.i.i.i, %for.cond148.preheader.lr.ph.i.i.i
   %maxValue.0.lcssa.i.i.i = phi float [ 0.000000e+00, %do.end.i.i.i ], [ 0.000000e+00, %for.cond148.preheader.lr.ph.i.i.i ], [ %.sroa.speculated.i.i.i, %for.cond148.for.inc161_crit_edge.split.i.i.i ]
   %39 = load i32, ptr %res.i.i.i, align 8
   %40 = load i32, ptr %y10.i.i.i, align 4
@@ -26610,7 +26610,7 @@ sw.epilog.i:                                      ; preds = %sw.default.i, %_ZNS
           to label %call23.i.noexc unwind label %lpad12
 
 call23.i.noexc:                                   ; preds = %sw.epilog.i
-  br i1 %call23.i24, label %if.then24.i, label %_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.exit
+  br i1 %call23.i24, label %if.then24.i, label %_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.argprom.exit
 
 if.then24.i:                                      ; preds = %call23.i.noexc
   %exception25.i = call ptr @__cxa_allocate_exception(i64 16) #29
@@ -26634,7 +26634,7 @@ lpad26.i:                                         ; preds = %if.then24.i
 unreachable.i:                                    ; preds = %invoke.cont15.i
   unreachable
 
-_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.exit: ; preds = %call23.i.noexc
+_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.argprom.exit: ; preds = %call23.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %numBytes.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.ensured.i)
@@ -26682,7 +26682,7 @@ while.end:                                        ; preds = %invoke.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i28, i8 0, i64 16, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.exit, %while.end
+cleanup:                                          ; preds = %_ZN7nanovdb2io8InternalL4readIN4pbrt13NanoVDBBufferEEEvRSiRNS_10GridHandleIT_EENS0_5CodecE.argprom.exit, %while.end
   %20 = load ptr, ptr %meta.i, align 8
   %21 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %20, %21

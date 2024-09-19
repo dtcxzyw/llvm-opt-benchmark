@@ -140,7 +140,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
   store ptr null, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %10 = icmp eq ptr %0, null
-  br i1 %10, label %_hostlist_create.exit, label %11
+  br i1 %10, label %_hostlist_create.argprom.exit, label %11
 
 11:                                               ; preds = %8
   %12 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #22
@@ -150,7 +150,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
 .preheader.i.i:                                   ; preds = %11
   %13 = load i8, ptr %12, align 1
   %.not6.i17.i.i = icmp eq i8 %13, 0
-  br i1 %.not6.i17.i.i, label %_next_tok.exit.thread.i.i, label %.lr.ph.i.preheader.lr.ph.i.i
+  br i1 %.not6.i17.i.i, label %_next_tok.argprom.exit.thread.i.i, label %.lr.ph.i.preheader.lr.ph.i.i
 
 .lr.ph.i.preheader.lr.ph.i.i:                     ; preds = %.preheader.i.i
   %14 = icmp eq i32 %.0, 1
@@ -158,7 +158,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
 
 15:                                               ; preds = %11
   tail call void @hostlist_destroy(ptr noundef %9)
-  br label %_hostlist_create.exit
+  br label %_hostlist_create.argprom.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.backedge, %.lr.ph.i.preheader.lr.ph.i.i
   %.1.i.i = phi ptr [ %12, %.lr.ph.i.preheader.lr.ph.i.i ], [ %.1.i.i.be, %.lr.ph.i.i.i.backedge ]
@@ -175,7 +175,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
   %21 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i.i.i = icmp eq i8 %22, 0
-  br i1 %.not.i.i.i, label %_next_tok.exit.thread.i.i, label %.lr.ph.i.i.i.backedge
+  br i1 %.not.i.i.i, label %_next_tok.argprom.exit.thread.i.i, label %.lr.ph.i.i.i.backedge
 
 .lr.ph.i.i.i.backedge:                            ; preds = %20, %70
   %.1.i.i.be = phi ptr [ %21, %20 ], [ %.6.i.i, %70 ]
@@ -240,7 +240,7 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
 
 .critedge2._crit_edge.i.i.i:                      ; preds = %.critedge2.i.i.i, %41, %.lr.ph14.i.i.i
   %.not4718.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not4718.i.i.i, label %_next_tok.exit.i.i, label %.lr.ph20.i.i.i
+  br i1 %.not4718.i.i.i, label %_next_tok.argprom.exit.i.i, label %.lr.ph20.i.i.i
 
 .lr.ph20.i.i.i:                                   ; preds = %.critedge2._crit_edge.i.i.i, %51
   %.5.i.i = phi ptr [ %52, %51 ], [ %32, %.critedge2._crit_edge.i.i.i ]
@@ -251,22 +251,22 @@ define noundef ptr @hostlist_create_dims(ptr noundef readonly %0, i32 noundef %1
   %50 = and i64 %49, 17596481013249
   %memchr.bits49.i.i.i = icmp eq i64 %50, 0
   %memchr50.not.i.i.i = select i1 %memchr.bounds48.i.i.i, i1 true, i1 %memchr.bits49.i.i.i
-  br i1 %memchr50.not.i.i.i, label %_next_tok.exit.i.i, label %51
+  br i1 %memchr50.not.i.i.i, label %_next_tok.argprom.exit.i.i, label %51
 
 51:                                               ; preds = %.lr.ph20.i.i.i
   %52 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
   store i8 0, ptr %.5.i.i, align 1
   %53 = load i8, ptr %52, align 1
   %.not47.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not47.i.i.i, label %_next_tok.exit.i.i, label %.lr.ph20.i.i.i, !llvm.loop !9
+  br i1 %.not47.i.i.i, label %_next_tok.argprom.exit.i.i, label %.lr.ph20.i.i.i, !llvm.loop !9
 
-_next_tok.exit.i.i:                               ; preds = %51, %.lr.ph20.i.i.i, %.critedge2._crit_edge.i.i.i
+_next_tok.argprom.exit.i.i:                       ; preds = %51, %.lr.ph20.i.i.i, %.critedge2._crit_edge.i.i.i
   %.6.i.i = phi ptr [ %32, %.critedge2._crit_edge.i.i.i ], [ %52, %51 ], [ %.5.i.i, %.lr.ph20.i.i.i ]
   %54 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1.i.i, i32 noundef 91) #23
   %.not38.i.i = icmp eq ptr %54, null
   br i1 %.not38.i.i, label %68, label %55
 
-55:                                               ; preds = %_next_tok.exit.i.i
+55:                                               ; preds = %_next_tok.argprom.exit.i.i
   %56 = getelementptr inbounds i8, ptr %54, i64 1
   store i8 0, ptr %54, align 1
   %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %56, i32 noundef 93) #23
@@ -287,7 +287,7 @@ _next_tok.exit.i.i:                               ; preds = %51, %.lr.ph20.i.i.i
 62:                                               ; preds = %61, %58, %58
   %.0.i.i = phi ptr [ null, %58 ], [ null, %58 ], [ %59, %61 ]
   store i8 0, ptr %57, align 1
-  %63 = call fastcc i32 @_parse_range_list(ptr noundef %56, ptr noundef %3, ptr noundef %4, i32 noundef %.0)
+  %63 = call fastcc i32 @_parse_range_list.argelim(ptr noundef %56, ptr noundef %3, ptr noundef %4, i32 noundef %.0)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %72, label %65
 
@@ -297,19 +297,19 @@ _next_tok.exit.i.i:                               ; preds = %51, %.lr.ph20.i.i.i
   %.not42.i.i = icmp eq i32 %67, 0
   br i1 %.not42.i.i, label %70, label %72
 
-68:                                               ; preds = %_next_tok.exit.i.i
+68:                                               ; preds = %_next_tok.argprom.exit.i.i
   %69 = call i32 @hostlist_push_host_dims(ptr noundef %9, ptr noundef nonnull %.1.i.i, i32 noundef %.0)
   br label %70
 
 70:                                               ; preds = %68, %65
   %71 = load i8, ptr %.6.i.i, align 1
   %.not6.i.i.i = icmp eq i8 %71, 0
-  br i1 %.not6.i.i.i, label %_next_tok.exit.thread.i.i, label %.lr.ph.i.i.i.backedge
+  br i1 %.not6.i.i.i, label %_next_tok.argprom.exit.thread.i.i, label %.lr.ph.i.i.i.backedge
 
-_next_tok.exit.thread.i.i:                        ; preds = %70, %20, %.preheader.i.i
+_next_tok.argprom.exit.thread.i.i:                ; preds = %70, %20, %.preheader.i.i
   call void @slurm_xfree(ptr noundef nonnull %3) #22
   call void @free(ptr noundef %12) #22
-  br label %_hostlist_create.exit
+  br label %_hostlist_create.argprom.exit
 
 72:                                               ; preds = %65, %62, %61, %55
   %73 = tail call ptr @__errno_location() #24
@@ -318,10 +318,10 @@ _next_tok.exit.thread.i.i:                        ; preds = %70, %20, %.preheade
   call void @slurm_xfree(ptr noundef nonnull %3) #22
   call void @free(ptr noundef %12) #22
   store i32 22, ptr %73, align 4
-  br label %_hostlist_create.exit
+  br label %_hostlist_create.argprom.exit
 
-_hostlist_create.exit:                            ; preds = %8, %15, %_next_tok.exit.thread.i.i, %72
-  %.030.i.i = phi ptr [ null, %72 ], [ %9, %_next_tok.exit.thread.i.i ], [ null, %15 ], [ %9, %8 ]
+_hostlist_create.argprom.exit:                    ; preds = %8, %15, %_next_tok.argprom.exit.thread.i.i, %72
+  %.030.i.i = phi ptr [ null, %72 ], [ %9, %_next_tok.argprom.exit.thread.i.i ], [ null, %15 ], [ %9, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret ptr %.030.i.i
@@ -635,7 +635,7 @@ hostrange_count.exit.thread:                      ; preds = %14
 
 hostrange_destroy.exit:                           ; preds = %31
   %38 = add nuw nsw i32 %32, 1
-  tail call fastcc void @hostlist_insert_range(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 noundef %38)
+  tail call fastcc void @hostlist_insert_range.retelim(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 noundef %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %37, ptr %3, align 8
   tail call void @slurm_xfree(ptr noundef nonnull %37) #22
@@ -737,7 +737,7 @@ define range(i64 -1, 2147483648) i64 @hostlist_deranged_string_dims(ptr noundef 
   %25 = load ptr, ptr %24, align 8
   %26 = sub nuw i64 %1, %21
   %27 = getelementptr inbounds i8, ptr %2, i64 %21
-  %28 = tail call fastcc i64 @hostrange_to_string(ptr noundef %25, i64 noundef %26, ptr noundef %27, i32 noundef %3)
+  %28 = tail call fastcc i64 @hostrange_to_string.argprom(ptr noundef %25, i64 noundef %26, ptr noundef %27, i32 noundef %3)
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %42, label %30
 
@@ -1760,7 +1760,7 @@ define range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr n
 110:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_test_box.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_test_box.argprom.exit, label %.preheader.i, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %110, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %110 ]
@@ -1769,13 +1769,13 @@ define range(i64 -2147483648, 2147483648) i64 @hostlist_ranged_string_dims(ptr n
   %113 = getelementptr inbounds i32, ptr @grid_end, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4
   %115 = icmp sgt i32 %112, %114
-  br i1 %115, label %_test_box.exit.thread, label %110
+  br i1 %115, label %_test_box.argprom.exit.thread, label %110
 
-_test_box.exit:                                   ; preds = %110
-  %116 = tail call fastcc zeroext i1 @_test_box_in_grid(i32 noundef 0, i32 noundef 0, i32 noundef %.0)
-  br i1 %116, label %138, label %_test_box.exit.thread
+_test_box.argprom.exit:                           ; preds = %110
+  %116 = tail call fastcc zeroext i1 @_test_box_in_grid.argprom(i32 noundef 0, i32 noundef 0, i32 noundef %.0)
+  br i1 %116, label %138, label %_test_box.argprom.exit.thread
 
-_test_box.exit.thread:                            ; preds = %.preheader.i, %_test_box.exit
+_test_box.argprom.exit.thread:                    ; preds = %.preheader.i, %_test_box.argprom.exit
   %117 = getelementptr inbounds i8, ptr %0, i64 64
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
@@ -1784,7 +1784,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %183, label %123
 
-123:                                              ; preds = %_test_box.exit.thread
+123:                                              ; preds = %_test_box.argprom.exit.thread
   %124 = add nuw nsw i32 %121, 1
   %125 = zext nneg i32 %124 to i64
   %.not145 = icmp ugt i64 %1, %125
@@ -1816,7 +1816,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %137 = add nsw i32 %.3, %phi.call
   br label %.loopexit183
 
-138:                                              ; preds = %_test_box.exit
+138:                                              ; preds = %_test_box.argprom.exit
   %139 = getelementptr inbounds i8, ptr %0, i64 64
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %140, align 8
@@ -1917,7 +1917,7 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %or.cond162 = select i1 %180, i1 true, i1 %182
   br i1 %or.cond162, label %183, label %185
 
-183:                                              ; preds = %.loopexit183, %138, %145, %_test_box.exit.thread, %123, %93
+183:                                              ; preds = %.loopexit183, %138, %145, %_test_box.argprom.exit.thread, %123, %93
   %184 = trunc i64 %1 to i32
   br label %185
 
@@ -1971,11 +1971,11 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   %204 = sub i64 %1, %203
   %205 = getelementptr inbounds i8, ptr %2, i64 %203
   %206 = load ptr, ptr %196, align 8
-  br i1 %.not.i163, label %._is_bracket_needed.exit_crit_edge.i, label %207
+  br i1 %.not.i163, label %._is_bracket_needed.argprom.exit_crit_edge.i, label %207
 
-._is_bracket_needed.exit_crit_edge.i:             ; preds = %202
+._is_bracket_needed.argprom.exit_crit_edge.i:     ; preds = %202
   %.pre67.i = sext i32 %.0176220 to i64
-  br label %_is_bracket_needed.exit.i
+  br label %_is_bracket_needed.argprom.exit.i
 
 207:                                              ; preds = %202
   %.val.i = load i32, ptr %190, align 4
@@ -2006,18 +2006,18 @@ hostrange_count.exit.i.i:                         ; preds = %216
   %225 = add i64 %222, 1
   %226 = sub i64 %225, %224
   %227 = icmp ugt i64 %226, 1
-  br i1 %227, label %_is_bracket_needed.exit.i, label %hostrange_count.exit.thread.i.i
+  br i1 %227, label %_is_bracket_needed.argprom.exit.i, label %hostrange_count.exit.thread.i.i
 
 hostrange_count.exit.thread.i.i:                  ; preds = %hostrange_count.exit.i.i, %216
   %228 = icmp eq ptr %217, null
-  br i1 %228, label %_is_bracket_needed.exit.i, label %229
+  br i1 %228, label %_is_bracket_needed.argprom.exit.i, label %229
 
 229:                                              ; preds = %hostrange_count.exit.thread.i.i
   %230 = load ptr, ptr %210, align 8
   %231 = load ptr, ptr %217, align 8
   %232 = tail call i32 @strnatcmp(ptr noundef %230, ptr noundef %231) #22
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %hostrange_prefix_cmp.exit.i.i.i, label %_is_bracket_needed.exit.i
+  br i1 %233, label %hostrange_prefix_cmp.exit.i.i.i, label %_is_bracket_needed.argprom.exit.i
 
 hostrange_prefix_cmp.exit.i.i.i:                  ; preds = %229
   %234 = getelementptr inbounds i8, ptr %217, i64 28
@@ -2026,20 +2026,20 @@ hostrange_prefix_cmp.exit.i.i.i:                  ; preds = %229
   %237 = xor i8 %236, %235
   %238 = and i8 %237, 1
   %239 = icmp eq i8 %238, 0
-  br i1 %239, label %240, label %_is_bracket_needed.exit.i
+  br i1 %239, label %240, label %_is_bracket_needed.argprom.exit.i
 
 240:                                              ; preds = %hostrange_prefix_cmp.exit.i.i.i
   %241 = trunc i8 %236 to i1
-  br i1 %241, label %_is_bracket_needed.exit.i, label %242
+  br i1 %241, label %_is_bracket_needed.argprom.exit.i, label %242
 
 242:                                              ; preds = %240
   %243 = and i8 %235, 1
   %244 = icmp ne i8 %243, 0
-  br label %_is_bracket_needed.exit.i
+  br label %_is_bracket_needed.argprom.exit.i
 
-_is_bracket_needed.exit.i:                        ; preds = %242, %240, %hostrange_prefix_cmp.exit.i.i.i, %229, %hostrange_count.exit.thread.i.i, %hostrange_count.exit.i.i, %._is_bracket_needed.exit_crit_edge.i
-  %.pre-phi68.i = phi i64 [ %.pre67.i, %._is_bracket_needed.exit_crit_edge.i ], [ %208, %242 ], [ %208, %240 ], [ %208, %hostrange_prefix_cmp.exit.i.i.i ], [ %208, %229 ], [ %208, %hostrange_count.exit.thread.i.i ], [ %208, %hostrange_count.exit.i.i ]
-  %.not53.i = phi i1 [ true, %._is_bracket_needed.exit_crit_edge.i ], [ %244, %242 ], [ true, %240 ], [ true, %hostrange_prefix_cmp.exit.i.i.i ], [ true, %229 ], [ true, %hostrange_count.exit.thread.i.i ], [ false, %hostrange_count.exit.i.i ]
+_is_bracket_needed.argprom.exit.i:                ; preds = %242, %240, %hostrange_prefix_cmp.exit.i.i.i, %229, %hostrange_count.exit.thread.i.i, %hostrange_count.exit.i.i, %._is_bracket_needed.argprom.exit_crit_edge.i
+  %.pre-phi68.i = phi i64 [ %.pre67.i, %._is_bracket_needed.argprom.exit_crit_edge.i ], [ %208, %242 ], [ %208, %240 ], [ %208, %hostrange_prefix_cmp.exit.i.i.i ], [ %208, %229 ], [ %208, %hostrange_count.exit.thread.i.i ], [ %208, %hostrange_count.exit.i.i ]
+  %.not53.i = phi i1 [ true, %._is_bracket_needed.argprom.exit_crit_edge.i ], [ %244, %242 ], [ true, %240 ], [ true, %hostrange_prefix_cmp.exit.i.i.i ], [ true, %229 ], [ true, %hostrange_count.exit.thread.i.i ], [ false, %hostrange_count.exit.i.i ]
   %245 = getelementptr inbounds ptr, ptr %206, i64 %.pre-phi68.i
   %246 = load ptr, ptr %245, align 8
   %247 = load ptr, ptr %246, align 8
@@ -2051,11 +2051,11 @@ _is_bracket_needed.exit.i:                        ; preds = %242, %240, %hostran
   %or.cond.i = select i1 %249, i1 %.not52.i, i1 false
   br i1 %or.cond.i, label %254, label %252
 
-252:                                              ; preds = %_is_bracket_needed.exit.i
+252:                                              ; preds = %_is_bracket_needed.argprom.exit.i
   %253 = trunc i64 %204 to i32
   br label %_get_bracketed_list.exit
 
-254:                                              ; preds = %_is_bracket_needed.exit.i
+254:                                              ; preds = %_is_bracket_needed.argprom.exit.i
   br i1 %.not53.i, label %259, label %255
 
 255:                                              ; preds = %254
@@ -2295,7 +2295,7 @@ hostrange_destroy.exit:                           ; preds = %9
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, 1
-  tail call fastcc void @hostlist_insert_range(ptr noundef %19, ptr noundef nonnull %18, i32 noundef %22)
+  tail call fastcc void @hostlist_insert_range.retelim(ptr noundef %19, ptr noundef nonnull %18, i32 noundef %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %18, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef nonnull %18) #22
@@ -3532,9 +3532,9 @@ define i32 @hostset_insert(ptr nocapture noundef readonly %0, ptr noundef %1) #0
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 3255, ptr noundef nonnull @__func__.hostset_insert) #25
   unreachable
 
-16:                                               ; preds = %.lr.ph, %hostset_insert_range.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hostset_insert_range.exit ]
-  %.01933 = phi i32 [ 0, %.lr.ph ], [ %183, %hostset_insert_range.exit ]
+16:                                               ; preds = %.lr.ph, %hostset_insert_range.argprom.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hostset_insert_range.argprom.exit ]
+  %.01933 = phi i32 [ 0, %.lr.ph ], [ %183, %hostset_insert_range.argprom.exit ]
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
@@ -3747,7 +3747,7 @@ hostrange_cmp.exit.thread:                        ; preds = %.lr.ph.i.split, %ho
 
 116:                                              ; preds = %115, %hostrange_cmp.exit.thread
   %.1.i = phi i32 [ %113, %115 ], [ 0, %hostrange_cmp.exit.thread ]
-  tail call fastcc void @hostlist_insert_range(ptr noundef nonnull %.val, ptr noundef nonnull %19, i32 noundef %112)
+  tail call fastcc void @hostlist_insert_range.retelim(ptr noundef nonnull %.val, ptr noundef nonnull %19, i32 noundef %112)
   %.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not.i, label %.thread.i, label %117
 
@@ -3782,7 +3782,7 @@ _attempt_range_join.exit.i:                       ; preds = %126, %117
   %133 = load i32, ptr %132, align 8
   %134 = add nsw i32 %131, %133
   store i32 %134, ptr %132, align 8
-  br label %hostset_insert_range.exit
+  br label %hostset_insert_range.argprom.exit
 
 hostrange_cmp.exit.thread27:                      ; preds = %hostrange_cmp.exit
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3847,7 +3847,7 @@ hostrange_copy.exit.i:                            ; preds = %145, %140
   store i32 %166, ptr %164, align 8
   %167 = load i32, ptr %22, align 4
   %168 = icmp sgt i32 %167, 1
-  br i1 %168, label %169, label %hostset_insert_range.exit
+  br i1 %168, label %169, label %hostset_insert_range.argprom.exit
 
 169:                                              ; preds = %hostrange_copy.exit.i
   %170 = add nsw i32 %167, -1
@@ -3870,9 +3870,9 @@ hostrange_copy.exit.i:                            ; preds = %145, %140
 
 _attempt_range_join.exit46.i:                     ; preds = %179, %169
   %spec.store.select1.i = tail call i32 @llvm.smax.i32(i32 %177, i32 0)
-  br label %hostset_insert_range.exit
+  br label %hostset_insert_range.argprom.exit
 
-hostset_insert_range.exit:                        ; preds = %.thread.i, %hostrange_copy.exit.i, %_attempt_range_join.exit46.i
+hostset_insert_range.argprom.exit:                ; preds = %.thread.i, %hostrange_copy.exit.i, %_attempt_range_join.exit46.i
   %.3.i = phi i32 [ %spec.store.select1.i, %_attempt_range_join.exit46.i ], [ 0, %hostrange_copy.exit.i ], [ %.2.i, %.thread.i ]
   %182 = add i32 %.0.i.i, %.01933
   %183 = sub i32 %182, %.3.i
@@ -3882,8 +3882,8 @@ hostset_insert_range.exit:                        ; preds = %.thread.i, %hostran
   %186 = icmp slt i64 %indvars.iv.next, %185
   br i1 %186, label %16, label %._crit_edge, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %hostset_insert_range.exit, %.preheader
-  %.019.lcssa = phi i32 [ 0, %.preheader ], [ %183, %hostset_insert_range.exit ]
+._crit_edge:                                      ; preds = %hostset_insert_range.argprom.exit, %.preheader
+  %.019.lcssa = phi i32 [ 0, %.preheader ], [ %183, %hostset_insert_range.argprom.exit ]
   %187 = load ptr, ptr %0, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 8
   %189 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %188) #22
@@ -5145,7 +5145,7 @@ hostrange_copy.exit:                              ; preds = %19, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hostlist_insert_range(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @hostlist_insert_range.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %2, %5
@@ -5640,7 +5640,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 2147483648) i64 @hostrange_to_string.argprom(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %8
 
@@ -6560,7 +6560,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #16
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_parse_range_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @_parse_range_list.argelim(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %3, 1
@@ -6629,7 +6629,7 @@ _grow_ranges.exit.us:                             ; preds = %26
   br i1 %.not29.us, label %.loopexit, label %42
 
 40:                                               ; preds = %21
-  %41 = call fastcc i32 @_parse_box_range(ptr noundef %.02331.us, ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %3)
+  %41 = call fastcc i32 @_parse_box_range.argelim(ptr noundef %.02331.us, ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef %3)
   %.not30.us = icmp eq i32 %41, 0
   br i1 %.not30.us, label %.loopexit, label %42
 
@@ -6737,7 +6737,7 @@ define internal fastcc range(i32 -1, 1) i32 @_push_range_list(ptr noundef %0, pt
   %20 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 91) #23
   %.fr = freeze ptr %20
   %.not71.not = icmp eq ptr %.fr, null
-  %21 = call fastcc i32 @_parse_range_list(ptr noundef %18, ptr noundef %12, ptr noundef %13, i32 noundef %5)
+  %21 = call fastcc i32 @_parse_range_list.argelim(ptr noundef %18, ptr noundef %12, ptr noundef %13, i32 noundef %5)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit.sink.split, label %23
 
@@ -7085,7 +7085,7 @@ hostlist_push_hr.exit83.us:                       ; preds = %.lr.ph120, %hostlis
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_box_range.argelim(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #0 {
   %6 = zext nneg i32 %4 to i64
   %7 = alloca i32, i64 %6, align 16
   %8 = alloca i32, i64 %6, align 16
@@ -7164,7 +7164,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr nocapture nound
   br i1 %exitcond.not, label %.preheader.preheader, label %18, !llvm.loop !69
 
 .preheader.preheader:                             ; preds = %40
-  %42 = call fastcc i32 @_add_box_ranges(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %42 = call fastcc i32 @_add_box_ranges.argelim(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %24, %5, %12, %.preheader.preheader
@@ -7295,7 +7295,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_single_range(ptr noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, i32 noundef range(i32 2, -2147483648) %8) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges.argelim(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, i32 noundef range(i32 2, -2147483648) %8) unnamed_addr #0 {
   %10 = sext i32 %0 to i64
   %11 = getelementptr inbounds i32, ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -7416,7 +7416,7 @@ _grow_ranges.exit.us:                             ; preds = %33
   %66 = load i32, ptr %18, align 4
   %67 = mul nsw i32 %66, %storemerge73
   %68 = add nsw i32 %67, %1
-  %69 = tail call fastcc i32 @_add_box_ranges(i32 noundef %19, i32 noundef %68, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
+  %69 = tail call fastcc i32 @_add_box_ranges.argelim(i32 noundef %19, i32 noundef %68, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   %.not65 = icmp eq i32 %69, 0
   br i1 %.not65, label %.loopexit, label %70
 
@@ -7714,7 +7714,7 @@ declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_test_box_in_grid.argprom(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #0 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds i32, ptr @grid_start, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -7758,7 +7758,7 @@ define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32
   br i1 %.not.us.not.not.not, label %._crit_edge, label %19, !llvm.loop !73
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %28 = tail call fastcc zeroext i1 @_test_box_in_grid(i32 noundef %12, i32 noundef %15, i32 noundef %2)
+  %28 = tail call fastcc zeroext i1 @_test_box_in_grid.argprom(i32 noundef %12, i32 noundef %15, i32 noundef %2)
   br i1 %28, label %.lr.ph10, label %._crit_edge
 
 29:                                               ; preds = %.lr.ph10
@@ -7766,7 +7766,7 @@ define internal fastcc noundef zeroext i1 @_test_box_in_grid(i32 noundef %0, i32
   %31 = load i32, ptr %9, align 4
   %32 = mul nsw i32 %31, %30
   %33 = add nsw i32 %32, %1
-  %34 = tail call fastcc zeroext i1 @_test_box_in_grid(i32 noundef %12, i32 noundef %33, i32 noundef %2)
+  %34 = tail call fastcc zeroext i1 @_test_box_in_grid.argprom(i32 noundef %12, i32 noundef %33, i32 noundef %2)
   br i1 %34, label %.lr.ph10, label %._crit_edge, !llvm.loop !73
 
 .lr.ph10:                                         ; preds = %.lr.ph.split, %29
@@ -7810,13 +7810,13 @@ define internal fastcc range(i32 0, 2) i32 @_get_next_box(ptr nocapture noundef 
 
 16:                                               ; preds = %15, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %0, i64 %13, i1 false)
-  %17 = call fastcc i32 @_tell_if_used(i32 noundef 0, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef %2)
+  %17 = call fastcc i32 @_tell_if_used.argprom(i32 noundef 0, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %4, i32 noundef %2)
   tail call fastcc void @_set_box_in_grid(i32 noundef 0, i32 noundef 0, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, i32 noundef %2)
   %18 = load i32, ptr @dim_grid_size, align 4
   %19 = sext i32 %18 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 36, i64 %19, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 -1, i64 %19, i1 false)
-  call fastcc void @_set_min_max_of_grid(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %6, i32 noundef %2)
+  call fastcc void @_set_min_max_of_grid.argprom(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %6, i32 noundef %2)
   %20 = load i32, ptr %8, align 16
   %.not = icmp eq i32 %20, -1
   %.pre = load i32, ptr %4, align 4
@@ -7841,7 +7841,7 @@ define internal fastcc range(i32 0, 2) i32 @_get_next_box(ptr nocapture noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_tell_if_used.argprom(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -7914,7 +7914,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
   %39 = load i32, ptr %13, align 4
   %40 = mul nsw i32 %39, %storemerge5
   %41 = add nsw i32 %40, %1
-  %42 = tail call fastcc i32 @_tell_if_used(i32 noundef %16, i32 noundef %41, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  %42 = tail call fastcc i32 @_tell_if_used.argprom(i32 noundef %16, i32 noundef %41, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %.not66.not = icmp eq i32 %42, 0
   br i1 %.not66.not, label %.loopexit1, label %48
 
@@ -7971,7 +7971,7 @@ define internal fastcc range(i32 0, 2) i32 @_tell_if_used(i32 noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc void @_set_min_max_of_grid.argprom(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 2, -2147483648) %5) unnamed_addr #0 {
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds i32, ptr @grid_start, i64 %7
   %9 = load i32, ptr %8, align 4
@@ -8034,7 +8034,7 @@ define internal fastcc void @_set_min_max_of_grid(i32 noundef %0, i32 noundef %1
   %34 = load i32, ptr %13, align 4
   %35 = mul nsw i32 %34, %storemerge3
   %36 = add nsw i32 %35, %1
-  tail call fastcc void @_set_min_max_of_grid(i32 noundef %16, i32 noundef %36, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+  tail call fastcc void @_set_min_max_of_grid.argprom(i32 noundef %16, i32 noundef %36, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   %37 = load i32, ptr %10, align 4
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %10, align 4

@@ -649,21 +649,21 @@ entry:
   %ebx = alloca i32, align 4
   %ecx = alloca i32, align 4
   %edx = alloca i32, align 4
-  call fastcc void @cpuid(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
+  call fastcc void @cpuid.argelim(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
   %0 = load i32, ptr %ecx, align 4
   %and = and i32 %0, 402653184
   %cmp.not = icmp eq i32 %and, 402653184
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i64 @xgetbv()
+  %call = call fastcc i64 @xgetbv.argelim()
   %and1 = and i64 %call, 6
   %cmp2.not = icmp eq i64 %and1, 6
   br i1 %cmp2.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
   store i32 0, ptr %ecx, align 4
-  call fastcc void @cpuid(i32 noundef 7, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
+  call fastcc void @cpuid.argelim(i32 noundef 7, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
   %1 = load i32, ptr %ebx, align 4
   %and7 = lshr i32 %1, 5
   %and7.lobit = and i32 %and7, 1
@@ -683,7 +683,7 @@ entry:
   %ebx = alloca i32, align 4
   %ecx = alloca i32, align 4
   %edx = alloca i32, align 4
-  call fastcc void @cpuid(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
+  call fastcc void @cpuid.argelim(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
   %0 = load i32, ptr %ecx, align 4
   %and = lshr i32 %0, 20
   %and.lobit = and i32 %and, 1
@@ -697,7 +697,7 @@ entry:
   %ebx = alloca i32, align 4
   %ecx = alloca i32, align 4
   %edx = alloca i32, align 4
-  call fastcc void @cpuid(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
+  call fastcc void @cpuid.argelim(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
   %0 = load i32, ptr %ecx, align 4
   %and = lshr i32 %0, 23
   %and.lobit = and i32 %and, 1
@@ -713,7 +713,7 @@ entry:
   %ebx = alloca i32, align 4
   %ecx = alloca i32, align 4
   %edx = alloca i32, align 4
-  call fastcc void @cpuid(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
+  call fastcc void @cpuid.argelim(i32 noundef 1, ptr noundef %eax, ptr noundef %ebx, ptr noundef %ecx, ptr noundef %edx)
   %0 = load i32, ptr %ecx, align 4
   %and = lshr i32 %0, 9
   %and.lobit = and i32 %and, 1
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cpuid(i32 noundef range(i32 1, 8) %op, ptr noundef nonnull %eax, ptr noundef nonnull %ebx, ptr noundef nonnull %ecx, ptr noundef nonnull %edx) unnamed_addr #1 {
+define internal fastcc void @cpuid.argelim(i32 noundef range(i32 1, 8) %op, ptr noundef nonnull %eax, ptr noundef nonnull %ebx, ptr noundef nonnull %ecx, ptr noundef nonnull %edx) unnamed_addr #1 {
 entry:
   %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %op, i32 0) #3, !srcloc !5
   %asmresult = extractvalue { i32, i32, i32, i32 } %0, 0
@@ -744,7 +744,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @xgetbv() unnamed_addr #1 {
+define internal fastcc i64 @xgetbv.argelim() unnamed_addr #1 {
 entry:
   %0 = tail call { i32, i32 } asm sideeffect "xgetbv\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #4, !srcloc !6
   %asmresult = extractvalue { i32, i32 } %0, 0

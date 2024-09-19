@@ -76,7 +76,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %17 = load ptr, ptr %.val1, align 8, !noalias !9, !noundef !7
   %18 = load ptr, ptr %17, align 8, !alias.scope !12, !noalias !9, !noundef !7
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.exit, label %20
+  br i1 %19, label %_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.argprom.exit, label %20
 
 20:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17he1cad5ca3c652c05E.exit.i.i"
   invoke void @"_ZN4core3ptr206drop_in_place$LT$alloc..boxed..Box$LT$$u5b$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$alloc..boxed..Box$LT$string_cache..dynamic_set..Entry$GT$$GT$$GT$$u5d$$GT$$GT$17h7a6b03235d9c5ba6E.llvm.5870598909725602671"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
@@ -84,7 +84,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
 
 "._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17hc17b08b0826fb06cE.exit_crit_edge.i.i": ; preds = %20
   %.pre.i.i = load ptr, ptr %.val1, align 8, !noalias !9
-  br label %_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.exit
+  br label %_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.argprom.exit
 
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -95,7 +95,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   store i64 %.fca.1.extract.i.i, ptr %24, align 8, !noalias !9
   resume { ptr, i32 } %22
 
-_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17he1cad5ca3c652c05E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17hc17b08b0826fb06cE.exit_crit_edge.i.i"
+_ZN4core3ops8function6FnOnce9call_once17h1f039b3eafc6a6adE.argprom.exit: ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17he1cad5ca3c652c05E.exit.i.i", %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17hc17b08b0826fb06cE.exit_crit_edge.i.i"
   %25 = phi ptr [ %.pre.i.i, %"._ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$string_cache..dynamic_set..Set$GT$$GT$17hc17b08b0826fb06cE.exit_crit_edge.i.i" ], [ %17, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17he1cad5ca3c652c05E.exit.i.i" ]
   store ptr %14, ptr %25, align 8, !noalias !9
   %26 = getelementptr inbounds i8, ptr %25, i64 8

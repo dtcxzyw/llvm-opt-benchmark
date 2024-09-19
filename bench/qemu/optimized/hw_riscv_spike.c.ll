@@ -401,7 +401,7 @@ if.end24.i:                                       ; preds = %for.end.i, %if.end.
   %call35.i = call i32 @riscv_socket_count(ptr noundef %call.i.i) #7
   %socket.08.i = add i32 %call35.i, -1
   %cmp379.i = icmp sgt i32 %socket.08.i, -1
-  br i1 %cmp379.i, label %for.body39.lr.ph.i, label %create_fdt.exit
+  br i1 %cmp379.i, label %for.body39.lr.ph.i, label %create_fdt.argprom.exit
 
 for.body39.lr.ph.i:                               ; preds = %if.end24.i
   %arrayinit.element126.i = getelementptr inbounds i8, ptr %qdt_tmp123.i, i64 4
@@ -561,9 +561,9 @@ for.end184.i:                                     ; preds = %for.body176.i
   call void @g_free(ptr noundef %call40.i) #7
   %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -1
   %cmp37.i = icmp sgt i64 %indvars.iv24.i, 0
-  br i1 %cmp37.i, label %for.body39.i, label %create_fdt.exit, !llvm.loop !11
+  br i1 %cmp37.i, label %for.body39.i, label %create_fdt.argprom.exit, !llvm.loop !11
 
-create_fdt.exit:                                  ; preds = %for.end184.i, %if.end24.i
+create_fdt.argprom.exit:                          ; preds = %for.end184.i, %if.end24.i
   call void @riscv_socket_fdt_write_distance_matrix(ptr noundef %call.i.i) #7
   %call200.i = call i32 @qemu_fdt_add_subnode(ptr noundef %call2.i, ptr noundef nonnull @.str.63) #7
   %call201.i = call i32 @qemu_fdt_setprop_string(ptr noundef %call2.i, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.33) #7
@@ -576,13 +576,13 @@ create_fdt.exit:                                  ; preds = %for.end184.i, %if.e
   %tobool89.not = icmp eq ptr %26, null
   br i1 %tobool89.not, label %if.end98, label %if.then90
 
-if.then90:                                        ; preds = %create_fdt.exit
+if.then90:                                        ; preds = %create_fdt.argprom.exit
   %call93 = call i64 @riscv_calc_kernel_start_addr(ptr noundef nonnull %soc57, i64 noundef %firmware_end_addr.0) #7
   %call96 = call i64 @riscv_load_kernel(ptr noundef nonnull %machine, ptr noundef nonnull %soc57, i64 noundef %call93, i1 noundef zeroext true, ptr noundef nonnull @htif_symbol_callback) #7
   br label %if.end98
 
-if.end98:                                         ; preds = %create_fdt.exit, %if.then90
-  %kernel_entry.0 = phi i64 [ %call96, %if.then90 ], [ 0, %create_fdt.exit ]
+if.end98:                                         ; preds = %create_fdt.argprom.exit, %if.then90
+  %kernel_entry.0 = phi i64 [ %call96, %if.then90 ], [ 0, %create_fdt.argprom.exit ]
   %call103 = call i64 @riscv_compute_fdt_addr(i64 noundef 2147483648, i64 noundef 0, ptr noundef nonnull %machine) #7
   %conv105 = and i64 %call103, 4294967295
   %fdt = getelementptr inbounds i8, ptr %machine, i64 40

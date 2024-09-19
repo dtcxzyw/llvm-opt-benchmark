@@ -590,7 +590,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %78, %89
   ]
 
 96:                                               ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %72)
+  tail call fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %72)
   br label %1533
 
 97:                                               ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -670,19 +670,19 @@ _ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit.i: ; preds 
 
 138:                                              ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %132) #16
-  br label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
 139:                                              ; preds = %_ZN5clang6interp11InterpStack4pushINS0_8FloatingEJS3_EEEvDpOT0_.exit.i
   %140 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %141 = load ptr, ptr %140, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %141, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, label %142
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, label %142
 
 142:                                              ; preds = %139
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %140, ptr noundef nonnull %141)
-  br label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
-_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit: ; preds = %138, %139, %142
+_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit: ; preds = %138, %139, %142
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
   br label %1533
 
@@ -885,19 +885,19 @@ _ZN5clang6interp8FloatingD2Ev.exit15.i:           ; preds = %_ZN4llvm6detail13Do
 
 215:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %150) #16
-  br label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
 216:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit15.i
   %217 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %218 = load ptr, ptr %217, align 8
   %.not.i.i.i.i.i17.i = icmp eq ptr %218, null
-  br i1 %.not.i.i.i.i.i17.i, label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, label %219
+  br i1 %.not.i.i.i.i.i17.i, label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, label %219
 
 219:                                              ; preds = %216
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %217, ptr noundef nonnull %218)
-  br label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
-_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit: ; preds = %215, %216, %219
+_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit: ; preds = %215, %216, %219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67)
@@ -1109,18 +1109,18 @@ _ZN5clang6interp8FloatingD2Ev.exit32.i:           ; preds = %_ZN4llvm6detail13Do
 
 295:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit32.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %227) #16
-  br label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
 296:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit32.i
   %297 = load ptr, ptr %247, align 8
   %.not.i.i.i.i.i34.i = icmp eq ptr %297, null
-  br i1 %.not.i.i.i.i.i34.i, label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, label %298
+  br i1 %.not.i.i.i.i.i34.i, label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, label %298
 
 298:                                              ; preds = %296
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %247, ptr noundef nonnull %297)
-  br label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
-_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit: ; preds = %295, %296, %298
+_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit: ; preds = %295, %296, %298
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63)
@@ -1335,18 +1335,18 @@ _ZN5clang6interp8FloatingD2Ev.exit32.i262:        ; preds = %_ZN4llvm6detail13Do
 
 377:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit32.i262
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %306) #16
-  br label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
 378:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit32.i262
   %379 = load ptr, ptr %326, align 8
   %.not.i.i.i.i.i34.i264 = icmp eq ptr %379, null
-  br i1 %.not.i.i.i.i.i34.i264, label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, label %380
+  br i1 %.not.i.i.i.i.i34.i264, label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, label %380
 
 380:                                              ; preds = %378
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %326, ptr noundef nonnull %379)
-  br label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
-_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit: ; preds = %377, %378, %380
+_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit: ; preds = %377, %378, %380
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58)
@@ -1354,39 +1354,39 @@ _ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11
   br label %1533
 
 381:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 382:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 383:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i1 noundef zeroext false, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, i1 noundef zeroext false, ptr noundef nonnull %3)
   br label %1533
 
 384:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i1 noundef zeroext true, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, i1 noundef zeroext true, ptr noundef nonnull %3)
   br label %1533
 
 385:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 386:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 387:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 388:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 389:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 390:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -1452,17 +1452,17 @@ _ZNK5clang6interp8FloatinggtES1_.exit.i.i:        ; preds = %412, %410
 
 416:                                              ; preds = %_ZNK5clang6interp8FloatinggtES1_.exit.i.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %402) #16
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 417:                                              ; preds = %_ZNK5clang6interp8FloatinggtES1_.exit.i.i
   %418 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %419 = load ptr, ptr %418, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %419, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %420
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %420
 
 420:                                              ; preds = %417
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %418, ptr noundef nonnull %419)
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 421:                                              ; preds = %390
   %422 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1504,17 +1504,17 @@ _ZNK5clang6interp8FloatinggeES1_.exit.i.i:        ; preds = %432, %430
 
 437:                                              ; preds = %_ZNK5clang6interp8FloatinggeES1_.exit.i.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %422) #16
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 438:                                              ; preds = %_ZNK5clang6interp8FloatinggeES1_.exit.i.i
   %439 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %440 = load ptr, ptr %439, align 8
   %.not.i.i.i.i.i10.i.i = icmp eq ptr %440, null
-  br i1 %.not.i.i.i.i.i10.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %441
+  br i1 %.not.i.i.i.i.i10.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %441
 
 441:                                              ; preds = %438
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %439, ptr noundef nonnull %440)
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 442:                                              ; preds = %390
   %443 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -1555,17 +1555,17 @@ _ZNK5clang6interp8FloatingltES1_.exit.i.i:        ; preds = %453, %451
 
 457:                                              ; preds = %_ZNK5clang6interp8FloatingltES1_.exit.i.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %443) #16
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 458:                                              ; preds = %_ZNK5clang6interp8FloatingltES1_.exit.i.i
   %459 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %460 = load ptr, ptr %459, align 8
   %.not.i.i.i.i.i18.i.i = icmp eq ptr %460, null
-  br i1 %.not.i.i.i.i.i18.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %461
+  br i1 %.not.i.i.i.i.i18.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %461
 
 461:                                              ; preds = %458
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %459, ptr noundef nonnull %460)
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 462:                                              ; preds = %390
   %463 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -1606,17 +1606,17 @@ _ZNK5clang6interp8FloatingleES1_.exit.i.i:        ; preds = %473, %471
 
 477:                                              ; preds = %_ZNK5clang6interp8FloatingleES1_.exit.i.i
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %463) #16
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 478:                                              ; preds = %_ZNK5clang6interp8FloatingleES1_.exit.i.i
   %479 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %480 = load ptr, ptr %479, align 8
   %.not.i.i.i.i.i26.i.i = icmp eq ptr %480, null
-  br i1 %.not.i.i.i.i.i26.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %481
+  br i1 %.not.i.i.i.i.i26.i.i, label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %481
 
 481:                                              ; preds = %478
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %479, ptr noundef nonnull %480)
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 482:                                              ; preds = %390
   %483 = getelementptr inbounds nuw i8, ptr %399, i64 8
@@ -1653,7 +1653,7 @@ _ZNK5clang6interp8FloatingleES1_.exit.i.i:        ; preds = %473, %471
 _ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i:     ; preds = %498, %496
   %.0.i.i31.i.i = phi i32 [ %497, %496 ], [ %499, %498 ]
   %switch.i.i = icmp ugt i32 %.0.i.i31.i.i, 2
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 500:                                              ; preds = %390
   unreachable
@@ -1662,9 +1662,9 @@ switch.lookup:                                    ; preds = %487, %489
   %.0.i.i.i.i = phi i32 [ %488, %487 ], [ %490, %489 ]
   %switch.idx.cast = trunc i32 %.0.i.i.i.i to i1
   %switch.offset = xor i1 %switch.idx.cast, true
-  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %switch.lookup, %416, %417, %420, %437, %438, %441, %457, %458, %461, %477, %478, %481, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i
+_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %switch.lookup, %416, %417, %420, %437, %438, %441, %457, %458, %461, %477, %478, %481, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i
   %.0.i.i = phi i1 [ %414, %416 ], [ %435, %437 ], [ %455, %457 ], [ %475, %477 ], [ %switch.i.i, %_ZNK4llvm7APFloat7compareERKS0_.exit.i30.i.i ], [ %414, %420 ], [ %414, %417 ], [ %435, %441 ], [ %435, %438 ], [ %455, %461 ], [ %455, %458 ], [ %475, %481 ], [ %475, %478 ], [ %switch.offset, %switch.lookup ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52)
@@ -1683,11 +1683,11 @@ _ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPK
   br label %1533
 
 504:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 505:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 506:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -1763,19 +1763,19 @@ _ZN5clang6interp8FloatingD2Ev.exit.i286:          ; preds = %_ZN4llvm6detail13Do
 
 534:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit.i286
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %513) #16
-  br label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
 535:                                              ; preds = %_ZN5clang6interp8FloatingD2Ev.exit.i286
   %536 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %537 = load ptr, ptr %536, align 8
   %.not.i.i.i.i.i5.i = icmp eq ptr %537, null
-  br i1 %.not.i.i.i.i.i5.i, label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, label %538
+  br i1 %.not.i.i.i.i.i5.i, label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, label %538
 
 538:                                              ; preds = %535
   call void @_ZNKSt14default_deleteIA_N4llvm7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_(ptr noundef nonnull align 1 dereferenceable(1) %536, ptr noundef nonnull %537)
-  br label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit
+  br label %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit
 
-_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit: ; preds = %534, %535, %538
+_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit: ; preds = %534, %535, %538
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49)
   br label %1533
@@ -1829,27 +1829,27 @@ _ZNK4llvm5APInt8popcountEv.exit.i:                ; preds = %562, %558
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46)
   %567 = load i32, ptr %555, align 8
   %568 = icmp ugt i32 %567, 64
-  br i1 %568, label %569, label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br i1 %568, label %569, label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 569:                                              ; preds = %_ZNK4llvm5APInt8popcountEv.exit.i
   %570 = load ptr, ptr %47, align 8
   %571 = icmp eq ptr %570, null
-  br i1 %571, label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %572
+  br i1 %571, label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %572
 
 572:                                              ; preds = %569
   call void @_ZdaPv(ptr noundef nonnull %570) #19
-  br label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZNK4llvm5APInt8popcountEv.exit.i, %569, %572
+_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZNK4llvm5APInt8popcountEv.exit.i, %569, %572
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
   br label %1533
 
 573:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 574:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 575:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -1949,44 +1949,44 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %617, %614, %_ZN5cla
   %618 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %619 = load i32, ptr %618, align 8
   %620 = icmp ugt i32 %619, 64
-  br i1 %620, label %621, label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br i1 %620, label %621, label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 621:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit.i
   %622 = load ptr, ptr %44, align 8
   %623 = icmp eq ptr %622, null
-  br i1 %623, label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %624
+  br i1 %623, label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %624
 
 624:                                              ; preds = %621
   call void @_ZdaPv(ptr noundef nonnull %622) #19
-  br label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %621, %624
+_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZN4llvm5APIntD2Ev.exit.i, %621, %624
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
   br label %1533
 
 625:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 626:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 627:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
+  tail call fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3, i1 noundef zeroext false)
   br label %1533
 
 628:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
+  tail call fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3, i1 noundef zeroext true)
   br label %1533
 
 629:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 630:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 631:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -2033,7 +2033,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
 
 659:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i
   %.sroa.0.0.extract.trunc.i300 = trunc i64 %.fr6.i to i32
-  switch i32 %.sroa.0.0.extract.trunc.i300, label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit [
+  switch i32 %.sroa.0.0.extract.trunc.i300, label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit [
     i32 0, label %660
     i32 1, label %667
     i32 2, label %674
@@ -2059,7 +2059,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %665 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %664, i64 noundef 8) #16
   %666 = load i8, ptr %663, align 1
   store i8 %666, ptr %665, align 1
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 667:                                              ; preds = %659
   %668 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2069,7 +2069,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %672 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %671, i64 noundef 8) #16
   %673 = load i8, ptr %670, align 1
   store i8 %673, ptr %672, align 1
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 674:                                              ; preds = %659
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2079,7 +2079,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %679 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %678, i64 noundef 8) #16
   %680 = load i16, ptr %677, align 2
   store i16 %680, ptr %679, align 2
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 681:                                              ; preds = %659
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2089,7 +2089,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %686 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %685, i64 noundef 8) #16
   %687 = load i16, ptr %684, align 2
   store i16 %687, ptr %686, align 2
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 688:                                              ; preds = %659
   %689 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2099,7 +2099,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %693 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %692, i64 noundef 8) #16
   %694 = load i32, ptr %691, align 4
   store i32 %694, ptr %693, align 4
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 695:                                              ; preds = %659
   %696 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2109,7 +2109,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %700 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %699, i64 noundef 8) #16
   %701 = load i32, ptr %698, align 4
   store i32 %701, ptr %700, align 4
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 702:                                              ; preds = %659
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2119,7 +2119,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %707 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %706, i64 noundef 8) #16
   %708 = load i64, ptr %705, align 8
   store i64 %708, ptr %707, align 8
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 709:                                              ; preds = %659
   %710 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2129,7 +2129,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %714 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %713, i64 noundef 8) #16
   %715 = load i64, ptr %712, align 8
   store i64 %715, ptr %714, align 8
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 716:                                              ; preds = %659
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2147,11 +2147,11 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
 726:                                              ; preds = %716
   %727 = load i64, ptr %719, align 8
   store i64 %727, ptr %721, align 8
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 728:                                              ; preds = %716
   tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %721, ptr noundef nonnull align 8 dereferenceable(12) %719) #16
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 729:                                              ; preds = %659
   %730 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2169,11 +2169,11 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
 739:                                              ; preds = %729
   %740 = load i64, ptr %732, align 8
   store i64 %740, ptr %734, align 8
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 741:                                              ; preds = %729
   tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %734, ptr noundef nonnull align 8 dereferenceable(12) %732) #16
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 742:                                              ; preds = %659
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2190,11 +2190,11 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
 
 752:                                              ; preds = %742
   tail call void @_ZN4llvm6detail9IEEEFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %748, ptr noundef nonnull align 8 dereferenceable(24) %749) #16
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 753:                                              ; preds = %742
   tail call void @_ZN4llvm6detail13DoubleAPFloatC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef nonnull align 8 dereferenceable(16) %749) #16
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 754:                                              ; preds = %659
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2204,7 +2204,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %759 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %758, i64 noundef 8) #16
   %760 = load i8, ptr %757, align 1
   store i8 %760, ptr %759, align 1
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 .thread.i297:                                     ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.thread.i, %659, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2213,7 +2213,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %764 = load ptr, ptr %761, align 8
   %765 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %764, i64 noundef 56) #16
   tail call void @_ZN5clang6interp7PointerC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(52) %765, ptr noundef nonnull align 8 dereferenceable(52) %763) #16
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 .thread387:                                       ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.thread.i, %659
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2222,7 +2222,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %769 = load ptr, ptr %766, align 8
   %770 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %769, i64 noundef 24) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %770, ptr noundef nonnull align 8 dereferenceable(24) %768, i64 24, i1 false)
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 771:                                              ; preds = %659
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -2234,9 +2234,9 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit.i: ; preds = %631
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 56
   %778 = getelementptr inbounds nuw i8, ptr %774, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %777, ptr noundef nonnull align 8 dereferenceable(12) %778, i64 12, i1 false)
-  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %659, %660, %667, %674, %681, %688, %695, %702, %709, %726, %728, %739, %741, %752, %753, %754, %.thread.i297, %.thread387, %771
+_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %659, %660, %667, %674, %681, %688, %695, %702, %709, %726, %728, %739, %741, %752, %753, %754, %.thread.i297, %.thread387, %771
   %779 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i48.i = load i64, ptr %779, align 8
   %780 = and i64 %.sroa.0.0.copyload.i.i.i.i.i48.i, 4
@@ -2251,11 +2251,11 @@ _ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11
   br i1 %.not, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit, label %1533
 
 787:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 788:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0)
+  tail call fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0)
   br label %1533
 
 789:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -2294,7 +2294,7 @@ _ZNK5clang6interp7Pointer7isDummyEv.exit.i:       ; preds = %796
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 52
   %802 = load i8, ptr %801, align 4
   %803 = trunc i8 %802 to i1
-  br i1 %803, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %_ZNK5clang6interp7Pointer7isDummyEv.exit.thread.i
+  br i1 %803, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %_ZNK5clang6interp7Pointer7isDummyEv.exit.thread.i
 
 _ZNK5clang6interp7Pointer7isDummyEv.exit.thread.i: ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i, %796, %789
   %804 = load i32, ptr %94, align 8
@@ -2780,18 +2780,18 @@ _ZN4llvm6APSIntD2Ev.exit109.i:                    ; preds = %1029, %1026, %_ZN4l
   %1030 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %1031 = load i32, ptr %1030, align 8
   %1032 = icmp ugt i32 %1031, 64
-  br i1 %1032, label %1033, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit.thread
+  br i1 %1032, label %1033, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit.thread
 
 1033:                                             ; preds = %_ZN4llvm6APSIntD2Ev.exit109.i
   %1034 = load ptr, ptr %33, align 8
   %1035 = icmp eq ptr %1034, null
-  br i1 %1035, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit.thread, label %1036
+  br i1 %1035, label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit.thread, label %1036
 
 1036:                                             ; preds = %1033
   call void @_ZdaPv(ptr noundef nonnull %1034) #19
-  br label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit.thread
+  br label %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit.thread
 
-_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit.thread: ; preds = %_ZN4llvm6APSIntD2Ev.exit109.i, %1033, %1036
+_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit.thread: ; preds = %_ZN4llvm6APSIntD2Ev.exit109.i, %1033, %1036
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
@@ -2803,7 +2803,7 @@ _ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPK
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
   br label %1533
 
-_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i
+_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZNK5clang6interp7Pointer7isDummyEv.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35)
@@ -3158,18 +3158,18 @@ _ZN4llvm6APSIntD2Ev.exit44.i:                     ; preds = %1227, %1224, %_ZN4l
   %1228 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %1229 = load i32, ptr %1228, align 8
   %1230 = icmp ugt i32 %1229, 64
-  br i1 %1230, label %1231, label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br i1 %1230, label %1231, label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 1231:                                             ; preds = %_ZN4llvm6APSIntD2Ev.exit44.i
   %1232 = load ptr, ptr %16, align 8
   %1233 = icmp eq ptr %1232, null
-  br i1 %1233, label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %1234
+  br i1 %1233, label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %1234
 
 1234:                                             ; preds = %1231
   call void @_ZdaPv(ptr noundef nonnull %1232) #19
-  br label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit44.i, %1231, %1234
+_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit44.i, %1231, %1234
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
@@ -3441,18 +3441,18 @@ _ZN4llvm6APSIntD2Ev.exit.i324:                    ; preds = %_ZNK4llvm5APInt11co
   %1369 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %1370 = load i32, ptr %1369, align 8
   %1371 = icmp ugt i32 %1370, 64
-  br i1 %1371, label %1372, label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br i1 %1371, label %1372, label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 1372:                                             ; preds = %_ZN4llvm6APSIntD2Ev.exit.i324
   %1373 = load ptr, ptr %14, align 8
   %1374 = icmp eq ptr %1373, null
-  br i1 %1374, label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %1375
+  br i1 %1374, label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %1375
 
 1375:                                             ; preds = %1372
   call void @_ZdaPv(ptr noundef nonnull %1373) #19
-  br label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit.i324, %1372, %1375
+_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit.i324, %1372, %1375
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br i1 %.0.i325, label %1533, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
@@ -3707,48 +3707,48 @@ _ZN4llvm6APSIntD2Ev.exit.i363:                    ; preds = %_ZNK4llvm5APInt11co
   %1507 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1508 = load i32, ptr %1507, align 8
   %1509 = icmp ugt i32 %1508, 64
-  br i1 %1509, label %1510, label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br i1 %1509, label %1510, label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
 1510:                                             ; preds = %_ZN4llvm6APSIntD2Ev.exit.i363
   %1511 = load ptr, ptr %10, align 8
   %1512 = icmp eq ptr %1511, null
-  br i1 %1512, label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, label %1513
+  br i1 %1512, label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, label %1513
 
 1513:                                             ; preds = %1510
   call void @_ZdaPv(ptr noundef nonnull %1511) #19
-  br label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit
+  br label %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit
 
-_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit.i363, %1510, %1513
+_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit: ; preds = %_ZN4llvm6APSIntD2Ev.exit.i363, %1510, %1513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br i1 %.0.i364, label %1533, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 1514:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 1515:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  %1516 = tail call fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %95, ptr noundef nonnull %3)
+  %1516 = tail call fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %95, ptr noundef nonnull %3)
   br i1 %1516, label %1533, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 1517:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0)
+  tail call fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0)
   br label %1533
 
 1518:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  %1519 = tail call fastcc noundef zeroext i1 @_ZN5clang6interpL34interp__builtin_is_aligned_up_downERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %95, ptr noundef nonnull %3)
+  %1519 = tail call fastcc noundef zeroext i1 @_ZN5clang6interpL34interp__builtin_is_aligned_up_downERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %95, ptr noundef nonnull %3)
   br i1 %1519, label %1533, label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
 1520:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 1521:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 1522:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
-  tail call fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %3)
   br label %1533
 
 1523:                                             ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit
@@ -3781,7 +3781,7 @@ _ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11I
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   br label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
-1533:                                             ; preds = %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit.thread, %1522, %1521, %1520, %1517, %1514, %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %788, %787, %630, %629, %628, %627, %626, %625, %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %574, %573, %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, %505, %504, %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %389, %388, %387, %386, %385, %384, %383, %382, %381, %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.exit, %96, %1518, %1515, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %103, %101, %99, %97, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %1523
+1533:                                             ; preds = %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit.thread, %1522, %1521, %1520, %1517, %1514, %_ZN5clang6interpL23interp__builtin_carryopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %788, %787, %630, %629, %628, %627, %626, %625, %_ZN5clang6interpL26interp__builtin_bitreverseERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %574, %573, %_ZN5clang6interpL24interp__builtin_popcountERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %_ZN5clang6interpL20interp__builtin_fabsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, %505, %504, %_ZN5clang6interpL26interp_floating_comparisonERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %389, %388, %387, %386, %385, %384, %383, %382, %381, %_ZN5clang6interpL20interp__builtin_fmaxERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, %_ZN5clang6interpL20interp__builtin_fminERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, %_ZN5clang6interpL24interp__builtin_copysignERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, %_ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionE.argprom.exit, %96, %1518, %1515, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %103, %101, %99, %97, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit, %1523
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   br i1 %.sroa.4.0.insert.insert.i, label %1546, label %1534
@@ -3815,7 +3815,7 @@ _ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE.exit.i: 
   call void @_ZN5clang6interp11InterpFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %.sink21.i.i) #16
   call void @_ZdlPvm(ptr noundef nonnull %.sink21.i.i, i64 noundef 216) #19
   store ptr %.ph20.i.i, ptr %71, align 8
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1546:                                             ; preds = %1533
   switch i32 %.sroa.0375.0.extract.trunc, label %1571 [
@@ -3835,62 +3835,62 @@ _ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE.exit.i: 
 
 1547:                                             ; preds = %1546
   %1548 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE12ENS0_7PointerEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1549:                                             ; preds = %1546
   %1550 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE13ENS0_15FunctionPointerEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1551:                                             ; preds = %1546
   %1552 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE11ENS0_8FloatingEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1553:                                             ; preds = %1546
   %1554 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE10ENS0_7BooleanEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1555:                                             ; preds = %1546
   %1556 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE0ENS0_8IntegralILj8ELb1EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1557:                                             ; preds = %1546
   %1558 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE1ENS0_8IntegralILj8ELb0EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1559:                                             ; preds = %1546
   %1560 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE2ENS0_8IntegralILj16ELb1EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1561:                                             ; preds = %1546
   %1562 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE3ENS0_8IntegralILj16ELb0EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1563:                                             ; preds = %1546
   %1564 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE4ENS0_8IntegralILj32ELb1EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1565:                                             ; preds = %1546
   %1566 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE5ENS0_8IntegralILj32ELb0EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1567:                                             ; preds = %1546
   %1568 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE6ENS0_8IntegralILj64ELb1EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1569:                                             ; preds = %1546
   %1570 = call noundef zeroext i1 @_ZN5clang6interp3RetILNS0_8PrimTypeE7ENS0_8IntegralILj64ELb0EEEEEbRNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %70)
-  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
+  br label %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
 
 1571:                                             ; preds = %1546
   unreachable
 
-_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit: ; preds = %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE.exit.i, %1547, %1549, %1551, %1553, %1555, %1557, %1559, %1561, %1563, %1565, %1567, %1569
+_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit: ; preds = %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE.exit.i, %1547, %1549, %1551, %1553, %1555, %1557, %1559, %1561, %1563, %1565, %1567, %1569
   %.0.i371 = phi i1 [ %1570, %1569 ], [ %1568, %1567 ], [ %1566, %1565 ], [ %1564, %1563 ], [ %1562, %1561 ], [ %1560, %1559 ], [ %1558, %1557 ], [ %1556, %1555 ], [ %1554, %1553 ], [ %1552, %1551 ], [ %1550, %1549 ], [ %1548, %1547 ], [ true, %_ZN5clang6interp7RetVoidERNS0_11InterpStateERNS0_7CodePtrERNS_7APValueE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit
 
-_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %1532, %1526, %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %1518, %1515, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit, %103, %101, %99, %97, %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit
-  %.0 = phi i1 [ %.0.i371, %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.exit ], [ false, %97 ], [ false, %99 ], [ false, %101 ], [ false, %103 ], [ false, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit ], [ false, %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit ], [ false, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit ], [ false, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.exit ], [ false, %1515 ], [ false, %1518 ], [ false, %1526 ], [ false, %1532 ]
+_ZN5clang18OptionalDiagnosticlsINS_11SourceRangeEEERS0_RKT_.exit: ; preds = %1532, %1526, %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %1518, %1515, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit, %103, %101, %99, %97, %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit
+  %.0 = phi i1 [ %.0.i371, %_ZN5clang6interpL12retPrimValueERNS0_11InterpStateENS0_7CodePtrERNS_7APValueERSt8optionalINS0_8PrimTypeEE.argprom.exit ], [ false, %97 ], [ false, %99 ], [ false, %101 ], [ false, %103 ], [ false, %_ZN5clang6interpL20interp__builtin_moveERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit ], [ false, %_ZN5clang6interpL26interp__builtin_overflowopERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit ], [ false, %_ZN5clang6interpL19interp__builtin_clzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit ], [ false, %_ZN5clang6interpL19interp__builtin_ctzERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.exit ], [ false, %1515 ], [ false, %1518 ], [ false, %1526 ], [ false, %1532 ]
   %1572 = load i32, ptr %70, align 8
   %switch.i373 = icmp ult i32 %1572, 2
   br i1 %switch.i373, label %_ZN5clang7APValueD2Ev.exit, label %1573
@@ -3904,7 +3904,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang18Optional
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -3945,16 +3945,16 @@ define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_eval
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
-  br i1 %.not24, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread", label %32
+  br i1 %.not24, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread", label %32
 
 32:                                               ; preds = %28
   %33 = tail call noundef ptr @_ZNK5clang6interp11InterpFrame9getCalleeEv(ptr noundef nonnull align 8 dereferenceable(216) %29) #16
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread", label %34
+  br i1 %.not.i, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread", label %34
 
 34:                                               ; preds = %32
   %35 = tail call noundef zeroext i1 @_ZNK5clang4Decl16isInStdNamespaceEv(ptr noundef nonnull align 8 dereferenceable(33) %33) #16
-  br i1 %35, label %36, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread"
+  br i1 %35, label %36, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread"
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -3964,7 +3964,7 @@ define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_eval
   %41 = and i64 %38, -8
   %.not41.i = icmp eq i64 %41, 0
   %.not4.i = or i1 %40, %.not41.i
-  br i1 %.not4.i, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread", label %42
+  br i1 %.not4.i, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread", label %42
 
 42:                                               ; preds = %36
   %43 = inttoptr i64 %41 to ptr
@@ -3973,15 +3973,15 @@ define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_eval
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 4294967295
   %48 = icmp eq i64 %47, 21
-  br i1 %48, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit", label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread"
+  br i1 %48, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit", label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread"
 
-"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit": ; preds = %42
+"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit": ; preds = %42
   %49 = getelementptr inbounds i8, ptr %45, i64 16
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(21) %49, ptr noundef nonnull dereferenceable(21) @.str.2, i64 21)
   %50 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %50, label %51, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread"
+  br i1 %50, label %51, label %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread"
 
-51:                                               ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit"
+51:                                               ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit"
   %52 = load ptr, ptr %30, align 8
   %53 = getelementptr inbounds nuw i8, ptr %29, i64 152
   %.sroa.0.0.copyload.i = load ptr, ptr %53, align 8
@@ -4071,7 +4071,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %75, %_ZNK5clang17Di
   call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef 928) #19
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit.sink.split
 
-"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread": ; preds = %42, %32, %34, %36, %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit", %28
+"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread": ; preds = %42, %32, %34, %36, %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit", %28
   %97 = load ptr, ptr %18, align 8
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i27 = load ptr, ptr %98, align 8
@@ -4082,15 +4082,15 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %75, %_ZNK5clang17Di
   %.not.i.i.i28 = icmp eq ptr %101, null
   br i1 %.not.i.i.i28, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29, label %_ZNK5clang17DiagnosticBuilderlsIA32_cEERKS0_RKT_.exit
 
-_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29: ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread"
+_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29: ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread"
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = call noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv(ptr noundef nonnull align 8 dereferenceable(14980) %103)
   store ptr %104, ptr %6, align 8
   br label %_ZNK5clang17DiagnosticBuilderlsIA32_cEERKS0_RKT_.exit
 
-_ZNK5clang17DiagnosticBuilderlsIA32_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29
-  %105 = phi ptr [ %104, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29 ], [ %101, %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.exit.thread" ]
+_ZNK5clang17DiagnosticBuilderlsIA32_cEERKS0_RKT_.exit: ; preds = %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread", %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29
+  %105 = phi ptr [ %104, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i29 ], [ %101, %"_ZZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprEENK3$_0clEPKNS_12FunctionDeclE.argprom.exit.thread" ]
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %107 = load i8, ptr %105, align 8
   %108 = zext i8 %107 to i64
@@ -5575,7 +5575,7 @@ _ZN4llvm5APIntD2Ev.exit86:                        ; preds = %260, %257, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5607,7 +5607,7 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5636,7 +5636,7 @@ define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -5692,7 +5692,7 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5724,7 +5724,7 @@ define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5776,7 +5776,7 @@ _ZNK5clang6interp8Floating8isNormalEv.exit:       ; preds = %10, %_ZNK4llvm7APFl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5812,7 +5812,7 @@ _ZNK5clang6interp8Floating10isDenormalEv.exit:    ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5844,7 +5844,7 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11In
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5876,7 +5876,7 @@ define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -5997,7 +5997,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -6102,7 +6102,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %25, %60, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6171,7 +6171,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt8pop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6277,7 +6277,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt18ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 24
@@ -6308,7 +6308,7 @@ define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -6397,7 +6397,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %44, %52, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.llvm::APSInt", align 8
@@ -6523,7 +6523,7 @@ _ZN4llvm6APSIntD2Ev.exit22:                       ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6595,7 +6595,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt11co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 24
   %5 = zext nneg i32 %4 to i64
@@ -6670,7 +6670,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6735,7 +6735,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %2, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 56) #16
@@ -6746,7 +6746,7 @@ define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -7042,7 +7042,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 %.504.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 %.504.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = load i32, ptr %1, align 8
@@ -7327,7 +7327,7 @@ _ZN4llvm6APSIntD2Ev.exit48:                       ; preds = %161, %163
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::interp::Pointer", align 8
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = alloca %"class.clang::interp::Pointer", align 8
@@ -7502,7 +7502,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8FloatingEEERT_v.exit21: ; preds = %83, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL34interp__builtin_is_aligned_up_downERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %.504.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL34interp__builtin_is_aligned_up_downERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 %.504.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -8588,7 +8588,7 @@ _ZN4llvm6APSIntD2Ev.exit131:                      ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.clang::analyze_os_log::OSLogBufferLayout", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -8643,7 +8643,7 @@ _ZN5clang14analyze_os_log17OSLogBufferLayoutD2Ev.exit: ; preds = %_ZNK5clang14an
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -8807,7 +8807,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNK5clang6interp7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE.argprom.retelim(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8

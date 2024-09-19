@@ -19251,7 +19251,7 @@ for.end5373:                                      ; preds = %_ZN10TestObjectD2Ev
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i)
   %cmp.not.i.i12445.not = icmp eq i64 %3224, 0
-  br i1 %cmp.not.i.i12445.not, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit", label %while.cond.i
+  br i1 %cmp.not.i.i12445.not, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit", label %while.cond.i
 
 while.cond.i:                                     ; preds = %for.end5373, %while.body.i
   %3225 = phi i64 [ %inc.i.i12450, %while.body.i ], [ 0, %for.end5373 ]
@@ -19263,7 +19263,7 @@ while.cond.i:                                     ; preds = %for.end5373, %while
   br i1 %tobool.i.i, label %while.body.i, label %while.cond5.preheader.i
 
 while.cond5.preheader.i:                          ; preds = %while.cond.i
-  br i1 %cmp.i.i12451, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit", label %while.body8.lr.ph.i
+  br i1 %cmp.i.i12451, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit", label %while.body8.lr.ph.i
 
 while.body8.lr.ph.i:                              ; preds = %while.cond5.preheader.i
   %3226 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
@@ -19275,7 +19275,7 @@ while.body8.lr.ph.i:                              ; preds = %while.cond5.prehead
   br label %while.body8.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  br i1 %cmp.i.i12451, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit", label %while.cond.i, !llvm.loop !676
+  br i1 %cmp.i.i12451, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit", label %while.cond.i, !llvm.loop !676
 
 while.body8.i:                                    ; preds = %while.body8.lr.ph.i, %if.end14.i12448
   %inc.i425.i = phi i64 [ %inc.i4.i, %if.end14.i12448 ], [ %inc.i.i12450, %while.body8.lr.ph.i ]
@@ -19312,15 +19312,15 @@ if.end14.i12448:                                  ; preds = %.noexc12453, %while
   %3233 = phi i64 [ %inc.i34.i, %.noexc12453 ], [ %3232, %while.body8.i ]
   %inc.i4.i = add i64 %inc.i425.i, 1
   %cmp.not.i5.not.i = icmp eq i64 %inc.i4.i, %3224
-  br i1 %cmp.not.i5.not.i, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit", label %while.body8.i, !llvm.loop !687
+  br i1 %cmp.not.i5.not.i, label %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit", label %while.body8.i, !llvm.loop !687
 
-"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit": ; preds = %while.body.i, %if.end14.i12448, %while.cond5.preheader.i, %for.end5373
+"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit": ; preds = %while.body.i, %if.end14.i12448, %while.cond5.preheader.i, %for.end5373
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12.i)
   br label %for.body5382
 
-for.body5382:                                     ; preds = %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit", %for.inc5392
-  %indvars.iv15122 = phi i64 [ 0, %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.exit" ], [ %indvars.iv.next15123, %for.inc5392 ]
+for.body5382:                                     ; preds = %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit", %for.inc5392
+  %indvars.iv15122 = phi i64 [ 0, %"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom.exit" ], [ %indvars.iv.next15123, %for.inc5392 ]
   %3234 = load ptr, ptr %vec, align 8
   %arrayidx5386 = getelementptr inbounds i8, ptr %3234, i64 %indvars.iv15122
   %3235 = load i8, ptr %arrayidx5386, align 1
@@ -19526,13 +19526,13 @@ if.then.i:                                        ; preds = %entry
   %mul.i.i.i.i.i.i.i = mul i64 %add, 48
   %add.i.i.i.i.i.i.i = add i64 %and.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %mul.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i, label %cond.true.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.argprom.exit.i.i, label %cond.true.i.i.i.i.i.i.i
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.then.i
   %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  br label %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i
+  br label %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.argprom.exit.i.i
 
-_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %if.then.i
+_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.argprom.exit.i.i: ; preds = %cond.true.i.i.i.i.i.i.i, %if.then.i
   %cond.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ null, %if.then.i ]
   %2 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %add.i4.i.i.i.i.i = add i64 %and.i.i.i.i.i.i.i, %2
@@ -19542,15 +19542,15 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4
   %add.i.i.i.i = add i64 %and.i.i.i.i.i, %2
   %5 = inttoptr i64 %add.i.i.i.i to ptr
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i, label %if.end.i.i.i.i.i.i.i.i11.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i, label %if.end.i.i.i.i.i.i.i.i11.i.i
 
-_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i: ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i
+_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i: ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.argprom.exit.i.i
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr423.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr729.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
+  br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.i.i
 
-if.end.i.i.i.i.i.i.i.i11.i.i:                     ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.exit.i.i
+if.end.i.i.i.i.i.i.i.i11.i.i:                     ; preds = %_ZN5eastl16TupleVecInternal13TupleRecurserIJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbS2_S3_S4_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSB_mm.argprom.exit.i.i
   %6 = load ptr, ptr %this, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %cond.i.i.i.i.i.i.i, ptr align 1 %6, i64 %0, i1 false)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -19565,12 +19565,12 @@ if.end.i.i.i.i.i.i.i.i11.i.i:                     ; preds = %_ZN5eastl16TupleVec
   %add.ptr7.val.i.i = load ptr, ptr %add.ptr7.i.i, align 8
   %add.ptr3.idx.i12.i.i = mul nsw i64 %0, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr readonly align 8 %add.ptr7.val.i.i, i64 %add.ptr3.idx.i12.i.i, i1 false)
-  br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
+  br label %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.i.i
 
-_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i11.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i
-  %add.ptr733.i.i = phi ptr [ %add.ptr729.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i ], [ %add.ptr7.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
-  %add.ptr212532.i.i = phi ptr [ %add.ptr19.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i ], [ %add.ptr.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
-  %add.ptr42631.i.i = phi ptr [ %add.ptr423.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.exit.thread.i.i ], [ %add.ptr4.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
+_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i11.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i
+  %add.ptr733.i.i = phi ptr [ %add.ptr729.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i ], [ %add.ptr7.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
+  %add.ptr212532.i.i = phi ptr [ %add.ptr19.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i ], [ %add.ptr.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
+  %add.ptr42631.i.i = phi ptr [ %add.ptr423.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm2EZ15TestTupleVectorvE14AlignTestByte3E30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.thread.i.i ], [ %add.ptr4.i.i, %if.end.i.i.i.i.i.i.i.i11.i.i ]
   store ptr %cond.i.i.i.i.i.i.i, ptr %this, align 8
   store ptr %5, ptr %add.ptr212532.i.i, align 8
   store ptr %4, ptr %add.ptr42631.i.i, align 8
@@ -19580,11 +19580,11 @@ _ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFou
   %isnull.i.i.i = icmp eq ptr %7, null
   br i1 %isnull.i.i.i, label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE12DoReallocateEmm.exit.i, label %delete.notnull.i.i.i
 
-delete.notnull.i.i.i:                             ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
+delete.notnull.i.i.i:                             ; preds = %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.i.i
   tail call void @_ZdaPv(ptr noundef nonnull %7) #12
   br label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE12DoReallocateEmm.exit.i
 
-_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE12DoReallocateEmm.exit.i: ; preds = %delete.notnull.i.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.exit.i.i
+_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE12DoReallocateEmm.exit.i: ; preds = %delete.notnull.i.i.i, %_ZN5eastl16TupleVecInternal12TupleVecLeafILm3EZ15TestTupleVectorvE17AlignTestFourByteE30DoUninitializedMoveAndDestructEmmPS2_.argprom.exit.i.i
   %mDataSizeAndAllocator.i13.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond.i.i.i.i.i.i.i, ptr %mpData21.i.i, align 8
   store i64 %mul.i.i, ptr %mNumCapacity, align 8
@@ -26563,8 +26563,8 @@ attributes #14 = { noreturn nounwind }
 !671 = distinct !{!671, !672, !"_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEE3endEv: %agg.result"}
 !672 = distinct !{!672, !"_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEE3endEv"}
 !673 = !{!674}
-!674 = distinct !{!674, !675, !"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_: %agg.result"}
-!675 = distinct !{!675, !"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_"}
+!674 = distinct !{!674, !675, !"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom: %agg.result"}
+!675 = distinct !{!675, !"_ZN5eastl9partitionINS_16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEEEZ15TestTupleVectorvE3$_1EET_S9_S9_T0_.argprom"}
 !676 = distinct !{!676, !21}
 !677 = !{!678, !680}
 !678 = distinct !{!678, !679, !"_ZNK5eastl16TupleVecInternal12TupleVecIterINS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJb10TestObjectf12MoveOnlyTypeEE13MakeReferenceEv: %agg.result"}

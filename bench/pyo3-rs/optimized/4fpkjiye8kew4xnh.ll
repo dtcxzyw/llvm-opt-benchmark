@@ -2055,14 +2055,14 @@ define void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Rep
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hb486bd5861f5311eE(ptr nonnull sret([16 x i8]) align 8 %2, ptr %.val)
   %3 = load i8, ptr %2, align 8
   %switch.i.i = icmp ult i8 %3, 3
-  br i1 %switch.i.i, label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.exit", label %4
+  br i1 %switch.i.i, label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.argprom.exit", label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h0d2dd92840dae400E"(ptr nonnull align 8 %5)
-  br label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.exit"
+  br label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.argprom.exit"
 
-"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.exit": ; preds = %1, %4
+"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b36efd239316ce5E.argprom.exit": ; preds = %1, %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret void
 }

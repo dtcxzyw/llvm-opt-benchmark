@@ -123,7 +123,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   store i32 %add9.i, ptr %nelts.i, align 8
   %10 = load ptr, ptr %parent1.i, align 8
   %cmp12.not17.i = icmp eq ptr %10, null
-  br i1 %cmp12.not17.i, label %heap_insert.exit, label %land.rhs.i
+  br i1 %cmp12.not17.i, label %heap_insert.argprom.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.end.i, %heap_node_swap.exit.i
   %11 = phi ptr [ %21, %heap_node_swap.exit.i ], [ %10, %while.end.i ]
@@ -135,14 +135,14 @@ land.rhs.i:                                       ; preds = %while.end.i, %heap_
 
 if.end.i.i:                                       ; preds = %land.rhs.i
   %cmp5.i.i = icmp ult i64 %13, %12
-  br i1 %cmp5.i.i, label %heap_insert.exit, label %timer_less_than.exit.i
+  br i1 %cmp5.i.i, label %heap_insert.argprom.exit, label %timer_less_than.exit.i
 
 timer_less_than.exit.i:                           ; preds = %if.end.i.i
   %14 = load i64, ptr %start_id, align 8
   %start_id8.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %15 = load i64, ptr %start_id8.i.i, align 8
   %cmp9.i.not.i = icmp ult i64 %14, %15
-  br i1 %cmp9.i.not.i, label %while.body15.i, label %heap_insert.exit
+  br i1 %cmp9.i.not.i, label %while.body15.i, label %heap_insert.argprom.exit
 
 while.body15.i:                                   ; preds = %timer_less_than.exit.i, %land.rhs.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i.i)
@@ -213,15 +213,15 @@ heap_node_swap.exit.i:                            ; preds = %if.else24.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
   %21 = load ptr, ptr %parent1.i, align 8
   %cmp12.not.i = icmp eq ptr %21, null
-  br i1 %cmp12.not.i, label %heap_insert.exit, label %land.rhs.i
+  br i1 %cmp12.not.i, label %heap_insert.argprom.exit, label %land.rhs.i
 
-heap_insert.exit:                                 ; preds = %if.end.i.i, %timer_less_than.exit.i, %heap_node_swap.exit.i, %while.end.i
+heap_insert.argprom.exit:                         ; preds = %if.end.i.i, %timer_less_than.exit.i, %heap_node_swap.exit.i, %while.end.i
   %22 = load i32, ptr %flags, align 8
   %and16 = and i32 %22, 4
   %cmp17.not = icmp eq i32 %and16, 0
   br i1 %cmp17.not, label %if.end19, label %return
 
-if.end19:                                         ; preds = %heap_insert.exit
+if.end19:                                         ; preds = %heap_insert.argprom.exit
   %or = or disjoint i32 %22, 4
   store i32 %or, ptr %flags, align 8
   %and22 = and i32 %22, 8
@@ -236,8 +236,8 @@ do.body25:                                        ; preds = %if.end19
   store i32 %inc27, ptr %active_handles, align 8
   br label %return
 
-return:                                           ; preds = %heap_insert.exit, %do.body25, %if.end19, %entry
-  %retval.0 = phi i32 [ -22, %entry ], [ 0, %if.end19 ], [ 0, %do.body25 ], [ 0, %heap_insert.exit ]
+return:                                           ; preds = %heap_insert.argprom.exit, %do.body25, %if.end19, %entry
+  %retval.0 = phi i32 [ -22, %entry ], [ 0, %if.end19 ], [ 0, %do.body25 ], [ 0, %heap_insert.argprom.exit ]
   ret i32 %retval.0
 }
 
@@ -260,7 +260,7 @@ if.end:                                           ; preds = %entry
   %nelts.i = getelementptr inbounds i8, ptr %1, i64 528
   %2 = load i32, ptr %nelts.i, align 8
   switch i32 %2, label %for.body.i [
-    i32 0, label %heap_remove.exit
+    i32 0, label %heap_remove.argprom.exit
     i32 1, label %while.end.i
   ]
 
@@ -302,11 +302,11 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
 if.then10.i:                                      ; preds = %while.end.i
   %6 = load ptr, ptr %timer_heap.i, align 8
   %cmp12.i = icmp eq ptr %heap_node, %6
-  br i1 %cmp12.i, label %if.then13.i, label %heap_remove.exit
+  br i1 %cmp12.i, label %if.then13.i, label %heap_remove.argprom.exit
 
 if.then13.i:                                      ; preds = %if.then10.i
   store ptr null, ptr %timer_heap.i, align 8
-  br label %heap_remove.exit
+  br label %heap_remove.argprom.exit
 
 if.end16.i:                                       ; preds = %while.end.i
   %7 = load ptr, ptr %heap_node, align 8
@@ -420,7 +420,7 @@ if.end66.i:                                       ; preds = %if.then64.i, %timer
 while.cond71.preheader.i:                         ; preds = %if.end66.i
   %23 = load ptr, ptr %parent21.i, align 8
   %cmp73.not26.i = icmp eq ptr %23, null
-  br i1 %cmp73.not26.i, label %heap_remove.exit, label %land.rhs.i
+  br i1 %cmp73.not26.i, label %heap_remove.argprom.exit, label %land.rhs.i
 
 if.end69.i:                                       ; preds = %if.end66.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i.i)
@@ -502,14 +502,14 @@ land.rhs.i:                                       ; preds = %while.cond71.prehea
 
 if.end.i83.i:                                     ; preds = %land.rhs.i
   %cmp5.i84.i = icmp ult i64 %31, %30
-  br i1 %cmp5.i84.i, label %heap_remove.exit, label %timer_less_than.exit91.i
+  br i1 %cmp5.i84.i, label %heap_remove.argprom.exit, label %timer_less_than.exit91.i
 
 timer_less_than.exit91.i:                         ; preds = %if.end.i83.i
   %32 = load i64, ptr %start_id8.i.i, align 8
   %start_id8.i87.i = getelementptr inbounds i8, ptr %29, i64 40
   %33 = load i64, ptr %start_id8.i87.i, align 8
   %cmp9.i88.not.i = icmp ult i64 %32, %33
-  br i1 %cmp9.i88.not.i, label %while.body77.i, label %heap_remove.exit
+  br i1 %cmp9.i88.not.i, label %while.body77.i, label %heap_remove.argprom.exit
 
 while.body77.i:                                   ; preds = %timer_less_than.exit91.i, %land.rhs.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i92.i)
@@ -580,15 +580,15 @@ heap_node_swap.exit122.i:                         ; preds = %if.else24.i114.i, %
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i92.i)
   %39 = load ptr, ptr %parent21.i, align 8
   %cmp73.not.i = icmp eq ptr %39, null
-  br i1 %cmp73.not.i, label %heap_remove.exit, label %land.rhs.i
+  br i1 %cmp73.not.i, label %heap_remove.argprom.exit, label %land.rhs.i
 
-heap_remove.exit:                                 ; preds = %if.end.i83.i, %timer_less_than.exit91.i, %heap_node_swap.exit122.i, %if.end, %if.then10.i, %if.then13.i, %while.cond71.preheader.i
+heap_remove.argprom.exit:                         ; preds = %if.end.i83.i, %timer_less_than.exit91.i, %heap_node_swap.exit122.i, %if.end, %if.then10.i, %if.then13.i, %while.cond71.preheader.i
   %40 = load i32, ptr %flags, align 8
   %and2 = and i32 %40, 4
   %cmp3 = icmp eq i32 %and2, 0
   br i1 %cmp3, label %return, label %if.end5
 
-if.end5:                                          ; preds = %heap_remove.exit
+if.end5:                                          ; preds = %heap_remove.argprom.exit
   %and7 = and i32 %40, -5
   store i32 %and7, ptr %flags, align 8
   %and9 = and i32 %40, 8
@@ -603,7 +603,7 @@ do.body12:                                        ; preds = %if.end5
   store i32 %dec, ptr %active_handles, align 8
   br label %return
 
-return:                                           ; preds = %heap_remove.exit, %do.body12, %if.end5, %entry
+return:                                           ; preds = %heap_remove.argprom.exit, %do.body12, %if.end5, %entry
   ret i32 0
 }
 

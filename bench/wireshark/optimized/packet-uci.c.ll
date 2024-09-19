@@ -632,7 +632,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 81:                                               ; preds = %80
   %.val107.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_core_get_caps_info_rsp(ptr noundef %0, ptr %.val107.i, ptr noundef %34)
+  tail call fastcc void @dissect_core_get_caps_info_rsp.argprom.argelim(ptr noundef %0, ptr %.val107.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 82:                                               ; preds = %80
@@ -642,7 +642,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 84:                                               ; preds = %82
   %.val108.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_core_get_config_cmd(ptr noundef %0, ptr %.val108.i, ptr noundef %34)
+  tail call fastcc void @dissect_core_get_config_cmd.argprom.argelim(ptr noundef %0, ptr %.val108.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 85:                                               ; preds = %82
@@ -651,7 +651,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 86:                                               ; preds = %85
   %.val109.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_core_get_config_rsp(ptr noundef %0, ptr %.val109.i, ptr noundef %34)
+  tail call fastcc void @dissect_core_get_config_rsp.argprom.argelim(ptr noundef %0, ptr %.val109.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 87:                                               ; preds = %85
@@ -662,7 +662,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 89:                                               ; preds = %87
   %.val110.i = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.val110.i, i32 noundef 25, ptr noundef nonnull @.str.285) #2
-  tail call fastcc void @dissect_parameters(ptr noundef %0, i32 noundef 4, ptr noundef %34)
+  tail call fastcc void @dissect_parameters.argprom(ptr noundef %0, i32 noundef 4, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 90:                                               ; preds = %87
@@ -671,7 +671,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 91:                                               ; preds = %90
   %.val111.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_core_set_config_rsp(ptr noundef %0, ptr %.val111.i, ptr noundef %34)
+  tail call fastcc void @dissect_core_set_config_rsp.argprom.argelim(ptr noundef %0, ptr %.val111.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 92:                                               ; preds = %90
@@ -681,7 +681,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %or.cond23.i, label %94, label %95
 
 94:                                               ; preds = %92
-  tail call fastcc void @dissect_core_generic_error_ntf(ptr noundef %0, ptr %.val112.i, ptr noundef %34)
+  tail call fastcc void @dissect_core_generic_error_ntf.argprom.argelim(ptr noundef %0, ptr %.val112.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 95:                                               ; preds = %92
@@ -774,7 +774,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 132:                                              ; preds = %130
   %.val138.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_set_app_config_cmd(ptr noundef %0, ptr %.val138.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_set_app_config_cmd.argprom.argelim(ptr noundef %0, ptr %.val138.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 133:                                              ; preds = %130
@@ -783,7 +783,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 134:                                              ; preds = %133
   %.val139.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_set_app_config_rsp(ptr noundef %0, ptr %.val139.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_set_app_config_rsp.argprom.argelim(ptr noundef %0, ptr %.val139.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 135:                                              ; preds = %133
@@ -793,7 +793,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 137:                                              ; preds = %135
   %.val140.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_get_app_config_cmd(ptr noundef %0, ptr %.val140.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_get_app_config_cmd.argprom.argelim(ptr noundef %0, ptr %.val140.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 138:                                              ; preds = %135
@@ -802,7 +802,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 139:                                              ; preds = %138
   %.val141.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_get_app_config_rsp(ptr noundef %0, ptr %.val141.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_get_app_config_rsp.argprom.argelim(ptr noundef %0, ptr %.val141.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 140:                                              ; preds = %138
@@ -821,7 +821,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 144:                                              ; preds = %143
   %.val143.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_get_count_rsp(ptr noundef %0, ptr %.val143.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_get_count_rsp.argprom.argelim(ptr noundef %0, ptr %.val143.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 145:                                              ; preds = %143
@@ -831,7 +831,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 147:                                              ; preds = %145
   %.val144.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_get_state_cmd(ptr noundef %0, ptr %.val144.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_get_state_cmd.argprom.argelim(ptr noundef %0, ptr %.val144.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 148:                                              ; preds = %145
@@ -840,7 +840,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 149:                                              ; preds = %148
   %.val145.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_get_state_rsp(ptr noundef %0, ptr %.val145.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_get_state_rsp.argprom.argelim(ptr noundef %0, ptr %.val145.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 150:                                              ; preds = %148
@@ -850,7 +850,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 152:                                              ; preds = %150
   %.val146.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_update_controller_multicast_list_cmd(ptr noundef %0, ptr %.val146.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_update_controller_multicast_list_cmd.argprom.argelim(ptr noundef %0, ptr %.val146.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 153:                                              ; preds = %150
@@ -859,7 +859,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 154:                                              ; preds = %153
   %.val147.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_session_update_controller_multicast_list_rsp(ptr noundef %0, ptr %.val147.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_update_controller_multicast_list_rsp.argprom.argelim(ptr noundef %0, ptr %.val147.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 155:                                              ; preds = %153
@@ -868,7 +868,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %or.cond31.i, label %156, label %157
 
 156:                                              ; preds = %155
-  tail call fastcc void @dissect_session_update_controller_multicast_list_ntf(ptr noundef %0, ptr %.val148.i, ptr noundef %34)
+  tail call fastcc void @dissect_session_update_controller_multicast_list_ntf.argprom.argelim(ptr noundef %0, ptr %.val148.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 157:                                              ; preds = %155
@@ -1063,7 +1063,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
 
 280:                                              ; preds = %278
   %.val66.i = load ptr, ptr %5, align 8
-  tail call fastcc void @dissect_range_get_ranging_count_cmd(ptr noundef %0, ptr %.val66.i, ptr noundef %34)
+  tail call fastcc void @dissect_range_get_ranging_count_cmd.argprom.argelim(ptr noundef %0, ptr %.val66.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 281:                                              ; preds = %278
@@ -1072,7 +1072,7 @@ define internal i32 @dissect_uci_pdu(ptr noundef %0, ptr nocapture noundef reado
   br i1 %or.cond13.i93, label %282, label %283
 
 282:                                              ; preds = %281
-  tail call fastcc void @dissect_range_get_ranging_count_rsp(ptr noundef %0, ptr %.val67.i, ptr noundef %34)
+  tail call fastcc void @dissect_range_get_ranging_count_rsp.argprom.argelim(ptr noundef %0, ptr %.val67.i, ptr noundef %34)
   br label %dissect_uci_core_pdu.exit
 
 283:                                              ; preds = %281
@@ -1141,7 +1141,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_core_get_caps_info_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_core_get_caps_info_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.278) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1186,7 +1186,7 @@ define internal fastcc void @dissect_core_get_caps_info_rsp(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_core_get_config_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_core_get_config_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.281) #2
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
   %4 = load i32, ptr @hf_uci_parameters_count, align 4
@@ -1219,16 +1219,16 @@ define internal fastcc void @dissect_core_get_config_cmd(ptr noundef %0, ptr %.8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_core_get_config_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_core_get_config_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.283) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  tail call fastcc void @dissect_parameters(ptr noundef %0, i32 noundef 5, ptr noundef %1)
+  tail call fastcc void @dissect_parameters.argprom(ptr noundef %0, i32 noundef 5, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_core_set_config_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_core_set_config_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.286) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1267,7 +1267,7 @@ define internal fastcc void @dissect_core_set_config_rsp(ptr noundef %0, ptr %.8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_core_generic_error_ntf(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_core_generic_error_ntf.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.287) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1281,7 +1281,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_parameters(ptr noundef %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_parameters.argprom(ptr noundef %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #2
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_uci_parameters_count, align 4
@@ -1324,16 +1324,16 @@ define internal fastcc void @dissect_parameters(ptr noundef %0, i32 noundef rang
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_set_app_config_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_set_app_config_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.296) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
-  tail call fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 noundef 8, ptr noundef %1)
+  tail call fastcc void @dissect_app_config_parameters.argprom(ptr noundef %0, i32 noundef 8, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_set_app_config_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_set_app_config_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.298) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1372,7 +1372,7 @@ define internal fastcc void @dissect_session_set_app_config_rsp(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_get_app_config_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_get_app_config_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.299) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1407,16 +1407,16 @@ define internal fastcc void @dissect_session_get_app_config_cmd(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_get_app_config_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_get_app_config_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.301) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  tail call fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 noundef 5, ptr noundef %1)
+  tail call fastcc void @dissect_app_config_parameters.argprom(ptr noundef %0, i32 noundef 5, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_get_count_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_get_count_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.303) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1426,7 +1426,7 @@ define internal fastcc void @dissect_session_get_count_rsp(ptr noundef %0, ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_get_state_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_get_state_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.304) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1434,7 +1434,7 @@ define internal fastcc void @dissect_session_get_state_cmd(ptr noundef %0, ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_get_state_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_get_state_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.305) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1444,7 +1444,7 @@ define internal fastcc void @dissect_session_get_state_rsp(ptr noundef %0, ptr %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_update_controller_multicast_list_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_update_controller_multicast_list_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.306) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1482,7 +1482,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_cm
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_update_controller_multicast_list_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_update_controller_multicast_list_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.309) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
@@ -1490,7 +1490,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_rs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_session_update_controller_multicast_list_ntf(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_session_update_controller_multicast_list_ntf.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.310) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1531,7 +1531,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_nt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_app_config_parameters.argprom(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #2
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_uci_app_config_parameters_count, align 4
@@ -1574,7 +1574,7 @@ define internal fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_range_get_ranging_count_cmd(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_range_get_ranging_count_cmd.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.322) #2
   %3 = load i32, ptr @hf_uci_session_id, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #2
@@ -1582,7 +1582,7 @@ define internal fastcc void @dissect_range_get_ranging_count_cmd(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_range_get_ranging_count_rsp(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_range_get_ranging_count_rsp.argprom.argelim(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.323) #2
   %3 = load i32, ptr @hf_uci_status, align 4
   %4 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2

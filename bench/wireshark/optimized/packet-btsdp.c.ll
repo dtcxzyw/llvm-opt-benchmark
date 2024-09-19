@@ -1838,7 +1838,7 @@ get_type_length.exit.i:                           ; preds = %108, %105, %102, %1
   %.056.i = phi i32 [ %.022.i.i, %.lr.ph.i ], [ %145, %144 ]
   %.05355.i = phi i32 [ %110, %.lr.ph.i ], [ %146, %144 ]
   store ptr null, ptr %50, align 8
-  %115 = call fastcc i32 @dissect_sdp_type(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.056.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %50)
+  %115 = call fastcc i32 @dissect_sdp_type.argprom(ptr noundef %113, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.056.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %50)
   %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.056.i) #7
   %117 = add i32 %.056.i, 1
   %118 = and i8 %116, 7
@@ -1889,7 +1889,7 @@ get_type_length.exit.i:                           ; preds = %108, %105, %102, %1
 get_type_length.exit49.i:                         ; preds = %133, %129, %125, %124, %123, %122, %119, %114
   %.022.i47.i = phi i32 [ %117, %114 ], [ %117, %119 ], [ %117, %122 ], [ %117, %123 ], [ %117, %124 ], [ %128, %125 ], [ %132, %129 ], [ %135, %133 ]
   %136 = phi i32 [ 2, %114 ], [ %121, %119 ], [ 4, %122 ], [ 8, %123 ], [ 16, %124 ], [ %127, %125 ], [ %131, %129 ], [ %spec.select.i46.i, %133 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i47.i, i32 noundef %136, ptr noundef %51)
+  call fastcc void @dissect_uuid.retelim(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i47.i, i32 noundef %136, ptr noundef %51)
   br i1 %.not44.i, label %138, label %137
 
 137:                                              ; preds = %get_type_length.exit49.i
@@ -1918,7 +1918,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %138, %144, %get_typ
   %149 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %148, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 2, i32 noundef 0) #7
   %150 = add i32 %.0.lcssa.i, 2
   %151 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %150, i32 noundef %151, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %150, i32 noundef %151, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef null, ptr noundef readonly %3)
   %152 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef nonnull %1, i32 noundef %150)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
@@ -2005,7 +2005,7 @@ dissect_sdp_service_search_request.exit:          ; preds = %138, %144, %get_typ
   %.086110.i = phi ptr [ %174, %170 ], [ null, %.thread.i ], [ null, %.lr.ph.split.us.i ], [ %174, %.lr.ph.split.i ]
   %.083.lcssa.i = phi i32 [ 9, %170 ], [ 9, %.thread.i ], [ %177, %.lr.ph.split.us.i ], [ %182, %.lr.ph.split.i ]
   %184 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %184, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %.083.lcssa.i, i32 noundef %184, i32 noundef 0, i32 noundef %.083.lcssa.i, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %38, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %39, ptr noundef null, ptr noundef readonly %3)
   %185 = load i32, ptr %37, align 4
   %.not90.i = icmp eq i32 %185, 0
   br i1 %.not90.i, label %188, label %186
@@ -2233,38 +2233,38 @@ dissect_sdp_service_search_response.exit:         ; preds = %.lr.ph103.i, %.loop
   %294 = load ptr, ptr @record_handle_services, align 8
   %295 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %294, ptr noundef nonnull %27) #7
   %.not.i.i74 = icmp eq ptr %295, null
-  br i1 %.not.i.i74, label %get_uuids.exit.thread.i, label %296
+  br i1 %.not.i.i74, label %get_uuids.argprom.exit.thread.i, label %296
 
 296:                                              ; preds = %264
   %297 = load i32, ptr %295, align 8
   %298 = icmp eq i32 %297, %272
-  br i1 %298, label %299, label %get_uuids.exit.thread.i
+  br i1 %298, label %299, label %get_uuids.argprom.exit.thread.i
 
 299:                                              ; preds = %296
   %300 = getelementptr inbounds i8, ptr %295, i64 4
   %301 = load i32, ptr %300, align 4
   %302 = icmp eq i32 %301, %274
-  br i1 %302, label %303, label %get_uuids.exit.thread.i
+  br i1 %302, label %303, label %get_uuids.argprom.exit.thread.i
 
 303:                                              ; preds = %299
   %304 = getelementptr inbounds i8, ptr %295, i64 8
   %305 = load i32, ptr %304, align 8
   %306 = icmp eq i32 %305, %277
-  br i1 %306, label %307, label %get_uuids.exit.thread.i
+  br i1 %306, label %307, label %get_uuids.argprom.exit.thread.i
 
 307:                                              ; preds = %303
   %308 = getelementptr inbounds i8, ptr %295, i64 12
   %309 = load i32, ptr %308, align 4
   %310 = icmp eq i32 %309, %280
-  br i1 %310, label %311, label %get_uuids.exit.thread.i
+  br i1 %310, label %311, label %get_uuids.argprom.exit.thread.i
 
 311:                                              ; preds = %307
   %312 = getelementptr inbounds i8, ptr %295, i64 16
   %313 = load i32, ptr %312, align 8
   %314 = icmp eq i32 %313, %267
-  br i1 %314, label %get_uuids.exit.i, label %get_uuids.exit.thread.i
+  br i1 %314, label %get_uuids.argprom.exit.i, label %get_uuids.argprom.exit.thread.i
 
-get_uuids.exit.thread.i:                          ; preds = %311, %307, %303, %299, %296, %264
+get_uuids.argprom.exit.thread.i:                  ; preds = %311, %307, %303, %299, %296, %264
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
@@ -2274,7 +2274,7 @@ get_uuids.exit.thread.i:                          ; preds = %311, %307, %303, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   br label %._crit_edge.thread.i.i
 
-get_uuids.exit.i:                                 ; preds = %311
+get_uuids.argprom.exit.i:                         ; preds = %311
   %315 = getelementptr inbounds i8, ptr %295, i64 24
   %316 = load ptr, ptr %315, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %27)
@@ -2290,7 +2290,7 @@ get_uuids.exit.i:                                 ; preds = %311
   %.not.i29.i = icmp eq ptr %316, null
   br i1 %.not.i29.i, label %._crit_edge.thread.i.i, label %319
 
-319:                                              ; preds = %get_uuids.exit.i
+319:                                              ; preds = %get_uuids.argprom.exit.i
   %320 = call i32 @wmem_array_get_count(ptr noundef nonnull %316) #7, !noalias !9
   %.not22.i.i = icmp eq i32 %320, 0
   br i1 %.not22.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
@@ -2328,7 +2328,7 @@ get_uuids.exit.i:                                 ; preds = %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %35, ptr noundef nonnull align 2 dereferenceable(20) %321, i64 20, i1 false)
   br label %dissect_sdp_service_attribute_request.exit
 
-._crit_edge.thread.i.i:                           ; preds = %319, %get_uuids.exit.i, %get_uuids.exit.thread.i
+._crit_edge.thread.i.i:                           ; preds = %319, %get_uuids.argprom.exit.i, %get_uuids.argprom.exit.thread.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %35, i8 0, i64 20, i1 false), !alias.scope !9
   br label %dissect_sdp_service_attribute_request.exit
 
@@ -2336,7 +2336,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %330 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef 11, ptr noundef %1, ptr noundef %35)
   %331 = add i32 %330, 11
   %332 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %331, i32 noundef %332, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef readonly %3)
   %333 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %331)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35)
@@ -2355,7 +2355,7 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %338 = zext i16 %337 to i32
   %339 = add nuw nsw i32 %338, 7
   %340 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %339, i32 noundef %340, i32 noundef 0, i32 noundef 7, i32 noundef %338, i32 noundef 1, ptr noundef nonnull %24, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %25, ptr noundef readonly %3)
   %341 = load i32, ptr %23, align 4
   %.not.i75 = icmp eq i32 %341, 0
   br i1 %.not.i75, label %342, label %.thread.i76
@@ -2416,38 +2416,38 @@ dissect_sdp_service_attribute_request.exit:       ; preds = %.thread.i.i, %._cri
   %367 = load ptr, ptr @record_handle_services, align 8
   %368 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %367, ptr noundef nonnull %15) #7
   %.not.i.i81 = icmp eq ptr %368, null
-  br i1 %.not.i.i81, label %get_uuids.exit.thread.i82, label %369
+  br i1 %.not.i.i81, label %get_uuids.argprom.exit.thread.i82, label %369
 
 369:                                              ; preds = %342
   %370 = load i32, ptr %368, align 8
   %371 = icmp eq i32 %370, %345
-  br i1 %371, label %372, label %get_uuids.exit.thread.i82
+  br i1 %371, label %372, label %get_uuids.argprom.exit.thread.i82
 
 372:                                              ; preds = %369
   %373 = getelementptr inbounds i8, ptr %368, i64 4
   %374 = load i32, ptr %373, align 4
   %375 = icmp eq i32 %374, %347
-  br i1 %375, label %376, label %get_uuids.exit.thread.i82
+  br i1 %375, label %376, label %get_uuids.argprom.exit.thread.i82
 
 376:                                              ; preds = %372
   %377 = getelementptr inbounds i8, ptr %368, i64 8
   %378 = load i32, ptr %377, align 8
   %379 = icmp eq i32 %378, %350
-  br i1 %379, label %380, label %get_uuids.exit.thread.i82
+  br i1 %379, label %380, label %get_uuids.argprom.exit.thread.i82
 
 380:                                              ; preds = %376
   %381 = getelementptr inbounds i8, ptr %368, i64 12
   %382 = load i32, ptr %381, align 4
   %383 = icmp eq i32 %382, %353
-  br i1 %383, label %384, label %get_uuids.exit.thread.i82
+  br i1 %383, label %384, label %get_uuids.argprom.exit.thread.i82
 
 384:                                              ; preds = %380
   %385 = getelementptr inbounds i8, ptr %368, i64 16
   %386 = load i32, ptr %385, align 8
   %387 = icmp eq i32 %386, %343
-  br i1 %387, label %get_uuids.exit.i85, label %get_uuids.exit.thread.i82
+  br i1 %387, label %get_uuids.argprom.exit.i85, label %get_uuids.argprom.exit.thread.i82
 
-get_uuids.exit.thread.i82:                        ; preds = %384, %380, %376, %372, %369, %342
+get_uuids.argprom.exit.thread.i82:                ; preds = %384, %380, %376, %372, %369, %342
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
@@ -2457,7 +2457,7 @@ get_uuids.exit.thread.i82:                        ; preds = %384, %380, %376, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   br label %._crit_edge.thread.i.i83
 
-get_uuids.exit.i85:                               ; preds = %384
+get_uuids.argprom.exit.i85:                       ; preds = %384
   %388 = getelementptr inbounds i8, ptr %368, i64 24
   %389 = load ptr, ptr %388, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15)
@@ -2473,7 +2473,7 @@ get_uuids.exit.i85:                               ; preds = %384
   %.not.i47.i = icmp eq ptr %389, null
   br i1 %.not.i47.i, label %._crit_edge.thread.i.i83, label %392
 
-392:                                              ; preds = %get_uuids.exit.i85
+392:                                              ; preds = %get_uuids.argprom.exit.i85
   %393 = call i32 @wmem_array_get_count(ptr noundef nonnull %389) #7, !noalias !13
   %.not22.i.i86 = icmp eq i32 %393, 0
   br i1 %.not22.i.i86, label %._crit_edge.thread.i.i83, label %.lr.ph.i.i87
@@ -2511,7 +2511,7 @@ get_uuids.exit.i85:                               ; preds = %384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %26, ptr noundef nonnull align 2 dereferenceable(20) %394, i64 20, i1 false)
   br label %403
 
-._crit_edge.thread.i.i83:                         ; preds = %392, %get_uuids.exit.i85, %get_uuids.exit.thread.i82
+._crit_edge.thread.i.i83:                         ; preds = %392, %get_uuids.argprom.exit.i85, %get_uuids.argprom.exit.thread.i82
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %26, i8 0, i64 20, i1 false), !alias.scope !13
   br label %403
 
@@ -2698,7 +2698,7 @@ get_type_length.exit.i100:                        ; preds = %477, %474, %471, %4
   %.062.i = phi i32 [ %.022.i.i101, %.lr.ph.i102 ], [ %512, %511 ]
   %.05961.i = phi i32 [ %479, %.lr.ph.i102 ], [ %513, %511 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %13, i8 0, i64 20, i1 false)
-  %484 = call fastcc i32 @dissect_sdp_type(ptr noundef %482, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.062.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %11)
+  %484 = call fastcc i32 @dissect_sdp_type.argprom(ptr noundef %482, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.062.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %11)
   %485 = load ptr, ptr %11, align 8
   %486 = call ptr @wmem_strbuf_get_str(ptr noundef %485) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %459, ptr noundef nonnull @.str.1091, ptr noundef %486) #7
@@ -2755,7 +2755,7 @@ get_type_length.exit.i100:                        ; preds = %477, %474, %471, %4
 get_type_length.exit55.i:                         ; preds = %506, %502, %498, %497, %496, %495, %492, %483
   %.022.i53.i = phi i32 [ %490, %483 ], [ %490, %492 ], [ %490, %495 ], [ %490, %496 ], [ %490, %497 ], [ %501, %498 ], [ %505, %502 ], [ %508, %506 ]
   %509 = phi i32 [ 2, %483 ], [ %494, %492 ], [ 4, %495 ], [ 8, %496 ], [ 16, %497 ], [ %500, %498 ], [ %504, %502 ], [ %spec.select.i52.i, %506 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i53.i, i32 noundef %509, ptr noundef %13)
+  call fastcc void @dissect_uuid.retelim(ptr noundef null, ptr noundef nonnull %1, ptr noundef %0, i32 noundef %.022.i53.i, i32 noundef %509, ptr noundef %13)
   br i1 %.not50.i, label %511, label %510
 
 510:                                              ; preds = %get_type_length.exit55.i
@@ -2827,7 +2827,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %532 = call fastcc i32 @dissect_attribute_id_list(ptr noundef %58, ptr noundef %0, i32 noundef %531, ptr noundef %1, ptr noundef %14)
   %533 = add i32 %532, %531
   %534 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %533, i32 noundef %534, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef readonly %3)
   %535 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %58, ptr noundef %1, i32 noundef %533)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -2849,7 +2849,7 @@ dissect_sdp_service_search_attribute_request.exit: ; preds = %.thread.i.i113, %.
   %540 = zext i16 %539 to i32
   %541 = add nuw nsw i32 %540, 7
   %542 = zext i16 %72 to i32
-  call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef readonly %3)
+  call fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %541, i32 noundef %542, i32 noundef 0, i32 noundef 7, i32 noundef %540, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef null, ptr noundef readonly %3)
   %543 = getelementptr inbounds i8, ptr %1, i64 408
   %544 = load ptr, ptr %543, align 8
   %545 = load ptr, ptr %8, align 8
@@ -2908,7 +2908,7 @@ get_specified_uuid.exit.i:                        ; preds = %._crit_edge.thread.
   br i1 %or.cond.i128, label %562, label %561
 
 561:                                              ; preds = %get_specified_uuid.exit.i
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array.retelim(ptr noundef %58, ptr noundef %0, i32 noundef 7, ptr noundef %1, i32 noundef %540, ptr noundef %9, ptr noundef readonly %3)
   br label %565
 
 562:                                              ; preds = %get_specified_uuid.exit.i
@@ -2974,7 +2974,7 @@ proto_item_set_generated.exit.i132:               ; preds = %590, %587, %575
 595:                                              ; preds = %proto_item_set_generated.exit.i132
   %596 = load ptr, ptr %7, align 8
   %597 = call i32 @tvb_reported_length(ptr noundef %596) #7
-  call fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef readonly %3)
+  call fastcc void @dissect_sdp_service_attribute_list_array.retelim(ptr noundef %586, ptr noundef %596, i32 noundef 0, ptr noundef %1, i32 noundef %597, ptr noundef %9, ptr noundef readonly %3)
   br label %dissect_sdp_service_search_attribute_response.exit
 
 dissect_sdp_service_search_attribute_response.exit: ; preds = %569, %proto_item_set_generated.exit.i132, %595
@@ -3159,7 +3159,7 @@ get_type_length.exit:                             ; preds = %5, %9, %12, %13, %1
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_type.argprom(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -1, 65536) %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -3707,7 +3707,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph157, %161, %1
   br i1 %or.cond, label %308, label %.thread98
 
 308:                                              ; preds = %295
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %300, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %300, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 309:                                              ; preds = %294
@@ -3841,7 +3841,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph157, %161, %1
   br i1 %or.cond13, label %389, label %.thread98
 
 389:                                              ; preds = %376
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %381, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %381, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 390:                                              ; preds = %get_type_length.exit, %get_type_length.exit
@@ -3870,7 +3870,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph157, %161, %1
   br i1 %or.cond15, label %404, label %.thread98
 
 404:                                              ; preds = %391
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %396, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %396, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 405:                                              ; preds = %390
@@ -3965,7 +3965,7 @@ get_type_length.exit1646:                         ; preds = %.lr.ph157, %161, %1
   br i1 %or.cond17, label %467, label %.thread98
 
 467:                                              ; preds = %454
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %459, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %459, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 468:                                              ; preds = %453
@@ -4619,7 +4619,7 @@ get_type_length.exit1671:                         ; preds = %677, %686, %689, %6
   br i1 %or.cond19, label %821, label %.thread98
 
 821:                                              ; preds = %808
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %813, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %813, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 .lr.ph143:                                        ; preds = %.preheader117, %get_type_length.exit1676
@@ -5368,7 +5368,7 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
   br i1 %or.cond21, label %1223, label %.thread98
 
 1223:                                             ; preds = %1210
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1215, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1215, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 1224:                                             ; preds = %1209
@@ -5573,7 +5573,7 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
   br i1 %or.cond23, label %1376, label %.thread98
 
 1376:                                             ; preds = %1363
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1368, i32 noundef -1, ptr noundef nonnull %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1368, i32 noundef -1, ptr noundef nonnull %8)
   br label %.thread98
 
 1377:                                             ; preds = %1362
@@ -5618,7 +5618,7 @@ get_type_length.exit1706:                         ; preds = %get_type_length.exi
   br i1 %.not1520, label %1404, label %.thread98
 
 1404:                                             ; preds = %1393
-  tail call fastcc void @save_channel(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1398, i32 noundef -1, ptr noundef %8)
+  tail call fastcc void @save_channel.retelim(ptr noundef nonnull %1, i32 noundef 256, i32 noundef %1398, i32 noundef -1, ptr noundef %8)
   br label %.thread98
 
 1405:                                             ; preds = %1392
@@ -6058,7 +6058,7 @@ get_type_length.exit1711:                         ; preds = %.lr.ph187, %1619, %
   %.022.i1709 = phi i32 [ %1617, %.lr.ph187 ], [ %1617, %1619 ], [ %1617, %1622 ], [ %1617, %1623 ], [ %1617, %1624 ], [ %1628, %1625 ], [ %1632, %1629 ], [ %1635, %1633 ]
   %1636 = phi i32 [ 2, %.lr.ph187 ], [ %1621, %1619 ], [ 4, %1622 ], [ 8, %1623 ], [ 16, %1624 ], [ %1627, %1625 ], [ %1631, %1629 ], [ %spec.select.i1708, %1633 ]
   %1637 = load ptr, ptr %11, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1637, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1709, i32 noundef %1636, ptr noundef %16)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %1637, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1709, i32 noundef %1636, ptr noundef %16)
   %1638 = load ptr, ptr %21, align 8
   %1639 = call ptr @print_bluetooth_uuid(ptr noundef %1638, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1639) #7
@@ -6081,7 +6081,7 @@ get_type_length.exit1711:                         ; preds = %.lr.ph187, %1619, %
 
 1649:                                             ; preds = %1608
   %1650 = load ptr, ptr %12, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1650, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %1650, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
   %1651 = load ptr, ptr %21, align 8
   %1652 = call ptr @print_bluetooth_uuid(ptr noundef %1651, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1652) #7
@@ -6148,7 +6148,7 @@ get_type_length.exit1716:                         ; preds = %.lr.ph185, %1660, %
   %.022.i1714 = phi i32 [ %1658, %.lr.ph185 ], [ %1658, %1660 ], [ %1658, %1663 ], [ %1658, %1664 ], [ %1658, %1665 ], [ %1669, %1666 ], [ %1673, %1670 ], [ %1676, %1674 ]
   %1677 = phi i32 [ 2, %.lr.ph185 ], [ %1662, %1660 ], [ 4, %1663 ], [ 8, %1664 ], [ 16, %1665 ], [ %1668, %1666 ], [ %1672, %1670 ], [ %spec.select.i1713, %1674 ]
   %1678 = load ptr, ptr %11, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1678, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1714, i32 noundef %1677, ptr noundef %16)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %1678, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1714, i32 noundef %1677, ptr noundef %16)
   %1679 = load ptr, ptr %21, align 8
   %1680 = call ptr @print_bluetooth_uuid(ptr noundef %1679, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1680) #7
@@ -6488,7 +6488,7 @@ get_type_length.exit1741:                         ; preds = %get_type_length.exi
   %.022.i1739 = phi i32 [ %1822, %get_type_length.exit1736 ], [ %1822, %1824 ], [ %1822, %1827 ], [ %1822, %1828 ], [ %1822, %1829 ], [ %1833, %1830 ], [ %1837, %1834 ], [ %1840, %1838 ]
   %1841 = phi i32 [ 2, %get_type_length.exit1736 ], [ %1826, %1824 ], [ 4, %1827 ], [ 8, %1828 ], [ 16, %1829 ], [ %1832, %1830 ], [ %1836, %1834 ], [ %spec.select.i1738, %1838 ]
   %1842 = load ptr, ptr %13, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1842, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1739, i32 noundef %1841, ptr noundef %16)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %1842, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i1739, i32 noundef %1841, ptr noundef %16)
   %1843 = load ptr, ptr %21, align 8
   %1844 = call ptr @print_bluetooth_uuid(ptr noundef %1843, ptr noundef nonnull %16) #7
   call void @wmem_strbuf_append(ptr noundef %23, ptr noundef %1844) #7
@@ -6821,7 +6821,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 
 1998:                                             ; preds = %1969
   %1999 = load ptr, ptr %12, align 8
-  call fastcc void @dissect_uuid(ptr noundef %1999, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %1999, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.022.i, i32 noundef %48, ptr noundef %16)
   %2000 = load ptr, ptr %21, align 8
   %2001 = call ptr @print_bluetooth_uuid(ptr noundef %2000, ptr noundef nonnull %16) #7
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %23, ptr noundef nonnull @.str.943, ptr noundef %2001) #7
@@ -6874,7 +6874,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
   br label %2028
 
 2028:                                             ; preds = %.lr.ph191, %2027
-  %2029 = call fastcc i32 @dissect_sdp_type(ptr noundef %2026, ptr noundef %1, ptr noundef %2018, i32 noundef %.0190, i32 noundef %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %20)
+  %2029 = call fastcc i32 @dissect_sdp_type.argprom(ptr noundef %2026, ptr noundef %1, ptr noundef %2018, i32 noundef %.0190, i32 noundef %4, i16 %.0.val, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %20)
   %2030 = icmp slt i32 %2029, 1
   br i1 %2030, label %._crit_edge, label %2031
 
@@ -6906,7 +6906,7 @@ get_int_by_size.exit:                             ; preds = %1986, %1987, %1990,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
+define internal fastcc void @dissect_uuid.retelim(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca %struct._uuid_t, align 2
   %8 = alloca %struct._uuid_t, align 2
   switch i32 %4, label %39 [
@@ -7006,7 +7006,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef nonnull readonly %13) unnamed_addr #1 {
+define internal fastcc void @reassemble_continuation_state.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr nocapture noundef nonnull readonly %13) unnamed_addr #1 {
   %15 = alloca [12 x %struct._wmem_tree_key_t], align 16
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -8018,7 +8018,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_channel(ptr nocapture noundef readonly %0, i32 noundef range(i32 3, 257) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @save_channel.retelim(ptr nocapture noundef readonly %0, i32 noundef range(i32 3, 257) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca [10 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -8346,7 +8346,7 @@ get_type_length.exit174:                          ; preds = %get_type_length.exi
   %.022.i172 = phi i32 [ %118, %get_type_length.exit ], [ %118, %120 ], [ %118, %123 ], [ %118, %124 ], [ %118, %125 ], [ %129, %126 ], [ %133, %130 ], [ %136, %134 ]
   %137 = phi i32 [ 2, %get_type_length.exit ], [ %122, %120 ], [ 4, %123 ], [ 8, %124 ], [ 16, %125 ], [ %128, %126 ], [ %132, %130 ], [ %spec.select.i171, %134 ]
   %138 = load ptr, ptr %29, align 8
-  call fastcc void @dissect_uuid(ptr noundef %138, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i172, i32 noundef %137, ptr noundef %31)
+  call fastcc void @dissect_uuid.retelim(ptr noundef %138, ptr noundef %2, ptr noundef %1, i32 noundef %.022.i172, i32 noundef %137, ptr noundef %31)
   %139 = load ptr, ptr %33, align 8
   %140 = call ptr @print_bluetooth_uuid(ptr noundef %139, ptr noundef nonnull %31) #7
   call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %140) #7
@@ -9086,7 +9086,7 @@ get_type_length.exit:                             ; preds = %5, %15, %18, %19, %
   %.035 = phi i32 [ %.022.i, %.lr.ph ], [ %37, %36 ]
   %.03134 = phi i32 [ %32, %.lr.ph ], [ %38, %36 ]
   %.sroa.0.0.copyload = load i16, ptr %4, align 2
-  %37 = tail call fastcc i32 @dissect_sdp_service_attribute(ptr noundef %35, ptr noundef %1, i32 noundef %.035, ptr noundef %3, i16 %.sroa.0.0.copyload, i32 noundef %.022.i, ptr noundef null, i32 noundef 1, i32 noundef 1)
+  %37 = tail call fastcc i32 @dissect_sdp_service_attribute.argprom(ptr noundef %35, ptr noundef %1, i32 noundef %.035, ptr noundef %3, i16 %.sroa.0.0.copyload, i32 noundef %.022.i, ptr noundef null, i32 noundef 1, i32 noundef 1)
   %.neg = add i32 %.035, %.03134
   %38 = sub i32 %.neg, %37
   %39 = icmp sgt i32 %38, 0
@@ -9106,7 +9106,7 @@ declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed
 declare ptr @print_numeric_bluetooth_uuid(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 %.0.val, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_service_attribute.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i16 %.0.val, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   store ptr null, ptr %10, align 8
@@ -9393,7 +9393,7 @@ define internal fastcc i32 @dissect_sdp_service_attribute(ptr noundef %0, ptr no
   %131 = load i32, ptr @ett_btsdp_attribute_value, align 4
   %132 = tail call ptr @proto_item_add_subtree(ptr noundef %130, i32 noundef %131) #7
   %133 = zext i16 %13 to i32
-  %134 = call fastcc i32 @dissect_sdp_type(ptr noundef %132, ptr noundef %3, ptr noundef %1, i32 noundef %124, i32 noundef %133, i16 %.0.val, i32 noundef %.011011, i32 noundef %.010914, i32 noundef %.010817, ptr noundef %5, ptr noundef %10)
+  %134 = call fastcc i32 @dissect_sdp_type.argprom(ptr noundef %132, ptr noundef %3, ptr noundef %1, i32 noundef %124, i32 noundef %133, i16 %.0.val, i32 noundef %.011011, i32 noundef %.010914, i32 noundef %.010817, ptr noundef %5, ptr noundef %10)
   %135 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %124) #7
   %136 = add i32 %124, 1
   %137 = and i8 %135, 7
@@ -9853,7 +9853,7 @@ get_type_length.exit113:                          ; preds = %get_type_length.exi
 get_type_length.exit118:                          ; preds = %101, %104, %107, %108, %109, %110, %113, %116
   %.022.i116 = phi i32 [ %97, %101 ], [ %97, %104 ], [ %97, %107 ], [ %97, %108 ], [ %97, %109 ], [ %100, %110 ], [ %99, %113 ], [ %98, %116 ]
   %118 = phi i32 [ 2, %101 ], [ %106, %104 ], [ 4, %107 ], [ 8, %108 ], [ 16, %109 ], [ %112, %110 ], [ %115, %113 ], [ %spec.select.i115, %116 ]
-  call fastcc void @dissect_uuid(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef %8)
+  call fastcc void @dissect_uuid.retelim(ptr noundef null, ptr noundef %3, ptr noundef %1, i32 noundef %.022.i116, i32 noundef %118, ptr noundef %8)
   call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %8, i32 noundef 1) #7
   %119 = add i32 %118, %.022.i116
   %.not103 = icmp sgt i32 %119, %.022.i111
@@ -9995,7 +9995,7 @@ get_specified_uuid.exit:                          ; preds = %.thread.i, %._crit_
 177:                                              ; preds = %.lr.ph135, %177
   %.0133 = phi i32 [ %.022.i, %.lr.ph135 ], [ %178, %177 ]
   %.val = load i16, ptr %8, align 8
-  %178 = call fastcc i32 @dissect_sdp_service_attribute(ptr noundef %176, ptr noundef %1, i32 noundef %.0133, ptr noundef %3, i16 %.val, i32 noundef %.022.i, ptr noundef %.094, i32 noundef %.097.lcssa, i32 noundef 0)
+  %178 = call fastcc i32 @dissect_sdp_service_attribute.argprom(ptr noundef %176, ptr noundef %1, i32 noundef %.0133, ptr noundef %3, i16 %.val, i32 noundef %.022.i, ptr noundef %.094, i32 noundef %.097.lcssa, i32 noundef 0)
   %179 = sub i32 %178, %2
   %180 = icmp slt i32 %179, %43
   br i1 %180, label %177, label %._crit_edge136, !llvm.loop !38
@@ -10109,7 +10109,7 @@ get_specified_uuid.exit:                          ; preds = %.thread.i, %._crit_
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #1 {
+define internal fastcc void @dissect_sdp_service_attribute_list_array.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #7
   %10 = add nuw nsw i32 %2, 1

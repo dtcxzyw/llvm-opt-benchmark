@@ -418,7 +418,7 @@ _ZNK4llvm4Pass11getAnalysisINS_19MachineTraceMetricsEEERT_v.exit: ; preds = %.lr
   %.02240 = phi i32 [ %.123, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ 0, %58 ]
   %61 = getelementptr i8, ptr %.sroa.028.042, i64 68
   %.val = load i16, ptr %61, align 4
-  switch i16 %.val, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit [
+  switch i16 %.val, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit [
     i16 6786, label %62
     i16 6766, label %62
     i16 6811, label %62
@@ -429,20 +429,20 @@ _ZNK4llvm4Pass11getAnalysisINS_19MachineTraceMetricsEEERT_v.exit: ; preds = %.lr
   %63 = load ptr, ptr %25, align 8
   %64 = load ptr, ptr %27, align 8
   %65 = call noundef zeroext i1 @_ZNK4llvm15TargetInstrInfo23getMemOperandWithOffsetERKNS_12MachineInstrERPKNS_14MachineOperandERlRbPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(80) %63, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.028.042, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %64) #13
-  br i1 %65, label %66, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
+  br i1 %65, label %66, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %8, align 8
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 255
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
+  br i1 %70, label %71, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %.02240, %73
-  br i1 %74, label %75, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
+  br i1 %74, label %75, label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit
 
 75:                                               ; preds = %71
   br i1 %.02141, label %109, label %76
@@ -525,9 +525,9 @@ _ZN12_GLOBAL__N_124AArch64StorePairSuppress19shouldAddSTPToBlockEPKN4llvm17Machi
 
 109:                                              ; preds = %_ZN12_GLOBAL__N_124AArch64StorePairSuppress19shouldAddSTPToBlockEPKN4llvm17MachineBasicBlockE.exit, %75
   call void @_ZN4llvm16AArch64InstrInfo16suppressLdStPairERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.028.042) #13
-  br label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
+  br label %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit
 
-_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit: ; preds = %71, %109, %.lr.ph, %62, %66
+_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit: ; preds = %71, %109, %.lr.ph, %62, %66
   %.123 = phi i32 [ 0, %66 ], [ 0, %62 ], [ %.02240, %.lr.ph ], [ %.02240, %109 ], [ %73, %71 ]
   %.1 = phi i1 [ %.02141, %66 ], [ %.02141, %62 ], [ %.02141, %.lr.ph ], [ true, %109 ], [ %.02141, %71 ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.028.042, align 8
@@ -535,7 +535,7 @@ _ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineIn
   %.not.i.i.i25 = icmp eq i64 %110, 0
   br i1 %.not.i.i.i25, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
 
-_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit
+_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i: ; preds = %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.028.042, i64 44
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 8
@@ -552,8 +552,8 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %.not3.i.i.i = icmp eq i32 %118, 0
   br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !4
 
-_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.028.042, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit ], [ %.sroa.028.042, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %115, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
+_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.028.042, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.argprom.exit ], [ %.sroa.028.042, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %115, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %.sroa.028.0 = load ptr, ptr %119, align 8
   %.not36 = icmp eq ptr %.sroa.028.0, %60

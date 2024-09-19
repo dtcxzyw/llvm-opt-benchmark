@@ -3076,11 +3076,11 @@ rtmpt_get_packet_desc.exit.thread:                ; preds = %95, %104, %rtmpt_ge
   br label %dissect_rtmpt_body_scm.exit
 
 454:                                              ; preds = %428, %428
-  tail call fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noundef %.0201232241, ptr noundef %430, i32 noundef 0)
+  tail call fastcc void @dissect_rtmpt_body_command.retelim(ptr noundef %0, i32 noundef %.0201232241, ptr noundef %430, i32 noundef 0)
   br label %dissect_rtmpt_body_scm.exit
 
 455:                                              ; preds = %428, %428
-  tail call fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noundef %.0201232241, ptr noundef %430, i32 noundef 1)
+  tail call fastcc void @dissect_rtmpt_body_command.retelim(ptr noundef %0, i32 noundef %.0201232241, ptr noundef %430, i32 noundef 1)
   br label %dissect_rtmpt_body_scm.exit
 
 456:                                              ; preds = %428
@@ -3157,7 +3157,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rtmpt_body_command(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rtmpt_body_command.retelim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %spec.select = add i32 %3, %1

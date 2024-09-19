@@ -409,29 +409,29 @@ _ZL12sample_statsv.exit:                          ; preds = %91, %92
 103:                                              ; preds = %_ZL12sample_statsv.exit
   %104 = load double, ptr @ZCollectionIntervalMajor, align 8
   %105 = fcmp ugt double %104, 0.000000e+00
-  br i1 %105, label %106, label %_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i
+  br i1 %105, label %106, label %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i
 
 106:                                              ; preds = %103
   %.val.i.i = load double, ptr %32, align 8
   %107 = fsub double %104, %.val.i.i
   %108 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i.i2 = icmp eq ptr %108, null
-  br i1 %.not.i.i.i2, label %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i, label %109
+  br i1 %.not.i.i.i2, label %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i, label %109
 
 109:                                              ; preds = %106
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.9, double noundef %104, double noundef %107)
-  br label %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i
+  br label %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i
 
-_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i: ; preds = %109, %106
+_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i: ; preds = %109, %106
   %110 = fcmp ugt double %107, 0.000000e+00
-  br i1 %110, label %_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i, label %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i
+  br i1 %110, label %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i, label %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i
 
-_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i, %103
+_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i: ; preds = %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i, %103
   %111 = load i8, ptr @ZCollectionIntervalOnly, align 1
   %112 = trunc i8 %111 to i1
   br i1 %112, label %_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i, label %113
 
-113:                                              ; preds = %_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i
+113:                                              ; preds = %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i
   %114 = load i8, ptr %27, align 8
   %115 = trunc i8 %114 to i1
   br i1 %115, label %_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i, label %116
@@ -465,8 +465,8 @@ _ZL17rule_major_warmupRK14ZDirectorStats.exit._ZL17rule_major_warmupRK14ZDirecto
   %.pre.i.i = load i8, ptr @ZCollectionIntervalOnly, align 1
   br label %_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i
 
-_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_major_warmupRK14ZDirectorStats.exit._ZL17rule_major_warmupRK14ZDirectorStats.exit.thread_crit_edge.i.i, %113, %_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i
-  %131 = phi i8 [ %.pre.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit._ZL17rule_major_warmupRK14ZDirectorStats.exit.thread_crit_edge.i.i ], [ %111, %113 ], [ %111, %_ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i ]
+_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_major_warmupRK14ZDirectorStats.exit._ZL17rule_major_warmupRK14ZDirectorStats.exit.thread_crit_edge.i.i, %113, %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i
+  %131 = phi i8 [ %.pre.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit._ZL17rule_major_warmupRK14ZDirectorStats.exit.thread_crit_edge.i.i ], [ %111, %113 ], [ %111, %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.thread.i.i ]
   %132 = trunc i8 %131 to i1
   br i1 %132, label %179, label %133
 
@@ -537,8 +537,8 @@ _ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i: ; preds = %175, %156
   %176 = fcmp ugt double %.fr.i.i, 0.000000e+00
   br i1 %176, label %179, label %_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i
 
-_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i
-  %.0.i.i = phi i32 [ 28, %_ZL16rule_major_timerRK14ZDirectorStats.exit.i.i ], [ 29, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i ], [ 32, %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i ]
+_ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i
+  %.0.i.i = phi i32 [ 28, %_ZL16rule_major_timerRK14ZDirectorStats.argprom.exit.i.i ], [ 29, %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i ], [ 32, %_ZL20rule_major_proactiveRK14ZDirectorStats.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   %177 = call fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelectionType(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i32 noundef 0)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %177 to i32
@@ -568,31 +568,31 @@ _ZL22make_major_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL20rule_major
 188:                                              ; preds = %185, %182
   %189 = load double, ptr @ZCollectionIntervalMinor, align 8
   %190 = fcmp ugt double %189, 0.000000e+00
-  br i1 %190, label %191, label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i
+  br i1 %190, label %191, label %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.thread.i.i
 
 191:                                              ; preds = %188
   %.val.i16.i = load double, ptr %43, align 8
   %192 = fsub double %189, %.val.i16.i
   %193 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i17.i = icmp eq ptr %193, null
-  br i1 %.not.i.i17.i, label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i, label %194
+  br i1 %.not.i.i17.i, label %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i, label %194
 
 194:                                              ; preds = %191
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.17, double noundef %189, double noundef %192)
-  br label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i
+  br label %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i
 
-_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i: ; preds = %194, %191
+_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i: ; preds = %194, %191
   %195 = fcmp ugt double %192, 0.000000e+00
-  br i1 %195, label %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
+  br i1 %195, label %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.thread.i.i, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
-_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i, %188
+_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.thread.i.i: ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i, %188
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   %196 = load i8, ptr @ZCollectionIntervalOnly, align 1
   %197 = trunc i8 %196 to i1
   br i1 %197, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i, label %198
 
-198:                                              ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i
+198:                                              ; preds = %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.thread.i.i
   %199 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %200 = call noundef zeroext i1 @_ZNK14ZPageAllocator25is_alloc_stalling_for_oldEv(ptr noundef nonnull align 8 dereferenceable(609) %199) #11
   br i1 %200, label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i, label %201
@@ -615,7 +615,7 @@ _ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_mi
   br i1 %210, label %211, label %219
 
 211:                                              ; preds = %208
-  %212 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext false, i64 noundef %.val.i.i.i)
+  %212 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext false, i64 noundef %.val.i.i.i)
   %.fca.0.extract1.i.i.i = extractvalue { i64, i32 } %212, 0
   %.fca.1.extract2.i.i.i = extractvalue { i64, i32 } %212, 1
   store i64 %.fca.0.extract1.i.i.i, ptr %5, align 8
@@ -632,7 +632,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i: ; preds = %
 214:                                              ; preds = %211
   %215 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %216 = call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %215) #11
-  %217 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext true, i64 noundef %216)
+  %217 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext true, i64 noundef %216)
   %.fca.0.extract.i.i.i = extractvalue { i64, i32 } %217, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i32 } %217, 1
   store i64 %.fca.0.extract.i.i.i, ptr %6, align 8
@@ -682,7 +682,7 @@ _ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i: ; preds = %
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.18, double noundef %246, i64 noundef %247, double noundef %242, double noundef %243)
   br label %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i
 
-_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i: ; preds = %219, %201, %198, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.thread.i.i
+_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread.i.i: ; preds = %219, %201, %198, %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   br label %249
@@ -737,8 +737,8 @@ _ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i: ; preds = %270, %259
   %272 = fcmp ugt double %.fr.i13.i, 5.000000e+00
   br i1 %272, label %338, label %_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i
 
-_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, %214, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i
-  %.0.i15.i = phi i32 [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i ], [ 30, %214 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
+_ZL22make_minor_gc_decisionRK14ZDirectorStats.exit.i: ; preds = %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i, %214, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i, %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i
+  %.0.i15.i = phi i32 [ 28, %_ZL16rule_minor_timerRK14ZDirectorStats.argprom.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.i.i ], [ 30, %_ZL26rule_minor_allocation_rateRK14ZDirectorStats.exit.thread11.i.i ], [ 30, %214 ], [ 33, %_ZL21rule_minor_high_usageRK14ZDirectorStats.exit.i.i ]
   %273 = call noundef ptr @_ZN7ZDriver5majorEv() #11
   %274 = call noundef zeroext i1 @_ZNK12ZDriverMajor7is_busyEv(ptr noundef nonnull align 8 dereferenceable(1264) %273) #11
   br i1 %274, label %_ZL26rule_major_allocation_rateRK14ZDirectorStats.exit.thread.i, label %275
@@ -883,7 +883,7 @@ _ZL14start_minor_gcRK14ZDirectorStatsN7GCCause5CauseE.exit.i: ; preds = %334, %3
 343:                                              ; preds = %341
   %344 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %345 = call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %344) #11
-  %346 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext false, i64 noundef %345)
+  %346 = call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr noundef nonnull readonly align 8 dereferenceable(432) %13, i1 noundef zeroext false, i64 noundef %345)
   %.fca.0.extract.i = extractvalue { i64, i32 } %346, 0
   %.fca.1.extract.i = extractvalue { i64, i32 } %346, 1
   store i64 %.fca.0.extract.i, ptr %2, align 8
@@ -1362,7 +1362,7 @@ define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelec
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
-  %13 = tail call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext false, i64 noundef %12)
+  %13 = tail call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext false, i64 noundef %12)
   %.fca.0.extract1 = extractvalue { i64, i32 } %13, 0
   %.fca.1.extract2 = extractvalue { i64, i32 } %13, 1
   store i64 %.fca.0.extract1, ptr %3, align 8
@@ -1370,7 +1370,7 @@ define internal fastcc i64 @_ZL15initial_workersRK14ZDirectorStats20ZWorkerSelec
   store i32 %.fca.1.extract2, ptr %.sroa.24.0..sroa_idx, align 8
   %14 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   %15 = tail call noundef i64 @_ZNK5ZHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(15937) %14) #11
-  %16 = tail call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext true, i64 noundef %15)
+  %16 = tail call fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext true, i64 noundef %15)
   %.fca.0.extract = extractvalue { i64, i32 } %16, 0
   %.fca.1.extract = extractvalue { i64, i32 } %16, 1
   store i64 %.fca.0.extract, ptr %4, align 8
@@ -1508,7 +1508,7 @@ _ZL35calculate_young_to_old_worker_ratioRK14ZDirectorStats.exit: ; preds = %17, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @_ZL34rule_minor_allocation_rate_dynamicRK14ZDirectorStatsddbm.argelim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %0, i1 noundef zeroext %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %class.ZDriverRequest, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = load i8, ptr %5, align 8

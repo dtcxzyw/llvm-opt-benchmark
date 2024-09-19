@@ -421,7 +421,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
   %48 = ptrtoint ptr %35 to i64
   %49 = cmpxchg ptr %47, i64 0, i64 %48 acq_rel acquire, align 8, !noalias !67
   %50 = extractvalue { i64, i1 } %49, 1
-  br i1 %50, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.exit.i", label %51
+  br i1 %50, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.argprom.exit.i", label %51
 
 51:                                               ; preds = %45
   %52 = extractvalue { i64, i1 } %49, 0
@@ -431,7 +431,7 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.1441b3def44db8b07e7d1387db893427.14, i64 noundef 71, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1441b3def44db8b07e7d1387db893427.48, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1441b3def44db8b07e7d1387db893427.15) #28, !noalias !67
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.exit.i": ; preds = %45
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.argprom.exit.i": ; preds = %45
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load atomic i64, ptr %54 acquire, align 8, !noalias !67
   br label %57
@@ -440,8 +440,8 @@ _ZN12sharded_slab3tid12REGISTRATION7__getit17h1c161b523bd1a194E.exit.thread.i: ;
   tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef %.011, i64 noundef %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1441b3def44db8b07e7d1387db893427.13) #28, !noalias !67
   unreachable
 
-57:                                               ; preds = %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.exit.i"
-  %.0.i = phi i64 [ %55, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.exit.i" ], [ %62, %59 ]
+57:                                               ; preds = %59, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.argprom.exit.i"
+  %.0.i = phi i64 [ %55, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf3ec4a5597a06abaE.argprom.exit.i" ], [ %62, %59 ]
   %58 = icmp ult i64 %.0.i, %.011
   br i1 %58, label %59, label %"_ZN12sharded_slab5shard18Array$LT$T$C$C$GT$7current28_$u7b$$u7b$closure$u7d$$u7d$17h76439d6b86df4da3E.exit"
 

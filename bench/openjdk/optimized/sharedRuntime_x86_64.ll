@@ -1455,7 +1455,7 @@ define hidden void @_ZN13SharedRuntime15gen_i2c_adapterEP14MacroAssembleriiPK9Ba
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i8, ptr %49, i64 %52
-  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(33) %14)
+  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label.argelim(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(33) %14)
   br label %54
 
 54:                                               ; preds = %47, %34
@@ -1472,7 +1472,7 @@ define hidden void @_ZN13SharedRuntime15gen_i2c_adapterEP14MacroAssembleriiPK9Ba
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %55, i64 %63
-  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(33) %14)
+  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label.argelim(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(33) %14)
   br label %65
 
 65:                                               ; preds = %56, %54
@@ -1489,7 +1489,7 @@ define hidden void @_ZN13SharedRuntime15gen_i2c_adapterEP14MacroAssembleriiPK9Ba
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %66, i64 %74
-  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label(ptr noundef nonnull %0, ptr noundef nonnull %71, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(33) %14)
+  call fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label.argelim(ptr noundef nonnull %0, ptr noundef nonnull %71, ptr noundef nonnull %75, ptr noundef nonnull align 8 dereferenceable(33) %14)
   br label %76
 
 76:                                               ; preds = %67, %65
@@ -1957,7 +1957,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %261, %265
 declare void @_ZN17AbstractAssembler13block_commentEPKc(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL11range_checkP14MacroAssembler8RegisterS1_PhS2_R5Label.argelim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(33) %3) unnamed_addr #0 {
   %5 = alloca %class.Label, align 8
   %6 = alloca %class.AddressLiteral, align 8
   %7 = alloca %class.ExternalAddress, align 8
@@ -3373,7 +3373,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_native_wrapperEP14MacroA
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   store i32 2, ptr %34, align 4
   %140 = call fastcc noundef ptr @_ZL24continuation_enter_setupP14MacroAssemblerRi(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %34)
-  call fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_(ptr noundef nonnull %0)
+  call fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_.argelim(ptr noundef nonnull %0)
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 2, i32 2) #14
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %24, i1 noundef zeroext true) #14
   %141 = load ptr, ptr %105, align 8
@@ -3429,7 +3429,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_native_wrapperEP14MacroA
   %176 = load ptr, ptr %105, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 16
   %178 = load ptr, ptr %177, align 8
-  call fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_(ptr noundef nonnull %0)
+  call fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_.argelim(ptr noundef nonnull %0)
   call void @_ZN14MacroAssembler7testptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 2, i32 2) #14
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %24, ptr noundef nonnull @.str, i32 noundef 1596) #14
   %179 = load ptr, ptr %105, align 8
@@ -3779,14 +3779,14 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %340 = getelementptr inbounds i8, ptr %15, i64 40
   store i32 0, ptr %340, align 8
   call void @_ZN14MacroAssembler6movptrE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 3, ptr noundef nonnull %15) #14
-  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
+  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit
 
 341:                                              ; preds = %322
   %342 = sub i32 %327, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %343 = ashr i32 %342, 1
   %or.cond.i.i.i = icmp ult i32 %343, 32
   %spec.select.i.i.i = select i1 %or.cond.i.i.i, i32 %343, i32 -1
-  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
+  br i1 %.0.ph.i, label %.thread11.i, label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit
 
 .thread11.i:                                      ; preds = %341, %328, %319
   %.sroa.0.115.i = phi i32 [ %spec.select.i.i.i, %341 ], [ 3, %328 ], [ -1, %319 ]
@@ -3808,9 +3808,9 @@ _ZL22gen_continuation_enterP14MacroAssemblerPK9VMRegPairRiP9OopMapSetS4_S4_S4_S4
   %352 = ashr i32 %351, 1
   %or.cond.i.i38.i = icmp ult i32 %352, 32
   %spec.select.i.i39.i = select i1 %or.cond.i.i38.i, i32 %352, i32 -1
-  br label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
+  br label %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit
 
-_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit: ; preds = %328, %341, %348
+_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit: ; preds = %328, %341, %348
   %.sroa.0.114.i = phi i32 [ %.sroa.0.115.i, %348 ], [ %spec.select.i.i.i, %341 ], [ 3, %328 ]
   %.sroa.013.0.i = phi i32 [ %spec.select.i.i39.i, %348 ], [ -1, %341 ], [ -1, %328 ]
   call void @_ZN13MethodHandles31generate_method_handle_dispatchEP14MacroAssembler13vmIntrinsicID8RegisterS3_b(ptr noundef nonnull %0, i32 noundef %314, i32 %.sroa.013.0.i, i32 %.sroa.0.114.i, i1 noundef zeroext true) #14
@@ -5243,8 +5243,8 @@ _ZN13GrowableArrayIiED2Ev.exit:                   ; preds = %._ZN13GrowableArray
   %955 = call noundef ptr @_ZN7nmethod18new_native_nmethodERK12methodHandleiP10CodeBufferiii8ByteSizeS5_P9OopMapSeti(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %952, i32 noundef %422, i32 noundef %471, i32 noundef %953, i32 noundef %spec.select, i32 noundef %.pre-phi, ptr noundef nonnull %366, i32 noundef -1) #14
   br label %956
 
-956:                                              ; preds = %297, %301, %302, %289, %_ZN13GrowableArrayIiED2Ev.exit, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit
-  %.0 = phi ptr [ %362, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.exit ], [ %955, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %295, %302 ], [ %295, %301 ], [ %295, %297 ]
+956:                                              ; preds = %297, %301, %302, %289, %_ZN13GrowableArrayIiED2Ev.exit, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit
+  %.0 = phi ptr [ %362, %_ZL20gen_special_dispatchP14MacroAssemblerRK12methodHandlePK9BasicTypePK9VMRegPair.argprom.exit ], [ %955, %_ZN13GrowableArrayIiED2Ev.exit ], [ null, %289 ], [ %295, %302 ], [ %295, %301 ], [ %295, %297 ]
   ret ptr %.0
 }
 
@@ -8707,7 +8707,7 @@ define internal fastcc noundef ptr @_ZL24continuation_enter_setupP14MacroAssembl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_(ptr noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @_ZL23fill_continuation_entryP14MacroAssembler8RegisterS1_.argelim(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %class.Address, align 8
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8

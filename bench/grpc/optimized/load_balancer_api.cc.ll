@@ -718,7 +718,7 @@ if.then18:                                        ; preds = %if.then14
   %div.i.sext.i.i = sext i32 %div.i1.i.i to i64
   %cond10.i.i.i.i.off = add i64 %cond10.i.i.i.i, -9223372036854775807
   %switch = icmp ult i64 %cond10.i.i.i.i.off, 2
-  br i1 %switch, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, label %if.end11.i.i.i.i
+  br i1 %switch, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.then18
   %cmp.i.i.i.i.i = icmp sgt i64 %cond10.i.i.i.i, 0
@@ -727,18 +727,18 @@ if.end11.i.i.i.i:                                 ; preds = %if.then18
 if.then.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i
   %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %cond10.i.i.i.i
   %cmp1.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %div.i.sext.i.i
-  br i1 %cmp1.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, label %if.end7.i.i.i.i.i
+  br i1 %cmp1.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit, label %if.end7.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i
   %sub3.i.i.i.i.i = sub nsw i64 -9223372036854775808, %cond10.i.i.i.i
   %cmp4.i.i.i.i.i = icmp sgt i64 %sub3.i.i.i.i.i, %div.i.sext.i.i
-  br i1 %cmp4.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, label %if.end7.i.i.i.i.i
+  br i1 %cmp4.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit, label %if.end7.i.i.i.i.i
 
 if.end7.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %add.i.i.i.i.i = add nsw i64 %cond10.i.i.i.i, %div.i.sext.i.i
-  br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit
+  br label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit
 
-_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i
+_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i
   %retval.0.i.i.i.i21 = phi i64 [ %add.i.i.i.i.i, %if.end7.i.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i.i ], [ %cond10.i.i.i.i, %if.then18 ]
   %client_stats_report_interval20 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %retval.0.i.i.i.i21, ptr %client_stats_report_interval20, align 8
@@ -748,8 +748,8 @@ if.then24:                                        ; preds = %grpc_lb_v1_LoadBala
   store i32 2, ptr %result, align 8
   br label %return
 
-return:                                           ; preds = %grpc_lb_v1_LoadBalanceResponse_parse.exit, %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit, %if.then14, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, %if.then24, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then24 ], [ true, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit ], [ true, %if.then14 ], [ false, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit ], [ false, %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i ], [ false, %grpc_lb_v1_LoadBalanceResponse_parse.exit ]
+return:                                           ; preds = %grpc_lb_v1_LoadBalanceResponse_parse.exit, %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit, %if.then14, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit, %if.then24, %if.then
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then24 ], [ true, %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.argprom.exit ], [ true, %if.then14 ], [ false, %grpc_lb_v1_LoadBalanceResponse_initial_response.exit ], [ false, %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i ], [ false, %grpc_lb_v1_LoadBalanceResponse_parse.exit ]
   ret i1 %retval.0
 }
 

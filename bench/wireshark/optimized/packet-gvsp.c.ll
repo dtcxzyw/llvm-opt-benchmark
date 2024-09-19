@@ -1176,7 +1176,7 @@ status_with_payload.exit.thread2.i122:            ; preds = %108, %106
   br label %.sink.split131
 
 116:                                              ; preds = %98
-  call fastcc void @dissect_packet_payload_multizone(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
+  call fastcc void @dissect_packet_payload_multizone.argprom(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
   br label %.sink.split131
 
 117:                                              ; preds = %98
@@ -1529,15 +1529,15 @@ status_with_payload.exit.thread2.i129:            ; preds = %136, %134
   ]
 
 381:                                              ; preds = %372
-  call fastcc void @dissect_packet_all_in(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
+  call fastcc void @dissect_packet_all_in.argprom(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
   br label %.sink.split131
 
 382:                                              ; preds = %372
-  tail call fastcc void @dissect_packet_leader(ptr noundef %24, ptr noundef %0, i32 noundef %.1, i16 %377)
+  tail call fastcc void @dissect_packet_leader.argprom(ptr noundef %24, ptr noundef %0, i32 noundef %.1, i16 %377)
   br label %.sink.split131
 
 383:                                              ; preds = %372
-  call fastcc void @dissect_packet_trailer(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
+  call fastcc void @dissect_packet_trailer.argprom(ptr noundef %24, ptr noundef %0, i32 noundef %.1, ptr noundef %5)
   br label %.sink.split131
 
 .sink.split131:                                   ; preds = %._crit_edge.i, %381, %382, %383, %372, %362, %157, %status_with_payload.exit.thread2.i129, %136, %121, %status_with_payload.exit.thread2.i126, %119, %110, %status_with_payload.exit.thread2.i122, %108, %103, %status_with_payload.exit.thread2.i, %101, %116
@@ -1671,7 +1671,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packet_payload_multizone(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_packet_payload_multizone.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 6
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 0
@@ -1712,10 +1712,10 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packet_all_in(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_packet_all_in.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i16, ptr %5, align 8
-  switch i16 %6, label %dissect_packet_payload.exit [
+  switch i16 %6, label %dissect_packet_payload.argprom.exit [
     i16 1, label %7
     i16 2, label %34
     i16 3, label %67
@@ -1728,7 +1728,7 @@ define internal fastcc void @dissect_packet_all_in(ptr noundef %0, ptr noundef %
   ]
 
 7:                                                ; preds = %4
-  tail call fastcc void @dissect_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @dissect_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %8 = load i32, ptr @hf_gvsp_payloadtype, align 4
   %9 = add nuw nsw i32 %2, 38
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef 0) #4
@@ -1762,17 +1762,17 @@ define internal fastcc void @dissect_packet_all_in(ptr noundef %0, ptr noundef %
   %.not.i.i = icmp ne i32 %29, 0
   %.not.i = icmp eq i16 %25, 256
   %or.cond.i = and i1 %.not.i, %.not.i.i
-  br i1 %or.cond.i, label %status_with_payload.exit.thread2.i, label %dissect_packet_payload.exit
+  br i1 %or.cond.i, label %status_with_payload.exit.thread2.i, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i:               ; preds = %27, %23
   %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0) #4
   %.not5.i = icmp eq i32 %30, 0
-  br i1 %.not5.i, label %dissect_packet_payload.exit, label %31
+  br i1 %.not5.i, label %dissect_packet_payload.argprom.exit, label %31
 
 31:                                               ; preds = %status_with_payload.exit.thread2.i
   %32 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 34:                                               ; preds = %4
   %35 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -1814,17 +1814,17 @@ status_with_payload.exit.thread2.i:               ; preds = %27, %23
   %.not.i.i178 = icmp ne i32 %62, 0
   %.not.i179 = icmp eq i16 %58, 256
   %or.cond.i180 = and i1 %.not.i179, %.not.i.i178
-  br i1 %or.cond.i180, label %status_with_payload.exit.thread2.i181, label %dissect_packet_payload.exit
+  br i1 %or.cond.i180, label %status_with_payload.exit.thread2.i181, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i181:            ; preds = %60, %56
   %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1) #4
   %.not5.i182 = icmp eq i32 %63, 0
-  br i1 %.not5.i182, label %dissect_packet_payload.exit, label %64
+  br i1 %.not5.i182, label %dissect_packet_payload.argprom.exit, label %64
 
 64:                                               ; preds = %status_with_payload.exit.thread2.i181
   %65 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 67:                                               ; preds = %4
   %68 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -1842,7 +1842,7 @@ status_with_payload.exit.thread2.i181:            ; preds = %60, %56
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %77, i32 noundef %78, i32 noundef 0) #4
   %81 = add i32 %78, 20
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %dissect_packet_payload.exit, label %83
+  br i1 %82, label %dissect_packet_payload.argprom.exit, label %83
 
 83:                                               ; preds = %67
   %84 = add nuw i32 %81, %2
@@ -1876,17 +1876,17 @@ status_with_payload.exit.thread2.i181:            ; preds = %60, %56
   %.not.i.i184 = icmp ne i32 %103, 0
   %.not.i185 = icmp eq i16 %99, 256
   %or.cond.i186 = and i1 %.not.i185, %.not.i.i184
-  br i1 %or.cond.i186, label %status_with_payload.exit.thread2.i187, label %dissect_packet_payload.exit
+  br i1 %or.cond.i186, label %status_with_payload.exit.thread2.i187, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i187:            ; preds = %101, %97
   %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2) #4
   %.not5.i188 = icmp eq i32 %104, 0
-  br i1 %.not5.i188, label %dissect_packet_payload.exit, label %105
+  br i1 %.not5.i188, label %dissect_packet_payload.argprom.exit, label %105
 
 105:                                              ; preds = %status_with_payload.exit.thread2.i187
   %106 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %106, ptr noundef %1, i32 noundef %.2, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 108:                                              ; preds = %4
   %109 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -1928,20 +1928,20 @@ status_with_payload.exit.thread2.i187:            ; preds = %101, %97
   %.not.i.i190 = icmp ne i32 %136, 0
   %.not.i191 = icmp eq i16 %132, 256
   %or.cond.i192 = and i1 %.not.i191, %.not.i.i190
-  br i1 %or.cond.i192, label %status_with_payload.exit.thread2.i193, label %dissect_packet_payload.exit
+  br i1 %or.cond.i192, label %status_with_payload.exit.thread2.i193, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i193:            ; preds = %134, %130
   %137 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.3) #4
   %.not5.i194 = icmp eq i32 %137, 0
-  br i1 %.not5.i194, label %dissect_packet_payload.exit, label %138
+  br i1 %.not5.i194, label %dissect_packet_payload.argprom.exit, label %138
 
 138:                                              ; preds = %status_with_payload.exit.thread2.i193
   %139 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %140 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %139, ptr noundef %1, i32 noundef %.3, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 141:                                              ; preds = %4
-  tail call fastcc void @dissect_extended_chunk_data_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @dissect_extended_chunk_data_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %142 = load i32, ptr @hf_gvsp_payloadtype, align 4
   %143 = add nuw nsw i32 %2, 38
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %142, ptr noundef %1, i32 noundef %143, i32 noundef 2, i32 noundef 0) #4
@@ -1981,20 +1981,20 @@ status_with_payload.exit.thread2.i193:            ; preds = %134, %130
   %.not.i.i196 = icmp ne i32 %169, 0
   %.not.i197 = icmp eq i16 %165, 256
   %or.cond.i198 = and i1 %.not.i197, %.not.i.i196
-  br i1 %or.cond.i198, label %status_with_payload.exit.thread2.i199, label %dissect_packet_payload.exit
+  br i1 %or.cond.i198, label %status_with_payload.exit.thread2.i199, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i199:            ; preds = %167, %163
   %170 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.4) #4
   %.not5.i200 = icmp eq i32 %170, 0
-  br i1 %.not5.i200, label %dissect_packet_payload.exit, label %171
+  br i1 %.not5.i200, label %dissect_packet_payload.argprom.exit, label %171
 
 171:                                              ; preds = %status_with_payload.exit.thread2.i199
   %172 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %172, ptr noundef %1, i32 noundef %.4, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 174:                                              ; preds = %4, %4
-  tail call fastcc void @dissect_jpeg_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @dissect_jpeg_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %175 = load i32, ptr @hf_gvsp_payloadtype, align 4
   %176 = add nuw nsw i32 %2, 34
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %175, ptr noundef %1, i32 noundef %176, i32 noundef 2, i32 noundef 0) #4
@@ -2025,17 +2025,17 @@ status_with_payload.exit.thread2.i199:            ; preds = %167, %163
   %.not.i.i202 = icmp ne i32 %193, 0
   %.not.i203 = icmp eq i16 %189, 256
   %or.cond.i204 = and i1 %.not.i203, %.not.i.i202
-  br i1 %or.cond.i204, label %status_with_payload.exit.thread2.i205, label %dissect_packet_payload.exit
+  br i1 %or.cond.i204, label %status_with_payload.exit.thread2.i205, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i205:            ; preds = %191, %187
   %194 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.5) #4
   %.not5.i206 = icmp eq i32 %194, 0
-  br i1 %.not5.i206, label %dissect_packet_payload.exit, label %195
+  br i1 %.not5.i206, label %dissect_packet_payload.argprom.exit, label %195
 
 195:                                              ; preds = %status_with_payload.exit.thread2.i205
   %196 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %197 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %196, ptr noundef %1, i32 noundef %.5, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 198:                                              ; preds = %4
   %199 = load i32, ptr @hf_gvsp_fieldinfo, align 4
@@ -2085,12 +2085,12 @@ status_with_payload.exit.thread2.i205:            ; preds = %191, %187
   %.not.i.i208 = icmp ne i32 %233, 0
   %.not.i209 = icmp eq i16 %229, 256
   %or.cond.i210 = and i1 %.not.i209, %.not.i.i208
-  br i1 %or.cond.i210, label %status_with_payload.exit.thread2.i211, label %dissect_packet_payload.exit
+  br i1 %or.cond.i210, label %status_with_payload.exit.thread2.i211, label %dissect_packet_payload.argprom.exit
 
 status_with_payload.exit.thread2.i211:            ; preds = %231, %227
   %234 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.6) #4
   %.not8.i = icmp eq i32 %234, 0
-  br i1 %.not8.i, label %dissect_packet_payload.exit, label %235
+  br i1 %.not8.i, label %dissect_packet_payload.argprom.exit, label %235
 
 235:                                              ; preds = %status_with_payload.exit.thread2.i211
   %236 = load i32, ptr @hf_gvsp_timestamp, align 4
@@ -2098,10 +2098,10 @@ status_with_payload.exit.thread2.i211:            ; preds = %231, %227
   %238 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %239 = add nuw nsw i32 %.6, 8
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %238, ptr noundef %1, i32 noundef %239, i32 noundef -1, i32 noundef 0) #4
-  br label %dissect_packet_payload.exit
+  br label %dissect_packet_payload.argprom.exit
 
 241:                                              ; preds = %4
-  tail call fastcc void @dissect_multizone_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @dissect_multizone_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %242 = load i32, ptr @hf_gvsp_payloadtype, align 4
   %243 = add nuw nsw i32 %2, 42
   %244 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %242, ptr noundef %1, i32 noundef %243, i32 noundef 2, i32 noundef 0) #4
@@ -2124,16 +2124,16 @@ status_with_payload.exit.thread2.i211:            ; preds = %231, %227
 
 257:                                              ; preds = %250, %241
   %.7 = phi i32 [ %256, %250 ], [ %248, %241 ]
-  tail call fastcc void @dissect_packet_payload_multizone(ptr noundef %0, ptr noundef %1, i32 noundef %.7, ptr noundef %3)
-  br label %dissect_packet_payload.exit
+  tail call fastcc void @dissect_packet_payload_multizone.argprom(ptr noundef %0, ptr noundef %1, i32 noundef %.7, ptr noundef %3)
+  br label %dissect_packet_payload.argprom.exit
 
-dissect_packet_payload.exit:                      ; preds = %235, %status_with_payload.exit.thread2.i211, %231, %195, %status_with_payload.exit.thread2.i205, %191, %171, %status_with_payload.exit.thread2.i199, %167, %138, %status_with_payload.exit.thread2.i193, %134, %105, %status_with_payload.exit.thread2.i187, %101, %64, %status_with_payload.exit.thread2.i181, %60, %31, %status_with_payload.exit.thread2.i, %27, %67, %257, %4
+dissect_packet_payload.argprom.exit:              ; preds = %235, %status_with_payload.exit.thread2.i211, %231, %195, %status_with_payload.exit.thread2.i205, %191, %171, %status_with_payload.exit.thread2.i199, %167, %138, %status_with_payload.exit.thread2.i193, %134, %105, %status_with_payload.exit.thread2.i187, %101, %64, %status_with_payload.exit.thread2.i181, %60, %31, %status_with_payload.exit.thread2.i, %27, %67, %257, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, i16 %.8.val) unnamed_addr #0 {
-  switch i16 %.8.val, label %dissect_multi_part_leader.exit [
+define internal fastcc void @dissect_packet_leader.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, i16 %.8.val) unnamed_addr #0 {
+  switch i16 %.8.val, label %dissect_multi_part_leader.argprom.exit [
     i16 1, label %4
     i16 2, label %5
     i16 3, label %15
@@ -2148,8 +2148,8 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   ]
 
 4:                                                ; preds = %3
-  tail call fastcc void @dissect_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  br label %dissect_multi_part_leader.exit
+  tail call fastcc void @dissect_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  br label %dissect_multi_part_leader.argprom.exit
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -2161,7 +2161,7 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %12 = load i32, ptr @hf_gvsp_payloaddatasize, align 4
   %13 = add nuw nsw i32 %2, 12
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef %13, i32 noundef 8, i32 noundef 0) #4
-  br label %dissect_multi_part_leader.exit
+  br label %dissect_multi_part_leader.argprom.exit
 
 15:                                               ; preds = %3
   %16 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -2177,7 +2177,7 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %26 = tail call i32 @tvb_strsize(ptr noundef %1, i32 noundef %25) #4
   %27 = load i32, ptr @hf_gvsp_filename, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %25, i32 noundef %26, i32 noundef 0) #4
-  br label %dissect_multi_part_leader.exit
+  br label %dissect_multi_part_leader.argprom.exit
 
 29:                                               ; preds = %3
   %30 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -2186,15 +2186,15 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %33 = load i32, ptr @hf_gvsp_timestamp, align 4
   %34 = add nuw nsw i32 %2, 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %34, i32 noundef 8, i32 noundef 0) #4
-  br label %dissect_multi_part_leader.exit
+  br label %dissect_multi_part_leader.argprom.exit
 
 36:                                               ; preds = %3
-  tail call fastcc void @dissect_extended_chunk_data_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  br label %dissect_multi_part_leader.exit
+  tail call fastcc void @dissect_extended_chunk_data_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  br label %dissect_multi_part_leader.argprom.exit
 
 37:                                               ; preds = %3, %3
-  tail call fastcc void @dissect_jpeg_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  br label %dissect_multi_part_leader.exit
+  tail call fastcc void @dissect_jpeg_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  br label %dissect_multi_part_leader.argprom.exit
 
 38:                                               ; preds = %3
   %39 = load i32, ptr @hf_gvsp_fieldinfo, align 4
@@ -2214,11 +2214,11 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 2, i32 noundef 0) #4
   %54 = add nuw nsw i32 %2, 17
   tail call fastcc void @dissect_h264_leader_common(ptr noundef %0, ptr noundef %1, i32 noundef %54, i32 noundef 0)
-  br label %dissect_multi_part_leader.exit
+  br label %dissect_multi_part_leader.argprom.exit
 
 55:                                               ; preds = %3
-  tail call fastcc void @dissect_multizone_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  br label %dissect_multi_part_leader.exit
+  tail call fastcc void @dissect_multizone_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  br label %dissect_multi_part_leader.argprom.exit
 
 56:                                               ; preds = %3
   %57 = add nsw i32 %2, -13
@@ -2235,7 +2235,7 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %68 = add nuw nsw i32 %2, 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %1, i32 noundef %68, i32 noundef 8, i32 noundef 0) #4
   %70 = icmp sgt i32 %63, 0
-  br i1 %70, label %.lr.ph.i, label %dissect_multi_part_leader.exit
+  br i1 %70, label %.lr.ph.i, label %dissect_multi_part_leader.argprom.exit
 
 .lr.ph.i:                                         ; preds = %56
   %71 = add nuw nsw i32 %2, 14
@@ -2358,7 +2358,7 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
 .loopexit.i:                                      ; preds = %146, %136, %117
   %152 = add nuw nsw i32 %.02.i, 1
   %exitcond3.not.i = icmp eq i32 %152, %63
-  br i1 %exitcond3.not.i, label %dissect_multi_part_leader.exit, label %79, !llvm.loop !8
+  br i1 %exitcond3.not.i, label %dissect_multi_part_leader.argprom.exit, label %79, !llvm.loop !8
 
 153:                                              ; preds = %3
   %154 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -2377,14 +2377,14 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %167 = load i32, ptr @hf_gvsp_gendc_leader_descriptor_size_v2_2, align 4
   %168 = add nuw nsw i32 %2, 24
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %167, ptr noundef %1, i32 noundef %168, i32 noundef 4, i32 noundef 0) #4
-  br label %dissect_multi_part_leader.exit
+  br label %dissect_multi_part_leader.argprom.exit
 
-dissect_multi_part_leader.exit:                   ; preds = %.loopexit.i, %56, %3, %153, %55, %38, %37, %36, %29, %15, %5, %4
+dissect_multi_part_leader.argprom.exit:           ; preds = %.loopexit.i, %56, %3, %153, %55, %38, %37, %36, %29, %15, %5, %4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_packet_trailer.argprom(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i16, ptr %5, align 8
   switch i16 %6, label %71 [
@@ -2452,7 +2452,7 @@ define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef 
   %47 = add nuw nsw i32 %2, 2
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %47, i32 noundef 2, i32 noundef 0) #4
   %49 = icmp sgt i32 %44, 15
-  br i1 %49, label %.lr.ph.i, label %dissect_multi_part_trailer.exit
+  br i1 %49, label %.lr.ph.i, label %dissect_multi_part_trailer.argprom.exit
 
 .lr.ph.i:                                         ; preds = %42
   %50 = add nuw nsw i32 %2, 6
@@ -2490,15 +2490,15 @@ define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef 
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %66, ptr noundef %1, i32 noundef %.reass, i32 noundef 4, i32 noundef 0) #4
   %68 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %68, %45
-  br i1 %exitcond.not.i, label %dissect_multi_part_trailer.exit, label %52, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dissect_multi_part_trailer.argprom.exit, label %52, !llvm.loop !9
 
-dissect_multi_part_trailer.exit:                  ; preds = %.loopexit.i, %42
+dissect_multi_part_trailer.argprom.exit:          ; preds = %.loopexit.i, %42
   %69 = shl nsw i32 %45, 4
   %70 = add i32 %43, %69
   br label %71
 
-71:                                               ; preds = %4, %dissect_multi_part_trailer.exit, %37, %23, %15, %7
-  %.0 = phi i32 [ %2, %4 ], [ %70, %dissect_multi_part_trailer.exit ], [ %41, %37 ], [ %36, %23 ], [ %22, %15 ], [ %14, %7 ]
+71:                                               ; preds = %4, %dissect_multi_part_trailer.argprom.exit, %37, %23, %15, %7
+  %.0 = phi i32 [ %2, %4 ], [ %70, %dissect_multi_part_trailer.argprom.exit ], [ %41, %37 ], [ %36, %23 ], [ %22, %15 ], [ %14, %7 ]
   %72 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %72, 0
   br i1 %.not, label %79, label %73
@@ -2552,7 +2552,7 @@ define internal fastcc void @dissect_h264_leader_common(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gvsp_fieldinfo, align 4
   %5 = load i32, ptr @ett_gvsp_fieldinfo, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @fieldinfo_fields, i32 noundef 0) #4
@@ -2588,7 +2588,7 @@ define internal fastcc void @dissect_image_leader(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_extended_chunk_data_leader(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_extended_chunk_data_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gvsp_fieldinfo, align 4
   %5 = load i32, ptr @ett_gvsp_fieldinfo, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @fieldinfo_fields, i32 noundef 0) #4
@@ -2627,7 +2627,7 @@ define internal fastcc void @dissect_extended_chunk_data_leader(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_jpeg_leader(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_jpeg_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gvsp_fieldinfo, align 4
   %5 = load i32, ptr @ett_gvsp_fieldinfo, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @fieldinfo_fields, i32 noundef 0) #4
@@ -2653,7 +2653,7 @@ define internal fastcc void @dissect_jpeg_leader(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_multizone_image_leader(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_multizone_image_leader.argprom.retelim(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_gvsp_fieldinfo, align 4
   %5 = load i32, ptr @ett_gvsp_fieldinfo, align 4
   %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @fieldinfo_fields, i32 noundef 0) #4

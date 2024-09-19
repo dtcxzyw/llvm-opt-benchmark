@@ -11131,7 +11131,7 @@ _ZNK5clang9ModuleMap7modulesEv.exit:              ; preds = %.preheader.i.i.i.i.
   %220 = zext i32 %216 to i64
   %221 = getelementptr inbounds ptr, ptr %214, i64 %220
   %.not5.i.i = icmp eq ptr %.sroa.0.1.i.i.i, %221
-  br i1 %.not5.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.exit", label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.argprom.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang9ModuleMap7modulesEv.exit
   %222 = getelementptr inbounds i8, ptr %1, i64 16
@@ -11140,7 +11140,7 @@ _ZNK5clang9ModuleMap7modulesEv.exit:              ; preds = %.preheader.i.i.i.i.
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i.i: ; preds = %.critedge.i.i.i.i
   %.not.i.i57 = icmp eq ptr %storemerge.i.i.i, %221
-  br i1 %.not.i.i57, label %"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.exit", label %223, !llvm.loop !223
+  br i1 %.not.i.i57, label %"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.argprom.exit", label %223, !llvm.loop !223
 
 223:                                              ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i.i, %.lr.ph.i.i
   %224 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %236, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i.i ]
@@ -11181,7 +11181,7 @@ _ZNSt20back_insert_iteratorIN4llvm15SmallVectorImplIPN5clang6ModuleEEEEaSEOS4_.e
 .critedge.i.i.i.i.backedge:                       ; preds = %.critedge.i.i.i.i, %.critedge.i.i.i.i
   br label %.critedge.i.i.i.i, !llvm.loop !222
 
-"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.exit": ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i.i, %_ZNK5clang9ModuleMap7modulesEv.exit
+"_ZN4llvm9transformINS_14iterator_rangeINS_22StringMapConstIteratorIPN5clang6ModuleEEEEESt20back_insert_iteratorINS_15SmallVectorImplIS5_EEEZNS3_12HeaderSearch17collectAllModulesERSA_E3$_0EET0_OT_SF_T1_.argprom.exit": ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i.i, %_ZNK5clang9ModuleMap7modulesEv.exit
   ret void
 }
 

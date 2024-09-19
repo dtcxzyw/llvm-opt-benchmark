@@ -799,7 +799,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 1349, 1363) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef range(i32 1349, 1363) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -841,7 +841,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 1349, 1363) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef range(i32 1349, 1363) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -63940,7 +63940,7 @@ invoke.cont6:                                     ; preds = %invoke.cont17.i
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i) #22
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i)
   %6 = load i32, ptr %w, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %sp, i32 noundef %6, i8 noundef signext 0)
+  invoke fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic.argprom(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %sp, i32 noundef %6, i8 noundef signext 0)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont6
@@ -64142,7 +64142,7 @@ invoke.cont35:                                    ; preds = %invoke.cont17.i34
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss.i26) #22
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %oss.i26)
   %24 = load i32, ptr %w27, align 4
-  invoke fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic(ptr noalias align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(16) %sp, i32 noundef %24, i8 noundef signext 35)
+  invoke fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic.argprom(ptr noalias align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(16) %sp, i32 noundef %24, i8 noundef signext 35)
           to label %invoke.cont38 unwind label %lpad37
 
 invoke.cont38:                                    ; preds = %invoke.cont35
@@ -64357,7 +64357,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i32 noundef %width, i8 noundef signext range(i8 0, 36) %fill) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120StringViewStreamTest3PadISt17basic_string_viewIcSt11char_traitsIcEEEENSt7__cxx1112basic_stringIcS4_SaIcEEERKT_ic.argprom(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i32 noundef %width, i8 noundef signext range(i8 0, 36) %fill) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss)
@@ -67830,11 +67830,11 @@ invoke.cont.i840:                                 ; preds = %.noexc.i838
 invoke.cont3.i844:                                ; preds = %invoke.cont.i840
   %line.i.i845 = getelementptr inbounds i8, ptr %agg.tmp.i830, i64 32
   store i32 1349, ptr %line.i.i845, align 8
-  %call7.i846 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1349)
+  %call7.i846 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1349)
           to label %invoke.cont6.i848 unwind label %lpad4.i847
 
 invoke.cont6.i848:                                ; preds = %invoke.cont3.i844
-  %call9.i849 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1349)
+  %call9.i849 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1349)
           to label %invoke.cont8.i850 unwind label %lpad4.i847
 
 invoke.cont8.i850:                                ; preds = %invoke.cont6.i848
@@ -67903,11 +67903,11 @@ invoke.cont.i864:                                 ; preds = %.noexc.i862
 invoke.cont3.i868:                                ; preds = %invoke.cont.i864
   %line.i.i869 = getelementptr inbounds i8, ptr %agg.tmp.i854, i64 32
   store i32 1362, ptr %line.i.i869, align 8
-  %call7.i870 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef 1362)
+  %call7.i870 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE19GetSetUpCaseOrSuiteEPKci.argprom(i32 noundef 1362)
           to label %invoke.cont6.i872 unwind label %lpad4.i871
 
 invoke.cont6.i872:                                ; preds = %invoke.cont3.i868
-  %call9.i873 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef 1362)
+  %call9.i873 = invoke fastcc noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_120StringViewStreamTestEE22GetTearDownCaseOrSuiteEPKci.argprom(i32 noundef 1362)
           to label %invoke.cont8.i874 unwind label %lpad4.i871
 
 invoke.cont8.i874:                                ; preds = %invoke.cont6.i872
@@ -68800,12 +68800,12 @@ attributes #27 = { noreturn }
 !791 = distinct !{!791, !792, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_: %agg.result"}
 !792 = distinct !{!792, !"_ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_"}
 !793 = !{!794}
-!794 = distinct !{!794, !795, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic: %agg.result"}
-!795 = distinct !{!795, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic"}
+!794 = distinct !{!794, !795, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic.argprom: %agg.result"}
+!795 = distinct !{!795, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic.argprom"}
 !796 = distinct !{!796, !146}
 !797 = !{!798}
-!798 = distinct !{!798, !799, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic: %agg.result"}
-!799 = distinct !{!799, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic"}
+!798 = distinct !{!798, !799, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic.argprom: %agg.result"}
+!799 = distinct !{!799, !"_ZN12_GLOBAL__N_120StringViewStreamTest3PadINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_RKT_ic.argprom"}
 !800 = distinct !{!800, !146}
 !801 = !{!802, !804}
 !802 = distinct !{!802, !803, !"_ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E6FormatERKS7_: %agg.result"}

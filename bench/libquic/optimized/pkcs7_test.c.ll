@@ -67,7 +67,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
 if.then.i:                                        ; preds = %lor.lhs.false3
   %0 = load ptr, ptr @stderr, align 8
   %1 = call i64 @fwrite(ptr nonnull @.str.8, i64 23, i64 1, ptr %0) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 if.end.i:                                         ; preds = %lor.lhs.false3
   %call4.i = call i32 @CBB_init(ptr noundef nonnull %cbb.i, i64 noundef 905) #7
@@ -83,7 +83,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
 if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
   %2 = load ptr, ptr @stderr, align 8
   %3 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %2) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
   %4 = load ptr, ptr %result_data.i, align 8
@@ -96,7 +96,7 @@ if.end11.i:                                       ; preds = %lor.lhs.false.i
 if.then14.i:                                      ; preds = %if.end11.i
   %6 = load ptr, ptr @stderr, align 8
   %7 = call i64 @fwrite(ptr nonnull @.str.10, i64 31, i64 1, ptr %6) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 if.end16.i:                                       ; preds = %if.end11.i
   %call17.i = call i64 @sk_num(ptr noundef %call.i) #7
@@ -112,7 +112,7 @@ for.cond.preheader.i:                             ; preds = %if.end16.i
 if.then19.i:                                      ; preds = %if.end16.i
   %8 = load ptr, ptr @stderr, align 8
   %9 = call i64 @fwrite(ptr nonnull @.str.11, i64 34, i64 1, ptr %8) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.04.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
@@ -125,7 +125,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 if.then28.i:                                      ; preds = %for.body.i
   %10 = load ptr, ptr @stderr, align 8
   %call29.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.12, i64 noundef %i.04.i) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw i64 %i.04.i, 1
@@ -147,7 +147,7 @@ lor.lhs.false34.i:                                ; preds = %for.end.i
 if.then37.i:                                      ; preds = %lor.lhs.false34.i, %for.end.i
   %11 = load ptr, ptr @stderr, align 8
   %12 = call i64 @fwrite(ptr nonnull @.str.13, i64 42, i64 1, ptr %11) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
 if.end39.i:                                       ; preds = %lor.lhs.false34.i
   %13 = load i64, ptr %result_len.i, align 8
@@ -165,9 +165,9 @@ lor.lhs.false41.i:                                ; preds = %if.end39.i
 if.then44.i:                                      ; preds = %lor.lhs.false41.i, %if.end39.i
   %17 = load ptr, ptr @stderr, align 8
   %18 = call i64 @fwrite(ptr nonnull @.str.7, i64 29, i64 1, ptr %17) #8
-  br label %test_crl_reparse.exit.thread
+  br label %test_crl_reparse.argprom.exit.thread
 
-test_crl_reparse.exit.thread:                     ; preds = %if.then19.i, %if.then28.i, %if.then44.i, %if.then37.i, %if.then14.i, %if.then9.i, %if.then.i
+test_crl_reparse.argprom.exit.thread:             ; preds = %if.then19.i, %if.then28.i, %if.then44.i, %if.then37.i, %if.then14.i, %if.then9.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pkcs7.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cbb.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_data.i)
@@ -241,8 +241,8 @@ if.end:                                           ; preds = %if.end.i13
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %if.then.i22, %if.then7.i16, %if.then.i8, %if.then7.i, %test_crl_reparse.exit.thread, %entry, %lor.lhs.false, %if.end
-  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %test_crl_reparse.exit.thread ], [ 1, %if.then7.i ], [ 1, %if.then.i8 ], [ 1, %if.then7.i16 ], [ 1, %if.then.i22 ]
+return:                                           ; preds = %if.then.i22, %if.then7.i16, %if.then.i8, %if.then7.i, %test_crl_reparse.argprom.exit.thread, %entry, %lor.lhs.false, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %test_crl_reparse.argprom.exit.thread ], [ 1, %if.then7.i ], [ 1, %if.then.i8 ], [ 1, %if.then7.i16 ], [ 1, %if.then.i22 ]
   ret i32 %retval.0
 }
 

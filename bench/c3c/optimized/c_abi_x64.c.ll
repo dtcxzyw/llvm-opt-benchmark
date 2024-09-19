@@ -462,7 +462,7 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   %55 = tail call fastcc ptr @type_lowering(ptr noundef %54)
   store i64 0, ptr %3, align 8
   %.val = load i32, ptr %55, align 8
-  switch i32 %.val, label %x64_type_is_structure.exit [
+  switch i32 %.val, label %x64_type_is_structure.argprom.exit [
     i32 26, label %56
     i32 34, label %56
     i32 18, label %56
@@ -472,12 +472,12 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   %57 = call ptr @x64_classify_reg_call_struct_type_check(ptr noundef nonnull %55, ptr noundef nonnull %3)
   br label %59
 
-x64_type_is_structure.exit:                       ; preds = %48
+x64_type_is_structure.argprom.exit:               ; preds = %48
   %58 = call fastcc ptr @x64_classify_argument_type(ptr noundef nonnull %55, i32 noundef -1, ptr noundef %3, i32 noundef 1)
   br label %59
 
-59:                                               ; preds = %x64_type_is_structure.exit, %56
-  %.025 = phi ptr [ %57, %56 ], [ %58, %x64_type_is_structure.exit ]
+59:                                               ; preds = %x64_type_is_structure.argprom.exit, %56
+  %.025 = phi ptr [ %57, %56 ], [ %58, %x64_type_is_structure.argprom.exit ]
   %60 = tail call zeroext i1 @abi_arg_is_indirect(ptr noundef %.025) #7
   br i1 %60, label %61, label %85
 

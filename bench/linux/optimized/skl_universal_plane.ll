@@ -3815,15 +3815,15 @@ define internal void @icl_plane_update_arm(ptr noundef %0, ptr noundef %1, ptr n
 
 116:                                              ; preds = %113, %109, %96, %95
   %117 = icmp ult i32 %61, 262144
-  br i1 %117, label %118, label %icl_plane_disable_sel_fetch_arm.exit
+  br i1 %117, label %118, label %icl_plane_disable_sel_fetch_arm.argprom.exit
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds i8, ptr %44, i64 7404
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, %61
-  br label %icl_plane_disable_sel_fetch_arm.exit
+  br label %icl_plane_disable_sel_fetch_arm.argprom.exit
 
-icl_plane_disable_sel_fetch_arm.exit:             ; preds = %116, %118
+icl_plane_disable_sel_fetch_arm.argprom.exit:     ; preds = %116, %118
   %122 = phi i32 [ %121, %118 ], [ %61, %116 ]
   %123 = getelementptr inbounds i8, ptr %44, i64 7368
   %124 = load ptr, ptr %123, align 8
@@ -3832,7 +3832,7 @@ icl_plane_disable_sel_fetch_arm.exit:             ; preds = %116, %118
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %126) #11, !srcloc !53
   br label %127
 
-127:                                              ; preds = %icl_plane_disable_sel_fetch_arm.exit, %89, %42
+127:                                              ; preds = %icl_plane_disable_sel_fetch_arm.argprom.exit, %89, %42
   %128 = shl i32 %8, 12
   %129 = shl i32 %6, 8
   %130 = add i32 %128, %129
@@ -4052,7 +4052,7 @@ define internal void @icl_plane_disable_arm(ptr noundef %0, ptr noundef %1) #2 a
   %.val = load i8, ptr %51, align 1, !range !42, !noundef !43
   %52 = load ptr, ptr %0, align 8
   %53 = icmp eq i8 %.val, 0
-  br i1 %53, label %icl_plane_disable_sel_fetch_arm.exit, label %54
+  br i1 %53, label %icl_plane_disable_sel_fetch_arm.argprom.exit, label %54
 
 54:                                               ; preds = %50
   %55 = load i32, ptr %6, align 8
@@ -4118,9 +4118,9 @@ define internal void @icl_plane_disable_arm(ptr noundef %0, ptr noundef %1) #2 a
   %92 = zext i32 %89 to i64
   %93 = getelementptr i8, ptr %91, i64 %92
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %93) #11, !srcloc !53
-  br label %icl_plane_disable_sel_fetch_arm.exit
+  br label %icl_plane_disable_sel_fetch_arm.argprom.exit
 
-icl_plane_disable_sel_fetch_arm.exit:             ; preds = %50, %88
+icl_plane_disable_sel_fetch_arm.argprom.exit:     ; preds = %50, %88
   %94 = shl i32 %7, 12
   %95 = shl i32 %5, 8
   %96 = add i32 %94, %95
@@ -4128,7 +4128,7 @@ icl_plane_disable_sel_fetch_arm.exit:             ; preds = %50, %88
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
           to label %118 [label %98], !srcloc !44
 
-98:                                               ; preds = %icl_plane_disable_sel_fetch_arm.exit
+98:                                               ; preds = %icl_plane_disable_sel_fetch_arm.argprom.exit
   %99 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !45
   %100 = zext i32 %99 to i64
   %101 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %100) #11, !srcloc !46
@@ -4164,7 +4164,7 @@ icl_plane_disable_sel_fetch_arm.exit:             ; preds = %50, %88
   tail call void @llvm.write_register.i64(metadata !0, i64 %117)
   br label %118
 
-118:                                              ; preds = %115, %111, %98, %icl_plane_disable_sel_fetch_arm.exit
+118:                                              ; preds = %115, %111, %98, %icl_plane_disable_sel_fetch_arm.argprom.exit
   %119 = icmp ult i32 %97, 262144
   br i1 %119, label %120, label %124
 
